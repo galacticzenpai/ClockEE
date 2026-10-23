@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Official CBT Exam Instructions - ClockEE CBT Official Examination Engine</title>
+  <style>
+    /* 100% Authentic Official NTA Styling - Zero Dark Fluff */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background-color: #f4f6f9;
+      color: #2c3e50;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top Institutional Header */
+    .nta-header {
+      background: #ffffff;
+      border-bottom: 2px solid #0056b3;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+    }
+
+    .nta-brand-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #0056b3;
+      letter-spacing: -0.3px;
+    }
+
+    .nta-brand-sub {
+      font-size: 13px;
+      color: #666;
+      margin-top: 2px;
+    }
+
+    .nta-candidate-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: #eef5fc;
+      border: 1px solid #b8daff;
+      border-radius: 4px;
+      padding: 8px 16px;
+    }
+
+    .nta-photo-box {
+      width: 48px;
+      height: 54px;
+      background: #ccddee;
+      border: 1px solid #99bbee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: #335577;
+      font-weight: bold;
+    }
+
+    /* Content Area */
+    .nta-container {
+      max-width: 1200px;
+      margin: 20px auto;
+      background: #ffffff;
+      border: 1px solid #dcdcdc;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .nta-section-heading {
+      background: #e9ecef;
+      padding: 12px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #333;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nta-instructions-body {
+      padding: 24px 30px;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #333333;
+      overflow-y: auto;
+      max-height: calc(100vh - 270px);
+    }
+
+    .nta-instructions-body ol {
+      margin-left: 20px;
+      margin-bottom: 16px;
+    }
+
+    .nta-instructions-body li {
+      margin-bottom: 10px;
+    }
+
+    /* 5-State Official NTA Symbol Legend Table */
+    .nta-symbol-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0 24px 0;
+    }
+
+    .nta-symbol-table td {
+      border: 1px solid #dcdcdc;
+      padding: 10px 14px;
+      vertical-align: middle;
+      font-size: 13.5px;
+    }
+
+    /* Exact Official NTA Shapes */
+    .badge-shape {
+      width: 32px;
+      height: 30px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 13px;
+      color: #ffffff;
+      margin-right: 12px;
+    }
+
+    .shape-not-visited {
+      background: #e9ecef;
+      border: 1px solid #bdc3c7;
+      color: #333;
+      border-radius: 3px;
+    }
+
+    .shape-not-answered {
+      background: #d9534f;
+      clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 50% 100%, 0% 70%);
+      color: #fff;
+    }
+
+    .shape-answered {
+      background: #27ae60;
+      clip-path: polygon(0% 30%, 50% 0%, 100% 30%, 100% 100%, 0% 100%);
+      color: #fff;
+    }
+
+    .shape-marked-review {
+      background: #6f42c1;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      color: #fff;
+    }
+
+    .shape-ans-marked-review {
+      background: #6f42c1;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      color: #fff;
+      position: relative;
+    }
+
+    .shape-ans-marked-review::after {
+      content: "";
+      position: absolute;
+      bottom: -1px;
+      right: -1px;
+      width: 11px;
+      height: 11px;
+      background: #27ae60;
+      border-radius: 50%;
+      border: 1.5px solid #fff;
+    }
+
+    /* Bottom Declaration Dock */
+    .nta-declaration-dock {
+      background: #f8f9fa;
+      border-top: 1px solid #dcdcdc;
+      padding: 16px 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .nta-checkbox-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13.5px;
+      color: #222;
+      line-height: 1.4;
+    }
+
+    .nta-btn-begin {
+      align-self: center;
+      background: #0056b3;
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: bold;
+      padding: 12px 36px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-transform: uppercase;
+      box-shadow: 0 2px 4px rgba(0,86,179,0.3);
+      transition: all 0.2s;
+    }
+
+    .nta-btn-begin:hover:not(:disabled) {
+      background: #004085;
+    }
+
+    .nta-btn-begin:disabled {
+      background: #a0b8d5;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Official Top Bar -->
+  <header class="nta-header">
+    <div>
+      <div class="nta-brand-title">ClockEE CBT Portal - JEE Examination Engine</div>
+      <div class="nta-brand-sub">ClockEE CBT Official Examination Engine • Examination Portal</div>
+    </div>
+
+    <!-- Candidate Photo & Details -->
+    <div class="nta-candidate-card">
+      <div class="nta-photo-box">PHOTO</div>
+      <div>
+        <div style="font-weight: bold; font-size: 14px; color: #003366;" id="cand-name">Kunal Sahoo</div>
+        <div style="font-size: 12px; color: #555;">Roll No: <span id="cand-roll">JEE28-98471</span></div>
+        <div style="font-size: 12px; color: #555;">System: <span style="font-weight: bold; color: #0056b3;">C001</span></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Instructions Container -->
+  <main class="nta-container">
+    <div class="nta-section-heading">
+      <span id="test-title-header">General Instructions: JEE Main CBT Examination</span>
+      <div style="font-size: 13px; font-weight: normal;">
+        Language: 
+        <select style="padding: 4px 8px; border: 1px solid #ccc; border-radius: 3px;">
+          <option>English</option>
+          <option>Hindi</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="nta-instructions-body">
+      <p style="font-weight: bold; margin-bottom: 12px;">Please read the instructions carefully before proceeding:</p>
+      
+      <ol>
+        <li>The clock will be set at the server. The countdown timer in the top right corner of the screen will display the remaining time available for you to complete the examination. When the timer reaches zero, the examination will end by itself. You will not be required to end or submit your examination.</li>
+        <li>The Question Palette displayed on the right side of screen will show the status of each question using one of the following official symbols:</li>
+      </ol>
+
+      <!-- Exact 5-State Legend Table -->
+      <table class="nta-symbol-table">
+        <tbody>
+          <tr>
+            <td style="width: 70px; text-align: center;"><div class="badge-shape shape-not-visited">1</div></td>
+            <td>You have not visited the question yet.</td>
+          </tr>
+          <tr>
+            <td style="width: 70px; text-align: center;"><div class="badge-shape shape-not-answered">2</div></td>
+            <td>You have not answered the question.</td>
+          </tr>
+          <tr>
+            <td style="width: 70px; text-align: center;"><div class="badge-shape shape-answered">3</div></td>
+            <td>You have answered the question.</td>
+          </tr>
+          <tr>
+            <td style="width: 70px; text-align: center;"><div class="badge-shape shape-marked-review">4</div></td>
+            <td>You have NOT answered the question, but have marked the question for review.</td>
+          </tr>
+          <tr>
+            <td style="width: 70px; text-align: center;"><div class="badge-shape shape-ans-marked-review">5</div></td>
+            <td><strong>The question(s) "Answered and Marked for Review" will be considered for evaluation (+4 / -1).</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p style="font-weight: bold; margin-bottom: 10px;">Navigating to a Question:</p>
+      <ol start="3">
+        <li>To answer a question, do the following:
+          <ul style="margin-left: 20px; margin-top: 6px;">
+            <li>Click on the question number in the Question Palette at the right of your screen to go to that numbered question directly. Note that using this option does NOT save your answer to the current question.</li>
+            <li>Click on <strong>Save & Next</strong> to save your answer for the current question and then go to the next question.</li>
+            <li>Click on <strong>Mark for Review & Next</strong> to save your answer for the current question, mark it for review, and then go to the next question.</li>
+          </ul>
+        </li>
+      </ol>
+
+      <p style="font-weight: bold; margin-bottom: 10px;">Marking Scheme & Answering Questions:</p>
+      <ol start="4">
+        <li>For each correct response, you will be awarded <strong>+4 Marks</strong>. For each incorrect response, <strong>-1 Mark</strong> will be deducted. Unattempted questions will be awarded <strong>0 Marks</strong>.</li>
+        <li>For Numerical Value Questions (Section B), enter your answer using the on-screen virtual numeric keypad.</li>
+      </ol>
+    </div>
+
+    <!-- Mandatory Declaration & Confirmation -->
+    <div class="nta-declaration-dock">
+      <div class="nta-checkbox-row">
+        <input type="checkbox" id="chk-declaration" onchange="toggleBeginButton(this.checked)" style="margin-top: 3px; width: 16px; height: 16px; cursor: pointer;">
+        <label for="chk-declaration" style="cursor: pointer;">
+          I have read and understood the instructions. All computer hardware allotted to me is in proper working condition. I agree that in case of not adhering to the instructions, I shall be liable to be debarred from this Test and/or to disciplinary action.
+        </label>
+      </div>
+
+      <button id="btn-begin" class="nta-btn-begin" disabled onclick="beginExam()">
+        I am ready to begin
+      </button>
+    </div>
+  </main>
+
+  <script src="cbt_shared.js"></script>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const testId = urlParams.get('testId') || 'jee_main_pyq_phy_kinematics';
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const state = CBT_STATE.load();
+      const test = state.tests.find(t => t.id === testId) || state.tests[0];
+      
+      document.getElementById('test-title-header').innerText = `General Instructions: ${test.title}`;
+      if (state.profile) {
+        document.getElementById('cand-name').innerText = state.profile.name || "Kunal Sahoo";
+        document.getElementById('cand-roll').innerText = state.profile.roll || "JEE28-98471";
+      }
+    });
+
+    function toggleBeginButton(isChecked) {
+      document.getElementById('btn-begin').disabled = !isChecked;
+    }
+
+    function beginExam() {
+      window.location.href = `cbt_exam.html?testId=${testId}`;
+    }
+  </script>
+</body>
+</html>

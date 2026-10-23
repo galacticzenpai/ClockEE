@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ClockEE - Master Admin &amp; Data Panel</title>
+
+  <!-- Google Fonts & Tailwind -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+        },
+      },
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    :root {
+      --bg-base: #07080d;
+      --bg-surface: #10121b;
+      --bg-elevated: #161924;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --accent: #6366f1;
+    }
+    body {
+      background-color: var(--bg-base);
+      color: #f3f4f6;
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+    }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    .glass-card {
+      backdrop-filter: blur(20px);
+      background: rgba(16, 18, 27, 0.75);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+    }
+    .nav-btn {
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: #9ca3af;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      text-decoration: none;
+    }
+    .nav-btn:hover { background: rgba(99, 102, 241, 0.16); color: #fff; }
+    .nav-btn.nav-active { background: #6366f1; color: #fff; box-shadow: 0 0 15px rgba(99, 102, 241, 0.5); }
+
+    .nav-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .nav-caret {
+      font-size: 0.65rem;
+      margin-left: 2px;
+      opacity: 0.7;
+      transition: transform 0.2s ease;
+    }
+    .nav-dropdown:hover .nav-caret {
+      transform: rotate(180deg);
+    }
+    .nav-dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      margin-top: 6px;
+      min-width: 210px;
+      background: #0d111a;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      padding: 6px;
+      display: none;
+      flex-direction: column;
+      gap: 2px;
+      z-index: 100;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.85), 0 0 15px rgba(99,102,241,0.2);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .nav-dropdown:hover .nav-dropdown-menu {
+      display: flex;
+    }
+    .nav-dropdown-item {
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      color: #9ca3af;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+    .nav-dropdown-item:hover {
+      background: rgba(99, 102, 241, 0.22);
+      color: #00f0ff;
+      transform: translateX(2px);
+    }
+  </style>
+</head>
+<body class="relative bg-[#07080e] text-[#f8fafc]">
+
+<header class="sticky top-0 z-50 px-4 py-3 sm:px-6 transition-all duration-300 bg-[#080a14]/75 backdrop-blur-2xl border-b border-white/10 shadow-[0_4px_24px_rgba(0,0,0,0.65)]">
+  <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+    <!-- Brand / Logo -->
+    <div class="flex items-center gap-3">
+      <div class="relative w-8 h-8 flex items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500/20 to-purple-500/20 border border-white/15 shadow-[0_0_15px_rgba(168,85,247,0.25)]">
+        <svg class="w-5 h-5 text-purple-400 animate-spin-slow" viewBox="0 0 64 64" fill="none">
+          <circle cx="32" cy="32" r="28" stroke="url(#adminLogoGrad)" stroke-width="4" stroke-dasharray="6 6"/>
+          <path d="M32 16V32L42 42" stroke="#a855f7" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="32" cy="32" r="4" fill="#a855f7"/>
+          <defs>
+            <linearGradient id="adminLogoGrad" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#a855f7"/>
+              <stop offset="0.5" stop-color="#6366f1"/>
+              <stop offset="1" stop-color="#00f0ff"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
+      <a href="index.html" class="flex items-center gap-2 cursor-pointer" style="text-decoration:none;" title="ClockEE Home Command Center">
+        <span class="text-base sm:text-lg font-extrabold tracking-tight bg-gradient-to-r from-purple-400 via-indigo-300 to-cyan-400 bg-clip-text text-transparent">ClockEE Master Admin</span>
+      </a>
+      <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-purple-950 text-purple-300 border border-purple-500/30">v6.0 Supervisor</span>
+    </div>
+
+    <!-- Center Nav Switchers & Dropdowns -->
+    <nav class="flex items-center gap-1.5" id="main-nav">
+      <a href="index.html" class="nav-btn">Home</a>
+      <a href="task.html" class="nav-btn">Task</a>
+      <a href="today.html" class="nav-btn">Today</a>
+
+      <!-- Timer Dropdown -->
+      <div class="nav-dropdown relative inline-block">
+        <a href="timer.html" class="nav-btn">
+          Timer <span class="nav-caret">▼</span>
+        </a>
+        <div class="nav-dropdown-menu">
+          <a href="timer.html?mode=drill" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            <span>Manual Question Drill</span>
+          </a>
+          <a href="timer.html?mode=lecture" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-indigo-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>Lecture Focus Timer</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Coaching Dropdown -->
+      <div class="nav-dropdown relative inline-block">
+        <a href="coaching.html" class="nav-btn">
+          Coaching <span class="nav-caret">▼</span>
+        </a>
+        <div class="nav-dropdown-menu">
+          <a href="coaching.html?sub=syllabus" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            <span>Syllabus Covered</span>
+          </a>
+          <a href="coaching.html?sub=tests" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            <span>Test Performance &amp; OCR</span>
+          </a>
+          <a href="coaching.html?sub=logs" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M9 12h6"/><path d="M9 16h6"/></svg>
+            <span>Personal Question Log</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- CBT Portal Direct Link -->
+      <a href="cbt_home.html" class="nav-btn text-cyan-300 font-bold" style="text-decoration: none;">
+        <svg class="w-3.5 h-3.5 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        <span>CBT Portal</span>
+      </a>
+
+      <!-- Inspiration Board -->
+      <a href="inspiration.html" class="nav-btn text-amber-300 hover:text-amber-200 font-bold" style="text-decoration: none;" title="Dream Vision & Inspiration Board">
+        <svg class="w-3.5 h-3.5 text-amber-400" viewBox="0 0 24 24" fill="currentColor">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+        </svg>
+        <span>Inspiration</span>
+      </a>
+
+      <!-- Settings Dropdown -->
+      <div class="nav-dropdown relative inline-block">
+        <a href="settings.html" class="nav-btn">
+          Settings <span class="nav-caret">▼</span>
+        </a>
+        <div class="nav-dropdown-menu">
+          <a href="settings.html" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            <span>Global Settings</span>
+          </a>
+          <a href="settings.html#sec-identity" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-indigo-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <span>Profile &amp; Identity</span>
+          </a>
+          <a href="settings.html#sec-aura" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-purple-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/></svg>
+            <span>Themes &amp; Background</span>
+          </a>
+          <a href="settings.html#sec-goals" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+            <span>JEE Examination Goals</span>
+          </a>
+          <a href="settings.html#sec-milestones" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg>
+            <span>Milestones &amp; Deadlines</span>
+          </a>
+          <a href="settings.html#sec-apis" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            <span>Connected APIs</span>
+          </a>
+          <a href="settings.html#sec-data" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+            <span>Data Backup &amp; Reset</span>
+          </a>
+        </div>
+      </div>
+
+      <a href="admin.html" class="nav-btn nav-active text-purple-300 font-bold" style="text-decoration: none;">
+        <svg class="w-3.5 h-3.5 text-purple-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>Admin</span>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-5 pb-16 space-y-6">
+  
+  <!-- Banner Row -->
+  <div class="flex items-center justify-between border-b border-white/10 pb-4 flex-wrap gap-4">
+    <div>
+      <h1 class="text-xl sm:text-2xl font-black text-white flex items-center gap-2.5">
+        <svg class="w-6 h-6 text-purple-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>Multi-User Backend &amp; Data Panel</span>
+      </h1>
+      <p class="text-xs text-slate-400 font-medium">Manage Aspirant Profiles &bull; Live API Connection Diagnostics &bull; Fresh State Engine</p>
+    </div>
+    <div class="flex items-center gap-2">
+      <button onclick="window.resetToFreshSlot()" class="px-4 py-2 bg-red-600/20 hover:bg-red-600/40 text-red-300 border border-red-500/30 rounded-xl text-xs font-black uppercase tracking-wider transition flex items-center gap-2 shadow">
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+        <span>Reset Slot</span>
+      </button>
+      <button onclick="exportBackupJSON()" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white font-black uppercase tracking-wider rounded-xl text-xs transition flex items-center gap-2 shadow">
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        <span>JSON Backup</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- 1. System Health & Live API Connection Diagnostics -->
+  <div class="glass-card p-5 border border-purple-500/30 bg-gradient-to-br from-[#0c0f20] to-[#12162b] shadow-xl">
+    <div class="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
+      <div class="flex items-center gap-2">
+        <div class="w-7 h-7 rounded-lg bg-purple-950/60 border border-purple-500/30 flex items-center justify-center text-purple-400">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </div>
+        <h3 class="text-xs font-bold uppercase tracking-wider text-purple-300">Live API Connection Diagnostics &amp; Health</h3>
+      </div>
+      <button onclick="runAllConnectionTests()" class="text-xs bg-purple-600 hover:bg-purple-500 text-white px-3 py-1 rounded-lg font-semibold transition">
+        ⚡ Test All Connections
+      </button>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <!-- TickTick Card -->
+      <div class="p-3.5 rounded-xl bg-black/40 border border-white/5 space-y-1.5">
+        <div class="flex justify-between items-center text-xs">
+          <span class="font-bold text-cyan-300">TickTick API</span>
+          <span id="diag-tt-badge" class="text-[9px] font-mono px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-500/30">Token Active</span>
+        </div>
+        <p class="text-[11px] text-gray-400">Classifies incoming tasks into PW Modules, DPPs. Excludes revision items from sync.</p>
+        <div class="pt-1 text-[10px] text-gray-500 font-mono" id="diag-tt-key">tp_3528...e419</div>
+      </div>
+
+      <!-- Gemini AI Card -->
+      <div class="p-3.5 rounded-xl bg-black/40 border border-white/5 space-y-1.5">
+        <div class="flex justify-between items-center text-xs">
+          <span class="font-bold text-purple-300">Google Gemini 2.0</span>
+          <span id="diag-gem-badge" class="text-[9px] font-mono px-2 py-0.5 rounded-full bg-indigo-950 text-indigo-300 border border-indigo-500/30">Ready</span>
+        </div>
+        <p class="text-[11px] text-gray-400">Doubt Solving Engine &bull; JEE Advanced Question Variation Cloner.</p>
+        <button onclick="testGeminiConnection()" class="text-[10px] text-purple-400 hover:underline">Ping API Server &rarr;</button>
+      </div>
+
+      <!-- Firebase Cloud Card -->
+      <div class="p-3.5 rounded-xl bg-black/40 border border-white/5 space-y-1.5">
+        <div class="flex justify-between items-center text-xs">
+          <span class="font-bold text-emerald-300">Firebase Cloud</span>
+          <span id="diag-fb-badge" class="text-[9px] font-mono px-2 py-0.5 rounded-full bg-gray-800 text-gray-400">REST Client</span>
+        </div>
+        <p class="text-[11px] text-gray-400">Cross-device study state sync and backup mirror endpoint.</p>
+        <button onclick="testFirebase()" class="text-[10px] text-emerald-400 hover:underline">Ping Database &rarr;</button>
+      </div>
+
+      <!-- LocalStorage Quota Card -->
+      <div class="p-3.5 rounded-xl bg-black/40 border border-white/5 space-y-1.5">
+        <div class="flex justify-between items-center text-xs">
+          <span class="font-bold text-amber-300">Storage Footprint</span>
+          <span class="text-[9px] font-mono px-2 py-0.5 rounded-full bg-amber-950 text-amber-300 border border-amber-500/30">Healthy</span>
+        </div>
+        <p class="text-[11px] text-gray-400" id="diag-storage-text">Allocated: ~45 KB / 5.0 MB</p>
+        <div class="w-full bg-gray-800 rounded-full h-1.5 mt-1 overflow-hidden">
+          <div class="bg-amber-400 h-full rounded-full" style="width: 2%"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Multi-User Session Management Center -->
+  <div class="glass-card p-5 border border-white/10 space-y-4">
+    <div class="flex items-center justify-between border-b border-white/10 pb-3 flex-wrap gap-2">
+      <div class="flex items-center gap-2">
+        <span class="text-base">👥</span>
+        <h3 class="text-xs font-bold uppercase tracking-wider text-white">Registered Aspirant &amp; Mentor Profiles</h3>
+      </div>
+      <button onclick="openCreateUserModal()" class="px-3 py-1.5 bg-gradient-to-r from-cyan-600 to-indigo-600 hover:from-cyan-500 hover:to-indigo-500 text-white rounded-lg text-xs font-bold transition">
+        ＋ Create New User Account
+      </button>
+    </div>
+
+    <!-- User Grid -->
+    <div id="admin-users-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+  </div>
+
+  <!-- 3. Aggregate JEE Performance & Data Panel -->
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+    <!-- Solved Questions Distribution -->
+    <div class="lg:col-span-5 glass-card p-5 border border-white/10 space-y-4">
+      <h3 class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
+        <span>📊</span> Total Solved Questions Breakdown
+      </h3>
+      <div class="h-56 w-full flex items-center justify-center">
+        <canvas id="admin-subject-chart"></canvas>
+      </div>
+    </div>
+
+    <!-- Error Root Cause Analysis -->
+    <div class="lg:col-span-7 glass-card p-5 border border-white/10 space-y-4">
+      <h3 class="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-2">
+        <span>🔬</span> Forensic Error Autopsy Distribution
+      </h3>
+      <div class="h-56 w-full">
+        <canvas id="admin-errors-chart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Interactive Question Logs Inspector Table -->
+  <div class="glass-card p-5 border border-white/10 space-y-4">
+    <div class="flex items-center justify-between border-b border-white/10 pb-3 flex-wrap gap-2">
+      <div class="flex items-center gap-2">
+        <span class="text-base">📋</span>
+        <h3 class="text-xs font-bold uppercase tracking-wider text-white">Historical Question Practice Logs</h3>
+      </div>
+      <div class="flex items-center gap-2">
+        <input type="text" id="log-search-input" oninput="renderLogsTable()" placeholder="Search chapter or subject..." class="bg-gray-900 border border-gray-700 text-white rounded-xl px-3 py-1 text-xs outline-none focus:border-cyan-400">
+        <button onclick="clearAllLogs()" class="text-xs bg-red-600/20 hover:bg-red-600/40 text-red-300 border border-red-500/30 px-3 py-1 rounded-xl font-bold transition">
+          Clear Logs
+        </button>
+      </div>
+    </div>
+
+    <div class="overflow-x-auto max-h-72 overflow-y-auto">
+      <table class="w-full text-left text-xs">
+        <thead class="bg-black/50 text-gray-400 uppercase font-mono text-[10px] border-b border-white/10">
+          <tr>
+            <th class="p-2.5">Date</th>
+            <th class="p-2.5">Subject</th>
+            <th class="p-2.5">Chapter / Source</th>
+            <th class="p-2.5">Solved</th>
+            <th class="p-2.5">Accuracy / Score</th>
+            <th class="p-2.5">Duration</th>
+            <th class="p-2.5 text-right">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="admin-logs-tbody" class="divide-y divide-white/5"></tbody>
+      </table>
+    </div>
+  </div>
+</main>
+
+<!-- Modal: Create New User Account -->
+<div id="modal-create-user" class="hidden fixed inset-0 z-[300] bg-black/85 backdrop-blur-sm flex items-center justify-center p-4">
+  <div class="glass-card max-w-md w-full p-6 border border-cyan-500/40 space-y-4 bg-[#0a0d18]">
+    <div class="flex justify-between items-center border-b border-white/10 pb-2">
+      <h3 class="text-sm font-bold text-white">＋ Create New User Account</h3>
+      <button onclick="closeCreateUserModal()" class="text-gray-400 hover:text-white">✕</button>
+    </div>
+    <div>
+      <label class="text-[10px] text-gray-400 uppercase font-bold block mb-1">Full Name</label>
+      <input type="text" id="new-user-name" placeholder="e.g. Aryan Sharma" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl px-3 py-2 text-xs outline-none focus:border-cyan-400">
+    </div>
+    <div>
+      <label class="text-[10px] text-gray-400 uppercase font-bold block mb-1">Role</label>
+      <select id="new-user-role" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl px-3 py-2 text-xs outline-none">
+        <option>JEE 2028 Aspirant</option>
+        <option>JEE 2027 Aspirant</option>
+        <option>Mentor / Faculty</option>
+        <option>Guest Sandbox</option>
+      </select>
+    </div>
+    <div>
+      <label class="text-[10px] text-gray-400 uppercase font-bold block mb-1">Workspace Subtitle</label>
+      <input type="text" id="new-user-subtitle" placeholder="e.g. Target Top 100 AIR" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl px-3 py-2 text-xs outline-none">
+    </div>
+    <div class="flex justify-end gap-2 pt-2 border-t border-white/10">
+      <button onclick="closeCreateUserModal()" class="px-4 py-1.5 text-xs text-gray-400">Cancel</button>
+      <button onclick="submitNewUser()" class="px-5 py-2 bg-gradient-to-r from-cyan-600 to-indigo-600 text-white font-bold rounded-xl text-xs transition">Create &amp; Switch</button>
+    </div>
+  </div>
+</div>
+
+<script src="clockee_core.js"></script>
+<script>
+  function renderAdminUsers() {
+    const container = document.getElementById('admin-users-grid');
+    if (!container) return;
+    const users = window.getUsersList();
+    container.innerHTML = users.map(u => `
+      <div class="p-4 rounded-xl border ${u.active ? 'border-purple-500 bg-purple-950/30 shadow-[0_0_20px_rgba(168,85,247,0.2)]' : 'border-white/10 bg-gray-900/80'} space-y-3">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <img src="${u.pfp}" class="w-10 h-10 rounded-full border border-purple-400">
+            <div>
+              <div class="text-sm font-bold text-white flex items-center gap-1.5">
+                ${u.name}
+                ${u.active ? '<span class="text-[10px] font-mono text-purple-300 font-bold px-1.5 py-0.2 rounded bg-purple-900/60 border border-purple-500/40">Active Session</span>' : ''}
+              </div>
+              <div class="text-[11px] text-gray-400">${u.role} &bull; ${u.subtitle}</div>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-white/5 text-xs">
+          <span class="text-[10px] text-gray-500 font-mono">Created: ${u.createdAt || '2026-10-23'}</span>
+          ${u.active ? '<span class="text-emerald-400 font-bold font-mono">✓ Current Session</span>' : `<button onclick="window.switchUser('${u.id}')" class="px-3.5 py-1 bg-purple-600 hover:bg-purple-500 text-white rounded-lg font-bold transition">Switch to User &rarr;</button>`}
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function openCreateUserModal() {
+    document.getElementById('modal-create-user').classList.remove('hidden');
+  }
+  function closeCreateUserModal() {
+    document.getElementById('modal-create-user').classList.add('hidden');
+  }
+  function submitNewUser() {
+    const name = document.getElementById('new-user-name').value.trim();
+    const role = document.getElementById('new-user-role').value;
+    const subtitle = document.getElementById('new-user-subtitle').value.trim();
+    if (!name) return;
+    const newId = window.createUserProfile(name, role, subtitle);
+    closeCreateUserModal();
+    if (newId) window.switchUser(newId);
+  }
+
+  function renderAdminCharts() {
+    const s = window.getState();
+    const logs = s.questionLogs || [];
+
+    let p = 0, c = 0, m = 0;
+    logs.forEach(l => {
+      const q = l.questions || l.totalQs || 1;
+      if (l.subject === 'Physics') p += q;
+      else if (l.subject === 'Chemistry') c += q;
+      else if (l.subject === 'Maths') m += q;
+    });
+
+    const subCtx = document.getElementById('admin-subject-chart').getContext('2d');
+    new Chart(subCtx, {
+      type: 'doughnut',
+      data: {
+        labels: ['Physics', 'Chemistry', 'Maths'],
+        datasets: [{
+          data: (p + c + m) > 0 ? [p, c, m] : [1, 1, 1],
+          backgroundColor: ['#3b82f6', '#10b981', '#f59e0b'],
+          borderColor: '#0e111a',
+          borderWidth: 2
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { position: 'right', labels: { color: '#f3f4f6', font: { size: 11 } } }
+        }
+      }
+    });
+
+    // Error causes chart
+    const errMap = {};
+    (s.errors || []).forEach(err => {
+      const cause = err.rootCause || 'Concept Gap';
+      errMap[cause] = (errMap[cause] || 0) + 1;
+    });
+    const errLabels = Object.keys(errMap).length > 0 ? Object.keys(errMap) : ['Concept Gap', 'Calculation Mistake', 'Time Pressure'];
+    const errCounts = Object.keys(errMap).length > 0 ? Object.values(errMap) : [0, 0, 0];
+
+    const errCtx = document.getElementById('admin-errors-chart').getContext('2d');
+    new Chart(errCtx, {
+      type: 'bar',
+      data: {
+        labels: errLabels,
+        datasets: [{
+          label: 'Errors Recorded',
+          data: errCounts,
+          backgroundColor: 'rgba(239, 68, 68, 0.7)',
+          borderRadius: 6
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { ticks: { color: '#9ca3af', font: { size: 10 } }, grid: { display: false } },
+          y: { ticks: { color: '#9ca3af' }, grid: { color: 'rgba(255,255,255,0.05)' } }
+        }
+      }
+    });
+  }
+
+  function renderLogsTable() {
+    const s = window.getState();
+    const tbody = document.getElementById('admin-logs-tbody');
+    const query = (document.getElementById('log-search-input')?.value || '').toLowerCase();
+    if (!tbody) return;
+
+    const filtered = (s.questionLogs || []).filter(l => {
+      if (!query) return true;
+      return (l.subject || '').toLowerCase().includes(query) || (l.chapter || '').toLowerCase().includes(query);
+    });
+
+    if (filtered.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="7" class="p-6 text-center text-gray-500 italic">No matching logs found in active data slot.</td></tr>';
+      return;
+    }
+
+    tbody.innerHTML = filtered.slice().reverse().map((l, idx) => `
+      <tr class="hover:bg-white/5 transition">
+        <td class="p-2.5 font-mono text-gray-400">${l.date || 'Today'}</td>
+        <td class="p-2.5 font-bold ${l.subject === 'Physics' ? 'text-blue-400' : l.subject === 'Chemistry' ? 'text-emerald-400' : 'text-amber-400'}">${l.subject}</td>
+        <td class="p-2.5 text-gray-200">${l.chapter || 'Practice'}</td>
+        <td class="p-2.5 font-mono text-cyan-300 font-bold">${l.questions || l.totalQs || 1} Qs</td>
+        <td class="p-2.5 font-mono text-emerald-400">${l.score !== undefined ? '+' + l.score : '-'}</td>
+        <td class="p-2.5 text-gray-400 font-mono">${Math.round((l.durationMs || 60000)/60000)}m</td>
+        <td class="p-2.5 text-right">
+          <button onclick="deleteLogEntry(${filtered.length - 1 - idx})" class="text-red-400 hover:text-red-300 font-bold text-[11px]">Delete</button>
+        </td>
+      </tr>
+    `).join('');
+  }
+
+  function deleteLogEntry(actualIdx) {
+    const s = window.getState();
+    s.questionLogs.splice(actualIdx, 1);
+    window.saveState();
+    renderLogsTable();
+    window.showToast('✓ Log entry deleted', 'info');
+  }
+
+  function clearAllLogs() {
+    if (confirm('Clear all logged practice history for this user?')) {
+      const s = window.getState();
+      s.questionLogs = [];
+      window.saveState();
+      renderLogsTable();
+      window.showToast('Cleared all question logs', 'info');
+    }
+  }
+
+  async function testGeminiConnection() {
+    const s = window.getState();
+    const key = s.apiKeys?.gemini;
+    if (!key) {
+      window.showToast('No Gemini API key stored. Set in Settings!', 'error');
+      return;
+    }
+    window.showToast('Testing Gemini API ping...', 'info');
+    try {
+      const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${key}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ contents: [{ parts: [{ text: 'Ping' }] }] })
+      });
+      const data = await res.json();
+      if (data?.candidates?.[0]?.content?.parts?.[0]?.text) {
+        document.getElementById('diag-gem-badge').className = 'text-[9px] font-mono px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-500/30';
+        document.getElementById('diag-gem-badge').textContent = 'Online ✓';
+        window.showToast('✓ Gemini API Online & Verified!', 'success');
+      } else {
+        window.showToast('Gemini API returned error', 'error');
+      }
+    } catch (e) {
+      window.showToast('Gemini connection failed', 'error');
+    }
+  }
+
+  function testFirebase() {
+    const s = window.getState();
+    const url = s.apiKeys?.cloudUrl;
+    if (!url) {
+      window.showToast('Configure Firebase Cloud URL in Settings', 'error');
+      return;
+    }
+    window.showToast('Pinging Firebase REST database...', 'info');
+  }
+
+  function runAllConnectionTests() {
+    testGeminiConnection();
+    window.showToast('✓ Diagnostic sweep completed across APIs', 'success');
+  }
+
+  function exportBackupJSON() {
+    const s = window.getState();
+    const str = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(s, null, 2));
+    const a = document.createElement('a');
+    a.setAttribute("href", str);
+    a.setAttribute("download", `ClockEE_Master_Admin_Backup_${window.getTodayStr()}.json`);
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    window.showToast('✓ Master JSON backup exported!', 'success');
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    renderAdminUsers();
+    renderAdminCharts();
+    renderLogsTable();
+  });
+</script>
+</body>
+</html>

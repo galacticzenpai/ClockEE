@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ClockEE - Second-Screen Floating Mini Timer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      background: #060810;
+      color: #f3f4f6;
+      font-family: 'Inter', sans-serif;
+      user-select: none;
+      overflow: hidden;
+      margin: 0;
+      padding: 16px;
+    }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    .glass-box {
+      background: rgba(14, 18, 30, 0.95);
+      border: 1px solid rgba(0, 240, 255, 0.35);
+      border-radius: 18px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9), 0 0 20px rgba(0, 240, 255, 0.2);
+    }
+  </style>
+</head>
+<body class="flex items-center justify-center min-h-screen">
+  <div class="glass-box p-5 w-full max-w-sm text-center space-y-4">
+    <!-- Header -->
+    <div class="flex items-center justify-between border-b border-white/10 pb-2">
+      <div class="flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-ping"></span>
+        <span class="text-xs font-extrabold tracking-tight bg-gradient-to-r from-cyan-400 to-indigo-300 bg-clip-text text-transparent">ClockEE Second Screen Timer</span>
+      </div>
+      <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-indigo-950 text-indigo-300 border border-indigo-500/30 font-bold" id="mode-badge">Countdown</span>
+    </div>
+
+    <!-- Active Topic -->
+    <div class="truncate text-xs text-gray-300 font-semibold" id="topic-label">
+      Physics • Deep Focus Block
+    </div>
+
+    <!-- Big Digital Display -->
+    <div class="py-2">
+      <div class="text-5xl font-extrabold font-mono text-cyan-300 tracking-wider drop-shadow-[0_0_15px_rgba(0,240,255,0.4)]" id="mini-timer-display">
+        02:00:00
+      </div>
+    </div>
+
+    <!-- Controls Row -->
+    <div class="flex items-center justify-center gap-2 pt-1">
+      <button onclick="toggleTimer()" id="btn-mini-play" class="flex-1 py-2 rounded-xl bg-gradient-to-r from-cyan-600 to-indigo-600 hover:from-cyan-500 hover:to-indigo-500 text-white text-xs font-bold transition shadow-lg">
+        ▶ Start
+      </button>
+      <button onclick="resetTimer()" class="py-2 px-3 rounded-xl bg-white/5 hover:bg-white/10 text-gray-300 border border-white/10 text-xs font-semibold transition">
+        ↺ Reset
+      </button>
+    </div>
+
+    <!-- Quick Time Adjusters -->
+    <div class="grid grid-cols-4 gap-1.5 pt-2 border-t border-white/10 text-[10px] font-mono">
+      <button onclick="adjustTime(300)" class="py-1 rounded-lg bg-white/5 hover:bg-white/10 text-cyan-300">+5m</button>
+      <button onclick="adjustTime(900)" class="py-1 rounded-lg bg-white/5 hover:bg-white/10 text-indigo-300">+15m</button>
+      <button onclick="adjustTime(1800)" class="py-1 rounded-lg bg-white/5 hover:bg-white/10 text-purple-300">+30m</button>
+      <button onclick="adjustTime(-300)" class="py-1 rounded-lg bg-white/5 hover:bg-white/10 text-red-300">-5m</button>
+    </div>
+  </div>
+
+  <script>
+    let remainingSecs = 120 * 60;
+    let initialSecs = 120 * 60;
+    let isRunning = false;
+    let intervalId = null;
+
+    function renderDisplay() {
+      const h = Math.floor(remainingSecs / 3600);
+      const m = Math.floor((remainingSecs % 3600) / 60);
+      const s = remainingSecs % 60;
+      document.getElementById('mini-timer-display').textContent = 
+        `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+    }
+
+    function toggleTimer() {
+      isRunning = !isRunning;
+      const btn = document.getElementById('btn-mini-play');
+      if (isRunning) {
+        btn.textContent = '⏸ Pause';
+        btn.className = 'flex-1 py-2 rounded-xl bg-amber-600 hover:bg-amber-500 text-white text-xs font-bold transition shadow-lg';
+        intervalId = setInterval(() => {
+          if (remainingSecs > 0) {
+            remainingSecs--;
+            renderDisplay();
+          } else {
+            clearInterval(intervalId);
+            isRunning = false;
+            btn.textContent = '▶ Start';
+            alert('ClockEE Focus Block Complete!');
+          }
+        }, 1000);
+      } else {
+        clearInterval(intervalId);
+        btn.textContent = '▶ Resume';
+        btn.className = 'flex-1 py-2 rounded-xl bg-gradient-to-r from-cyan-600 to-indigo-600 text-white text-xs font-bold transition shadow-lg';
+      }
+    }
+
+    function resetTimer() {
+      clearInterval(intervalId);
+      isRunning = false;
+      remainingSecs = initialSecs;
+      document.getElementById('btn-mini-play').textContent = '▶ Start';
+      document.getElementById('btn-mini-play').className = 'flex-1 py-2 rounded-xl bg-gradient-to-r from-cyan-600 to-indigo-600 text-white text-xs font-bold transition shadow-lg';
+      renderDisplay();
+    }
+
+    function adjustTime(deltaSecs) {
+      remainingSecs = Math.max(0, remainingSecs + deltaSecs);
+      initialSecs = remainingSecs;
+      renderDisplay();
+    }
+
+    // Sync from parent window if opened as popup
+    try {
+      if (window.opener && window.opener._lectureTimerTotalSecs) {
+        remainingSecs = window.opener._lectureTimerRemaining || window.opener._lectureTimerTotalSecs;
+        initialSecs = window.opener._lectureTimerTotalSecs;
+      }
+    } catch(e) {}
+
+    renderDisplay();
+  </script>
+</body>
+</html>

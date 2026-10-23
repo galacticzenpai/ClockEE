@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClockEE CBT - 3-Way Notebooks Repository</title>
+  <link rel="stylesheet" href="cbt_shared.css">
+  <style>
+    .cbt-notebooks-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .cbt-notebook-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+
+    .cbt-nb-card {
+      background: var(--cbt-bg-surface);
+      border: 1px solid var(--cbt-border-subtle);
+      border-radius: var(--cbt-radius-lg);
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 180px;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .cbt-nb-card:hover {
+      border-color: var(--cbt-accent);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    .cbt-nb-card-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .cbt-nb-stats-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      color: var(--cbt-text-secondary);
+      border-top: 1px solid var(--cbt-border-subtle);
+      padding-top: 12px;
+      margin-top: 16px;
+    }
+
+    /* Modal */
+    .cbt-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .cbt-modal-backdrop.active {
+      display: flex;
+    }
+
+    .cbt-nb-modal {
+      background: var(--cbt-bg-surface);
+      border: 1px solid var(--cbt-border-medium);
+      border-radius: var(--cbt-radius-lg);
+      width: 100%;
+      max-width: 520px;
+      padding: 24px;
+    }
+
+    .cbt-input-field {
+      width: 100%;
+      background: var(--cbt-bg-elevated);
+      border: 1px solid var(--cbt-border-subtle);
+      border-radius: var(--cbt-radius-md);
+      padding: 10px 14px;
+      color: #fff;
+      font-size: 14px;
+      margin-bottom: 16px;
+      outline: none;
+    }
+
+    .cbt-input-field:focus {
+      border-color: var(--cbt-accent);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Shared Left Sidebar -->
+  <div id="cbt-sidebar-container"></div>
+
+  <!-- Main Viewport Area -->
+  <main class="cbt-main-content">
+    
+    <header class="cbt-notebooks-header">
+      <div>
+        <h1 class="cbt-title-lg">Notebooks Repository</h1>
+        <p class="cbt-subtext">3-Way structured repository for high-yield bookmarks, formula traps, and test autopsies</p>
+      </div>
+
+      <button class="cbt-btn cbt-btn-primary" onclick="openCreateModal()">
+        + Create New Notebook
+      </button>
+    </header>
+
+    <!-- 3-Way Tabs Switcher -->
+    <div style="margin-bottom: 24px;">
+      <div class="cbt-tabs-pill">
+        <button class="cbt-tab-btn active" onclick="switchNotebookView('my')">My Custom Notebooks</button>
+        <button class="cbt-tab-btn" onclick="switchNotebookView('chapter')">Chapter-wise Notebooks</button>
+        <button class="cbt-tab-btn" onclick="switchNotebookView('test')">Test-wise Repositories</button>
+      </div>
+    </div>
+
+    <!-- Notebooks Grid -->
+    <div class="cbt-notebook-grid" id="notebooks-container">
+      <!-- Rendered via JavaScript -->
+    </div>
+
+  </main>
+
+  <!-- Create Notebook Modal -->
+  <div class="cbt-modal-backdrop" id="modal-create-nb">
+    <div class="cbt-nb-modal">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+        <h3 class="cbt-title-md">Create New Notebook</h3>
+        <button onclick="closeCreateModal()" style="background: none; border: none; color: #fff; font-size: 20px; cursor: pointer;">✕</button>
+      </div>
+
+      <label style="font-size: 12px; font-weight: 700; color: var(--cbt-text-secondary); text-transform: uppercase;">Notebook Title</label>
+      <input type="text" id="nb-title-input" class="cbt-input-field" placeholder="e.g. Inorganic Exceptions & Reagents">
+
+      <label style="font-size: 12px; font-weight: 700; color: var(--cbt-text-secondary); text-transform: uppercase;">Subject Focus</label>
+      <select id="nb-subject-input" class="cbt-input-field">
+        <option value="Physics">Physics</option>
+        <option value="Chemistry">Chemistry</option>
+        <option value="Maths">Maths</option>
+        <option value="Full">Full Syllabus / General</option>
+      </select>
+
+      <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 10px;">
+        <button class="cbt-btn cbt-btn-outline" onclick="closeCreateModal()">Cancel</button>
+        <button class="cbt-btn cbt-btn-primary" onclick="submitCreateNotebook()">Save Notebook</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="cbt_shared.js"></script>
+  <script>
+    let activeView = "my";
+
+    document.addEventListener("DOMContentLoaded", () => {
+      CBT_STATE.renderSidebar("notebooks");
+      renderNotebooks();
+    });
+
+    function switchNotebookView(view) {
+      activeView = view;
+      document.querySelectorAll('.cbt-tab-btn').forEach(b => {
+        b.classList.toggle('active', b.getAttribute('onclick')?.includes(`'${view}'`));
+      });
+      renderNotebooks();
+    }
+
+    function renderNotebooks() {
+      const container = document.getElementById("notebooks-container");
+      const state = CBT_STATE.load();
+      const nbs = state.notebooks || [];
+
+      container.innerHTML = nbs.map(nb => {
+        const subBadgeClass = nb.subject === "Physics" ? "cbt-tag-physics" : nb.subject === "Chemistry" ? "cbt-tag-chemistry" : nb.subject === "Maths" ? "cbt-tag-maths" : "cbt-tag-physics";
+
+        return `
+          <div class="cbt-nb-card" onclick="openNotebookDetail('${nb.id}')">
+            <div>
+              <span class="cbt-tag ${subBadgeClass}" style="margin-bottom: 12px;">${nb.subject}</span>
+              <h3 class="cbt-nb-card-title">${nb.title}</h3>
+              <p class="cbt-subtext" style="font-size: 13px;">Contains verified questions and high-yield autopsies.</p>
+            </div>
+
+            <div class="cbt-nb-stats-row">
+              <span>🔖 <strong>${nb.count}</strong> Items</span>
+              <span>Updated ${nb.updated}</span>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function openCreateModal() {
+      document.getElementById("modal-create-nb").classList.add("active");
+    }
+
+    function closeCreateModal() {
+      document.getElementById("modal-create-nb").classList.remove("active");
+    }
+
+    function submitCreateNotebook() {
+      const title = document.getElementById("nb-title-input").value.trim();
+      const subject = document.getElementById("nb-subject-input").value;
+
+      if (!title) {
+        CBT_STATE.toast("Please enter a notebook title", "error");
+        return;
+      }
+
+      const state = CBT_STATE.load();
+      state.notebooks = state.notebooks || [];
+      state.notebooks.push({
+        id: `nb_${Date.now()}`,
+        title: title,
+        subject: subject,
+        count: 0,
+        updated: "Just now"
+      });
+
+      CBT_STATE.save(state);
+      closeCreateModal();
+      renderNotebooks();
+      CBT_STATE.toast(`Created notebook: ${title}`);
+    }
+
+    function openNotebookDetail(id) {
+      CBT_STATE.toast(`Opened notebook: #${id}`);
+    }
+  </script>
+</body>
+</html>

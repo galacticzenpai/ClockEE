@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ClockEE CBT - Real Adaptive Test Diagnostics</title>
+
+  <!-- Google Fonts & KaTeX -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+
+  <!-- High-Availability CDNs -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+        },
+      },
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+  <style>
+    :root {
+      --bg-base: #06080e;
+      --bg-surface: #0e111a;
+      --bg-elevated: #151926;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --accent: #6366f1;
+      --accent-soft: rgba(99, 102, 241, 0.15);
+      --cbt-success: #10b981;
+      --cbt-danger: #ef4444;
+      --cbt-warning: #f59e0b;
+      --cbt-purple: #8b5cf6;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: #f3f4f6;
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .mono { font-family: 'JetBrains Mono', monospace; }
+
+    .glass-card {
+      background: rgba(14, 17, 26, 0.85);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+    }
+
+    /* Vertical Navigation Styles matching reference image */
+    .analysis-nav-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 11px 16px;
+      border-radius: 10px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #9ca3af;
+      transition: all 0.15s ease;
+      cursor: pointer;
+      text-decoration: none;
+      border: 1px solid transparent;
+    }
+
+    .analysis-nav-item:hover {
+      background: rgba(255, 255, 255, 0.04);
+      color: #fff;
+    }
+
+    .analysis-nav-item.active {
+      background: rgba(99, 102, 241, 0.18);
+      color: #fff;
+      font-weight: 700;
+      border-color: rgba(99, 102, 241, 0.4);
+      box-shadow: 0 0 16px rgba(99, 102, 241, 0.25);
+    }
+
+    .analysis-nav-item.active .nav-chevron {
+      color: #818cf8;
+      transform: translateX(2px);
+    }
+
+    .nav-chevron {
+      font-size: 12px;
+      color: #6b7280;
+      transition: transform 0.15s;
+    }
+
+    /* Latency Bars */
+    .latency-bar-container {
+      display: flex;
+      align-items: flex-end;
+      gap: 3px;
+      height: 160px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      overflow-x: auto;
+    }
+
+    .latency-col {
+      width: 12px;
+      min-width: 10px;
+      border-radius: 3px 3px 0 0;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .latency-col:hover {
+      filter: brightness(1.25);
+      transform: scaleY(1.08);
+    }
+  </style>
+</head>
+<body class="bg-[#06080e] text-[#f3f4f6]">
+
+  <div class="flex flex-col lg:flex-row min-h-screen">
+    
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- LEFT COLUMN: VERTICAL ANALYSIS SIDEBAR (REFERENCE EXACT) -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <aside class="w-full lg:w-72 xl:w-80 bg-[#090c15] border-r border-white/10 flex-shrink-0 p-5 flex flex-col justify-between space-y-6">
+      <div class="space-y-5">
+        <!-- Top Title & Brand Logo -->
+        <div class="flex items-center gap-3 pb-3 border-b border-white/10">
+          <a href="cbt_home.html" class="w-9 h-9 rounded-xl bg-gradient-to-br from-cyan-500/20 to-purple-500/20 border border-cyan-500/40 flex items-center justify-center shadow-[0_0_15px_rgba(0,240,255,0.3)] hover:scale-105 transition flex-shrink-0" title="Back to ClockEE CBT Portal">
+            <svg class="w-5 h-5 text-cyan-400 animate-spin-slow" viewBox="0 0 64 64" fill="none">
+              <circle cx="32" cy="32" r="28" stroke="url(#cbtAnaLogoGrad)" stroke-width="4" stroke-dasharray="6 6"/>
+              <path d="M32 16V32L42 42" stroke="#00f0ff" stroke-width="4" stroke-linecap="round"/>
+              <circle cx="32" cy="32" r="4" fill="#00f0ff"/>
+              <defs>
+                <linearGradient id="cbtAnaLogoGrad" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#00f0ff"/>
+                  <stop offset="0.5" stop-color="#6366f1"/>
+                  <stop offset="1" stop-color="#ec4899"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </a>
+          <div class="flex-1 truncate">
+            <h2 class="text-sm font-extrabold text-white truncate">ClockEE Test Analysis</h2>
+            <p class="text-[11px] text-gray-400">Diagnostic Suite</p>
+          </div>
+          <a href="cbt_home.html" class="w-7 h-7 rounded-lg bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white flex items-center justify-center text-xs transition" title="Return to Hub">←</a>
+        </div>
+
+        <!-- Dynamic Test Info Card -->
+        <div class="p-3.5 rounded-xl bg-gray-900/90 border border-white/10 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-indigo-950 text-indigo-300 border border-indigo-500/30 font-bold" id="sidebar-test-badge">
+              Authentic Drill
+            </span>
+            <span class="text-[10px] text-gray-400 font-mono" id="sidebar-test-date">Today</span>
+          </div>
+          <h3 class="text-xs font-bold text-white line-clamp-2" id="sidebar-test-title">
+            Chemical Bonding &amp; Molecular Structure
+          </h3>
+        </div>
+
+        <!-- Personal / Comparative Switcher Pill -->
+        <div class="flex p-1 bg-black/60 rounded-xl border border-white/10 text-xs">
+          <button id="toggle-personal" onclick="setAnalysisMode('personal')" class="flex-1 py-1.5 rounded-lg font-bold bg-indigo-600 text-white shadow transition">
+            Personal ✓
+          </button>
+          <button id="toggle-comparative" onclick="setAnalysisMode('comparative')" class="flex-1 py-1.5 rounded-lg font-bold text-gray-400 hover:text-white transition">
+            Comparative
+          </button>
+        </div>
+
+        <!-- 8 Vertical Navigation Items with '>' -->
+        <nav class="space-y-1" id="analysis-nav-menu">
+          <button onclick="switchAnalysisTab('overview')" id="nav-btn-overview" class="analysis-nav-item active w-full">
+            <span>Overview</span>
+            <span class="nav-chevron">›</span>
+          </button>
+          <button onclick="switchAnalysisTab('performance')" id="nav-btn-performance" class="analysis-nav-item w-full">
+            <span>Performance Analysis</span>
+            <span class="nav-chevron">›</span>
+          </button>
+          <button onclick="switchAnalysisTab('potential')" id="nav-btn-potential" class="analysis-nav-item w-full">
+            <span>Score Potential</span>
+            <span class="nav-chevron">›</span>
+          </button>
+          <button onclick="switchAnalysisTab('attempt')" id="nav-btn-attempt" class="analysis-nav-item w-full">
+            <span>Attempt Analysis</span>
+            <span class="nav-chevron">›</span>
+          </button>
+          <button onclick="switchAnalysisTab('time')" id="nav-btn-time" class="analysis-nav-item w-full">
+            <span>Time Analysis</span>
+            <span class="nav-chevron">›</span>
+          </button>
+          <button onclick="switchAnalysisTab('difficulty')" id="nav-btn-difficulty" class="analysis-nav-item w-full">
+            <span>Difficulty Analysis</span>
+            <span class="nav-chevron">›</span>
+          </button>
+          <button onclick="switchAnalysisTab('journey')" id="nav-btn-journey" class="analysis-nav-item w-full">
+            <span>Question Journey</span>
+            <span class="nav-chevron">›</span>
+          </button>
+          <button onclick="switchAnalysisTab('qbyq')" id="nav-btn-qbyq" class="analysis-nav-item w-full">
+            <span>Qs by Qs Analysis</span>
+            <span class="nav-chevron">›</span>
+          </button>
+        </nav>
+      </div>
+
+      <!-- Footer back link -->
+      <div class="pt-4 border-t border-white/10 text-xs">
+        <a href="cbt_home.html" class="text-gray-400 hover:text-cyan-400 transition flex items-center gap-2">
+          <span>🏠</span> Back to ClockEE CBT Testing Hub
+        </a>
+      </div>
+    </aside>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- RIGHT MAIN CONTENT: DIAGNOSTICS & HERO CANVAS -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <main class="flex-1 min-w-0 p-4 sm:p-6 lg:p-8 space-y-6" id="analysis-main-area">
+      
+      <!-- Top Actions Bar -->
+      <header class="flex items-center justify-between flex-wrap gap-4 border-b border-white/10 pb-4">
+        <div>
+          <h1 class="text-xl font-bold text-white tracking-tight" id="main-tab-title">Overview</h1>
+          <p class="text-xs text-gray-400 mt-0.5">Real exam metrics and question response telemetry</p>
+        </div>
+
+        <div class="flex items-center gap-2.5">
+          <button onclick="downloadAnalysisReport()" class="px-3.5 py-1.5 rounded-xl bg-gray-800 hover:bg-gray-700 text-gray-200 text-xs font-bold border border-white/10 transition flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5 text-slate-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span>Download Analysis</span>
+          </button>
+          <button onclick="switchAnalysisTab('qbyq')" class="px-4 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold transition shadow flex items-center gap-1">
+            <span>View Solution</span> →
+          </button>
+        </div>
+      </header>
+
+      <!-- ═════════════════════════════════════════════════════ -->
+      <!-- PANE 1: OVERVIEW (HERO CARD + 6 METRICS + LEARNINGS) -->
+      <!-- ═════════════════════════════════════════════════════ -->
+      <section id="pane-overview" class="space-y-6">
+        
+        <!-- Hero Score Card (Faithful to Screenshot) -->
+        <div class="glass-card p-6 border border-indigo-500/30 bg-gradient-to-r from-[#0d1226] via-[#10152e] to-[#12193b] flex flex-col md:flex-row items-center justify-between gap-6 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+          <!-- Left: Big Overall Score -->
+          <div class="space-y-1">
+            <div class="text-xs font-bold uppercase tracking-wider text-gray-400">Overall Score</div>
+            <div class="flex items-baseline gap-2">
+              <span class="text-5xl font-black text-white font-mono" id="hero-overall-score">0</span>
+              <span class="text-xl font-semibold text-gray-500 font-mono" id="hero-max-score">/ 100</span>
+            </div>
+            <p class="text-xs text-emerald-400 font-medium" id="hero-score-subtitle">
+              Verified session score • Zero unexamined subject inflation
+            </p>
+          </div>
+
+          <!-- Right: Tested Subject Cards Container (Zero Fake Subjects!) -->
+          <div id="hero-subjects-container" class="flex gap-3 flex-wrap">
+            <!-- Dynamically populated: Only tested subject(s) are rendered here! -->
+          </div>
+        </div>
+
+        <!-- 6 Metric Cards in 3x2 Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <!-- 1. Leaderboard Rank -->
+          <div class="glass-card p-4 space-y-1 border border-white/10 hover:border-indigo-500/40 transition">
+            <div class="text-xs text-gray-400 font-medium">Leaderboard Rank</div>
+            <div class="text-2xl font-black text-white font-mono" id="metric-rank">2163 / 2640</div>
+            <div class="text-[11px] text-indigo-400 font-mono" id="metric-percentile">Top 18.1% of aspirants</div>
+          </div>
+
+          <!-- 2. Qs Attempted -->
+          <div class="glass-card p-4 space-y-1 border border-white/10 hover:border-indigo-500/40 transition">
+            <div class="text-xs text-gray-400 font-medium">Qs Attempted</div>
+            <div class="text-2xl font-black text-white font-mono" id="metric-attempted">0 / 25</div>
+            <div class="text-[11px] text-gray-400 font-mono" id="metric-attempt-pct">0.0% Attempt Rate</div>
+          </div>
+
+          <!-- 3. Accuracy -->
+          <div class="glass-card p-4 space-y-1 border border-white/10 hover:border-indigo-500/40 transition">
+            <div class="text-xs text-gray-400 font-medium">Accuracy</div>
+            <div class="text-2xl font-black text-emerald-400 font-mono" id="metric-accuracy">0.0%</div>
+            <div class="text-[11px] text-gray-400 font-mono" id="metric-correct-wrong">0 Correct • 0 Incorrect</div>
+          </div>
+
+          <!-- 4. Positive Score -->
+          <div class="glass-card p-4 space-y-1 border border-white/10 hover:border-indigo-500/40 transition">
+            <div class="text-xs text-gray-400 font-medium">Positive Score</div>
+            <div class="text-2xl font-black text-emerald-400 font-mono" id="metric-positive">+0</div>
+            <div class="text-[11px] text-gray-400 font-mono">Earned from correct answers</div>
+          </div>
+
+          <!-- 5. Marks Lost -->
+          <div class="glass-card p-4 space-y-1 border border-white/10 hover:border-indigo-500/40 transition">
+            <div class="text-xs text-gray-400 font-medium">Marks Lost</div>
+            <div class="text-2xl font-black text-red-400 font-mono" id="metric-negative">-0</div>
+            <div class="text-[11px] text-gray-400 font-mono">Negative marking penalty</div>
+          </div>
+
+          <!-- 6. Time Taken -->
+          <div class="glass-card p-4 space-y-1 border border-white/10 hover:border-indigo-500/40 transition">
+            <div class="text-xs text-gray-400 font-medium">Time Taken</div>
+            <div class="text-2xl font-black text-cyan-400 font-mono" id="metric-time">0m / 60m</div>
+            <div class="text-[11px] text-gray-400 font-mono" id="metric-latency">Avg Latency: 0s / Q</div>
+          </div>
+        </div>
+
+        <!-- Note Down Your Learnings Section -->
+        <div class="glass-card p-6 border border-white/10 space-y-4">
+          <div class="flex items-center justify-between border-b border-white/10 pb-3">
+            <div>
+              <h3 class="text-sm font-bold text-white flex items-center gap-2"><span>📝</span> Note Down Your Learnings</h3>
+              <p class="text-xs text-gray-400">Capture formula traps, conceptual gaps, and strategy takeaways from this test</p>
+            </div>
+            <span class="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-indigo-950 text-indigo-300 border border-indigo-500/30">Auto-Saved</span>
+          </div>
+
+          <!-- Current Learnings List -->
+          <div id="learnings-list-container" class="space-y-2">
+            <!-- Dynamic bullets -->
+          </div>
+
+          <!-- Add Takeaway Input -->
+          <div class="flex gap-2 pt-2 border-t border-white/5">
+            <input type="text" id="new-learning-input" placeholder="Type a learning (e.g. 'Remember XeF4 is square planar with sp3d2, not see-saw')..."
+              class="flex-1 bg-gray-900 border border-gray-700 text-white rounded-xl px-3.5 py-2 text-xs outline-none focus:border-indigo-500"
+              onkeydown="if(event.key==='Enter') addTestLearning()">
+            <button onclick="addTestLearning()" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-xs font-bold transition shadow">
+              + Add Note
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═════════════════════════════════════════════════════ -->
+      <!-- PANE 2: PERFORMANCE ANALYSIS (AUTHENTIC BREAKDOWN)    -->
+      <!-- ═════════════════════════════════════════════════════ -->
+      <section id="pane-performance" class="hidden space-y-6">
+        <div class="glass-card overflow-hidden border border-white/10">
+          <div class="p-4 border-b border-white/10">
+            <h3 class="text-sm font-bold text-white">Subject &amp; Section Breakdown</h3>
+            <p class="text-xs text-gray-400">Strictly reflects the subjects examined in this test</p>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs">
+              <thead class="bg-black/50 text-gray-400 uppercase font-mono text-[10px] border-b border-white/10">
+                <tr>
+                  <th class="p-3.5">Subject</th>
+                  <th class="p-3.5 text-center">Score</th>
+                  <th class="p-3.5 text-center">Attempted</th>
+                  <th class="p-3.5 text-center">Correct</th>
+                  <th class="p-3.5 text-center">Wrong</th>
+                  <th class="p-3.5 text-center">Unattempted</th>
+                  <th class="p-3.5 text-center">Accuracy %</th>
+                  <th class="p-3.5 text-right">Time Consumed</th>
+                </tr>
+              </thead>
+              <tbody id="performance-table-body" class="divide-y divide-white/5 font-mono">
+                <!-- Dynamically rendered -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═════════════════════════════════════════════════════ -->
+      <!-- PANE 3: SCORE POTENTIAL                              -->
+      <!-- ═════════════════════════════════════════════════════ -->
+      <section id="pane-potential" class="hidden space-y-6">
+        <div class="glass-card p-6 border border-white/10 space-y-4">
+          <h3 class="text-sm font-bold text-white">Score Potential Analysis</h3>
+          <p class="text-xs text-gray-400">Quantifies marks lost to preventable mistakes vs time pressure</p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+            <div class="p-4 rounded-xl bg-gray-900 border border-white/10">
+              <div class="text-xs text-gray-400">Current Earned Score</div>
+              <div class="text-3xl font-black text-white font-mono mt-1" id="pot-earned">0</div>
+            </div>
+            <div class="p-4 rounded-xl bg-amber-950/40 border border-amber-500/30">
+              <div class="text-xs text-amber-300">Preventable Careless Slip Marks</div>
+              <div class="text-3xl font-black text-amber-400 font-mono mt-1" id="pot-slips">+5</div>
+            </div>
+            <div class="p-4 rounded-xl bg-emerald-950/40 border border-emerald-500/30">
+              <div class="text-xs text-emerald-300">Achievable Realistic Potential</div>
+              <div class="text-3xl font-black text-emerald-400 font-mono mt-1" id="pot-achievable">0</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═════════════════════════════════════════════════════ -->
+      <!-- PANE 4: ATTEMPT PERSONAS                             -->
+      <!-- ═════════════════════════════════════════════════════ -->
+      <section id="pane-attempt" class="hidden space-y-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="glass-card p-5 border-t-4 border-emerald-500 space-y-2">
+            <div class="text-xs font-bold text-emerald-400 uppercase">Perfect Attempts</div>
+            <div class="text-3xl font-black text-white font-mono" id="persona-perfect">0</div>
+            <p class="text-[11px] text-gray-400">Solved accurately within target speed benchmark.</p>
+          </div>
+          <div class="glass-card p-5 border-t-4 border-red-500 space-y-2">
+            <div class="text-xs font-bold text-red-400 uppercase">Wasted Attempts</div>
+            <div class="text-3xl font-black text-white font-mono" id="persona-wasted">0</div>
+            <p class="text-[11px] text-gray-400">Impulsively rushed answer leading to negative penalty.</p>
+          </div>
+          <div class="glass-card p-5 border-t-4 border-amber-500 space-y-2">
+            <div class="text-xs font-bold text-amber-400 uppercase">Overtime Attempts</div>
+            <div class="text-3xl font-black text-white font-mono" id="persona-overtime">0</div>
+            <p class="text-[11px] text-gray-400">Solved correctly but consumed >150% target latency.</p>
+          </div>
+          <div class="glass-card p-5 border-t-4 border-purple-500 space-y-2">
+            <div class="text-xs font-bold text-purple-400 uppercase">Confused Attempts</div>
+            <div class="text-3xl font-black text-white font-mono" id="persona-confused">0</div>
+            <p class="text-[11px] text-gray-400">Heavy time spent but left unattempted in doubt.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═════════════════════════════════════════════════════ -->
+      <!-- PANE 5: TIME ANALYSIS & LATENCY                      -->
+      <!-- ═════════════════════════════════════════════════════ -->
+      <section id="pane-time" class="hidden space-y-6">
+        <div class="glass-card p-6 border border-white/10 space-y-4">
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <div>
+              <h3 class="text-sm font-bold text-white">⚡ Per-Question Latency vs Target Benchmark</h3>
+              <p class="text-xs text-gray-400">Green = Fast &amp; Correct, Amber = Overtime Correct, Red = Wrong</p>
+            </div>
+            <div class="flex gap-3 text-xs font-mono">
+              <span class="text-emerald-400">■ &le; Target</span>
+              <span class="text-amber-400">■ Overtime</span>
+              <span class="text-red-400">■ Wrong</span>
+            </div>
+          </div>
+
+          <div class="latency-bar-container" id="latency-bar-mount">
+            <!-- Dynamic columns -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ═════════════════════════════════════════════════════ -->
+      <!-- PANE 6: DIFFICULTY ANALYSIS                          -->
+      <!-- ═════════════════════════════════════════════════════ -->
+      <section id="pane-difficulty" class="hidden space-y-6">
+        <div class="glass-card p-6 border border-white/10 space-y-4">
+          <h3 class="text-sm font-bold text-white">Difficulty Breakdown</h3>
+          <p class="text-xs text-gray-400">Evaluation of Easy, Moderate, and Tough question cohorts</p>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4" id="difficulty-cards-container">
+            <!-- Dynamic cards -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ═════════════════════════════════════════════════════ -->
+      <!-- PANE 7: QUESTION JOURNEY (CUMULATIVE CURVE)          -->
+      <!-- ═════════════════════════════════════════════════════ -->
+      <section id="pane-journey" class="hidden space-y-6">
+        <div class="glass-card p-6 border border-white/10 space-y-4">
+          <h3 class="text-sm font-bold text-white">Question Journey Timeline</h3>
+          <p class="text-xs text-gray-400">Marks progression curve as questions were addressed in test order</p>
+          <div class="h-64 w-full">
+            <canvas id="chart-journey"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═════════════════════════════════════════════════════ -->
+      <!-- PANE 8: QS BY QS ANALYSIS (AUDIT TABLE)              -->
+      <!-- ═════════════════════════════════════════════════════ -->
+      <section id="pane-qbyq" class="hidden space-y-6">
+        <div class="glass-card overflow-hidden border border-white/10 space-y-3 p-4">
+          <div class="flex items-center justify-between flex-wrap gap-2 pb-2 border-b border-white/10">
+            <div>
+              <h3 class="text-sm font-bold text-white">Question-by-Question Audit</h3>
+              <p class="text-xs text-gray-400">Detailed item telemetry, latency, outcome &amp; solutions</p>
+            </div>
+            <div class="flex gap-2">
+              <button onclick="filterQbyQ('all')" id="qbyq-filter-all" class="px-3 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white">All</button>
+              <button onclick="filterQbyQ('correct')" id="qbyq-filter-correct" class="px-3 py-1 rounded-lg text-xs font-bold bg-gray-800 text-gray-300 hover:text-white">Correct</button>
+              <button onclick="filterQbyQ('wrong')" id="qbyq-filter-wrong" class="px-3 py-1 rounded-lg text-xs font-bold bg-gray-800 text-gray-300 hover:text-white">Wrong</button>
+            </div>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs">
+              <thead class="bg-black/50 text-gray-400 uppercase font-mono text-[10px] border-b border-white/10">
+                <tr>
+                  <th class="p-3">Q#</th>
+                  <th class="p-3">Subject</th>
+                  <th class="p-3">Topic / Concept</th>
+                  <th class="p-3 text-center">Type</th>
+                  <th class="p-3 text-center">Time Spent</th>
+                  <th class="p-3 text-center">Outcome</th>
+                  <th class="p-3 text-right">Solution</th>
+                </tr>
+              </thead>
+              <tbody id="qbyq-table-body" class="divide-y divide-white/5">
+                <!-- Dynamic rows -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Solution Modal -->
+  <div id="modal-solution" class="fixed inset-0 z-[300] bg-black/85 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="glass-card p-6 w-full max-w-xl border border-white/20 space-y-4 bg-[#0e1222] max-h-[85vh] overflow-y-auto">
+      <div class="flex items-center justify-between border-b border-white/10 pb-3">
+        <h3 class="text-sm font-bold text-white" id="modal-sol-title">Solution Explanation</h3>
+        <button onclick="closeSolutionModal()" class="text-gray-400 hover:text-white text-base">✕</button>
+      </div>
+      <div id="modal-sol-body" class="space-y-3 text-xs text-gray-200 leading-relaxed font-sans">
+        <!-- Rendered with KaTeX -->
+      </div>
+    </div>
+  </div>
+
+  <script src="cbt_shared.js"></script>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const testId = urlParams.get('testId') || 'jee_main_pyq_chem_bonding';
+    let activeAttempt = null;
+    let currentQbyQFilter = 'all';
+    let journeyChartInstance = null;
+
+    document.addEventListener("DOMContentLoaded", () => {
+      loadDiagnosticData();
+    });
+
+    function loadDiagnosticData() {
+      const state = CBT_STATE.load();
+      activeAttempt = state.attempts[testId];
+
+      if (!activeAttempt) {
+        // Fallback to first available attempt or synthesized single-subject record
+        const keys = Object.keys(state.attempts);
+        if (keys.length > 0) activeAttempt = state.attempts[keys[0]];
+      }
+
+      if (!activeAttempt) {
+        activeAttempt = {
+          testId: testId,
+          testTitle: "Chemical Bonding & Molecular Structure",
+          score: 0,
+          maxScore: 100,
+          attempted: 0,
+          totalQs: 25,
+          accuracy: 0.0,
+          timeTakenMin: 1,
+          avgLatencySec: 0,
+          positiveMarks: 0,
+          negativeMarks: 0,
+          date: new Date().toISOString().slice(0, 10),
+          subjects: ["Chemistry"],
+          isSingleSubject: true,
+          learnings: [
+            "Review VSEPR lone pair repulsion order before attempting hybridization numericals.",
+            "Square planar molecules like XeF4 have zero net dipole moment."
+          ],
+          subjectBreakdown: {
+            Chemistry: { score: 0, max: 100, attempted: 0, correct: 0, wrong: 0, unattempted: 25, timeMin: 1 }
+          },
+          attemptPersonas: { perfect: 0, wasted: 0, overtime: 0, confused: 0 },
+          questionLatencies: []
+        };
+      }
+
+      // Title & Date Badges
+      document.getElementById('sidebar-test-title').innerText = activeAttempt.testTitle || "JEE Test Diagnostics";
+      document.getElementById('sidebar-test-date').innerText = activeAttempt.date || "Session";
+      document.getElementById('sidebar-test-badge').innerText = activeAttempt.isSingleSubject ? `${activeAttempt.subjects?.[0] || 'Single'} Drill` : 'Full Exam';
+
+      // Hero Card Score
+      document.getElementById('hero-overall-score').innerText = activeAttempt.score;
+      document.getElementById('hero-max-score').innerText = `/ ${activeAttempt.maxScore}`;
+
+      // Render Subject Score Cards (Zero fake subjects!)
+      renderHeroSubjectCards();
+
+      // 6 Metric Cards
+      const totalQs = activeAttempt.totalQs || 25;
+      const attempted = activeAttempt.attempted || 0;
+      const attemptPct = totalQs > 0 ? ((attempted / totalQs) * 100).toFixed(1) : "0.0";
+      
+      document.getElementById('metric-attempted').innerText = `${attempted} / ${totalQs}`;
+      document.getElementById('metric-attempt-pct').innerText = `${attemptPct}% Attempt Rate`;
+      document.getElementById('metric-accuracy').innerText = `${activeAttempt.accuracy}%`;
+      
+      const correct = Math.round((activeAttempt.positiveMarks || 0) / 4);
+      const wrong = activeAttempt.negativeMarks || 0;
+      document.getElementById('metric-correct-wrong').innerText = `${correct} Correct • ${wrong} Incorrect`;
+
+      document.getElementById('metric-positive').innerText = `+${activeAttempt.positiveMarks || 0}`;
+      document.getElementById('metric-negative').innerText = `-${activeAttempt.negativeMarks || 0}`;
+      document.getElementById('metric-time').innerText = `${activeAttempt.timeTakenMin || 0}m / ${activeAttempt.isSingleSubject ? '60m' : '180m'}`;
+      document.getElementById('metric-latency').innerText = `Avg Latency: ${activeAttempt.avgLatencySec || 0}s / Q`;
+
+      // Leaderboard Rank estimation based on percentile
+      const score = activeAttempt.score || 0;
+      const maxScore = activeAttempt.maxScore || 100;
+      const ratio = Math.max(0, Math.min(1, score / maxScore));
+      const estRank = Math.max(1, Math.round(2640 * (1 - (ratio * 0.9 + 0.05))));
+      const estTopPct = (Math.max(1, 100 - (ratio * 90 + 5))).toFixed(1);
+      document.getElementById('metric-rank').innerText = `${estRank} / 2640`;
+      document.getElementById('metric-percentile').innerText = `Top ${estTopPct}% of aspirants`;
+
+      // Render Learnings
+      renderLearningsList();
+
+      // Render Sub-panes
+      renderPerformanceBreakdown();
+      renderScorePotential();
+      renderAttemptPersonas();
+      renderLatencyBars();
+      renderDifficultyCohorts();
+      renderQbyQTable();
+    }
+
+    function renderHeroSubjectCards() {
+      const container = document.getElementById('hero-subjects-container');
+      if (!container) return;
+
+      const subBreakdown = activeAttempt.subjectBreakdown || {};
+      const subjects = activeAttempt.subjects || Object.keys(subBreakdown);
+
+      // Render ONLY active examined subjects
+      container.innerHTML = subjects.map(sub => {
+        const data = subBreakdown[sub] || { score: activeAttempt.score, max: activeAttempt.maxScore, attempted: activeAttempt.attempted };
+        const subColor = sub === 'Physics' ? 'text-blue-400 border-blue-500/30 bg-blue-950/40' :
+                         sub === 'Chemistry' ? 'text-emerald-400 border-emerald-500/30 bg-emerald-950/40' :
+                         'text-amber-400 border-amber-500/30 bg-amber-950/40';
+
+        const label = sub === 'Physics' ? 'Phy Score' : sub === 'Chemistry' ? 'Chem Score' : 'Math Score';
+
+        return `
+          <div class="px-5 py-3 rounded-xl border ${subColor} flex flex-col justify-center min-w-[130px]">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-gray-300">${label}</span>
+            <div class="text-2xl font-black font-mono text-white mt-0.5">
+              ${data.score} <span class="text-xs text-gray-400">/ ${data.max || 100}</span>
+            </div>
+            <span class="text-[10px] text-gray-400 font-mono mt-0.5">${data.attempted || 0} attempted</span>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderLearningsList() {
+      const container = document.getElementById('learnings-list-container');
+      if (!container) return;
+      const learnings = activeAttempt.learnings || [];
+
+      if (learnings.length === 0) {
+        container.innerHTML = '<p class="text-xs text-gray-500 italic py-2">No learnings recorded yet. Add your takeaways below! ✍️</p>';
+        return;
+      }
+
+      container.innerHTML = learnings.map((item, idx) => `
+        <div class="p-3 rounded-xl bg-white/[0.02] border border-white/5 flex items-start justify-between gap-3 text-xs text-gray-200">
+          <div class="flex items-start gap-2">
+            <span class="text-indigo-400 mt-0.5 font-bold">💡</span>
+            <span>${item}</span>
+          </div>
+          <button onclick="removeTestLearning(${idx})" class="text-gray-500 hover:text-red-400 text-xs px-1.5 py-0.5 rounded transition" title="Delete note">✕</button>
+        </div>
+      `).join('');
+    }
+
+    function addTestLearning() {
+      const input = document.getElementById('new-learning-input');
+      const val = input.value.trim();
+      if (!val) return;
+
+      activeAttempt.learnings = activeAttempt.learnings || [];
+      activeAttempt.learnings.push(val);
+      input.value = '';
+
+      // Persist to CBT state
+      const state = CBT_STATE.load();
+      if (state.attempts[testId]) {
+        state.attempts[testId].learnings = activeAttempt.learnings;
+        CBT_STATE.save(state);
+      }
+
+      renderLearningsList();
+      CBT_STATE.toast?.("Learning saved to test records! 📝", "success");
+    }
+
+    function removeTestLearning(idx) {
+      if (!activeAttempt.learnings) return;
+      activeAttempt.learnings.splice(idx, 1);
+
+      const state = CBT_STATE.load();
+      if (state.attempts[testId]) {
+        state.attempts[testId].learnings = activeAttempt.learnings;
+        CBT_STATE.save(state);
+      }
+
+      renderLearningsList();
+      CBT_STATE.toast?.("Learning removed", "info");
+    }
+
+    function switchAnalysisTab(tabId) {
+      // Update nav styles
+      document.querySelectorAll('#analysis-nav-menu .analysis-nav-item').forEach(btn => {
+        btn.classList.toggle('active', btn.id === `nav-btn-${tabId}`);
+      });
+
+      // Update panes
+      const panes = ['overview', 'performance', 'potential', 'attempt', 'time', 'difficulty', 'journey', 'qbyq'];
+      panes.forEach(p => {
+        const pane = document.getElementById(`pane-${p}`);
+        if (pane) {
+          pane.classList.toggle('hidden', p !== tabId);
+        }
+      });
+
+      // Update main title
+      const titles = {
+        overview: 'Overview',
+        performance: 'Performance Analysis',
+        potential: 'Score Potential',
+        attempt: 'Attempt Analysis',
+        time: 'Time Analysis',
+        difficulty: 'Difficulty Analysis',
+        journey: 'Question Journey',
+        qbyq: 'Qs by Qs Analysis'
+      };
+      document.getElementById('main-tab-title').innerText = titles[tabId] || 'Diagnostics';
+
+      if (tabId === 'journey') {
+        renderJourneyChart();
+      }
+    }
+
+    function setAnalysisMode(mode) {
+      document.getElementById('toggle-personal').className = mode === 'personal'
+        ? 'flex-1 py-1.5 rounded-lg font-bold bg-indigo-600 text-white shadow transition'
+        : 'flex-1 py-1.5 rounded-lg font-bold text-gray-400 hover:text-white transition';
+
+      document.getElementById('toggle-comparative').className = mode === 'comparative'
+        ? 'flex-1 py-1.5 rounded-lg font-bold bg-indigo-600 text-white shadow transition'
+        : 'flex-1 py-1.5 rounded-lg font-bold text-gray-400 hover:text-white transition';
+
+      if (mode === 'comparative') {
+        CBT_STATE.toast?.("Displaying comparative cohort percentiles", "info");
+      }
+    }
+
+    function renderPerformanceBreakdown() {
+      const tbody = document.getElementById('performance-table-body');
+      if (!tbody) return;
+
+      const subBreakdown = activeAttempt.subjectBreakdown || {};
+      const subjects = activeAttempt.subjects || Object.keys(subBreakdown);
+
+      tbody.innerHTML = subjects.map(sub => {
+        const d = subBreakdown[sub] || { score: activeAttempt.score, max: activeAttempt.maxScore, attempted: activeAttempt.attempted, correct: 0, wrong: 0, unattempted: 0, timeMin: 0 };
+        const acc = d.attempted > 0 ? Math.round((d.correct / d.attempted) * 100) : 0;
+        const subColor = sub === 'Physics' ? 'text-blue-400' : sub === 'Chemistry' ? 'text-emerald-400' : 'text-amber-400';
+
+        return `
+          <tr class="hover:bg-white/[0.02] transition">
+            <td class="p-3.5 font-bold ${subColor}">${sub}</td>
+            <td class="p-3.5 text-center font-bold text-white">${d.score} / ${d.max || 100}</td>
+            <td class="p-3.5 text-center text-gray-300">${d.attempted}</td>
+            <td class="p-3.5 text-center text-emerald-400 font-bold">${d.correct}</td>
+            <td class="p-3.5 text-center text-red-400 font-bold">${d.wrong}</td>
+            <td class="p-3.5 text-center text-gray-500">${d.unattempted || 0}</td>
+            <td class="p-3.5 text-center ${acc >= 80 ? 'text-emerald-400 font-bold' : acc > 0 ? 'text-amber-400' : 'text-gray-500'}">${acc}%</td>
+            <td class="p-3.5 text-right text-cyan-400">${d.timeMin || 0} min</td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function renderScorePotential() {
+      const earned = activeAttempt.score || 0;
+      const wrong = activeAttempt.negativeMarks || 0;
+      const slips = wrong * 5; // Reversing -1 and getting +4 back
+      document.getElementById('pot-earned').innerText = earned;
+      document.getElementById('pot-slips').innerText = `+${slips}`;
+      document.getElementById('pot-achievable').innerText = earned + slips;
+    }
+
+    function renderAttemptPersonas() {
+      const p = activeAttempt.attemptPersonas || {};
+      document.getElementById('persona-perfect').innerText = p.perfect || 0;
+      document.getElementById('persona-wasted').innerText = p.wasted || 0;
+      document.getElementById('persona-overtime').innerText = p.overtime || 0;
+      document.getElementById('persona-confused').innerText = p.confused || 0;
+    }
+
+    function renderLatencyBars() {
+      const container = document.getElementById('latency-bar-mount');
+      if (!container) return;
+      const ql = activeAttempt.questionLatencies || [];
+
+      if (ql.length === 0) {
+        container.innerHTML = '<p class="text-xs text-gray-500 italic py-6 text-center w-full">Question latency telemetry available after real exam sessions.</p>';
+        return;
+      }
+
+      container.innerHTML = ql.map(q => {
+        const heightPct = Math.min(100, Math.max(12, Math.round((q.timeSec / 150) * 100)));
+        let color = '#10b981'; // Fast & Correct
+        if (q.status === 'wrong') color = '#ef4444';
+        else if (q.timeSec > q.targetLatencySec) color = '#f59e0b';
+        else if (q.status === 'unattempted') color = '#374151';
+
+        return `
+          <div class="latency-col" style="height: ${heightPct}%; background: ${color};" title="Q#${q.qNum}: ${q.timeSec}s (${q.status.toUpperCase()})"></div>
+        `;
+      }).join('');
+    }
+
+    function renderDifficultyCohorts() {
+      const container = document.getElementById('difficulty-cards-container');
+      if (!container) return;
+      const diff = activeAttempt.difficulty || {
+        easy: { correct: 0, wrong: 0, unattempted: 10, total: 10 },
+        moderate: { correct: 0, wrong: 0, unattempted: 10, total: 10 },
+        tough: { correct: 0, wrong: 0, unattempted: 5, total: 5 }
+      };
+
+      const cohorts = [
+        { label: "Easy Questions", data: diff.easy || {}, color: "text-emerald-400" },
+        { label: "Moderate Questions", data: diff.moderate || {}, color: "text-amber-400" },
+        { label: "Tough / Challenging", data: diff.tough || {}, color: "text-purple-400" }
+      ];
+
+      container.innerHTML = cohorts.map(c => `
+        <div class="p-4 rounded-xl bg-gray-900 border border-white/10 space-y-2">
+          <div class="text-xs font-bold ${c.color}">${c.label}</div>
+          <div class="text-2xl font-black text-white font-mono">${c.data.correct || 0} <span class="text-xs text-gray-500">/ ${c.data.total || 0} Correct</span></div>
+          <div class="text-[11px] text-gray-400 font-mono">Wrong: ${c.data.wrong || 0} • Unattempted: ${c.data.unattempted || 0}</div>
+        </div>
+      `).join('');
+    }
+
+    function renderJourneyChart() {
+      const canvas = document.getElementById('chart-journey');
+      if (!canvas) return;
+
+      if (journeyChartInstance) {
+        journeyChartInstance.destroy();
+      }
+
+      const ql = activeAttempt.questionLatencies || [];
+      const labels = ql.map(q => `Q#${q.qNum}`);
+      let runningScore = 0;
+      const scorePoints = ql.map(q => {
+        runningScore += (q.scoreDelta || 0);
+        return runningScore;
+      });
+
+      journeyChartInstance = new Chart(canvas, {
+        type: 'line',
+        data: {
+          labels: labels.length > 0 ? labels : ['Start', 'End'],
+          datasets: [{
+            label: 'Cumulative Score Progression',
+            data: scorePoints.length > 0 ? scorePoints : [0, activeAttempt.score],
+            borderColor: '#6366f1',
+            backgroundColor: 'rgba(99, 102, 241, 0.1)',
+            fill: true,
+            tension: 0.3,
+            borderWidth: 2.5,
+            pointBackgroundColor: '#818cf8',
+            pointRadius: 4
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#9ca3af' } },
+            x: { grid: { display: false }, ticks: { color: '#9ca3af' } }
+          },
+          plugins: {
+            legend: { display: false }
+          }
+        }
+      });
+    }
+
+    function filterQbyQ(filter) {
+      currentQbyQFilter = filter;
+      ['all', 'correct', 'wrong'].forEach(f => {
+        const btn = document.getElementById(`qbyq-filter-${f}`);
+        if (btn) {
+          btn.className = f === filter
+            ? 'px-3 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white'
+            : 'px-3 py-1 rounded-lg text-xs font-bold bg-gray-800 text-gray-300 hover:text-white';
+        }
+      });
+      renderQbyQTable();
+    }
+
+    function renderQbyQTable() {
+      const tbody = document.getElementById('qbyq-table-body');
+      if (!tbody) return;
+      const ql = activeAttempt.questionLatencies || [];
+
+      if (ql.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="7" class="p-6 text-center text-gray-500 italic">No per-question telemetry available yet.</td></tr>';
+        return;
+      }
+
+      const filtered = ql.filter(q => {
+        if (currentQbyQFilter === 'correct') return q.status === 'correct';
+        if (currentQbyQFilter === 'wrong') return q.status === 'wrong';
+        return true;
+      });
+
+      tbody.innerHTML = filtered.map(q => {
+        const statusBadge = q.status === 'correct' ? '<span class="text-emerald-400 font-bold">✓ Correct (+4)</span>' :
+                            q.status === 'wrong' ? '<span class="text-red-400 font-bold">✕ Wrong (-1)</span>' :
+                            '<span class="text-gray-500 font-mono">○ Unattempted (0)</span>';
+
+        return `
+          <tr class="hover:bg-white/[0.02] transition">
+            <td class="p-3 font-mono font-bold text-white">Q#${q.qNum}</td>
+            <td class="p-3 font-semibold text-gray-300">${q.subject}</td>
+            <td class="p-3 text-gray-400">Core JEE Syllabus Focus</td>
+            <td class="p-3 text-center text-gray-400 font-mono">${q.qNum > 20 ? 'Numerical' : 'Single'}</td>
+            <td class="p-3 text-center font-mono text-cyan-400">${q.timeSec}s <span class="text-[10px] text-gray-500">/ ${q.targetLatencySec}s</span></td>
+            <td class="p-3 text-center font-mono">${statusBadge}</td>
+            <td class="p-3 text-right">
+              <button onclick="viewQuestionSolution(${q.qNum})" class="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-indigo-600 text-gray-300 hover:text-white text-[11px] font-semibold transition">
+                Solution →
+              </button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function viewQuestionSolution(qNum) {
+      const modal = document.getElementById('modal-solution');
+      document.getElementById('modal-sol-title').innerText = `Solution & Explanation — Question #${qNum}`;
+      document.getElementById('modal-sol-body').innerHTML = `
+        <div class="p-3 rounded-xl bg-gray-900 border border-white/10 space-y-2">
+          <p class="font-semibold text-gray-200">Question #${qNum} addresses core JEE principles.</p>
+          <div class="p-3 rounded-lg bg-black/40 text-cyan-300 font-mono text-xs">
+            Concept Verification &amp; Step-by-Step Breakdown
+          </div>
+          <p class="text-gray-400 text-xs leading-relaxed">
+            Standard approach: identify symmetry and hybridization of central atom. Xenon in XeF4 forms 4 covalent bonds with fluorines and retains 2 axial lone pairs, resulting in square planar shape.
+          </p>
+        </div>
+      `;
+      modal.classList.remove('hidden');
+    }
+
+    function closeSolutionModal() {
+      document.getElementById('modal-solution').classList.add('hidden');
+    }
+
+    function downloadAnalysisReport() {
+      CBT_STATE.toast?.("Generating diagnostic report capture...", "info");
+      const element = document.getElementById('pane-overview');
+      if (window.html2canvas && element) {
+        html2canvas(element, { scale: 2 }).then(canvas => {
+          const a = document.createElement('a');
+          a.download = `ClockEE_Test_Report_${testId}.png`;
+          a.href = canvas.toDataURL('image/png');
+          a.click();
+          CBT_STATE.toast?.("Report downloaded! 📸", "success");
+        });
+      } else {
+        window.print();
+      }
+    }
+  </script>
+</body>
+</html>

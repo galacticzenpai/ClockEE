@@ -1,0 +1,1484 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ClockEE - Coaching Intelligence &amp; Performance</title>
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- High-Availability CDNs -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+        },
+      },
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://unpkg.com/tesseract.js@v2.1.0/dist/tesseract.min.js"></script>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+  <style>
+    :root {
+      --bg-base: #07080d;
+      --bg-surface: #10121b;
+      --bg-elevated: #161924;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-focus: rgba(99, 102, 241, 0.5);
+      --accent: #6366f1;
+      --accent-soft: rgba(99, 102, 241, 0.16);
+      --text-primary: #f3f4f6;
+      --text-secondary: #9ca3af;
+      --aura-color-1: rgba(99, 102, 241, 0.28);
+      --aura-color-2: rgba(0, 240, 255, 0.20);
+      --aura-color-3: rgba(236, 72, 153, 0.18);
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-primary);
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .mono { font-family: 'JetBrains Mono', monospace; }
+
+    .glass-card {
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: rgba(16, 18, 27, 0.7);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+    }
+
+    .nav-btn {
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      text-decoration: none;
+    }
+    .nav-btn:hover {
+      background: var(--accent-soft);
+      color: #fff;
+    }
+    .nav-btn.nav-active {
+      background: var(--accent);
+      color: #ffffff;
+      box-shadow: 0 0 15px rgba(99, 102, 241, 0.5);
+    }
+
+    .nav-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .nav-caret {
+      font-size: 0.65rem;
+      margin-left: 2px;
+      opacity: 0.7;
+      display: inline-block;
+      transition: transform 0.25s ease;
+    }
+    .nav-dropdown:hover .nav-caret {
+      transform: rotate(180deg);
+    }
+    .nav-dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      margin-top: 6px;
+      min-width: 215px;
+      background: rgba(13, 17, 26, 0.96);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      padding: 6px;
+      display: none;
+      flex-direction: column;
+      gap: 2px;
+      z-index: 100;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.85), 0 0 15px rgba(99,102,241,0.2);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .nav-dropdown:hover .nav-dropdown-menu { display: flex; }
+    .nav-dropdown-item {
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      color: #9ca3af;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+    .nav-dropdown-item:hover {
+      background: rgba(99, 102, 241, 0.22);
+      color: #00f0ff;
+      transform: translateX(2px);
+    }
+
+    .nav-icon-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .nav-icon-btn:hover {
+      border-color: #00f0ff;
+      color: #00f0ff;
+      background: rgba(0, 240, 255, 0.1);
+    }
+
+    /* Fixed Smooth Heatmap Tooltip */
+    #heatmap-tooltip {
+      position: fixed;
+      display: none;
+      pointer-events: none;
+      z-index: 99999;
+      background: rgba(9, 11, 20, 0.96);
+      border: 1px solid rgba(99, 102, 241, 0.5);
+      border-radius: 12px;
+      padding: 10px 14px;
+      color: #fff;
+      font-size: 11px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.85);
+      backdrop-filter: blur(12px);
+      max-width: 290px;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body class="relative bg-[#07080e] text-[#f8fafc]">
+<header class="sticky top-0 z-50 px-4 py-3 sm:px-6 transition-all duration-300 bg-[#080a14]/75 backdrop-blur-2xl border-b border-white/10 shadow-[0_4px_24px_rgba(0,0,0,0.65)]">
+  <div class="max-w-7xl mx-auto flex items-center justify-between gap-2 sm:gap-4">
+    <!-- Brand / Logo -->
+    <div class="nav-left flex items-center gap-3">
+      <div class="relative w-8 h-8 flex items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500/20 to-cyan-500/20 border border-white/15 shadow-[0_0_15px_rgba(99,102,241,0.25)]">
+        <svg class="w-5 h-5 text-cyan-400 animate-spin-slow" viewBox="0 0 64 64" fill="none">
+          <circle cx="32" cy="32" r="28" stroke="url(#logoGrad)" stroke-width="4" stroke-dasharray="6 6"/>
+          <path d="M32 16V32L42 42" stroke="#00f0ff" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="32" cy="32" r="4" fill="#00f0ff"/>
+          <defs>
+            <linearGradient id="logoGrad" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#00f0ff"/>
+              <stop offset="0.5" stop-color="#6366f1"/>
+              <stop offset="1" stop-color="#ec4899"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
+      <a href="index.html" class="flex items-center gap-2 cursor-pointer" style="text-decoration:none;" title="ClockEE Home Command Center">
+        <span class="text-base sm:text-lg font-extrabold tracking-tight bg-gradient-to-r from-cyan-400 via-indigo-300 to-purple-400 bg-clip-text text-transparent">ClockEE</span>
+      </a>
+    </div>
+
+    <!-- Center Nav Switchers & Dropdowns -->
+    <nav class="header-center flex items-center gap-1 sm:gap-1.5" id="main-nav">
+      <a href="index.html" class="nav-btn">Home</a>
+      <a href="task.html" class="nav-btn">Task</a>
+      <a href="today.html" class="nav-btn">Today</a>
+
+      <!-- Timer Dropdown -->
+      <div class="nav-dropdown relative inline-block">
+        <a href="timer.html" class="nav-btn">
+          Timer <span class="nav-caret">▼</span>
+        </a>
+        <div class="nav-dropdown-menu">
+          <a href="timer.html?mode=drill" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            <span>Manual Question Drill</span>
+          </a>
+          <a href="timer.html?mode=lecture" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-indigo-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>Lecture Focus Timer</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Coaching Dropdown -->
+      <div class="nav-dropdown relative inline-block">
+        <a href="coaching.html" class="nav-btn nav-active">
+          Coaching <span class="nav-caret">▼</span>
+        </a>
+        <div class="nav-dropdown-menu">
+          <a href="coaching.html?sub=syllabus" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            <span>Syllabus Covered</span>
+          </a>
+          <a href="coaching.html?sub=tests" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            <span>Test Performance &amp; OCR</span>
+          </a>
+          <a href="coaching.html?sub=logs" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M9 12h6"/><path d="M9 16h6"/></svg>
+            <span>Personal Question Log</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- CBT Portal Direct Link -->
+      <a href="cbt_home.html" class="nav-btn text-cyan-300 font-bold" style="text-decoration: none;">
+        <svg class="w-3.5 h-3.5 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        <span>CBT Portal</span>
+      </a>
+
+      <!-- Inspiration Board -->
+      <a href="inspiration.html" class="nav-btn text-amber-300 hover:text-amber-200 font-bold" style="text-decoration: none;" title="Dream Vision & Inspiration Board">
+        <svg class="w-3.5 h-3.5 text-amber-400" viewBox="0 0 24 24" fill="currentColor">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+        </svg>
+        <span>Inspiration</span>
+      </a>
+
+      <!-- Settings Dropdown -->
+      <div class="nav-dropdown relative inline-block">
+        <a href="settings.html" class="nav-btn">
+          Settings <span class="nav-caret">▼</span>
+        </a>
+        <div class="nav-dropdown-menu">
+          <a href="settings.html" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            <span>Global Settings</span>
+          </a>
+          <a href="settings.html#sec-identity" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-indigo-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <span>Profile &amp; Identity</span>
+          </a>
+          <a href="settings.html#sec-aura" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-purple-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/></svg>
+            <span>Themes &amp; Background</span>
+          </a>
+          <a href="settings.html#sec-goals" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+            <span>JEE Examination Goals</span>
+          </a>
+          <a href="settings.html#sec-milestones" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg>
+            <span>Milestones &amp; Deadlines</span>
+          </a>
+          <a href="settings.html#sec-apis" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            <span>Connected APIs</span>
+          </a>
+          <a href="settings.html#sec-data" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+            <span>Data Backup &amp; Reset</span>
+          </a>
+        </div>
+      </div>
+
+      <a href="admin.html" class="nav-btn text-purple-300 font-bold" style="text-decoration: none;">
+        <svg class="w-3.5 h-3.5 text-purple-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>Admin</span>
+      </a>
+    </nav>
+
+    <!-- Right Actions: Split Screen + Avatar Ring -->
+    <div class="nav-right flex items-center gap-3">
+      <button class="nav-icon-btn hover:border-cyan-400 hover:text-cyan-300" title="Toggle Split-Screen Quick Panel" onclick="toggleSplitScreen()">⊟</button>
+      <a href="settings.html" class="relative p-[2px] rounded-full hud-ring shadow-[0_0_15px_rgba(0,240,255,0.4)] cursor-pointer inline-block" title="Commander Profile & Settings">
+        <img
+          class="w-8 h-8 rounded-full bg-[#070913] object-cover block cursor-pointer"
+          data-profile-avatar
+          id="navAvatarImg"
+          src="https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Kunal"
+          alt="Avatar"
+        />
+      </a>
+    </div>
+  </div>
+</header>
+
+  <main class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-4 pb-12 space-y-6">
+    <!-- Header with 3 Sub-Tabs -->
+    <div class="flex items-center justify-between flex-wrap gap-4 border-b border-white/10 pb-4">
+      <div>
+        <h1 class="text-xl sm:text-2xl font-black text-white flex items-center gap-2.5">
+          <svg class="w-6 h-6 text-indigo-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          <span>Coaching Intelligence &amp; Performance</span>
+        </h1>
+        <p class="text-xs text-slate-400 font-medium">Class 11 &amp; 12 Syllabus Coverage, Single-Subject Test Stats &amp; Personal Question Logs</p>
+      </div>
+
+      <div class="flex gap-2 bg-gray-900 rounded-xl p-1 border border-white/10">
+        <button id="coaching-tab-btn-syllabus" onclick="switchCoachingTab('syllabus')" class="px-4 py-2 rounded-lg text-xs font-black uppercase tracking-wider bg-indigo-600 text-white shadow">
+          Syllabus Coverage
+        </button>
+        <button id="coaching-tab-btn-tests" onclick="switchCoachingTab('tests')" class="px-4 py-2 rounded-lg text-xs font-black uppercase tracking-wider text-slate-400 hover:text-white transition">
+          Test Performance
+        </button>
+        <button id="coaching-tab-btn-logs" onclick="switchCoachingTab('logs')" class="px-4 py-2 rounded-lg text-xs font-black uppercase tracking-wider text-slate-400 hover:text-white transition">
+          Personal Question Log
+        </button>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- SUB-TAB 1: SYLLABUS COVERED (11TH & 12TH SEPARATED) -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div id="pane-syllabus" class="space-y-4">
+      <!-- Syllabus Actions Header -->
+      <div class="flex items-center justify-between flex-wrap gap-3">
+        <div class="flex items-center gap-3">
+          <span class="text-xs text-gray-400 font-semibold">Active Syllabus: <strong id="syllabus-count-badge" class="text-white">65 Chapters</strong></span>
+          <button onclick="resetSyllabusSequence()" class="text-[11px] px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/10 text-gray-400 hover:text-cyan-300 border border-white/5 transition flex items-center gap-1" title="Reset to standard NCERT/JEE chapter sequence">
+            <span>↺</span> Reset Sequence
+          </button>
+        </div>
+        <div class="flex gap-2">
+          <button onclick="openAddChapterModal()" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-xl text-xs transition flex items-center gap-1.5 shadow">
+            <span>＋</span> Add Chapters from Master List
+          </button>
+          <button onclick="openUploadTrackerModal()" class="px-4 py-2 bg-gray-800 hover:bg-gray-700 text-cyan-300 hover:text-white font-bold rounded-xl text-xs transition border border-cyan-500/30 flex items-center gap-1.5">
+            <span>📤</span> Upload Coaching Tracker
+          </button>
+        </div>
+      </div>
+
+      <!-- Filter Bar -->
+      <div class="flex items-center justify-between flex-wrap gap-3 glass-card p-3 border border-white/10">
+        <div class="flex gap-2 flex-wrap">
+          <button onclick="setSyllabusClassFilter('all')" id="btn-class-all" class="px-3 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white">All Syllabus</button>
+          <button onclick="setSyllabusClassFilter('11')" id="btn-class-11" class="px-3 py-1 rounded-lg text-xs font-bold bg-gray-800 text-gray-300 hover:text-white">Class 11th Only</button>
+          <button onclick="setSyllabusClassFilter('12')" id="btn-class-12" class="px-3 py-1 rounded-lg text-xs font-bold bg-gray-800 text-gray-300 hover:text-white">Class 12th Only</button>
+          <span class="w-px h-5 bg-white/10 my-auto"></span>
+          <button onclick="setSyllabusSubFilter('all')" id="btn-sub-all" class="px-3 py-1 rounded-lg text-xs font-bold bg-white text-black font-extrabold shadow">All Subjects</button>
+          <button onclick="setSyllabusSubFilter('Physics')" id="btn-sub-physics" class="px-3 py-1 rounded-lg text-xs font-bold bg-blue-900/40 text-blue-300 border border-blue-500/30">Physics</button>
+          <button onclick="setSyllabusSubFilter('Chemistry')" id="btn-sub-chemistry" class="px-3 py-1 rounded-lg text-xs font-bold bg-emerald-900/40 text-emerald-300 border border-emerald-500/30">Chemistry</button>
+          <button onclick="setSyllabusSubFilter('Maths')" id="btn-sub-maths" class="px-3 py-1 rounded-lg text-xs font-bold bg-amber-900/40 text-amber-300 border border-amber-500/30">Maths</button>
+        </div>
+        <input type="text" id="syllabus-search" oninput="renderSyllabusTable()" placeholder="Search chapter..." class="bg-gray-900 border border-gray-700 text-white text-xs rounded-xl px-3 py-1.5 outline-none focus:border-indigo-500 w-44">
+      </div>
+
+      <!-- Syllabus Table -->
+      <div class="glass-card overflow-hidden border border-white/10">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-black/50 text-gray-400 uppercase font-mono text-[10px] border-b border-white/10">
+              <tr>
+                <th class="p-3.5 w-10 text-center" title="Drag to reorder sequence">⋮⋮</th>
+                <th class="p-3.5">Chapter Name</th>
+                <th class="p-3.5">Class</th>
+                <th class="p-3.5">Subject</th>
+                <th class="p-3.5 text-center">Questions Solved</th>
+                <th class="p-3.5 text-center">Accuracy %</th>
+                <th class="p-3.5 text-center">Study Time</th>
+                <th class="p-3.5 text-right">Mastery Status</th>
+              </tr>
+            </thead>
+            <tbody id="syllabus-table-body" class="divide-y divide-white/5"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- SUB-TAB 2: TEST PERFORMANCE (SINGLE-SUBJECT ACCURACY) -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div id="pane-tests" class="hidden space-y-5">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="glass-card p-4">
+          <div class="text-xs text-gray-400">Total Tests Attempted</div>
+          <div class="text-3xl font-extrabold text-white font-mono mt-1" id="stat-test-count">0</div>
+        </div>
+        <div class="glass-card p-4">
+          <div class="text-xs text-gray-400">Overall CBT Accuracy</div>
+          <div class="text-3xl font-extrabold text-emerald-400 font-mono mt-1" id="stat-test-accuracy">0%</div>
+        </div>
+        <div class="glass-card p-4">
+          <div class="text-xs text-gray-400">Average Test Score</div>
+          <div class="text-3xl font-extrabold text-indigo-400 font-mono mt-1" id="stat-test-avgscore">0</div>
+        </div>
+      </div>
+
+      <!-- Scorecard OCR Scanner (Embedded in Test Performance) -->
+      <div class="glass-card p-6 border border-white/10 space-y-4 bg-gradient-to-br from-[#0c0f1c] to-[#121626]">
+        <div class="flex items-center justify-between border-b border-white/10 pb-3">
+          <div>
+            <h3 class="text-sm font-bold text-white flex items-center gap-2"><span>📊</span> Scorecard OCR Scanner</h3>
+            <p class="text-xs text-gray-400">Upload your Allen, Resonance, PW, or NTA result card screenshot to extract marks and sync with your history.</p>
+          </div>
+          <span class="text-[10px] font-mono px-2.5 py-1 rounded-full bg-cyan-950 text-cyan-300 border border-cyan-500/30">AI OCR Active</span>
+        </div>
+
+        <div id="ocr-dropzone" onclick="document.getElementById('coaching-ocr-file').click()"
+          class="border-2 border-dashed border-gray-700 hover:border-indigo-500 rounded-2xl p-6 text-center cursor-pointer transition bg-gray-900/50">
+          <input type="file" id="coaching-ocr-file" accept="image/*" class="hidden" onchange="handleCoachingOCR(event)">
+          <div class="text-3xl mb-1.5">📁</div>
+          <div class="text-xs font-bold text-gray-200">Drop scorecard screenshot here or click to browse</div>
+          <div class="text-[10px] text-gray-500 mt-1">PNG, JPG, JPEG supported • Auto-populates subject marks</div>
+        </div>
+
+        <div id="coaching-ocr-preview-container" class="hidden text-center">
+          <img id="coaching-ocr-img" class="max-h-40 mx-auto rounded-xl border border-white/10 mb-2 shadow-lg">
+          <div id="coaching-ocr-status" class="text-xs text-cyan-400 font-mono"></div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+          <div>
+            <label class="text-[10px] text-gray-400 uppercase font-bold block mb-1">Test / Exam Name</label>
+            <input type="text" id="c-ocr-name" value="Allen JEE Advanced Part Test #2" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl p-2 text-xs outline-none focus:border-indigo-500">
+          </div>
+          <div>
+            <label class="text-[10px] text-gray-400 uppercase font-bold block mb-1">Exam Date</label>
+            <input type="date" id="c-ocr-date" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl p-2 text-xs outline-none focus:border-indigo-500">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div>
+            <label class="text-[10px] text-gray-400 uppercase font-bold block mb-1">Physics Marks</label>
+            <input type="number" id="c-ocr-phy" value="76" oninput="recalcCoachingOcrTotal()" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl p-2 text-xs outline-none">
+          </div>
+          <div>
+            <label class="text-[10px] text-gray-400 uppercase font-bold block mb-1">Chemistry Marks</label>
+            <input type="number" id="c-ocr-chem" value="84" oninput="recalcCoachingOcrTotal()" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl p-2 text-xs outline-none">
+          </div>
+          <div>
+            <label class="text-[10px] text-gray-400 uppercase font-bold block mb-1">Maths Marks</label>
+            <input type="number" id="c-ocr-math" value="66" oninput="recalcCoachingOcrTotal()" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl p-2 text-xs outline-none">
+          </div>
+          <div>
+            <label class="text-[10px] text-gray-400 uppercase font-bold block mb-1">Total Marks</label>
+            <input type="number" id="c-ocr-tot" value="226" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl p-2 text-xs outline-none font-bold text-cyan-400">
+          </div>
+        </div>
+
+        <div class="flex justify-end gap-2 pt-2 border-t border-white/5">
+          <button onclick="saveCoachingScorecard()" class="px-5 py-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl text-xs transition flex items-center gap-1.5 shadow-lg">
+            <span>💾</span> Save to Test Performance History
+          </button>
+        </div>
+      </div>
+
+      <!-- Past Mock Tests List -->
+      <div class="glass-card p-5 space-y-4 border border-white/10">
+        <div class="flex items-center justify-between border-b border-white/10 pb-3">
+          <h3 class="text-sm font-bold text-white flex items-center gap-2"><span>📝</span> Test History &amp; Scorecards</h3>
+          <a href="cbt_home.html" class="text-xs text-indigo-400 hover:text-indigo-300 font-bold">Launch ClockEE CBT Testing Hub →</a>
+        </div>
+        <div id="past-tests-container" class="space-y-3"></div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- SUB-TAB 3: PERSONAL QUESTION LOG (CBT + MANUAL TIMER) -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <div id="pane-logs" class="hidden space-y-4">
+      <div class="glass-card p-4 flex items-center justify-between flex-wrap gap-3 border border-white/10">
+        <div>
+          <h3 class="text-sm font-bold text-white flex items-center gap-2"><span>📋</span> Personal Unified Question Stream</h3>
+          <p class="text-xs text-gray-400">Every question attempt captured from CBT Testing &amp; Manual Timer Drills</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-mono px-3 py-1 rounded-full bg-cyan-950 text-cyan-300 border border-cyan-500/30" id="total-q-log-count">0 Sessions Recorded</span>
+        </div>
+      </div>
+
+      <!-- Chapter-Wise Question Matrix & Progress Aggregator -->
+      <div class="glass-card overflow-hidden border border-white/10 space-y-3 p-4">
+        <div class="flex items-center justify-between flex-wrap gap-2 pb-2 border-b border-white/10">
+          <div>
+            <h4 class="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-1.5">
+              <span>📖</span> Chapter-Wise Solved Questions Matrix (All Time)
+            </h4>
+            <p class="text-[11px] text-gray-400">Aggregates all question attempts from CBT tests, manual drills, and home quick logs</p>
+          </div>
+          <input type="text" id="chapter-matrix-search" oninput="renderChapterMatrix()" placeholder="Filter chapter..." class="bg-gray-900 border border-gray-700 text-white text-xs rounded-xl px-3 py-1 outline-none w-44">
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-black/50 text-gray-400 uppercase font-mono text-[10px] border-b border-white/10">
+              <tr>
+                <th class="p-3">Chapter Name</th>
+                <th class="p-3">Subject</th>
+                <th class="p-3 text-center">Total Solved</th>
+                <th class="p-3 text-center text-cyan-300">⚡ CBT Qs</th>
+                <th class="p-3 text-center text-indigo-300">⏱️ Normal Drill</th>
+                <th class="p-3 text-center">Accuracy %</th>
+                <th class="p-3 text-center">Deliberate Hours</th>
+                <th class="p-3 text-right">Mastery Level</th>
+              </tr>
+            </thead>
+            <tbody id="chapter-matrix-tbody" class="divide-y divide-white/5"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Log Stream Table -->
+      <div class="glass-card overflow-hidden border border-white/10">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-black/50 text-gray-400 uppercase font-mono text-[10px] border-b border-white/10">
+              <tr>
+                <th class="p-3.5">Date &amp; Time</th>
+                <th class="p-3.5">Source Engine</th>
+                <th class="p-3.5">Subject &amp; Chapter</th>
+                <th class="p-3.5 text-center">Questions Solved</th>
+                <th class="p-3.5 text-center">Score / Marks</th>
+                <th class="p-3.5 text-center">Duration</th>
+                <th class="p-3.5 text-right">Drill Action</th>
+              </tr>
+            </thead>
+            <tbody id="question-logs-table-body" class="divide-y divide-white/5"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+
+<!-- Modal: Add Chapter to Master List -->
+<div id="modal-add-syllabus-chapter" class="fixed inset-0 z-[250] bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+  <div class="glass-card p-6 w-full max-w-md border border-white/20 space-y-4 bg-[#0d101d]">
+    <div class="flex items-center justify-between border-b border-white/10 pb-3">
+      <h3 class="text-sm font-bold text-white flex items-center gap-2"><span>＋</span> Add Syllabus Chapter</h3>
+      <button onclick="closeAddChapterModal()" class="text-gray-400 hover:text-white text-base">✕</button>
+    </div>
+    <div class="space-y-3 text-xs">
+      <div>
+        <label class="block text-gray-300 font-semibold mb-1">Chapter Name</label>
+        <input type="text" id="new-ch-name" placeholder="e.g., Optical Isomerism, Fluid Dynamics" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl p-2.5 outline-none focus:border-indigo-500">
+      </div>
+      <div class="grid grid-cols-2 gap-3">
+        <div>
+          <label class="block text-gray-300 font-semibold mb-1">Subject</label>
+          <select id="new-ch-subject" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl p-2.5 outline-none focus:border-indigo-500">
+            <option value="Physics">Physics</option>
+            <option value="Chemistry">Chemistry</option>
+            <option value="Maths">Maths</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-gray-300 font-semibold mb-1">Class Level</label>
+          <select id="new-ch-class" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl p-2.5 outline-none focus:border-indigo-500">
+            <option value="11">Class 11th</option>
+            <option value="12">Class 12th</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="flex justify-end gap-2 pt-2 border-t border-white/10">
+      <button onclick="closeAddChapterModal()" class="px-4 py-2 bg-gray-800 hover:bg-gray-700 text-gray-300 rounded-xl text-xs font-semibold">Cancel</button>
+      <button onclick="saveNewChapter()" class="px-5 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-xs font-bold shadow-lg">Save Chapter</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Upload Coaching Tracker -->
+<div id="modal-upload-coaching-tracker" class="fixed inset-0 z-[250] bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+  <div class="glass-card p-6 w-full max-w-lg border border-cyan-500/40 space-y-4 bg-[#0d101d] shadow-2xl">
+    <div class="flex items-center justify-between border-b border-white/10 pb-3">
+      <h3 class="text-sm font-bold text-white flex items-center gap-2"><span>📤</span> Upload Coaching Tracker / Paste Syllabus Text</h3>
+      <button onclick="closeUploadTrackerModal()" class="text-gray-400 hover:text-white text-base">✕</button>
+    </div>
+    <p class="text-xs text-gray-400">Paste your coaching syllabus text directly (one chapter per line, bullet points, or CSV). Select default subject and class below for instant auto-classification.</p>
+    
+    <div class="grid grid-cols-2 gap-3 text-xs">
+      <div>
+        <label class="block text-gray-300 font-semibold mb-1">Default Subject</label>
+        <select id="tracker-default-sub" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl p-2.5 outline-none focus:border-cyan-400">
+          <option value="Physics">Physics</option>
+          <option value="Chemistry">Chemistry</option>
+          <option value="Maths">Maths</option>
+        </select>
+      </div>
+      <div>
+        <label class="block text-gray-300 font-semibold mb-1">Default Class</label>
+        <select id="tracker-default-cls" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl p-2.5 outline-none focus:border-cyan-400">
+          <option value="11">Class 11th</option>
+          <option value="12">Class 12th</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="space-y-3 text-xs">
+      <div>
+        <label class="block text-gray-300 font-semibold mb-1">Upload File (Optional: .txt, .csv, .json)</label>
+        <input type="file" id="tracker-file-input" accept=".csv,.txt,.json" onchange="readTrackerFile(event)" class="w-full text-xs text-gray-400 file:mr-3 file:py-1.5 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-indigo-600 file:text-white hover:file:bg-indigo-500 cursor-pointer">
+      </div>
+      <div>
+        <label class="block text-gray-300 font-semibold mb-1">Paste Syllabus Text Directly</label>
+        <textarea id="tracker-raw-text" rows="7" placeholder="Paste any syllabus format:&#10;1. Rotational Motion&#10;2. Gravitation&#10;3. Mechanical Properties of Solids&#10;&#10;Or with subjects:&#10;Physics: Kinematics 1D &amp; 2D&#10;Maths - Matrices &amp; Determinants" class="w-full bg-gray-900 border border-gray-700 text-gray-200 rounded-xl p-3 outline-none focus:border-cyan-400 font-mono text-[11px]"></textarea>
+      </div>
+    </div>
+
+    <div class="flex justify-end gap-2 pt-2 border-t border-white/10">
+      <button onclick="closeUploadTrackerModal()" class="px-4 py-2 bg-gray-800 hover:bg-gray-700 text-gray-300 rounded-xl text-xs font-semibold">Cancel</button>
+      <button onclick="processCoachingTracker()" class="px-5 py-2 bg-gradient-to-r from-cyan-600 to-indigo-600 hover:from-cyan-500 hover:to-indigo-500 text-white rounded-xl text-xs font-bold shadow-lg">✓ Import &amp; Merge Syllabus</button>
+    </div>
+  </div>
+</div>
+
+<!-- Split-Screen Slide-in Drawer -->
+<div id="split-drawer" class="fixed top-0 right-0 h-full w-[420px] max-w-[95vw] bg-[#0c0e17]/98 border-l border-white/10 z-[200] transform translate-x-full transition-transform duration-300 flex flex-col shadow-[-10px_0_40px_rgba(0,0,0,0.8)] backdrop-blur-2xl">
+  <!-- Drawer Header -->
+  <div class="flex items-center justify-between p-4 border-b border-white/10">
+    <div class="flex items-center gap-2">
+      <span class="text-indigo-400 font-bold">⚡ Focus Drawer</span>
+    </div>
+    <button onclick="toggleSplitScreen()" class="text-gray-400 hover:text-white p-1 rounded-lg hover:bg-white/5 transition">✕</button>
+  </div>
+
+  <!-- Drawer Tab Switchers -->
+  <div class="flex border-b border-white/10 bg-black/40 text-[11px] overflow-x-auto">
+    <button class="drawer-tab flex-1 py-3 px-2 font-semibold text-center text-indigo-400 hover:text-white transition whitespace-nowrap" onclick="switchDrawerTab('lectures')">🎓 Lectures</button>
+    <button class="drawer-tab flex-1 py-3 px-2 font-semibold text-center text-gray-400 hover:text-white transition whitespace-nowrap" onclick="switchDrawerTab('pdf')">📄 PDF Vault</button>
+    <button class="drawer-tab flex-1 py-3 px-2 font-semibold text-center text-gray-400 hover:text-white transition whitespace-nowrap" onclick="switchDrawerTab('audio')">🎵 Music Corner</button>
+    <button class="drawer-tab flex-1 py-3 px-2 font-semibold text-center text-gray-400 hover:text-white transition whitespace-nowrap" onclick="switchDrawerTab('ai')">🤖 AI Tutor</button>
+    <button class="drawer-tab flex-1 py-3 px-2 font-semibold text-center text-gray-400 hover:text-white transition whitespace-nowrap" onclick="switchDrawerTab('notes')">📝 Notes</button>
+  </div>
+
+  <!-- Pane: Lectures (PCM vs One-Shot with Thumbnails) -->
+  <div id="drawer-pane-lectures" class="drawer-pane flex-1 overflow-y-auto p-4 space-y-3">
+    <div id="lectures-list-container" class="space-y-3"></div>
+  </div>
+
+  <!-- Pane: PDF Vault -->
+  <div id="drawer-pane-pdf" class="drawer-pane hidden flex-1 overflow-y-auto p-4 space-y-3">
+    <div id="drive-links-list" class="space-y-3"></div>
+  </div>
+
+  <!-- Pane: AI Doubt Tutor (Gemini API Connected) -->
+  <div id="drawer-pane-ai" class="drawer-pane hidden flex-1 flex-col overflow-hidden p-4">
+    <div class="flex items-center justify-between pb-2 mb-2 border-b border-white/10">
+      <div class="flex items-center gap-1.5">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="text-xs font-bold text-white">Gemini 2.0 JEE Tutor</span>
+      </div>
+      <a href="settings.html" class="text-[10px] text-indigo-400 hover:underline">API Key in Settings →</a>
+    </div>
+    <div id="ai-chat-messages" class="flex-1 overflow-y-auto space-y-2.5 pr-1 text-xs">
+      <div class="bg-indigo-950/40 border border-indigo-500/20 rounded-xl p-3 text-indigo-200">
+        👋 Hi Kunal! I'm your JEE Tutor. Ask me any conceptual doubt from Physics, Chemistry, or Maths, or ask for problem solving steps!
+      </div>
+    </div>
+    <div class="mt-3 flex gap-2">
+      <input id="ai-doubt-input" type="text" placeholder="Ask JEE doubt..." class="flex-1 bg-gray-900 border border-gray-700 text-white rounded-xl px-3 py-2 text-xs outline-none focus:border-indigo-500" onkeydown="if(event.key==='Enter') sendAIDoubtMessage()">
+      <button onclick="sendAIDoubtMessage()" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-xs font-bold">Send</button>
+    </div>
+  </div>
+
+  <!-- Pane: Notes -->
+  <div id="drawer-pane-notes" class="drawer-pane hidden flex-1 flex-col overflow-hidden p-4 gap-2">
+    <div class="flex justify-between items-center">
+      <p class="text-xs font-bold text-gray-400 uppercase tracking-wider">Live Session Notes</p>
+      <button onclick="insertNoteTimestamp()" class="bg-gray-800 hover:bg-gray-700 text-indigo-300 px-2.5 py-1 rounded-lg text-xs font-semibold flex items-center gap-1">
+        <span>📌</span> Insert Timestamp
+      </button>
+    </div>
+    <textarea id="live-notes-area" class="flex-1 bg-gray-900 border border-gray-800 text-gray-200 rounded-xl p-3 text-xs resize-none focus:outline-none focus:border-indigo-500 font-mono leading-relaxed" placeholder="Type quick notes, formula reminders or lecture takeaways..." oninput="saveLiveNotes(this.value)"></textarea>
+  </div>
+
+  <!-- Pane: Music Only Corner (No Like/Dislike) -->
+  <div id="drawer-pane-audio" class="drawer-pane hidden flex-1 flex-col p-4 overflow-y-auto space-y-3.5">
+    <div class="flex items-center justify-between">
+      <div>
+        <h3 class="text-white font-bold text-xs flex items-center gap-1.5">
+          <span>🎵</span> Focus Music Corner
+        </h3>
+        <p class="text-[10px] text-gray-400">Distraction-Free Ambient &amp; Lo-Fi Beats</p>
+      </div>
+      <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-500/30 font-bold font-mono">Stream Active</span>
+    </div>
+
+    <!-- Active Embedded Player -->
+    <div class="rounded-xl overflow-hidden border border-white/10 bg-black aspect-video relative shadow-lg">
+      <iframe id="yt-player-iframe" class="w-full h-full"
+        src="https://www.youtube-nocookie.com/embed/jfKfPfyJRdk?enablejsapi=1"
+        title="Focus Music Player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+
+    <!-- Active Track Display (Clean, No Likes/Dislikes) -->
+    <div class="flex items-center justify-between bg-gray-900/90 border border-white/10 rounded-xl p-3">
+      <div class="truncate flex-1 mr-2">
+        <div class="text-white text-xs font-bold truncate flex items-center gap-1.5" id="yt-active-title">
+          <span>🎶</span> Lofi Girl - Relax &amp; Study Beats
+        </div>
+        <div class="text-[10px] text-gray-400 mt-0.5">Focus Radio &bull; Continuous Playback</div>
+      </div>
+      <span class="px-2 py-1 rounded bg-indigo-950 text-indigo-300 text-[10px] font-mono border border-indigo-500/30">HQ Audio</span>
+    </div>
+
+    <!-- Stations List -->
+    <div id="pinned-playlists-list" class="space-y-1.5"></div>
+  </div>
+
+    <!-- Pin Input -->
+    <div class="pt-2 border-t border-white/10">
+      <label class="text-[10px] text-gray-400 block mb-1">Pin New YouTube URL</label>
+      <div class="flex gap-2">
+        <input type="text" id="new-yt-url" placeholder="Paste YouTube Video / Playlist URL..." class="flex-1 bg-gray-900 border border-gray-700 text-white rounded-lg px-2.5 py-1 text-xs outline-none focus:border-indigo-500">
+        <button onclick="pinNewYouTubePlaylist()" class="bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold px-3 py-1 rounded-lg transition">Pin</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script src="clockee_core.js"></script>
+  <script>
+    // Comprehensive Authentic JEE 11th & 12th Syllabus Database
+    const DEFAULT_JEE_SYLLABUS = [
+      // PHYSICS 11th
+      { subject: "Physics", class: "11", name: "Basic Mathematics & Vectors" },
+      { subject: "Physics", class: "11", name: "Units, Dimensions & Errors" },
+      { subject: "Physics", class: "11", name: "Kinematics 1D & 2D" },
+      { subject: "Physics", class: "11", name: "Newton's Laws of Motion & Friction" },
+      { subject: "Physics", class: "11", name: "Work, Energy & Power" },
+      { subject: "Physics", class: "11", name: "Circular Motion" },
+      { subject: "Physics", class: "11", name: "Center of Mass & Collisions" },
+      { subject: "Physics", class: "11", name: "Rotational Dynamics" },
+      { subject: "Physics", class: "11", name: "Gravitation" },
+      { subject: "Physics", class: "11", name: "Mechanical Properties of Solids & Fluids" },
+      { subject: "Physics", class: "11", name: "Thermal Properties & Heat Transfer" },
+      { subject: "Physics", class: "11", name: "Thermodynamics & KTG" },
+      { subject: "Physics", class: "11", name: "Simple Harmonic Motion (SHM)" },
+      { subject: "Physics", class: "11", name: "Waves & Sound" },
+
+      // PHYSICS 12th
+      { subject: "Physics", class: "12", name: "Electrostatics & Gauss's Law" },
+      { subject: "Physics", class: "12", name: "Capacitance" },
+      { subject: "Physics", class: "12", name: "Current Electricity" },
+      { subject: "Physics", class: "12", name: "Moving Charges & Magnetism" },
+      { subject: "Physics", class: "12", name: "Magnetism & Matter" },
+      { subject: "Physics", class: "12", name: "Electromagnetic Induction (EMI)" },
+      { subject: "Physics", class: "12", name: "Alternating Current (AC)" },
+      { subject: "Physics", class: "12", name: "Electromagnetic Waves" },
+      { subject: "Physics", class: "12", name: "Ray Optics & Optical Instruments" },
+      { subject: "Physics", class: "12", name: "Wave Optics" },
+      { subject: "Physics", class: "12", name: "Dual Nature of Radiation & Matter" },
+      { subject: "Physics", class: "12", name: "Atomic Physics" },
+      { subject: "Physics", class: "12", name: "Nuclear Physics" },
+      { subject: "Physics", class: "12", name: "Semiconductors & Logic Gates" },
+
+      // CHEMISTRY 11th
+      { subject: "Chemistry", class: "11", name: "Some Basic Concepts of Chemistry (Mole Concept)" },
+      { subject: "Chemistry", class: "11", name: "Structure of Atom" },
+      { subject: "Chemistry", class: "11", name: "Classification of Elements & Periodicity" },
+      { subject: "Chemistry", class: "11", name: "Chemical Bonding & Molecular Structure" },
+      { subject: "Chemistry", class: "11", name: "States of Matter (Gases & Liquids)" },
+      { subject: "Chemistry", class: "11", name: "Chemical Thermodynamics" },
+      { subject: "Chemistry", class: "11", name: "Chemical & Ionic Equilibrium" },
+      { subject: "Chemistry", class: "11", name: "Redox Reactions" },
+      { subject: "Chemistry", class: "11", name: "Hydrogen & s-Block Elements" },
+      { subject: "Chemistry", class: "11", name: "p-Block Elements (Group 13 & 14)" },
+      { subject: "Chemistry", class: "11", name: "Organic Chemistry: Basic Principles (GOC)" },
+      { subject: "Chemistry", class: "11", name: "Hydrocarbons" },
+
+      // CHEMISTRY 12th
+      { subject: "Chemistry", class: "12", name: "Solid State" },
+      { subject: "Chemistry", class: "12", name: "Solutions" },
+      { subject: "Chemistry", class: "12", name: "Electrochemistry" },
+      { subject: "Chemistry", class: "12", name: "Chemical Kinetics" },
+      { subject: "Chemistry", class: "12", name: "Surface Chemistry" },
+      { subject: "Chemistry", class: "12", name: "p-Block Elements (Group 15 to 18)" },
+      { subject: "Chemistry", class: "12", name: "d- and f-Block Elements" },
+      { subject: "Chemistry", class: "12", name: "Coordination Compounds" },
+      { subject: "Chemistry", class: "12", name: "Haloalkanes and Haloarenes" },
+      { subject: "Chemistry", class: "12", name: "Alcohols, Phenols and Ethers" },
+      { subject: "Chemistry", class: "12", name: "Aldehydes, Ketones and Carboxylic Acids" },
+      { subject: "Chemistry", class: "12", name: "Amines & Biomolecules" },
+
+      // MATHS 11th
+      { subject: "Maths", class: "11", name: "Sets, Relations & Functions" },
+      { subject: "Maths", class: "11", name: "Trigonometric Functions & Equations" },
+      { subject: "Maths", class: "11", name: "Complex Numbers & Quadratic Equations" },
+      { subject: "Maths", class: "11", name: "Linear Inequalities" },
+      { subject: "Maths", class: "11", name: "Permutations and Combinations" },
+      { subject: "Maths", class: "11", name: "Binomial Theorem" },
+      { subject: "Maths", class: "11", name: "Sequences and Series" },
+      { subject: "Maths", class: "11", name: "Straight Lines & Pair of Lines" },
+      { subject: "Maths", class: "11", name: "Conic Sections (Circles, Parabola, Ellipse, Hyperbola)" },
+      { subject: "Maths", class: "11", name: "Limits & Derivatives (Foundations)" },
+      { subject: "Maths", class: "11", name: "Mathematical Reasoning & Statistics" },
+
+      // MATHS 12th
+      { subject: "Maths", class: "12", name: "Relations & Functions (Advanced)" },
+      { subject: "Maths", class: "12", name: "Inverse Trigonometric Functions" },
+      { subject: "Maths", class: "12", name: "Matrices & Determinants" },
+      { subject: "Maths", class: "12", name: "Continuity & Differentiability" },
+      { subject: "Maths", class: "12", name: "Application of Derivatives (AOD)" },
+      { subject: "Maths", class: "12", name: "Indefinite & Definite Integrals" },
+      { subject: "Maths", class: "12", name: "Application of Integrals (Area Under Curve)" },
+      { subject: "Maths", class: "12", name: "Differential Equations" },
+      { subject: "Maths", class: "12", name: "Vector Algebra" },
+      { subject: "Maths", class: "12", name: "Three Dimensional Geometry (3D)" },
+      { subject: "Maths", class: "12", name: "Probability & Bayes' Theorem" },
+      { subject: "Maths", class: "12", name: "Linear Programming" }
+    ];
+
+    function getCustomSyllabus() {
+      try {
+        const stored = localStorage.getItem('clockee_custom_syllabus_v2');
+        return stored ? JSON.parse(stored) : [];
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function getSyllabusOrder() {
+      try {
+        const stored = localStorage.getItem('clockee_syllabus_order_v1');
+        return stored ? JSON.parse(stored) : null;
+      } catch (e) {
+        return null;
+      }
+    }
+
+    function getAllSyllabus() {
+      const custom = getCustomSyllabus();
+      const combined = [...DEFAULT_JEE_SYLLABUS, ...custom];
+      const savedOrder = getSyllabusOrder();
+      if (savedOrder && Array.isArray(savedOrder) && savedOrder.length > 0) {
+        const orderMap = new Map();
+        savedOrder.forEach((name, idx) => orderMap.set(name.toLowerCase(), idx));
+        combined.sort((a, b) => {
+          const idxA = orderMap.has(a.name.toLowerCase()) ? orderMap.get(a.name.toLowerCase()) : 99999;
+          const idxB = orderMap.has(b.name.toLowerCase()) ? orderMap.get(b.name.toLowerCase()) : 99999;
+          return idxA - idxB;
+        });
+      }
+      return combined;
+    }
+
+    // Draggable Chapter Sequence Handlers
+    let draggedChapterName = null;
+    window.handleSyllabusDragStart = function(e, chName) {
+      draggedChapterName = chName;
+      e.dataTransfer.effectAllowed = 'move';
+      e.dataTransfer.setData('text/plain', chName);
+      if (e.currentTarget) e.currentTarget.classList.add('opacity-40', 'bg-indigo-950/40');
+    };
+
+    window.handleSyllabusDragOver = function(e) {
+      e.preventDefault();
+      e.dataTransfer.dropEffect = 'move';
+    };
+
+    window.handleSyllabusDrop = function(e, targetChName) {
+      e.preventDefault();
+      if (!draggedChapterName || draggedChapterName === targetChName) return;
+      const full = getAllSyllabus();
+      const names = full.map(c => c.name);
+      const fromIdx = names.indexOf(draggedChapterName);
+      const toIdx = names.indexOf(targetChName);
+      if (fromIdx !== -1 && toIdx !== -1) {
+        names.splice(fromIdx, 1);
+        names.splice(toIdx, 0, draggedChapterName);
+        localStorage.setItem('clockee_syllabus_order_v1', JSON.stringify(names));
+        renderSyllabusTable();
+        window.showToast?.(`Sequence updated: moved "${draggedChapterName}"! 📌`, 'info');
+      }
+    };
+
+    window.handleSyllabusDragEnd = function(e) {
+      if (e.currentTarget) e.currentTarget.classList.remove('opacity-40', 'bg-indigo-950/40');
+      draggedChapterName = null;
+    };
+
+    window.resetSyllabusSequence = function() {
+      localStorage.removeItem('clockee_syllabus_order_v1');
+      renderSyllabusTable();
+      window.showToast?.('Reset syllabus sequence to default! 🔄', 'info');
+    };
+
+    let currentClassFilter = 'all';
+    let currentSubFilter = 'all';
+
+    function switchCoachingTab(tab) {
+      ['syllabus', 'tests', 'logs'].forEach(t => {
+        const pane = document.getElementById(`pane-${t}`);
+        const btn = document.getElementById(`coaching-tab-btn-${t}`);
+        if (t === tab) {
+          pane.classList.remove('hidden');
+          btn.className = 'px-4 py-1.5 rounded-lg text-xs font-bold bg-indigo-600 text-white shadow';
+        } else {
+          pane.classList.add('hidden');
+          btn.className = 'px-4 py-1.5 rounded-lg text-xs font-bold text-gray-400 hover:text-white';
+        }
+      });
+      if (tab === 'syllabus') renderSyllabusTable();
+      if (tab === 'tests') renderTestPerformance();
+      if (tab === 'logs') {
+        renderChapterMatrix();
+        renderPersonalQuestionLogs();
+      }
+    }
+
+    function setSyllabusClassFilter(cls) {
+      currentClassFilter = cls;
+      ['all', '11', '12'].forEach(c => {
+        const btn = document.getElementById(`btn-class-${c}`);
+        btn.className = c === cls ? 'px-3 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white' : 'px-3 py-1 rounded-lg text-xs font-bold bg-gray-800 text-gray-300 hover:text-white';
+      });
+      renderSyllabusTable();
+    }
+
+    function setSyllabusSubFilter(sub) {
+      currentSubFilter = sub;
+      ['all', 'physics', 'chemistry', 'maths'].forEach(s => {
+        const btn = document.getElementById(`btn-sub-${s}`);
+        const isActive = (s === 'all' && sub === 'all') || (s.toLowerCase() === sub.toLowerCase());
+        btn.className = isActive ? 'px-3 py-1 rounded-lg text-xs font-bold bg-white text-black font-extrabold shadow' :
+          s === 'physics' ? 'px-3 py-1 rounded-lg text-xs font-bold bg-blue-900/40 text-blue-300 border border-blue-500/30' :
+          s === 'chemistry' ? 'px-3 py-1 rounded-lg text-xs font-bold bg-emerald-900/40 text-emerald-300 border border-emerald-500/30' :
+          s === 'maths' ? 'px-3 py-1 rounded-lg text-xs font-bold bg-amber-900/40 text-amber-300 border border-amber-500/30' :
+          'px-3 py-1 rounded-lg text-xs font-bold bg-white/10 text-white';
+      });
+      renderSyllabusTable();
+    }
+
+    function renderSyllabusTable() {
+      const tbody = document.getElementById('syllabus-table-body');
+      if (!tbody) return;
+      const s = window.getState();
+      const stats = s.chapterStats || {};
+      const q = (document.getElementById('syllabus-search')?.value || '').toLowerCase();
+      const fullList = getAllSyllabus();
+
+      const countBadge = document.getElementById('syllabus-count-badge');
+      if (countBadge) countBadge.textContent = `${fullList.length} Chapters`;
+
+      const filtered = fullList.filter(item => {
+        if (currentClassFilter !== 'all' && item.class !== currentClassFilter) return false;
+        if (currentSubFilter !== 'all' && item.subject.toLowerCase() !== currentSubFilter.toLowerCase()) return false;
+        if (q && !item.name.toLowerCase().includes(q)) return false;
+        return true;
+      });
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="8" class="p-6 text-center text-gray-500 italic">No syllabus chapters matched your filters.</td></tr>';
+        return;
+      }
+
+      tbody.innerHTML = filtered.map(ch => {
+        const st = stats[ch.name] || { solved: 0, correct: 0, hours: 0 };
+        const acc = st.solved > 0 ? Math.round((st.correct / st.solved) * 100) : 0;
+        const currentStatus = st.status || (st.solved >= 25 && acc >= 80 ? 'done' : (st.solved > 0 ? 'in_progress' : 'upcoming'));
+        const isDone = currentStatus === 'done';
+
+        const statusColor = currentStatus === 'done' ? 'text-emerald-300 bg-emerald-950/70 border-emerald-500/40' :
+                            currentStatus === 'in_progress' ? 'text-amber-300 bg-amber-950/70 border-amber-500/40' :
+                            currentStatus === 'upcoming' ? 'text-cyan-300 bg-cyan-950/70 border-cyan-500/40' :
+                            'text-gray-400 bg-gray-900 border-gray-700';
+
+        const subColor = ch.subject === 'Physics' ? 'text-blue-400' : ch.subject === 'Chemistry' ? 'text-emerald-400' : 'text-amber-400';
+        const safeName = ch.name.replace(/'/g, "\\'");
+
+        return `
+          <tr draggable="true" ondragstart="handleSyllabusDragStart(event, '${safeName}')" ondragover="handleSyllabusDragOver(event)" ondrop="handleSyllabusDrop(event, '${safeName}')" ondragend="handleSyllabusDragEnd(event)" class="hover:bg-white/[0.04] transition group cursor-default">
+            <td class="p-3.5 text-center text-gray-500 hover:text-cyan-400 cursor-grab active:cursor-grabbing font-mono text-base select-none" title="Drag to reorder sequence">⋮⋮</td>
+            <td class="p-3.5 font-semibold text-gray-200">
+              <div class="flex items-center gap-2">
+                <button type="button" onclick="toggleChapterDone('${safeName}')" class="text-sm transition-transform hover:scale-125 focus:outline-none" title="Quick Toggle Done / In Progress">
+                  ${isDone ? '✅' : '⬜'}
+                </button>
+                <span>${ch.name}</span>
+              </div>
+            </td>
+            <td class="p-3.5 font-mono text-gray-400">Class ${ch.class}th</td>
+            <td class="p-3.5 font-bold ${subColor}">${ch.subject}</td>
+            <td class="p-3.5 text-center font-mono font-bold text-white">${st.solved}</td>
+            <td class="p-3.5 text-center font-mono ${acc >= 80 ? 'text-emerald-400 font-bold' : acc > 0 ? 'text-amber-400' : 'text-gray-500'}">${st.solved > 0 ? acc + '%' : '—'}</td>
+            <td class="p-3.5 text-center font-mono text-cyan-400">${st.hours || 0} hrs</td>
+            <td class="p-3.5 text-right">
+              <select onchange="updateChapterStatus('${safeName}', this.value)" class="border text-[11px] font-semibold rounded-lg px-2.5 py-1 outline-none transition cursor-pointer ${statusColor}">
+                <option value="done" ${currentStatus === 'done' ? 'selected' : ''}>✓ Already Done</option>
+                <option value="in_progress" ${currentStatus === 'in_progress' ? 'selected' : ''}>🔄 In Process</option>
+                <option value="upcoming" ${currentStatus === 'upcoming' ? 'selected' : ''}>📅 Upcoming</option>
+                <option value="skipped" ${currentStatus === 'skipped' ? 'selected' : ''}>⏭️ Skipped</option>
+              </select>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    window.updateChapterStatus = function(chName, val) {
+      const s = window.getState();
+      s.chapterStats = s.chapterStats || {};
+      if (!s.chapterStats[chName]) s.chapterStats[chName] = { solved: 0, correct: 0, hours: 0 };
+      s.chapterStats[chName].status = val;
+      window.saveState();
+      renderSyllabusTable();
+      window.showToast?.(`Updated "${chName}" to ${val.replace('_', ' ').toUpperCase()}`, 'success');
+    };
+
+    window.toggleChapterDone = function(chName) {
+      const s = window.getState();
+      s.chapterStats = s.chapterStats || {};
+      if (!s.chapterStats[chName]) s.chapterStats[chName] = { solved: 0, correct: 0, hours: 0 };
+      const cur = s.chapterStats[chName].status;
+      s.chapterStats[chName].status = cur === 'done' ? 'in_progress' : 'done';
+      window.saveState();
+      renderSyllabusTable();
+      window.showToast?.(`Toggled "${chName}" status`, 'info');
+    };
+
+    function renderTestPerformance() {
+      const container = document.getElementById('past-tests-container');
+      if (!container) return;
+      const s = window.getState();
+      const tests = s.mockTests || [];
+
+      document.getElementById('stat-test-count').textContent = tests.length;
+      if (tests.length === 0) {
+        document.getElementById('stat-test-accuracy').textContent = '0%';
+        document.getElementById('stat-test-avgscore').textContent = '0';
+        container.innerHTML = '<p class="text-xs text-gray-500 italic py-6 text-center">No CBT mock tests completed yet. Start an authentic drill in the CBT Portal! ⚡</p>';
+        return;
+      }
+
+      let totalAcc = 0;
+      let totalSc = 0;
+      tests.forEach(t => {
+        totalAcc += (t.accuracy !== undefined ? t.accuracy : 90);
+        totalSc += (t.totalScore || t.score || 0);
+      });
+      document.getElementById('stat-test-accuracy').textContent = Math.round(totalAcc / tests.length) + '%';
+      document.getElementById('stat-test-avgscore').textContent = Math.round(totalSc / tests.length);
+
+      container.innerHTML = tests.map(t => {
+        const subjects = t.subjects || (t.scores ? Object.keys(t.scores) : ['Physics']);
+        const isSingleSubject = subjects.length === 1;
+
+        let breakdownHtml = '';
+        if (isSingleSubject) {
+          const sub = subjects[0];
+          const sc = t.scores ? t.scores[sub] : t.totalScore;
+          breakdownHtml = `
+            <div class="px-3 py-1.5 rounded-xl bg-blue-950/60 border border-blue-500/30 text-xs flex items-center gap-2">
+              <span class="text-blue-300 font-bold">${sub} Focus Score:</span>
+              <span class="font-mono font-extrabold text-white">${sc} / ${t.maxScore || 100}</span>
+            </div>
+          `;
+        } else {
+          breakdownHtml = `
+            <div class="flex gap-2 flex-wrap text-xs font-mono">
+              ${t.scores?.Physics !== undefined ? `<span class="px-2 py-1 rounded bg-blue-900/40 text-blue-300">Phy: ${t.scores.Physics}</span>` : ''}
+              ${t.scores?.Chemistry !== undefined ? `<span class="px-2 py-1 rounded bg-emerald-900/40 text-emerald-300">Chem: ${t.scores.Chemistry}</span>` : ''}
+              ${t.scores?.Maths !== undefined ? `<span class="px-2 py-1 rounded bg-amber-900/40 text-amber-300">Math: ${t.scores.Maths}</span>` : ''}
+            </div>
+          `;
+        }
+
+        return `
+          <div class="p-4 rounded-xl bg-gray-900/90 border border-white/10 flex items-center justify-between flex-wrap gap-3">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-sm font-bold text-white">${t.name}</span>
+                <span class="text-[10px] px-2 py-0.5 rounded-full ${isSingleSubject ? 'bg-indigo-900 text-indigo-300 border border-indigo-500/30' : 'bg-purple-900 text-purple-300 border border-purple-500/30'} font-bold">
+                  ${isSingleSubject ? `${subjects[0]} Single-Subject Drill` : 'Full PCM Exam'}
+                </span>
+              </div>
+              <div class="text-xs text-gray-400 mt-1 flex items-center gap-3">
+                <span>📅 ${t.date}</span>
+                <span>⏱️ ${Math.round((t.durationSec || 1800) / 60)} mins</span>
+                <span class="text-emerald-400 font-bold font-mono">Accuracy: ${t.accuracy || 90}%</span>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-4">
+              ${breakdownHtml}
+              <div class="text-right">
+                <div class="text-lg font-extrabold font-mono text-cyan-400">${t.totalScore || t.score} <span class="text-xs text-gray-500">/ ${t.maxScore || 300}</span></div>
+                <a href="cbt_analysis.html?testId=${encodeURIComponent(t.id || '')}" class="text-[11px] text-indigo-400 hover:underline">Diagnostics →</a>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Unified Chapter-Wise Question Matrix (CBT vs Drill Breakdown)
+    function renderChapterMatrix() {
+      const tbody = document.getElementById('chapter-matrix-tbody');
+      if (!tbody) return;
+      const s = window.getState();
+      const stats = s.chapterStats || {};
+      const logs = s.questionLogs || [];
+      const q = (document.getElementById('chapter-matrix-search')?.value || '').toLowerCase();
+      const allCh = getAllSyllabus();
+
+      // Aggregate dynamic stats from question logs
+      const logAgg = {};
+      logs.forEach(l => {
+        if (!l.chapter) return;
+        if (!logAgg[l.chapter]) {
+          logAgg[l.chapter] = { totalCount: 0, cbtCount: 0, drillCount: 0, lastDate: l.date, durationMin: 0 };
+        }
+        const qCount = (l.questions || l.totalQs || 1);
+        logAgg[l.chapter].totalCount += qCount;
+        if (l.source === 'cbt') {
+          logAgg[l.chapter].cbtCount += qCount;
+        } else {
+          logAgg[l.chapter].drillCount += qCount;
+        }
+        logAgg[l.chapter].durationMin += (l.durationMs ? Math.round(l.durationMs / 60000) : (l.durationSec ? Math.round(l.durationSec / 60) : 5));
+        if (l.date > logAgg[l.chapter].lastDate) logAgg[l.chapter].lastDate = l.date;
+      });
+
+      // Also merge CBT attempts from CBT database if available
+      try {
+        const cbtRaw = localStorage.getItem("clockee_cbt_master_v3");
+        if (cbtRaw) {
+          const cbtData = JSON.parse(cbtRaw);
+          (cbtData.attempts || []).forEach(att => {
+            const chap = att.chapter || att.testTitle || "";
+            if (chap) {
+              if (!logAgg[chap]) logAgg[chap] = { totalCount: 0, cbtCount: 0, drillCount: 0, lastDate: att.date || '—', durationMin: 0 };
+              const attQs = (att.totalQs || 25);
+              logAgg[chap].cbtCount += attQs;
+              logAgg[chap].totalCount += attQs;
+            }
+          });
+        }
+      } catch (err) {}
+
+      const filtered = allCh.filter(ch => !q || ch.name.toLowerCase().includes(q) || ch.subject.toLowerCase().includes(q));
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="8" class="p-6 text-center text-gray-500 italic">No matching chapters found.</td></tr>';
+        return;
+      }
+
+      tbody.innerHTML = filtered.map(ch => {
+        const st = stats[ch.name] || { solved: 0, correct: 0, hours: 0 };
+        const la = logAgg[ch.name] || { totalCount: 0, cbtCount: 0, drillCount: 0, lastDate: '—', durationMin: 0 };
+        const totalSolved = Math.max(st.solved, la.totalCount);
+        const cbtCount = la.cbtCount;
+        const drillCount = Math.max(0, totalSolved - cbtCount);
+
+        const acc = st.solved > 0 ? Math.round((st.correct / st.solved) * 100) : (totalSolved > 0 ? 88 : 0);
+        const hours = (st.hours || 0) + (Math.round((la.durationMin / 60) * 10) / 10);
+        const subColor = ch.subject === 'Physics' ? 'text-blue-400' : ch.subject === 'Chemistry' ? 'text-emerald-400' : 'text-amber-400';
+
+        let badge = '<span class="text-gray-500 font-mono text-[11px]">⬜ Not Started</span>';
+        if (totalSolved >= 40 && acc >= 80) {
+          badge = '<span class="px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-400 border border-emerald-500/30 font-bold font-mono text-[10px]">★ Mastered</span>';
+        } else if (totalSolved > 0) {
+          badge = '<span class="px-2 py-0.5 rounded-full bg-amber-950 text-amber-400 border border-amber-500/30 font-bold font-mono text-[10px]">📈 Practicing</span>';
+        }
+
+        return `
+          <tr class="hover:bg-white/[0.02] transition">
+            <td class="p-3 font-semibold text-gray-200">${ch.name}</td>
+            <td class="p-3 font-bold ${subColor}">${ch.subject}</td>
+            <td class="p-3 text-center font-mono font-bold text-white">${totalSolved}</td>
+            <td class="p-3 text-center font-mono font-bold text-cyan-300 bg-cyan-950/20">${cbtCount}</td>
+            <td class="p-3 text-center font-mono font-bold text-indigo-300 bg-indigo-950/20">${drillCount}</td>
+            <td class="p-3 text-center font-mono ${acc >= 80 ? 'text-emerald-400 font-bold' : acc > 0 ? 'text-amber-400' : 'text-gray-500'}">${totalSolved > 0 ? acc + '%' : '—'}</td>
+            <td class="p-3 text-center font-mono text-cyan-400">${hours.toFixed(1)} hrs</td>
+            <td class="p-3 text-right">${badge}</td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function renderPersonalQuestionLogs() {
+      const tbody = document.getElementById('question-logs-table-body');
+      if (!tbody) return;
+      const s = window.getState();
+      const logs = (s.questionLogs || []).slice().reverse();
+
+      document.getElementById('total-q-log-count').textContent = `${logs.length} Sessions Logged`;
+      if (logs.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="7" class="p-6 text-center text-gray-500 italic">No question sessions recorded yet. Launch a drill in Timer or CBT Portal! ⚡</td></tr>';
+        return;
+      }
+
+      tbody.innerHTML = logs.map(l => {
+        const isCbt = l.source === 'cbt';
+        const sourceBadge = isCbt
+          ? '<span class="px-2.5 py-1 rounded-full bg-cyan-950 text-cyan-300 border border-cyan-500/30 font-bold text-[10px]">⚡ CBT Exam</span>'
+          : '<span class="px-2.5 py-1 rounded-full bg-indigo-950 text-indigo-300 border border-indigo-500/30 font-bold text-[10px]">⏱️ Manual Timer</span>';
+
+        const durationMin = l.durationMs ? Math.round(l.durationMs / 60000) : (l.durationSec ? Math.round(l.durationSec / 60) : 1);
+        const subColor = l.subject === 'Physics' ? 'text-blue-400' : l.subject === 'Chemistry' ? 'text-emerald-400' : 'text-amber-400';
+
+        return `
+          <tr class="hover:bg-white/[0.02] transition">
+            <td class="p-3.5 font-mono text-gray-300">${l.date}</td>
+            <td class="p-3.5">${sourceBadge}</td>
+            <td class="p-3.5">
+              <span class="font-bold ${subColor}">${l.subject}</span>
+              <span class="text-gray-400 block text-[11px] truncate max-w-xs">${l.chapter || 'Session Practice'}</span>
+            </td>
+            <td class="p-3.5 text-center font-mono font-bold text-white">${l.questions || l.totalQs || 1}</td>
+            <td class="p-3.5 text-center font-mono text-indigo-400 font-bold">${l.score !== undefined ? (l.score >= 0 ? '+' : '') + l.score : '—'}</td>
+            <td class="p-3.5 text-center font-mono text-gray-300">${durationMin} mins</td>
+            <td class="p-3.5 text-right">
+              <a href="timer.html" class="text-[11px] bg-white/5 hover:bg-indigo-600 text-gray-300 hover:text-white px-2.5 py-1 rounded-lg transition">Repeat Drill</a>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    // Modal Operations
+    function openAddChapterModal() {
+      document.getElementById('modal-add-syllabus-chapter').classList.remove('hidden');
+    }
+    function closeAddChapterModal() {
+      document.getElementById('modal-add-syllabus-chapter').classList.add('hidden');
+    }
+    function saveNewChapter() {
+      const name = document.getElementById('new-ch-name').value.trim();
+      const subject = document.getElementById('new-ch-subject').value;
+      const cls = document.getElementById('new-ch-class').value;
+
+      if (!name) {
+        window.showToast?.('Please enter a chapter name', 'error');
+        return;
+      }
+
+      const custom = getCustomSyllabus();
+      custom.push({ subject, class: cls, name });
+      localStorage.setItem('clockee_custom_syllabus_v2', JSON.stringify(custom));
+
+      document.getElementById('new-ch-name').value = '';
+      closeAddChapterModal();
+      renderSyllabusTable();
+      renderChapterMatrix();
+      window.showToast?.(`Added "${name}" to ${subject} syllabus! 📚`, 'success');
+    }
+
+    function openUploadTrackerModal() {
+      document.getElementById('modal-upload-coaching-tracker').classList.remove('hidden');
+    }
+    function closeUploadTrackerModal() {
+      document.getElementById('modal-upload-coaching-tracker').classList.add('hidden');
+    }
+    function readTrackerFile(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        document.getElementById('tracker-raw-text').value = evt.target.result;
+      };
+      reader.readAsText(file);
+    }
+    function processCoachingTracker() {
+      const raw = document.getElementById('tracker-raw-text').value.trim();
+      if (!raw) {
+        window.showToast?.('Please paste some syllabus text or upload a file first', 'error');
+        return;
+      }
+
+      const defaultSub = document.getElementById('tracker-default-sub')?.value || 'Physics';
+      const defaultCls = document.getElementById('tracker-default-cls')?.value || '11';
+
+      const lines = raw.split(/\r?\n/);
+      let count = 0;
+      const s = window.getState();
+      s.chapterStats = s.chapterStats || {};
+      const custom = getCustomSyllabus();
+
+      lines.forEach(rawLine => {
+        let line = rawLine.trim();
+        if (!line) return;
+
+        // Skip pure header or section banner lines like "--- CLASS 11 PHYSICS ---"
+        if (/^[-=*#_~]{3,}/.test(line)) return;
+
+        let chName = '';
+        let sub = defaultSub;
+        let cls = defaultCls;
+        let solved = 0;
+
+        // Check if line is CSV / comma-separated
+        if (line.includes(',')) {
+          const parts = line.split(',').map(p => p.trim());
+          chName = parts[0];
+          if (parts[1]) {
+            const p1 = parts[1].toLowerCase();
+            if (p1.includes('phy')) sub = 'Physics';
+            else if (p1.includes('chem')) sub = 'Chemistry';
+            else if (p1.includes('math')) sub = 'Maths';
+            else sub = parts[1];
+          }
+          if (parts[2]) {
+            if (parts[2].includes('12')) cls = '12';
+            else if (parts[2].includes('11')) cls = '11';
+          }
+          if (parts[3]) {
+            const num = parseInt(parts[3].replace(/[^\d]/g, ''), 10);
+            if (!isNaN(num)) solved = num;
+          }
+        } else {
+          // Plain text / bulleted line / colon / dash format
+          // Check for subject prefix e.g. "Physics: Kinematics" or "Maths - Matrices"
+          const subMatch = line.match(/^(physics|chemistry|maths|math)\s*[:\-\|]\s*(.*)$/i);
+          if (subMatch) {
+            const sText = subMatch[1].toLowerCase();
+            if (sText.startsWith('phy')) sub = 'Physics';
+            else if (sText.startsWith('chem')) sub = 'Chemistry';
+            else if (sText.startsWith('math')) sub = 'Maths';
+            line = subMatch[2].trim();
+          }
+
+          // Check for class indicators in brackets or text
+          if (/\b(class\s*12|12th)\b/i.test(line)) cls = '12';
+          else if (/\b(class\s*11|11th)\b/i.test(line)) cls = '11';
+
+          // Check for solved count indicator e.g. "(45 solved)" or "[30]" or "Q: 25"
+          const solvedMatch = line.match(/[\(\[\{]\s*(\d+)\s*(?:solved|questions|q)?\s*[\)\]\}]/i) || line.match(/(?:solved|questions|q)\s*[:=\-]\s*(\d+)/i);
+          if (solvedMatch) {
+            solved = parseInt(solvedMatch[1], 10);
+          }
+
+          // Strip leading numbering e.g. "1.", "12)", "Q1:", "- ", "* "
+          line = line.replace(/^[\d]+[\.\)\:\-]\s*/, '');
+          line = line.replace(/^[-*•►✓✔\s]+/, '');
+          // Clean trailing annotations
+          line = line.replace(/[\(\[\{][^\)\]\}]*[\)\]\}]$/, '').trim();
+          chName = line.trim();
+        }
+
+        if (!chName || chName.length < 2) return;
+
+        // Check if chapter already exists in default or custom syllabus
+        const alreadyInCustom = custom.some(c => c.name.toLowerCase() === chName.toLowerCase());
+        const alreadyInDefault = DEFAULT_JEE_SYLLABUS.some(c => c.name.toLowerCase() === chName.toLowerCase());
+
+        if (!alreadyInCustom && !alreadyInDefault) {
+          custom.push({ subject: sub, class: cls, name: chName });
+        }
+
+        // Update chapterStats
+        if (!s.chapterStats[chName]) {
+          s.chapterStats[chName] = { solved: solved, correct: Math.round(solved * 0.85), hours: Math.round(solved * 0.1), status: solved > 0 ? 'in_progress' : 'upcoming' };
+        } else if (solved > 0) {
+          s.chapterStats[chName].solved = Math.max(s.chapterStats[chName].solved, solved);
+        }
+        count++;
+      });
+
+      localStorage.setItem('clockee_custom_syllabus_v2', JSON.stringify(custom));
+      window.saveState();
+      closeUploadTrackerModal();
+      renderSyllabusTable();
+      renderChapterMatrix();
+      window.showToast?.(`Successfully imported & synced ${count} syllabus chapters! 🚀`, 'success');
+    }
+
+    // Scorecard OCR
+    function recalcCoachingOcrTotal() {
+      const p = parseInt(document.getElementById('c-ocr-phy').value || '0', 10);
+      const c = parseInt(document.getElementById('c-ocr-chem').value || '0', 10);
+      const m = parseInt(document.getElementById('c-ocr-math').value || '0', 10);
+      document.getElementById('c-ocr-tot').value = p + c + m;
+    }
+
+    function handleCoachingOCR(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const preview = document.getElementById('coaching-ocr-preview-container');
+      const img = document.getElementById('coaching-ocr-img');
+      const status = document.getElementById('coaching-ocr-status');
+
+      preview.classList.remove('hidden');
+      img.src = URL.createObjectURL(file);
+      status.textContent = '🔍 Scanning scorecard with OCR...';
+
+      if (window.Tesseract) {
+        window.Tesseract.recognize(file, 'eng')
+          .then(result => {
+            const text = result.data.text || '';
+            status.textContent = '✅ Scorecard analyzed successfully!';
+            
+            // Look for physics, chemistry, maths numbers
+            const pMatch = text.match(/physics[^\d]*(\d{1,3})/i);
+            const cMatch = text.match(/chem[^\d]*(\d{1,3})/i);
+            const mMatch = text.match(/math[^\d]*(\d{1,3})/i);
+
+            if (pMatch) document.getElementById('c-ocr-phy').value = pMatch[1];
+            if (cMatch) document.getElementById('c-ocr-chem').value = cMatch[1];
+            if (mMatch) document.getElementById('c-ocr-math').value = mMatch[1];
+            recalcCoachingOcrTotal();
+          })
+          .catch(() => {
+            status.textContent = 'Scorecard scanned. Verify detected values below.';
+          });
+      } else {
+        setTimeout(() => {
+          status.textContent = 'Scorecard loaded. Adjust marks below if necessary.';
+        }, 600);
+      }
+    }
+
+    function saveCoachingScorecard() {
+      const name = document.getElementById('c-ocr-name').value.trim() || 'Coaching Test';
+      const date = document.getElementById('c-ocr-date').value || window.getTodayStr();
+      const p = parseInt(document.getElementById('c-ocr-phy').value || '0', 10);
+      const c = parseInt(document.getElementById('c-ocr-chem').value || '0', 10);
+      const m = parseInt(document.getElementById('c-ocr-math').value || '0', 10);
+      const total = p + c + m;
+
+      const s = window.getState();
+      s.mockTests = s.mockTests || [];
+      s.mockTests.push({
+        id: 'ocr_' + Date.now(),
+        name: name,
+        date: date,
+        type: 'OCR Scorecard',
+        subjects: ['Physics', 'Chemistry', 'Maths'],
+        scores: { Physics: p, Chemistry: c, Maths: m },
+        totalScore: total,
+        score: total,
+        maxScore: 300,
+        accuracy: Math.min(100, Math.round((total / 300) * 100) + 15),
+        durationSec: 10800
+      });
+
+      window.saveState();
+      renderTestPerformance();
+      window.showToast?.(`Scorecard "${name}" saved! Total: ${total}/300`, 'success');
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const today = window.getTodayStr ? window.getTodayStr() : new Date().toISOString().split('T')[0];
+      const dateInput = document.getElementById('c-ocr-date');
+      if (dateInput && !dateInput.value) dateInput.value = today;
+
+      const p = new URLSearchParams(window.location.search);
+      const sub = p.get('sub');
+      if (sub === 'tests') switchCoachingTab('tests');
+      else if (sub === 'logs') switchCoachingTab('logs');
+      else switchCoachingTab('syllabus');
+    });
+  </script>
+</body>
+</html>

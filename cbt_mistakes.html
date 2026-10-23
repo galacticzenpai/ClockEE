@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClockEE CBT - Mistakes Hub & Error Autopsy</title>
+  <link rel="stylesheet" href="cbt_shared.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <style>
+    .cbt-mistake-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .cbt-mistakes-metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .cbt-mistake-card {
+      background: var(--cbt-bg-surface);
+      border: 1px solid var(--cbt-border-subtle);
+      border-radius: var(--cbt-radius-lg);
+      padding: 22px;
+      margin-bottom: 20px;
+      transition: all 0.2s;
+    }
+
+    .cbt-mistake-card:hover {
+      border-color: var(--cbt-border-medium);
+    }
+
+    .cbt-mistake-card.important {
+      border-left: 4px solid var(--cbt-warning);
+    }
+
+    .cbt-mistake-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .cbt-mistake-body {
+      font-size: 15px;
+      color: #fff;
+      line-height: 1.6;
+      margin-bottom: 16px;
+      background: rgba(255, 255, 255, 0.02);
+      padding: 14px;
+      border-radius: var(--cbt-radius-md);
+      border: 1px solid var(--cbt-border-subtle);
+    }
+
+    .cbt-mistake-answers-row {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 16px;
+      font-size: 14px;
+    }
+
+    .cbt-ans-box {
+      flex: 1;
+      padding: 10px 14px;
+      border-radius: var(--cbt-radius-md);
+    }
+
+    .cbt-ans-wrong {
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.25);
+      color: #fca5a5;
+    }
+
+    .cbt-ans-correct {
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      color: #86efac;
+    }
+
+    .cbt-mistake-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--cbt-border-subtle);
+      padding-top: 14px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .cbt-reason-select {
+      background: var(--cbt-bg-elevated);
+      color: #fff;
+      border: 1px solid var(--cbt-border-medium);
+      border-radius: var(--cbt-radius-sm);
+      padding: 6px 12px;
+      font-size: 13px;
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Shared Left Sidebar -->
+  <div id="cbt-sidebar-container"></div>
+
+  <!-- Main Content Area -->
+  <main class="cbt-main-content">
+    
+    <header class="cbt-mistake-header">
+      <div>
+        <h1 class="cbt-title-lg">Mistakes Hub</h1>
+        <p class="cbt-subtext">Isolate error root causes, tag cognitive traps, and launch target remediation drills</p>
+      </div>
+
+      <button class="cbt-btn cbt-btn-primary" onclick="launchMistakeDrill()">
+        Practice All Mistakes Now
+      </button>
+    </header>
+
+    <!-- Top Metrics -->
+    <div class="cbt-mistakes-metrics">
+      <div class="cbt-card">
+        <div class="cbt-subtext">Total Logged Errors</div>
+        <div class="cbt-title-md" style="font-size: 26px; color: var(--cbt-danger);" id="metric-total-mistakes">2</div>
+      </div>
+      <div class="cbt-card">
+        <div class="cbt-subtext">Concept Gaps</div>
+        <div class="cbt-title-md" style="font-size: 26px; color: var(--cbt-purple);" id="metric-concept-gaps">1</div>
+      </div>
+      <div class="cbt-card">
+        <div class="cbt-subtext">Calculation Slips</div>
+        <div class="cbt-title-md" style="font-size: 26px; color: var(--cbt-warning);" id="metric-calc-slips">1</div>
+      </div>
+      <div class="cbt-card">
+        <div class="cbt-subtext">Re-attempt Accuracy</div>
+        <div class="cbt-title-md" style="font-size: 26px; color: var(--cbt-success);">100%</div>
+      </div>
+    </div>
+
+    <!-- Filter Pills -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+      <div class="cbt-tabs-pill">
+        <button class="cbt-tab-btn active" onclick="filterMistakes('All')">All Mistakes</button>
+        <button class="cbt-tab-btn" onclick="filterMistakes('Physics')">Physics</button>
+        <button class="cbt-tab-btn" onclick="filterMistakes('Chemistry')">Chemistry</button>
+        <button class="cbt-tab-btn" onclick="filterMistakes('Maths')">Maths</button>
+      </div>
+
+      <div class="cbt-tabs-pill">
+        <button class="cbt-tab-btn active" onclick="filterImp('All')">All</button>
+        <button class="cbt-tab-btn" onclick="filterImp('Important')">⭐ High Priority</button>
+      </div>
+    </div>
+
+    <!-- Mistakes List Container -->
+    <div id="mistakes-list-container">
+      <!-- Rendered via JavaScript -->
+    </div>
+
+  </main>
+
+  <script src="cbt_shared.js"></script>
+  <script>
+    let currentSubFilter = "All";
+    let currentImpFilter = "All";
+
+    document.addEventListener("DOMContentLoaded", () => {
+      CBT_STATE.renderSidebar("mistakes");
+      renderMistakesList();
+    });
+
+    function renderMistakesList() {
+      const container = document.getElementById("mistakes-list-container");
+      const state = CBT_STATE.load();
+      const mistakes = state.mistakes || [];
+
+      // Update metrics
+      document.getElementById("metric-total-mistakes").innerText = mistakes.length;
+      document.getElementById("metric-concept-gaps").innerText = mistakes.filter(m => m.reason === "Concept Gap").length;
+      document.getElementById("metric-calc-slips").innerText = mistakes.filter(m => m.reason === "Calculation Mistake").length;
+
+      const filtered = mistakes.filter(m => {
+        const matchesSub = currentSubFilter === "All" || m.subject === currentSubFilter;
+        const matchesImp = currentImpFilter === "All" || (currentImpFilter === "Important" && m.important);
+        return matchesSub && matchesImp;
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div style="text-align: center; padding: 60px 20px; background: var(--cbt-bg-surface); border-radius: var(--cbt-radius-lg); border: 1px dashed var(--cbt-border-subtle); color: var(--cbt-text-secondary);">
+            <div style="font-size: 32px; margin-bottom: 8px;">🎯</div>
+            <div style="font-size: 16px; font-weight: 700; color: #fff;">No mistakes logged in this category!</div>
+            <div style="font-size: 13px;">You are executing cleanly with zero errors here.</div>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filtered.map(m => {
+        const subBadgeClass = m.subject === "Physics" ? "cbt-tag-physics" : m.subject === "Chemistry" ? "cbt-tag-chemistry" : "cbt-tag-maths";
+
+        return `
+          <div class="cbt-mistake-card ${m.important ? 'important' : ''}">
+            <div class="cbt-mistake-meta">
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <span class="cbt-tag ${subBadgeClass}">${m.subject}</span>
+                <span style="font-weight: 700; color: #fff;">Q#${m.qNum}</span>
+                <span style="font-size: 13px; color: var(--cbt-text-muted);">${m.chapter}</span>
+              </div>
+              <div style="font-size: 12px; color: var(--cbt-text-muted);">
+                Test: <span style="color: var(--cbt-text-secondary); font-weight: 600;">${m.testTitle}</span> • ${m.date}
+              </div>
+            </div>
+
+            <div class="cbt-mistake-body" id="mistake-text-${m.id}">
+              ${m.questionText}
+            </div>
+
+            <div class="cbt-mistake-answers-row">
+              <div class="cbt-ans-box cbt-ans-wrong">
+                <div style="font-size: 11px; font-weight: 700; text-transform: uppercase;">Your Response (Wrong)</div>
+                <div style="font-weight: 700; font-size: 15px; margin-top: 4px;">${m.markedOption}</div>
+              </div>
+              <div class="cbt-ans-box cbt-ans-correct">
+                <div style="font-size: 11px; font-weight: 700; text-transform: uppercase;">Correct Answer</div>
+                <div style="font-weight: 700; font-size: 15px; margin-top: 4px;">${m.correctOption}</div>
+              </div>
+            </div>
+
+            <div class="cbt-mistake-footer">
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <label style="font-size: 13px; color: var(--cbt-text-secondary); font-weight: 600;">Mistake Reason:</label>
+                <select class="cbt-reason-select" onchange="updateReason('${m.id}', this.value)">
+                  <option value="Concept Gap" ${m.reason === 'Concept Gap' ? 'selected' : ''}>Concept Gap</option>
+                  <option value="Calculation Mistake" ${m.reason === 'Calculation Mistake' ? 'selected' : ''}>Calculation Mistake</option>
+                  <option value="Silly Error" ${m.reason === 'Silly Error' ? 'selected' : ''}>Silly Error</option>
+                  <option value="Time Pressure" ${m.reason === 'Time Pressure' ? 'selected' : ''}>Time Pressure</option>
+                  <option value="Overconfidence" ${m.reason === 'Overconfidence' ? 'selected' : ''}>Overconfidence</option>
+                </select>
+              </div>
+
+              <div style="display: flex; gap: 8px;">
+                <button class="cbt-btn cbt-btn-outline" style="padding: 6px 14px; font-size: 13px;" onclick="toggleImportant('${m.id}')">
+                  ${m.important ? '⭐ High Priority' : '☆ Mark Imp'}
+                </button>
+                <button class="cbt-btn cbt-btn-outline" style="padding: 6px 14px; font-size: 13px;" onclick="bookmarkToNotebook('${m.id}')">
+                  ${m.bookmarked ? '🔖 In Notebook' : '🔖 Bookmark'}
+                </button>
+                <button class="cbt-btn" style="padding: 6px 12px; font-size: 13px; background: rgba(239, 68, 68, 0.15); border: 1px solid rgba(239, 68, 68, 0.4); color: #f87171; cursor: pointer; border-radius: var(--cbt-radius-sm);" onclick="deleteMistake('${m.id}')" title="Delete question from Mistakes Hub">
+                  🗑️ Remove
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      renderMathInMistakes();
+    }
+
+    function renderMathInMistakes() {
+      if (window.katex) {
+        document.querySelectorAll('.cbt-mistake-body').forEach(el => {
+          el.innerHTML = el.innerHTML.replace(/\$([^\$]+)\$/g, (m, tex) => {
+            try { return katex.renderToString(tex, { throwOnError: false }); } catch(e) { return m; }
+          });
+        });
+      }
+    }
+
+    function filterMistakes(sub) {
+      currentSubFilter = sub;
+      renderMistakesList();
+    }
+
+    function filterImp(imp) {
+      currentImpFilter = imp;
+      renderMistakesList();
+    }
+
+    function updateReason(id, reason) {
+      const state = CBT_STATE.load();
+      const m = state.mistakes.find(item => item.id === id);
+      if (m) {
+        m.reason = reason;
+        CBT_STATE.save(state);
+        CBT_STATE.toast(`Updated reason to: ${reason}`);
+      }
+    }
+
+    function toggleImportant(id) {
+      const state = CBT_STATE.load();
+      const m = state.mistakes.find(item => item.id === id);
+      if (m) {
+        m.important = !m.important;
+        CBT_STATE.save(state);
+        renderMistakesList();
+        CBT_STATE.toast(m.important ? "Marked as High Priority error" : "Unmarked from priority");
+      }
+    }
+
+    function bookmarkToNotebook(id) {
+      const state = CBT_STATE.load();
+      const m = state.mistakes.find(item => item.id === id);
+      if (m) {
+        m.bookmarked = true;
+        CBT_STATE.save(state);
+        renderMistakesList();
+        CBT_STATE.toast("Saved to Physics/Maths Master Notebook!");
+      }
+    }
+
+    function deleteMistake(id) {
+      const state = CBT_STATE.load();
+      state.mistakes = (state.mistakes || []).filter(item => item.id !== id);
+      CBT_STATE.save(state);
+
+      try {
+        const coreState = JSON.parse(localStorage.getItem('clockee_v5_master_state') || '{}');
+        if (coreState.errors) {
+          coreState.errors = coreState.errors.filter(e => e.id !== id);
+          localStorage.setItem('clockee_v5_master_state', JSON.stringify(coreState));
+        }
+      } catch(e) {}
+
+      renderMistakesList();
+      CBT_STATE.toast("Mistake removed successfully! 🗑️", "success");
+    }
+
+    function launchMistakeDrill() {
+      CBT_STATE.toast("Launching personalized Mistake Remediation CBT Drill...");
+      setTimeout(() => {
+        window.location.href = "cbt_exam.html?testId=jee_main_pyq_phy_kinematics";
+      }, 500);
+    }
+  </script>
+</body>
+</html>

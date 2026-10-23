@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ClockEE - JEE 2028 Inspiration &amp; Vision Board</title>
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CDN & Global Config -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            brand: {
+              cyan: '#00f0ff',
+              indigo: '#6366f1',
+              violet: '#8b5cf6',
+              amber: '#f59e0b',
+              emerald: '#10b981',
+              rose: '#f43f5e',
+            }
+          },
+          animation: {
+            'spin-slow': 'spin 18s linear infinite',
+            'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
+            'float': 'float 6s ease-in-out infinite',
+          },
+          keyframes: {
+            pulseGlow: {
+              '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
+              '50%': { opacity: '0.8', transform: 'scale(1.05)' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-6px)' },
+            }
+          }
+        },
+      },
+    };
+  </script>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+  <style>
+    :root {
+      --bg-base: #07080d;
+      --bg-surface: #10121b;
+      --bg-elevated: #161924;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-focus: rgba(99, 102, 241, 0.5);
+      --accent: #6366f1;
+      --accent-soft: rgba(99, 102, 241, 0.16);
+      --text-primary: #f3f4f6;
+      --text-secondary: #9ca3af;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-primary);
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .mono { font-family: 'JetBrains Mono', monospace; }
+
+    .glass-card {
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: rgba(16, 18, 27, 0.75);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .glass-card:hover {
+      border-color: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(99, 102, 241, 0.1);
+    }
+
+    .glass-panel {
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      background: rgba(13, 16, 26, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Ambient aura canvas in background */
+    #aura-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.5;
+    }
+
+    /* Navigation styling */
+    .nav-btn {
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      text-decoration: none;
+    }
+    .nav-btn:hover {
+      background: var(--accent-soft);
+      color: #fff;
+    }
+    .nav-btn.nav-active {
+      background: var(--accent);
+      color: #ffffff;
+      box-shadow: 0 0 16px rgba(99, 102, 241, 0.5);
+    }
+
+    .nav-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .nav-caret {
+      font-size: 0.65rem;
+      margin-left: 2px;
+      opacity: 0.7;
+      display: inline-block;
+      transition: transform 0.25s ease;
+    }
+    .nav-dropdown:hover .nav-caret {
+      transform: rotate(180deg);
+    }
+    .nav-dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      margin-top: 6px;
+      min-width: 215px;
+      background: rgba(13, 17, 26, 0.96);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      padding: 6px;
+      display: none;
+      flex-direction: column;
+      gap: 2px;
+      z-index: 100;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.85), 0 0 15px rgba(99,102,241,0.2);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .nav-dropdown:hover .nav-dropdown-menu { display: flex; }
+    .nav-dropdown-item {
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      color: #9ca3af;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+    .nav-dropdown-item:hover {
+      background: rgba(99, 102, 241, 0.22);
+      color: #00f0ff;
+      transform: translateX(2px);
+    }
+
+    .nav-icon-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .nav-icon-btn:hover {
+      border-color: #00f0ff;
+      color: #00f0ff;
+      background: rgba(0, 240, 255, 0.1);
+    }
+
+    /* Sticky note pin colors */
+    .sticky-cyan {
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.16) 0%, rgba(14, 116, 144, 0.08) 100%);
+      border: 1px solid rgba(6, 182, 212, 0.35);
+      border-left: 4px solid #06b6d4;
+    }
+    .sticky-amber {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.16) 0%, rgba(180, 83, 9, 0.08) 100%);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      border-left: 4px solid #f59e0b;
+    }
+    .sticky-rose {
+      background: linear-gradient(135deg, rgba(244, 63, 94, 0.16) 0%, rgba(190, 18, 60, 0.08) 100%);
+      border: 1px solid rgba(244, 63, 94, 0.35);
+      border-left: 4px solid #f43f5e;
+    }
+    .sticky-violet {
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.16) 0%, rgba(109, 40, 217, 0.08) 100%);
+      border: 1px solid rgba(139, 92, 246, 0.35);
+      border-left: 4px solid #8b5cf6;
+    }
+    .sticky-emerald {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.16) 0%, rgba(4, 120, 87, 0.08) 100%);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      border-left: 4px solid #10b981;
+    }
+
+    /* Audio visualizer bars */
+    .sound-bar {
+      width: 3px;
+      height: 8px;
+      background-color: #00f0ff;
+      border-radius: 2px;
+      transition: height 0.15s ease;
+    }
+    .sound-playing .sound-bar:nth-child(1) { animation: soundWave 0.8s ease-in-out infinite; }
+    .sound-playing .sound-bar:nth-child(2) { animation: soundWave 1.1s ease-in-out infinite 0.2s; }
+    .sound-playing .sound-bar:nth-child(3) { animation: soundWave 0.7s ease-in-out infinite 0.4s; }
+    .sound-playing .sound-bar:nth-child(4) { animation: soundWave 0.9s ease-in-out infinite 0.1s; }
+    @keyframes soundWave {
+      0%, 100% { height: 6px; }
+      50% { height: 18px; }
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 7px; height: 7px; }
+    ::-webkit-scrollbar-track { background: #07080d; }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.16);
+      border-radius: 9999px;
+      border: 1px solid rgba(0, 0, 0, 0.5);
+    }
+    ::-webkit-scrollbar-thumb:hover { background: #6366f1; }
+  </style>
+</head>
+
+<body class="relative bg-[#07080e] text-[#f8fafc] min-h-screen pb-20 selection:bg-indigo-500 selection:text-white">
+  <!-- Dynamic Ambient Glow Canvas -->
+  <canvas id="aura-canvas"></canvas>
+
+  <!-- Sticky Top Frosted Glass Header -->
+  <header class="sticky top-0 z-50 px-4 py-3 sm:px-6 transition-all duration-300 bg-[#080a14]/80 backdrop-blur-2xl border-b border-white/10 shadow-[0_4px_24px_rgba(0,0,0,0.65)]">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-2 sm:gap-4">
+      
+      <!-- Brand / Logo -->
+      <div class="nav-left flex items-center gap-3">
+        <div class="relative w-8 h-8 flex items-center justify-center rounded-xl bg-gradient-to-br from-amber-500/20 to-indigo-500/20 border border-white/15 shadow-[0_0_15px_rgba(245,158,11,0.25)]">
+          <svg class="w-4 h-4 text-amber-400 animate-spin-slow" viewBox="0 0 64 64" fill="none">
+            <circle cx="32" cy="32" r="28" stroke="url(#logoGrad)" stroke-width="4" stroke-dasharray="6 6"/>
+            <path d="M32 16V32L42 42" stroke="#f59e0b" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="32" cy="32" r="4" fill="#f59e0b"/>
+            <defs>
+              <linearGradient id="logoGrad" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#f59e0b"/>
+                <stop offset="0.5" stop-color="#818cf8"/>
+                <stop offset="1" stop-color="#38bdf8"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+
+        <a href="index.html" class="flex items-center gap-2 cursor-pointer" style="text-decoration:none;" title="ClockEE Home Command Center">
+          <span class="text-base sm:text-lg font-bold tracking-tight text-white">ClockEE <span class="text-xs font-mono px-2 py-0.5 rounded-full bg-amber-950/80 text-amber-300 border border-amber-500/40 font-semibold ml-1">Vision</span></span>
+        </a>
+      </div>
+
+      <!-- Center Nav Switchers -->
+      <nav class="header-center flex items-center gap-1 sm:gap-1.5" id="main-nav">
+        <a href="index.html" class="nav-btn">Home</a>
+        <a href="task.html" class="nav-btn">Task</a>
+        <a href="today.html" class="nav-btn">Today</a>
+
+        <!-- Timer Dropdown -->
+        <div class="nav-dropdown relative inline-block">
+          <a href="timer.html" class="nav-btn">
+            Timer <span class="nav-caret">▼</span>
+          </a>
+          <div class="nav-dropdown-menu">
+            <a href="timer.html?mode=drill" class="nav-dropdown-item">
+              <svg class="w-3.5 h-3.5 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+              <span>Manual Question Drill</span>
+            </a>
+            <a href="timer.html?mode=lecture" class="nav-dropdown-item">
+              <svg class="w-3.5 h-3.5 text-indigo-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span>Lecture Focus Timer</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Coaching Dropdown -->
+        <div class="nav-dropdown relative inline-block">
+          <a href="coaching.html" class="nav-btn">
+            Coaching <span class="nav-caret">▼</span>
+          </a>
+          <div class="nav-dropdown-menu">
+            <a href="coaching.html?sub=syllabus" class="nav-dropdown-item">
+              <svg class="w-3.5 h-3.5 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+              <span>Syllabus Covered</span>
+            </a>
+            <a href="coaching.html?sub=tests" class="nav-dropdown-item">
+              <svg class="w-3.5 h-3.5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+              <span>Test Performance &amp; OCR</span>
+            </a>
+            <a href="coaching.html?sub=logs" class="nav-dropdown-item">
+              <svg class="w-3.5 h-3.5 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M9 12h6"/><path d="M9 16h6"/></svg>
+              <span>Personal Question Log</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- CBT Portal Nav -->
+        <a href="cbt_home.html" class="nav-btn text-cyan-300 font-bold" style="text-decoration: none;">
+          <svg class="w-3.5 h-3.5 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          <span>CBT Portal</span>
+        </a>
+
+        <!-- Inspiration Active Nav Button -->
+        <a href="inspiration.html" class="nav-btn nav-active bg-gradient-to-r from-amber-500 to-indigo-600 shadow-[0_0_18px_rgba(245,158,11,0.4)] text-white font-bold" style="text-decoration: none;">
+          <svg class="w-3.5 h-3.5 text-amber-200" viewBox="0 0 24 24" fill="currentColor">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+          <span>Inspiration</span>
+        </a>
+
+        <!-- Settings Dropdown -->
+        <div class="nav-dropdown relative inline-block">
+          <a href="settings.html" class="nav-btn">
+            Settings <span class="nav-caret">▼</span>
+          </a>
+          <div class="nav-dropdown-menu">
+            <a href="settings.html" class="nav-dropdown-item">Global Settings</a>
+            <a href="settings.html#sec-identity" class="nav-dropdown-item">Profile &amp; Identity</a>
+            <a href="settings.html#sec-aura" class="nav-dropdown-item">Themes &amp; Aura</a>
+            <a href="settings.html#sec-goals" class="nav-dropdown-item">JEE Examination Goals</a>
+            <a href="settings.html#sec-milestones" class="nav-dropdown-item">Milestones &amp; Deadlines</a>
+          </div>
+        </div>
+
+        <a href="admin.html" class="nav-btn text-purple-300 font-bold" style="text-decoration: none;">Admin</a>
+      </nav>
+
+      <!-- Right Actions: Focus Audio Pill & Avatar -->
+      <div class="nav-right flex items-center gap-3">
+        <!-- Ambient Sound Player Pill -->
+        <div id="sound-pill" class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-mono transition-all duration-300 hover:border-cyan-500/40">
+          <button id="toggle-sound-btn" onclick="toggleAudio()" class="flex items-center gap-2 text-cyan-400 hover:text-white transition">
+            <span id="sound-icon">🎧</span>
+            <span id="sound-title" class="font-sans font-medium text-slate-300">Alpha 10Hz</span>
+            <div id="sound-visualizer" class="flex items-center gap-0.5 ml-1">
+              <div class="sound-bar"></div>
+              <div class="sound-bar"></div>
+              <div class="sound-bar"></div>
+              <div class="sound-bar"></div>
+            </div>
+          </button>
+          <select id="sound-mode" onchange="changeSoundMode(this.value)" class="bg-transparent text-[11px] text-slate-400 focus:outline-none cursor-pointer">
+            <option value="alpha" class="bg-gray-900 text-white">Alpha 10Hz</option>
+            <option value="rain" class="bg-gray-900 text-white">Lo-Fi Rain</option>
+            <option value="brown" class="bg-gray-900 text-white">Cosmic Brown</option>
+            <option value="campfire" class="bg-gray-900 text-white">Campfire</option>
+          </select>
+        </div>
+
+        <!-- Capture Board / Screenshot Pill -->
+        <button onclick="captureBoard()" class="nav-icon-btn hover:border-amber-400 hover:text-amber-300" title="Capture Board as Wallpaper Image">
+          📷
+        </button>
+
+        <!-- User Avatar -->
+        <div class="w-8 h-8 rounded-full border border-amber-500/40 p-0.5 bg-indigo-950/40 shadow-[0_0_10px_rgba(245,158,11,0.3)]">
+          <img id="user-pfp" src="https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Kunal" alt="Avatar" class="w-full h-full rounded-full object-cover" />
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 pt-6 space-y-8 relative z-10" id="board-container">
+    
+    <!-- Hero / Top Inspiration Banner -->
+    <section class="glass-card p-6 sm:p-8 relative overflow-hidden border-indigo-500/20 bg-gradient-to-r from-indigo-950/40 via-purple-950/30 to-amber-950/20 shadow-2xl">
+      <!-- Ambient decorative gradient orbs -->
+      <div class="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-amber-500/10 blur-3xl pointer-events-none"></div>
+      <div class="absolute -left-20 -bottom-20 w-80 h-80 rounded-full bg-cyan-500/10 blur-3xl pointer-events-none"></div>
+
+      <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 relative z-10">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-300 text-xs font-mono font-semibold tracking-wide mb-3">
+            <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
+            JEE ADVANCED 2028 DREAM MATRIX
+          </div>
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white flex items-center gap-3">
+            The Vision Sanctuary
+            <span class="text-xs font-mono font-normal px-2.5 py-1 rounded-md bg-indigo-900/60 text-indigo-300 border border-indigo-500/40">AIR &lt; 50</span>
+          </h1>
+          <p class="text-slate-400 mt-2 text-sm sm:text-base max-w-2xl font-normal leading-relaxed">
+            Every formula solved today, every error cataloged, and every distraction ignored is a direct bridge to the convocation stage at IIT Bombay.
+          </p>
+        </div>
+
+        <!-- Quick Motivational Spark Card & Action -->
+        <div class="flex flex-col sm:flex-row items-center gap-3 w-full lg:w-auto">
+          <button onclick="generateDailySpark()" class="w-full sm:w-auto px-5 py-3 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-sm shadow-[0_0_20px_rgba(245,158,11,0.35)] transition transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2">
+            <svg class="w-4 h-4 text-slate-950" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7-6.3-4.6-6.3 4.6 2.3-7-6-4.6h7.6z"/>
+            </svg>
+            <span>Summon Daily Spark</span>
+          </button>
+          
+          <button onclick="openAddPinModal()" class="w-full sm:w-auto px-4 py-3 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 text-white font-medium text-sm transition flex items-center justify-center gap-2">
+            <svg class="w-4 h-4 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            <span>Pin Goal / Note</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Live Quote Carousel / Spark Banner -->
+      <div id="spark-banner" class="mt-6 pt-5 border-t border-white/10 flex items-start gap-4 transition-all duration-300">
+        <div class="text-2xl text-amber-400 select-none">“</div>
+        <div class="flex-1">
+          <p id="spark-text" class="text-slate-200 text-sm sm:text-base italic font-serif leading-relaxed">
+            "The first principle is that you must not fool yourself — and you are the easiest person to fool. In Physics and Mathematics, intuition is forged by pen on paper, not passive observation."
+          </p>
+          <p id="spark-author" class="text-xs font-mono text-amber-400/90 font-medium mt-1">— Richard P. Feynman, Nobel Laureate in Quantum Electrodynamics</p>
+        </div>
+        <button onclick="generateDailySpark()" title="Next Quote" class="text-slate-500 hover:text-white transition p-1">
+          ↻
+        </button>
+      </div>
+    </section>
+
+    <!-- Precision Countdown & Sprint Metrics -->
+    <section class="grid grid-cols-1 md:grid-cols-4 gap-4">
+      
+      <!-- Days to JEE Advanced -->
+      <div class="glass-card p-5 relative overflow-hidden flex flex-col justify-between border-cyan-500/20 bg-[#0c101d]/80">
+        <div class="flex items-center justify-between text-xs text-slate-400 font-mono">
+          <span class="flex items-center gap-1.5 text-cyan-400">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            JEE ADVANCED 2028
+          </span>
+          <span id="countdown-date-badge" class="px-2 py-0.5 rounded bg-cyan-950/60 border border-cyan-500/30 text-[10px]">MAY 17, 2028</span>
+        </div>
+        <div class="my-4">
+          <div class="text-3xl sm:text-4xl font-black tracking-tight text-white mono" id="countdown-days">572</div>
+          <div class="text-xs text-slate-400 mt-1 flex items-center gap-2 font-mono" id="countdown-subtext">
+            <span id="countdown-hrs" class="text-cyan-300 font-semibold">14h</span> :
+            <span id="countdown-mins" class="text-cyan-300 font-semibold">22m</span> :
+            <span id="countdown-secs" class="text-cyan-300 font-semibold">45s</span>
+          </div>
+        </div>
+        <div class="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
+          <div class="bg-gradient-to-r from-cyan-400 to-indigo-500 h-full rounded-full" style="width: 32%;"></div>
+        </div>
+      </div>
+
+      <!-- Target AIR Badge -->
+      <div class="glass-card p-5 relative overflow-hidden flex flex-col justify-between border-amber-500/20 bg-[#0c101d]/80">
+        <div class="flex items-center justify-between text-xs text-slate-400 font-mono">
+          <span class="flex items-center gap-1.5 text-amber-400">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            TARGET RANK (AIR)
+          </span>
+          <span class="text-amber-300 font-mono text-[10px]">ALL INDIA</span>
+        </div>
+        <div class="my-4">
+          <div class="text-3xl sm:text-4xl font-black tracking-tight text-amber-300 mono">&lt; 50</div>
+          <div class="text-xs text-slate-400 mt-1">Guaranteed IIT Bombay CSE Entry</div>
+        </div>
+        <div class="flex items-center gap-1 text-[11px] font-mono text-emerald-400">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span>Target Score: 285+ / 360</span>
+        </div>
+      </div>
+
+      <!-- Phase Major Test Milestone -->
+      <div class="glass-card p-5 relative overflow-hidden flex flex-col justify-between border-purple-500/20 bg-[#0c101d]/80">
+        <div class="flex items-center justify-between text-xs text-slate-400 font-mono">
+          <span class="flex items-center gap-1.5 text-purple-400">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+            NEXT MAJOR MILESTONE
+          </span>
+          <span id="milestone-badge" class="text-purple-300 font-mono text-[10px]">NOV 15</span>
+        </div>
+        <div class="my-4">
+          <div class="text-lg font-bold text-white line-clamp-1" id="milestone-title">Phase Major Test #01</div>
+          <div class="text-xs text-purple-300/80 mt-1 font-mono" id="milestone-countdown">23 Days Remaining</div>
+        </div>
+        <a href="test_centre.html" class="inline-flex items-center gap-1 text-[11px] font-mono text-indigo-400 hover:text-indigo-300">
+          <span>Review Test Syllabus &rarr;</span>
+        </a>
+      </div>
+
+      <!-- Personal Consistency Engine -->
+      <div class="glass-card p-5 relative overflow-hidden flex flex-col justify-between border-emerald-500/20 bg-[#0c101d]/80">
+        <div class="flex items-center justify-between text-xs text-slate-400 font-mono">
+          <span class="flex items-center gap-1.5 text-emerald-400">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            MOMENTUM STREAK
+          </span>
+          <span class="text-emerald-300 font-mono text-[10px]">100% DISCIPLINE</span>
+        </div>
+        <div class="my-4">
+          <div class="text-3xl sm:text-4xl font-black tracking-tight text-emerald-400 mono" id="streak-counter">42 <span class="text-sm font-sans font-medium text-slate-400">Days</span></div>
+          <div class="text-xs text-slate-400 mt-1">Zero Zero-Days Streak</div>
+        </div>
+        <div class="flex items-center gap-1 text-[11px] font-mono text-slate-400">
+          <span>Daily Target: 90 Questions / 6.0 Hrs</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dream IIT College Showcase & Target Matrix -->
+    <section class="space-y-4">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+        <div>
+          <h2 class="text-xl sm:text-2xl font-black tracking-tight text-white flex items-center gap-2">
+            <span>🏛️ Dream Campuses &amp; Target Benchmarks</span>
+          </h2>
+          <p class="text-slate-400 text-xs sm:text-sm">Where Kunal will spend 2028-2032. Select a campus to inspect cutoffs, department stats, and campus spirit.</p>
+        </div>
+        <!-- College Tabs -->
+        <div class="flex flex-wrap gap-1.5 p-1 rounded-xl bg-white/5 border border-white/10" id="college-tabs">
+          <button onclick="selectCampus('iitb')" id="tab-iitb" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-amber-500 text-slate-950 shadow transition">IIT Bombay (CSE)</button>
+          <button onclick="selectCampus('iitd')" id="tab-iitd" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-300 hover:text-white transition">IIT Delhi</button>
+          <button onclick="selectCampus('iitm')" id="tab-iitm" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-300 hover:text-white transition">IIT Madras</button>
+          <button onclick="selectCampus('iitk')" id="tab-iitk" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-300 hover:text-white transition">IIT Kanpur</button>
+          <button onclick="selectCampus('iisc')" id="tab-iisc" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-300 hover:text-white transition">IISc Bangalore</button>
+        </div>
+      </div>
+
+      <!-- Campus Showcase Card -->
+      <div id="campus-showcase" class="glass-card overflow-hidden border-amber-500/30 grid grid-cols-1 lg:grid-cols-12 bg-gradient-to-br from-[#0e1220] to-[#121628]">
+        <!-- Campus Image with Cyber-Glass Overlay -->
+        <div class="lg:col-span-5 relative min-h-[260px] lg:min-h-full overflow-hidden group">
+          <img id="campus-img" src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80" alt="IIT Campus" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0e1220] via-[#0e1220]/40 to-transparent"></div>
+          <div class="absolute bottom-4 left-4 right-4">
+            <span id="campus-location" class="px-2.5 py-1 rounded-md bg-black/70 border border-white/15 text-amber-300 font-mono text-[11px] backdrop-blur-md">Powai Lake, Mumbai</span>
+            <h3 id="campus-name" class="text-2xl font-black text-white mt-2">Indian Institute of Technology Bombay</h3>
+            <p id="campus-motto" class="text-xs text-slate-300 italic font-serif">"ज्ञानं परमं ध्येयम्" (Knowledge is the Supreme Goal)</p>
+          </div>
+        </div>
+
+        <!-- Campus Intel & Cutoffs Matrix -->
+        <div class="lg:col-span-7 p-6 sm:p-8 flex flex-col justify-between space-y-6">
+          <div class="space-y-4">
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-4">
+              <div>
+                <span class="text-xs font-mono text-slate-400">TARGET BRANCH</span>
+                <div id="campus-branch" class="text-xl font-bold text-cyan-300">Computer Science &amp; Engineering (B.Tech 4-Year)</div>
+              </div>
+              <div class="text-right">
+                <span class="text-xs font-mono text-slate-400">TARGET ADVANCED AIR</span>
+                <div id="campus-rank" class="text-xl font-black text-amber-400 mono">&lt; 65</div>
+              </div>
+            </div>
+
+            <!-- Subject-wise Score Blueprint for Admission -->
+            <div>
+              <div class="text-xs font-mono text-slate-400 uppercase tracking-wider mb-2">Required Marks Strategy in JEE Advanced (Target 285/360)</div>
+              <div class="grid grid-cols-3 gap-3">
+                <div class="p-3 rounded-xl bg-white/5 border border-cyan-500/30">
+                  <div class="text-xs text-cyan-400 font-mono">PHYSICS</div>
+                  <div id="score-p" class="text-xl font-black text-white mono mt-1">96 <span class="text-xs text-slate-400 font-normal">/ 120</span></div>
+                  <div class="text-[10px] text-slate-400">Mechanics + Electrodynamics Dominance</div>
+                </div>
+                <div class="p-3 rounded-xl bg-white/5 border border-amber-500/30">
+                  <div class="text-xs text-amber-400 font-mono">CHEMISTRY</div>
+                  <div id="score-c" class="text-xl font-black text-white mono mt-1">94 <span class="text-xs text-slate-400 font-normal">/ 120</span></div>
+                  <div class="text-[10px] text-slate-400">Organic Mechanisms + Coordination Chem</div>
+                </div>
+                <div class="p-3 rounded-xl bg-white/5 border border-purple-500/30">
+                  <div class="text-xs text-purple-400 font-mono">MATHEMATICS</div>
+                  <div id="score-m" class="text-xl font-black text-white mono mt-1">95 <span class="text-xs text-slate-400 font-normal">/ 120</span></div>
+                  <div class="text-[10px] text-slate-400">Calculus &amp; Vectors / 3D Speed Mastery</div>
+                </div>
+              </div>
+            </div>
+
+            <p id="campus-blurb" class="text-sm text-slate-300 leading-relaxed">
+              IIT Bombay's Department of Computer Science &amp; Engineering in Kanwal Rekhi Building is the crown jewel of Indian technological research. Surrounded by the serene Powai lake and the iconic hillocks, this is the launchpad for the world's most transformative engineers, researchers, and tech pioneers.
+            </p>
+          </div>
+
+          <!-- Bottom Meta & Quick CBT Action -->
+          <div class="pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-3 text-xs text-slate-400 font-mono">
+              <span class="flex items-center gap-1 text-slate-300">
+                <span class="w-2 h-2 rounded-full bg-emerald-400"></span> Hostel 12-16 &amp; SAC
+              </span>
+              <span>•</span>
+              <span>Mood Indigo &amp; Techfest</span>
+            </div>
+            <a href="test_centre.html" class="px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs transition flex items-center gap-1.5 shadow-lg shadow-indigo-600/30">
+              <span>Attempt IITB Benchmark Mock</span>
+              <span>&rarr;</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Vision Board / Pinboard Canvas -->
+    <section class="space-y-4">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+        <div>
+          <h2 class="text-xl sm:text-2xl font-black tracking-tight text-white flex items-center gap-2">
+            <span>📌 Interactive Vision Canvas &amp; Pinboard</span>
+          </h2>
+          <p class="text-slate-400 text-xs sm:text-sm">Personal affirmations, study aesthetics, topper frameworks, and commitments. Click any card to edit or add your own.</p>
+        </div>
+
+        <!-- Filter Pills -->
+        <div class="flex flex-wrap items-center gap-1.5" id="pin-filters">
+          <button onclick="filterPins('all')" class="pin-filter-btn px-3 py-1 rounded-full text-xs font-medium bg-indigo-600 text-white transition" data-filter="all">All Pins</button>
+          <button onclick="filterPins('sticky')" class="pin-filter-btn px-3 py-1 rounded-full text-xs font-medium bg-white/5 hover:bg-white/10 text-slate-300 transition" data-filter="sticky">Sticky Notes</button>
+          <button onclick="filterPins('aesthetic')" class="pin-filter-btn px-3 py-1 rounded-full text-xs font-medium bg-white/5 hover:bg-white/10 text-slate-300 transition" data-filter="aesthetic">Study Aesthetics</button>
+          <button onclick="filterPins('mental_model')" class="pin-filter-btn px-3 py-1 rounded-full text-xs font-medium bg-white/5 hover:bg-white/10 text-slate-300 transition" data-filter="mental_model">Mental Models</button>
+          <button onclick="openAddPinModal()" class="px-3 py-1 rounded-full text-xs font-bold bg-amber-500/20 border border-amber-500/40 text-amber-300 hover:bg-amber-500/30 transition flex items-center gap-1">
+            <span>+ Add Pin</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Masonry-like Grid for Pins -->
+      <div id="pin-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <!-- Dynamically populated or rendered pins -->
+      </div>
+    </section>
+
+    <!-- The Personal JEE 2028 Student Manifesto -->
+    <section class="glass-card p-6 sm:p-8 relative overflow-hidden border-indigo-500/30 bg-gradient-to-br from-[#0c0f1c] via-[#101426] to-[#0a0d18]">
+      <div class="max-w-3xl mx-auto space-y-6 text-center">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/20 border border-indigo-500/40 text-indigo-300 text-xs font-mono">
+          <span>📜 PERSONAL SOLEMN COVENANT</span>
+        </div>
+        
+        <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight">The JEE 2028 Iron Oath</h2>
+        
+        <div class="relative">
+          <textarea id="manifesto-input" onchange="saveManifesto()" rows="4" class="w-full bg-black/40 border border-white/10 rounded-2xl p-4 sm:p-6 text-slate-200 text-sm sm:text-base italic font-serif leading-relaxed text-center focus:outline-none focus:border-indigo-400 transition resize-none shadow-inner">I, Kunal Sahoo, commit to showing up every single day between now and May 2028. I will never fear a difficult problem, never leave an error un-analyzed, and never surrender consistency to fleeting moods. My seat at IIT Bombay is not a wish; it is an inevitable mathematical consequence of relentless daily discipline.</textarea>
+          <div class="text-[11px] font-mono text-slate-400 mt-2">Click text above to customize your oath • Auto-saved locally</div>
+        </div>
+
+        <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4 text-xs font-mono text-slate-400">
+          <div class="flex items-center gap-2">
+            <span class="text-amber-400 font-bold">Aspirant:</span>
+            <span id="manifesto-name" class="text-white font-semibold">Kunal Sahoo</span>
+          </div>
+          <span class="hidden sm:inline">•</span>
+          <div class="flex items-center gap-2">
+            <span class="text-cyan-400 font-bold">Goal:</span>
+            <span>AIR &lt; 50 (JEE Advanced 2028)</span>
+          </div>
+          <span class="hidden sm:inline">•</span>
+          <div class="flex items-center gap-2">
+            <span class="text-emerald-400 font-bold">Status:</span>
+            <span class="text-emerald-300">Active Execution Mode</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Focus & Study Jump Bar -->
+    <section class="glass-card p-4 sm:p-5 flex flex-wrap items-center justify-between gap-4 border-white/10 bg-[#0c101c]">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-amber-300 font-bold">
+          ⚡
+        </div>
+        <div>
+          <h4 class="text-sm font-bold text-white">Channel this inspiration into immediate output</h4>
+          <p class="text-xs text-slate-400">Inspiration without immediate execution evaporates. Pick your next sprint:</p>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-2">
+        <a href="timer.html?mode=drill" class="px-4 py-2 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-lg shadow-cyan-600/20">
+          <svg class="w-3.5 h-3.5 text-slate-950" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          <span>Launch 90-Min Problem Drill</span>
+        </a>
+        <a href="task.html" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/15 text-white font-semibold text-xs border border-white/10 transition flex items-center gap-1.5">
+          <span>Today's DPP Tasks</span>
+        </a>
+        <a href="coaching.html?sub=logs" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/15 text-white font-semibold text-xs border border-white/10 transition flex items-center gap-1.5">
+          <span>Review Mistake Notebook</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Add Pin Modal -->
+  <div id="add-pin-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="glass-card max-w-lg w-full p-6 space-y-4 border-indigo-500/40 bg-[#0f1322] shadow-2xl">
+      <div class="flex items-center justify-between border-b border-white/10 pb-3">
+        <h3 class="text-lg font-bold text-white flex items-center gap-2">
+          <span>📌 Add Inspiration Pin</span>
+        </h3>
+        <button onclick="closeAddPinModal()" class="text-slate-400 hover:text-white text-lg font-bold">✕</button>
+      </div>
+
+      <div class="space-y-3">
+        <div>
+          <label class="block text-xs font-mono text-slate-400 mb-1">PIN TYPE</label>
+          <select id="pin-type-select" onchange="togglePinTypeFields(this.value)" class="w-full bg-white/5 border border-white/15 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-cyan-400">
+            <option value="sticky" class="bg-gray-900">Sticky Note (Affirmation / Goal)</option>
+            <option value="aesthetic" class="bg-gray-900">Study Aesthetic Polaroid (Image URL)</option>
+            <option value="mental_model" class="bg-gray-900">Topper / Genius Mental Model</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-mono text-slate-400 mb-1">TITLE / TAGLINE</label>
+          <input type="text" id="pin-title-input" placeholder="e.g. Daily Calculus Speed Drill" class="w-full bg-white/5 border border-white/15 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-cyan-400" />
+        </div>
+
+        <div id="pin-color-group">
+          <label class="block text-xs font-mono text-slate-400 mb-1">NOTE COLOR</label>
+          <div class="flex gap-2">
+            <label class="cursor-pointer"><input type="radio" name="pin-color" value="cyan" checked class="hidden peer" /><span class="block w-6 h-6 rounded-full bg-cyan-500 peer-checked:ring-2 peer-checked:ring-white"></span></label>
+            <label class="cursor-pointer"><input type="radio" name="pin-color" value="amber" class="hidden peer" /><span class="block w-6 h-6 rounded-full bg-amber-500 peer-checked:ring-2 peer-checked:ring-white"></span></label>
+            <label class="cursor-pointer"><input type="radio" name="pin-color" value="rose" class="hidden peer" /><span class="block w-6 h-6 rounded-full bg-rose-500 peer-checked:ring-2 peer-checked:ring-white"></span></label>
+            <label class="cursor-pointer"><input type="radio" name="pin-color" value="violet" class="hidden peer" /><span class="block w-6 h-6 rounded-full bg-purple-500 peer-checked:ring-2 peer-checked:ring-white"></span></label>
+            <label class="cursor-pointer"><input type="radio" name="pin-color" value="emerald" class="hidden peer" /><span class="block w-6 h-6 rounded-full bg-emerald-500 peer-checked:ring-2 peer-checked:ring-white"></span></label>
+          </div>
+        </div>
+
+        <div id="pin-image-group" class="hidden">
+          <label class="block text-xs font-mono text-slate-400 mb-1">IMAGE URL</label>
+          <input type="text" id="pin-image-input" placeholder="https://images.unsplash.com/..." class="w-full bg-white/5 border border-white/15 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-cyan-400" />
+        </div>
+
+        <div>
+          <label class="block text-xs font-mono text-slate-400 mb-1">CONTENT / AFFIRMATION</label>
+          <textarea id="pin-content-input" rows="3" placeholder="Write your insight, equation reminder, or motivation..." class="w-full bg-white/5 border border-white/15 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-cyan-400 resize-none"></textarea>
+        </div>
+
+        <div id="pin-author-group" class="hidden">
+          <label class="block text-xs font-mono text-slate-400 mb-1">SOURCE / AUTHOR</label>
+          <input type="text" id="pin-author-input" placeholder="e.g. Richard Feynman / AIR 1 2024" class="w-full bg-white/5 border border-white/15 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-cyan-400" />
+        </div>
+      </div>
+
+      <div class="flex items-center justify-end gap-3 pt-3 border-t border-white/10">
+        <button onclick="closeAddPinModal()" class="px-4 py-2 rounded-xl text-xs font-semibold text-slate-300 hover:text-white transition">Cancel</button>
+        <button onclick="submitNewPin()" class="px-5 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs transition shadow-lg shadow-amber-500/20">Save to Board</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Image Lightbox Modal -->
+  <div id="lightbox-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-lg hidden items-center justify-center p-4 cursor-pointer" onclick="closeLightbox()">
+    <div class="max-w-4xl max-h-[90vh] relative" onclick="event.stopPropagation()">
+      <img id="lightbox-img" src="" alt="Enlarged Inspiration" class="max-w-full max-h-[85vh] rounded-2xl border border-white/20 shadow-2xl object-contain" />
+      <p id="lightbox-caption" class="text-center text-sm font-mono text-amber-300 mt-3"></p>
+      <button onclick="closeLightbox()" class="absolute -top-10 right-0 text-white font-bold text-2xl hover:text-amber-400">✕</button>
+    </div>
+  </div>
+
+  <!-- Audio Synthesis Script (Web Audio API) -->
+  <script>
+    let audioCtx = null;
+    let isAudioPlaying = false;
+    let currentSoundMode = 'alpha';
+    let soundNodes = [];
+
+    function initAudio() {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+    }
+
+    function stopCurrentAudio() {
+      soundNodes.forEach(node => {
+        try {
+          if (node.stop) node.stop();
+          if (node.disconnect) node.disconnect();
+        } catch (e) {}
+      });
+      soundNodes = [];
+    }
+
+    function startAlphaBinaural() {
+      // 10 Hz Binaural Beat: 200 Hz Left, 210 Hz Right for Alpha state
+      const baseFreq = 200;
+      const beatFreq = 10;
+
+      const oscLeft = audioCtx.createOscillator();
+      const oscRight = audioCtx.createOscillator();
+      const gainLeft = audioCtx.createGain();
+      const gainRight = audioCtx.createGain();
+      const merger = audioCtx.createChannelMerger(2);
+
+      oscLeft.type = 'sine';
+      oscLeft.frequency.value = baseFreq;
+      oscRight.type = 'sine';
+      oscRight.frequency.value = baseFreq + beatFreq;
+
+      gainLeft.gain.value = 0.08;
+      gainRight.gain.value = 0.08;
+
+      oscLeft.connect(gainLeft);
+      gainLeft.connect(merger, 0, 0); // left channel
+
+      oscRight.connect(gainRight);
+      gainRight.connect(merger, 0, 1); // right channel
+
+      merger.connect(audioCtx.destination);
+
+      oscLeft.start();
+      oscRight.start();
+      soundNodes = [oscLeft, oscRight, gainLeft, gainRight, merger];
+    }
+
+    function startRainNoise() {
+      // Filtered white noise with random dips for rain feel
+      const bufferSize = audioCtx.sampleRate * 2;
+      const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+      const output = noiseBuffer.getChannelData(0);
+      for (let i = 0; i < bufferSize; i++) {
+        output[i] = Math.random() * 2 - 1;
+      }
+
+      const whiteNoise = audioCtx.createBufferSource();
+      whiteNoise.buffer = noiseBuffer;
+      whiteNoise.loop = true;
+
+      const filter = audioCtx.createBiquadFilter();
+      filter.type = 'lowpass';
+      filter.frequency.value = 1000;
+
+      const gain = audioCtx.createGain();
+      gain.gain.value = 0.07;
+
+      whiteNoise.connect(filter);
+      filter.connect(gain);
+      gain.connect(audioCtx.destination);
+
+      whiteNoise.start();
+      soundNodes = [whiteNoise, filter, gain];
+    }
+
+    function startBrownNoise() {
+      // Cosmic brown noise (6dB/octave falloff)
+      const bufferSize = audioCtx.sampleRate * 2;
+      const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+      const output = noiseBuffer.getChannelData(0);
+      let lastOut = 0.0;
+      for (let i = 0; i < bufferSize; i++) {
+        const white = Math.random() * 2 - 1;
+        output[i] = (lastOut + (0.02 * white)) / 1.02;
+        lastOut = output[i];
+        output[i] *= 3.5;
+      }
+
+      const brownSource = audioCtx.createBufferSource();
+      brownSource.buffer = noiseBuffer;
+      brownSource.loop = true;
+
+      const gain = audioCtx.createGain();
+      gain.gain.value = 0.08;
+
+      brownSource.connect(gain);
+      gain.connect(audioCtx.destination);
+
+      brownSource.start();
+      soundNodes = [brownSource, gain];
+    }
+
+    function startCampfire() {
+      startBrownNoise(); // baseline warmth
+      // Periodic crackles could be added, baseline brown noise provides deep focus
+    }
+
+    function playActiveSound() {
+      initAudio();
+      stopCurrentAudio();
+      if (currentSoundMode === 'alpha') startAlphaBinaural();
+      else if (currentSoundMode === 'rain') startRainNoise();
+      else if (currentSoundMode === 'brown') startBrownNoise();
+      else if (currentSoundMode === 'campfire') startCampfire();
+    }
+
+    function toggleAudio() {
+      if (isAudioPlaying) {
+        stopCurrentAudio();
+        isAudioPlaying = false;
+        document.getElementById('sound-visualizer').classList.remove('sound-playing');
+        document.getElementById('sound-icon').innerText = '🔇';
+      } else {
+        playActiveSound();
+        isAudioPlaying = true;
+        document.getElementById('sound-visualizer').classList.add('sound-playing');
+        document.getElementById('sound-icon').innerText = '🔊';
+      }
+    }
+
+    function changeSoundMode(mode) {
+      currentSoundMode = mode;
+      const labels = {
+        alpha: 'Alpha 10Hz',
+        rain: 'Lo-Fi Rain',
+        brown: 'Cosmic Brown',
+        campfire: 'Campfire'
+      };
+      document.getElementById('sound-title').innerText = labels[mode] || mode;
+      if (isAudioPlaying) {
+        playActiveSound();
+      }
+    }
+  </script>
+
+  <!-- Board Logic, Storage & Live Countdown -->
+  <script>
+    // College Database
+    const CAMPUSES = {
+      iitb: {
+        name: "Indian Institute of Technology Bombay",
+        branch: "Computer Science & Engineering (B.Tech 4-Year)",
+        rank: "< 65",
+        location: "Powai Lake, Mumbai",
+        motto: '"ज्ञानं परमं ध्येयम्" (Knowledge is the Supreme Goal)',
+        img: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80",
+        p: "96 / 120",
+        c: "94 / 120",
+        m: "95 / 120",
+        blurb: "IIT Bombay's Department of Computer Science & Engineering in Kanwal Rekhi Building is the crown jewel of Indian technological research. Surrounded by the serene Powai lake and the iconic hillocks, this is the launchpad for the world's most transformative engineers, researchers, and tech pioneers."
+      },
+      iitd: {
+        name: "Indian Institute of Technology Delhi",
+        branch: "Mathematics & Computing / CSE (B.Tech 4-Year)",
+        rank: "< 100",
+        location: "Hauz Khas, New Delhi",
+        motto: '"श्रमं विना न किमपि साध्यम्" (Nothing is achieved without toil)',
+        img: "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80",
+        p: "92 / 120",
+        c: "90 / 120",
+        m: "98 / 120",
+        blurb: "Located in the historic hub of Hauz Khas, IIT Delhi offers unmatched coding culture, proximity to high-growth tech ecosystems, and the iconic Dogra Hall where India's finest problem solvers gather."
+      },
+      iitm: {
+        name: "Indian Institute of Technology Madras",
+        branch: "Computer Science & Engineering",
+        rank: "< 145",
+        location: "Guindy National Park, Chennai",
+        motto: '"सिद्धीर्भवति कर्मजा" (Success is born of action)',
+        img: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80",
+        p: "90 / 120",
+        c: "88 / 120",
+        m: "92 / 120",
+        blurb: "Consistently ranked #1 in NIRF across all engineering institutes in India. A lush 600-acre forest campus where deer roam freely alongside the highest-caliber robotics and quantum computing labs."
+      },
+      iitk: {
+        name: "Indian Institute of Technology Kanpur",
+        branch: "Computer Science & Engineering",
+        rank: "< 180",
+        location: "Kalyanpur, Kanpur",
+        motto: '"तमसो मा ज्योतिर्गमय" (Lead me from darkness to light)',
+        img: "https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=1200&q=80",
+        p: "94 / 120",
+        c: "88 / 120",
+        m: "92 / 120",
+        blurb: "The fortress of academic rigor and theoretical computer science. Home to the first computer science department in India, the renowned P.K. Kelkar Library, and an active private airstrip for aerospace engineering."
+      },
+      iisc: {
+        name: "Indian Institute of Science Bangalore",
+        branch: "Bachelor of Science (Research) in Computing / Physics",
+        rank: "< 220 (JEE Adv)",
+        location: "Malleshwaram, Bengaluru",
+        motto: '"ज्ञानं विज्ञानं च सहितम्" (Accompanied by knowledge and science)',
+        img: "https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?auto=format&fit=crop&w=1200&q=80",
+        p: "98 / 120",
+        c: "95 / 120",
+        m: "95 / 120",
+        blurb: "The premier research university in the subcontinent. Founded by Jamsetji Tata and Swami Vivekananda, IISc is India's highest-ranked global university for pure scientific discovery and quantum computing."
+      }
+    };
+
+    function selectCampus(key) {
+      const data = CAMPUSES[key];
+      if (!data) return;
+
+      document.getElementById('campus-name').innerText = data.name;
+      document.getElementById('campus-branch').innerText = data.branch;
+      document.getElementById('campus-rank').innerText = data.rank;
+      document.getElementById('campus-location').innerText = data.location;
+      document.getElementById('campus-motto').innerText = data.motto;
+      document.getElementById('campus-img').src = data.img;
+      document.getElementById('score-p').innerHTML = `${data.p.split(' ')[0]} <span class="text-xs text-slate-400 font-normal">/ 120</span>`;
+      document.getElementById('score-c').innerHTML = `${data.c.split(' ')[0]} <span class="text-xs text-slate-400 font-normal">/ 120</span>`;
+      document.getElementById('score-m').innerHTML = `${data.m.split(' ')[0]} <span class="text-xs text-slate-400 font-normal">/ 120</span>`;
+      document.getElementById('campus-blurb').innerText = data.blurb;
+
+      // Update Tab Styles
+      ['iitb', 'iitd', 'iitm', 'iitk', 'iisc'].forEach(tabKey => {
+        const btn = document.getElementById(`tab-${tabKey}`);
+        if (btn) {
+          if (tabKey === key) {
+            btn.className = "px-3 py-1.5 rounded-lg text-xs font-semibold bg-amber-500 text-slate-950 shadow transition";
+          } else {
+            btn.className = "px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-300 hover:text-white transition";
+          }
+        }
+      });
+    }
+
+    // Daily Sparks Collection
+    const SPARKS = [
+      {
+        quote: "The first principle is that you must not fool yourself — and you are the easiest person to fool. In Physics and Mathematics, intuition is forged by pen on paper, not passive observation.",
+        author: "Richard P. Feynman, Nobel Laureate in Quantum Electrodynamics"
+      },
+      {
+        quote: "Difficulty is the exact moment learning occurs. If solving a problem feels easy, you are merely testing memory; when it resists, your brain is rewiring itself.",
+        author: "J. Robert Oppenheimer, Theoretical Physicist"
+      },
+      {
+        quote: "Dream is not that which you see while sleeping, it is something that does not let you sleep. Transform every second of solitude into mastery.",
+        author: "Dr. A.P.J. Abdul Kalam, Former President of India"
+      },
+      {
+        quote: "In JEE Advanced, a candidate who accurately solves 55% of the paper enters the top 500 ranks. Speed without precision is disaster; calm precision is everything.",
+        author: "JEE Advanced AIR 1 Mentor Codex"
+      },
+      {
+        quote: "Your Mistake Notebook is worth more than 50 coaching modules. Never allow the same error to occur twice across mocks.",
+        author: "ClockEE Elite Preparation Rule #3"
+      },
+      {
+        quote: "An equation for me has no meaning unless it expresses a thought of God. Strive for elegance and deep connection between algebra and geometry.",
+        author: "Srinivasa Ramanujan, Mathematical Genius"
+      }
+    ];
+
+    let currentSparkIndex = 0;
+    function generateDailySpark() {
+      currentSparkIndex = (currentSparkIndex + 1) % SPARKS.length;
+      const s = SPARKS[currentSparkIndex];
+      const textEl = document.getElementById('spark-text');
+      const authEl = document.getElementById('spark-author');
+      
+      textEl.style.opacity = '0';
+      authEl.style.opacity = '0';
+      setTimeout(() => {
+        textEl.innerText = `"${s.quote}"`;
+        authEl.innerText = `— ${s.author}`;
+        textEl.style.opacity = '1';
+        authEl.style.opacity = '1';
+      }, 200);
+    }
+
+    // Default Initial Pins
+    const DEFAULT_PINS = [
+      {
+        id: "pin-1",
+        type: "sticky",
+        color: "amber",
+        title: "Speed with Ironclad Precision",
+        content: "Never guess in CBT. An unattempted question awards 0; a careless guess deducts 1 mark and drops rank by 150 positions. Calculate twice, mark once.",
+        date: "Pinned"
+      },
+      {
+        id: "pin-2",
+        type: "aesthetic",
+        title: "IIT Bombay Convocation Hall",
+        content: "Powai Lake in the horizon. The destination where two years of relentless problem solving culminate.",
+        img: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80",
+        date: "Dream Anchor"
+      },
+      {
+        id: "pin-3",
+        type: "sticky",
+        color: "cyan",
+        title: "No Zero Days Protocol",
+        content: "Even on exhausting days with coaching tests or low energy: 15 physics numericals, 10 chemistry reactions, 5 calculus integrals. The chain must never break.",
+        date: "Daily Rule"
+      },
+      {
+        id: "pin-4",
+        type: "mental_model",
+        title: "The 3-Pass Exam Algorithm",
+        content: "Pass 1: 100% confidence questions (40 mins, 40+ marks). Pass 2: High probability calculus & multi-concept mechanics (70 mins). Pass 3: Novel puzzles & review (30 mins). Never get stuck for > 4 mins on one question.",
+        author: "Topper Exam Strategy",
+        date: "CBT Tactical"
+      },
+      {
+        id: "pin-5",
+        type: "aesthetic",
+        title: "The Deep Focus Workspace",
+        content: "Clean mechanical setup, noise-canceling headphones, HC Verma & Irodov open, zero notifications.",
+        img: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+        date: "Sanctuary"
+      },
+      {
+        id: "pin-6",
+        type: "sticky",
+        color: "violet",
+        title: "Master Rotational Dynamics & Integration",
+        content: "Moment of Inertia tensors, rolling without slipping on curved planes, and definite integrals with Leibniz rule build insurmountable rank moats. Embrace the struggle.",
+        date: "Syllabus Focus"
+      },
+      {
+        id: "pin-7",
+        type: "mental_model",
+        title: "The Feynman Explanation Technique",
+        content: "Can you explain Lenz's law, Faraday induction, or chemical equilibrium to a 10-year-old using simple mechanical analogies? If not, you do not truly understand it yet.",
+        author: "Richard Feynman",
+        date: "Cognitive Model"
+      },
+      {
+        id: "pin-8",
+        type: "aesthetic",
+        title: "Feynman Chalkboard Derivations",
+        content: "Mathematical truth in raw chalk. Let every page of your rough notebook look like an intense scientific expedition.",
+        img: "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=800&q=80",
+        date: "Intellectual Beauty"
+      },
+      {
+        id: "pin-9",
+        type: "sticky",
+        color: "emerald",
+        title: "The Mistake Notebook is Gold",
+        content: "After every mock: Catalog conceptual gaps, silly calculation slips, and misread questions. Re-solve every mistake without hints 72 hours later.",
+        date: "Error Autopsy"
+      }
+    ];
+
+    let currentPins = [];
+    let activeFilter = 'all';
+
+    function loadPins() {
+      try {
+        const stored = localStorage.getItem("clockee_inspiration_pins");
+        if (stored) {
+          currentPins = JSON.parse(stored);
+        } else {
+          currentPins = [...DEFAULT_PINS];
+          localStorage.setItem("clockee_inspiration_pins", JSON.stringify(currentPins));
+        }
+      } catch (e) {
+        currentPins = [...DEFAULT_PINS];
+      }
+      renderPins();
+    }
+
+    function savePins() {
+      try {
+        localStorage.setItem("clockee_inspiration_pins", JSON.stringify(currentPins));
+      } catch (e) {
+        console.error("Failed to save pins", e);
+      }
+    }
+
+    function filterPins(filter) {
+      activeFilter = filter;
+      document.querySelectorAll('.pin-filter-btn').forEach(btn => {
+        if (btn.dataset.filter === filter) {
+          btn.className = "pin-filter-btn px-3 py-1 rounded-full text-xs font-medium bg-indigo-600 text-white transition";
+        } else {
+          btn.className = "pin-filter-btn px-3 py-1 rounded-full text-xs font-medium bg-white/5 hover:bg-white/10 text-slate-300 transition";
+        }
+      });
+      renderPins();
+    }
+
+    function renderPins() {
+      const container = document.getElementById('pin-grid');
+      container.innerHTML = '';
+
+      const filtered = activeFilter === 'all' 
+        ? currentPins 
+        : currentPins.filter(p => p.type === activeFilter);
+
+      filtered.forEach(pin => {
+        const card = document.createElement('div');
+        card.className = "glass-card p-5 relative flex flex-col justify-between group transition-all duration-300 hover:-translate-y-1";
+
+        if (pin.type === 'sticky') {
+          const colorClass = `sticky-${pin.color || 'cyan'}`;
+          card.classList.add(colorClass);
+
+          card.innerHTML = `
+            <div>
+              <div class="flex items-center justify-between text-[11px] font-mono text-slate-400 mb-2">
+                <span class="flex items-center gap-1 font-semibold text-white">
+                  📌 ${pin.title}
+                </span>
+                <button onclick="deletePin('${pin.id}')" class="opacity-0 group-hover:opacity-100 text-slate-400 hover:text-red-400 transition" title="Delete Pin">✕</button>
+              </div>
+              <p class="text-sm text-slate-200 leading-relaxed font-sans">${pin.content}</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-[10px] font-mono text-slate-400">
+              <span>${pin.date || 'AFFIRMATION'}</span>
+              <span class="text-xs">⚡</span>
+            </div>
+          `;
+        } else if (pin.type === 'aesthetic') {
+          card.classList.add('border-white/10', 'bg-[#0f121d]');
+          card.innerHTML = `
+            <div>
+              <div class="relative h-44 rounded-xl overflow-hidden mb-3 cursor-pointer group/img" onclick="openLightbox('${pin.img}', '${pin.title}')">
+                <img src="${pin.img}" alt="${pin.title}" class="w-full h-full object-cover transition-transform duration-500 group-hover/img:scale-105" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                <div class="absolute bottom-2 left-2 right-2 flex items-center justify-between">
+                  <span class="text-xs font-bold text-white">${pin.title}</span>
+                  <span class="text-[10px] px-1.5 py-0.5 rounded bg-black/60 text-amber-300 font-mono">Zoom 🔍</span>
+                </div>
+              </div>
+              <p class="text-xs text-slate-300 leading-relaxed">${pin.content}</p>
+            </div>
+            <div class="mt-4 pt-2 border-t border-white/10 flex items-center justify-between text-[10px] font-mono text-slate-400">
+              <span>${pin.date || 'AESTHETIC'}</span>
+              <button onclick="deletePin('${pin.id}')" class="opacity-0 group-hover:opacity-100 text-slate-400 hover:text-red-400 transition">✕ Delete</button>
+            </div>
+          `;
+        } else if (pin.type === 'mental_model') {
+          card.classList.add('border-indigo-500/20', 'bg-gradient-to-br', 'from-indigo-950/20', 'to-[#0f121d]');
+          card.innerHTML = `
+            <div>
+              <div class="flex items-center justify-between text-[11px] font-mono text-indigo-400 mb-2">
+                <span class="flex items-center gap-1 font-semibold">
+                  🧠 ${pin.title}
+                </span>
+                <button onclick="deletePin('${pin.id}')" class="opacity-0 group-hover:opacity-100 text-slate-400 hover:text-red-400 transition">✕</button>
+              </div>
+              <p class="text-sm text-slate-200 leading-relaxed italic font-serif">${pin.content}</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-[10px] font-mono text-slate-400">
+              <span class="text-indigo-300">${pin.author || 'Topper Framework'}</span>
+              <span>${pin.date || 'MENTAL MODEL'}</span>
+            </div>
+          `;
+        }
+
+        container.appendChild(card);
+      });
+    }
+
+    function deletePin(id) {
+      currentPins = currentPins.filter(p => p.id !== id);
+      savePins();
+      renderPins();
+    }
+
+    function openAddPinModal() {
+      document.getElementById('add-pin-modal').classList.remove('hidden');
+      document.getElementById('add-pin-modal').classList.add('flex');
+    }
+
+    function closeAddPinModal() {
+      document.getElementById('add-pin-modal').classList.add('hidden');
+      document.getElementById('add-pin-modal').classList.remove('flex');
+    }
+
+    function togglePinTypeFields(type) {
+      const colorGroup = document.getElementById('pin-color-group');
+      const imgGroup = document.getElementById('pin-image-group');
+      const authGroup = document.getElementById('pin-author-group');
+
+      if (type === 'sticky') {
+        colorGroup.classList.remove('hidden');
+        imgGroup.classList.add('hidden');
+        authGroup.classList.add('hidden');
+      } else if (type === 'aesthetic') {
+        colorGroup.classList.add('hidden');
+        imgGroup.classList.remove('hidden');
+        authGroup.classList.add('hidden');
+      } else if (type === 'mental_model') {
+        colorGroup.classList.add('hidden');
+        imgGroup.classList.add('hidden');
+        authGroup.classList.remove('hidden');
+      }
+    }
+
+    function submitNewPin() {
+      const type = document.getElementById('pin-type-select').value;
+      const title = document.getElementById('pin-title-input').value.trim() || "New Commitment";
+      const content = document.getElementById('pin-content-input').value.trim();
+
+      if (!content) {
+        alert("Please enter content for this pin.");
+        return;
+      }
+
+      const newPin = {
+        id: "pin-" + Date.now(),
+        type: type,
+        title: title,
+        content: content,
+        date: "Just Now"
+      };
+
+      if (type === 'sticky') {
+        const selectedColor = document.querySelector('input[name="pin-color"]:checked')?.value || 'cyan';
+        newPin.color = selectedColor;
+      } else if (type === 'aesthetic') {
+        newPin.img = document.getElementById('pin-image-input').value.trim() || "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80";
+      } else if (type === 'mental_model') {
+        newPin.author = document.getElementById('pin-author-input').value.trim() || "Genius Framework";
+      }
+
+      currentPins.unshift(newPin);
+      savePins();
+      renderPins();
+      closeAddPinModal();
+
+      // Reset inputs
+      document.getElementById('pin-title-input').value = '';
+      document.getElementById('pin-content-input').value = '';
+      document.getElementById('pin-image-input').value = '';
+      document.getElementById('pin-author-input').value = '';
+    }
+
+    // Lightbox handlers
+    function openLightbox(src, caption) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox-caption').innerText = caption || '';
+      document.getElementById('lightbox-modal').classList.remove('hidden');
+      document.getElementById('lightbox-modal').classList.add('flex');
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox-modal').classList.add('hidden');
+      document.getElementById('lightbox-modal').classList.remove('flex');
+    }
+
+    // Live JEE 2028 Precision Countdown
+    function updateCountdown() {
+      // Target date: JEE Advanced 2028 (Default May 17, 2028 or state)
+      let targetStr = "2028-05-17T09:00:00";
+      if (window.APP_STATE && window.APP_STATE.jeeDate) {
+        targetStr = window.APP_STATE.jeeDate + "T09:00:00";
+      }
+
+      const targetDate = new Date(targetStr).getTime();
+      const now = new Date().getTime();
+      const diff = targetDate - now;
+
+      if (diff <= 0) {
+        document.getElementById('countdown-days').innerText = "0";
+        document.getElementById('countdown-hrs').innerText = "00h";
+        document.getElementById('countdown-mins').innerText = "00m";
+        document.getElementById('countdown-secs').innerText = "00s";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById('countdown-days').innerText = days;
+      document.getElementById('countdown-hrs').innerText = `${hours}h`;
+      document.getElementById('countdown-mins').innerText = `${minutes < 10 ? '0' : ''}${minutes}m`;
+      document.getElementById('countdown-secs').innerText = `${seconds < 10 ? '0' : ''}${seconds}s`;
+    }
+
+    // Save & Load Manifesto
+    function saveManifesto() {
+      const text = document.getElementById('manifesto-input').value;
+      localStorage.setItem("clockee_manifesto", text);
+    }
+    function loadManifesto() {
+      const saved = localStorage.getItem("clockee_manifesto");
+      if (saved) {
+        document.getElementById('manifesto-input').value = saved;
+      }
+    }
+
+    // Screenshot/Capture Board via html2canvas
+    function captureBoard() {
+      const container = document.getElementById('board-container');
+      const btn = event.currentTarget;
+      btn.innerText = "⏳";
+
+      html2canvas(container, {
+        backgroundColor: '#07080e',
+        scale: 2,
+        useCORS: true,
+        logging: false
+      }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = `ClockEE_JEE2028_Inspiration_${new Date().toISOString().slice(0, 10)}.png`;
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+        btn.innerText = "📷";
+      }).catch(err => {
+        console.error("Capture failed", err);
+        btn.innerText = "📷";
+        alert("Snapshot generated. Check downloads or pop-ups.");
+      });
+    }
+
+    // Initialize Aura Canvas Background
+    function initAuraCanvas() {
+      const canvas = document.getElementById('aura-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let width = canvas.width = window.innerWidth;
+      let height = canvas.height = window.innerHeight;
+
+      window.addEventListener('resize', () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      });
+
+      const orbs = [
+        { x: width * 0.2, y: height * 0.3, r: 250, color: 'rgba(99, 102, 241, 0.12)', vx: 0.3, vy: 0.2 },
+        { x: width * 0.8, y: height * 0.2, r: 300, color: 'rgba(245, 158, 11, 0.08)', vx: -0.2, vy: 0.3 },
+        { x: width * 0.5, y: height * 0.8, r: 350, color: 'rgba(0, 240, 255, 0.09)', vx: 0.15, vy: -0.25 },
+      ];
+
+      function render() {
+        ctx.clearRect(0, 0, width, height);
+        orbs.forEach(orb => {
+          orb.x += orb.vx;
+          orb.y += orb.vy;
+          if (orb.x < -orb.r) orb.x = width + orb.r;
+          if (orb.x > width + orb.r) orb.x = -orb.r;
+          if (orb.y < -orb.r) orb.y = height + orb.r;
+          if (orb.y > height + orb.r) orb.y = -orb.r;
+
+          const grad = ctx.createRadialGradient(orb.x, orb.y, 0, orb.x, orb.y, orb.r);
+          grad.addColorStop(0, orb.color);
+          grad.addColorStop(1, 'rgba(0,0,0,0)');
+          ctx.fillStyle = grad;
+          ctx.beginPath();
+          ctx.arc(orb.x, orb.y, orb.r, 0, Math.PI * 2);
+          ctx.fill();
+        });
+        requestAnimationFrame(render);
+      }
+      render();
+    }
+
+    // Lifecycle Init
+    window.addEventListener('DOMContentLoaded', () => {
+      loadPins();
+      loadManifesto();
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+      initAuraCanvas();
+
+      // Sync with master state if available
+      if (window.APP_STATE && window.APP_STATE.profile) {
+        if (window.APP_STATE.profile.name) {
+          const mName = document.getElementById('manifesto-name');
+          if (mName) mName.innerText = window.APP_STATE.profile.name;
+        }
+        if (window.APP_STATE.profile.pfp) {
+          const pfp = document.getElementById('user-pfp');
+          if (pfp) pfp.src = window.APP_STATE.profile.pfp;
+        }
+        if (window.APP_STATE.nextMilestone) {
+          const mb = document.getElementById('milestone-badge');
+          const mt = document.getElementById('milestone-title');
+          if (mb && window.APP_STATE.nextMilestone.date) mb.innerText = window.APP_STATE.nextMilestone.date;
+          if (mt && window.APP_STATE.nextMilestone.title) mt.innerText = window.APP_STATE.nextMilestone.title;
+        }
+      }
+    });
+  </script>
+
+  <!-- Connect clockee_core.js for cross-page persistence -->
+  <script src="clockee_core.js"></script>
+</body>
+</html>

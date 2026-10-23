@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ClockEE - Commander Profile &amp; Settings</title>
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- High-Availability CDNs -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+        },
+      },
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    :root {
+      --bg-base: #07080d;
+      --bg-surface: #10121b;
+      --bg-elevated: #161924;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-focus: rgba(99, 102, 241, 0.5);
+      --accent: #6366f1;
+      --accent-soft: rgba(99, 102, 241, 0.16);
+      --text-primary: #f3f4f6;
+      --text-secondary: #9ca3af;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-primary);
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .mono { font-family: 'JetBrains Mono', monospace; }
+
+    .glass-card {
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: rgba(16, 18, 27, 0.7);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      transition: all 0.25s ease;
+    }
+
+    .nav-btn {
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      text-decoration: none;
+    }
+    .nav-btn:hover {
+      background: var(--accent-soft);
+      color: #fff;
+    }
+    .nav-btn.nav-active {
+      background: var(--accent);
+      color: #ffffff;
+      box-shadow: 0 0 15px rgba(99, 102, 241, 0.5);
+    }
+
+    .nav-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .nav-caret {
+      font-size: 0.65rem;
+      margin-left: 2px;
+      opacity: 0.7;
+      display: inline-block;
+      transition: transform 0.25s ease;
+    }
+    .nav-dropdown:hover .nav-caret {
+      transform: rotate(180deg);
+    }
+    .nav-dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      margin-top: 6px;
+      min-width: 215px;
+      background: rgba(13, 17, 26, 0.96);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      padding: 6px;
+      display: none;
+      flex-direction: column;
+      gap: 2px;
+      z-index: 100;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.85), 0 0 15px rgba(99,102,241,0.2);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .nav-dropdown:hover .nav-dropdown-menu { display: flex; }
+    .nav-dropdown-item {
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      color: #9ca3af;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+    .nav-dropdown-item:hover {
+      background: rgba(99, 102, 241, 0.22);
+      color: #00f0ff;
+      transform: translateX(2px);
+    }
+
+    .nav-icon-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .nav-icon-btn:hover {
+      border-color: #00f0ff;
+      color: #00f0ff;
+      background: rgba(0, 240, 255, 0.1);
+    }
+
+    /* Animated Settings Navigation Menu Bar */
+    .settings-nav-bar {
+      position: sticky;
+      top: 60px;
+      z-index: 45;
+      background: rgba(9, 12, 22, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(0, 240, 255, 0.2);
+      border-radius: 9999px;
+      padding: 6px 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 15px rgba(0, 240, 255, 0.15);
+    }
+    .settings-nav-bar::-webkit-scrollbar { display: none; }
+
+    .settings-nav-pill {
+      padding: 7px 15px;
+      border-radius: 9999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #94a3b8;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      border: 1px solid transparent;
+      white-space: nowrap;
+      background: transparent;
+      outline: none;
+    }
+    .settings-nav-pill:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateY(-1px);
+    }
+    .settings-nav-pill.active {
+      color: #00f0ff;
+      background: linear-gradient(135deg, rgba(0, 240, 255, 0.22), rgba(99, 102, 241, 0.3));
+      border-color: rgba(0, 240, 255, 0.5);
+      box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+    }
+    .settings-nav-pill.active .pill-icon {
+      animation: pulseIcon 1.5s ease infinite alternate;
+    }
+    @keyframes pulseIcon {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.25); }
+    }
+    @keyframes sectionGlow {
+      0% { box-shadow: 0 0 0 rgba(0, 240, 255, 0); }
+      40% { box-shadow: 0 0 35px rgba(0, 240, 255, 0.55); border-color: rgba(0, 240, 255, 0.85); }
+      100% { box-shadow: 0 0 0 rgba(0, 240, 255, 0); }
+    }
+    .section-highlight {
+      animation: sectionGlow 1.6s ease-out;
+    }
+
+    /* Live Animated Aura Theme Preview Box */
+    .aura-live-box {
+      width: 100%;
+      height: 72px;
+      border-radius: 12px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+    }
+    .aura-live-blob-1 {
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      filter: blur(25px);
+      top: -20px;
+      left: 10%;
+      animation: auraFloat1 6s infinite ease-in-out alternate;
+    }
+    .aura-live-blob-2 {
+      position: absolute;
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      filter: blur(25px);
+      bottom: -30px;
+      right: 15%;
+      animation: auraFloat2 7s infinite ease-in-out alternate;
+    }
+    @keyframes auraFloat1 {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(60px, 20px) scale(1.2); }
+    }
+    @keyframes auraFloat2 {
+      0% { transform: translate(0, 0) scale(1.1); }
+      100% { transform: translate(-50px, -15px) scale(0.9); }
+    }
+  </style>
+</head>
+<body class="relative bg-[#07080e] text-[#f8fafc]">
+
+<header class="sticky top-0 z-50 px-4 py-3 sm:px-6 transition-all duration-300 bg-[#080a14]/75 backdrop-blur-2xl border-b border-white/10 shadow-[0_4px_24px_rgba(0,0,0,0.65)]">
+  <div class="max-w-7xl mx-auto flex items-center justify-between gap-2 sm:gap-4">
+    <!-- Brand / Logo -->
+    <div class="nav-left flex items-center gap-3">
+      <div class="relative w-8 h-8 flex items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500/20 to-cyan-500/20 border border-white/15 shadow-[0_0_15px_rgba(99,102,241,0.25)]">
+        <svg class="w-5 h-5 text-cyan-400 animate-spin-slow" viewBox="0 0 64 64" fill="none">
+          <circle cx="32" cy="32" r="28" stroke="url(#logoGrad)" stroke-width="4" stroke-dasharray="6 6"/>
+          <path d="M32 16V32L42 42" stroke="#00f0ff" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="32" cy="32" r="4" fill="#00f0ff"/>
+          <defs>
+            <linearGradient id="logoGrad" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#00f0ff"/>
+              <stop offset="0.5" stop-color="#6366f1"/>
+              <stop offset="1" stop-color="#ec4899"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
+      <a href="index.html" class="flex items-center gap-2 cursor-pointer" style="text-decoration:none;" title="ClockEE Home Command Center">
+        <span class="text-base sm:text-lg font-extrabold tracking-tight bg-gradient-to-r from-cyan-400 via-indigo-300 to-purple-400 bg-clip-text text-transparent">ClockEE</span>
+      </a>
+    </div>
+
+    <!-- Center Nav Switchers -->
+    <nav class="header-center flex items-center gap-1 sm:gap-1.5" id="main-nav">
+      <a href="index.html" class="nav-btn">Home</a>
+      <a href="task.html" class="nav-btn">Task</a>
+      <a href="today.html" class="nav-btn">Today</a>
+
+      <!-- Timer Dropdown -->
+      <div class="nav-dropdown relative inline-block">
+        <a href="timer.html" class="nav-btn">
+          Timer <span class="nav-caret">▼</span>
+        </a>
+        <div class="nav-dropdown-menu">
+          <a href="timer.html?mode=drill" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            <span>Manual Question Drill</span>
+          </a>
+          <a href="timer.html?mode=lecture" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-indigo-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>Lecture Focus Timer</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Coaching Dropdown -->
+      <div class="nav-dropdown relative inline-block">
+        <a href="coaching.html" class="nav-btn">
+          Coaching <span class="nav-caret">▼</span>
+        </a>
+        <div class="nav-dropdown-menu">
+          <a href="coaching.html?sub=syllabus" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            <span>Syllabus Covered</span>
+          </a>
+          <a href="coaching.html?sub=tests" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            <span>Test Performance &amp; OCR</span>
+          </a>
+          <a href="coaching.html?sub=logs" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M9 12h6"/><path d="M9 16h6"/></svg>
+            <span>Personal Question Log</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- CBT Portal Direct Link -->
+      <a href="cbt_home.html" class="nav-btn text-cyan-300 font-bold" style="text-decoration: none;">
+        <svg class="w-3.5 h-3.5 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        <span>CBT Portal</span>
+      </a>
+
+      <!-- Inspiration Board -->
+      <a href="inspiration.html" class="nav-btn text-amber-300 hover:text-amber-200 font-bold" style="text-decoration: none;" title="Dream Vision & Inspiration Board">
+        <svg class="w-3.5 h-3.5 text-amber-400" viewBox="0 0 24 24" fill="currentColor">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+        </svg>
+        <span>Inspiration</span>
+      </a>
+
+      <!-- Settings Dropdown -->
+      <div class="nav-dropdown relative inline-block">
+        <a href="settings.html" class="nav-btn nav-active">
+          Settings <span class="nav-caret">▼</span>
+        </a>
+        <div class="nav-dropdown-menu">
+          <a href="settings.html" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            <span>Global Settings</span>
+          </a>
+          <a href="settings.html#sec-identity" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-indigo-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <span>Profile &amp; Identity</span>
+          </a>
+          <a href="settings.html#sec-aura" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-purple-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/></svg>
+            <span>Themes &amp; Background</span>
+          </a>
+          <a href="settings.html#sec-goals" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+            <span>JEE Examination Goals</span>
+          </a>
+          <a href="settings.html#sec-milestones" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg>
+            <span>Milestones &amp; Deadlines</span>
+          </a>
+          <a href="settings.html#sec-apis" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            <span>Connected APIs</span>
+          </a>
+          <a href="settings.html#sec-data" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+            <span>Data Backup &amp; Reset</span>
+          </a>
+        </div>
+      </div>
+
+      <a href="admin.html" class="nav-btn text-purple-300 font-bold" style="text-decoration: none;">
+        <svg class="w-3.5 h-3.5 text-purple-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>Admin</span>
+      </a>
+    </nav>
+
+    <!-- Right Actions -->
+    <div class="nav-right flex items-center gap-3">
+      <button class="nav-icon-btn hover:border-cyan-400 hover:text-cyan-300" title="Toggle Split-Screen Quick Panel" onclick="toggleSplitScreen()">⊟</button>
+      <a href="settings.html" class="relative p-[2px] rounded-full hud-ring shadow-[0_0_15px_rgba(0,240,255,0.4)] cursor-pointer inline-block" title="Commander Profile & Settings">
+        <img
+          class="w-8 h-8 rounded-full bg-[#070913] object-cover block cursor-pointer"
+          data-profile-avatar
+          id="navAvatarImg"
+          src="https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Kunal"
+          alt="Avatar"
+        />
+      </a>
+    </div>
+  </div>
+</header>
+
+<main class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 pt-5 pb-16 space-y-6">
+  <!-- Header Title -->
+  <div class="flex items-center justify-between border-b border-white/10 pb-4 flex-wrap gap-4">
+    <div>
+      <h1 class="text-xl sm:text-2xl font-black text-white flex items-center gap-2.5">
+        <svg class="w-6 h-6 text-indigo-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        <span>Commander Profile &amp; Global System Settings</span>
+      </h1>
+      <p class="text-xs text-slate-400 font-medium">Multi-User Backend &bull; Dynamic Animated Backgrounds &bull; Fresh Clean Data Reset</p>
+    </div>
+    <div class="flex items-center gap-2">
+      <a href="admin.html" class="px-4 py-2 bg-gradient-to-r from-purple-600/30 to-indigo-600/30 hover:from-purple-600/50 hover:to-indigo-600/50 text-purple-300 border border-purple-500/40 rounded-xl text-xs font-black uppercase tracking-wider transition flex items-center gap-2 shadow">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>Admin &amp; Mentor Panel</span>
+      </a>
+      <button onclick="resetToFreshSlot()" class="px-4 py-2 bg-red-600/20 hover:bg-red-600/40 text-red-300 border border-red-500/30 rounded-xl text-xs font-black uppercase tracking-wider transition flex items-center gap-2 shadow">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+        <span>Reset Slot</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Interactive Animated Settings Menu Bar -->
+  <div class="settings-nav-bar my-2">
+    <button class="settings-nav-pill active" onclick="switchSettingsSection('all', this)">
+      <span class="pill-icon">
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </span>
+      <span>All Settings</span>
+    </button>
+    <button class="settings-nav-pill" onclick="switchSettingsSection('sec-identity', this)">
+      <span class="pill-icon">
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </span>
+      <span>Profile &amp; Identity</span>
+    </button>
+    <button class="settings-nav-pill" onclick="switchSettingsSection('sec-aura', this)">
+      <span class="pill-icon">
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/></svg>
+      </span>
+      <span>Animated Themes</span>
+    </button>
+    <button class="settings-nav-pill" onclick="switchSettingsSection('sec-goals', this)">
+      <span class="pill-icon">
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+      </span>
+      <span>JEE Targets</span>
+    </button>
+    <button class="settings-nav-pill" onclick="switchSettingsSection('sec-milestones', this)">
+      <span class="pill-icon">
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg>
+      </span>
+      <span>Milestones</span>
+    </button>
+    <button class="settings-nav-pill" onclick="switchSettingsSection('sec-apis', this)">
+      <span class="pill-icon">
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      </span>
+      <span>Connected APIs</span>
+    </button>
+    <button class="settings-nav-pill" onclick="switchSettingsSection('sec-data', this)">
+      <span class="pill-icon">
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+      </span>
+      <span>Data &amp; Backup</span>
+    </button>
+  </div>
+
+  <!-- 1. Commander Identity (With Crop Photo & Switch User hidden safely here!) -->
+  <div id="sec-identity" class="glass-card p-6 border border-white/10 space-y-4">
+    <div class="flex items-center justify-between border-b border-white/10 pb-2 flex-wrap gap-2">
+      <h2 class="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2"><span>👤</span> Commander Identity &amp; Profile</h2>
+      <div class="flex items-center gap-2">
+        <button onclick="document.getElementById('global-avatar-upload').click()" class="px-3 py-1 bg-cyan-600/20 hover:bg-cyan-600/40 text-cyan-300 border border-cyan-500/30 rounded-lg text-xs font-semibold transition flex items-center gap-1">
+          <span>📸</span> Crop Photo (1:1 Aspect Ratio)
+        </button>
+        <button onclick="openUserSessionManager()" class="px-3 py-1 bg-white/5 hover:bg-white/10 text-gray-300 border border-white/10 rounded-lg text-xs font-semibold transition flex items-center gap-1">
+          <span>👥</span> Switch / Manage User
+        </button>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-5 flex-wrap">
+      <div class="relative w-16 h-16 rounded-full overflow-hidden border-2 border-cyan-400 shadow-[0_0_15px_rgba(0,240,255,0.4)] cursor-pointer" onclick="document.getElementById('global-avatar-upload').click()" title="Click to upload and crop avatar">
+        <img id="settings-avatar-img" data-profile-avatar src="https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Kunal" class="w-full h-full object-cover">
+      </div>
+      <div class="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-3 min-w-[240px]">
+        <div>
+          <label class="text-[10px] text-gray-400 uppercase font-bold block mb-1">Aspirant Name</label>
+          <input type="text" id="settings-name" value="Kunal Sahoo" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl px-3 py-2 text-xs outline-none focus:border-cyan-400">
+        </div>
+        <div>
+          <label class="text-[10px] text-gray-400 uppercase font-bold block mb-1">Subtitle / Goal</label>
+          <input type="text" id="settings-subtitle" value="JEE 2028 Workspace" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl px-3 py-2 text-xs outline-none focus:border-cyan-400">
+        </div>
+      </div>
+      <div>
+        <label class="text-[10px] text-gray-400 uppercase font-bold block mb-1">Theme Accent</label>
+        <input type="color" id="settings-accent" value="#6366f1" class="w-12 h-9 bg-transparent cursor-pointer rounded-lg border border-gray-700 p-0.5">
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Dynamic Animated Background Themes & Controls -->
+  <div id="sec-aura" class="glass-card p-6 border border-cyan-500/30 bg-gradient-to-br from-[#0a0f20] to-[#12162a] space-y-4">
+    <div class="flex items-center justify-between border-b border-white/10 pb-2">
+      <div class="flex items-center gap-2">
+        <span class="text-base">🌌</span>
+        <h2 class="text-sm font-bold text-white uppercase tracking-wider">Dynamic Animated Background Settings</h2>
+      </div>
+      <label class="flex items-center gap-2 cursor-pointer text-xs font-semibold text-cyan-300">
+        <input type="checkbox" id="setting-aura-toggle" onchange="onAuraSettingChange()" checked class="rounded text-cyan-500 focus:ring-0">
+        <span>Enable Fluid Nebula Aura</span>
+      </label>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div>
+        <label class="text-[10px] text-gray-300 uppercase font-bold block mb-1">Nebula Aura Color Scheme</label>
+        <select id="setting-aura-theme" onchange="onAuraSettingChange()" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl px-3 py-2 text-xs outline-none focus:border-cyan-400">
+          <option value="cyan_indigo">Cyber Cyan &amp; Indigo (Default)</option>
+          <option value="deep_violet">Deep Space Violet &amp; Magenta</option>
+          <option value="emerald_matrix">Emerald Matrix &amp; Electric Teal</option>
+          <option value="crimson_nova">Crimson Nova &amp; Sunset Amber</option>
+        </select>
+      </div>
+      <div>
+        <label class="text-[10px] text-gray-300 uppercase font-bold block mb-1">Aura Drift Velocity</label>
+        <select id="setting-aura-speed" onchange="onAuraSettingChange()" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl px-3 py-2 text-xs outline-none focus:border-cyan-400">
+          <option value="fluid">Calm &amp; Fluid (26s Smooth Drift)</option>
+          <option value="steady">Medium Drift (16s)</option>
+          <option value="fast">High Velocity (10s Active)</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Live Animated Theme Preview Box -->
+    <div class="mt-2 p-3 rounded-xl bg-black/50 border border-white/10">
+      <div class="flex items-center justify-between mb-2">
+        <span class="text-[10px] font-bold uppercase text-gray-300 flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span> Live Dynamic Aura Preview
+        </span>
+        <span class="text-[10px] font-mono text-cyan-300">Fluid Real-time CSS Shader</span>
+      </div>
+      <div class="aura-live-box" id="aura-live-preview">
+        <div class="aura-live-blob-1" id="aura-preview-blob1" style="background: rgba(0, 240, 255, 0.5);"></div>
+        <div class="aura-live-blob-2" id="aura-preview-blob2" style="background: rgba(99, 102, 241, 0.5);"></div>
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <span class="text-xs font-bold text-white/90 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] flex items-center gap-2">
+            <span>✨</span> Active Dynamic Nebula Atmosphere
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Examination Target & Daily Goals -->
+  <div id="sec-goals" class="glass-card p-6 border border-white/10 space-y-4">
+    <h2 class="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2"><span>🎯</span> JEE Examination Goals</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div>
+        <label class="text-[10px] text-gray-400 uppercase font-bold block mb-1">Target JEE Advanced Date</label>
+        <input type="date" id="settings-jee-date" value="2028-05-17" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl px-3 py-2 text-xs outline-none focus:border-indigo-500">
+      </div>
+      <div>
+        <label class="text-[10px] text-gray-400 uppercase font-bold block mb-1">Target Daily Study Hours</label>
+        <input type="number" step="0.5" id="goal-hours" value="6.0" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl px-3 py-2 text-xs outline-none focus:border-indigo-500">
+      </div>
+    </div>
+
+    <div class="grid grid-cols-3 gap-3 pt-2">
+      <div>
+        <label class="text-[10px] text-blue-400 uppercase font-bold block mb-1">Physics Daily Qs Goal</label>
+        <input type="number" id="goal-physics" value="30" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl px-3 py-2 text-xs outline-none">
+      </div>
+      <div>
+        <label class="text-[10px] text-emerald-400 uppercase font-bold block mb-1">Chemistry Daily Qs Goal</label>
+        <input type="number" id="goal-chemistry" value="30" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl px-3 py-2 text-xs outline-none">
+      </div>
+      <div>
+        <label class="text-[10px] text-amber-400 uppercase font-bold block mb-1">Maths Daily Qs Goal</label>
+        <input type="number" id="goal-maths" value="30" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl px-3 py-2 text-xs outline-none">
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Immediate Next Milestone & Test Deadline -->
+  <div id="sec-milestones" class="glass-card p-6 border border-cyan-500/40 bg-gradient-to-r from-[#0d1326] to-[#12162b] space-y-4">
+    <div class="flex items-center justify-between">
+      <h2 class="text-sm font-bold text-cyan-300 uppercase tracking-wider flex items-center gap-2"><span>🏆</span> Immediate Next Milestone / Test Deadline</h2>
+      <span class="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-cyan-950 text-cyan-200 border border-cyan-500/30">Auto-synced to Home feed</span>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div>
+        <label class="text-[10px] text-gray-300 uppercase font-bold block mb-1">Next Milestone / Exam Title</label>
+        <input type="text" id="settings-next-milestone-title" value="Phase Major Test #01 (Physics &amp; Chemistry)" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl px-3 py-2 text-xs outline-none focus:border-cyan-400" placeholder="e.g. Allen Phase Test / PW AITS">
+      </div>
+      <div>
+        <label class="text-[10px] text-gray-300 uppercase font-bold block mb-1">Target Exam Deadline Date</label>
+        <input type="date" id="settings-next-deadline" value="2026-11-15" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl px-3 py-2 text-xs outline-none focus:border-cyan-400">
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Connected APIs Integration Hub -->
+  <div id="sec-apis" class="glass-card p-6 border border-white/10 space-y-5">
+    <div class="border-b border-white/10 pb-3 flex items-center justify-between">
+      <h2 class="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2"><span>🔌</span> Connected APIs Engine</h2>
+      <span class="text-[10px] text-emerald-400 font-bold flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-emerald-400 inline-block animate-ping"></span> Live Integration Active</span>
+    </div>
+
+    <!-- TickTick API -->
+    <div class="p-4 rounded-xl bg-gray-900/90 border border-white/10 space-y-2">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="text-base">🔗</span>
+          <span class="text-xs font-bold text-white">TickTick Tasks API</span>
+        </div>
+        <button onclick="syncTickTickTasks()" class="px-3 py-1 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-lg text-xs transition">
+          🔄 Sync TickTick Tasks
+        </button>
+      </div>
+      <div class="flex gap-2">
+        <input type="password" id="key-ticktick" value="tp_3528d202c4994ae28371f86be1c7e419" class="flex-1 bg-black/60 border border-gray-700 text-gray-300 rounded-xl px-3 py-1.5 text-xs font-mono outline-none">
+        <button onclick="toggleMask('key-ticktick')" class="text-xs px-3 py-1 bg-white/5 hover:bg-white/10 text-gray-400 rounded-xl">👁️</button>
+      </div>
+      <p class="text-[10px] text-gray-500">Connected token is active. Tasks sync without sending revision items back to TickTick.</p>
+    </div>
+
+    <!-- Google Gemini API -->
+    <div class="p-4 rounded-xl bg-gray-900/90 border border-white/10 space-y-2">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="text-base">🤖</span>
+          <span class="text-xs font-bold text-white">Google Gemini 2.0 API (AI Tutor &amp; Cloner)</span>
+        </div>
+        <button onclick="testGeminiConnection()" class="px-3 py-1 bg-purple-600 hover:bg-purple-500 text-white font-bold rounded-lg text-xs transition">
+          ⚡ Test Connection
+        </button>
+      </div>
+      <div class="flex gap-2">
+        <input type="password" id="key-gemini" placeholder="Enter Gemini API Key..." class="flex-1 bg-black/60 border border-gray-700 text-white rounded-xl px-3 py-1.5 text-xs font-mono outline-none focus:border-purple-500">
+        <button onclick="toggleMask('key-gemini')" class="text-xs px-3 py-1 bg-white/5 hover:bg-white/10 text-gray-400 rounded-xl">👁️</button>
+      </div>
+      <p class="text-[10px] text-gray-500">Used by the AI Tutor drawer panel and Question Cloner.</p>
+    </div>
+
+    <!-- Firebase Cloud Realtime Sync -->
+    <div class="p-4 rounded-xl bg-gray-900/90 border border-white/10 space-y-2">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="text-base">☁️</span>
+          <span class="text-xs font-bold text-white">Firebase Realtime Cloud Sync</span>
+        </div>
+        <div class="flex gap-2">
+          <button onclick="pushToCloud()" class="px-3 py-1 bg-emerald-600/30 hover:bg-emerald-600/50 text-emerald-300 border border-emerald-500/30 font-bold rounded-lg text-xs transition">
+            ☁️ Push State
+          </button>
+          <button onclick="pullFromCloud()" class="px-3 py-1 bg-indigo-600/30 hover:bg-indigo-600/50 text-indigo-300 border border-indigo-500/30 font-bold rounded-lg text-xs transition">
+            ⬇️ Pull State
+          </button>
+        </div>
+      </div>
+      <input type="text" id="key-firebase" placeholder="https://your-project.firebaseio.com" class="w-full bg-black/60 border border-gray-700 text-white rounded-xl px-3 py-1.5 text-xs font-mono outline-none focus:border-emerald-500">
+    </div>
+  </div>
+
+  <!-- Master Apply Button -->
+  <div class="text-center pt-2">
+    <button onclick="applyAllSettingsGlobally()"
+      class="w-full sm:w-auto px-10 py-3.5 bg-gradient-to-r from-emerald-500 via-teal-500 to-indigo-600 hover:scale-105 text-white font-extrabold text-sm rounded-2xl shadow-xl shadow-emerald-500/30 transition-all flex items-center justify-center gap-2 mx-auto">
+      <span>⚡</span> Apply &amp; Synchronize All Settings Globally
+    </button>
+  </div>
+
+  <!-- 6. Data Backup & Fresh Reset -->
+  <div id="sec-data" class="glass-card p-5 border border-white/10 flex items-center justify-between flex-wrap gap-4">
+    <div>
+      <div class="text-xs font-bold text-white">Data Portability &amp; Fresh Data Slot</div>
+      <div class="text-[11px] text-gray-400">Export backup JSON, restore state, or reset to a clean JEE 2028 starting slate.</div>
+    </div>
+    <div class="flex gap-2 flex-wrap">
+      <button onclick="exportBackupJSON()" class="px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-xl text-xs font-bold transition">
+        📥 Export JSON
+      </button>
+      <button onclick="document.getElementById('import-file-input').click()" class="px-4 py-2 bg-gray-800 hover:bg-gray-700 text-gray-300 rounded-xl text-xs font-bold transition">
+        📤 Import JSON
+      </button>
+      <input type="file" id="import-file-input" accept=".json" class="hidden" onchange="importBackupJSON(event)">
+      <button onclick="resetToFreshSlot()" class="px-4 py-2 bg-red-600/30 hover:bg-red-600 text-red-300 hover:text-white rounded-xl text-xs font-bold transition border border-red-500/30">
+        ✨ Fresh Start Reset
+      </button>
+    </div>
+  </div>
+</main>
+
+<!-- Modal: User Session Switcher (Opened from Settings) -->
+<div id="user-session-modal" class="hidden fixed inset-0 z-[300] bg-black/85 backdrop-blur-sm flex items-center justify-center p-4">
+  <div class="glass-card max-w-md w-full p-6 border border-cyan-500/30 space-y-4 bg-[#0a0d18]">
+    <div class="flex justify-between items-center border-b border-white/10 pb-2">
+      <h3 class="text-sm font-bold text-white flex items-center gap-2"><span>👥</span> User Profiles &amp; Sessions</h3>
+      <button onclick="document.getElementById('user-session-modal').classList.add('hidden')" class="text-gray-400 hover:text-white">✕</button>
+    </div>
+    <div id="user-sessions-list" class="space-y-2 max-h-60 overflow-y-auto"></div>
+    <div class="pt-3 border-t border-white/10 flex justify-between items-center">
+      <a href="admin.html" class="text-xs text-purple-400 hover:underline">Manage All in Admin Panel →</a>
+      <button onclick="document.getElementById('user-session-modal').classList.add('hidden')" class="px-4 py-1.5 bg-gray-800 hover:bg-gray-700 text-white rounded-xl text-xs font-semibold">Close</button>
+    </div>
+  </div>
+</div>
+
+<script src="clockee_core.js"></script>
+<script>
+  function toggleMask(id) {
+    const el = document.getElementById(id);
+    if (el) el.type = el.type === 'password' ? 'text' : 'password';
+  }
+
+  window.switchSettingsSection = function(sectionId, btn) {
+    document.querySelectorAll('.settings-nav-pill').forEach(b => b.classList.remove('active'));
+    if (btn) btn.classList.add('active');
+
+    if (sectionId === 'all') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      const target = document.getElementById(sectionId);
+      if (target) {
+        const navBarHeight = 110;
+        const rect = target.getBoundingClientRect();
+        const targetTop = rect.top + window.pageYOffset - navBarHeight;
+        window.scrollTo({ top: targetTop, behavior: 'smooth' });
+        target.classList.remove('section-highlight');
+        void target.offsetWidth;
+        target.classList.add('section-highlight');
+      }
+    }
+  };
+
+  window.onAuraSettingChange = function() {
+    const toggleEl = document.getElementById('setting-aura-toggle');
+    const dynamicAura = toggleEl ? toggleEl.checked : true;
+    const auraTheme = document.getElementById('setting-aura-theme')?.value || 'cyan_indigo';
+    const auraSpeed = document.getElementById('setting-aura-speed')?.value || 'fluid';
+
+    const s = window.getState();
+    s.settings = { ...(s.settings || {}), dynamicAura, auraTheme, auraSpeed };
+    window.APP_STATE = s;
+    window.saveState();
+    window.applyAuraSettings();
+    window.updateAuraLivePreview();
+    window.showToast(`🌌 Nebula Aura applied: ${auraTheme.replace('_', ' ').toUpperCase()}`, 'info');
+  };
+
+  window.updateAuraLivePreview = function() {
+    const theme = document.getElementById('setting-aura-theme')?.value || 'cyan_indigo';
+    const speed = document.getElementById('setting-aura-speed')?.value || 'fluid';
+    const blob1 = document.getElementById('aura-preview-blob1');
+    const blob2 = document.getElementById('aura-preview-blob2');
+    if (!blob1 || !blob2) return;
+
+    let c1 = 'rgba(0, 240, 255, 0.5)', c2 = 'rgba(99, 102, 241, 0.5)';
+    if (theme === 'deep_violet') {
+      c1 = 'rgba(168, 85, 247, 0.55)';
+      c2 = 'rgba(236, 72, 153, 0.5)';
+    } else if (theme === 'emerald_matrix') {
+      c1 = 'rgba(16, 185, 129, 0.55)';
+      c2 = 'rgba(6, 182, 212, 0.5)';
+    } else if (theme === 'crimson_nova') {
+      c1 = 'rgba(239, 68, 68, 0.55)';
+      c2 = 'rgba(245, 158, 11, 0.5)';
+    }
+
+    blob1.style.background = c1;
+    blob2.style.background = c2;
+
+    const dur = speed === 'fast' ? '3.5s' : speed === 'steady' ? '5.5s' : '8s';
+    blob1.style.animationDuration = dur;
+    blob2.style.animationDuration = dur;
+  };
+
+  function initSettings() {
+    const s = window.getState();
+    document.getElementById('settings-name').value = s.profile?.name || 'Kunal Sahoo';
+    document.getElementById('settings-subtitle').value = s.profile?.subtitle || 'JEE 2028 Workspace';
+    document.getElementById('settings-accent').value = s.profile?.accent || '#6366f1';
+    document.getElementById('settings-jee-date').value = s.jeeDate || '2028-05-17';
+
+    document.getElementById('goal-hours').value = s.dailyGoals?.hours || 6.0;
+    document.getElementById('goal-physics').value = s.dailyGoals?.Physics || 30;
+    document.getElementById('goal-chemistry').value = s.dailyGoals?.Chemistry || 30;
+    document.getElementById('goal-maths').value = s.dailyGoals?.Maths || 30;
+
+    document.getElementById('settings-next-milestone-title').value = s.nextMilestone?.title || 'Phase Major Test #01 (Physics & Chemistry)';
+    document.getElementById('settings-next-deadline').value = s.nextMilestone?.date || '2026-11-15';
+
+    document.getElementById('key-ticktick').value = s.apiKeys?.ticktick || 'tp_3528d202c4994ae28371f86be1c7e419';
+    document.getElementById('key-gemini').value = s.apiKeys?.gemini || '';
+    document.getElementById('key-firebase').value = s.apiKeys?.cloudUrl || '';
+
+    if (document.getElementById('setting-aura-toggle')) {
+      document.getElementById('setting-aura-toggle').checked = s.settings?.dynamicAura ?? true;
+    }
+    if (document.getElementById('setting-aura-theme')) {
+      document.getElementById('setting-aura-theme').value = s.settings?.auraTheme || 'cyan_indigo';
+    }
+    if (document.getElementById('setting-aura-speed')) {
+      document.getElementById('setting-aura-speed').value = s.settings?.auraSpeed || 'fluid';
+    }
+    window.updateAuraLivePreview();
+  }
+
+  function openUserSessionManager() {
+    const modal = document.getElementById('user-session-modal');
+    const container = document.getElementById('user-sessions-list');
+    if (!modal || !container) return;
+    const users = window.getUsersList();
+    container.innerHTML = users.map(u => `
+      <div class="p-3 rounded-xl border ${u.active ? 'border-cyan-500 bg-cyan-950/40' : 'border-white/10 bg-gray-900'} flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <img src="${u.pfp}" class="w-9 h-9 rounded-full border border-cyan-400">
+          <div>
+            <div class="text-xs font-bold text-white">${u.name} ${u.active ? '<span class="text-[10px] text-cyan-300 font-mono">(Active)</span>' : ''}</div>
+            <div class="text-[10px] text-gray-400">${u.role} &bull; ${u.subtitle}</div>
+          </div>
+        </div>
+        ${u.active ? '<span class="text-emerald-400 text-xs font-bold">✓ Current</span>' : `<button onclick="window.switchUser('${u.id}')" class="px-3 py-1 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-xs font-bold transition">Switch</button>`}
+      </div>
+    `).join('');
+    modal.classList.remove('hidden');
+  }
+
+  async function testGeminiConnection() {
+    const key = document.getElementById('key-gemini').value.trim();
+    if (!key) {
+      window.showToast('Enter your Gemini API Key first', 'error');
+      return;
+    }
+    window.showToast('Pinging Gemini 2.0 Flash API...', 'info');
+    try {
+      const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${key}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ contents: [{ parts: [{ text: 'Ping test' }] }] })
+      });
+      const data = await res.json();
+      if (data?.candidates?.[0]?.content?.parts?.[0]?.text) {
+        window.showToast('✓ Gemini API Connected Successfully!', 'success');
+      } else {
+        window.showToast('Gemini API response: ' + (data.error?.message || 'Check key'), 'error');
+      }
+    } catch (err) {
+      window.showToast('Connection failed: ' + err.message, 'error');
+    }
+  }
+
+  function exportBackupJSON() {
+    const s = window.getState();
+    const str = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(s, null, 2));
+    const a = document.createElement('a');
+    a.setAttribute("href", str);
+    a.setAttribute("download", `ClockEE_Backup_${window.getTodayStr()}.json`);
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    window.showToast('✓ Backup JSON downloaded!', 'success');
+  }
+
+  function importBackupJSON(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    const r = new FileReader();
+    r.onload = function(evt) {
+      try {
+        const data = JSON.parse(evt.target.result);
+        window.APP_STATE = data;
+        window.saveState();
+        window.showToast('✓ Backup JSON restored successfully!', 'success');
+        setTimeout(() => window.location.reload(), 500);
+      } catch (err) {
+        window.showToast('Invalid JSON backup file', 'error');
+      }
+    };
+    r.readAsText(file);
+  }
+
+  document.addEventListener('DOMContentLoaded', initSettings);
+</script>
+</body>
+</html>

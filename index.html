@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ClockEE - JEE 2028 Study Engine &amp; CBT Portal</title>
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- High-Availability CDNs -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+        },
+      },
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+  <style>
+    :root {
+      --bg-base: #07080d;
+      --bg-surface: #10121b;
+      --bg-elevated: #161924;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-focus: rgba(99, 102, 241, 0.5);
+      --accent: #6366f1;
+      --accent-soft: rgba(99, 102, 241, 0.16);
+      --text-primary: #f3f4f6;
+      --text-secondary: #9ca3af;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-primary);
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .mono { font-family: 'JetBrains Mono', monospace; }
+
+    .glass-card {
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: rgba(16, 18, 27, 0.7);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      transition: all 0.25s ease;
+    }
+
+    .nav-btn {
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      text-decoration: none;
+    }
+    .nav-btn:hover {
+      background: var(--accent-soft);
+      color: #fff;
+    }
+    .nav-btn.nav-active {
+      background: var(--accent);
+      color: #ffffff;
+      box-shadow: 0 0 15px rgba(99, 102, 241, 0.5);
+    }
+
+    .nav-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .nav-caret {
+      font-size: 0.65rem;
+      margin-left: 2px;
+      opacity: 0.7;
+      display: inline-block;
+      transition: transform 0.25s ease;
+    }
+    .nav-dropdown:hover .nav-caret {
+      transform: rotate(180deg);
+    }
+    .nav-dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      margin-top: 6px;
+      min-width: 215px;
+      background: rgba(13, 17, 26, 0.96);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      padding: 6px;
+      display: none;
+      flex-direction: column;
+      gap: 2px;
+      z-index: 100;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.85), 0 0 15px rgba(99,102,241,0.2);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .nav-dropdown:hover .nav-dropdown-menu { display: flex; }
+    .nav-dropdown-item {
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      color: #9ca3af;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+    .nav-dropdown-item:hover {
+      background: rgba(99, 102, 241, 0.22);
+      color: #00f0ff;
+      transform: translateX(2px);
+    }
+
+    .nav-icon-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .nav-icon-btn:hover {
+      border-color: #00f0ff;
+      color: #00f0ff;
+      background: rgba(0, 240, 255, 0.1);
+    }
+
+    ::-webkit-scrollbar {
+      width: 7px;
+      height: 7px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #07080d;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.16);
+      border-radius: 9999px;
+      border: 1px solid rgba(0, 0, 0, 0.5);
+      transition: background 0.2s ease;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--accent, #6366f1);
+      box-shadow: 0 0 10px var(--accent, #6366f1);
+    }
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255, 255, 255, 0.18) #07080d;
+    }
+  </style>
+</head>
+<body class="relative bg-[#07080e] text-[#f8fafc]">
+
+<!-- Sticky Top Frosted Glass Header -->
+<header class="sticky top-0 z-50 px-4 py-3 sm:px-6 transition-all duration-300 bg-[#080a14]/75 backdrop-blur-2xl border-b border-white/10 shadow-[0_4px_24px_rgba(0,0,0,0.65)]">
+  <div class="max-w-7xl mx-auto flex items-center justify-between gap-2 sm:gap-4">
+    <!-- Brand / Logo -->
+    <div class="nav-left flex items-center gap-3">
+      <div class="relative w-8 h-8 flex items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500/20 to-cyan-500/20 border border-white/15 shadow-[0_0_15px_rgba(99,102,241,0.25)]">
+        <svg class="w-4 h-4 text-cyan-400 animate-spin-slow" viewBox="0 0 64 64" fill="none">
+          <circle cx="32" cy="32" r="28" stroke="url(#logoGrad)" stroke-width="4" stroke-dasharray="6 6"/>
+          <path d="M32 16V32L42 42" stroke="#38bdf8" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="32" cy="32" r="4" fill="#38bdf8"/>
+          <defs>
+            <linearGradient id="logoGrad" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#38bdf8"/>
+              <stop offset="0.5" stop-color="#818cf8"/>
+              <stop offset="1" stop-color="#c084fc"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
+      <a href="index.html" class="flex items-center gap-2 cursor-pointer" style="text-decoration:none;" title="ClockEE Home Command Center">
+        <span class="text-base sm:text-lg font-bold tracking-tight text-white">ClockEE <span class="text-xs font-mono px-2 py-0.5 rounded-full bg-indigo-950 text-indigo-300 border border-indigo-500/30 font-semibold ml-1">v6</span></span>
+      </a>
+    </div>
+
+    <!-- Center Nav Switchers & Dropdowns -->
+    <nav class="header-center flex items-center gap-1 sm:gap-1.5" id="main-nav">
+      <a href="index.html" class="nav-btn nav-active">Home</a>
+      <a href="task.html" class="nav-btn">Task</a>
+      <a href="today.html" class="nav-btn">Today</a>
+
+      <!-- Timer Dropdown -->
+      <div class="nav-dropdown relative inline-block">
+        <a href="timer.html" class="nav-btn">
+          Timer <span class="nav-caret">▼</span>
+        </a>
+        <div class="nav-dropdown-menu">
+          <a href="timer.html?mode=drill" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            <span>Manual Question Drill</span>
+          </a>
+          <a href="timer.html?mode=lecture" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-indigo-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>Lecture Focus Timer</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Coaching Dropdown -->
+      <div class="nav-dropdown relative inline-block">
+        <a href="coaching.html" class="nav-btn">
+          Coaching <span class="nav-caret">▼</span>
+        </a>
+        <div class="nav-dropdown-menu">
+          <a href="coaching.html?sub=syllabus" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            <span>Syllabus Covered</span>
+          </a>
+          <a href="coaching.html?sub=tests" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            <span>Test Performance &amp; OCR</span>
+          </a>
+          <a href="coaching.html?sub=logs" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M9 12h6"/><path d="M9 16h6"/></svg>
+            <span>Personal Question Log</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- CBT Portal Direct Nav -->
+      <a href="cbt_home.html" class="nav-btn text-cyan-300 font-bold" style="text-decoration: none;">
+        <svg class="w-3.5 h-3.5 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        <span>CBT Portal</span>
+      </a>
+
+      <!-- Inspiration Board -->
+      <a href="inspiration.html" class="nav-btn text-amber-300 hover:text-amber-200 font-bold" style="text-decoration: none;" title="Dream Vision & Inspiration Board">
+        <svg class="w-3.5 h-3.5 text-amber-400" viewBox="0 0 24 24" fill="currentColor">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+        </svg>
+        <span>Inspiration</span>
+      </a>
+
+      <!-- Settings Dropdown -->
+      <div class="nav-dropdown relative inline-block">
+        <a href="settings.html" class="nav-btn">
+          Settings <span class="nav-caret">▼</span>
+        </a>
+        <div class="nav-dropdown-menu">
+          <a href="settings.html" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            <span>Global Settings</span>
+          </a>
+          <a href="settings.html#sec-identity" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-indigo-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <span>Profile &amp; Identity</span>
+          </a>
+          <a href="settings.html#sec-aura" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-purple-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/></svg>
+            <span>Themes &amp; Background</span>
+          </a>
+          <a href="settings.html#sec-goals" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+            <span>JEE Examination Goals</span>
+          </a>
+          <a href="settings.html#sec-milestones" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg>
+            <span>Milestones &amp; Deadlines</span>
+          </a>
+          <a href="settings.html#sec-apis" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            <span>Connected APIs</span>
+          </a>
+          <a href="settings.html#sec-data" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+            <span>Data Backup &amp; Reset</span>
+          </a>
+        </div>
+      </div>
+
+      <a href="admin.html" class="nav-btn text-purple-300 font-bold" style="text-decoration: none;">
+        <svg class="w-3.5 h-3.5 text-purple-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>Admin</span>
+      </a>
+    </nav>
+
+    <!-- Right Actions: Split Screen + Avatar Ring -->
+    <div class="nav-right flex items-center gap-3">
+      <button class="nav-icon-btn hover:border-cyan-400 hover:text-cyan-300" title="Toggle Split-Screen Quick Panel" onclick="toggleSplitScreen()">⊟</button>
+      <a href="settings.html" class="relative p-[2px] rounded-full hud-ring shadow-[0_0_15px_rgba(99,102,241,0.4)] cursor-pointer inline-block" title="Commander Profile & Settings">
+        <img
+          class="w-8 h-8 rounded-full bg-[#070913] object-cover block cursor-pointer border border-white/20"
+          data-profile-avatar
+          id="navAvatarImg"
+          src="https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Kunal"
+          alt="Avatar"
+        />
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- Main Page Layout Grid (Symmetrical Dual-Column Architecture) -->
+<main class="relative z-10 max-w-7xl w-full mx-auto px-4 sm:px-6 pt-5 pb-16">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+    
+    <!-- Left Column: Aspirant Profile, XP Status, Monthly Heatmap & Dual Graphs -->
+    <div class="lg:col-span-4 flex flex-col h-full">
+      <div id="clockee-sidebar-root" class="h-full flex flex-col"></div>
+    </div>
+
+    <!-- Right Column: Symmetrical Alignment & Balanced Spacing -->
+    <div class="lg:col-span-8 flex flex-col justify-between space-y-6 h-full">
+      
+      <!-- 1. JEE Advanced Countdown Card -->
+      <div class="glass-card p-5 space-y-3.5 shadow-xl border border-white/10 bg-[#0d1122]/75">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <div class="flex items-center gap-2.5">
+            <div class="w-7 h-7 rounded-lg bg-cyan-950/60 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <h2 class="text-base sm:text-lg font-black text-white tracking-tight">Target: JEE Advanced 2028</h2>
+          </div>
+          <span class="text-xs font-mono font-bold px-3 py-1 rounded-full bg-indigo-500/15 text-indigo-300 border border-indigo-500/30" id="jee-target-date-label">May 17, 2028</span>
+        </div>
+        <div class="grid grid-cols-4 gap-3 sm:gap-4 text-center">
+          <div class="bg-black/35 rounded-xl p-3 border border-white/5 shadow-inner">
+            <div class="text-3xl sm:text-4xl font-black font-mono text-cyan-400 tracking-tight" id="cd-days">--</div>
+            <div class="text-[10px] sm:text-xs text-slate-400 uppercase tracking-widest mt-1 font-bold">Days</div>
+          </div>
+          <div class="bg-black/35 rounded-xl p-3 border border-white/5 shadow-inner">
+            <div class="text-3xl sm:text-4xl font-black font-mono text-indigo-400 tracking-tight" id="cd-hours">--</div>
+            <div class="text-[10px] sm:text-xs text-slate-400 uppercase tracking-widest mt-1 font-bold">Hours</div>
+          </div>
+          <div class="bg-black/35 rounded-xl p-3 border border-white/5 shadow-inner">
+            <div class="text-3xl sm:text-4xl font-black font-mono text-purple-400 tracking-tight" id="cd-minutes">--</div>
+            <div class="text-[10px] sm:text-xs text-slate-400 uppercase tracking-widest mt-1 font-bold">Minutes</div>
+          </div>
+          <div class="bg-black/35 rounded-xl p-3 border border-white/5 shadow-inner">
+            <div class="text-3xl sm:text-4xl font-black font-mono text-pink-400 tracking-tight" id="cd-seconds">--</div>
+            <div class="text-[10px] sm:text-xs text-slate-400 uppercase tracking-widest mt-1 font-bold">Seconds</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Aspirant Daily Target & Readiness HUD -->
+      <div class="glass-card p-5 border border-white/10 bg-[#0d1122]/75 shadow-xl space-y-3">
+        <div class="flex items-center justify-between pb-2.5 border-b border-white/10 flex-wrap gap-2">
+          <div class="flex items-center gap-2.5">
+            <div class="w-7 h-7 rounded-lg bg-indigo-950/60 border border-indigo-500/30 flex items-center justify-center text-indigo-400">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+            </div>
+            <div>
+              <h3 class="text-xs font-black uppercase tracking-widest text-slate-200">Daily Mission &amp; High-Yield Focus Sprint</h3>
+              <p class="text-[11px] text-slate-400 font-medium">Current target mastery for JEE Advanced 2028</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-[10px] font-mono px-2.5 py-1 rounded-full bg-emerald-950/80 text-emerald-300 border border-emerald-500/30 font-black flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> 14-Day Streak</span>
+            <span class="text-[10px] font-mono px-2.5 py-1 rounded-full bg-indigo-950/80 text-indigo-300 border border-indigo-500/30 font-black">Deep Work Active</span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5">
+          <!-- Focus Chapter Card -->
+          <div class="p-3.5 rounded-xl bg-black/35 border border-white/5 space-y-1 shadow-inner">
+            <div class="text-[10px] text-slate-400 uppercase font-bold tracking-wider">Active High-Yield Chapter</div>
+            <div class="text-xs font-black text-white flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-blue-400 inline-block shadow-[0_0_8px_rgba(96,165,250,0.7)]"></span>
+              <span>Rotational Dynamics</span>
+            </div>
+            <div class="text-[10px] text-cyan-300 font-mono font-medium">Moment of Inertia &amp; Torque</div>
+          </div>
+
+          <!-- Target Metric / Accuracy Card -->
+          <div class="p-3.5 rounded-xl bg-black/35 border border-white/5 space-y-1 shadow-inner">
+            <div class="text-[10px] text-slate-400 uppercase font-bold tracking-wider">Today's Focus Target</div>
+            <div class="text-xs font-black text-emerald-300 flex items-center gap-1.5 font-mono">
+              <svg class="w-3.5 h-3.5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+              <span>90+ Target Questions / Day</span>
+            </div>
+            <div class="text-[10px] text-slate-400 font-medium">Accuracy Benchmark: &gt; 85%</div>
+          </div>
+
+          <!-- Quick Action Launch -->
+          <div class="p-3.5 rounded-xl bg-black/35 border border-white/5 flex flex-col justify-between shadow-inner">
+            <div class="text-[10px] text-indigo-300 uppercase font-bold tracking-wider">Adaptive Practice</div>
+            <div class="flex items-center gap-2 pt-1">
+              <a href="timer.html?mode=drill" class="flex-1 py-1.5 px-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-xs font-bold text-center transition shadow">Start Drill</a>
+              <a href="cbt_home.html" class="flex-1 py-1.5 px-2 bg-cyan-600/20 hover:bg-cyan-600 text-cyan-300 hover:text-white border border-cyan-500/30 rounded-lg text-xs font-bold text-center transition">CBT Exam</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Quick Log Solved Questions (+1, +5, -1 with top counter) -->
+      <div class="glass-card p-5 border border-white/10 bg-[#0d1122]/75 shadow-xl relative overflow-hidden space-y-3.5">
+        <div class="flex items-center justify-between pb-2.5 border-b border-white/10 flex-wrap gap-2">
+          <div class="flex items-center gap-2.5">
+            <div class="w-7 h-7 rounded-lg bg-cyan-950/60 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+            </div>
+            <div>
+              <h3 class="text-xs font-black uppercase tracking-widest text-slate-200">Quick Log Solved Questions</h3>
+              <p class="text-[11px] text-slate-400 font-medium">Instant counter logging syncs Monthly Heatmap, XP &amp; Coaching Log</p>
+            </div>
+          </div>
+          <span class="text-[10px] font-mono font-bold px-2.5 py-1 rounded-full bg-cyan-950 text-cyan-300 border border-cyan-500/30">Auto-Sync Active</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- Physics Logger Card -->
+          <div class="bg-black/35 border border-white/10 hover:border-blue-500/40 rounded-2xl p-4 text-center space-y-3 transition shadow-inner">
+            <div>
+              <div id="quick-phy-today" class="text-3xl font-extrabold font-mono text-blue-400">0</div>
+              <div class="text-[10px] uppercase tracking-wider text-gray-400 font-bold mt-0.5">Questions Today</div>
+            </div>
+            <div class="text-xs font-bold text-white flex items-center justify-center gap-2 py-1 border-y border-white/5">
+              <span class="w-2.5 h-2.5 rounded-full bg-blue-400 inline-block shadow-[0_0_8px_rgba(96,165,250,0.7)]"></span>
+              <span class="font-extrabold text-slate-100">Physics Practice</span>
+            </div>
+            <div class="grid grid-cols-3 gap-2">
+              <button onclick="logQuickQuestions('Physics', 1)" class="py-2 rounded-xl bg-blue-500/15 hover:bg-blue-600 text-blue-300 hover:text-white border border-blue-500/30 text-xs font-black transition shadow-sm">+1</button>
+              <button onclick="logQuickQuestions('Physics', 5)" class="py-2 rounded-xl bg-blue-500/25 hover:bg-blue-600 text-blue-200 hover:text-white border border-blue-500/40 text-xs font-black transition shadow-sm">+5</button>
+              <button onclick="logQuickQuestions('Physics', -1)" class="py-2 rounded-xl bg-red-500/15 hover:bg-red-600 text-red-300 hover:text-white border border-red-500/30 text-xs font-black transition shadow-sm" title="Deduct 1 question">-1</button>
+            </div>
+            <div class="flex gap-1.5 pt-0.5">
+              <input type="number" id="custom-phy-input" placeholder="Custom" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-2 py-1 text-xs text-white text-center outline-none focus:border-blue-400 font-mono font-bold">
+              <button onclick="logCustomQuestions('Physics')" class="px-3 py-1 bg-blue-600 hover:bg-blue-500 text-white rounded-lg text-xs font-black transition">Log</button>
+            </div>
+          </div>
+
+          <!-- Chemistry Logger Card -->
+          <div class="bg-black/35 border border-white/10 hover:border-emerald-500/40 rounded-2xl p-4 text-center space-y-3 transition shadow-inner">
+            <div>
+              <div id="quick-chem-today" class="text-3xl font-black font-mono text-emerald-400 tracking-tight">0</div>
+              <div class="text-[10px] uppercase tracking-widest text-slate-400 font-bold mt-0.5">Questions Today</div>
+            </div>
+            <div class="text-xs font-bold text-white flex items-center justify-center gap-2 py-1 border-y border-white/5">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block shadow-[0_0_8px_rgba(52,211,153,0.7)]"></span>
+              <span class="font-extrabold text-slate-100">Chemistry Practice</span>
+            </div>
+            <div class="grid grid-cols-3 gap-2">
+              <button onclick="logQuickQuestions('Chemistry', 1)" class="py-2 rounded-xl bg-emerald-500/15 hover:bg-emerald-600 text-emerald-300 hover:text-white border border-emerald-500/30 text-xs font-black transition shadow-sm">+1</button>
+              <button onclick="logQuickQuestions('Chemistry', 5)" class="py-2 rounded-xl bg-emerald-500/25 hover:bg-emerald-600 text-emerald-200 hover:text-white border border-emerald-500/40 text-xs font-black transition shadow-sm">+5</button>
+              <button onclick="logQuickQuestions('Chemistry', -1)" class="py-2 rounded-xl bg-red-500/15 hover:bg-red-600 text-red-300 hover:text-white border border-red-500/30 text-xs font-black transition shadow-sm" title="Deduct 1 question">-1</button>
+            </div>
+            <div class="flex gap-1.5 pt-0.5">
+              <input type="number" id="custom-chem-input" placeholder="Custom" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-2 py-1 text-xs text-white text-center outline-none focus:border-emerald-400 font-mono font-bold">
+              <button onclick="logCustomQuestions('Chemistry')" class="px-3 py-1 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-xs font-black transition">Log</button>
+            </div>
+          </div>
+
+          <!-- Maths Logger Card -->
+          <div class="bg-black/35 border border-white/10 hover:border-amber-500/40 rounded-2xl p-4 text-center space-y-3 transition shadow-inner">
+            <div>
+              <div id="quick-math-today" class="text-3xl font-black font-mono text-amber-400 tracking-tight">0</div>
+              <div class="text-[10px] uppercase tracking-widest text-slate-400 font-bold mt-0.5">Questions Today</div>
+            </div>
+            <div class="text-xs font-bold text-white flex items-center justify-center gap-2 py-1 border-y border-white/5">
+              <span class="w-2.5 h-2.5 rounded-full bg-amber-400 inline-block shadow-[0_0_8px_rgba(251,191,36,0.7)]"></span>
+              <span class="font-extrabold text-slate-100">Maths Practice</span>
+            </div>
+            <div class="grid grid-cols-3 gap-2">
+              <button onclick="logQuickQuestions('Maths', 1)" class="py-2 rounded-xl bg-amber-500/15 hover:bg-amber-600 text-amber-300 hover:text-white border border-amber-500/30 text-xs font-black transition shadow-sm">+1</button>
+              <button onclick="logQuickQuestions('Maths', 5)" class="py-2 rounded-xl bg-amber-500/25 hover:bg-amber-600 text-amber-200 hover:text-white border border-amber-500/40 text-xs font-black transition shadow-sm">+5</button>
+              <button onclick="logQuickQuestions('Maths', -1)" class="py-2 rounded-xl bg-red-500/15 hover:bg-red-600 text-red-300 hover:text-white border border-red-500/30 text-xs font-black transition shadow-sm" title="Deduct 1 question">-1</button>
+            </div>
+            <div class="flex gap-1.5 pt-0.5">
+              <input type="number" id="custom-math-input" placeholder="Custom" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-2 py-1 text-xs text-white text-center outline-none focus:border-amber-400 font-mono font-bold">
+              <button onclick="logCustomQuestions('Maths')" class="px-3 py-1 bg-amber-600 hover:bg-amber-500 text-white rounded-lg text-xs font-black transition">Log</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Today's Queue (Foldable TickTick section) & Upcoming Milestones -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 flex-1 items-stretch">
+        <!-- Today's Queue with Foldable TickTick Tasks -->
+        <div class="glass-card p-5 space-y-3.5 flex flex-col justify-between h-full bg-[#0d1122]/75 border border-white/10 shadow-xl">
+          <div class="flex-1 flex flex-col">
+            <div class="flex items-center justify-between border-b border-white/10 pb-2.5 mb-2.5">
+              <div class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M9 12h6"/><path d="M9 16h6"/></svg>
+                <h3 class="text-xs font-black text-slate-200 uppercase tracking-widest">Today's Queue</h3>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <button onclick="toggleTickTickFold()" id="btn-toggle-tt-fold" class="text-[10px] bg-white/5 hover:bg-white/10 text-cyan-300 border border-cyan-500/30 px-2 py-0.5 rounded-lg transition font-mono font-bold">
+                  ▾ TickTick Fold
+                </button>
+                <button onclick="syncTickTickTasks()" class="text-xs bg-indigo-600/20 hover:bg-indigo-600/40 text-indigo-300 border border-indigo-500/30 px-2.5 py-1 rounded-lg transition flex items-center gap-1.5 font-bold">
+                  <svg class="w-3.5 h-3.5 text-indigo-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/></svg>
+                  <span>Sync</span>
+                </button>
+              </div>
+            </div>
+            <div id="home-tasks-list" class="space-y-2 flex-1 min-h-[210px] max-h-72 overflow-y-auto pr-1"></div>
+          </div>
+          <a href="task.html" class="block text-center text-xs text-indigo-400 hover:text-indigo-300 pt-2 border-t border-white/5 font-extrabold uppercase tracking-wider">Open Task Command &amp; Kanban Board →</a>
+        </div>
+
+        <!-- Upcoming Milestones & Deadlines -->
+        <div class="glass-card p-5 space-y-3.5 flex flex-col justify-between h-full bg-[#0d1122]/75 border border-white/10 shadow-xl">
+          <div class="flex-1 flex flex-col">
+            <div class="flex items-center justify-between border-b border-white/10 pb-3 mb-3">
+              <div class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg>
+                <h3 class="text-xs font-black text-white uppercase tracking-widest">Upcoming Tests &amp; Milestones</h3>
+              </div>
+              <a href="settings.html" class="text-xs font-bold text-slate-400 hover:text-white transition">Edit Deadlines →</a>
+            </div>
+            <div id="milestones-list" class="space-y-2 flex-1 min-h-[210px] max-h-72 overflow-y-auto pr-1"></div>
+          </div>
+          <a href="cbt_home.html" class="block text-center text-xs text-cyan-400 hover:text-cyan-300 pt-2 border-t border-white/5 font-extrabold uppercase tracking-wider">Launch ClockEE CBT Portal →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<!-- Split-Screen Slide-in Drawer -->
+<div id="split-drawer" class="fixed top-0 right-0 h-full w-[420px] max-w-[95vw] bg-[#0c0e17]/98 border-l border-white/10 z-[200] transform translate-x-full transition-transform duration-300 flex flex-col shadow-[-10px_0_40px_rgba(0,0,0,0.8)] backdrop-blur-2xl">
+  <div class="flex items-center justify-between p-4 border-b border-white/10">
+    <div class="flex items-center gap-2">
+      <div class="w-6 h-6 rounded-lg bg-indigo-950/60 border border-indigo-500/30 flex items-center justify-center text-indigo-400">
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      </div>
+      <span class="text-white font-black uppercase tracking-wider text-sm">Focus Drawer</span>
+    </div>
+    <button onclick="toggleSplitScreen()" class="text-gray-400 hover:text-white p-1 rounded-lg hover:bg-white/5 transition">✕</button>
+  </div>
+
+  <div class="flex border-b border-white/10 bg-black/40 text-[11px] overflow-x-auto">
+    <button class="drawer-tab flex-1 py-3 px-2 font-bold text-center text-indigo-400 hover:text-white transition whitespace-nowrap flex items-center justify-center gap-1.5" onclick="switchDrawerTab('lectures')">
+      <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+      <span>Lectures</span>
+    </button>
+    <button class="drawer-tab flex-1 py-3 px-2 font-bold text-center text-slate-400 hover:text-white transition whitespace-nowrap flex items-center justify-center gap-1.5" onclick="switchDrawerTab('pdf')">
+      <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      <span>PDF Vault</span>
+    </button>
+    <button class="drawer-tab flex-1 py-3 px-2 font-bold text-center text-slate-400 hover:text-white transition whitespace-nowrap flex items-center justify-center gap-1.5" onclick="switchDrawerTab('audio')">
+      <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+      <span>Music Corner</span>
+    </button>
+    <button class="drawer-tab flex-1 py-3 px-2 font-bold text-center text-slate-400 hover:text-white transition whitespace-nowrap flex items-center justify-center gap-1.5" onclick="switchDrawerTab('ai')">
+      <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3l1.912 5.885L20 10.8l-4.956 3.6 1.894 5.885L12 16.685 7.062 20.285l1.894-5.885L4 10.8l6.088-1.915L12 3z"/></svg>
+      <span>AI Tutor</span>
+    </button>
+    <button class="drawer-tab flex-1 py-3 px-2 font-bold text-center text-slate-400 hover:text-white transition whitespace-nowrap flex items-center justify-center gap-1.5" onclick="switchDrawerTab('notes')">
+      <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+      <span>Notes</span>
+    </button>
+  </div>
+
+  <!-- Pane: Lectures (PCM vs One-Shot with Thumbnails) -->
+  <div id="drawer-pane-lectures" class="drawer-pane flex-1 overflow-y-auto p-4 space-y-3">
+    <div id="lectures-list-container" class="space-y-3"></div>
+  </div>
+
+  <!-- Pane: PDF Vault -->
+  <div id="drawer-pane-pdf" class="drawer-pane hidden flex-1 overflow-y-auto p-4 space-y-3">
+    <div id="drive-links-list" class="space-y-3"></div>
+  </div>
+
+  <!-- Pane: AI Doubt Tutor (Gemini API Connected) -->
+  <div id="drawer-pane-ai" class="drawer-pane hidden flex-1 flex-col overflow-hidden p-4">
+    <div class="flex items-center justify-between pb-2 mb-2 border-b border-white/10">
+      <div class="flex items-center gap-1.5">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="text-xs font-black uppercase tracking-wider text-white">Gemini 2.0 JEE Tutor</span>
+      </div>
+      <a href="settings.html" class="text-[10px] text-indigo-400 hover:underline font-bold">API Key in Settings →</a>
+    </div>
+    <div id="ai-chat-messages" class="flex-1 overflow-y-auto space-y-2.5 pr-1 text-xs">
+      <div class="bg-indigo-950/40 border border-indigo-500/20 rounded-xl p-3 text-indigo-200 font-medium">
+        Welcome Kunal! I am your JEE tutor. Ask me any conceptual question or doubt from Physics, Chemistry, or Maths.
+      </div>
+    </div>
+    <div class="mt-3 flex gap-2">
+      <input id="ai-doubt-input" type="text" placeholder="Ask JEE doubt..." class="flex-1 bg-gray-900 border border-gray-700 text-white rounded-xl px-3 py-2 text-xs outline-none focus:border-indigo-500 font-medium" onkeydown="if(event.key==='Enter') sendAIDoubtMessage()">
+      <button onclick="sendAIDoubtMessage()" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-xs font-bold">Send</button>
+    </div>
+  </div>
+
+  <!-- Pane: Notes -->
+  <div id="drawer-pane-notes" class="drawer-pane hidden flex-1 flex-col overflow-hidden p-4 gap-2">
+    <div class="flex justify-between items-center">
+      <p class="text-xs font-black text-slate-400 uppercase tracking-widest">Live Session Notes</p>
+      <button onclick="insertNoteTimestamp()" class="bg-gray-800 hover:bg-gray-700 text-indigo-300 px-2.5 py-1 rounded-lg text-xs font-bold flex items-center gap-1.5 transition">
+        <svg class="w-3.5 h-3.5 text-indigo-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span>Insert Timestamp</span>
+      </button>
+    </div>
+    <textarea id="live-notes-area" class="flex-1 bg-gray-900 border border-gray-800 text-gray-200 rounded-xl p-3 text-xs resize-none focus:outline-none focus:border-indigo-500 font-mono leading-relaxed" placeholder="Type quick notes, formula reminders..." oninput="saveLiveNotes(this.value)"></textarea>
+  </div>
+
+  <!-- Pane: Music Only Corner (No Like/Dislike) -->
+  <div id="drawer-pane-audio" class="drawer-pane hidden flex-1 flex-col p-4 overflow-y-auto space-y-3.5">
+    <div class="flex items-center justify-between">
+      <div>
+        <h3 class="text-white font-black text-xs uppercase tracking-wider flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+          <span>Focus Music Studio</span>
+        </h3>
+        <p class="text-[10px] text-slate-400">Distraction-Free Ambient &amp; Lo-Fi Beats</p>
+      </div>
+      <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-500/30 font-bold font-mono">Stream Active</span>
+    </div>
+
+    <!-- Active Embedded Player -->
+    <div class="rounded-xl overflow-hidden border border-white/10 bg-black aspect-video relative shadow-lg">
+      <iframe id="yt-player-iframe" class="w-full h-full"
+        src="https://www.youtube-nocookie.com/embed/jfKfPfyJRdk?enablejsapi=1"
+        title="Focus Music Player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+
+    <!-- Active Track Display (Clean, No Likes/Dislikes) -->
+    <div class="flex items-center justify-between bg-gray-900/90 border border-white/10 rounded-xl p-3">
+      <div class="truncate flex-1 mr-2">
+        <div class="text-white text-xs font-bold truncate flex items-center gap-1.5" id="yt-active-title">
+          <span>🎶</span> Lofi Girl - Relax &amp; Study Beats
+        </div>
+        <div class="text-[10px] text-gray-400 mt-0.5">Focus Radio &bull; Continuous Playback</div>
+      </div>
+      <span class="px-2 py-1 rounded bg-indigo-950 text-indigo-300 text-[10px] font-mono border border-indigo-500/30">HQ Audio</span>
+    </div>
+
+    <!-- Stations List -->
+    <div id="pinned-playlists-list" class="space-y-1.5"></div>
+  </div>
+</div>
+
+  <script src="clockee_core.js"></script>
+  <script>
+    let tickTickFolded = true;
+
+    function tickCountdown() {
+      const s = window.getState();
+      const targetDate = new Date((s.jeeDate || '2028-05-17') + 'T06:00:00');
+      const now = new Date();
+      const diff = targetDate - now;
+      if (diff <= 0) return;
+      const days = Math.floor(diff / 86400000);
+      const hours = Math.floor((diff % 86400000) / 3600000);
+      const mins = Math.floor((diff % 3600000) / 60000);
+      const secs = Math.floor((diff % 60000) / 1000);
+
+      document.getElementById('cd-days').textContent = days;
+      document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
+      document.getElementById('cd-minutes').textContent = String(mins).padStart(2, '0');
+      document.getElementById('cd-seconds').textContent = String(secs).padStart(2, '0');
+      document.getElementById('jee-target-date-label').textContent = s.jeeDate || '2028-05-17';
+    }
+
+    function updateDailyProgress() {
+      const qs = window.getQuestionsToday();
+      const qPhy = document.getElementById('quick-phy-today');
+      if (qPhy) qPhy.textContent = `${qs.Physics}`;
+      const qChem = document.getElementById('quick-chem-today');
+      if (qChem) qChem.textContent = `${qs.Chemistry}`;
+      const qMath = document.getElementById('quick-math-today');
+      if (qMath) qMath.textContent = `${qs.Maths}`;
+    }
+    window.updateDailyProgress = updateDailyProgress;
+
+    window.toggleTickTickFold = function() {
+      tickTickFolded = !tickTickFolded;
+      const btn = document.getElementById('btn-toggle-tt-fold');
+      if (btn) btn.textContent = tickTickFolded ? '▾ TickTick Fold' : '▴ TickTick Unfold';
+      renderTodaysTasks();
+    };
+
+    function renderTodaysTasks() {
+      const container = document.getElementById('home-tasks-list');
+      if (!container) return;
+      const s = window.getState();
+      const today = window.getTodayStr();
+      const allTodayTasks = (s.tasks || []).filter(t => (t.dueDate || '').slice(0, 10) === today || t.status === 'in_progress');
+
+      if (allTodayTasks.length === 0) {
+        container.innerHTML = '<p class="text-xs text-slate-500 font-medium italic py-4 text-center">No tasks scheduled for today — all caught up.</p>';
+        return;
+      }
+
+      const regularTasks = [];
+      const tickTickTasks = [];
+
+      allTodayTasks.forEach(t => {
+        const isTT = (t.id && String(t.id).startsWith('tt_')) || t.source === 'ticktick';
+        if (isTT) tickTickTasks.push(t);
+        else regularTasks.push(t);
+      });
+
+      const renderCard = (t) => {
+        const isTickTick = (t.id && String(t.id).startsWith('tt_')) || t.source === 'ticktick';
+        const isRevision = t.type === 'revision' || (t.tags || []).some(x => String(x).toLowerCase().includes('revision'));
+
+        const subCol = isTickTick ? 'text-cyan-300 bg-cyan-950/70 border-cyan-500/40' :
+                       t.subject === 'Physics' ? 'text-blue-300 bg-blue-950/60 border-blue-500/30' :
+                       t.subject === 'Chemistry' ? 'text-emerald-300 bg-emerald-950/60 border-emerald-500/30' :
+                       t.subject === 'Maths' ? 'text-amber-300 bg-amber-950/60 border-amber-500/30' :
+                       'text-gray-300 bg-gray-800 border-gray-700';
+
+        const subBadgeText = isTickTick ? 'From TickTick' : (t.subject || 'General');
+
+        return `
+          <div class="p-2.5 rounded-xl bg-gray-900/80 border border-white/5 space-y-1.5 hover:border-white/10 transition">
+            <div class="flex items-center justify-between gap-2">
+              <div class="flex items-center gap-2 truncate">
+                <input type="checkbox" ${t.completed ? 'checked' : ''} onchange="toggleTaskDone('${t.id}')" class="rounded text-indigo-600 focus:ring-0">
+                <span class="text-xs ${t.completed ? 'line-through text-slate-500' : 'text-slate-100 font-bold'} truncate">${t.title}</span>
+              </div>
+              <span class="text-[9px] px-2 py-0.5 rounded-full border ${subCol} font-mono shrink-0 font-bold">${subBadgeText}</span>
+            </div>
+            <div class="flex items-center justify-between text-[10px] text-slate-400 pl-6">
+              <span class="flex items-center gap-1.5 text-slate-300">
+                <svg class="w-3 h-3 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+                <span class="font-bold text-slate-300">${t.list || 'PW Modules & Practice Sheets'}</span>
+              </span>
+              <span class="text-[9px] text-slate-400 font-mono font-bold">${t.dueDate || 'Today'}</span>
+            </div>
+          </div>
+        `;
+      };
+
+      let html = regularTasks.map(renderCard).join('');
+
+      if (tickTickTasks.length > 0) {
+        html += `
+          <div class="pt-2 border-t border-cyan-500/20">
+            <div onclick="toggleTickTickFold()" class="p-2 rounded-xl bg-cyan-950/40 border border-cyan-500/30 flex items-center justify-between cursor-pointer hover:bg-cyan-950/60 transition">
+              <span class="text-xs font-black uppercase tracking-wider text-cyan-300 flex items-center gap-1.5">
+                <svg class="w-3.5 h-3.5 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>
+                <span>TickTick Folded Tasks (${tickTickTasks.length})</span>
+              </span>
+              <span class="text-[10px] font-mono font-bold text-cyan-400">${tickTickFolded ? '▾ Expand' : '▴ Collapse'}</span>
+            </div>
+            ${tickTickFolded ? '' : `<div class="space-y-1.5 pt-2 pl-1">${tickTickTasks.map(renderCard).join('')}</div>`}
+          </div>
+        `;
+      }
+
+      container.innerHTML = html;
+    }
+
+    window.toggleTaskDone = function(id) {
+      const s = window.getState();
+      const t = (s.tasks || []).find(x => x.id === id);
+      if (t) {
+        t.completed = !t.completed;
+        t.status = t.completed ? 'done' : 'todo';
+        window.saveState();
+        renderTodaysTasks();
+      }
+    };
+
+    function renderMilestones() {
+      const container = document.getElementById('milestones-list');
+      if (!container) return;
+      const s = window.getState();
+      const today = window.getTodayStr();
+      const items = (s.tasks || []).filter(t => (t.type === 'milestone' || t.type === 'aits') && (t.dueDate || '') >= today);
+
+      if (s.nextMilestone && s.nextMilestone.date && s.nextMilestone.date >= today) {
+        if (!items.some(x => x.title === s.nextMilestone.title)) {
+          items.unshift({
+            id: 'setting_milestone',
+            title: s.nextMilestone.title || 'Target Major Exam',
+            dueDate: s.nextMilestone.date,
+            type: 'milestone'
+          });
+        }
+      }
+
+      if (items.length === 0) {
+        container.innerHTML = '<p class="text-xs text-slate-500 font-medium italic py-4 text-center">No upcoming test deadlines. Set target in Settings.</p>';
+        return;
+      }
+      container.innerHTML = items.map(m => `
+        <div class="flex items-center justify-between p-2.5 rounded-xl bg-gray-900/80 border border-white/5 hover:border-white/10 transition">
+          <div class="flex items-center gap-2 truncate">
+            <svg class="w-3.5 h-3.5 text-amber-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+            <span class="text-xs font-bold text-white truncate">${m.title}</span>
+          </div>
+          <div class="flex items-center gap-2 shrink-0">
+            <span class="text-[10px] px-2 py-0.5 rounded-full bg-indigo-950 text-indigo-300 border border-indigo-500/30 font-mono font-bold">${m.dueDate}</span>
+            <a href="cbt_home.html" class="text-[10px] bg-indigo-600 hover:bg-indigo-500 text-white font-extrabold px-2.5 py-1 rounded-lg transition">CBT</a>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Quick Logger
+    window.logQuickQuestions = function(subject, delta) {
+      const s = window.getState();
+      s.questionLogs = s.questionLogs || [];
+      const today = window.getTodayStr();
+
+      if (delta < 0) {
+        let remainingToDeduct = Math.abs(delta);
+        for (let i = s.questionLogs.length - 1; i >= 0; i--) {
+          const log = s.questionLogs[i];
+          if (log.date === today && log.subject === subject) {
+            const currentQ = log.questions || log.totalQs || 1;
+            if (currentQ <= remainingToDeduct) {
+              remainingToDeduct -= currentQ;
+              s.questionLogs.splice(i, 1);
+            } else {
+              log.questions = currentQ - remainingToDeduct;
+              remainingToDeduct = 0;
+            }
+            if (remainingToDeduct === 0) break;
+          }
+        }
+        window.showToast(`Deducted 1 question from ${subject}`, 'info');
+      } else {
+        s.questionLogs.push({
+          date: today,
+          subject: subject,
+          chapter: `${subject} Daily Practice`,
+          questions: delta,
+          correct: delta,
+          score: delta * 4,
+          durationMs: delta * 90000,
+          source: 'manual_drill',
+          timestamp: Date.now()
+        });
+        window.showToast(`+${delta} ${subject} questions logged`, 'success');
+      }
+
+      window.saveState();
+      updateDailyProgress();
+      if (typeof window.renderMonthlyHeatmap === 'function') window.renderMonthlyHeatmap();
+      if (typeof window.renderSidebarMiniChart === 'function') window.renderSidebarMiniChart();
+    };
+
+    window.logCustomQuestions = function(subject) {
+      const key = subject === 'Physics' ? 'custom-phy-input' : subject === 'Chemistry' ? 'custom-chem-input' : 'custom-math-input';
+      const input = document.getElementById(key);
+      const val = parseInt(input?.value || '0');
+      if (val > 0) {
+        logQuickQuestions(subject, val);
+        if (input) input.value = '';
+      }
+    };
+
+    document.addEventListener('DOMContentLoaded', function() {
+      tickCountdown();
+      setInterval(tickCountdown, 1000);
+      updateDailyProgress();
+      renderTodaysTasks();
+      renderMilestones();
+    });
+
+    window.addEventListener('stateChange', function() {
+      updateDailyProgress();
+      renderTodaysTasks();
+      renderMilestones();
+    });
+  </script>
+</body>
+</html>

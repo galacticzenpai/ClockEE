@@ -1,0 +1,18 @@
+# Backup & temp files
+*.bak
+*.tmp
+*.log
+*~
+
+# Operating system files
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# IDE & editors
+.vscode/
+.idea/
+
+# Local credentials (if any)
+.env
+sync_config.local.json

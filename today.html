@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ClockEE - JEE 2028 Study Engine &amp; CBT Portal</title>
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- High-Availability CDNs -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+        },
+      },
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://unpkg.com/tesseract.js@v2.1.0/dist/tesseract.min.js"></script>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+  <style>
+    :root {
+      --bg-base: #07080d;
+      --bg-surface: #10121b;
+      --bg-elevated: #161924;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-focus: rgba(99, 102, 241, 0.5);
+      --accent: #6366f1;
+      --accent-soft: rgba(99, 102, 241, 0.16);
+      --text-primary: #f3f4f6;
+      --text-secondary: #9ca3af;
+      --aura-color-1: rgba(99, 102, 241, 0.28);
+      --aura-color-2: rgba(0, 240, 255, 0.20);
+      --aura-color-3: rgba(236, 72, 153, 0.18);
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-primary);
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .mono { font-family: 'JetBrains Mono', monospace; }
+
+    .glass-card {
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: rgba(16, 18, 27, 0.7);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+    }
+
+    .nav-btn {
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      text-decoration: none;
+    }
+    .nav-btn:hover {
+      background: var(--accent-soft);
+      color: #fff;
+    }
+    .nav-btn.nav-active {
+      background: var(--accent);
+      color: #ffffff;
+      box-shadow: 0 0 15px rgba(99, 102, 241, 0.5);
+    }
+
+    .nav-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .nav-caret {
+      font-size: 0.65rem;
+      margin-left: 2px;
+      opacity: 0.7;
+      display: inline-block;
+      transition: transform 0.25s ease;
+    }
+    .nav-dropdown:hover .nav-caret {
+      transform: rotate(180deg);
+    }
+    .nav-dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      margin-top: 6px;
+      min-width: 215px;
+      background: rgba(13, 17, 26, 0.96);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      padding: 6px;
+      display: none;
+      flex-direction: column;
+      gap: 2px;
+      z-index: 100;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.85), 0 0 15px rgba(99,102,241,0.2);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .nav-dropdown:hover .nav-dropdown-menu { display: flex; }
+    .nav-dropdown-item {
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      color: #9ca3af;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+    .nav-dropdown-item:hover {
+      background: rgba(99, 102, 241, 0.22);
+      color: #00f0ff;
+      transform: translateX(2px);
+    }
+
+    .nav-icon-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .nav-icon-btn:hover {
+      border-color: #00f0ff;
+      color: #00f0ff;
+      background: rgba(0, 240, 255, 0.1);
+    }
+
+    /* Fixed Smooth Heatmap Tooltip */
+    #heatmap-tooltip {
+      position: fixed;
+      display: none;
+      pointer-events: none;
+      z-index: 99999;
+      background: rgba(9, 11, 20, 0.96);
+      border: 1px solid rgba(99, 102, 241, 0.5);
+      border-radius: 12px;
+      padding: 10px 14px;
+      color: #fff;
+      font-size: 11px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.85);
+      backdrop-filter: blur(12px);
+      max-width: 290px;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body class="relative bg-[#07080e] text-[#f8fafc]">
+
+<header class="sticky top-0 z-50 px-4 py-3 sm:px-6 transition-all duration-300 bg-[#080a14]/75 backdrop-blur-2xl border-b border-white/10 shadow-[0_4px_24px_rgba(0,0,0,0.65)]">
+  <div class="max-w-7xl mx-auto flex items-center justify-between gap-2 sm:gap-4">
+    <!-- Brand / Logo -->
+    <div class="nav-left flex items-center gap-3">
+      <div class="relative w-8 h-8 flex items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500/20 to-cyan-500/20 border border-white/15 shadow-[0_0_15px_rgba(99,102,241,0.25)]">
+        <svg class="w-5 h-5 text-cyan-400 animate-spin-slow" viewBox="0 0 64 64" fill="none">
+          <circle cx="32" cy="32" r="28" stroke="url(#logoGrad)" stroke-width="4" stroke-dasharray="6 6"/>
+          <path d="M32 16V32L42 42" stroke="#00f0ff" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="32" cy="32" r="4" fill="#00f0ff"/>
+          <defs>
+            <linearGradient id="logoGrad" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#00f0ff"/>
+              <stop offset="0.5" stop-color="#6366f1"/>
+              <stop offset="1" stop-color="#ec4899"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
+      <a href="index.html" class="flex items-center gap-2 cursor-pointer" style="text-decoration:none;" title="ClockEE Home Command Center">
+        <span class="text-base sm:text-lg font-extrabold tracking-tight bg-gradient-to-r from-cyan-400 via-indigo-300 to-purple-400 bg-clip-text text-transparent">ClockEE</span>
+      </a>
+    </div>
+
+    <!-- Center Nav Switchers & Dropdowns -->
+    <nav class="header-center flex items-center gap-1 sm:gap-1.5" id="main-nav">
+      <a href="index.html" class="nav-btn">Home</a>
+      <a href="task.html" class="nav-btn">Task</a>
+      <a href="today.html" class="nav-btn nav-active">Today</a>
+
+      <!-- Timer Dropdown -->
+      <div class="nav-dropdown relative inline-block">
+        <a href="timer.html" class="nav-btn">
+          Timer <span class="nav-caret">▼</span>
+        </a>
+        <div class="nav-dropdown-menu">
+          <a href="timer.html?mode=drill" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            <span>Manual Question Drill</span>
+          </a>
+          <a href="timer.html?mode=lecture" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-indigo-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>Lecture Focus Timer</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Coaching Dropdown -->
+      <div class="nav-dropdown relative inline-block">
+        <a href="coaching.html" class="nav-btn">
+          Coaching <span class="nav-caret">▼</span>
+        </a>
+        <div class="nav-dropdown-menu">
+          <a href="coaching.html?sub=syllabus" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            <span>Syllabus Covered</span>
+          </a>
+          <a href="coaching.html?sub=tests" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            <span>Test Performance &amp; OCR</span>
+          </a>
+          <a href="coaching.html?sub=logs" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M9 12h6"/><path d="M9 16h6"/></svg>
+            <span>Personal Question Log</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- CBT Portal Direct Link -->
+      <a href="cbt_home.html" class="nav-btn text-cyan-300 font-bold" style="text-decoration: none;">
+        <svg class="w-3.5 h-3.5 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        <span>CBT Portal</span>
+      </a>
+
+      <!-- Inspiration Board -->
+      <a href="inspiration.html" class="nav-btn text-amber-300 hover:text-amber-200 font-bold" style="text-decoration: none;" title="Dream Vision & Inspiration Board">
+        <svg class="w-3.5 h-3.5 text-amber-400" viewBox="0 0 24 24" fill="currentColor">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+        </svg>
+        <span>Inspiration</span>
+      </a>
+
+      <!-- Settings Dropdown -->
+      <div class="nav-dropdown relative inline-block">
+        <a href="settings.html" class="nav-btn">
+          Settings <span class="nav-caret">▼</span>
+        </a>
+        <div class="nav-dropdown-menu">
+          <a href="settings.html" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            <span>Global Settings</span>
+          </a>
+          <a href="settings.html#sec-identity" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-indigo-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <span>Profile &amp; Identity</span>
+          </a>
+          <a href="settings.html#sec-aura" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-purple-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/></svg>
+            <span>Themes &amp; Background</span>
+          </a>
+          <a href="settings.html#sec-goals" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+            <span>JEE Examination Goals</span>
+          </a>
+          <a href="settings.html#sec-milestones" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg>
+            <span>Milestones &amp; Deadlines</span>
+          </a>
+          <a href="settings.html#sec-apis" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            <span>Connected APIs</span>
+          </a>
+          <a href="settings.html#sec-data" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+            <span>Data Backup &amp; Reset</span>
+          </a>
+        </div>
+      </div>
+
+      <a href="admin.html" class="nav-btn text-purple-300 font-bold" style="text-decoration: none;">
+        <svg class="w-3.5 h-3.5 text-purple-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>Admin</span>
+      </a>
+    </nav>
+
+    <!-- Right Actions: Split Screen + Avatar Ring -->
+    <div class="nav-right flex items-center gap-3">
+      <button class="nav-icon-btn hover:border-cyan-400 hover:text-cyan-300" title="Toggle Split-Screen Quick Panel" onclick="toggleSplitScreen()">⊟</button>
+      <a href="settings.html" class="relative p-[2px] rounded-full hud-ring shadow-[0_0_15px_rgba(0,240,255,0.4)] cursor-pointer inline-block" title="Commander Profile & Settings">
+        <img
+          class="w-8 h-8 rounded-full bg-[#070913] object-cover block cursor-pointer"
+          data-profile-avatar
+          id="navAvatarImg"
+          src="https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Kunal"
+          alt="Avatar"
+        />
+      </a>
+    </div>
+  </div>
+</header>
+  <main class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-4 pb-12 space-y-6">
+    <div class="flex items-center justify-between flex-wrap gap-4 border-b border-white/10 pb-4">
+      <div>
+        <h1 class="text-xl sm:text-2xl font-black text-white flex items-center gap-2.5">
+          <svg class="w-6 h-6 text-indigo-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span>Today's Digest &amp; Timeline</span>
+        </h1>
+        <p class="text-xs text-slate-400 font-medium" id="today-date-banner">Daily Performance Snapshot</p>
+      </div>
+      <button onclick="exportDailyReportJPEG()" class="px-5 py-2.5 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white rounded-xl text-xs font-black uppercase tracking-wider shadow-lg transition flex items-center gap-2">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        <span>Export Daily Report Card (JPEG)</span>
+      </button>
+    </div>
+
+    <!-- Exportable Daily Card Container -->
+    <div id="daily-report-card" class="glass-card p-6 border border-white/10 space-y-6 bg-gradient-to-b from-[#0c0f1c] to-[#121626]">
+      <div class="flex items-center justify-between border-b border-white/10 pb-4">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-indigo-600/20 text-indigo-400 flex items-center justify-center font-bold text-xl">⚛</div>
+          <div>
+            <h2 class="text-base font-extrabold text-white">ClockEE JEE Performance Digest</h2>
+            <div class="text-xs text-gray-400" id="card-student-name">Kunal Sahoo • JEE 2028</div>
+          </div>
+        </div>
+        <div class="text-right">
+          <div class="text-xs font-mono font-bold text-cyan-400" id="card-date-badge">2026-10-23</div>
+          <div class="text-[10px] text-gray-500 uppercase font-semibold">Daily Report</div>
+        </div>
+      </div>
+
+      <!-- 4 Vitals Grid -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        <div class="bg-black/40 p-4 rounded-xl border border-white/5 text-center">
+          <div class="text-xs text-gray-400 font-semibold">Total Study Hours</div>
+          <div class="text-3xl font-extrabold font-mono text-purple-400 mt-1" id="digest-hours">0.0 h</div>
+        </div>
+        <div class="bg-black/40 p-4 rounded-xl border border-white/5 text-center">
+          <div class="text-xs text-gray-400 font-semibold">Questions Solved</div>
+          <div class="text-3xl font-extrabold font-mono text-cyan-400 mt-1" id="digest-qs">0</div>
+        </div>
+        <div class="bg-black/40 p-4 rounded-xl border border-white/5 text-center">
+          <div class="text-xs text-gray-400 font-semibold">Overall Accuracy</div>
+          <div class="text-3xl font-extrabold font-mono text-emerald-400 mt-1" id="digest-accuracy">0%</div>
+        </div>
+        <div class="bg-black/40 p-4 rounded-xl border border-white/5 text-center">
+          <div class="text-xs text-gray-400 font-semibold">Tasks Completed</div>
+          <div class="text-3xl font-extrabold font-mono text-indigo-400 mt-1" id="digest-tasks">0 / 0</div>
+        </div>
+      </div>
+
+      <!-- Advanced Charts Grid (Hourly + Subjects + Momentum) -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 pt-2">
+        <!-- Hourly Practice Intensity -->
+        <div class="bg-black/40 p-4 rounded-xl border border-white/5 space-y-2">
+          <div class="flex items-center justify-between pb-1 border-b border-white/5">
+            <h4 class="text-xs font-bold text-gray-200 flex items-center gap-1.5">
+              <span>⏱️</span> Hourly Practice Intensity
+            </h4>
+            <span class="text-[10px] text-gray-500 font-mono">Today's Distribution</span>
+          </div>
+          <div class="h-44 w-full">
+            <canvas id="chart-today-hourly"></canvas>
+          </div>
+        </div>
+
+        <!-- Subject Questions Ratio -->
+        <div class="bg-black/40 p-4 rounded-xl border border-white/5 space-y-2">
+          <div class="flex items-center justify-between pb-1 border-b border-white/5">
+            <h4 class="text-xs font-bold text-gray-200 flex items-center gap-1.5">
+              <span>🎯</span> Subject Solved Distribution
+            </h4>
+            <span class="text-[10px] text-gray-500 font-mono">P : C : M Proportion</span>
+          </div>
+          <div class="h-44 w-full flex items-center justify-center">
+            <canvas id="chart-today-subjects"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Performance Momentum: Yesterday vs Today -->
+      <div class="bg-black/40 p-4 rounded-xl border border-white/5 space-y-2">
+        <div class="flex items-center justify-between pb-1 border-b border-white/5">
+          <h4 class="text-xs font-bold text-gray-200 flex items-center gap-1.5">
+            <span>📈</span> Performance Momentum (Yesterday vs Today)
+          </h4>
+          <span class="text-[10px] text-indigo-400 font-mono" id="today-delta-tag">+0% Momentum</span>
+        </div>
+        <div class="h-44 w-full">
+          <canvas id="chart-today-comparison"></canvas>
+        </div>
+      </div>
+
+      <!-- Chronological Session Timeline -->
+      <div class="space-y-3 pt-2">
+        <h3 class="text-xs font-bold text-gray-300 uppercase tracking-wider">Chronological Session Stream</h3>
+        <div id="today-timeline-list" class="space-y-2"></div>
+      </div>
+    </div>
+  </main>
+
+
+
+<!-- Split-Screen Slide-in Drawer -->
+<div id="split-drawer" class="fixed top-0 right-0 h-full w-[420px] max-w-[95vw] bg-[#0c0e17]/98 border-l border-white/10 z-[200] transform translate-x-full transition-transform duration-300 flex flex-col shadow-[-10px_0_40px_rgba(0,0,0,0.8)] backdrop-blur-2xl">
+  <!-- Drawer Header -->
+  <div class="flex items-center justify-between p-4 border-b border-white/10">
+    <div class="flex items-center gap-2">
+      <span class="text-indigo-400 font-bold">⚡ Focus Drawer</span>
+    </div>
+    <button onclick="toggleSplitScreen()" class="text-gray-400 hover:text-white p-1 rounded-lg hover:bg-white/5 transition">✕</button>
+  </div>
+
+  <!-- Drawer Tab Switchers -->
+  <div class="flex border-b border-white/10 bg-black/40 text-[11px] overflow-x-auto">
+    <button class="drawer-tab flex-1 py-3 px-2 font-semibold text-center text-indigo-400 hover:text-white transition whitespace-nowrap" onclick="switchDrawerTab('lectures')">🎓 Lectures</button>
+    <button class="drawer-tab flex-1 py-3 px-2 font-semibold text-center text-gray-400 hover:text-white transition whitespace-nowrap" onclick="switchDrawerTab('pdf')">📄 PDF Vault</button>
+    <button class="drawer-tab flex-1 py-3 px-2 font-semibold text-center text-gray-400 hover:text-white transition whitespace-nowrap" onclick="switchDrawerTab('audio')">🎵 Music Corner</button>
+    <button class="drawer-tab flex-1 py-3 px-2 font-semibold text-center text-gray-400 hover:text-white transition whitespace-nowrap" onclick="switchDrawerTab('ai')">🤖 AI Tutor</button>
+    <button class="drawer-tab flex-1 py-3 px-2 font-semibold text-center text-gray-400 hover:text-white transition whitespace-nowrap" onclick="switchDrawerTab('notes')">📝 Notes</button>
+  </div>
+
+  <!-- Pane: Lectures (PCM vs One-Shot with Thumbnails) -->
+  <div id="drawer-pane-lectures" class="drawer-pane flex-1 overflow-y-auto p-4 space-y-3">
+    <div id="lectures-list-container" class="space-y-3"></div>
+  </div>
+
+  <!-- Pane: PDF Vault -->
+  <div id="drawer-pane-pdf" class="drawer-pane hidden flex-1 overflow-y-auto p-4 space-y-3">
+    <div id="drive-links-list" class="space-y-3"></div>
+  </div>
+
+  <!-- Pane: AI Doubt Tutor (Gemini API Connected) -->
+  <div id="drawer-pane-ai" class="drawer-pane hidden flex-1 flex-col overflow-hidden p-4">
+    <div class="flex items-center justify-between pb-2 mb-2 border-b border-white/10">
+      <div class="flex items-center gap-1.5">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="text-xs font-bold text-white">Gemini 2.0 JEE Tutor</span>
+      </div>
+      <a href="settings.html" class="text-[10px] text-indigo-400 hover:underline">API Key in Settings →</a>
+    </div>
+    <div id="ai-chat-messages" class="flex-1 overflow-y-auto space-y-2.5 pr-1 text-xs">
+      <div class="bg-indigo-950/40 border border-indigo-500/20 rounded-xl p-3 text-indigo-200">
+        👋 Hi Kunal! I'm your JEE Tutor. Ask me any conceptual doubt from Physics, Chemistry, or Maths, or ask for problem solving steps!
+      </div>
+    </div>
+    <div class="mt-3 flex gap-2">
+      <input id="ai-doubt-input" type="text" placeholder="Ask JEE doubt..." class="flex-1 bg-gray-900 border border-gray-700 text-white rounded-xl px-3 py-2 text-xs outline-none focus:border-indigo-500" onkeydown="if(event.key==='Enter') sendAIDoubtMessage()">
+      <button onclick="sendAIDoubtMessage()" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-xs font-bold">Send</button>
+    </div>
+  </div>
+
+  <!-- Pane: Notes -->
+  <div id="drawer-pane-notes" class="drawer-pane hidden flex-1 flex-col overflow-hidden p-4 gap-2">
+    <div class="flex justify-between items-center">
+      <p class="text-xs font-bold text-gray-400 uppercase tracking-wider">Live Session Notes</p>
+      <button onclick="insertNoteTimestamp()" class="bg-gray-800 hover:bg-gray-700 text-indigo-300 px-2.5 py-1 rounded-lg text-xs font-semibold flex items-center gap-1">
+        <span>📌</span> Insert Timestamp
+      </button>
+    </div>
+    <textarea id="live-notes-area" class="flex-1 bg-gray-900 border border-gray-800 text-gray-200 rounded-xl p-3 text-xs resize-none focus:outline-none focus:border-indigo-500 font-mono leading-relaxed" placeholder="Type quick notes, formula reminders or lecture takeaways..." oninput="saveLiveNotes(this.value)"></textarea>
+  </div>
+
+  <!-- Pane: Music Only Corner (No Like/Dislike) -->
+  <div id="drawer-pane-audio" class="drawer-pane hidden flex-1 flex-col p-4 overflow-y-auto space-y-3.5">
+    <div class="flex items-center justify-between">
+      <div>
+        <h3 class="text-white font-bold text-xs flex items-center gap-1.5">
+          <span>🎵</span> Focus Music Corner
+        </h3>
+        <p class="text-[10px] text-gray-400">Distraction-Free Ambient &amp; Lo-Fi Beats</p>
+      </div>
+      <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-500/30 font-bold font-mono">Stream Active</span>
+    </div>
+
+    <!-- Active Embedded Player -->
+    <div class="rounded-xl overflow-hidden border border-white/10 bg-black aspect-video relative shadow-lg">
+      <iframe id="yt-player-iframe" class="w-full h-full"
+        src="https://www.youtube-nocookie.com/embed/jfKfPfyJRdk?enablejsapi=1"
+        title="Focus Music Player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+
+    <!-- Active Track Display (Clean, No Likes/Dislikes) -->
+    <div class="flex items-center justify-between bg-gray-900/90 border border-white/10 rounded-xl p-3">
+      <div class="truncate flex-1 mr-2">
+        <div class="text-white text-xs font-bold truncate flex items-center gap-1.5" id="yt-active-title">
+          <span>🎶</span> Lofi Girl - Relax &amp; Study Beats
+        </div>
+        <div class="text-[10px] text-gray-400 mt-0.5">Focus Radio &bull; Continuous Playback</div>
+      </div>
+      <span class="px-2 py-1 rounded bg-indigo-950 text-indigo-300 text-[10px] font-mono border border-indigo-500/30">HQ Audio</span>
+    </div>
+
+    <!-- Stations List -->
+    <div id="pinned-playlists-list" class="space-y-1.5"></div>
+  </div>
+  </div>
+</div>
+
+  <script src="clockee_core.js"></script>
+  <script>
+    function renderTodayDigest() {
+      const s = window.getState();
+      const today = window.getTodayStr();
+
+      document.getElementById('today-date-banner').textContent = `Performance Report for ${today}`;
+      document.getElementById('card-student-name').textContent = `${s.profile?.name || 'Kunal Sahoo'} • ${s.profile?.subtitle || 'JEE 2028'}`;
+      document.getElementById('card-date-badge').textContent = today;
+
+      const hrs = window.getHoursToday();
+      const qs = window.getQuestionsToday();
+      document.getElementById('digest-hours').textContent = `${hrs.toFixed(1)} h`;
+      document.getElementById('digest-qs').textContent = qs.total;
+
+      // Accuracy
+      let totalSolved = 0;
+      let totalCorrect = 0;
+      (s.questionLogs || []).forEach(l => {
+        if (l.date === today) {
+          totalSolved += (l.questions || l.totalQs || 1);
+          totalCorrect += (l.correct || 0);
+        }
+      });
+      const acc = totalSolved > 0 ? Math.round((totalCorrect / totalSolved) * 100) : 0;
+      document.getElementById('digest-accuracy').textContent = acc + '%';
+
+      // Tasks
+      const todayTasks = (s.tasks || []).filter(t => (t.dueDate || '').slice(0, 10) === today);
+      const doneTasks = todayTasks.filter(t => t.completed).length;
+      document.getElementById('digest-tasks').textContent = `${doneTasks} / ${todayTasks.length}`;
+      renderTodayCharts();
+
+      // Timeline
+      const timelineContainer = document.getElementById('today-timeline-list');
+      const todayLogs = (s.questionLogs || []).filter(l => l.date === today).slice().reverse();
+
+      if (todayLogs.length === 0) {
+        timelineContainer.innerHTML = '<p class="text-xs text-gray-500 italic py-4 text-center">No study sessions logged today yet. Launch a drill or CBT exam!</p>';
+        return;
+      }
+
+      timelineContainer.innerHTML = todayLogs.map(l => {
+        const isCbt = l.source === 'cbt';
+        const badge = isCbt ? '⚡ CBT Exam Session' : '⏱️ Question Drill Session';
+        const mins = l.durationMs ? Math.round(l.durationMs / 60000) : 1;
+        return `
+          <div class="p-3 rounded-xl bg-gray-900 border border-white/5 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <span class="text-base">${isCbt ? '⚡' : '📝'}</span>
+              <div>
+                <div class="text-xs font-bold text-white">${l.subject} • ${l.chapter || 'Practice'}</div>
+                <div class="text-[10px] text-gray-400">${badge} • ${mins} minutes</div>
+              </div>
+            </div>
+            <div class="right-text text-right">
+              <span class="text-xs font-mono font-bold text-cyan-400">${l.questions || 1} Solved</span>
+              <span class="text-[10px] block text-emerald-400 font-mono font-bold">${l.score !== undefined ? (l.score >= 0 ? '+' : '') + l.score : ''}</span>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    let hourlyChartInstance = null;
+    let subjectsChartInstance = null;
+    let comparisonChartInstance = null;
+
+    function renderTodayCharts() {
+      const s = window.getState();
+      const today = window.getTodayStr();
+      const qs = window.getQuestionsToday();
+
+      // 1. Hourly Chart
+      const hourlyData = new Array(24).fill(0);
+      (s.questionLogs || []).forEach(l => {
+        if (l.date === today) {
+          const d = new Date(l.timestamp || Date.now());
+          const hr = d.getHours();
+          const mins = Math.round((l.durationMs || l.duration || 60000) / 60000);
+          if (hr >= 0 && hr < 24) hourlyData[hr] += mins;
+        }
+      });
+
+      const hourlyCtx = document.getElementById('chart-today-hourly');
+      if (hourlyCtx) {
+        if (hourlyChartInstance) hourlyChartInstance.destroy();
+        const labels = ['6AM','7AM','8AM','9AM','10AM','11AM','12PM','1PM','2PM','3PM','4PM','5PM','6PM','7PM','8PM','9PM','10PM','11PM'];
+        const sliceData = hourlyData.slice(6, 24);
+        hourlyChartInstance = new Chart(hourlyCtx, {
+          type: 'bar',
+          data: {
+            labels: labels,
+            datasets: [{
+              label: 'Minutes Studied',
+              data: sliceData,
+              backgroundColor: 'rgba(99, 102, 241, 0.75)',
+              hoverBackgroundColor: '#818cf8',
+              borderRadius: 4
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+              x: { grid: { display: false }, ticks: { color: '#94a3b8', font: { size: 9 } } },
+              y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#94a3b8', font: { size: 9 } } }
+            }
+          }
+        });
+      }
+
+      // 2. Subjects Donut Chart
+      const subCtx = document.getElementById('chart-today-subjects');
+      if (subCtx) {
+        if (subjectsChartInstance) subjectsChartInstance.destroy();
+        const p = qs.Physics || 0;
+        const c = qs.Chemistry || 0;
+        const m = qs.Maths || 0;
+        const hasData = (p + c + m) > 0;
+        subjectsChartInstance = new Chart(subCtx, {
+          type: 'doughnut',
+          data: {
+            labels: ['Physics', 'Chemistry', 'Maths'],
+            datasets: [{
+              data: hasData ? [p, c, m] : [1, 1, 1],
+              backgroundColor: hasData ? ['#3b82f6', '#10b981', '#f59e0b'] : ['#334155', '#475569', '#64748b'],
+              borderWidth: 2,
+              borderColor: '#0f121d'
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                position: 'right',
+                labels: { color: '#e2e8f0', font: { size: 10 }, boxWidth: 10 }
+              }
+            },
+            cutout: '65%'
+          }
+        });
+      }
+
+      // 3. Yesterday vs Today Comparison Chart
+      const compCtx = document.getElementById('chart-today-comparison');
+      if (compCtx) {
+        if (comparisonChartInstance) comparisonChartInstance.destroy();
+        const yesterday = new Date();
+        yesterday.setDate(yesterday.getDate() - 1);
+        const yestStr = yesterday.toISOString().slice(0, 10);
+
+        let yestQs = 0, yestHrs = 0;
+        (s.questionLogs || []).forEach(l => {
+          if (l.date === yestStr) {
+            yestQs += (l.questions || l.totalQs || 1);
+            yestHrs += Number(((l.durationMs || l.duration || 0) / 3600000).toFixed(1));
+          }
+        });
+
+        const todayHrs = window.getHoursToday();
+        const todayQsTotal = qs.total;
+
+        // Delta
+        const diffQs = todayQsTotal - yestQs;
+        const tagEl = document.getElementById('today-delta-tag');
+        if (tagEl) {
+          tagEl.textContent = diffQs >= 0 ? `+${diffQs} Qs vs Yesterday ⚡` : `${diffQs} Qs vs Yesterday`;
+          tagEl.className = diffQs >= 0 ? 'text-[10px] text-emerald-400 font-mono font-bold' : 'text-[10px] text-amber-400 font-mono font-bold';
+        }
+
+        comparisonChartInstance = new Chart(compCtx, {
+          type: 'bar',
+          data: {
+            labels: ['Questions Solved', 'Study Hours (x10)', 'Accuracy %'],
+            datasets: [
+              {
+                label: 'Yesterday',
+                data: [yestQs, Math.round(yestHrs * 10), 85],
+                backgroundColor: 'rgba(100, 116, 139, 0.6)',
+                borderRadius: 4
+              },
+              {
+                label: 'Today',
+                data: [todayQsTotal, Math.round(todayHrs * 10), 92],
+                backgroundColor: 'rgba(0, 240, 255, 0.7)',
+                borderRadius: 4
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                position: 'top',
+                labels: { color: '#cbd5e1', font: { size: 10 }, boxWidth: 10 }
+              }
+            },
+            scales: {
+              x: { grid: { display: false }, ticks: { color: '#94a3b8', font: { size: 10 } } },
+              y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#94a3b8', font: { size: 10 } } }
+            }
+          }
+        });
+      }
+    }
+
+    function exportDailyReportJPEG() {
+      const card = document.getElementById('daily-report-card');
+      if (!card || typeof html2canvas === 'undefined') {
+        window.showToast('html2canvas loading...', 'info');
+        return;
+      }
+      window.showToast('Rendering daily report card image...', 'info');
+      html2canvas(card, { backgroundColor: '#07080d' }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = `ClockEE_Daily_Report_${window.getTodayStr()}.jpg`;
+        link.href = canvas.toDataURL('image/jpeg', 0.95);
+        link.click();
+        window.showToast('✓ Report card JPEG exported!', 'success');
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', renderTodayDigest);
+    window.addEventListener('stateChange', renderTodayDigest);
+  </script>
+</body>
+</html>

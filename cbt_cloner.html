@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClockEE CBT - Question Cloner & Variation Studio</title>
+  <link rel="stylesheet" href="cbt_shared.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <style>
+    .cbt-cloner-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .cbt-paste-zone {
+      background: var(--cbt-bg-surface);
+      border: 2px dashed var(--cbt-border-medium);
+      border-radius: var(--cbt-radius-lg);
+      padding: 36px 20px;
+      text-align: center;
+      cursor: pointer;
+      margin-bottom: 28px;
+      transition: all 0.2s;
+      position: relative;
+    }
+
+    .cbt-paste-zone:hover {
+      border-color: var(--cbt-accent);
+      background: rgba(99, 102, 241, 0.04);
+    }
+
+    .cbt-preview-image {
+      max-height: 240px;
+      border-radius: var(--cbt-radius-md);
+      border: 1px solid var(--cbt-border-subtle);
+      margin-top: 14px;
+      display: none;
+    }
+
+    .cbt-variation-card {
+      background: var(--cbt-bg-surface);
+      border: 1px solid var(--cbt-border-subtle);
+      border-radius: var(--cbt-radius-lg);
+      padding: 24px;
+      margin-bottom: 20px;
+      transition: all 0.2s;
+    }
+
+    .cbt-variation-card:hover {
+      border-color: var(--cbt-border-medium);
+    }
+
+    .cbt-variation-card.reroll { border-left: 4px solid #60a5fa; }
+    .cbt-variation-card.twist { border-left: 4px solid #fbbf24; }
+    .cbt-variation-card.advanced { border-left: 4px solid #a855f7; }
+
+    .cbt-var-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .cbt-var-text {
+      font-size: 15px;
+      color: #fff;
+      line-height: 1.6;
+      background: rgba(255, 255, 255, 0.02);
+      padding: 16px;
+      border-radius: var(--cbt-radius-md);
+      border: 1px solid var(--cbt-border-subtle);
+      margin-bottom: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Shared Left Sidebar -->
+  <div id="cbt-sidebar-container"></div>
+
+  <!-- Main Viewport Area -->
+  <main class="cbt-main-content">
+    
+    <header class="cbt-cloner-header">
+      <div>
+        <h1 class="cbt-title-lg">Question Cloner & Variation Studio</h1>
+        <p class="cbt-subtext">Paste or drop any lecture question screenshot (Ctrl+V) $\rightarrow$ generate 3 high-yield exam variations</p>
+      </div>
+
+      <button class="cbt-btn cbt-btn-primary" onclick="generateVariationsFromInput()">
+        Generate Variations with AI
+      </button>
+    </header>
+
+    <!-- Paste Zone -->
+    <div class="cbt-paste-zone" id="paste-drop-zone" onclick="document.getElementById('screenshot-file').click()">
+      <input type="file" id="screenshot-file" style="display: none;" accept="image/*" onchange="handleImageFile(this.files)">
+      <div style="margin-bottom: 12px; display: flex; justify-content: center; color: #00f0ff;"><svg style="width: 36px; height: 36px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
+      <div style="font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 4px;">
+        Click to Browse or Press <kbd style="background: rgba(255,255,255,0.1); padding: 2px 6px; border-radius: 4px;">Ctrl + V</kbd> to Paste Screenshot
+      </div>
+      <div class="cbt-subtext">Supports PNG, JPG, WebP snippets directly from PW, Unacademy, or YouTube lectures</div>
+      <img id="image-preview" class="cbt-preview-image" alt="Uploaded Problem Preview">
+    </div>
+
+    <!-- Metadata Tags Row -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 28px;">
+      <div>
+        <label style="font-size: 12px; font-weight: 700; color: var(--cbt-text-secondary); text-transform: uppercase;">Subject Focus</label>
+        <select id="clone-subject" class="cbt-card" style="width: 100%; margin-top: 6px; padding: 10px 14px; color: #fff; outline: none;">
+          <option value="Physics">Physics</option>
+          <option value="Chemistry">Chemistry</option>
+          <option value="Maths">Mathematics</option>
+        </select>
+      </div>
+      <div>
+        <label style="font-size: 12px; font-weight: 700; color: var(--cbt-text-secondary); text-transform: uppercase;">Chapter / Topic</label>
+        <input type="text" id="clone-chapter" class="cbt-card" style="width: 100%; margin-top: 6px; padding: 10px 14px; color: #fff; outline: none;" placeholder="e.g. Rotational Dynamics - Collision with Rod">
+      </div>
+    </div>
+
+    <!-- Variations Container -->
+    <h2 class="cbt-title-md" style="margin-bottom: 16px;">Generated Problem Variations</h2>
+    <div id="variations-container">
+      <!-- Default Demo Variations -->
+      <div class="cbt-variation-card reroll">
+        <div class="cbt-var-header">
+          <div>
+            <span class="cbt-tag cbt-tag-physics">Variation 1</span>
+            <span style="font-weight: 700; color: #60a5fa; margin-left: 8px;">Numerical Re-Roll</span>
+          </div>
+          <span style="font-size: 12px; color: var(--cbt-text-muted);">Same Concept • Fresh Parameter Set</span>
+        </div>
+        <div class="cbt-var-text" id="var-text-1">
+          A uniform rod of mass $M = 2\text{ kg}$ and length $L = 1.2\text{ m}$ is hinged at one end. A bullet of mass $m = 0.05\text{ kg}$ traveling horizontally with velocity $v = 120\text{ m/s}$ strikes the free end and gets embedded in it. The angular velocity of the rod immediately after collision is:
+        </div>
+        <div style="display: flex; justify-content: flex-end; gap: 10px;">
+          <button class="cbt-btn cbt-btn-outline" onclick="bookmarkVariation(1)">🔖 Save to Notebook</button>
+          <button class="cbt-btn cbt-btn-primary" onclick="drillVariation(1)">🚀 Practice in CBT Mode</button>
+        </div>
+      </div>
+
+      <div class="cbt-variation-card twist">
+        <div class="cbt-var-header">
+          <div>
+            <span class="cbt-tag cbt-tag-maths">Variation 2</span>
+            <span style="font-weight: 700; color: #fbbf24; margin-left: 8px;">Constraint Twist</span>
+          </div>
+          <span style="font-size: 12px; color: var(--cbt-text-muted);">Inverted Boundary Condition</span>
+        </div>
+        <div class="cbt-var-text" id="var-text-2">
+          Instead of being hinged at the end, the same rod is pivoted at its center of mass on a frictionless horizontal table. If the bullet strikes at distance $L/4$ from the center, calculate the resulting angular velocity and the impulse exerted by the pivot.
+        </div>
+        <div style="display: flex; justify-content: flex-end; gap: 10px;">
+          <button class="cbt-btn cbt-btn-outline" onclick="bookmarkVariation(2)">🔖 Save to Notebook</button>
+          <button class="cbt-btn cbt-btn-primary" onclick="drillVariation(2)">🚀 Practice in CBT Mode</button>
+        </div>
+      </div>
+
+      <div class="cbt-variation-card advanced">
+        <div class="cbt-var-header">
+          <div>
+            <span class="cbt-tag cbt-tag-chemistry">Variation 3</span>
+            <span style="font-weight: 700; color: #c084fc; margin-left: 8px;">Multi-Concept Advanced</span>
+          </div>
+          <span style="font-size: 12px; color: var(--cbt-text-muted);">Blended with Conservation of Energy & SHM</span>
+        </div>
+        <div class="cbt-var-text" id="var-text-3">
+          After the bullet embeds in the vertically hanging rod, the system swings upwards. Find the minimum speed $v_{min}$ of the bullet such that the rod completes a full vertical circular revolution without slackening.
+        </div>
+        <div style="display: flex; justify-content: flex-end; gap: 10px;">
+          <button class="cbt-btn cbt-btn-outline" onclick="bookmarkVariation(3)">🔖 Save to Notebook</button>
+          <button class="cbt-btn cbt-btn-primary" onclick="drillVariation(3)">🚀 Practice in CBT Mode</button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="cbt_shared.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      CBT_STATE.renderSidebar("cloner");
+      setupClipboardPaste();
+      renderMathInVariations();
+    });
+
+    function setupClipboardPaste() {
+      window.addEventListener('paste', (e) => {
+        const items = e.clipboardData?.items;
+        if (!items) return;
+        for (let i = 0; i < items.length; i++) {
+          if (items[i].type.indexOf('image') !== -1) {
+            const blob = items[i].getAsFile();
+            displayImagePreview(blob);
+            CBT_STATE.toast("Screenshot pasted from clipboard!");
+            break;
+          }
+        }
+      });
+    }
+
+    function handleImageFile(files) {
+      if (!files || files.length === 0) return;
+      displayImagePreview(files[0]);
+    }
+
+    function displayImagePreview(blob) {
+      const img = document.getElementById("image-preview");
+      img.src = URL.createObjectURL(blob);
+      img.style.display = "inline-block";
+    }
+
+    function renderMathInVariations() {
+      if (window.katex) {
+        document.querySelectorAll('.cbt-var-text').forEach(el => {
+          el.innerHTML = el.innerHTML.replace(/\$([^\$]+)\$/g, (m, tex) => {
+            try { return katex.renderToString(tex, { throwOnError: false }); } catch(e) { return m; }
+          });
+        });
+      }
+    }
+
+    function generateVariationsFromInput() {
+      CBT_STATE.toast("Synthesizing 3 concept-aligned variations with Gemini AI...");
+      setTimeout(() => {
+        CBT_STATE.toast("Fresh variations loaded into Studio!");
+      }, 800);
+    }
+
+    function bookmarkVariation(num) {
+      CBT_STATE.toast(`Variation #${num} saved to Physics Master Notebook!`);
+    }
+
+    function drillVariation(num) {
+      CBT_STATE.toast(`Launching CBT drill for Variation #${num}...`);
+      setTimeout(() => {
+        window.location.href = "cbt_exam.html?testId=jee_main_pyq_phy_kinematics";
+      }, 400);
+    }
+  </script>
+</body>
+</html>

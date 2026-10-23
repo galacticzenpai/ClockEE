@@ -3,6 +3,8 @@
 *.tmp
 *.log
 *~
+__pycache__/
+*.pyc
 
 # Operating system files
 Thumbs.db
@@ -16,3 +18,4 @@ Desktop.ini
 # Local credentials (if any)
 .env
 sync_config.local.json
+

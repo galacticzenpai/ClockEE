@@ -794,8 +794,8 @@
     document.getElementById('settings-next-deadline').value = s.nextMilestone?.date || '2026-11-15';
 
     document.getElementById('key-ticktick').value = s.apiKeys?.ticktick || 'tp_3528d202c4994ae28371f86be1c7e419';
-    document.getElementById('key-gemini').value = s.apiKeys?.gemini || '';
-    document.getElementById('key-firebase').value = s.apiKeys?.cloudUrl || '';
+    document.getElementById('key-gemini').value = s.apiKeys?.gemini || 'AQ.Ab8RN6Ky3sZAql7vgGdJtgm8NWXWE8XUV8GBzlPa7jepaNHTjQ';
+    document.getElementById('key-firebase').value = s.apiKeys?.cloudUrl || 'https://clockee-app-default-rtdb.asia-southeast1.firebasedatabase.app';
 
     if (document.getElementById('setting-aura-toggle')) {
       document.getElementById('setting-aura-toggle').checked = s.settings?.dynamicAura ?? true;
@@ -837,7 +837,7 @@
     }
     window.showToast('Pinging Gemini 2.0 Flash API...', 'info');
     try {
-      const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${key}`, {
+      const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent?key=${key}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ contents: [{ parts: [{ text: 'Ping test' }] }] })

@@ -227,21 +227,36 @@ const CBT_DEFAULT_NOTEBOOKS = [
 ];
 
 // ==========================================
-// 2. STATE STORAGE & REAL ATTEMPT DATA
+// 2. STATE STORAGE & USER ISOLATED ATTEMPT DATA
 // ==========================================
 
-const CBT_STORAGE_KEY = "clockee_cbt_master_state";
+function getActiveUserId() {
+  try {
+    const raw = localStorage.getItem("clockee_multi_users");
+    if (raw) {
+      const users = JSON.parse(raw);
+      const active = users.find(u => u.active);
+      if (active) return active.id;
+    }
+  } catch(e) {}
+  return "user_kunal";
+}
+
+function getCbtStorageKey() {
+  return `clockee_cbt_user_${getActiveUserId()}`;
+}
 
 function loadCBTState() {
+  const key = getCbtStorageKey();
   try {
-    const raw = localStorage.getItem(CBT_STORAGE_KEY);
+    const raw = localStorage.getItem(key);
     if (raw) {
       const parsed = JSON.parse(raw);
       return {
         profile: parsed.profile || { name: "Kunal Sahoo", roll: "JEE28-98471", series: "ClockEE Adaptive PYQs" },
         tests: parsed.tests || CBT_DEFAULT_TESTS,
-        attempts: parsed.attempts || { "jee_main_adaptive_full_01": getRealSessionAttemptData() },
-        mistakes: parsed.mistakes || getInitialMistakes(),
+        attempts: parsed.attempts || {},
+        mistakes: parsed.mistakes || [],
         notebooks: parsed.notebooks || CBT_DEFAULT_NOTEBOOKS,
         books: parsed.books || CBT_DEFAULT_BOOKS,
         clonerHistory: parsed.clonerHistory || []
@@ -251,13 +266,12 @@ function loadCBTState() {
     console.error("Error reading CBT state:", e);
   }
 
+  const isPrimary = getActiveUserId() === "user_kunal";
   const fresh = {
-    profile: { name: "Kunal Sahoo", roll: "JEE28-98471", series: "ClockEE Adaptive PYQs" },
-    tests: CBT_DEFAULT_TESTS,
-    attempts: {
-      "jee_main_adaptive_full_01": getRealSessionAttemptData()
-    },
-    mistakes: getInitialMistakes(),
+    profile: { name: isPrimary ? "Kunal Sahoo" : "New Aspirant", roll: "JEE28-98471", series: "ClockEE Adaptive PYQs" },
+    tests: JSON.parse(JSON.stringify(CBT_DEFAULT_TESTS)),
+    attempts: isPrimary ? { "jee_main_adaptive_full_01": getRealSessionAttemptData() } : {},
+    mistakes: isPrimary ? getInitialMistakes() : [],
     notebooks: CBT_DEFAULT_NOTEBOOKS,
     books: CBT_DEFAULT_BOOKS,
     clonerHistory: []
@@ -268,7 +282,8 @@ function loadCBTState() {
 
 function saveCBTState(state) {
   try {
-    localStorage.setItem(CBT_STORAGE_KEY, JSON.stringify(state));
+    const key = getCbtStorageKey();
+    localStorage.setItem(key, JSON.stringify(state));
     window.dispatchEvent(new CustomEvent("cbtStateChanged", { detail: state }));
   } catch (e) {
     console.error("Error saving CBT state:", e);

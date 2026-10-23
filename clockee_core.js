@@ -28,8 +28,18 @@ const DEFAULT_STATE = {
   },
   apiKeys: {
     ticktick: "tp_3528d202c4994ae28371f86be1c7e419",
-    gemini: "",
-    cloudUrl: ""
+    gemini: "AQ.Ab8RN6Ky3sZAql7vgGdJtgm8NWXWE8XUV8GBzlPa7jepaNHTjQ",
+    cloudUrl: "https://clockee-app-default-rtdb.asia-southeast1.firebasedatabase.app"
+  },
+  firebaseConfig: {
+    apiKey: "AIzaSyDfi0nZUbOZhMr4Igvo4KRQGHVPRwLMO4k",
+    authDomain: "clockee-app.firebaseapp.com",
+    databaseURL: "https://clockee-app-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "clockee-app",
+    storageBucket: "clockee-app.firebasestorage.app",
+    messagingSenderId: "66153109265",
+    appId: "1:66153109265:web:dde95257b9b1ae0c6c9eb0",
+    measurementId: "G-BFSXRW308R"
   },
   tasks: [
     { 
@@ -124,12 +134,50 @@ const DEFAULT_STATE = {
   liveNotes: ""
 };
 
-// ─── 1. State Storage & Reactivity ────────────────────────
+// ─── 1. State Storage & Multi-User Isolation ────────────────────────
+window.getActiveUserId = function() {
+  try {
+    const raw = localStorage.getItem("clockee_multi_users");
+    if (raw) {
+      const users = JSON.parse(raw);
+      const active = users.find(u => u.active);
+      if (active) return active.id;
+    }
+  } catch(e) {}
+  return "user_kunal";
+};
+
+window.getActiveUserName = function() {
+  try {
+    const raw = localStorage.getItem("clockee_multi_users");
+    if (raw) {
+      const users = JSON.parse(raw);
+      const active = users.find(u => u.active);
+      if (active) return active.name;
+    }
+  } catch(e) {}
+  return "Kunal Sahoo";
+};
+
 window.APP_STATE = (function() {
   try {
-    const raw = localStorage.getItem("clockee_v5_master_state");
+    const activeId = window.getActiveUserId();
+    // 1. Look for user-scoped state first for strict data isolation
+    let raw = localStorage.getItem(`clockee_user_state_${activeId}`);
+    if (!raw) {
+      raw = localStorage.getItem("clockee_v5_master_state");
+    }
     if (raw) {
       const parsed = JSON.parse(raw);
+      if (!parsed.apiKeys?.gemini || parsed.apiKeys.gemini === "") {
+        parsed.apiKeys = { ...(parsed.apiKeys || {}), gemini: DEFAULT_STATE.apiKeys.gemini };
+      }
+      if (!parsed.apiKeys?.cloudUrl || parsed.apiKeys.cloudUrl === "") {
+        parsed.apiKeys = { ...(parsed.apiKeys || {}), cloudUrl: DEFAULT_STATE.apiKeys.cloudUrl };
+      }
+      if (!parsed.firebaseConfig) {
+        parsed.firebaseConfig = DEFAULT_STATE.firebaseConfig;
+      }
       return { ...DEFAULT_STATE, ...parsed };
     }
   } catch (e) {
@@ -140,6 +188,9 @@ window.APP_STATE = (function() {
 
 window.saveState = function() {
   try {
+    const activeId = window.getActiveUserId();
+    // Persist under both master cache and active user's isolated storage
+    localStorage.setItem(`clockee_user_state_${activeId}`, JSON.stringify(window.APP_STATE));
     localStorage.setItem("clockee_v5_master_state", JSON.stringify(window.APP_STATE));
     window.dispatchEvent(new CustomEvent("stateChange", { detail: window.APP_STATE }));
   } catch (e) {
@@ -1651,6 +1702,60 @@ window.insertNoteTimestamp = function() {
   window.saveLiveNotes(area.value);
 };
 
+// ─── AI Doubt Tutor Integration (Gemini 3.8 Flash) ─────────
+window.sendAIDoubtMessage = async function() {
+  const input = document.getElementById("ai-doubt-input");
+  const container = document.getElementById("ai-chat-messages");
+  if (!input || !container) return;
+  const msg = input.value.trim();
+  if (!msg) return;
+
+  // Append user message bubble
+  const userDiv = document.createElement("div");
+  userDiv.className = "bg-white/10 border border-white/10 rounded-xl p-3 text-white font-medium ml-6";
+  userDiv.innerText = msg;
+  container.appendChild(userDiv);
+  input.value = "";
+  container.scrollTop = container.scrollHeight;
+
+  // Append loading bubble
+  const loadDiv = document.createElement("div");
+  loadDiv.className = "bg-indigo-950/60 border border-indigo-500/30 rounded-xl p-3 text-indigo-200 text-xs italic flex items-center gap-2";
+  loadDiv.innerHTML = `<span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span> Thinking with Gemini 3.8 Flash...`;
+  container.appendChild(loadDiv);
+  container.scrollTop = container.scrollHeight;
+
+  const s = window.getState();
+  const key = s.apiKeys?.gemini || "AQ.Ab8RN6Ky3sZAql7vgGdJtgm8NWXWE8XUV8GBzlPa7jepaNHTjQ";
+
+  try {
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent?key=${key}`;
+    const prompt = `You are an elite IIT-JEE Mentor for JEE 2028. Answer this student doubt concisely with clear physics/chemistry/math concepts, LaTeX formulas if applicable, and high-yield tips:\n\n${msg}`;
+    const res = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        contents: [{ parts: [{ text: prompt }] }]
+      })
+    });
+    const data = await res.json();
+    const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+    loadDiv.remove();
+
+    const botDiv = document.createElement("div");
+    botDiv.className = "bg-indigo-950/50 border border-indigo-500/30 rounded-xl p-3 text-indigo-100 font-medium mr-6 leading-relaxed whitespace-pre-wrap";
+    botDiv.innerHTML = reply ? (window.marked ? marked.parse(reply) : reply) : "Sorry, I couldn't generate a response. Please check your network.";
+    container.appendChild(botDiv);
+    container.scrollTop = container.scrollHeight;
+  } catch (err) {
+    loadDiv.remove();
+    const errDiv = document.createElement("div");
+    errDiv.className = "bg-red-950/40 border border-red-500/30 rounded-xl p-3 text-red-300 text-xs";
+    errDiv.innerText = "Error: " + err.message;
+    container.appendChild(errDiv);
+  }
+};
+
 // ─── 11. Global Settings Synchronization ──────────────────
 window.applyAllSettingsGlobally = function() {
   const s = window.getState();
@@ -1946,15 +2051,190 @@ window.applyAllSettingsGlobally = function() {
   }
 })();
 
-// Auto-run sidebar on load
+// ─── 11. Global Cloud Sync & Multi-User Profile Flyout ──────────────
+window.pushToCloud = async function() {
+  const activeId = window.getActiveUserId ? window.getActiveUserId() : "user_kunal";
+  const s = window.getState();
+  const baseUrl = s.apiKeys?.cloudUrl || "https://clockee-app-default-rtdb.asia-southeast1.firebasedatabase.app";
+  window.showToast("☁️ Pushing student state to Firebase...", "info");
+  try {
+    const res = await fetch(`${baseUrl}/students/${activeId}/state.json`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(s)
+    });
+    if (res.ok) {
+      window.showToast(`✓ Cloud Synced for ${s.profile?.name || activeId}!`, "success");
+      localStorage.setItem(`clockee_last_sync_${activeId}`, new Date().toISOString());
+      window.dispatchEvent(new CustomEvent("cloudSyncComplete", { detail: { timestamp: new Date() } }));
+    } else {
+      window.showToast("Cloud sync failed: " + res.statusText, "error");
+    }
+  } catch (err) {
+    window.showToast("Sync error: " + err.message, "error");
+  }
+};
+
+window.pullFromCloud = async function() {
+  const activeId = window.getActiveUserId ? window.getActiveUserId() : "user_kunal";
+  const s = window.getState();
+  const baseUrl = s.apiKeys?.cloudUrl || "https://clockee-app-default-rtdb.asia-southeast1.firebasedatabase.app";
+  window.showToast("⬇️ Pulling state from Firebase...", "info");
+  try {
+    const res = await fetch(`${baseUrl}/students/${activeId}/state.json`);
+    if (!res.ok) throw new Error("Server returned " + res.status);
+    const remote = await res.json();
+    if (remote) {
+      window.APP_STATE = { ...DEFAULT_STATE, ...remote };
+      window.saveState();
+      window.showToast("✓ Successfully pulled cloud data!", "success");
+      setTimeout(() => location.reload(), 400);
+    } else {
+      window.showToast("No remote cloud record found for this profile", "info");
+    }
+  } catch (err) {
+    window.showToast("Pull failed: " + err.message, "error");
+  }
+};
+
+window.initGlobalProfileMenu = function() {
+  const navRight = document.querySelector(".nav-right");
+  const avatarLink = document.querySelector('a[href="settings.html"]') || document.querySelector("[data-profile-avatar]")?.closest("a");
+  if (!navRight || !avatarLink) return;
+
+  avatarLink.removeAttribute("href");
+  avatarLink.style.cursor = "pointer";
+
+  let popover = document.getElementById("clockee-profile-popover");
+  if (!popover) {
+    popover = document.createElement("div");
+    popover.id = "clockee-profile-popover";
+    popover.className = "hidden fixed z-[999999] top-16 right-4 sm:right-6 w-80 glass-card p-4 space-y-3.5 border border-indigo-500/30 bg-[#0a0d18]/95 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.9)] text-white";
+    document.body.appendChild(popover);
+  }
+
+  function renderPopoverContent() {
+    const activeUser = window.getUsersList().find(u => u.active) || { name: "Kunal Sahoo", role: "JEE 2028 Aspirant", id: "user_kunal" };
+    const users = window.getUsersList();
+    const otherUsers = users.filter(u => u.id !== activeUser.id);
+    const lastSync = localStorage.getItem(`clockee_last_sync_${activeUser.id}`);
+    const syncText = lastSync ? new Date(lastSync).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : "Just now";
+
+    popover.innerHTML = `
+      <div class="flex items-center gap-3 border-b border-white/10 pb-3">
+        <img src="${activeUser.pfp || 'https://api.dicebear.com/7.x/bottts-neutral/svg?seed=' + encodeURIComponent(activeUser.name)}" class="w-11 h-11 rounded-full border-2 border-indigo-400 bg-black/40">
+        <div class="flex-1 min-w-0">
+          <div class="text-sm font-extrabold text-white truncate flex items-center gap-1.5">
+            <span>${activeUser.name}</span>
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" title="Cloud Active"></span>
+          </div>
+          <div class="text-[11px] text-indigo-300 font-medium truncate">${activeUser.role}</div>
+          <div class="text-[10px] text-gray-400 font-mono flex items-center gap-1 mt-0.5">
+            <span>☁️</span> <span>Firebase Synced</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="space-y-1.5">
+        <div class="text-[10px] font-bold uppercase tracking-wider text-gray-400 flex justify-between items-center">
+          <span>Switch Profile</span>
+          <span class="text-[9px] text-indigo-400 font-normal">Isolated data</span>
+        </div>
+        <div class="space-y-1 max-h-28 overflow-y-auto pr-1">
+          ${otherUsers.length > 0 ? otherUsers.map(u => `
+            <button onclick="window.switchUser('${u.id}')" class="w-full text-left p-2 rounded-lg bg-white/5 hover:bg-indigo-600/20 border border-white/5 hover:border-indigo-500/30 flex items-center gap-2.5 transition">
+              <img src="${u.pfp}" class="w-6 h-6 rounded-full border border-gray-600">
+              <div class="flex-1 min-w-0">
+                <div class="text-xs font-semibold text-gray-200 truncate">${u.name}</div>
+                <div class="text-[10px] text-gray-400 truncate">${u.role}</div>
+              </div>
+              <span class="text-[10px] text-indigo-400 font-bold">&rarr;</span>
+            </button>
+          `).join('') : '<div class="text-[11px] text-gray-500 italic py-1">No other profiles registered</div>'}
+        </div>
+      </div>
+
+      <div class="p-2.5 rounded-xl bg-indigo-950/40 border border-indigo-500/20 flex items-center justify-between">
+        <div class="text-[11px]">
+          <div class="font-bold text-indigo-200">Cloud Realtime Sync</div>
+          <div class="text-[9px] text-gray-400">Database: clockee-app</div>
+        </div>
+        <button onclick="window.pushToCloud()" class="px-2.5 py-1 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-[11px] font-bold transition flex items-center gap-1 shadow">
+          <span>⚡</span> <span>Sync</span>
+        </button>
+      </div>
+
+      <div class="grid grid-cols-2 gap-1.5 pt-1 text-xs">
+        <a href="login.html" class="p-2 rounded-lg bg-gray-900/80 hover:bg-gray-800 border border-white/10 text-center font-bold text-gray-200 transition flex items-center justify-center gap-1.5">
+          <span>🔑</span> <span>Sign In / New</span>
+        </a>
+        <a href="admin.html" class="p-2 rounded-lg bg-purple-950/60 hover:bg-purple-900/60 border border-purple-500/30 text-center font-bold text-purple-200 transition flex items-center justify-center gap-1.5">
+          <span>👥</span> <span>Admin Panel</span>
+        </a>
+        <a href="settings.html" class="p-2 rounded-lg bg-gray-900/80 hover:bg-gray-800 border border-white/10 text-center font-bold text-gray-200 transition flex items-center justify-center gap-1.5">
+          <span>⚙️</span> <span>Settings</span>
+        </a>
+        <button onclick="window.handleUserLogout()" class="p-2 rounded-lg bg-red-950/50 hover:bg-red-900/50 border border-red-500/30 text-center font-bold text-red-300 transition flex items-center justify-center gap-1.5">
+          <span>🚪</span> <span>Sign Out</span>
+        </button>
+      </div>
+    `;
+  }
+
+  avatarLink.addEventListener("click", function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    renderPopoverContent();
+    popover.classList.toggle("hidden");
+  });
+
+  document.addEventListener("click", function(e) {
+    if (!popover.contains(e.target) && !avatarLink.contains(e.target)) {
+      popover.classList.add("hidden");
+    }
+  });
+
+  document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") popover.classList.add("hidden");
+  });
+};
+
+window.handleUserLogout = function() {
+  const users = window.getUsersList();
+  let guest = users.find(u => u.id === "user_guest");
+  if (!guest) {
+    guest = {
+      id: "user_guest",
+      name: "Guest Student",
+      subtitle: "Offline Sandbox",
+      role: "Guest",
+      pfp: "https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Guest",
+      active: true,
+      createdAt: new Date().toISOString()
+    };
+    users.push(guest);
+  }
+  users.forEach(u => u.active = (u.id === "user_guest"));
+  localStorage.setItem("clockee_multi_users", JSON.stringify(users));
+  localStorage.removeItem("clockee_current_user");
+  window.showToast("Signed out. Switched to Guest Sandbox.", "info");
+  setTimeout(() => window.location.href = "login.html", 400);
+};
+
+// Auto-run sidebar and profile menu on load
 if (document.readyState === "complete" || document.readyState === "interactive") {
-  setTimeout(() => { if (typeof window.initSidebar === "function") window.initSidebar(); }, 15);
+  setTimeout(() => { 
+    if (typeof window.initSidebar === "function") window.initSidebar(); 
+    if (typeof window.initGlobalProfileMenu === "function") window.initGlobalProfileMenu();
+  }, 15);
 }
 
 document.addEventListener("DOMContentLoaded", function() {
   if (typeof window.initSidebar === "function") window.initSidebar();
+  if (typeof window.initGlobalProfileMenu === "function") window.initGlobalProfileMenu();
 });
 
 window.addEventListener("stateChange", function() {
   if (typeof window.initSidebar === "function") window.initSidebar();
+  if (typeof window.initGlobalProfileMenu === "function") window.initGlobalProfileMenu();
 });

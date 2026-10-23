@@ -1306,24 +1306,15 @@
       let count = 1;
 
       mockSubjects.forEach(sub => {
-        for (let i = 1; i <= 25; i++) {
-          const isNum = i > 20;
-          qList.push({
-            id: `${sub.toLowerCase().slice(0,3)}_${i}`,
-            num: count++,
-            type: isNum ? 'numerical' : 'single',
-            subject: sub,
-            chapter: sub === 'Physics' ? 'Mechanics & Thermodynamics' : sub === 'Chemistry' ? 'Physical & Inorganic' : 'Algebra & Calculus',
-            topic: `Core JEE Concept #${i}`,
-            difficulty: i % 3 === 0 ? 'Tough' : i % 2 === 0 ? 'Moderate' : 'Easy',
-            idealTimeSec: isNum ? 140 : 80,
-            text: `Consider a ${sub} problem based on standard JEE Main syllabus. What is the value or corresponding choice under given conditions?`,
-            options: isNum ? null : ["Option (A)", "Option (B)", "Option (C)", "Option (D)"],
-            correct: 0,
-            correctNum: 15,
-            referenceBook: `Cengage ${sub} Vol 1, Page ${40 + i}`
-          });
-        }
+        // Reuse authentic bank questions for each subject
+        const dummyTest = { subject: sub, chapter: `${sub} Complete JEE Syllabus`, totalQs: 25 };
+        const subQuestions = generateAuthenticChapterQuestions(dummyTest);
+        
+        subQuestions.forEach(q => {
+          q.num = count++;
+          q.id = `${sub.toLowerCase().slice(0,3)}_${q.num}`;
+          qList.push(q);
+        });
       });
 
       return qList;

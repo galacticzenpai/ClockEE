@@ -334,9 +334,14 @@
         <span class="text-base">👥</span>
         <h3 class="text-xs font-bold uppercase tracking-wider text-white">Registered Aspirant &amp; Mentor Profiles</h3>
       </div>
-      <button onclick="openCreateUserModal()" class="px-3 py-1.5 bg-gradient-to-r from-cyan-600 to-indigo-600 hover:from-cyan-500 hover:to-indigo-500 text-white rounded-lg text-xs font-bold transition">
-        ＋ Create New User Account
-      </button>
+      <div class="flex items-center gap-2">
+        <button id="btn-sync-cloud-users" onclick="fetchCloudStudents()" class="px-3 py-1.5 bg-emerald-600/30 hover:bg-emerald-600/50 text-emerald-300 border border-emerald-500/30 rounded-lg text-xs font-bold transition flex items-center gap-1.5 shadow">
+          <span>☁️</span> <span>Sync with Firebase DB</span>
+        </button>
+        <button onclick="openCreateUserModal()" class="px-3 py-1.5 bg-gradient-to-r from-cyan-600 to-indigo-600 hover:from-cyan-500 hover:to-indigo-500 text-white rounded-lg text-xs font-bold transition">
+          + Create New User Account
+        </button>
+      </div>
     </div>
 
     <!-- User Grid -->
@@ -599,7 +604,7 @@
     }
     window.showToast('Testing Gemini API ping...', 'info');
     try {
-      const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${key}`, {
+      const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent?key=${key}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ contents: [{ parts: [{ text: 'Ping' }] }] })

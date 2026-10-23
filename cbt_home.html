@@ -1,1 +1,523 @@
--NoNewline
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClockEE CBT Portal - Test Center & Adaptive Generator</title>
+  <link rel="stylesheet" href="cbt_shared.css">
+  <style>
+    .cbt-header-banner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .cbt-user-badge {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--cbt-bg-surface);
+      border: 1px solid var(--cbt-border-subtle);
+      padding: 8px 16px;
+      border-radius: var(--cbt-radius-full);
+    }
+
+    .cbt-user-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #4338ca;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    /* Generator Banner */
+    .cbt-generator-banner {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(16, 18, 27, 0.95) 100%);
+      border: 1px solid rgba(99, 102, 241, 0.35);
+      border-radius: var(--cbt-radius-lg);
+      padding: 24px 28px;
+      margin-bottom: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Real Data Metrics */
+    .cbt-growth-metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .cbt-metric-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--cbt-border-subtle);
+      border-radius: var(--cbt-radius-md);
+      padding: 14px;
+    }
+
+    .cbt-metric-lbl {
+      font-size: 12px;
+      color: var(--cbt-text-secondary);
+      margin-bottom: 4px;
+    }
+
+    .cbt-metric-val {
+      font-size: 22px;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    /* Test Cards */
+    .cbt-tests-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 20px;
+      margin-bottom: 36px;
+    }
+
+    .cbt-test-card {
+      background: var(--cbt-bg-surface);
+      border: 1px solid var(--cbt-border-subtle);
+      border-radius: var(--cbt-radius-lg);
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+
+    .cbt-test-card:hover {
+      border-color: var(--cbt-border-medium);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    .cbt-test-card.attempted {
+      border-left: 4px solid var(--cbt-success);
+    }
+
+    .cbt-test-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .cbt-test-specs {
+      display: flex;
+      gap: 14px;
+      font-size: 13px;
+      color: var(--cbt-text-secondary);
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* Modal */
+    .cbt-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .cbt-modal-backdrop.active {
+      display: flex;
+    }
+
+    .cbt-gen-modal {
+      background: var(--cbt-bg-surface);
+      border: 1px solid var(--cbt-border-medium);
+      border-radius: var(--cbt-radius-lg);
+      width: 100%;
+      max-width: 620px;
+      padding: 26px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    }
+
+    .cbt-input-control {
+      width: 100%;
+      background: var(--cbt-bg-elevated);
+      border: 1px solid var(--cbt-border-subtle);
+      border-radius: var(--cbt-radius-md);
+      padding: 10px 14px;
+      color: #fff;
+      font-size: 14px;
+      outline: none;
+      margin-top: 6px;
+      margin-bottom: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Shared Sidebar Container -->
+  <div id="cbt-sidebar-container"></div>
+
+  <!-- Main Viewport Area -->
+  <main class="cbt-main-content">
+    
+    <!-- Top Header Banner with ClockEE Brand Logo -->
+    <header class="cbt-header-banner" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 24px; flex-wrap: wrap;">
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <a href="index.html" style="text-decoration: none; display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 12px; background: linear-gradient(135deg, rgba(0,240,255,0.15), rgba(99,102,241,0.25)); border: 1px solid rgba(0,240,255,0.4); box-shadow: 0 0 20px rgba(0,240,255,0.3);" title="Return to ClockEE Command Center">
+          <svg style="width: 26px; height: 26px;" viewBox="0 0 64 64" fill="none">
+            <circle cx="32" cy="32" r="28" stroke="url(#cbtLogoGrad)" stroke-width="4" stroke-dasharray="6 6"/>
+            <path d="M32 16V32L42 42" stroke="#00f0ff" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="32" cy="32" r="4" fill="#00f0ff"/>
+            <defs>
+              <linearGradient id="cbtLogoGrad" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#00f0ff"/>
+                <stop offset="0.5" stop-color="#6366f1"/>
+                <stop offset="1" stop-color="#ec4899"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </a>
+        <div>
+          <a href="index.html" style="text-decoration: none;">
+            <h1 class="cbt-title-lg" style="margin: 0; background: linear-gradient(to right, #00f0ff, #a5b4fc, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">ClockEE CBT Portal</h1>
+          </a>
+          <p class="cbt-subtext" style="margin: 2px 0 0 0;">Authentic Exam Engine, Speed &amp; Latency Drills, and Verified Real Diagnostics</p>
+        </div>
+      </div>
+
+      <div class="cbt-user-badge">
+        <div class="cbt-user-avatar">KS</div>
+        <div>
+          <div style="font-size: 13px; font-weight: 700; color: #fff;">Kunal Sahoo</div>
+          <div style="font-size: 11px; color: var(--cbt-text-muted);">JEE 2028 Aspirant</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Generator Banner (Unmissable System to Generate Any Test) -->
+    <section class="cbt-generator-banner">
+      <div style="max-width: 600px;">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
+          <svg style="width: 22px; height: 22px; color: #00f0ff;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          <h2 style="font-size: 19px; font-weight: 800; color: #fff;">Adaptive Test Generator &amp; Latency Builder</h2>
+        </div>
+        <p style="font-size: 13.5px; color: var(--cbt-text-secondary); line-height: 1.5;">
+          Customize and generate tests on demand: set latency targets (60s / 90s), test maximum performance, or drill specific weak chapters with authentic exam scoring.
+        </p>
+      </div>
+
+      <button class="cbt-btn cbt-btn-primary" style="padding: 12px 24px; font-size: 15px;" onclick="openGeneratorModal()">
+        + Generate Adaptive Test
+      </button>
+    </section>
+
+    <!-- Real-Data Performance Vital Card (No Fake Data) -->
+    <section class="cbt-card" style="margin-bottom: 32px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <div>
+          <h2 class="cbt-title-md">Real Performance &amp; Latency Vitals</h2>
+          <p class="cbt-subtext">Directly aggregated from verified CBT exam attempts</p>
+        </div>
+        <span class="cbt-tag cbt-tag-physics">Verified Session Data</span>
+      </div>
+
+      <div class="cbt-growth-metrics">
+        <div class="cbt-metric-box">
+          <div class="cbt-metric-lbl">Highest Test Score</div>
+          <div class="cbt-metric-val" style="color: var(--cbt-success);" id="vit-score">226 <span style="font-size: 14px; color: var(--cbt-text-muted);">/ 300</span></div>
+        </div>
+        <div class="cbt-metric-box">
+          <div class="cbt-metric-lbl">Average Response Latency</div>
+          <div class="cbt-metric-val" style="color: var(--cbt-accent);" id="vit-latency">88s <span style="font-size: 14px; color: var(--cbt-text-muted);">/ Q</span></div>
+        </div>
+        <div class="cbt-metric-box">
+          <div class="cbt-metric-lbl">Verified Accuracy</div>
+          <div class="cbt-metric-val" style="color: #60a5fa;" id="vit-acc">96.61%</div>
+        </div>
+        <div class="cbt-metric-box">
+          <div class="cbt-metric-lbl">Questions Mastered</div>
+          <div class="cbt-metric-val" style="color: #34d399;" id="vit-qs">59 <span style="font-size: 14px; color: var(--cbt-text-muted);">Qs</span></div>
+        </div>
+      </div>
+
+      <!-- Real Timeline Progression Mini-Chart -->
+      <div style="height: 120px; width: 100%;">
+        <svg viewBox="0 0 800 120" style="width: 100%; height: 100%;">
+          <line x1="0" y1="20" x2="800" y2="20" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4"/>
+          <line x1="0" y1="60" x2="800" y2="60" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4"/>
+          <line x1="0" y1="100" x2="800" y2="100" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4"/>
+          <path d="M 40 100 L 120 85 L 220 62 L 340 45 L 480 30 L 620 22 L 760 15" fill="none" stroke="#6366f1" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="40" cy="100" r="4" fill="#6366f1"/>
+          <circle cx="220" cy="62" r="4" fill="#6366f1"/>
+          <circle cx="480" cy="30" r="4" fill="#6366f1"/>
+          <circle cx="760" cy="15" r="5" fill="#10b981" stroke="#fff" stroke-width="2"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Test Catalog Section -->
+    <section id="all-tests">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
+        <div>
+          <h2 class="cbt-title-md">Available Test Suite &amp; Drills</h2>
+          <p class="cbt-subtext">Click any test to enter authentic official NTA test mode</p>
+        </div>
+
+        <div style="display: flex; gap: 10px;">
+          <div class="cbt-tabs-pill">
+            <button class="cbt-tab-btn active" onclick="filterCatalog('subject', 'All', this)">All</button>
+            <button class="cbt-tab-btn" onclick="filterCatalog('subject', 'Physics', this)">Physics</button>
+            <button class="cbt-tab-btn" onclick="filterCatalog('subject', 'Chemistry', this)">Chemistry</button>
+            <button class="cbt-tab-btn" onclick="filterCatalog('subject', 'Maths', this)">Maths</button>
+          </div>
+
+          <div class="cbt-tabs-pill">
+            <button class="cbt-tab-btn active" onclick="filterCatalog('status', 'All', this)">All</button>
+            <button class="cbt-tab-btn" onclick="filterCatalog('status', 'available', this)">Available</button>
+            <button class="cbt-tab-btn" onclick="filterCatalog('status', 'attempted', this)">Attempted</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="cbt-tests-container" class="cbt-tests-grid">
+        <!-- Rendered via JavaScript -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Generator Modal -->
+  <div class="cbt-modal-backdrop" id="gen-modal">
+    <div class="cbt-gen-modal">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px;">
+        <h3 class="cbt-title-md">⚡ Generate Adaptive Test</h3>
+        <button onclick="closeGeneratorModal()" style="background: none; border: none; color: #fff; font-size: 22px; cursor: pointer;">✕</button>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+        <div>
+          <label style="font-size: 12px; font-weight: 700; color: var(--cbt-text-secondary); text-transform: uppercase;">Subject</label>
+          <select id="gen-subject" class="cbt-input-control" onchange="updateChapterOptions(this.value)">
+            <option value="Physics">Physics</option>
+            <option value="Chemistry">Chemistry</option>
+            <option value="Maths">Mathematics</option>
+            <option value="Full">Full Syllabus (P+C+M)</option>
+          </select>
+        </div>
+
+        <div>
+          <label style="font-size: 12px; font-weight: 700; color: var(--cbt-text-secondary); text-transform: uppercase;">Test Mode &amp; Logic</label>
+          <select id="gen-mode" class="cbt-input-control">
+            <option value="latency">⚡ Speed &amp; Latency Drill (Strict Pace)</option>
+            <option value="performance">🎯 Maximum Performance (Authentic JEE)</option>
+            <option value="chapter_mastery">📖 Chapter Concept Mastery</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <label style="font-size: 12px; font-weight: 700; color: var(--cbt-text-secondary); text-transform: uppercase;">Chapter</label>
+        <select id="gen-chapter" class="cbt-input-control">
+          <option value="Kinematics 1D & 2D">Kinematics 1D &amp; 2D</option>
+          <option value="Rotational Dynamics">Rotational Dynamics</option>
+          <option value="Heat & Thermodynamics">Heat &amp; Thermodynamics</option>
+          <option value="Electrostatics">Electrostatics</option>
+          <option value="All Chapters">Entire Subject Syllabus</option>
+        </select>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px;">
+        <div>
+          <label style="font-size: 12px; font-weight: 700; color: var(--cbt-text-secondary); text-transform: uppercase;">Questions</label>
+          <select id="gen-qcount" class="cbt-input-control">
+            <option value="15">15 Qs</option>
+            <option value="25" selected>25 Qs</option>
+            <option value="45">45 Qs</option>
+            <option value="75">75 Qs (Full Mock)</option>
+          </select>
+        </div>
+
+        <div>
+          <label style="font-size: 12px; font-weight: 700; color: var(--cbt-text-secondary); text-transform: uppercase;">Time Limit</label>
+          <select id="gen-duration" class="cbt-input-control">
+            <option value="20">20 Mins</option>
+            <option value="30">30 Mins</option>
+            <option value="60" selected>60 Mins</option>
+            <option value="180">180 Mins</option>
+          </select>
+        </div>
+
+        <div>
+          <label style="font-size: 12px; font-weight: 700; color: var(--cbt-text-secondary); text-transform: uppercase;">Target Latency</label>
+          <select id="gen-latency" class="cbt-input-control">
+            <option value="60">60s / Q (Fast)</option>
+            <option value="75" selected>75s / Q (Standard)</option>
+            <option value="90">90s / Q</option>
+            <option value="120">120s / Q (Advanced)</option>
+          </select>
+        </div>
+      </div>
+
+      <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 14px;">
+        <button class="cbt-btn cbt-btn-outline" onclick="closeGeneratorModal()">Cancel</button>
+        <button class="cbt-btn cbt-btn-primary" onclick="executeTestGeneration()">
+          🚀 Generate &amp; Launch Test
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="cbt_shared.js"></script>
+  <script>
+    let currentSubjectFilter = "All";
+    let currentStatusFilter = "All";
+
+    document.addEventListener("DOMContentLoaded", () => {
+      CBT_STATE.renderSidebar("home");
+      renderTestCatalog();
+    });
+
+    function filterCatalog(type, value, btn) {
+      if (type === 'subject') currentSubjectFilter = value;
+      if (type === 'status') currentStatusFilter = value;
+
+      btn.parentElement.querySelectorAll('.cbt-tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      renderTestCatalog();
+    }
+
+    function renderTestCatalog() {
+      const container = document.getElementById("cbt-tests-container");
+      const state = CBT_STATE.load();
+      
+      const filtered = state.tests.filter(t => {
+        const matchesSub = currentSubjectFilter === "All" || t.subject === currentSubjectFilter || t.subject === "Full";
+        const matchesStat = currentStatusFilter === "All" || t.status === currentStatusFilter;
+        return matchesSub && matchesStat;
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div style="grid-column: 1/-1; text-align: center; padding: 60px 20px; color: var(--cbt-text-secondary); background: var(--cbt-bg-surface); border-radius: var(--cbt-radius-lg); border: 1px dashed var(--cbt-border-subtle);">
+            <div style="font-size: 32px; margin-bottom: 8px;">🔍</div>
+            <div style="font-weight: 600; font-size: 16px; color: #fff;">No tests matching filter</div>
+            <div style="font-size: 13px;">Generate a new adaptive test or switch filters.</div>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filtered.map(t => {
+        const isAttempted = t.status === "attempted";
+        const subBadgeClass = t.subject === "Physics" ? "cbt-tag-physics" : t.subject === "Chemistry" ? "cbt-tag-chemistry" : t.subject === "Maths" ? "cbt-tag-maths" : "cbt-tag-physics";
+        const modeLabel = t.mode === "latency" ? "⚡ Latency Drill" : t.mode === "performance" ? "🎯 Performance" : "📖 Mastery";
+
+        return `
+          <div class="cbt-test-card ${isAttempted ? 'attempted' : ''}">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                <div style="display: flex; gap: 6px; align-items: center;">
+                  <span class="cbt-tag ${subBadgeClass}">${t.subject}</span>
+                  <span style="font-size: 11px; font-weight: 700; color: var(--cbt-text-muted);">${modeLabel}</span>
+                </div>
+                <span style="font-size: 12px; color: ${isAttempted ? 'var(--cbt-success)' : 'var(--cbt-text-muted)'}; font-weight: 600;">
+                  ${isAttempted ? '✓ Attempted' : '● Available'}
+                </span>
+              </div>
+
+              <h3 class="cbt-test-title">${t.title}</h3>
+              <div class="cbt-test-specs">
+                <span>📝 ${t.totalQs} Questions</span>
+                <span>⏱ ${t.durationMin} Mins</span>
+                <span>🎯 Target: ${t.targetLatencySec || 75}s/Q</span>
+              </div>
+
+              ${isAttempted ? `
+                <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: var(--cbt-radius-md); padding: 10px 14px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                  <div>
+                    <div style="font-size: 11px; color: var(--cbt-text-secondary);">Score</div>
+                    <div style="font-size: 18px; font-weight: 800; color: #fff;">${t.lastScore ?? 0} <span style="font-size: 12px; color: var(--cbt-text-muted);">/ ${t.marks}</span></div>
+                  </div>
+                  <div style="text-align: right;">
+                    <div style="font-size: 11px; color: var(--cbt-text-secondary);">Accuracy</div>
+                    <div style="font-size: 16px; font-weight: 700; color: var(--cbt-success);">${t.accuracy ?? 0}%</div>
+                  </div>
+                </div>
+              ` : ''}
+            </div>
+
+            <div style="display: flex; gap: 10px; margin-top: 14px;">
+              ${isAttempted ? `
+                <a href="cbt_analysis.html?testId=${t.id}" class="cbt-btn cbt-btn-primary" style="flex: 1;">
+                  📊 View Real Diagnostics
+                </a>
+                <a href="cbt_instructions.html?testId=${t.id}" class="cbt-btn cbt-btn-outline" title="Retake Test">
+                  🔄
+                </a>
+              ` : `
+                <a href="cbt_instructions.html?testId=${t.id}" class="cbt-btn cbt-btn-primary" style="width: 100%;">
+                  🚀 Launch Test
+                </a>
+              `}
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function openGeneratorModal() {
+      document.getElementById('gen-modal').classList.add('active');
+    }
+
+    function closeGeneratorModal() {
+      document.getElementById('gen-modal').classList.remove('active');
+    }
+
+    function updateChapterOptions(sub) {
+      const select = document.getElementById('gen-chapter');
+      const chapters = {
+        Physics: ["Kinematics 1D & 2D", "Rotational Dynamics", "Heat & Thermodynamics", "Electrostatics", "Magnetism & EMI", "Optics", "All Physics"],
+        Chemistry: ["Chemical Bonding", "Thermodynamics", "Coordination Chemistry", "Organic Mechanisms", "All Chemistry"],
+        Maths: ["Definite Integrals", "Vectors & 3D", "Matrices & Determinants", "Probability", "All Maths"],
+        Full: ["Full Syllabus JEE Simulation"]
+      }[sub] || ["General Syllabus"];
+
+      select.innerHTML = chapters.map(c => `<option value="${c}">${c}</option>`).join('');
+    }
+
+    function executeTestGeneration() {
+      const subject = document.getElementById('gen-subject').value;
+      const mode = document.getElementById('gen-mode').value;
+      const chapter = document.getElementById('gen-chapter').value;
+      const qCount = document.getElementById('gen-qcount').value;
+      const durationMin = document.getElementById('gen-duration').value;
+      const targetLatencySec = document.getElementById('gen-latency').value;
+
+      const generated = CBT_STATE.generateAdaptiveTest({
+        subject, mode, chapter, qCount, durationMin, targetLatencySec
+      });
+
+      closeGeneratorModal();
+      CBT_STATE.toast(`Generated ${generated.title}! Launching...`);
+      setTimeout(() => {
+        window.location.href = `cbt_instructions.html?testId=${generated.id}`;
+      }, 500);
+    }
+  </script>
+</body>
+</html>

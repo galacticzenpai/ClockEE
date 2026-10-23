@@ -1816,6 +1816,43 @@ window.applyAllSettingsGlobally = function() {
   const styleEl = document.createElement("style");
   styleEl.textContent = `
     /* Master Design System & Frosted Glass Overhaul */
+    html, body {
+      overflow-x: hidden !important;
+      max-width: 100vw !important;
+    }
+
+    .dynamic-aura, .dynamic-aura-bg {
+      overflow: hidden !important;
+      max-width: 100vw !important;
+      max-height: 100vh !important;
+      pointer-events: none !important;
+    }
+
+    @media (max-width: 1024px) {
+      #main-nav {
+        overflow-x: auto !important;
+        max-width: calc(100vw - 110px) !important;
+        flex-wrap: nowrap !important;
+        -webkit-overflow-scrolling: touch !important;
+        scrollbar-width: none !important;
+        padding-bottom: 2px !important;
+      }
+      #main-nav::-webkit-scrollbar {
+        display: none !important;
+      }
+      .nav-btn {
+        flex-shrink: 0 !important;
+        white-space: nowrap !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-btn {
+        min-height: 40px !important;
+        padding: 8px 14px !important;
+      }
+    }
+
     :root {
       --bg-base: #07080e;
       --bg-surface: #0e1220;

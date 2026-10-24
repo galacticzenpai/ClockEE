@@ -1028,9 +1028,17 @@ window.initSidebar = function() {
 
   document.querySelectorAll("[data-profile-name]").forEach(el => el.textContent = profile.name || "JEE Aspirant");
   document.querySelectorAll("[data-profile-subtitle]").forEach(el => el.textContent = profile.subtitle || "JEE 2028 Workspace");
+  const activeAvatar = profile.pfp || DEFAULT_STATE.profile.pfp;
   document.querySelectorAll("[data-profile-avatar]").forEach(el => {
-    if (profile.pfp) el.src = profile.pfp;
+    el.src = activeAvatar;
   });
+  try {
+    const cur = JSON.parse(localStorage.getItem('clockee_current_user') || '{}');
+    if (cur && cur.pfp !== activeAvatar) {
+      cur.pfp = activeAvatar;
+      localStorage.setItem('clockee_current_user', JSON.stringify(cur));
+    }
+  } catch(e) {}
 
   const now = new Date();
   const weekdayEl = document.getElementById("sidebar-today-weekday");
@@ -1243,11 +1251,19 @@ window.applyCroppedAvatar = function() {
   const s = window.getState();
   s.profile = s.profile || {};
   s.profile.pfp = croppedDataUrl;
-  window.saveState();
+  window.saveState(s);
+
+  try {
+    const cur = JSON.parse(localStorage.getItem('clockee_current_user') || '{}');
+    cur.pfp = croppedDataUrl;
+    localStorage.setItem('clockee_current_user', JSON.stringify(cur));
+  } catch(e) {}
 
   document.querySelectorAll("[data-profile-avatar]").forEach(img => {
     img.src = croppedDataUrl;
   });
+  const popoverImg = document.getElementById("popover-avatar-img");
+  if (popoverImg) popoverImg.src = croppedDataUrl;
 
   document.getElementById("clockee-cropper-modal")?.remove();
   window.showToast("✓ 1:1 Avatar updated successfully!", "success");
@@ -2788,9 +2804,10 @@ window.initGlobalProfileMenu = function() {
     // If guest, enforce clean guest profile fields
     const displayName = isGuest ? "Guest Aspirant" : (user.name || "JEE Aspirant");
     const displayRole = isGuest ? "Guest Sandbox Session" : (user.role || "JEE 2028 Aspirant");
-    const displayPfp = isGuest 
-      ? "https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Guest"
-      : (user.pfp || 'https://api.dicebear.com/7.x/bottts-neutral/svg?seed=' + encodeURIComponent(displayName));
+    // Strictly synchronize avatar with active page avatar and global state profile
+    const activeNavImg = document.querySelector("#navAvatarImg") || document.querySelector("[data-profile-avatar]");
+    const activePfp = s.profile?.pfp || (activeNavImg && activeNavImg.src ? activeNavImg.src : null) || user.pfp || DEFAULT_STATE.profile.pfp;
+    const displayPfp = activePfp;
 
     const isAdmin = !isGuest && Boolean(
       user.role === "Mentor / Faculty" || 
@@ -2801,7 +2818,7 @@ window.initGlobalProfileMenu = function() {
 
     let html = `
       <div class="flex items-center gap-3 border-b border-white/10 pb-3">
-        <img src="${displayPfp}" class="w-11 h-11 rounded-full border-2 ${isAdmin ? 'border-purple-400' : 'border-cyan-400'} bg-black/40">
+        <img id="popover-avatar-img" src="${displayPfp}" class="w-11 h-11 rounded-full border-2 ${isAdmin ? 'border-purple-400' : 'border-cyan-400'} bg-black/40 object-cover">
         <div class="flex-1 min-w-0">
           <div class="text-sm font-extrabold text-white truncate flex items-center gap-1.5">
             <span>${displayName}</span>

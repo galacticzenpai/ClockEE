@@ -183,33 +183,52 @@
     .egg-calculus { top: 220px; right: -25px; animation: floatBob1 5.5s infinite ease-in-out; }
     .egg-trophy { bottom: -15px; right: 20px; animation: floatBob1 6s infinite ease-in-out; }
 
-    /* Cyber-Bear Whimsical Mascot Styles */
+    /* Friendly Cyber-Bear Mascot Styles */
+    .mascot-stage {
+      position: relative;
+      width: 100%;
+      max-width: 320px;
+      margin: 0 auto;
+      padding: 10px 0 4px 0;
+    }
+
     .mascot-box {
-      width: 175px;
-      height: 150px;
-      margin: 0 auto -22px auto;
+      width: 210px;
+      height: 185px;
+      margin: 0 auto;
       position: relative;
       z-index: 20;
+      filter: drop-shadow(0 14px 30px rgba(0, 0, 0, 0.6));
     }
     svg.bear-svg {
       width: 100%;
       height: 100%;
       overflow: visible;
-      animation: mascotBreathe 4s infinite ease-in-out;
+      animation: mascotBreathe 4.2s infinite ease-in-out;
     }
     @keyframes mascotBreathe {
       0%, 100% { transform: translateY(0) scale(1); }
-      50% { transform: translateY(-2.5px) scale(1.015); }
+      50% { transform: translateY(-4px) scale(1.018); }
+    }
+
+    /* Soft Natural Eye Blinking */
+    .bear-eyelid {
+      transform-origin: 50% 50%;
+      animation: eyeBlink 4.5s infinite ease-in-out;
+    }
+    @keyframes eyeBlink {
+      0%, 92%, 96%, 100% { transform: scaleY(0); opacity: 0; }
+      94% { transform: scaleY(1); opacity: 1; }
     }
 
     /* Quirky Ear Twitch */
     .bear-ear-left {
       transform-origin: 45px 50px;
-      animation: earTwitchLeft 6s infinite ease-in-out;
+      animation: earTwitchLeft 6.5s infinite ease-in-out;
     }
     .bear-ear-right {
       transform-origin: 155px 50px;
-      animation: earTwitchRight 6s infinite ease-in-out 3s;
+      animation: earTwitchRight 6.5s infinite ease-in-out 3.2s;
     }
     @keyframes earTwitchLeft {
       0%, 88%, 100% { transform: rotate(0deg); }
@@ -222,8 +241,13 @@
       96% { transform: rotate(-6deg); }
     }
 
+    .bear-brow {
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+      transform-origin: center;
+    }
+
     .bear-arm {
-      transition: transform 0.38s cubic-bezier(0.34, 1.56, 0.64, 1);
+      transition: transform 0.42s cubic-bezier(0.34, 1.56, 0.64, 1);
       transform-origin: center bottom;
     }
     .bear-pupil {
@@ -232,27 +256,44 @@
 
     /* Mascot Action States */
     .covering-eyes .left-arm {
-      transform: translateY(-80px) rotate(14deg);
+      transform: translateY(-90px) rotate(16deg);
     }
     .covering-eyes .right-arm {
-      transform: translateY(-80px) rotate(-14deg);
+      transform: translateY(-90px) rotate(-16deg);
     }
+    .covering-eyes .bear-brow {
+      transform: translateY(-2px) rotate(4deg);
+    }
+
     .peeking .left-arm {
-      transform: translateY(-62px) translateX(-10px) rotate(28deg);
+      transform: translateY(-70px) translateX(-12px) rotate(30deg);
     }
     .peeking .right-arm {
-      transform: translateY(-80px) rotate(-14deg);
+      transform: translateY(-90px) rotate(-16deg);
     }
     
     /* Blush reaction */
     .cheeks {
       transition: all 0.3s ease;
-      opacity: 0.35;
+      opacity: 0.55;
     }
     .cheeks.blushing {
-      opacity: 0.95;
+      opacity: 1 !important;
       fill: #ff2a6d !important;
-      filter: drop-shadow(0 0 8px #ff2a6d);
+      filter: drop-shadow(0 0 10px #ff2a6d);
+    }
+
+    /* Happy Crescent Eyes */
+    .happy-eyes {
+      transition: opacity 0.2s ease;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .show-happy-eyes .happy-eyes {
+      opacity: 1 !important;
+    }
+    .show-happy-eyes .normal-eyes {
+      opacity: 0 !important;
     }
 
     /* Speech Bubble */
@@ -261,19 +302,20 @@
       top: -46px;
       left: 50%;
       transform: translateX(-50%) scale(0.9);
-      background: #0f172a;
-      border: 1px solid #6366f1;
-      padding: 6px 14px;
-      border-radius: 12px;
-      font-size: 0.72rem;
+      background: rgba(13, 18, 38, 0.94);
+      border: 1px solid rgba(0, 242, 254, 0.4);
+      padding: 7px 16px;
+      border-radius: 14px;
+      font-size: 0.74rem;
       font-weight: 700;
       color: #38bdf8;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.7), 0 0 15px rgba(99, 102, 241, 0.4);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.7), 0 0 18px rgba(0, 242, 254, 0.3);
       white-space: nowrap;
       pointer-events: none;
       opacity: 0;
-      transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+      transition: all 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
       z-index: 50;
+      backdrop-filter: blur(12px);
     }
     .speech-bubble::after {
       content: '';
@@ -283,7 +325,7 @@
       transform: translateX(-50%);
       border-width: 6px 6px 0;
       border-style: solid;
-      border-color: #0f172a transparent;
+      border-color: rgba(13, 18, 38, 0.95) transparent;
       display: block;
       width: 0;
     }
@@ -366,326 +408,391 @@
     <div class="aura-blob blob-2"></div>
   </div>
 
-  <div class="w-full max-w-md relative z-10 space-y-4 my-auto">
+    <div class="w-full max-w-5xl mx-auto relative z-10 my-auto py-4 px-3 sm:px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center justify-center">
 
-    <!-- Top Brand & Mascot Container -->
-    <div class="text-center space-y-1 relative">
-
-      <!-- Floating Easter Egg Icons with Quirky Interactions -->
-      <div class="easter-egg-badge egg-atom hidden sm:flex" onclick="triggerEasterEgg('atom')" title="Physics Atom: Click for quantum boost!">⚛️</div>
-      <div class="easter-egg-badge egg-flask hidden sm:flex" onclick="triggerEasterEgg('flask')" title="Chemistry Lab: Click for titration!">🧪</div>
-      <div class="easter-egg-badge egg-rocket hidden sm:flex" onclick="triggerEasterEgg('rocket')" title="Rocket: JEE AIR speed!">🚀</div>
-      <div class="easter-egg-badge egg-calculus hidden sm:flex" onclick="triggerEasterEgg('calculus')" title="Calculus: Limits &amp; Integrals!">∫</div>
-      <div class="easter-egg-badge egg-trophy hidden sm:flex" onclick="triggerEasterEgg('trophy')" title="IIT Bombay Trophy!">🏆</div>
-
-      <!-- Whimsical Interactive Mascot: Astro-Bear -->
-      <div class="mascot-box" id="mascotWrapper">
-
-        <!-- Comic Speech Bubble -->
-        <div id="mascotSpeechBubble" class="speech-bubble">
-          Don't fear Rotational Motion! 🐻⚡
+      <!-- LEFT COLUMN: Friendly Interactive Mascot & Hero Stage -->
+      <div class="lg:col-span-5 flex flex-col items-center text-center space-y-4 relative py-2">
+        
+        <!-- Brand Title -->
+        <div class="space-y-1">
+          <div class="flex items-center justify-center gap-2">
+            <h1 class="text-2xl sm:text-3xl font-black tracking-tight text-white flex items-center gap-2">
+              <span>Clock<span class="text-cyan-400">EE</span></span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-indigo-950/80 border border-indigo-500/30 text-indigo-300 font-bold">Cloud Sync</span>
+            </h1>
+          </div>
+          <p class="text-xs text-gray-400 font-medium">JEE 2028 Study Engine &amp; CBT Portal Access</p>
         </div>
 
-        <svg class="bear-svg" viewBox="0 0 200 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <filter id="eyeGlow" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="4" result="blur"/>
-              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-            </filter>
-            <filter id="starGlow" x="-30%" y="-30%" width="160%" height="160%">
-              <feGaussianBlur stdDeviation="3" result="glow"/>
-              <feComposite in="SourceGraphic" in2="glow" operator="over"/>
-            </filter>
-            <linearGradient id="bearBody" x1="0" y1="0" x2="200" y2="180" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#1e2238"/>
-              <stop offset="1" stop-color="#0f111d"/>
-            </linearGradient>
-            <linearGradient id="earCyan" x1="0" y1="0" x2="1" y2="1">
-              <stop stop-color="#6366f1"/>
-              <stop offset="1" stop-color="#38bdf8"/>
-            </linearGradient>
-          </defs>
+        <!-- Whimsical Interactive Mascot Stage -->
+        <div class="mascot-stage relative w-full flex flex-col items-center">
+          
+          <!-- Floating Easter Egg Icons with Quirky Interactions -->
+          <div class="easter-egg-badge egg-atom hidden sm:flex" onclick="triggerEasterEgg('atom')" title="Physics Atom: Quantum boost!">⚛️</div>
+          <div class="easter-egg-badge egg-flask hidden sm:flex" onclick="triggerEasterEgg('flask')" title="Chemistry Lab: Titration!">🧪</div>
+          <div class="easter-egg-badge egg-rocket hidden sm:flex" onclick="triggerEasterEgg('rocket')" title="Rocket: JEE AIR speed!">🚀</div>
+          <div class="easter-egg-badge egg-calculus hidden sm:flex" onclick="triggerEasterEgg('calculus')" title="Calculus: Limits &amp; Integrals!">∫</div>
+          <div class="easter-egg-badge egg-trophy hidden sm:flex" onclick="triggerEasterEgg('trophy')" title="IIT Bombay Trophy!">🏆</div>
 
-          <!-- Head Group -->
-          <g id="bearHeadGroup">
-            <!-- Ears with Quirky Independent Twitch Animations -->
-            <g class="bear-ear-left">
-              <circle cx="45" cy="50" r="23" fill="url(#bearBody)" stroke="#6366f1" stroke-width="2.5"/>
-              <circle cx="45" cy="50" r="12" fill="url(#earCyan)" opacity="0.6"/>
-            </g>
-            <g class="bear-ear-right">
-              <circle cx="155" cy="50" r="23" fill="url(#bearBody)" stroke="#6366f1" stroke-width="2.5"/>
-              <circle cx="155" cy="50" r="12" fill="url(#earCyan)" opacity="0.6"/>
-            </g>
+          <!-- Comic Speech Bubble -->
+          <div id="mascotSpeechBubble" class="speech-bubble">
+            Welcome back, future IITian! 🐻⚡
+          </div>
 
-            <!-- Head Frame -->
-            <rect x="30" y="40" width="140" height="118" rx="58" fill="url(#bearBody)" stroke="rgba(255,255,255,0.18)" stroke-width="2"/>
-            
-            <!-- Soft Cheeks (Blush on click or secure password) -->
-            <ellipse id="cheekLeft" class="cheeks" cx="56" cy="116" rx="9" ry="5" fill="#f43f5e"/>
-            <ellipse id="cheekRight" class="cheeks" cx="144" cy="116" rx="9" ry="5" fill="#f43f5e"/>
+          <!-- Friendly Interactive Mascot: Astro-Bear -->
+          <div class="mascot-box" id="mascotWrapper">
+            <svg class="bear-svg" viewBox="0 0 200 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <filter id="eyeGlow" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur stdDeviation="3.5" result="blur"/>
+                  <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                </filter>
+                <filter id="starGlow" x="-30%" y="-30%" width="160%" height="160%">
+                  <feGaussianBlur stdDeviation="3" result="glow"/>
+                  <feComposite in="SourceGraphic" in2="glow" operator="over"/>
+                </filter>
+                <linearGradient id="bearBody" x1="0" y1="0" x2="200" y2="180" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#212644"/>
+                  <stop offset="0.6" stop-color="#14182b"/>
+                  <stop offset="1" stop-color="#0c0e1a"/>
+                </linearGradient>
+                <linearGradient id="earInner" x1="0" y1="0" x2="1" y2="1">
+                  <stop stop-color="#818cf8"/>
+                  <stop offset="1" stop-color="#00f2fe"/>
+                </linearGradient>
+                <linearGradient id="snoutGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop stop-color="#1e243d"/>
+                  <stop offset="1" stop-color="#141728"/>
+                </linearGradient>
+                <linearGradient id="pupilGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop stop-color="#00f2fe"/>
+                  <stop offset="1" stop-color="#38bdf8"/>
+                </linearGradient>
+              </defs>
 
-            <!-- Snout -->
-            <ellipse cx="100" cy="114" rx="25" ry="18" fill="#151928" stroke="rgba(255,255,255,0.1)" stroke-width="1.5"/>
+              <!-- Head Group -->
+              <g id="bearHeadGroup">
+                <!-- Ears with Soft Twitch Animations -->
+                <g class="bear-ear-left">
+                  <circle cx="45" cy="48" r="24" fill="url(#bearBody)" stroke="#6366f1" stroke-width="2.5"/>
+                  <circle cx="45" cy="48" r="13" fill="url(#earInner)" opacity="0.65"/>
+                </g>
+                <g class="bear-ear-right">
+                  <circle cx="155" cy="48" r="24" fill="url(#bearBody)" stroke="#6366f1" stroke-width="2.5"/>
+                  <circle cx="155" cy="48" r="13" fill="url(#earInner)" opacity="0.65"/>
+                </g>
 
-            <!-- Cute Squishy Nose with Squeak Event Listener -->
-            <g id="bearNose" class="cursor-pointer" onclick="handleNoseClick()" title="Boop my nose! 🐾">
-              <path d="M94 107C94 107 97 113 100 113C103 113 106 107 106 107H94Z" fill="#38bdf8" filter="url(#eyeGlow)"/>
-              <path d="M100 113V120" stroke="#94a3b8" stroke-width="2" stroke-linecap="round"/>
-              <path d="M93 120C95 123 100 124 100 120C100 124 105 123 107 120" stroke="#94a3b8" stroke-width="1.8" stroke-linecap="round"/>
-              <circle cx="98" cy="109" r="1.5" fill="#ffffff"/>
-            </g>
+                <!-- Adorable Rounded Head Frame -->
+                <rect x="25" y="36" width="150" height="122" rx="61" fill="url(#bearBody)" stroke="rgba(0, 242, 254, 0.3)" stroke-width="2"/>
+                <path d="M45 48 C 75 39, 125 39, 155 48" stroke="rgba(255,255,255,0.18)" stroke-width="2" stroke-linecap="round"/>
 
-            <!-- Eyes & Interactive Tracking Pupils -->
-            <!-- Left Eye Socket -->
-            <ellipse cx="70" cy="90" rx="14" ry="16" fill="#080a14" stroke="#6366f1" stroke-width="2"/>
-            <!-- Left Pupil -->
-            <g id="pupilLeft" class="bear-pupil">
-              <circle cx="70" cy="90" r="7" fill="#00f0ff" filter="url(#eyeGlow)"/>
-              <circle cx="68" cy="88" r="2.2" fill="#ffffff"/>
-              <!-- Star Glint when 100% password strength -->
-              <text id="starLeft" x="65" y="94" font-size="9" fill="#fbbf24" opacity="0" filter="url(#starGlow)">★</text>
-            </g>
+                <!-- Cute Friendly Eyebrows -->
+                <path id="browLeft" class="bear-brow" d="M56 70 C63 65, 77 65, 84 70" stroke="#38bdf8" stroke-width="3" stroke-linecap="round"/>
+                <path id="browRight" class="bear-brow" d="M116 70 C123 65, 137 65, 144 70" stroke="#38bdf8" stroke-width="3" stroke-linecap="round"/>
 
-            <!-- Right Eye Socket -->
-            <ellipse cx="130" cy="90" rx="14" ry="16" fill="#080a14" stroke="#6366f1" stroke-width="2"/>
-            <!-- Right Pupil -->
-            <g id="pupilRight" class="bear-pupil">
-              <circle cx="130" cy="90" r="7" fill="#00f0ff" filter="url(#eyeGlow)"/>
-              <circle cx="128" cy="88" r="2.2" fill="#ffffff"/>
-              <!-- Star Glint when 100% password strength -->
-              <text id="starRight" x="125" y="94" font-size="9" fill="#fbbf24" opacity="0" filter="url(#starGlow)">★</text>
-            </g>
+                <!-- Soft Rosy Cheeks -->
+                <ellipse id="cheekLeft" class="cheeks" cx="54" cy="115" rx="10" ry="6" fill="#f43f5e"/>
+                <ellipse id="cheekRight" class="cheeks" cx="146" cy="115" rx="10" ry="6" fill="#f43f5e"/>
 
-            <!-- Nervous Sweat Drop for Weak Passwords -->
-            <g id="mascotSweat" opacity="0" transform="translate(162, 70)">
-              <path d="M0 8 C-3 8 -5 5 -5 2 C-5 -2 0 -7 0 -7 C0 -7 5 -2 5 2 C5 5 3 8 0 8 Z" fill="#38bdf8"/>
-            </g>
-          </g>
+                <!-- Snout Base -->
+                <ellipse cx="100" cy="116" rx="28" ry="19" fill="url(#snoutGrad)" stroke="rgba(0, 242, 254, 0.25)" stroke-width="1.5"/>
 
-          <!-- Robotic Arms (Slide up and cover eyes) -->
-          <!-- Left Arm -->
-          <g id="armLeft" class="bear-arm left-arm" style="transform-origin: 40px 175px;">
-            <path d="M30 175C30 152 46 142 66 152C80 159 82 175 82 175H30Z" fill="#171a2c" stroke="#6366f1" stroke-width="2.5"/>
-            <circle cx="56" cy="158" r="7.5" fill="#38bdf8" opacity="0.6"/>
-            <circle cx="44" cy="152" r="2.8" fill="#6366f1"/>
-            <circle cx="56" cy="147" r="2.8" fill="#6366f1"/>
-            <circle cx="68" cy="152" r="2.8" fill="#6366f1"/>
-          </g>
+                <!-- Cute Friendly Smile -->
+                <path id="mouthDefault" d="M91 121 C95 125, 105 125, 109 121" stroke="#cbd5e1" stroke-width="2.2" stroke-linecap="round"/>
 
-          <!-- Right Arm -->
-          <g id="armRight" class="bear-arm right-arm" style="transform-origin: 160px 175px;">
-            <path d="M170 175C170 152 154 142 134 152C120 159 118 175 118 175H170Z" fill="#171a2c" stroke="#6366f1" stroke-width="2.5"/>
-            <circle cx="144" cy="158" r="7.5" fill="#38bdf8" opacity="0.6"/>
-            <circle cx="156" cy="152" r="2.8" fill="#6366f1"/>
-            <circle cx="144" cy="147" r="2.8" fill="#6366f1"/>
-            <circle cx="132" cy="152" r="2.8" fill="#6366f1"/>
-          </g>
-        </svg>
-      </div>
+                <!-- Squishy Glowing Interactive Nose -->
+                <g id="bearNose" class="cursor-pointer" onclick="handleNoseClick()" title="Boop my nose! 🐾">
+                  <ellipse cx="100" cy="108" rx="8" ry="5.5" fill="#00f2fe" filter="url(#eyeGlow)"/>
+                  <ellipse cx="98" cy="106.5" rx="2" ry="1.2" fill="#ffffff"/>
+                  <path d="M100 113.5 V117" stroke="#cbd5e1" stroke-width="1.8" stroke-linecap="round"/>
+                </g>
 
-      <div class="flex items-center justify-center gap-2">
-        <h1 class="text-xl font-black tracking-tight text-white flex items-center gap-2">
-          <span>ClockEE</span>
-          <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-indigo-950/80 border border-indigo-500/30 text-indigo-300 font-bold">Cloud Sync</span>
-        </h1>
-      </div>
-      <p class="text-xs text-gray-400">JEE 2028 Study Engine &amp; CBT Portal Access</p>
-    </div>
+                <!-- Normal Eyes Container -->
+                <g id="normalEyesGroup" class="normal-eyes">
+                  <!-- Left Eye -->
+                  <ellipse cx="70" cy="89" rx="15" ry="17" fill="#070914" stroke="#4facfe" stroke-width="2"/>
+                  <g id="pupilLeft" class="bear-pupil">
+                    <circle cx="70" cy="89" r="8" fill="url(#pupilGrad)" filter="url(#eyeGlow)"/>
+                    <!-- Specular Highlights (Give Life to Eyes!) -->
+                    <circle cx="67.5" cy="86.5" r="2.8" fill="#ffffff"/>
+                    <circle cx="73" cy="92.5" r="1.3" fill="#ffffff" opacity="0.9"/>
+                    <!-- Star Glint for 100% password -->
+                    <text id="starLeft" x="65" y="93" font-size="9" fill="#fbbf24" opacity="0" filter="url(#starGlow)">★</text>
+                  </g>
+                  <!-- Animated Blinking Eyelid -->
+                  <ellipse class="bear-eyelid" cx="70" cy="89" rx="15" ry="17" fill="#14182b"/>
 
-    <!-- Main Glassmorphic Card -->
-    <div class="glass-panel p-5 sm:p-7 space-y-4">
+                  <!-- Right Eye -->
+                  <ellipse cx="130" cy="89" rx="15" ry="17" fill="#070914" stroke="#4facfe" stroke-width="2"/>
+                  <g id="pupilRight" class="bear-pupil">
+                    <circle cx="130" cy="89" r="8" fill="url(#pupilGrad)" filter="url(#eyeGlow)"/>
+                    <!-- Specular Highlights -->
+                    <circle cx="127.5" cy="86.5" r="2.8" fill="#ffffff"/>
+                    <circle cx="133" cy="92.5" r="1.3" fill="#ffffff" opacity="0.9"/>
+                    <!-- Star Glint -->
+                    <text id="starRight" x="125" y="93" font-size="9" fill="#fbbf24" opacity="0" filter="url(#starGlow)">★</text>
+                  </g>
+                  <!-- Animated Blinking Eyelid -->
+                  <ellipse class="bear-eyelid" cx="130" cy="89" rx="15" ry="17" fill="#14182b"/>
+                </g>
 
-      <!-- Google 1-Click Sign In -->
-      <button 
-        type="button" 
-        id="btnGoogleLogin" 
-        onclick="handleGoogleSignIn()" 
-        class="btn-google w-full py-2.5 px-4 rounded-xl text-xs font-bold text-gray-200 flex items-center justify-center gap-3 transition shadow"
-      >
-        <svg class="w-4 h-4" viewBox="0 0 24 24">
-          <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-          <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-          <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
-          <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
-        </svg>
-        <span>Continue with Google Account</span>
-      </button>
+                <!-- Happy Crescent Eyes (shown during boop / celebration) -->
+                <g id="happyEyesGroup" class="happy-eyes">
+                  <path d="M57 91 C62 82, 78 82, 83 91" stroke="#00f2fe" stroke-width="3.5" stroke-linecap="round" fill="none" filter="url(#eyeGlow)"/>
+                  <path d="M117 91 C122 82, 138 82, 143 91" stroke="#00f2fe" stroke-width="3.5" stroke-linecap="round" fill="none" filter="url(#eyeGlow)"/>
+                </g>
 
-      <!-- Divider -->
-      <div class="flex items-center gap-3 my-1">
-        <div class="h-[1px] bg-white/10 flex-1"></div>
-        <span class="text-[10px] uppercase font-mono tracking-wider text-gray-500">or student credentials</span>
-        <div class="h-[1px] bg-white/10 flex-1"></div>
-      </div>
+                <!-- Nervous Sweat Drop for Weak Passwords -->
+                <g id="mascotSweat" opacity="0" transform="translate(164, 72)">
+                  <path d="M0 8 C-3 8 -5 5 -5 2 C-5 -2 0 -7 0 -7 C0 -7 5 -2 5 2 C5 5 3 8 0 8 Z" fill="#38bdf8"/>
+                </g>
+              </g>
 
-      <!-- Tab Switcher: Sign In vs Create Account -->
-      <div class="flex p-1 bg-black/40 border border-white/10 rounded-xl gap-1">
-        <button id="tabBtnSignIn" onclick="switchAuthTab('signin')" class="flex-1 py-2 text-xs font-bold rounded-lg text-white bg-indigo-600 transition shadow">
-          Sign In
-        </button>
-        <button id="tabBtnSignUp" onclick="switchAuthTab('signup')" class="flex-1 py-2 text-xs font-bold rounded-lg text-gray-400 hover:text-white transition">
-          Create Account
-        </button>
-      </div>
+              <!-- Robotic Paws (Slide up and cover eyes) -->
+              <g id="armLeft" class="bear-arm left-arm" style="transform-origin: 38px 175px;">
+                <path d="M28 175C28 150 46 140 66 150C80 157 82 175 82 175H28Z" fill="#181c2e" stroke="#4facfe" stroke-width="2.5"/>
+                <circle cx="55" cy="157" r="8" fill="#00f2fe" opacity="0.6"/>
+                <circle cx="43" cy="151" r="2.8" fill="#6366f1"/>
+                <circle cx="55" cy="146" r="2.8" fill="#6366f1"/>
+                <circle cx="67" cy="151" r="2.8" fill="#6366f1"/>
+              </g>
 
-      <!-- Feedback / Alert Banner -->
-      <div id="authAlert" class="hidden p-3 rounded-xl border text-xs font-medium flex items-center gap-2"></div>
+              <g id="armRight" class="bear-arm right-arm" style="transform-origin: 162px 175px;">
+                <path d="M172 175C172 150 154 140 134 150C120 157 118 175 118 175H172Z" fill="#181c2e" stroke="#4facfe" stroke-width="2.5"/>
+                <circle cx="145" cy="157" r="8" fill="#00f2fe" opacity="0.6"/>
+                <circle cx="157" cy="151" r="2.8" fill="#6366f1"/>
+                <circle cx="145" cy="146" r="2.8" fill="#6366f1"/>
+                <circle cx="133" cy="151" r="2.8" fill="#6366f1"/>
+              </g>
+            </svg>
+          </div>
 
-      <!-- FORM: SIGN IN -->
-      <form id="formSignIn" onsubmit="handleSignIn(event)" class="space-y-4">
-        <div>
-          <label class="block text-[11px] font-bold uppercase tracking-wider text-gray-300 mb-1.5">Email Address</label>
-          <input 
-            type="email" 
-            id="signInEmail" 
-            required 
-            placeholder="aspirant@jee.app" 
-            class="form-input tracking-input" 
-            autocomplete="email"
-          />
-        </div>
-
-        <div>
-          <div class="flex justify-between items-center mb-1.5">
-            <label class="text-[11px] font-bold uppercase tracking-wider text-gray-300">Password</label>
-            <button type="button" onclick="togglePasswordVisibility('signInPassword', this)" class="text-[11px] text-indigo-400 hover:text-indigo-300 font-medium">
-              Show
+          <!-- Mascot Emotional State & Action Pill -->
+          <div class="mt-2.5 flex items-center gap-2">
+            <div id="mascotMoodBadge" class="text-[11px] font-mono px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-cyan-300 font-bold flex items-center gap-1.5 shadow-sm">
+              <span id="mascotMoodEmoji">😊</span>
+              <span id="mascotMoodText">Friendly &amp; Ready</span>
+            </div>
+            <button type="button" onclick="handleNoseClick()" class="text-[11px] font-semibold text-slate-300 hover:text-cyan-300 transition px-2.5 py-1 rounded-lg bg-black/40 border border-white/10 hover:border-cyan-400/40" title="Click to boop mascot nose">
+              🐾 Boop Nose!
             </button>
           </div>
-          <div class="relative">
-            <input 
-              type="password" 
-              id="signInPassword" 
-              required 
-              placeholder="••••••••••••" 
-              class="form-input password-input pr-10" 
-              autocomplete="current-password"
-            />
+
+        </div>
+
+        <!-- Motivational Target Cards -->
+        <div class="hidden lg:grid grid-cols-2 gap-2.5 w-full max-w-xs pt-1">
+          <div class="p-2.5 rounded-xl bg-white/[0.03] border border-white/10 text-center">
+            <div class="text-[10px] font-mono text-cyan-400 font-bold uppercase tracking-wider">Mission Target</div>
+            <div class="text-xs font-extrabold text-white">Top 50 AIR 🎯</div>
+          </div>
+          <div class="p-2.5 rounded-xl bg-white/[0.03] border border-white/10 text-center">
+            <div class="text-[10px] font-mono text-indigo-400 font-bold uppercase tracking-wider">Pacing Cadence</div>
+            <div class="text-xs font-extrabold text-white">Sub-Second ⏱️</div>
           </div>
         </div>
 
-        <div class="flex items-center justify-between text-xs">
-          <label class="flex items-center gap-2 cursor-pointer text-gray-400 hover:text-gray-300">
-            <input type="checkbox" id="rememberMe" checked class="rounded bg-gray-900 border-gray-700 text-indigo-600 focus:ring-0">
-            <span>Remember on this device</span>
-          </label>
-          <a href="#" onclick="handleForgotPassword(); return false;" class="text-indigo-400 hover:underline">Forgot?</a>
-        </div>
+      </div>
 
-        <button type="submit" id="btnSubmitSignIn" class="w-full py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-cyan-600 hover:from-indigo-500 hover:to-cyan-500 text-white font-extrabold text-sm transition shadow-lg shadow-indigo-500/25 flex items-center justify-center gap-2">
-          <span>Authorize &amp; Launch ClockEE</span> →
-        </button>
-      </form>
+      <!-- RIGHT COLUMN: Glassmorphic Auth Cockpit -->
+      <div class="lg:col-span-7 w-full max-w-md mx-auto space-y-3">
+        <!-- Main Glassmorphic Card -->
+        <div class="glass-panel p-5 sm:p-6 space-y-3.5">
 
-      <!-- FORM: CREATE ACCOUNT -->
-      <form id="formSignUp" onsubmit="handleSignUp(event)" class="space-y-3.5 hidden">
-        <div>
-          <label class="block text-[11px] font-bold uppercase tracking-wider text-gray-300 mb-1.5">Student Full Name</label>
-          <input 
-            type="text" 
-            id="signUpName" 
-            required 
-            placeholder="e.g. Aryan Sharma" 
-            class="form-input tracking-input"
-          />
-        </div>
+          <!-- Google 1-Click Sign In -->
+          <button 
+            type="button" 
+            id="btnGoogleLogin" 
+            onclick="handleGoogleSignIn()" 
+            class="btn-google w-full py-2.5 px-4 rounded-xl text-xs font-bold text-gray-200 flex items-center justify-center gap-3 transition shadow"
+          >
+            <svg class="w-4 h-4" viewBox="0 0 24 24">
+              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+            </svg>
+            <span>Continue with Google Account</span>
+          </button>
 
-        <div>
-          <label class="block text-[11px] font-bold uppercase tracking-wider text-gray-300 mb-1.5">Email Address</label>
-          <input 
-            type="email" 
-            id="signUpEmail" 
-            required 
-            placeholder="student@example.com" 
-            class="form-input tracking-input" 
-            autocomplete="email"
-          />
-        </div>
+          <!-- Divider -->
+          <div class="flex items-center gap-3 my-1">
+            <div class="h-[1px] bg-white/10 flex-1"></div>
+            <span class="text-[10px] uppercase font-mono tracking-wider text-gray-500">or student credentials</span>
+            <div class="h-[1px] bg-white/10 flex-1"></div>
+          </div>
 
-        <div>
-          <label class="block text-[11px] font-bold uppercase tracking-wider text-gray-300 mb-1.5">Aspirant Role &amp; Target Year</label>
-          <select id="signUpRole" class="form-input bg-gray-900">
-            <option value="JEE 2028 Aspirant">JEE 2028 Aspirant (Class 11 / Foundation)</option>
-            <option value="JEE 2027 Aspirant">JEE 2027 Aspirant (Class 12 / Sprint)</option>
-            <option value="Mentor / Faculty">Mentor / Faculty / Parent Supervisor</option>
-          </select>
-        </div>
-
-        <div>
-          <div class="flex justify-between items-center mb-1.5">
-            <label class="text-[11px] font-bold uppercase tracking-wider text-gray-300">Create Secure Password</label>
-            <button type="button" onclick="togglePasswordVisibility('signUpPassword', this)" class="text-[11px] text-indigo-400 hover:text-indigo-300 font-medium">
-              Show
+          <!-- Tab Switcher: Sign In vs Create Account -->
+          <div class="flex p-1 bg-black/40 border border-white/10 rounded-xl gap-1">
+            <button id="tabBtnSignIn" onclick="switchAuthTab('signin')" class="flex-1 py-2 text-xs font-bold rounded-lg text-white bg-indigo-600 transition shadow">
+              Sign In
+            </button>
+            <button id="tabBtnSignUp" onclick="switchAuthTab('signup')" class="flex-1 py-2 text-xs font-bold rounded-lg text-gray-400 hover:text-white transition">
+              Create Account
             </button>
           </div>
-          <input 
-            type="password" 
-            id="signUpPassword" 
-            required 
-            minlength="8" 
-            placeholder="At least 8 characters with letters, numbers, symbols" 
-            class="form-input password-input" 
-            autocomplete="new-password"
-            oninput="evaluatePasswordStrength(this.value)"
-          />
 
-          <!-- Live Password Strength Bar -->
-          <div class="mt-2 space-y-1.5">
-            <div class="flex justify-between items-center text-[10px] font-mono">
-              <span class="text-gray-400">Security Level:</span>
-              <span id="strengthLabel" class="text-gray-500 font-bold">Too Short</span>
-            </div>
-            <div class="w-full bg-gray-800 rounded-full h-1.5 overflow-hidden">
-              <div id="strengthBar" class="h-full bg-red-500 transition-all duration-300" style="width: 0%"></div>
+          <!-- Feedback / Alert Banner -->
+          <div id="authAlert" class="hidden p-3 rounded-xl border text-xs font-medium flex items-center gap-2"></div>
+
+          <!-- FORM: SIGN IN -->
+          <form id="formSignIn" onsubmit="handleSignIn(event)" class="space-y-3.5">
+            <div>
+              <label class="block text-[11px] font-bold uppercase tracking-wider text-gray-300 mb-1.5">Email Address</label>
+              <input 
+                type="email" 
+                id="signInEmail" 
+                required 
+                placeholder="aspirant@jee.app" 
+                class="form-input tracking-input" 
+                autocomplete="email"
+              />
             </div>
 
-            <!-- Password Criteria Checklist -->
-            <div class="grid grid-cols-2 gap-1.5 pt-1.5">
-              <div id="req-len" class="req-item">
-                <span class="req-dot">✓</span>
-                <span>8+ Characters</span>
+            <div>
+              <div class="flex justify-between items-center mb-1.5">
+                <label class="text-[11px] font-bold uppercase tracking-wider text-gray-300">Password</label>
+                <button type="button" onclick="togglePasswordVisibility('signInPassword', this)" class="text-[11px] text-indigo-400 hover:text-indigo-300 font-medium">
+                  Show
+                </button>
               </div>
-              <div id="req-upper" class="req-item">
-                <span class="req-dot">✓</span>
-                <span>Uppercase (A-Z)</span>
-              </div>
-              <div id="req-lower" class="req-item">
-                <span class="req-dot">✓</span>
-                <span>Lowercase (a-z)</span>
-              </div>
-              <div id="req-num" class="req-item">
-                <span class="req-dot">✓</span>
-                <span>Number (0-9)</span>
-              </div>
-              <div id="req-sym" class="req-item col-span-2">
-                <span class="req-dot">✓</span>
-                <span>Special Symbol (!@#$%^&amp;*)</span>
+              <div class="relative">
+                <input 
+                  type="password" 
+                  id="signInPassword" 
+                  required 
+                  placeholder="••••••••••••" 
+                  class="form-input password-input pr-10" 
+                  autocomplete="current-password"
+                />
               </div>
             </div>
+
+            <div class="flex items-center justify-between text-xs pt-0.5">
+              <label class="flex items-center gap-2 cursor-pointer text-gray-400 hover:text-gray-300">
+                <input type="checkbox" id="rememberMe" checked class="rounded bg-gray-900 border-gray-700 text-indigo-600 focus:ring-0">
+                <span>Remember on this device</span>
+              </label>
+              <a href="#" onclick="handleForgotPassword(); return false;" class="text-indigo-400 hover:underline">Forgot?</a>
+            </div>
+
+            <button type="submit" id="btnSubmitSignIn" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 to-cyan-600 hover:from-indigo-500 hover:to-cyan-500 text-white font-extrabold text-sm transition shadow-lg shadow-indigo-500/25 flex items-center justify-center gap-2">
+              <span>Authorize &amp; Launch ClockEE</span> →
+            </button>
+          </form>
+
+          <!-- FORM: CREATE ACCOUNT -->
+          <form id="formSignUp" onsubmit="handleSignUp(event)" class="space-y-3 hidden">
+            <div>
+              <label class="block text-[11px] font-bold uppercase tracking-wider text-gray-300 mb-1">Student Full Name</label>
+              <input 
+                type="text" 
+                id="signUpName" 
+                required 
+                placeholder="e.g. Aryan Sharma" 
+                class="form-input tracking-input"
+              />
+            </div>
+
+            <div>
+              <label class="block text-[11px] font-bold uppercase tracking-wider text-gray-300 mb-1">Email Address</label>
+              <input 
+                type="email" 
+                id="signUpEmail" 
+                required 
+                placeholder="student@example.com" 
+                class="form-input tracking-input" 
+                autocomplete="email"
+              />
+            </div>
+
+            <div>
+              <label class="block text-[11px] font-bold uppercase tracking-wider text-gray-300 mb-1">Aspirant Role &amp; Target Year</label>
+              <select id="signUpRole" class="form-input bg-gray-900">
+                <option value="JEE 2028 Aspirant">JEE 2028 Aspirant (Class 11 / Foundation)</option>
+                <option value="JEE 2027 Aspirant">JEE 2027 Aspirant (Class 12 / Sprint)</option>
+                <option value="Mentor / Faculty">Mentor / Faculty / Parent Supervisor</option>
+              </select>
+            </div>
+
+            <div>
+              <div class="flex justify-between items-center mb-1">
+                <label class="text-[11px] font-bold uppercase tracking-wider text-gray-300">Create Secure Password</label>
+                <button type="button" onclick="togglePasswordVisibility('signUpPassword', this)" class="text-[11px] text-indigo-400 hover:text-indigo-300 font-medium">
+                  Show
+                </button>
+              </div>
+              <input 
+                type="password" 
+                id="signUpPassword" 
+                required 
+                minlength="8" 
+                placeholder="At least 8 characters with letters, numbers, symbols" 
+                class="form-input password-input" 
+                autocomplete="new-password"
+                oninput="evaluatePasswordStrength(this.value)"
+              />
+
+              <!-- Live Password Strength Bar -->
+              <div class="mt-1.5 space-y-1">
+                <div class="flex justify-between items-center text-[10px] font-mono">
+                  <span class="text-gray-400">Security Level:</span>
+                  <span id="strengthLabel" class="text-gray-500 font-bold">Too Short</span>
+                </div>
+                <div class="w-full bg-gray-800 rounded-full h-1.5 overflow-hidden">
+                  <div id="strengthBar" class="h-full bg-red-500 transition-all duration-300" style="width: 0%"></div>
+                </div>
+
+                <!-- Password Criteria Checklist -->
+                <div class="grid grid-cols-2 gap-1 pt-1 text-[11px]">
+                  <div id="req-len" class="req-item">
+                    <span class="req-dot">✓</span>
+                    <span>8+ Characters</span>
+                  </div>
+                  <div id="req-upper" class="req-item">
+                    <span class="req-dot">✓</span>
+                    <span>Uppercase (A-Z)</span>
+                  </div>
+                  <div id="req-lower" class="req-item">
+                    <span class="req-dot">✓</span>
+                    <span>Lowercase (a-z)</span>
+                  </div>
+                  <div id="req-num" class="req-item">
+                    <span class="req-dot">✓</span>
+                    <span>Number (0-9)</span>
+                  </div>
+                  <div id="req-sym" class="req-item col-span-2">
+                    <span class="req-dot">✓</span>
+                    <span>Special Symbol (!@#$%^&amp;*)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" id="btnSubmitSignUp" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-extrabold text-sm transition shadow-lg shadow-emerald-500/25 flex items-center justify-center gap-2">
+              <span>Create Cloud Profile</span> ✓
+            </button>
+          </form>
+
+          <!-- Bottom Sandbox / Guest Options -->
+          <div class="pt-2 border-t border-white/10 text-center space-y-1.5">
+            <button type="button" onclick="launchGuestSandbox()" class="text-xs text-slate-400 hover:text-white transition inline-flex items-center gap-1 font-semibold bg-transparent border-none cursor-pointer">
+              <span>Continue as Guest Aspirant (Local Sandbox)</span> →
+            </button>
           </div>
+
         </div>
 
-        <button type="submit" id="btnSubmitSignUp" class="w-full py-3 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-extrabold text-sm transition shadow-lg shadow-emerald-500/25 flex items-center justify-center gap-2">
-          <span>Create Cloud Profile</span> ✓
-        </button>
-      </form>
+        <!-- Active Cloud Status Pill -->
+        <div class="flex items-center justify-center gap-2 text-[11px] font-mono text-gray-400">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span>⚡ Cloud Telemetry &amp; Real-Time Database Online</span>
+        </div>
 
-      <!-- Bottom Sandbox / Guest Options -->
-      <div class="pt-2 border-t border-white/10 text-center space-y-2">
-        <button type="button" onclick="launchGuestSandbox()" class="text-xs text-slate-400 hover:text-white transition inline-flex items-center gap-1 font-semibold bg-transparent border-none cursor-pointer">
-          <span>Continue as Guest Aspirant (Local Sandbox)</span> →
-        </button>
       </div>
 
     </div>
-
-    <!-- Active Cloud Status Pill -->
-    <div class="flex items-center justify-center gap-2 text-[11px] font-mono text-gray-400">
-      <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-      <span>Firebase Cloud Database: `clockee-app` Online</span>
-    </div>
-
   </div>
 
   <script>
@@ -699,6 +806,20 @@
     const starLeft = document.getElementById('starLeft');
     const starRight = document.getElementById('starRight');
     const mascotSweat = document.getElementById('mascotSweat');
+
+    window.setMascotMood = function(emoji, text, speech = null) {
+      const emojiEl = document.getElementById('mascotMoodEmoji');
+      const textEl = document.getElementById('mascotMoodText');
+      const speechEl = document.getElementById('mascotSpeechBubble');
+      if (emojiEl) emojiEl.textContent = emoji;
+      if (textEl) textEl.textContent = text;
+      if (speech && speechEl) {
+        speechEl.textContent = speech;
+        speechEl.classList.add('active');
+        clearTimeout(window._speechTimeout);
+        window._speechTimeout = setTimeout(() => speechEl.classList.remove('active'), 3400);
+      }
+    };
 
     const JEE_QUOTES = [
       "Kinematics formula yaad hai na?! 🐻⚡",
@@ -736,19 +857,17 @@
       playSqueakSound();
       cheekLeft.classList.add('blushing');
       cheekRight.classList.add('blushing');
+      mascot.classList.add('show-happy-eyes');
 
       const quote = JEE_QUOTES[Math.floor(Math.random() * JEE_QUOTES.length)];
-      speechBubble.textContent = quote;
-      speechBubble.classList.add('active');
+      setMascotMood('🥰', 'Super Happy!', quote);
 
       setTimeout(() => {
         cheekLeft.classList.remove('blushing');
         cheekRight.classList.remove('blushing');
-      }, 900);
-
-      setTimeout(() => {
-        speechBubble.classList.remove('active');
-      }, 3500);
+        mascot.classList.remove('show-happy-eyes');
+        setMascotMood('😊', 'Friendly & Ready');
+      }, 1500);
     };
 
     window.triggerEasterEgg = function(type) {
@@ -767,6 +886,10 @@
 
     // Eye Tracking while typing in any tracking input
     document.querySelectorAll('.tracking-input').forEach(input => {
+      input.addEventListener('focus', () => {
+        setMascotMood('🧐', 'Attentive & Focused', "Locked in! Let's get that AIR! 🎯");
+      });
+
       input.addEventListener('input', (e) => {
         const len = Math.min(e.target.value.length, 30);
         const offsetX = (len / 30) * 10 - 5;
@@ -778,6 +901,7 @@
       input.addEventListener('blur', () => {
         pupilLeft.style.transform = 'translate(0px, 0px)';
         pupilRight.style.transform = 'translate(0px, 0px)';
+        setMascotMood('😊', 'Friendly & Ready');
       });
     });
 
@@ -785,10 +909,12 @@
     document.querySelectorAll('.password-input').forEach(pwdInput => {
       pwdInput.addEventListener('focus', () => {
         mascot.classList.add('covering-eyes');
+        setMascotMood('🙈', 'Covering Eyes (Private!)', "Shh... I'm covering my eyes! Your secrets are 100% safe! 🙈");
       });
 
       pwdInput.addEventListener('blur', () => {
         mascot.classList.remove('covering-eyes', 'peeking');
+        setMascotMood('😊', 'Friendly & Ready');
       });
     });
 
@@ -801,10 +927,12 @@
         input.type = 'text';
         btn.innerText = 'Hide';
         mascot.classList.add('peeking');
+        setMascotMood('😜', 'Playful Wink', "Just taking a tiny peek! 😉");
       } else {
         input.type = 'password';
         btn.innerText = 'Show';
         mascot.classList.remove('peeking');
+        setMascotMood('🙈', 'Covering Eyes', "Eyes covered again! 🙈");
       }
     };
 
@@ -889,11 +1017,13 @@
         signUpForm.classList.add('hidden');
         btnIn.className = 'flex-1 py-2 text-xs font-bold rounded-lg text-white bg-indigo-600 transition shadow';
         btnUp.className = 'flex-1 py-2 text-xs font-bold rounded-lg text-gray-400 hover:text-white transition';
+        setMascotMood('🚀', 'Welcome Back!', "Welcome back, Commander! Ready for questions? 🚀");
       } else {
         signInForm.classList.add('hidden');
         signUpForm.classList.remove('hidden');
         btnUp.className = 'flex-1 py-2 text-xs font-bold rounded-lg text-white bg-emerald-600 transition shadow';
         btnIn.className = 'flex-1 py-2 text-xs font-bold rounded-lg text-gray-400 hover:text-white transition';
+        setMascotMood('🌟', 'Excited & Welcoming', "Welcome future IITian! Setting up your study profile! ✨");
       }
     };
 
@@ -1163,7 +1293,8 @@
         name: "Guest Aspirant",
         email: "guest@clockee.app",
         role: "Guest Aspirant",
-        isGuest: true
+        isGuest: true,
+        pfp: "https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Aspirant"
       };
       // Purge any stale guest entries before launching
       try {
@@ -1196,7 +1327,7 @@
           email: user.email,
           subtitle: isGuest ? "Guest Aspirant • Local Sandbox" : `${user.role} • Cloud Account`,
           role: user.role,
-          pfp: user.pfp || `https://api.dicebear.com/7.x/bottts-neutral/svg?seed=${encodeURIComponent(user.name)}`,
+          pfp: user.pfp || "https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Aspirant",
           active: true,
           lastLogin: new Date().toISOString()
         };

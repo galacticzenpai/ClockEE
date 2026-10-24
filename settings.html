@@ -390,7 +390,7 @@
           class="w-8 h-8 rounded-full bg-[#070913] object-cover block cursor-pointer"
           data-profile-avatar
           id="navAvatarImg"
-          src="https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Kunal"
+          src="https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Aspirant"
           alt="Avatar"
         />
       </a>
@@ -482,12 +482,12 @@
 
     <div class="flex items-center gap-5 flex-wrap">
       <div class="relative w-16 h-16 rounded-full overflow-hidden border-2 border-cyan-400 shadow-[0_0_15px_rgba(0,240,255,0.4)] cursor-pointer" onclick="document.getElementById('global-avatar-upload').click()" title="Click to upload and crop avatar">
-        <img id="settings-avatar-img" data-profile-avatar src="https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Kunal" class="w-full h-full object-cover">
+        <img id="settings-avatar-img" data-profile-avatar src="https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Aspirant" class="w-full h-full object-cover">
       </div>
       <div class="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-3 min-w-[240px]">
         <div>
           <label class="text-[10px] text-gray-400 uppercase font-bold block mb-1">Aspirant Name</label>
-          <input type="text" id="settings-name" value="Kunal Sahoo" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl px-3 py-2 text-xs outline-none focus:border-cyan-400">
+          <input type="text" id="settings-name" value="JEE Aspirant" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl px-3 py-2 text-xs outline-none focus:border-cyan-400">
         </div>
         <div>
           <label class="text-[10px] text-gray-400 uppercase font-bold block mb-1">Subtitle / Goal</label>
@@ -816,7 +816,7 @@
 
   function initSettings() {
     const s = window.getState();
-    document.getElementById('settings-name').value = s.profile?.name || 'Kunal Sahoo';
+    document.getElementById('settings-name').value = s.profile?.name || 'JEE Aspirant';
     document.getElementById('settings-subtitle').value = s.profile?.subtitle || 'JEE 2028 Workspace';
     document.getElementById('settings-accent').value = s.profile?.accent || '#6366f1';
     document.getElementById('settings-jee-date').value = s.jeeDate || '2028-05-17';

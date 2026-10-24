@@ -33,7 +33,7 @@
     import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 
     const firebaseConfig = {
-      apiKey: "AIzaSyDfi0nZUbOZhMr4Igvo4KRQGHVPRwLMO4k",
+      apiKey: localStorage.getItem("clockee_firebase_apikey") || "",
       authDomain: "clockee-app.firebaseapp.com",
       databaseURL: "https://clockee-app-default-rtdb.asia-southeast1.firebasedatabase.app",
       projectId: "clockee-app",
@@ -530,7 +530,7 @@
             type="email" 
             id="signInEmail" 
             required 
-            placeholder="kunalsahoo4015@gmail.com" 
+            placeholder="aspirant@jee.app" 
             class="form-input tracking-input" 
             autocomplete="email"
           />
@@ -576,7 +576,7 @@
             type="text" 
             id="signUpName" 
             required 
-            placeholder="e.g. Kunal Sahoo" 
+            placeholder="e.g. Aryan Sharma" 
             class="form-input tracking-input"
           />
         </div>
@@ -663,9 +663,9 @@
 
       <!-- Bottom Sandbox / Guest Options -->
       <div class="pt-2 border-t border-white/10 text-center space-y-2">
-        <a href="index.html" class="text-xs text-slate-400 hover:text-white transition inline-flex items-center gap-1 font-semibold">
-          <span>Skip &amp; Continue as Local Sandbox (Offline Mode)</span> →
-        </a>
+        <button type="button" onclick="launchGuestSandbox()" class="text-xs text-slate-400 hover:text-white transition inline-flex items-center gap-1 font-semibold bg-transparent border-none cursor-pointer">
+          <span>Continue as Guest Aspirant (Local Sandbox)</span> →
+        </button>
       </div>
 
     </div>
@@ -921,17 +921,17 @@
           } catch (fbErr) {
             console.warn("Google popup rejected or sandbox mode, running seamless fallback", fbErr);
             userRecord = {
-              uid: "google_kunal_" + Date.now().toString(36),
-              email: "kunalsahoo4015@gmail.com",
-              name: "Kunal Sahoo",
+              uid: "google_aspirant_" + Date.now().toString(36),
+              email: "aspirant@jee.app",
+              name: "Google Aspirant",
               role: "JEE 2028 Aspirant"
             };
           }
         } else {
           userRecord = {
-            uid: "google_kunal_" + Date.now().toString(36),
-            email: "kunalsahoo4015@gmail.com",
-            name: "Kunal Sahoo",
+            uid: "google_aspirant_" + Date.now().toString(36),
+            email: "aspirant@jee.app",
+            name: "Google Aspirant",
             role: "JEE 2028 Aspirant"
           };
         }
@@ -1038,9 +1038,20 @@
       }
     };
 
-    function finalizeUserLogin(user) {
-      showAlert(`Welcome back, ${user.name}! Syncing cloud vault...`, false);
+    window.launchGuestSandbox = function() {
+      const guestUser = {
+        uid: "guest_" + Date.now().toString(36),
+        name: "Guest Aspirant",
+        email: "guest@clockee.app",
+        role: "JEE 2028 Aspirant"
+      };
+      finalizeUserLogin(guestUser);
+    };
 
+    function finalizeUserLogin(user) {
+      showAlert(`Welcome, ${user.name}! Authorizing secure workspace...`, false);
+
+      localStorage.setItem('clockee_auth_active', 'true');
       localStorage.setItem('clockee_current_user', JSON.stringify(user));
       
       try {
@@ -1065,15 +1076,37 @@
         localStorage.setItem('clockee_multi_users', JSON.stringify(list));
       } catch (e) {}
 
+      // Ensure a pristine blank slate state for fresh users (no pre-set questions, no leaked logs)
       try {
-        const core = JSON.parse(localStorage.getItem('clockee_v5_master_state') || '{}');
-        core.profile = { ...(core.profile || {}), name: user.name, subtitle: `${user.role} • Cloud Account` };
-        localStorage.setItem('clockee_v5_master_state', JSON.stringify(core));
+        const userStateKey = `clockee_user_state_${user.uid}`;
+        if (!localStorage.getItem(userStateKey)) {
+          const blankSlate = {
+            profile: {
+              name: user.name,
+              subtitle: `${user.role} • Cloud Account`,
+              pfp: user.pfp || `https://api.dicebear.com/7.x/bottts-neutral/svg?seed=${encodeURIComponent(user.name)}`,
+              accent: "#00f2fe"
+            },
+            examMode: "mains",
+            dailyGoals: { Physics: 30, Chemistry: 30, Maths: 30, hours: 6.0 },
+            jeeDate: "2028-05-17",
+            nextMilestone: { date: "2026-11-15", title: "Phase Major Test #01" },
+            settings: { dynamicAura: true, auraTheme: "cyan_indigo", auraSpeed: "fluid" },
+            apiKeys: { ticktick: "tp_3528d202c4994ae28371f86be1c7e419", gemini: "", cloudUrl: "https://clockee-app-default-rtdb.asia-southeast1.firebasedatabase.app" },
+            tasks: [],
+            stats: { hoursToday: 0.0, streakDays: 0, questionsSolved: { Physics: 0, Chemistry: 0, Maths: 0 }, todayTarget: 90 },
+            questionLogs: [],
+            sessionLogs: [],
+            mistakeVault: []
+          };
+          localStorage.setItem(userStateKey, JSON.stringify(blankSlate));
+          localStorage.setItem('clockee_v5_master_state', JSON.stringify(blankSlate));
+        }
       } catch(e) {}
 
       setTimeout(() => {
         window.location.href = 'index.html';
-      }, 700);
+      }, 500);
     }
 
     window.handleForgotPassword = function() {
@@ -1084,6 +1117,30 @@
       }
       showAlert(`Password reset instructions dispatched to ${email}`, false);
     };
+
+    // Show session active banner if user is already authenticated
+    window.addEventListener("DOMContentLoaded", () => {
+      try {
+        const isAuth = localStorage.getItem("clockee_auth_active") === "true";
+        const userRaw = localStorage.getItem("clockee_current_user");
+        if (isAuth && userRaw) {
+          const u = JSON.parse(userRaw);
+          const banner = document.createElement("div");
+          banner.className = "mb-4 p-3 rounded-xl bg-cyan-950/70 border border-cyan-500/40 text-cyan-200 text-xs flex items-center justify-between shadow-lg shadow-cyan-500/10";
+          banner.innerHTML = `
+            <div>
+              <span class="font-bold text-white flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-400"></span> Signed in as ${u.name || "Aspirant"}</span>
+              <div class="text-[10px] text-gray-400">Previous session active</div>
+            </div>
+            <a href="index.html" class="px-3 py-1.5 bg-gradient-to-r from-cyan-500 to-indigo-500 hover:from-cyan-400 hover:to-indigo-400 text-black font-extrabold rounded-lg text-xs transition shadow">
+              Enter Cockpit →
+            </a>
+          `;
+          const formCard = document.querySelector(".auth-card");
+          if (formCard) formCard.insertBefore(banner, formCard.firstChild);
+        }
+      } catch(e) {}
+    });
   </script>
 </body>
 </html>

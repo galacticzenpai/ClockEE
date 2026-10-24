@@ -2,12 +2,33 @@
 // ClockEE V6 Master Core & API Engine
 // ==========================================================================
 
+// Universal Auth Route Guard (Redirect unauthenticated sessions to login.html)
+window.checkAuthGuard = function() {
+  try {
+    const path = (window.location.pathname || "").toLowerCase();
+    // Allow public access to login.html and hackathon.html
+    if (path.endsWith("login.html") || path.endsWith("hackathon.html")) {
+      return;
+    }
+    const isAuth = localStorage.getItem("clockee_auth_active") === "true";
+    const user = localStorage.getItem("clockee_current_user");
+    if (!isAuth || !user) {
+      window.location.replace("login.html");
+    }
+  } catch(e) {
+    console.error("Auth guard error:", e);
+  }
+};
+if (typeof window !== "undefined") {
+  window.checkAuthGuard();
+}
+
 const DEFAULT_STATE = {
   profile: {
-    name: "Kunal Sahoo",
+    name: "JEE Aspirant",
     subtitle: "JEE 2028 Workspace",
-    pfp: "https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Kunal",
-    accent: "#6366f1"
+    pfp: "https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Aspirant",
+    accent: "#00f2fe"
   },
   examMode: "mains",
   dailyGoals: {
@@ -28,11 +49,11 @@ const DEFAULT_STATE = {
   },
   apiKeys: {
     ticktick: "tp_3528d202c4994ae28371f86be1c7e419",
-    gemini: "AQ.Ab8RN6Ky3sZAql7vgGdJtgm8NWXWE8XUV8GBzlPa7jepaNHTjQ",
+    gemini: "",
     cloudUrl: "https://clockee-app-default-rtdb.asia-southeast1.firebasedatabase.app"
   },
   firebaseConfig: {
-    apiKey: "AIzaSyDfi0nZUbOZhMr4Igvo4KRQGHVPRwLMO4k",
+    apiKey: "",
     authDomain: "clockee-app.firebaseapp.com",
     databaseURL: "https://clockee-app-default-rtdb.asia-southeast1.firebasedatabase.app",
     projectId: "clockee-app",
@@ -41,47 +62,7 @@ const DEFAULT_STATE = {
     appId: "1:66153109265:web:dde95257b9b1ae0c6c9eb0",
     measurementId: "G-BFSXRW308R"
   },
-  tasks: [
-    { 
-      id: "task_1", 
-      title: "Practice 30 Rotational Dynamics Numericals", 
-      subject: "Physics", 
-      type: "homework", 
-      list: "PW Modules & Practice Sheets",
-      inbox: "JEE 2028",
-      tags: ["#physics", "#rotational_motion", "#pw_module"],
-      priority: "high",
-      dueDate: new Date().toISOString().slice(0, 10), 
-      status: "in_progress", 
-      completed: false 
-    },
-    { 
-      id: "task_2", 
-      title: "Complete Ionic Equilibrium Coaching Sheet", 
-      subject: "Chemistry", 
-      type: "coaching", 
-      list: "PW DPPs & Daily Sprints",
-      inbox: "JEE 2028",
-      tags: ["#chemistry", "#ionic_equilibrium", "#pw_dpp"],
-      priority: "medium",
-      dueDate: new Date().toISOString().slice(0, 10), 
-      status: "todo", 
-      completed: false 
-    },
-    { 
-      id: "task_3", 
-      title: "Definite Integration PYQ Sprint (2020-2025)", 
-      subject: "Maths", 
-      type: "revision", 
-      list: "Revision & Formula Autopsy",
-      inbox: "JEE 2028",
-      tags: ["#maths", "#calculus", "#revision"],
-      priority: "high",
-      dueDate: new Date().toISOString().slice(0, 10), 
-      status: "todo", 
-      completed: false 
-    }
-  ],
+  tasks: [],
   questionLogs: [],
   mockTests: [],
   chapterStats: {},
@@ -143,8 +124,13 @@ window.getActiveUserId = function() {
       const active = users.find(u => u.active);
       if (active) return active.id;
     }
+    const current = localStorage.getItem("clockee_current_user");
+    if (current) {
+      const u = JSON.parse(current);
+      if (u.id || u.uid) return u.id || u.uid;
+    }
   } catch(e) {}
-  return "user_kunal";
+  return "user_aspirant";
 };
 
 window.getActiveUserName = function() {
@@ -155,8 +141,13 @@ window.getActiveUserName = function() {
       const active = users.find(u => u.active);
       if (active) return active.name;
     }
+    const current = localStorage.getItem("clockee_current_user");
+    if (current) {
+      const u = JSON.parse(current);
+      if (u.name) return u.name;
+    }
   } catch(e) {}
-  return "Kunal Sahoo";
+  return "JEE Aspirant";
 };
 
 window.APP_STATE = (function() {
@@ -499,11 +490,11 @@ window.renderClockEESidebar = function() {
   <!-- Aspirant Profile Card with Inspiring Quote & Dynamic JEE Year -->
   <div class="p-3.5 rounded-2xl bg-black/40 border border-white/10 hover:border-white/20 transition-all shadow-md relative group">
     <div class="relative w-16 h-16 mx-auto mb-2">
-      <img class="w-16 h-16 rounded-full bg-[#070913] object-cover border-2 border-indigo-400/80 shadow-[0_0_20px_rgba(99,102,241,0.25)]" data-profile-avatar src="https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Kunal" alt="Avatar" />
+      <img class="w-16 h-16 rounded-full bg-[#070913] object-cover border-2 border-indigo-400/80 shadow-[0_0_20px_rgba(99,102,241,0.25)]" data-profile-avatar src="https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Aspirant" alt="Avatar" />
       <span class="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-emerald-400 ring-2 ring-[#070913]" title="Active"></span>
     </div>
     <div class="text-center space-y-1">
-      <div class="text-base font-black text-white tracking-tight" data-profile-name>Kunal Sahoo</div>
+      <div class="text-base font-black text-white tracking-tight" data-profile-name>JEE Aspirant</div>
       <div class="text-[11px] text-cyan-200/90 italic font-medium pt-0.5 px-1 leading-snug tracking-tight" id="sidebar-profile-quote">${activeQuote}</div>
     </div>
     <div class="text-[11px] font-extrabold uppercase tracking-wider text-indigo-300 bg-indigo-950/50 border border-indigo-500/30 rounded-lg py-1 px-2.5 text-center mt-2 flex items-center justify-center gap-1.5 shadow-sm" id="sidebar-jee-target-badge">
@@ -763,7 +754,7 @@ window.initSidebar = function() {
   const todayQs = window.getQuestionsToday();
   const todayHrs = window.getHoursToday();
 
-  document.querySelectorAll("[data-profile-name]").forEach(el => el.textContent = profile.name || "Kunal Sahoo");
+  document.querySelectorAll("[data-profile-name]").forEach(el => el.textContent = profile.name || "JEE Aspirant");
   document.querySelectorAll("[data-profile-subtitle]").forEach(el => el.textContent = profile.subtitle || "JEE 2028 Workspace");
   document.querySelectorAll("[data-profile-avatar]").forEach(el => {
     if (profile.pfp) el.src = profile.pfp;
@@ -999,8 +990,7 @@ window.getUsersList = function() {
     console.warn("User registry parse error", e);
   }
   const defaultUsers = [
-    { id: "user_kunal", name: "Kunal Sahoo", subtitle: "JEE 2028 Workspace", role: "JEE 2028 Aspirant", pfp: "https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Kunal", active: true, createdAt: "2026-10-23" },
-    { id: "user_mentor", name: "Prof. H.C. Verma (Mentor)", subtitle: "JEE Physics Faculty & Mentor", role: "Mentor / Faculty", pfp: "https://api.dicebear.com/7.x/bottts-neutral/svg?seed=MentorVerma", active: false, createdAt: "2026-10-23" }
+    { id: "user_aspirant", name: "JEE Aspirant", subtitle: "JEE 2028 Workspace", role: "JEE 2028 Aspirant", pfp: "https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Aspirant", active: true, createdAt: new Date().toISOString().slice(0, 10) }
   ];
   localStorage.setItem("clockee_multi_users", JSON.stringify(defaultUsers));
   return defaultUsers;
@@ -2420,7 +2410,7 @@ window.playCyberTick = function(checked = true) {
 
 // ─── 11. Global Cloud Sync & Multi-User Profile Flyout ──────────────
 window.pushToCloud = async function() {
-  const activeId = window.getActiveUserId ? window.getActiveUserId() : "user_kunal";
+  const activeId = window.getActiveUserId ? window.getActiveUserId() : "user_aspirant";
   const s = window.getState();
   const baseUrl = s.apiKeys?.cloudUrl || "https://clockee-app-default-rtdb.asia-southeast1.firebasedatabase.app";
   window.showToast("☁️ Pushing student state to Firebase...", "info");
@@ -2443,7 +2433,7 @@ window.pushToCloud = async function() {
 };
 
 window.pullFromCloud = async function() {
-  const activeId = window.getActiveUserId ? window.getActiveUserId() : "user_kunal";
+  const activeId = window.getActiveUserId ? window.getActiveUserId() : "user_aspirant";
   const s = window.getState();
   const baseUrl = s.apiKeys?.cloudUrl || "https://clockee-app-default-rtdb.asia-southeast1.firebasedatabase.app";
   window.showToast("⬇️ Pulling state from Firebase...", "info");
@@ -2481,19 +2471,18 @@ window.initGlobalProfileMenu = function() {
   }
 
   function renderPopoverContent() {
-    const activeUser = window.getUsersList().find(u => u.active) || { name: "Kunal Sahoo", role: "JEE 2028 Aspirant", id: "user_kunal" };
+    const activeUser = window.getUsersList().find(u => u.active) || { name: "JEE Aspirant", role: "JEE 2028 Aspirant", id: "user_aspirant" };
     const users = window.getUsersList();
     const otherUsers = users.filter(u => u.id !== activeUser.id);
     const lastSync = localStorage.getItem(`clockee_last_sync_${activeUser.id}`);
     const syncText = lastSync ? new Date(lastSync).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : "Just now";
     
-    // Strict Role-Based Admin Permissions: Only Mentor/Admin or Commander gets admin perms
+    // Strict Role-Based Admin Permissions: Only Mentor/Admin or Authorized Admin gets admin perms
     const isAdmin = Boolean(
       activeUser.role === "Mentor / Faculty" || 
       activeUser.role === "Admin" || 
-      activeUser.email === "kunalsahoo4015@gmail.com" || 
-      activeUser.id === "user_kunal" || 
-      activeUser.isAdmin === true
+      activeUser.isAdmin === true ||
+      sessionStorage.getItem('clockee_admin_authorized') === 'true'
     );
 
     popover.innerHTML = `
@@ -2588,9 +2577,8 @@ window.enforceRolePermissions = function() {
   const isAdmin = Boolean(
     activeUser.role === "Mentor / Faculty" || 
     activeUser.role === "Admin" || 
-    activeUser.email === "kunalsahoo4015@gmail.com" || 
-    activeUser.id === "user_kunal" || 
-    activeUser.isAdmin === true
+    activeUser.isAdmin === true ||
+    sessionStorage.getItem('clockee_admin_authorized') === 'true'
   );
 
   document.querySelectorAll('a[href="admin.html"]').forEach(el => {
@@ -2632,25 +2620,11 @@ window.enforceRolePermissions = function() {
 })();
 
 window.handleUserLogout = function() {
-  const users = window.getUsersList();
-  let guest = users.find(u => u.id === "user_guest");
-  if (!guest) {
-    guest = {
-      id: "user_guest",
-      name: "Guest Student",
-      subtitle: "Offline Sandbox",
-      role: "Guest",
-      pfp: "https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Guest",
-      active: true,
-      createdAt: new Date().toISOString()
-    };
-    users.push(guest);
-  }
-  users.forEach(u => u.active = (u.id === "user_guest"));
-  localStorage.setItem("clockee_multi_users", JSON.stringify(users));
   localStorage.removeItem("clockee_current_user");
-  window.showToast("Signed out. Switched to Guest Sandbox.", "info");
-  setTimeout(() => window.location.href = "login.html", 400);
+  localStorage.removeItem("clockee_auth_active");
+  sessionStorage.removeItem("clockee_admin_authorized");
+  window.showToast("Signed out. Please authorize to enter.", "info");
+  setTimeout(() => window.location.href = "login.html", 300);
 };
 
 // Auto-run sidebar, profile menu and permissions on load

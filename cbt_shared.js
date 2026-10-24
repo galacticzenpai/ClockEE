@@ -1,3 +1,14 @@
+// Route Guard: Require login for CBT arena
+(function checkCBTAuth() {
+  try {
+    const isAuth = localStorage.getItem("clockee_auth_active") === "true";
+    const user = localStorage.getItem("clockee_current_user");
+    if (!isAuth || !user) {
+      window.location.replace("login.html");
+    }
+  } catch(e) {}
+})();
+
 /**
  * ClockEE CBT Portal - Shared Core State & Database Management
  * Coordinates ClockEE CBT Portal, Authentic NTA Exam Sandbox, Adaptive Test Generator & ClockEE 2-Way Sync
@@ -239,7 +250,7 @@ function getActiveUserId() {
       if (active) return active.id;
     }
   } catch(e) {}
-  return "user_kunal";
+  return "user_aspirant";
 }
 
 function getCbtStorageKey() {
@@ -253,7 +264,7 @@ function loadCBTState() {
     if (raw) {
       const parsed = JSON.parse(raw);
       return {
-        profile: parsed.profile || { name: "Kunal Sahoo", roll: "JEE28-98471", series: "ClockEE Adaptive PYQs" },
+        profile: parsed.profile || { name: "JEE Aspirant", roll: "JEE28-98471", series: "ClockEE Adaptive PYQs" },
         tests: parsed.tests || CBT_DEFAULT_TESTS,
         attempts: parsed.attempts || {},
         mistakes: parsed.mistakes || [],
@@ -266,12 +277,12 @@ function loadCBTState() {
     console.error("Error reading CBT state:", e);
   }
 
-  const isPrimary = getActiveUserId() === "user_kunal";
+  const isPrimary = getActiveUserId() === "user_aspirant";
   const fresh = {
-    profile: { name: isPrimary ? "Kunal Sahoo" : "New Aspirant", roll: "JEE28-98471", series: "ClockEE Adaptive PYQs" },
+    profile: { name: isPrimary ? "JEE Aspirant" : "New Aspirant", roll: "JEE28-98471", series: "ClockEE Adaptive PYQs" },
     tests: JSON.parse(JSON.stringify(CBT_DEFAULT_TESTS)),
-    attempts: isPrimary ? { "jee_main_adaptive_full_01": getRealSessionAttemptData() } : {},
-    mistakes: isPrimary ? getInitialMistakes() : [],
+    attempts: {},
+    mistakes: [],
     notebooks: CBT_DEFAULT_NOTEBOOKS,
     books: CBT_DEFAULT_BOOKS,
     clonerHistory: []

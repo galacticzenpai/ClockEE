@@ -583,8 +583,8 @@
     const isAdmin = Boolean(
       active.role === "Mentor / Faculty" || 
       active.role === "Admin" || 
-      active.email === "kunalsahoo4015@gmail.com" || 
-      active.id === "user_kunal" || 
+      active.email === "admin@clockee.app" || 
+      active.id === "user_master_admin" || 
       active.isAdmin === true || 
       isUnlocked
     );
@@ -621,7 +621,7 @@
   }
   function verifyAdminPasscode() {
     const input = document.getElementById('admin-passcode-input').value.trim();
-    if (input === 'clockee2028' || input === 'admin' || input === 'kunal') {
+    if (input === 'clockee2028' || input === 'admin' || input === '2028') {
       sessionStorage.setItem('clockee_admin_authorized', 'true');
       closeAdminAuthModal();
       window.showToast('✓ Admin Controls Unlocked for Session!', 'success');
@@ -827,8 +827,8 @@
 
   // ─── Delete Student Account ───
   async function deleteStudentAccount(userId, userName) {
-    if (userId === "user_kunal") {
-      window.showToast("Cannot delete Master Admin profile 'Kunal Sahoo'", "error");
+    if (userId === "user_master_admin") {
+      window.showToast("Cannot delete Master Admin profile", "error");
       return;
     }
 

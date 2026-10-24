@@ -16,7 +16,6 @@
 | :--- | :--- | :--- |
 | 🏆 **Official Hackathon Portal** | **[Launch Hackathon Showcase](https://galacticzenpai.github.io/ClockEE/hackathon.html)** | Interactive project pitch, judge credentials, registration JSON & system tour |
 | 🌐 **GitHub Pages Live App** | **[Launch via GitHub Pages](https://galacticzenpai.github.io/ClockEE/)** | High-speed global CDN deployment of ClockEE on GitHub Pages |
-| 🚀 **Live Production Mirror (Tiiny)** | **[Launch via Tiiny Host](https://clockee-jee-2028.tiiny.site)** | Public cloud mirror with full CBT exams, timer telemetry, and cloud sync |
 | 🐻 **Interactive Mascot Portal** | **[Launch Login & Mascot Sandbox](https://galacticzenpai.github.io/ClockEE/login.html)** | Cyber-Bear interactive mascot with gaze tracking, blush, and password eye-covering |
 | 🎯 **Tactical Pace Benchmark Sprint** | **[Launch Question Sprint Arena](https://galacticzenpai.github.io/ClockEE/timer.html)** | Sub-second lap cadence, JEE +4/-1 scoring, and error autopsy uploader |
 | 📚 **Coaching Syllabus Matrix** | **[Launch Coaching Matrix](https://galacticzenpai.github.io/ClockEE/coaching.html)** | PCM Milestone blocks, fuzzy chapter match, and cyber checkboxes |
@@ -227,7 +226,6 @@ For hackathon judges and evaluators, pre-seeded test accounts and administrative
 - **GitHub Repository**: [https://github.com/galacticzenpai/ClockEE](https://github.com/galacticzenpai/ClockEE)
 - **Live GitHub Pages URL**: [https://galacticzenpai.github.io/ClockEE/](https://galacticzenpai.github.io/ClockEE/)
 - **Live Hackathon Portal**: [https://galacticzenpai.github.io/ClockEE/hackathon.html](https://galacticzenpai.github.io/ClockEE/hackathon.html)
-- **Live Cloud Mirror**: [https://clockee-jee-2028.tiiny.site](https://clockee-jee-2028.tiiny.site)
 - **Database Engine**: Firebase Realtime Database with Resilient Offline-First LocalStorage
 - **License**: [MIT License](LICENSE)
 

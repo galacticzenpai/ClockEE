@@ -2607,6 +2607,17 @@ window.applyAllSettingsGlobally = function() {
       border-radius: 9999px;
     }
     ::-webkit-scrollbar-thumb:hover { background: rgba(99, 102, 241, 0.5); }
+
+    /* Ensure global avatar file picker is strictly invisible on all pages */
+    #global-avatar-upload {
+      display: none !important;
+      position: absolute !important;
+      width: 0 !important;
+      height: 0 !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+      visibility: hidden !important;
+    }
   `;
   document.head.appendChild(styleEl);
 
@@ -2629,6 +2640,10 @@ window.applyAllSettingsGlobally = function() {
       fileInput.id = "global-avatar-upload";
       fileInput.accept = "image/*";
       fileInput.className = "hidden";
+      fileInput.style.display = "none";
+      fileInput.hidden = true;
+      fileInput.setAttribute("aria-hidden", "true");
+      fileInput.setAttribute("tabindex", "-1");
       fileInput.onchange = window.handleAvatarUpload;
       document.body.appendChild(fileInput);
     }

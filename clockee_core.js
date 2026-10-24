@@ -3313,14 +3313,27 @@ if (document.readyState === "complete" || document.readyState === "interactive")
 (function initClockEEMobileNavSuite() {
   if (typeof window === "undefined") return;
 
-  // 1. Inject Universal Responsive CSS
+  // 1. Inject Universal Responsive CSS (Strict Zero Horizontal Overflow & Pure SVG Icons)
   const mobileStyles = document.createElement("style");
   mobileStyles.id = "clockee-mobile-responsive-styles";
   mobileStyles.innerHTML = `
-    /* Universal Mobile Responsive Overrides */
+    /* Universal Mobile Responsive Overrides & Prevent Horizontal Spill */
+    html, body {
+      overflow-x: clip !important;
+      overflow-x: hidden !important;
+      max-width: 100vw !important;
+      width: 100% !important;
+      position: relative !important;
+    }
+
     @media (max-width: 840px) {
       /* Hide desktop horizontal nav bar to prevent ugly overflow */
       #main-nav {
+        display: none !important;
+      }
+
+      /* Hide tour button from top header on mobile */
+      #btnNavTourCockpit {
         display: none !important;
       }
       
@@ -3328,11 +3341,19 @@ if (document.readyState === "complete" || document.readyState === "interactive")
       header.border-b, .cbt-header-banner, header {
         padding: 8px 14px !important;
         min-height: 56px !important;
+        max-width: 100vw !important;
+        box-sizing: border-box !important;
       }
 
       /* Body padding for fixed bottom navigation */
       body:not(.in-cbt-exam) {
         padding-bottom: calc(76px + env(safe-area-inset-bottom)) !important;
+      }
+
+      /* Command palette trigger moved above bottom nav */
+      #clockee-cmd-trigger {
+        bottom: calc(72px + env(safe-area-inset-bottom)) !important;
+        right: 14px !important;
       }
 
       /* Touch target size & ergonomics */
@@ -3346,9 +3367,38 @@ if (document.readyState === "complete" || document.readyState === "interactive")
         display: flex !important;
         flex-direction: column !important;
         gap: 16px !important;
+        width: 100% !important;
+        max-width: 100% !important;
       }
       .lg\\:col-span-5, .lg\\:col-span-7, .lg\\:col-span-8, .lg\\:col-span-4 {
         width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+      }
+
+      /* Sidebar root constrained to 100% */
+      #clockee-sidebar-root, #clockee-sidebar-root aside {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+      }
+
+      /* Calendar and chart containers full width */
+      #sidebar-month-grid, .grid-cols-7 {
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+
+      /* Floating Tour Pill on Mobile */
+      .cockpit-tour-floating-card {
+        width: calc(100vw - 28px) !important;
+        max-width: calc(100vw - 28px) !important;
+        left: 14px !important;
+        padding: 14px 16px !important;
+      }
+      .cockpit-tour-corner-box {
+        bottom: calc(76px + env(safe-area-inset-bottom)) !important;
+        right: 14px !important;
       }
     }
 
@@ -3365,8 +3415,11 @@ if (document.readyState === "complete" || document.readyState === "interactive")
       justify-content: center;
       cursor: pointer;
       transition: all 0.2s ease;
-      font-size: 1.15rem;
       box-shadow: 0 0 12px rgba(0, 240, 255, 0.2);
+    }
+    .clockee-mobile-hamburger-btn svg {
+      width: 22px;
+      height: 22px;
     }
     .clockee-mobile-hamburger-btn:hover, .clockee-mobile-hamburger-btn:active {
       background: rgba(0, 240, 255, 0.2);
@@ -3383,9 +3436,9 @@ if (document.readyState === "complete" || document.readyState === "interactive")
     .clockee-mobile-drawer-backdrop {
       position: fixed;
       inset: 0;
-      background: rgba(3, 6, 14, 0.8);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      background: rgba(2, 4, 10, 0.82);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       z-index: 999998;
       opacity: 0;
       pointer-events: none;
@@ -3396,27 +3449,31 @@ if (document.readyState === "complete" || document.readyState === "interactive")
       pointer-events: auto;
     }
 
+    /* When closed: display none to eliminate any horizontal scroll void! */
     .clockee-mobile-drawer {
       position: fixed;
       top: 0;
       right: 0;
       bottom: 0;
       width: min(340px, 86vw);
-      background: rgba(8, 12, 24, 0.96);
+      background: rgba(8, 12, 24, 0.98);
       border-left: 1.5px solid rgba(0, 240, 255, 0.4);
       box-shadow: -20px 0 50px rgba(0, 0, 0, 0.9), 0 0 30px rgba(0, 240, 255, 0.25);
       backdrop-filter: blur(36px) saturate(220%);
       -webkit-backdrop-filter: blur(36px) saturate(220%);
       z-index: 999999;
-      display: flex;
+      display: none;
       flex-direction: column;
       transform: translateX(100%);
       transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
       overflow-y: auto;
-      padding: 20px 16px calc(24px + env(safe-area-inset-bottom));
+      padding: 18px 16px calc(24px + env(safe-area-inset-bottom));
+      pointer-events: none;
     }
     .clockee-mobile-drawer.active {
-      transform: translateX(0);
+      display: flex !important;
+      transform: translateX(0) !important;
+      pointer-events: auto !important;
     }
 
     .drawer-nav-item {
@@ -3426,7 +3483,7 @@ if (document.readyState === "complete" || document.readyState === "interactive")
       padding: 12px 14px;
       border-radius: 14px;
       color: #94a3b8;
-      font-size: 0.875rem;
+      font-size: 0.85rem;
       font-weight: 600;
       text-decoration: none;
       background: rgba(255, 255, 255, 0.03);
@@ -3434,6 +3491,12 @@ if (document.readyState === "complete" || document.readyState === "interactive")
       margin-bottom: 8px;
       transition: all 0.2s ease;
       touch-action: manipulation;
+    }
+    .drawer-nav-item svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
     }
     .drawer-nav-item:hover, .drawer-nav-item:active {
       background: rgba(0, 240, 255, 0.12);
@@ -3448,6 +3511,11 @@ if (document.readyState === "complete" || document.readyState === "interactive")
       box-shadow: 0 0 16px rgba(0, 240, 255, 0.35);
       font-weight: 700;
     }
+    .drawer-nav-item.active svg {
+      color: #00f0ff;
+      stroke: #00f0ff;
+      filter: drop-shadow(0 0 6px rgba(0, 240, 255, 0.7));
+    }
 
     /* Fixed Bottom Navigation Bar (1-Thumb Ergonomics) */
     .clockee-bottom-nav {
@@ -3458,7 +3526,7 @@ if (document.readyState === "complete" || document.readyState === "interactive")
       right: 0;
       height: calc(60px + env(safe-area-inset-bottom));
       padding-bottom: env(safe-area-inset-bottom);
-      background: rgba(8, 12, 24, 0.92);
+      background: rgba(8, 12, 24, 0.94);
       backdrop-filter: blur(28px) saturate(200%);
       -webkit-backdrop-filter: blur(28px) saturate(200%);
       border-top: 1px solid rgba(0, 240, 255, 0.35);
@@ -3543,61 +3611,61 @@ if (document.readyState === "complete" || document.readyState === "interactive")
     drawer.id = 'clockee-mobile-drawer';
     drawer.className = 'clockee-mobile-drawer';
     drawer.innerHTML = `
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
-        <div style="display:flex;align-items:center;gap:10px;">
-          <span style="font-size:22px;">⚡</span>
-          <span style="font-weight:900;font-size:16px;background:linear-gradient(to right,#00f0ff,#a5b4fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">ClockEE Cockpit</span>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.08);">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <svg style="width:20px;height:20px;color:#00f0ff;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+          </svg>
+          <span style="font-weight:900;font-size:15px;background:linear-gradient(to right,#00f0ff,#a5b4fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">ClockEE Cockpit</span>
         </div>
         <button onclick="window.closeMobileDrawer()" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:#fff;width:34px;height:34px;border-radius:10px;font-size:16px;display:flex;align-items:center;justify-content:center;cursor:pointer;">✕</button>
       </div>
 
       <!-- User Flight Deck Card -->
-      <div style="background:linear-gradient(135deg,rgba(0,240,255,0.1),rgba(99,102,241,0.12));border:1px solid rgba(0,240,255,0.3);border-radius:16px;padding:12px;margin-bottom:16px;display:flex;align-items:center;gap:10px;">
+      <div style="background:linear-gradient(135deg,rgba(0,240,255,0.1),rgba(99,102,241,0.12));border:1px solid rgba(0,240,255,0.3);border-radius:16px;padding:12px;margin-bottom:14px;display:flex;align-items:center;gap:10px;">
         <img src="${user.pfp || 'https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Aspirant'}" style="width:38px;height:38px;border-radius:50%;border:1.5px solid #00f0ff;background:#030712;">
         <div style="flex:1;min-width:0;">
           <div style="font-size:13px;font-weight:800;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${user.name}</div>
-          <div style="font-size:10px;color:#00f0ff;font-mono;">🎯 ${user.dreamCollege || 'IIT Bombay CSE'}</div>
+          <div style="font-size:10px;color:#00f0ff;display:flex;align-items:center;gap:4px;">
+            <svg style="width:11px;height:11px;color:#00f0ff;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+            <span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${user.dreamCollege || 'IIT Bombay CSE'}</span>
+          </div>
         </div>
         <button onclick="window.handleUserLogout()" style="background:none;border:none;color:#ef4444;font-size:11px;font-weight:700;cursor:pointer;" title="Sign Out">Sign Out</button>
       </div>
 
-      <!-- Quick Action: Master Tour -->
-      <button onclick="window.closeMobileDrawer(); window.showCockpitTourMenu();" style="width:100%;padding:10px 14px;border-radius:14px;background:linear-gradient(to right,rgba(0,240,255,0.2),rgba(99,102,241,0.3));border:1px solid rgba(0,240,255,0.5);color:#00f0ff;font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:14px;cursor:pointer;box-shadow:0 0 15px rgba(0,240,255,0.2);">
-        <span>🚀 Master Interactive Tour</span>
-      </button>
-
-      <!-- Navigation Modules List -->
+      <!-- Navigation Modules List (Clean SVG Icons, Zero Emojis, No Tour in Mobile Menu) -->
       <div style="flex:1;">
         <a href="index.html" class="drawer-nav-item ${isHome ? 'active' : ''}">
-          <span style="font-size:16px;">🏠</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
           <span>Cockpit Home</span>
         </a>
         <a href="timer.html" class="drawer-nav-item ${isTimer ? 'active' : ''}">
-          <span style="font-size:16px;">⏱️</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           <span>Tactical Sprint Timer</span>
         </a>
         <a href="today.html" class="drawer-nav-item ${isToday ? 'active' : ''}">
-          <span style="font-size:16px;">📊</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
           <span>Today's Daily Digest</span>
         </a>
         <a href="task.html" class="drawer-nav-item ${isTask ? 'active' : ''}">
-          <span style="font-size:16px;">📋</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
           <span>Tasks &amp; TickTick Sync</span>
         </a>
         <a href="coaching.html" class="drawer-nav-item ${isCoaching ? 'active' : ''}">
-          <span style="font-size:16px;">🎓</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
           <span>Coaching &amp; Syllabus Tree</span>
         </a>
         <a href="cbt_home.html" class="drawer-nav-item ${isCBT ? 'active' : ''}">
-          <span style="font-size:16px;">💻</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
           <span>Authentic CBT Exam Portal</span>
         </a>
         <a href="inspiration.html" class="drawer-nav-item ${isInspiration ? 'active' : ''}">
-          <span style="font-size:16px;">💡</span>
+          <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
           <span>Wall of Inspiration</span>
         </a>
         <a href="settings.html" class="drawer-nav-item ${isSettings ? 'active' : ''}">
-          <span style="font-size:16px;">⚙️</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
           <span>Settings &amp; Themes</span>
         </a>
       </div>
@@ -3605,18 +3673,21 @@ if (document.readyState === "complete" || document.readyState === "interactive")
       <!-- Quick Controls -->
       <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:12px;display:flex;align-items:center;justify-content:space-between;">
         <button onclick="if(typeof toggleSplitScreen==='function') toggleSplitScreen(); window.closeMobileDrawer();" style="padding:8px 12px;border-radius:10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#94a3b8;font-size:11px;font-weight:600;display:flex;align-items:center;gap:6px;cursor:pointer;">
-          <span>⊟</span> Split View
+          <svg style="width:13px;height:13px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="12" y1="3" x2="12" y2="21"/></svg>
+          <span>Split View</span>
         </button>
-        <button onclick="if(typeof applyAccentColor==='function') applyAccentColor('#00f0ff');" style="width:28px;height:28px;border-radius:50%;background:#00f0ff;border:2px solid #fff;box-shadow:0 0 10px #00f0ff;cursor:pointer;" title="Cyan Neon Theme"></button>
-        <button onclick="if(typeof applyAccentColor==='function') applyAccentColor('#6366f1');" style="width:28px;height:28px;border-radius:50%;background:#6366f1;border:2px solid #fff;box-shadow:0 0 10px #6366f1;cursor:pointer;" title="Indigo Aura"></button>
-        <button onclick="if(typeof applyAccentColor==='function') applyAccentColor('#f59e0b');" style="width:28px;height:28px;border-radius:50%;background:#f59e0b;border:2px solid #fff;box-shadow:0 0 10px #f59e0b;cursor:pointer;" title="Amber Aura"></button>
+        <div style="display:flex;align-items:center;gap:6px;">
+          <button onclick="if(typeof applyAccentColor==='function') applyAccentColor('#00f0ff');" style="width:26px;height:26px;border-radius:50%;background:#00f0ff;border:2px solid #fff;box-shadow:0 0 10px #00f0ff;cursor:pointer;" title="Cyan Theme"></button>
+          <button onclick="if(typeof applyAccentColor==='function') applyAccentColor('#6366f1');" style="width:26px;height:26px;border-radius:50%;background:#6366f1;border:2px solid #fff;box-shadow:0 0 10px #6366f1;cursor:pointer;" title="Indigo Theme"></button>
+          <button onclick="if(typeof applyAccentColor==='function') applyAccentColor('#f59e0b');" style="width:26px;height:26px;border-radius:50%;background:#f59e0b;border:2px solid #fff;box-shadow:0 0 10px #f59e0b;cursor:pointer;" title="Amber Theme"></button>
+        </div>
       </div>
     `;
 
     document.body.appendChild(backdrop);
     document.body.appendChild(drawer);
 
-    // B. Mobile Bottom Navigation Bar (5 Thumb Items)
+    // B. Mobile Bottom Navigation Bar (5 Thumb Items with Pure SVG Icons)
     const bottomNav = document.createElement('nav');
     bottomNav.id = 'clockee-bottom-nav';
     bottomNav.className = 'clockee-bottom-nav';
@@ -3644,7 +3715,7 @@ if (document.readyState === "complete" || document.readyState === "interactive")
     `;
     document.body.appendChild(bottomNav);
 
-    // C. Inject Hamburger button into existing page headers
+    // C. Inject Hamburger button into existing page headers with pure SVG icon
     const headerRight = document.querySelector('.nav-right, header > div:last-child, .cbt-header-banner > div:last-child');
     if (headerRight && !document.getElementById('clockeeHamburgerBtn')) {
       const btn = document.createElement('button');
@@ -3653,7 +3724,7 @@ if (document.readyState === "complete" || document.readyState === "interactive")
       btn.className = 'clockee-mobile-hamburger-btn';
       btn.setAttribute('aria-label', 'Open Mobile Navigation Menu');
       btn.onclick = () => window.openMobileDrawer();
-      btn.innerHTML = `<span>☰</span>`;
+      btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>`;
       headerRight.appendChild(btn);
     }
   }

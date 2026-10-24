@@ -3018,3 +3018,194 @@ if (document.readyState === "complete" || document.readyState === "interactive")
 } else {
   document.addEventListener("DOMContentLoaded", window.applyGlassSettings);
 }
+
+
+// ─── Universal Command Palette Engine (Ctrl + K / Cmd + K) ───
+(function injectCommandPalette() {
+  if (document.getElementById("clockee-cmd-palette-modal")) return;
+
+  // 1. Create Modal DOM
+  const modal = document.createElement("div");
+  modal.id = "clockee-cmd-palette-modal";
+  modal.className = "hidden fixed inset-0 z-[1000] bg-black/80 backdrop-blur-md flex items-start justify-center pt-20 px-4";
+  modal.innerHTML = `
+    <div class="glass-card max-w-xl w-full p-4 space-y-3 border border-cyan-500/40 bg-[#0b0e1d]/95 shadow-[0_0_50px_rgba(0,240,255,0.25)] rounded-2xl animate-in fade-in zoom-in-95 duration-150">
+      <div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10">
+        <span class="text-cyan-400 text-base">⚡</span>
+        <input 
+          type="text" 
+          id="cmd-palette-input" 
+          placeholder="Type a command or jump to module... (e.g., 'cbt', 'timer', 'task', 'log')" 
+          class="flex-1 bg-transparent text-white font-mono text-xs outline-none placeholder:text-gray-500"
+          autocomplete="off"
+        >
+        <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/10 text-gray-400 border border-white/10">ESC</span>
+      </div>
+
+      <div id="cmd-palette-list" class="space-y-1 max-h-72 overflow-y-auto pr-1"></div>
+
+      <div class="pt-2 border-t border-white/5 flex items-center justify-between text-[10px] text-gray-500 font-mono">
+        <div class="flex items-center gap-3">
+          <span><kbd class="px-1.5 py-0.5 rounded bg-white/5 text-gray-300">↑↓</kbd> Navigate</span>
+          <span><kbd class="px-1.5 py-0.5 rounded bg-white/5 text-gray-300">ENTER</kbd> Select</span>
+        </div>
+        <span class="text-cyan-400 font-bold">ClockEE Command Terminal</span>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(modal);
+
+  // 2. Floating Quick Launcher Pill
+  const trigger = document.createElement("div");
+  trigger.id = "clockee-cmd-trigger";
+  trigger.className = "fixed bottom-4 right-4 z-[990] flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#0a0d18]/90 border border-cyan-500/35 text-cyan-300 text-xs font-mono font-bold cursor-pointer hover:scale-105 hover:border-cyan-400 transition shadow-[0_0_15px_rgba(0,240,255,0.2)] backdrop-blur-md select-none";
+  trigger.innerHTML = `<span>⚡</span> <span class="hidden sm:inline">Command Palette</span> <kbd class="px-1.5 py-0.2 rounded bg-white/10 text-[9px] text-cyan-300 font-mono">Ctrl+K</kbd>`;
+  trigger.onclick = () => window.toggleCommandPalette();
+  document.body.appendChild(trigger);
+
+  // 3. Command Definitions
+  const COMMANDS = [
+    { title: "Tactical Pace Benchmark Sprint", desc: "Drift-free sub-second pace latency & question drill", icon: "⏱️", shortcut: "T", action: () => window.location.href = "timer.html" },
+    { title: "Authentic CBT Exam Simulator", desc: "Crash-proof NTA examination test suite with LaTeX", icon: "🧪", shortcut: "C", action: () => window.location.href = "cbt_home.html" },
+    { title: "Task Kanban & Auto-Flow Terminal", desc: "Mistake vault autopsy rollover, syllabus sync & subtasks", icon: "📋", shortcut: "K", action: () => window.location.href = "task.html" },
+    { title: "AI Question Cloner Studio", desc: "Synthesize 3 concept variations via Gemini 2.0 or algorithmic bank", icon: "🤖", shortcut: "Q", action: () => window.location.href = "cbt_cloner.html" },
+    { title: "Coaching Syllabus Matrix", desc: "3 PCM Milestone blocks with cyber chimes", icon: "📚", shortcut: "M", action: () => window.location.href = "coaching.html" },
+    { title: "Today's Performance Digest", desc: "Momentum charts, hourly intensity, and JPEG report card", icon: "📊", shortcut: "D", action: () => window.location.href = "today.html" },
+    { title: "IIT Dream Vision Board & Edu News", desc: "Aspirant goals, college news feed & vision gallery", icon: "✨", shortcut: "I", action: () => window.location.href = "inspiration.html" },
+    { title: "Visual Studio & Settings", desc: "Glassmorphism blur, opacity, tactile sound packs, and themes", icon: "⚙️", shortcut: "S", action: () => window.location.href = "settings.html" },
+    { title: "Quick Action: Log +5 Questions Solved", desc: "Increases Physics & Chemistry daily question counters", icon: "⚡", shortcut: "L", action: () => {
+      const s = window.getState();
+      s.stats = s.stats || {};
+      s.stats.questionsSolved = s.stats.questionsSolved || { Physics: 0, Chemistry: 0, Maths: 0 };
+      s.stats.questionsSolved.Physics = (s.stats.questionsSolved.Physics || 0) + 3;
+      s.stats.questionsSolved.Chemistry = (s.stats.questionsSolved.Chemistry || 0) + 2;
+      window.saveState();
+      window.showToast("⚡ Quick Log: Added +5 questions to today's count!", "success");
+    }},
+    { title: "Quick Action: Cycle Animated Nebula Aura", desc: "Switches background fluid shader atmosphere", icon: "🌌", shortcut: "A", action: () => {
+      const themes = ["cyan_indigo", "deep_violet", "emerald_matrix", "crimson_nova", "midnight_aurora", "cyber_gold", "synthwave_sunset"];
+      const s = window.getState();
+      s.settings = s.settings || {};
+      const currIdx = themes.indexOf(s.settings.auraTheme || "cyan_indigo");
+      const nextTheme = themes[(currIdx + 1) % themes.length];
+      s.settings.auraTheme = nextTheme;
+      window.saveState();
+      window.showToast(`🌌 Switched Nebula Atmosphere to: ${nextTheme}!`, "info");
+    }},
+    { title: "Quick Action: Test Mechanical Keyboard Sound", desc: "Fires Web Audio synthesizer click acoustic pulse", icon: "🔊", shortcut: "P", action: () => {
+      window.playTactileFeedback("mechanical");
+      window.showToast("🔊 Cherry MX Blue click synthesized via Web Audio API!", "info");
+    }},
+    { title: "Quick Action: Export State Backup JSON", desc: "Downloads full local workspace snapshot file", icon: "📥", shortcut: "E", action: () => {
+      const s = window.getState();
+      const str = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(s, null, 2));
+      const a = document.createElement("a");
+      a.setAttribute("href", str);
+      a.setAttribute("download", `ClockEE_Backup_${Date.now()}.json`);
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      window.showToast("✓ Backup JSON downloaded!", "success");
+    }}
+  ];
+
+  let selectedIdx = 0;
+  let filteredCommands = [...COMMANDS];
+
+  function renderCommandList() {
+    const listEl = document.getElementById("cmd-palette-list");
+    if (!listEl) return;
+    if (filteredCommands.length === 0) {
+      listEl.innerHTML = `<div class="p-4 text-center text-gray-500 font-mono text-xs">No matching commands found.</div>`;
+      return;
+    }
+    listEl.innerHTML = filteredCommands.map((cmd, idx) => `
+      <div 
+        class="cmd-palette-item p-2.5 rounded-xl border ${idx === selectedIdx ? 'border-cyan-500/60 bg-cyan-950/40 text-white' : 'border-white/5 bg-gray-900/60 text-gray-300'} flex items-center justify-between cursor-pointer hover:border-cyan-400/50 hover:bg-cyan-950/30 transition text-xs"
+        onclick="executeCommandByIdx(${idx})"
+      >
+        <div class="flex items-center gap-3 truncate">
+          <span class="text-base">${cmd.icon}</span>
+          <div class="truncate">
+            <div class="font-bold truncate ${idx === selectedIdx ? 'text-cyan-300' : 'text-white'}">${cmd.title}</div>
+            <div class="text-[10px] text-gray-400 font-mono truncate">${cmd.desc}</div>
+          </div>
+        </div>
+        <kbd class="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[10px] font-mono text-gray-400 shrink-0">${cmd.shortcut}</kbd>
+      </div>
+    `).join("");
+  }
+
+  window.executeCommandByIdx = function(idx) {
+    const cmd = filteredCommands[idx];
+    if (cmd && typeof cmd.action === "function") {
+      window.playTactileFeedback("mechanical");
+      window.toggleCommandPalette(false);
+      cmd.action();
+    }
+  };
+
+  window.toggleCommandPalette = function(force) {
+    const m = document.getElementById("clockee-cmd-palette-modal");
+    if (!m) return;
+    const shouldOpen = force !== undefined ? force : m.classList.contains("hidden");
+    if (shouldOpen) {
+      m.classList.remove("hidden");
+      filteredCommands = [...COMMANDS];
+      selectedIdx = 0;
+      renderCommandList();
+      const input = document.getElementById("cmd-palette-input");
+      if (input) {
+        input.value = "";
+        setTimeout(() => input.focus(), 50);
+      }
+    } else {
+      m.classList.add("hidden");
+    }
+  };
+
+  // 4. Keyboard Navigation Listeners
+  document.addEventListener("keydown", function(e) {
+    if ((e.ctrlKey || e.metaKey) && (e.key === "k" || e.key === "K")) {
+      e.preventDefault();
+      window.toggleCommandPalette();
+      return;
+    }
+
+    const m = document.getElementById("clockee-cmd-palette-modal");
+    if (!m || m.classList.contains("hidden")) return;
+
+    if (e.key === "Escape") {
+      e.preventDefault();
+      window.toggleCommandPalette(false);
+    } else if (e.key === "ArrowDown") {
+      e.preventDefault();
+      selectedIdx = (selectedIdx + 1) % filteredCommands.length;
+      renderCommandList();
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      selectedIdx = (selectedIdx - 1 + filteredCommands.length) % filteredCommands.length;
+      renderCommandList();
+    } else if (e.key === "Enter") {
+      e.preventDefault();
+      window.executeCommandByIdx(selectedIdx);
+    }
+  });
+
+  document.addEventListener("input", function(e) {
+    if (e.target && e.target.id === "cmd-palette-input") {
+      const q = e.target.value.toLowerCase().trim();
+      filteredCommands = COMMANDS.filter(cmd => 
+        cmd.title.toLowerCase().includes(q) || 
+        cmd.desc.toLowerCase().includes(q) || 
+        cmd.shortcut.toLowerCase() === q
+      );
+      selectedIdx = 0;
+      renderCommandList();
+    }
+  });
+
+  modal.addEventListener("click", function(e) {
+    if (e.target === modal) window.toggleCommandPalette(false);
+  });
+})();

@@ -1,0 +1,19 @@
+{
+  "name": "ClockEE — Autonomous JEE Tactical Cockpit",
+  "short_name": "ClockEE",
+  "description": "High-performance study operating system and CBT exam engine engineered for JEE Advanced & Mains aspirants.",
+  "start_url": "index.html",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#07080d",
+  "theme_color": "#00f0ff",
+  "categories": ["education", "productivity"],
+  "icons": [
+    {
+      "src": "screenshots/01_login_mascot.png",
+      "sizes": "192x192 512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

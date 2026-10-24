@@ -272,9 +272,9 @@ const DEFAULT_STATE = {
     auraSpeed: "fluid"
   },
   apiKeys: {
-    ticktick: CLOCKEE_ENV.TICKTICK_TOKEN || "",
-    gemini: CLOCKEE_ENV.GEMINI_KEY || "",
-    cloudUrl: CLOCKEE_ENV.FIREBASE_CONFIG?.databaseURL || ""
+    ticktick: "",
+    gemini: "",
+    cloudUrl: ""
   },
   firebaseConfig: CLOCKEE_ENV.FIREBASE_CONFIG || {
     apiKey: "",
@@ -387,14 +387,13 @@ window.APP_STATE = (function() {
     }
     if (raw) {
       const parsed = JSON.parse(raw);
-      if (!parsed.apiKeys?.gemini || parsed.apiKeys.gemini === "") {
-        parsed.apiKeys = { ...(parsed.apiKeys || {}), gemini: DEFAULT_STATE.apiKeys.gemini };
-      }
-      if (!parsed.apiKeys?.cloudUrl || parsed.apiKeys.cloudUrl === "") {
-        parsed.apiKeys = { ...(parsed.apiKeys || {}), cloudUrl: DEFAULT_STATE.apiKeys.cloudUrl };
-      }
-      if (!parsed.firebaseConfig) {
-        parsed.firebaseConfig = DEFAULT_STATE.firebaseConfig;
+      const isGuest = activeId.startsWith("guest_") || activeId === "user_guest";
+      if (isGuest) {
+        parsed.apiKeys = { ticktick: "", gemini: "", cloudUrl: "" };
+      } else {
+        if (!parsed.apiKeys?.gemini && CLOCKEE_ENV.GEMINI_KEY) {
+          parsed.apiKeys = { ...(parsed.apiKeys || {}), gemini: CLOCKEE_ENV.GEMINI_KEY };
+        }
       }
       return { ...DEFAULT_STATE, ...parsed };
     }

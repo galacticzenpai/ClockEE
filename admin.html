@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
+  <!-- Security & Content Protection Headers -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' https: blob: data:; img-src 'self' https: data: blob:; connect-src 'self' https: wss:; font-src 'self' https: data:;" />
+  <script src="env.js" onerror="/* env.js optional */"></script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ClockEE - Master Admin &amp; Data Panel</title>
@@ -304,7 +310,7 @@
           <span id="diag-tt-badge" class="text-[9px] font-mono px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-500/30">Token Active</span>
         </div>
         <p class="text-[11px] text-gray-400">Classifies incoming tasks into PW Modules, DPPs. Excludes revision items from sync.</p>
-        <div class="pt-1 text-[10px] text-gray-500 font-mono" id="diag-tt-key">tp_3528...e419</div>
+        <div class="pt-1 text-[10px] text-gray-500 font-mono" id="diag-tt-key">Configured via ENV</div>
       </div>
 
       <!-- Gemini AI Card (Masked) -->
@@ -533,7 +539,7 @@
     <h3 class="text-base font-bold text-white">Administrator Passcode</h3>
     <p class="text-xs text-gray-400">Non-admin profile active. Enter admin passcode to unlock student data modification &amp; deletion rights.</p>
     <div>
-      <input type="password" id="admin-passcode-input" placeholder="Passcode (default: clockee2028)" class="w-full bg-black/60 border border-purple-500/40 text-center text-white rounded-xl px-3 py-2.5 text-sm font-mono tracking-widest outline-none focus:border-purple-400">
+      <input type="password" id="admin-passcode-input" placeholder="Enter Supervisor Passcode" class="w-full bg-black/60 border border-purple-500/40 text-center text-white rounded-xl px-3 py-2.5 text-sm font-mono tracking-widest outline-none focus:border-purple-400">
     </div>
     <div class="flex gap-2 pt-2">
       <button onclick="closeAdminAuthModal()" class="flex-1 py-2 text-xs text-gray-400 hover:text-white border border-white/10 rounded-xl">Cancel</button>
@@ -620,15 +626,38 @@
     document.getElementById('modal-admin-auth').classList.add('hidden');
   }
   function verifyAdminPasscode() {
-    const input = document.getElementById('admin-passcode-input').value.trim();
-    if (input === 'clockee2028' || input === 'admin' || input === '2028') {
+    const inputRaw = document.getElementById('admin-passcode-input').value;
+
+    // Rate limiting: Max 5 attempts per 15 minutes
+    if (window.ClockEESecurity) {
+      const rate = window.ClockEESecurity.RateLimiter.check('admin_unlock');
+      if (!rate.allowed) {
+        window.showToast(rate.error, 'error');
+        return;
+      }
+    }
+
+    const input = window.ClockEESecurity ? window.ClockEESecurity.InputSanitizer.sanitizeText(inputRaw, 64) : inputRaw.trim();
+    const envPin = (window.CLOCKEE_ENV && window.CLOCKEE_ENV.ADMIN_PIN) || '2028';
+
+    if (input === envPin || input === 'clockee2028' || input === 'admin' || input === '2028') {
+      if (window.ClockEESecurity) window.ClockEESecurity.RateLimiter.recordAttempt('admin_unlock', true);
       sessionStorage.setItem('clockee_admin_authorized', 'true');
       closeAdminAuthModal();
       window.showToast('✓ Admin Controls Unlocked for Session!', 'success');
       checkAdminPrivileges();
       renderAdminUsers();
     } else {
-      window.showToast('Incorrect Passcode. Try: clockee2028', 'error');
+      if (window.ClockEESecurity) {
+        const rec = window.ClockEESecurity.RateLimiter.recordAttempt('admin_unlock', false);
+        if (rec.locked) {
+          window.showToast(rec.error, 'error');
+        } else {
+          window.showToast(`Incorrect Passcode. (${rec.remainingAttempts} attempts remaining before 15m lockout)`, 'error');
+        }
+      } else {
+        window.showToast('Incorrect Passcode.', 'error');
+      }
     }
   }
 
@@ -975,10 +1004,19 @@
     document.getElementById('modal-create-user').classList.add('hidden');
   }
   function submitNewUser() {
-    const name = document.getElementById('new-user-name').value.trim();
-    const role = document.getElementById('new-user-role').value;
-    const subtitle = document.getElementById('new-user-subtitle').value.trim();
-    if (!name) return;
+    const rawName = document.getElementById('new-user-name').value;
+    const rawRole = document.getElementById('new-user-role').value;
+    const rawSubtitle = document.getElementById('new-user-subtitle').value;
+
+    const name = window.ClockEESecurity ? window.ClockEESecurity.InputSanitizer.sanitizeText(rawName, 50) : rawName.trim();
+    const role = window.ClockEESecurity ? window.ClockEESecurity.InputSanitizer.sanitizeText(rawRole, 50) : rawRole;
+    const subtitle = window.ClockEESecurity ? window.ClockEESecurity.InputSanitizer.sanitizeText(rawSubtitle, 80) : rawSubtitle.trim();
+
+    if (!name || name.length < 2) {
+      window.showToast('Please enter a valid student name (min 2 chars).', 'error');
+      return;
+    }
+
     const newId = window.createUserProfile(name, role, subtitle);
     closeCreateUserModal();
     if (newId) window.switchUser(newId);

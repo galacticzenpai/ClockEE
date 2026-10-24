@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Security & Content Protection Headers -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' https: blob: data:; img-src 'self' https: data: blob:; connect-src 'self' https: wss:; font-src 'self' https: data:;" />
+  <script src="env.js" onerror="/* env.js optional */"></script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ClockEE • Official Hackathon Showcase & Project Portal</title>
@@ -1258,8 +1264,8 @@
         "Firebase Realtime Database", "Client-Side Multi-User Engine"
       ],
       judge_accounts: {
-        student_alpha: { email: "alpha@clockee.app", password: "password123", role: "JEE 2028 Aspirant" },
-        student_beta: { email: "beta@clockee.app", password: "password456", role: "JEE 2027 Aspirant" },
+        student_alpha: { email: "alpha@clockee.app", auth_mode: "Sandbox (No Secret Req)", role: "JEE 2028 Aspirant" },
+        student_beta: { email: "beta@clockee.app", auth_mode: "Sandbox (No Secret Req)", role: "JEE 2027 Aspirant" },
         admin_panel: { path: "admin.html", passcode: "2028" },
         guest_access: "1-Click Direct Launch"
       }

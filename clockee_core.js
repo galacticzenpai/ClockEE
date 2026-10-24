@@ -23,6 +23,230 @@ if (typeof window !== "undefined") {
   window.checkAuthGuard();
 }
 
+// ==========================================================================
+// ClockEE Defensive Security Engine (Rate Limiting, Sanitization, Payload Protection)
+// ==========================================================================
+window.ClockEESecurity = (function() {
+  const RATE_LIMIT_STORAGE_KEY = "clockee_rate_limits";
+  const DEFAULT_MAX_ATTEMPTS = 5;
+  const DEFAULT_WINDOW_MS = 15 * 60 * 1000; // 15 minutes = 900,000ms
+
+  const RateLimiter = {
+    _getStore: function() {
+      try {
+        const raw = localStorage.getItem(RATE_LIMIT_STORAGE_KEY);
+        return raw ? JSON.parse(raw) : {};
+      } catch(e) {
+        return {};
+      }
+    },
+    _saveStore: function(store) {
+      try {
+        localStorage.setItem(RATE_LIMIT_STORAGE_KEY, JSON.stringify(store));
+      } catch(e) {}
+    },
+    formatRemaining: function(ms) {
+      if (ms <= 0) return "0s";
+      const totalSec = Math.ceil(ms / 1000);
+      const m = Math.floor(totalSec / 60);
+      const s = totalSec % 60;
+      if (m > 0) return `${m}m ${s}s`;
+      return `${s}s`;
+    },
+    check: function(routeKey, maxAttempts = DEFAULT_MAX_ATTEMPTS, windowMs = DEFAULT_WINDOW_MS) {
+      const now = Date.now();
+      const store = this._getStore();
+      const record = store[routeKey] || { attempts: [], lockedUntil: 0 };
+      
+      record.attempts = (record.attempts || []).filter(ts => (now - ts) < windowMs);
+
+      if (record.lockedUntil && now < record.lockedUntil) {
+        const remainingMs = record.lockedUntil - now;
+        return {
+          allowed: false,
+          remainingAttempts: 0,
+          remainingMs: remainingMs,
+          remainingFormatted: this.formatRemaining(remainingMs),
+          error: `Security Lockout: Rate limit exceeded (Max ${maxAttempts} attempts per 15 minutes). Please try again in ${this.formatRemaining(remainingMs)}.`
+        };
+      }
+
+      if (record.attempts.length >= maxAttempts) {
+        record.lockedUntil = now + windowMs;
+        store[routeKey] = record;
+        this._saveStore(store);
+        return {
+          allowed: false,
+          remainingAttempts: 0,
+          remainingMs: windowMs,
+          remainingFormatted: this.formatRemaining(windowMs),
+          error: `Security Lockout: Rate limit exceeded (Max ${maxAttempts} attempts per 15 minutes). Please try again in ${this.formatRemaining(windowMs)}.`
+        };
+      }
+
+      return {
+        allowed: true,
+        remainingAttempts: maxAttempts - record.attempts.length,
+        remainingMs: 0,
+        remainingFormatted: ""
+      };
+    },
+    recordAttempt: function(routeKey, isSuccess = false, maxAttempts = DEFAULT_MAX_ATTEMPTS, windowMs = DEFAULT_WINDOW_MS) {
+      const now = Date.now();
+      const store = this._getStore();
+      const record = store[routeKey] || { attempts: [], lockedUntil: 0 };
+
+      record.attempts = (record.attempts || []).filter(ts => (now - ts) < windowMs);
+
+      if (isSuccess) {
+        delete store[routeKey];
+        this._saveStore(store);
+        return { allowed: true, remainingAttempts: maxAttempts, remainingMs: 0 };
+      }
+
+      record.attempts.push(now);
+      if (record.attempts.length >= maxAttempts) {
+        record.lockedUntil = now + windowMs;
+      }
+      store[routeKey] = record;
+      this._saveStore(store);
+
+      const remainingAttempts = Math.max(0, maxAttempts - record.attempts.length);
+      const remainingMs = record.lockedUntil ? Math.max(0, record.lockedUntil - now) : 0;
+      return {
+        allowed: record.attempts.length < maxAttempts,
+        remainingAttempts: remainingAttempts,
+        remainingMs: remainingMs,
+        remainingFormatted: this.formatRemaining(remainingMs),
+        locked: record.attempts.length >= maxAttempts,
+        error: record.attempts.length >= maxAttempts
+          ? `Security Lockout: Max ${maxAttempts} attempts reached. Locked for 15 minutes.`
+          : `Attempt failed. ${remainingAttempts} attempt(s) remaining before 15-minute lockout.`
+      };
+    },
+    reset: function(routeKey) {
+      const store = this._getStore();
+      if (routeKey) {
+        delete store[routeKey];
+      } else {
+        localStorage.removeItem(RATE_LIMIT_STORAGE_KEY);
+      }
+      this._saveStore(store);
+    }
+  };
+
+  const InputSanitizer = {
+    sanitizeText: function(input, maxLen = 255) {
+      if (input === null || input === undefined) return "";
+      let str = String(input).trim();
+      if (str.length > maxLen) {
+        str = str.slice(0, maxLen);
+      }
+      str = str.replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g, "");
+      str = str.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, "");
+      str = str.replace(/javascript\s*:/gi, "");
+      str = str.replace(/vbscript\s*:/gi, "");
+      str = str.replace(/on\w+\s*=/gi, "");
+      return str
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#x27;")
+        .replace(/\//g, "&#x2F;");
+    },
+    escapeHTML: function(str) {
+      return this.sanitizeText(str, 10000);
+    },
+    validateEmail: function(email) {
+      if (!email || typeof email !== "string") {
+        return { valid: false, error: "Email address is required." };
+      }
+      const trimmed = email.trim();
+      if (trimmed.length < 5 || trimmed.length > 254) {
+        return { valid: false, error: "Email address must be between 5 and 254 characters." };
+      }
+      const re = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+      if (!re.test(trimmed)) {
+        return { valid: false, error: "Invalid email format." };
+      }
+      return { valid: true, sanitized: trimmed };
+    },
+    validatePassword: function(pwd) {
+      if (!pwd || typeof pwd !== "string") {
+        return { valid: false, error: "Password is required." };
+      }
+      if (pwd.length < 8) {
+        return { valid: false, error: "Password must be at least 8 characters long." };
+      }
+      if (pwd.length > 128) {
+        return { valid: false, error: "Password must not exceed 128 characters." };
+      }
+      return { valid: true };
+    },
+    validateNumber: function(val, min = 0, max = 100000, defaultVal = 0) {
+      const num = Number(val);
+      if (isNaN(num) || !isFinite(num)) return defaultVal;
+      return Math.min(Math.max(num, min), max);
+    },
+    validatePayloadSize: function(data, maxBytes = 2 * 1024 * 1024) {
+      try {
+        let size = 0;
+        if (typeof data === "string") {
+          size = new Blob([data]).size;
+        } else {
+          size = new Blob([JSON.stringify(data)]).size;
+        }
+        if (size > maxBytes) {
+          return { valid: false, size, maxBytes, error: `Payload rejected: size (${Math.round(size/1024)}KB) exceeds limit of ${Math.round(maxBytes/1024)}KB.` };
+        }
+        return { valid: true, size };
+      } catch(e) {
+        return { valid: false, error: "Payload size check failed: " + e.message };
+      }
+    },
+    safeParseJSON: function(jsonStr, maxBytes = 2 * 1024 * 1024) {
+      if (typeof jsonStr !== "string") return null;
+      if (jsonStr.length > maxBytes) {
+        console.error("JSON payload exceeds maximum allowed byte limit.");
+        return null;
+      }
+      try {
+        const parsed = JSON.parse(jsonStr);
+        const hasPrototypePollution = (obj) => {
+          if (!obj || typeof obj !== "object") return false;
+          if (Object.prototype.hasOwnProperty.call(obj, "__proto__") ||
+              Object.prototype.hasOwnProperty.call(obj, "constructor") ||
+              Object.prototype.hasOwnProperty.call(obj, "prototype")) {
+            return true;
+          }
+          for (const key of Object.keys(obj)) {
+            if (typeof obj[key] === "object" && hasPrototypePollution(obj[key])) {
+              return true;
+            }
+          }
+          return false;
+        };
+        if (hasPrototypePollution(parsed)) {
+          console.error("Potential prototype pollution detected in JSON payload.");
+          return null;
+        }
+        return parsed;
+      } catch(e) {
+        console.error("Malformed JSON payload:", e);
+        return null;
+      }
+    }
+  };
+
+  return {
+    RateLimiter: RateLimiter,
+    InputSanitizer: InputSanitizer
+  };
+})();
+
+const CLOCKEE_ENV = (typeof window !== "undefined" && window.CLOCKEE_ENV) || {};
+
 const DEFAULT_STATE = {
   profile: {
     name: "JEE Aspirant",
@@ -48,11 +272,11 @@ const DEFAULT_STATE = {
     auraSpeed: "fluid"
   },
   apiKeys: {
-    ticktick: "tp_3528d202c4994ae28371f86be1c7e419",
-    gemini: "",
-    cloudUrl: "https://clockee-app-default-rtdb.asia-southeast1.firebasedatabase.app"
+    ticktick: CLOCKEE_ENV.TICKTICK_TOKEN || "",
+    gemini: CLOCKEE_ENV.GEMINI_KEY || "",
+    cloudUrl: CLOCKEE_ENV.FIREBASE_CONFIG?.databaseURL || "https://clockee-app-default-rtdb.asia-southeast1.firebasedatabase.app"
   },
-  firebaseConfig: {
+  firebaseConfig: CLOCKEE_ENV.FIREBASE_CONFIG || {
     apiKey: "",
     authDomain: "clockee-app.firebaseapp.com",
     databaseURL: "https://clockee-app-default-rtdb.asia-southeast1.firebasedatabase.app",

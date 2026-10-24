@@ -15,15 +15,19 @@ Desktop.ini
 .vscode/
 .idea/
 
-# Local credentials (if any)
+# Local credentials & Environment Configurations
 .env
+.env.*
+!.env.example
+env.js
+*.local.js
 sync_config.local.json
 .git_bin/
 .node_bin/
 
-
-# Temporary Chrome profiles for screenshots
+# Temporary Chrome profiles & debug artifacts
 chrome_profile_capture/
 tmp_chrome/
 test_screenshot.png
 test.png
+scanner.py

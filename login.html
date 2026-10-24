@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>ClockEE - Student &amp; Commander Access Portal</title>
 
+  <!-- Security & Content Protection Headers -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' https: blob: data:; img-src 'self' https: data: blob:; connect-src 'self' https: wss:; font-src 'self' https: data:;" />
+
+  <!-- Optional Local Environment Loader -->
+  <script src="env.js" onerror="/* env.js optional */"></script>
+  <script src="clockee_core.js"></script>
+
   <!-- Google Fonts: Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -32,8 +41,9 @@
     import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
     import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 
-    const firebaseConfig = {
-      apiKey: localStorage.getItem("clockee_firebase_apikey") || "",
+    const env = (typeof window !== "undefined" && window.CLOCKEE_ENV) || {};
+    const firebaseConfig = env.FIREBASE_CONFIG || {
+      apiKey: env.FIREBASE_API_KEY || localStorage.getItem("clockee_firebase_apikey") || "",
       authDomain: "clockee-app.firebaseapp.com",
       databaseURL: "https://clockee-app-default-rtdb.asia-southeast1.firebasedatabase.app",
       projectId: "clockee-app",
@@ -899,10 +909,20 @@
       }
     }
 
-    // ─── 3. Google Sign-In Integration ───
+    // ─── 3. Google Sign-In Integration (with Rate Limiting) ───
     window.handleGoogleSignIn = async function() {
       const btn = document.getElementById('btnGoogleLogin');
       const originalText = btn.innerHTML;
+
+      // Rate limit check: Max 5 attempts per 15 mins
+      const rate = window.ClockEESecurity ? window.ClockEESecurity.RateLimiter.check('auth_google') : { allowed: true };
+      if (!rate.allowed) {
+        showAlert(rate.error, true);
+        btn.disabled = true;
+        btn.innerHTML = `<span>🔒 Rate Limited (${rate.remainingFormatted})</span>`;
+        return;
+      }
+
       btn.disabled = true;
       btn.innerHTML = `<span class="animate-spin">⏳</span> Connecting Google Identity...`;
 
@@ -936,20 +956,54 @@
           };
         }
 
+        if (window.ClockEESecurity) window.ClockEESecurity.RateLimiter.recordAttempt('auth_google', true);
         finalizeUserLogin(userRecord);
       } catch (err) {
         btn.disabled = false;
         btn.innerHTML = originalText;
-        showAlert("Google Sign-In failed: " + err.message);
+        if (window.ClockEESecurity) {
+          const rec = window.ClockEESecurity.RateLimiter.recordAttempt('auth_google', false);
+          showAlert(`Google Sign-In failed: ${err.message}. (${rec.remainingAttempts} attempts remaining before 15m lockout)`);
+        } else {
+          showAlert("Google Sign-In failed: " + err.message);
+        }
       }
     };
 
-    // ─── 4. Standard Sign In & Sign Up ───
+    // ─── 4. Standard Sign In & Sign Up (Strict Rate Limiting & Input Sanitization) ───
     window.handleSignIn = async function(e) {
       e.preventDefault();
-      const email = document.getElementById('signInEmail').value.trim();
-      const password = document.getElementById('signInPassword').value;
+      const rawEmail = document.getElementById('signInEmail').value;
+      const rawPassword = document.getElementById('signInPassword').value;
       const btn = document.getElementById('btnSubmitSignIn');
+
+      // Rate limit check: Max 5 attempts per 15 minutes
+      if (window.ClockEESecurity) {
+        const rate = window.ClockEESecurity.RateLimiter.check('auth_signin');
+        if (!rate.allowed) {
+          showAlert(rate.error, true);
+          btn.disabled = true;
+          btn.innerHTML = `<span>🔒 Locked for ${rate.remainingFormatted}</span>`;
+          return;
+        }
+      }
+
+      // Input Sanitization & Validation
+      if (window.ClockEESecurity) {
+        const emailCheck = window.ClockEESecurity.InputSanitizer.validateEmail(rawEmail);
+        if (!emailCheck.valid) {
+          showAlert(emailCheck.error, true);
+          return;
+        }
+        const pwdCheck = window.ClockEESecurity.InputSanitizer.validatePassword(rawPassword);
+        if (!pwdCheck.valid) {
+          showAlert(pwdCheck.error, true);
+          return;
+        }
+      }
+
+      const email = rawEmail.trim();
+      const password = rawPassword;
 
       btn.disabled = true;
       btn.innerHTML = `<span class="animate-spin">⏳</span> Authenticating...`;
@@ -968,7 +1022,6 @@
             };
           } catch (fbErr) {
             console.warn("Firebase sign-in failed, trying fallback...", fbErr);
-            // If user already exists in multi_users registry, accept local auth
             const localUsers = JSON.parse(localStorage.getItem('clockee_multi_users') || '[]');
             const matched = localUsers.find(u => u.email === email);
             if (matched) {
@@ -979,25 +1032,72 @@
           }
         }
 
+        if (window.ClockEESecurity) window.ClockEESecurity.RateLimiter.recordAttempt('auth_signin', true);
         finalizeUserLogin(userRecord || { uid: "user_" + btoa(email).slice(0, 10), email, name: email.split('@')[0], role: "JEE 2028 Aspirant" });
       } catch (err) {
-        btn.disabled = false;
-        btn.innerHTML = `<span>Authorize &amp; Launch ClockEE</span> →`;
-        showAlert(err.message.replace('Firebase: ', '').replace('(auth/', '').replace(').', ''));
+        let errorMsg = err.message.replace('Firebase: ', '').replace('(auth/', '').replace(').', '');
+        if (window.ClockEESecurity) {
+          const rec = window.ClockEESecurity.RateLimiter.recordAttempt('auth_signin', false);
+          btn.disabled = rec.locked;
+          if (rec.locked) {
+            btn.innerHTML = `<span>🔒 Locked for 15m</span>`;
+            showAlert(rec.error, true);
+          } else {
+            btn.disabled = false;
+            btn.innerHTML = `<span>Authorize &amp; Launch ClockEE</span> →`;
+            showAlert(`${errorMsg}. (${rec.remainingAttempts} attempt(s) remaining before 15m lockout)`, true);
+          }
+        } else {
+          btn.disabled = false;
+          btn.innerHTML = `<span>Authorize &amp; Launch ClockEE</span> →`;
+          showAlert(errorMsg, true);
+        }
       }
     };
 
     window.handleSignUp = async function(e) {
       e.preventDefault();
-      const name = document.getElementById('signUpName').value.trim();
-      const email = document.getElementById('signUpEmail').value.trim();
-      const role = document.getElementById('signUpRole').value;
-      const password = document.getElementById('signUpPassword').value;
+      const rawName = document.getElementById('signUpName').value;
+      const rawEmail = document.getElementById('signUpEmail').value;
+      const rawRole = document.getElementById('signUpRole').value;
+      const rawPassword = document.getElementById('signUpPassword').value;
       const btn = document.getElementById('btnSubmitSignUp');
 
-      if (password.length < 8) {
-        showAlert("Password must be at least 8 characters with numbers & symbols for security.");
-        return;
+      // Rate limit check: Max 5 attempts per 15 minutes
+      if (window.ClockEESecurity) {
+        const rate = window.ClockEESecurity.RateLimiter.check('auth_signup');
+        if (!rate.allowed) {
+          showAlert(rate.error, true);
+          btn.disabled = true;
+          btn.innerHTML = `<span>🔒 Locked for ${rate.remainingFormatted}</span>`;
+          return;
+        }
+      }
+
+      // Input Sanitization & Payload Checks
+      let name = rawName.trim();
+      let email = rawEmail.trim();
+      let role = rawRole;
+      let password = rawPassword;
+
+      if (window.ClockEESecurity) {
+        name = window.ClockEESecurity.InputSanitizer.sanitizeText(name, 60);
+        role = window.ClockEESecurity.InputSanitizer.sanitizeText(role, 60);
+        
+        if (!name || name.length < 2) {
+          showAlert("Student Name must be at least 2 characters.", true);
+          return;
+        }
+        const emailCheck = window.ClockEESecurity.InputSanitizer.validateEmail(email);
+        if (!emailCheck.valid) {
+          showAlert(emailCheck.error, true);
+          return;
+        }
+        const pwdCheck = window.ClockEESecurity.InputSanitizer.validatePassword(password);
+        if (!pwdCheck.valid) {
+          showAlert(pwdCheck.error, true);
+          return;
+        }
       }
 
       btn.disabled = true;
@@ -1030,11 +1130,26 @@
           }
         }
 
+        if (window.ClockEESecurity) window.ClockEESecurity.RateLimiter.recordAttempt('auth_signup', true);
         finalizeUserLogin(userRecord || { uid: "user_" + Date.now().toString(36), email, name, role });
       } catch (err) {
-        btn.disabled = false;
-        btn.innerHTML = `<span>Create Cloud Profile</span> ✓`;
-        showAlert(err.message.replace('Firebase: ', '').replace('(auth/', '').replace(').', ''));
+        let errorMsg = err.message.replace('Firebase: ', '').replace('(auth/', '').replace(').', '');
+        if (window.ClockEESecurity) {
+          const rec = window.ClockEESecurity.RateLimiter.recordAttempt('auth_signup', false);
+          btn.disabled = rec.locked;
+          if (rec.locked) {
+            btn.innerHTML = `<span>🔒 Locked for 15m</span>`;
+            showAlert(rec.error, true);
+          } else {
+            btn.disabled = false;
+            btn.innerHTML = `<span>Create Cloud Profile</span> ✓`;
+            showAlert(`${errorMsg}. (${rec.remainingAttempts} attempt(s) remaining)`, true);
+          }
+        } else {
+          btn.disabled = false;
+          btn.innerHTML = `<span>Create Cloud Profile</span> ✓`;
+          showAlert(errorMsg, true);
+        }
       }
     };
 
@@ -1092,7 +1207,7 @@
             jeeDate: "2028-05-17",
             nextMilestone: { date: "2026-11-15", title: "Phase Major Test #01" },
             settings: { dynamicAura: true, auraTheme: "cyan_indigo", auraSpeed: "fluid" },
-            apiKeys: { ticktick: "tp_3528d202c4994ae28371f86be1c7e419", gemini: "", cloudUrl: "https://clockee-app-default-rtdb.asia-southeast1.firebasedatabase.app" },
+            apiKeys: { ticktick: (window.CLOCKEE_ENV?.TICKTICK_TOKEN || ""), gemini: (window.CLOCKEE_ENV?.GEMINI_KEY || ""), cloudUrl: "https://clockee-app-default-rtdb.asia-southeast1.firebasedatabase.app" },
             tasks: [],
             stats: { hoursToday: 0.0, streakDays: 0, questionsSolved: { Physics: 0, Chemistry: 0, Maths: 0 }, todayTarget: 90 },
             questionLogs: [],
@@ -1110,10 +1225,23 @@
     }
 
     window.handleForgotPassword = function() {
+      // Rate limit check: Max 5 attempts per 15 minutes
+      if (window.ClockEESecurity) {
+        const rate = window.ClockEESecurity.RateLimiter.check('auth_forgot');
+        if (!rate.allowed) {
+          showAlert(rate.error, true);
+          return;
+        }
+      }
+
       const email = document.getElementById('signInEmail').value.trim();
-      if (!email) {
-        showAlert("Enter your email address first to reset password.");
-        return;
+      if (window.ClockEESecurity) {
+        const check = window.ClockEESecurity.InputSanitizer.validateEmail(email);
+        if (!check.valid) {
+          showAlert(check.error, true);
+          return;
+        }
+        window.ClockEESecurity.RateLimiter.recordAttempt('auth_forgot', false);
       }
       showAlert(`Password reset instructions dispatched to ${email}`, false);
     };

@@ -20,7 +20,7 @@
 | 🐻 **Interactive Mascot Portal** | **[Launch Login & Mascot Sandbox](https://galacticzenpai.github.io/ClockEE/login.html)** | Cyber-Bear interactive mascot with gaze tracking, blush, and password eye-covering |
 | 🎯 **Tactical Pace Benchmark Sprint** | **[Launch Question Sprint Arena](https://galacticzenpai.github.io/ClockEE/timer.html)** | Sub-second lap cadence, JEE +4/-1 scoring, and error autopsy uploader |
 | 📚 **Coaching Syllabus Matrix** | **[Launch Coaching Matrix](https://galacticzenpai.github.io/ClockEE/coaching.html)** | PCM Milestone blocks, fuzzy chapter match, and cyber checkboxes |
-| ☁️ **Cloud Student Admin Roster** | **[Launch Cloud Admin Portal](https://galacticzenpai.github.io/ClockEE/admin.html)** | Real-time multi-aspirant roster management, database ping & diagnostics |
+| ☁️ **Cloud Student Admin Roster** | Real-time multi-aspirant roster management, database ping & diagnostics |
 
 ---
 
@@ -153,7 +153,6 @@ flowchart TD
         CoachingModule["Syllabus Coverage & PCM Milestones (coaching.html)"]
         CBTModule["Crash-Proof CBT Exam Arena & Analysis (cbt_*.html)"]
         InspirationModule["Vision Board & Tactical AI Advisor (inspiration.html)"]
-        AdminModule["Multi-User Roster & Diagnostics (admin.html)"]
     end
     
     CoreEngine --> ModuleEcosystem
@@ -179,7 +178,6 @@ ClockEE/
 ├── task.html                    # Task Command Terminal & Kanban Matrix
 ├── today.html                   # Daily Vitals & html2canvas Report Card Generator
 ├── settings.html                # Master Settings, 8 Nebula Themes & Reactive Accent Swatches
-├── admin.html                   # Cloud Student Manager, Firebase Health & Student Editing
 ├── login.html                   # Whimsical Cyber-Bear Mascot, Google Sign-In & Auth
 ├── clockee_core.js              # Universal Reactive Core, Web Audio & Cloud Sync Engine
 ├── README.md                    # Project Documentation & Hackathon Pitch
@@ -216,7 +214,7 @@ For hackathon judges and evaluators, pre-seeded test accounts and administrative
 | :--- | :--- | :--- | :--- |
 | 🧑‍🎓 **Student Alpha (Active)** | `alpha@clockee.app` | `password123` | Active aspirant account pre-seeded with solved questions, streaks, and syllabus progress |
 | 🧑‍💻 **Student Beta (Isolated)** | `beta@clockee.app` | `password456` | Secondary aspirant account demonstrating 100% strict multi-user client & cloud isolation |
-| 🛡️ **Admin & Mentor Panel** | `admin.html` | `2028` | Multi-user roster manager, live Firebase connection health, and custom question injector |
+| 🛡️ **Admin & Mentor Panel** | Multi-user roster manager, live Firebase connection health, and custom question injector |
 | 🚀 **Guest Sandbox** | 1-Click Launch | *None* | Direct instant bypass into the complete suite with zero signup friction |
 
 ---

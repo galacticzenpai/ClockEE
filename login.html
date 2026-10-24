@@ -183,104 +183,162 @@
     .egg-calculus { top: 220px; right: -25px; animation: floatBob1 5.5s infinite ease-in-out; }
     .egg-trophy { bottom: -15px; right: 20px; animation: floatBob1 6s infinite ease-in-out; }
 
-    /* Friendly Cyber-Bear Mascot Styles */
+    /* ─── Miss Minutes TVA Style Interactive ClockEE Mascot ─── */
     .mascot-stage {
       position: relative;
       width: 100%;
       max-width: 320px;
       margin: 0 auto;
-      padding: 10px 0 4px 0;
+      padding: 6px 0 2px 0;
     }
 
     .mascot-box {
-      width: 210px;
-      height: 185px;
+      width: 225px;
+      height: 220px;
       margin: 0 auto;
       position: relative;
       z-index: 20;
-      filter: drop-shadow(0 14px 30px rgba(0, 0, 0, 0.6));
+      filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.65));
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
-    svg.bear-svg {
+
+    svg.clockee-svg {
       width: 100%;
       height: 100%;
       overflow: visible;
-      animation: mascotBreathe 4.2s infinite ease-in-out;
-    }
-    @keyframes mascotBreathe {
-      0%, 100% { transform: translateY(0) scale(1); }
-      50% { transform: translateY(-4px) scale(1.018); }
+      animation: clockeeFloat 4.2s infinite ease-in-out;
     }
 
-    /* Soft Natural Eye Blinking */
-    .bear-eyelid {
+    @keyframes clockeeFloat {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-6px) rotate(1.2deg); }
+    }
+
+    /* Continuous Sweeping Second Hand */
+    #clockSecondHand {
+      transform-origin: 120px 115px;
+      animation: sweepSecondHand 60s steps(60) infinite;
+    }
+    @keyframes sweepSecondHand {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Eye Blinking */
+    .clock-eyelid {
       transform-origin: 50% 50%;
-      animation: eyeBlink 4.5s infinite ease-in-out;
+      animation: clockBlink 4.5s infinite ease-in-out;
     }
-    @keyframes eyeBlink {
-      0%, 92%, 96%, 100% { transform: scaleY(0); opacity: 0; }
-      94% { transform: scaleY(1); opacity: 1; }
-    }
-
-    /* Quirky Ear Twitch */
-    .bear-ear-left {
-      transform-origin: 45px 50px;
-      animation: earTwitchLeft 6.5s infinite ease-in-out;
-    }
-    .bear-ear-right {
-      transform-origin: 155px 50px;
-      animation: earTwitchRight 6.5s infinite ease-in-out 3.2s;
-    }
-    @keyframes earTwitchLeft {
-      0%, 88%, 100% { transform: rotate(0deg); }
-      92% { transform: rotate(-8deg); }
-      96% { transform: rotate(6deg); }
-    }
-    @keyframes earTwitchRight {
-      0%, 88%, 100% { transform: rotate(0deg); }
-      92% { transform: rotate(8deg); }
-      96% { transform: rotate(-6deg); }
+    @keyframes clockBlink {
+      0%, 93%, 97%, 100% { transform: scaleY(0); opacity: 0; }
+      95% { transform: scaleY(1); opacity: 1; }
     }
 
-    .bear-brow {
-      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-      transform-origin: center;
+    /* Rubber-Hose Arms & White Gloves */
+    .clock-arm {
+      transition: transform 0.38s cubic-bezier(0.34, 1.56, 0.64, 1);
+      transform-origin: 120px 115px;
+    }
+    .arm-left {
+      transform-origin: 60px 125px;
+    }
+    .arm-right {
+      transform-origin: 180px 125px;
     }
 
-    .bear-arm {
-      transition: transform 0.42s cubic-bezier(0.34, 1.56, 0.64, 1);
-      transform-origin: center bottom;
-    }
-    .bear-pupil {
-      transition: transform 0.08s ease-out;
+    /* Pupils Dynamic Tracking */
+    .clock-pupil {
+      transition: transform 0.12s ease-out;
     }
 
-    /* Mascot Action States */
-    .covering-eyes .left-arm {
-      transform: translateY(-90px) rotate(16deg);
+    /* ─── 1. Looking Sideways for Email / Name Input ─── */
+    .looking-sideways {
+      transform: rotate(5deg) translateX(12px) scale(1.03);
     }
-    .covering-eyes .right-arm {
-      transform: translateY(-90px) rotate(-16deg);
+    .looking-sideways #pupilLeft {
+      transform: translate(9px, 2px);
     }
-    .covering-eyes .bear-brow {
-      transform: translateY(-2px) rotate(4deg);
+    .looking-sideways #pupilRight {
+      transform: translate(9px, 2px);
+    }
+    .looking-sideways .arm-right {
+      transform: translate(10px, 8px) rotate(24deg);
+    }
+    .looking-sideways .arm-left {
+      transform: translate(-4px, 12px) rotate(-14deg);
     }
 
-    .peeking .left-arm {
-      transform: translateY(-70px) translateX(-12px) rotate(30deg);
+    /* ─── 2. Covering Eyes on Password Input Focus ─── */
+    .covering-eyes .arm-left {
+      transform: translate(46px, 18px) rotate(52deg);
     }
-    .peeking .right-arm {
-      transform: translateY(-90px) rotate(-16deg);
+    .covering-eyes .arm-right {
+      transform: translate(-46px, 18px) rotate(-52deg);
     }
-    
-    /* Blush reaction */
-    .cheeks {
-      transition: all 0.3s ease;
-      opacity: 0.55;
+
+    /* ─── 3. Peeking on Toggle Password Show ─── */
+    .peeking .arm-left {
+      transform: translate(28px, 32px) rotate(26deg);
     }
-    .cheeks.blushing {
+    .peeking .arm-right {
+      transform: translate(-46px, 18px) rotate(-52deg);
+    }
+    .peeking #pupilLeft {
+      transform: translate(4px, 1px);
+    }
+
+    /* ─── 4. Reacting to Weak / Not Strong Password ─── */
+    .weak-password {
+      animation: clockeeWobble 0.7s infinite ease-in-out;
+    }
+    @keyframes clockeeWobble {
+      0%, 100% { transform: rotate(-3deg); }
+      50% { transform: rotate(3deg); }
+    }
+    .weak-password #mouthHappy { opacity: 0; }
+    .weak-password #mouthWorried { opacity: 1 !important; }
+    .weak-password #clockSweat { opacity: 1 !important; }
+    .weak-password #clockHourHand, .weak-password #clockMinuteHand {
+      animation: jitterHands 0.25s infinite ease-in-out;
+    }
+    @keyframes jitterHands {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(18deg); }
+    }
+
+    /* ─── 5. Reacting to Strong Password (AIR 1 Vault) ─── */
+    .strong-password #starLeft, .strong-password #starRight {
+      opacity: 1 !important;
+    }
+    .strong-password .cheeks {
       opacity: 1 !important;
       fill: #ff2a6d !important;
       filter: drop-shadow(0 0 10px #ff2a6d);
+    }
+    .strong-password #clockFace {
+      filter: drop-shadow(0 0 14px rgba(245, 158, 11, 0.7));
+    }
+
+    /* ─── 6. Reacting to Incorrect Password / Auth Failure ─── */
+    .alarm-state {
+      animation: clockeeShake 0.45s ease-in-out;
+    }
+    @keyframes clockeeShake {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-16px); }
+      40%, 80% { transform: translateX(16px); }
+    }
+    .alarm-state #clockFace {
+      fill: #dc2626 !important;
+      filter: url(#alarmRedGlow) !important;
+    }
+    .alarm-state #mouthHappy { opacity: 0; }
+    .alarm-state #mouthAlarmed { opacity: 1 !important; }
+    .alarm-state .arm-left {
+      transform: translate(22px, 36px) rotate(48deg);
+    }
+    .alarm-state .arm-right {
+      transform: translate(-22px, 36px) rotate(-48deg);
     }
 
     /* Happy Crescent Eyes */
@@ -292,30 +350,41 @@
     .show-happy-eyes .happy-eyes {
       opacity: 1 !important;
     }
-    .show-happy-eyes .normal-eyes {
+    .show-happy-eyes #normalClockEyes {
       opacity: 0 !important;
+    }
+
+    /* Blush Reaction */
+    .cheeks {
+      transition: all 0.3s ease;
+      opacity: 0.35;
+    }
+    .cheeks.blushing {
+      opacity: 1 !important;
+      fill: #ff2a6d !important;
+      filter: drop-shadow(0 0 10px #ff2a6d);
     }
 
     /* Speech Bubble */
     .speech-bubble {
       position: absolute;
-      top: -46px;
+      top: -48px;
       left: 50%;
       transform: translateX(-50%) scale(0.9);
-      background: rgba(13, 18, 38, 0.94);
-      border: 1px solid rgba(0, 242, 254, 0.4);
+      background: rgba(15, 23, 42, 0.95);
+      border: 1.5px solid #f97316;
       padding: 7px 16px;
       border-radius: 14px;
       font-size: 0.74rem;
-      font-weight: 700;
-      color: #38bdf8;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.7), 0 0 18px rgba(0, 242, 254, 0.3);
+      font-weight: 800;
+      color: #fed7aa;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.7), 0 0 18px rgba(249, 115, 22, 0.35);
       white-space: nowrap;
       pointer-events: none;
       opacity: 0;
       transition: all 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
       z-index: 50;
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(14px);
     }
     .speech-bubble::after {
       content: '';
@@ -325,7 +394,7 @@
       transform: translateX(-50%);
       border-width: 6px 6px 0;
       border-style: solid;
-      border-color: rgba(13, 18, 38, 0.95) transparent;
+      border-color: rgba(15, 23, 42, 0.98) transparent;
       display: block;
       width: 0;
     }
@@ -334,7 +403,70 @@
       transform: translateX(-50%) scale(1);
     }
 
-    /* Form Input Controls */
+    /* ─── Interactive Tour Screen Overlay Styles ─── */
+    .tour-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(4, 7, 18, 0.82);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 999990;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+    }
+    .tour-backdrop.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .tour-mascot-agent {
+      position: fixed;
+      z-index: 999998;
+      width: 170px;
+      height: 170px;
+      pointer-events: none;
+      transition: all 0.65s cubic-bezier(0.34, 1.35, 0.64, 1);
+      opacity: 0;
+      transform: scale(0.6);
+      filter: drop-shadow(0 16px 36px rgba(249, 115, 22, 0.45));
+    }
+    .tour-mascot-agent.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .tour-modal-card {
+      position: fixed;
+      z-index: 999999;
+      width: 90%;
+      max-width: 420px;
+      background: rgba(13, 19, 36, 0.96);
+      border: 1.5px solid rgba(249, 115, 22, 0.5);
+      border-radius: 24px;
+      padding: 22px 26px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 35px rgba(249, 115, 22, 0.25);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      transition: all 0.5s cubic-bezier(0.34, 1.3, 0.64, 1);
+      opacity: 0;
+      transform: scale(0.9) translateY(20px);
+      pointer-events: none;
+    }
+    .tour-modal-card.active {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+      pointer-events: auto;
+    }
+
+    .tour-highlight-target {
+      position: relative !important;
+      z-index: 999995 !important;
+      box-shadow: 0 0 0 4px #f97316, 0 0 30px rgba(249, 115, 22, 0.55) !important;
+      border-radius: 16px !important;
+      transition: all 0.3s ease !important;
+    }
+/* Form Input Controls */
     .form-input {
       width: 100%;
       background: rgba(7, 10, 19, 0.75);
@@ -411,184 +543,237 @@
     <div class="w-full max-w-5xl mx-auto relative z-10 my-auto py-4 px-3 sm:px-6">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center justify-center">
 
-      <!-- LEFT COLUMN: Friendly Interactive Mascot & Hero Stage -->
-      <div class="lg:col-span-5 flex flex-col items-center text-center space-y-4 relative py-2">
+      <!-- LEFT COLUMN: Miss Minutes TVA Style Interactive Clock Mascot & Stage -->
+      <div class="lg:col-span-5 flex flex-col items-center text-center space-y-3 relative py-1">
         
-        <!-- Brand Title -->
-        <div class="space-y-1">
+        <!-- Brand Title & On-Screen Tour Action -->
+        <div class="space-y-1.5 flex flex-col items-center">
           <div class="flex items-center justify-center gap-2">
             <h1 class="text-2xl sm:text-3xl font-black tracking-tight text-white flex items-center gap-2">
-              <span>Clock<span class="text-cyan-400">EE</span></span>
-              <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-indigo-950/80 border border-indigo-500/30 text-indigo-300 font-bold">Cloud Sync</span>
+              <span>Clock<span class="text-amber-400">EE</span></span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-amber-950/80 border border-amber-500/40 text-amber-300 font-bold">TVA Chrono-Sync</span>
             </h1>
           </div>
-          <p class="text-xs text-gray-400 font-medium">JEE 2028 Study Engine &amp; CBT Portal Access</p>
+          <p class="text-xs text-gray-400 font-medium">For All Time. Always. • JEE Advanced 2028</p>
+
+          <!-- On-Screen Tour Action Pill -->
+          <button 
+            type="button" 
+            id="btnStartTour" 
+            onclick="startMascotTour()" 
+            class="mt-1 px-4 py-1.5 rounded-full bg-gradient-to-r from-amber-500/25 to-orange-500/25 hover:from-amber-500/40 hover:to-orange-500/40 text-amber-300 border border-amber-400/50 text-xs font-black shadow-[0_0_20px_rgba(245,158,11,0.25)] flex items-center gap-2 transition cursor-pointer backdrop-blur-xl"
+            title="Start step-by-step feature tour with Miss ClockEE"
+          >
+            <span class="animate-pulse">🚀</span>
+            <span>Interactive Cockpit Tour</span>
+            <span class="text-[9px] font-mono bg-amber-400/20 px-1.5 py-0.5 rounded text-amber-200">Step-by-Step</span>
+          </button>
         </div>
 
         <!-- Whimsical Interactive Mascot Stage -->
         <div class="mascot-stage relative w-full flex flex-col items-center">
           
-          <!-- Floating Easter Egg Icons with Quirky Interactions -->
+          <!-- Floating Easter Egg Science Badges -->
           <div class="easter-egg-badge egg-atom hidden sm:flex" onclick="triggerEasterEgg('atom')" title="Physics Atom: Quantum boost!">⚛️</div>
           <div class="easter-egg-badge egg-flask hidden sm:flex" onclick="triggerEasterEgg('flask')" title="Chemistry Lab: Titration!">🧪</div>
-          <div class="easter-egg-badge egg-rocket hidden sm:flex" onclick="triggerEasterEgg('rocket')" title="Rocket: JEE AIR speed!">🚀</div>
+          <div class="easter-egg-badge egg-rocket hidden sm:flex" onclick="triggerEasterEgg('rocket')" title="Rocket: AIR 1 Velocity!">🚀</div>
           <div class="easter-egg-badge egg-calculus hidden sm:flex" onclick="triggerEasterEgg('calculus')" title="Calculus: Limits &amp; Integrals!">∫</div>
           <div class="easter-egg-badge egg-trophy hidden sm:flex" onclick="triggerEasterEgg('trophy')" title="IIT Bombay Trophy!">🏆</div>
 
           <!-- Comic Speech Bubble -->
           <div id="mascotSpeechBubble" class="speech-bubble">
-            Welcome back, future IITian! 🐻⚡
+            For All Time. Top 50 AIR! ⏰✨
           </div>
 
-          <!-- Friendly Interactive Mascot: Astro-Bear -->
+          <!-- Miss Minutes TVA-Style Clock Mascot SVG -->
           <div class="mascot-box" id="mascotWrapper">
-            <svg class="bear-svg" viewBox="0 0 200 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg class="clockee-svg" viewBox="0 0 240 250" fill="none" xmlns="http://www.w3.org/2000/svg">
               <defs>
-                <filter id="eyeGlow" x="-20%" y="-20%" width="140%" height="140%">
-                  <feGaussianBlur stdDeviation="3.5" result="blur"/>
-                  <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                <filter id="clockShadow" x="-15%" y="-15%" width="130%" height="130%">
+                  <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.55"/>
                 </filter>
-                <filter id="starGlow" x="-30%" y="-30%" width="160%" height="160%">
-                  <feGaussianBlur stdDeviation="3" result="glow"/>
-                  <feComposite in="SourceGraphic" in2="glow" operator="over"/>
+                <filter id="alarmRedGlow" x="-30%" y="-30%" width="160%" height="160%">
+                  <feDropShadow dx="0" dy="0" stdDeviation="14" flood-color="#ef4444" flood-opacity="0.8"/>
                 </filter>
-                <linearGradient id="bearBody" x1="0" y1="0" x2="200" y2="180" gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#212644"/>
-                  <stop offset="0.6" stop-color="#14182b"/>
-                  <stop offset="1" stop-color="#0c0e1a"/>
+                <radialGradient id="clockDialGrad" cx="45%" cy="40%" r="65%">
+                  <stop offset="0%" stop-color="#ff9233"/>
+                  <stop offset="60%" stop-color="#f97316"/>
+                  <stop offset="100%" stop-color="#c2410c"/>
+                </radialGradient>
+                <linearGradient id="clockRimGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#475569"/>
+                  <stop offset="100%" stop-color="#0f172a"/>
                 </linearGradient>
-                <linearGradient id="earInner" x1="0" y1="0" x2="1" y2="1">
-                  <stop stop-color="#818cf8"/>
-                  <stop offset="1" stop-color="#00f2fe"/>
-                </linearGradient>
-                <linearGradient id="snoutGrad" x1="0" y1="0" x2="0" y2="1">
-                  <stop stop-color="#1e243d"/>
-                  <stop offset="1" stop-color="#141728"/>
-                </linearGradient>
-                <linearGradient id="pupilGrad" x1="0" y1="0" x2="1" y2="1">
-                  <stop stop-color="#00f2fe"/>
-                  <stop offset="1" stop-color="#38bdf8"/>
-                </linearGradient>
+                <path id="textArc" d="M 62 82 A 66 66 0 0 1 178 82" fill="none"/>
               </defs>
 
-              <!-- Head Group -->
-              <g id="bearHeadGroup">
-                <!-- Ears with Soft Twitch Animations -->
-                <g class="bear-ear-left">
-                  <circle cx="45" cy="48" r="24" fill="url(#bearBody)" stroke="#6366f1" stroke-width="2.5"/>
-                  <circle cx="45" cy="48" r="13" fill="url(#earInner)" opacity="0.65"/>
-                </g>
-                <g class="bear-ear-right">
-                  <circle cx="155" cy="48" r="24" fill="url(#bearBody)" stroke="#6366f1" stroke-width="2.5"/>
-                  <circle cx="155" cy="48" r="13" fill="url(#earInner)" opacity="0.65"/>
+              <!-- LEGS & RETRO WHITE CARTOON SHOES -->
+              <g id="clockLegsGroup">
+                <path id="legLeft" d="M 104 175 Q 98 200 90 220" stroke="#0f172a" stroke-width="6.5" stroke-linecap="round" fill="none"/>
+                <g id="shoeLeft" transform="translate(72, 212)">
+                  <ellipse cx="20" cy="14" rx="19" ry="11" fill="#ffffff" stroke="#0f172a" stroke-width="3"/>
+                  <path d="M 3 16 C 5 21, 35 21, 37 16" fill="#0f172a"/>
+                  <circle cx="21" cy="7" r="4.5" fill="#f8fafc" stroke="#0f172a" stroke-width="2"/>
                 </g>
 
-                <!-- Adorable Rounded Head Frame -->
-                <rect x="25" y="36" width="150" height="122" rx="61" fill="url(#bearBody)" stroke="rgba(0, 242, 254, 0.3)" stroke-width="2"/>
-                <path d="M45 48 C 75 39, 125 39, 155 48" stroke="rgba(255,255,255,0.18)" stroke-width="2" stroke-linecap="round"/>
-
-                <!-- Cute Friendly Eyebrows -->
-                <path id="browLeft" class="bear-brow" d="M56 70 C63 65, 77 65, 84 70" stroke="#38bdf8" stroke-width="3" stroke-linecap="round"/>
-                <path id="browRight" class="bear-brow" d="M116 70 C123 65, 137 65, 144 70" stroke="#38bdf8" stroke-width="3" stroke-linecap="round"/>
-
-                <!-- Soft Rosy Cheeks -->
-                <ellipse id="cheekLeft" class="cheeks" cx="54" cy="115" rx="10" ry="6" fill="#f43f5e"/>
-                <ellipse id="cheekRight" class="cheeks" cx="146" cy="115" rx="10" ry="6" fill="#f43f5e"/>
-
-                <!-- Snout Base -->
-                <ellipse cx="100" cy="116" rx="28" ry="19" fill="url(#snoutGrad)" stroke="rgba(0, 242, 254, 0.25)" stroke-width="1.5"/>
-
-                <!-- Cute Friendly Smile -->
-                <path id="mouthDefault" d="M91 121 C95 125, 105 125, 109 121" stroke="#cbd5e1" stroke-width="2.2" stroke-linecap="round"/>
-
-                <!-- Squishy Glowing Interactive Nose -->
-                <g id="bearNose" class="cursor-pointer" onclick="handleNoseClick()" title="Boop my nose! 🐾">
-                  <ellipse cx="100" cy="108" rx="8" ry="5.5" fill="#00f2fe" filter="url(#eyeGlow)"/>
-                  <ellipse cx="98" cy="106.5" rx="2" ry="1.2" fill="#ffffff"/>
-                  <path d="M100 113.5 V117" stroke="#cbd5e1" stroke-width="1.8" stroke-linecap="round"/>
-                </g>
-
-                <!-- Normal Eyes Container -->
-                <g id="normalEyesGroup" class="normal-eyes">
-                  <!-- Left Eye -->
-                  <ellipse cx="70" cy="89" rx="15" ry="17" fill="#070914" stroke="#4facfe" stroke-width="2"/>
-                  <g id="pupilLeft" class="bear-pupil">
-                    <circle cx="70" cy="89" r="8" fill="url(#pupilGrad)" filter="url(#eyeGlow)"/>
-                    <!-- Specular Highlights (Give Life to Eyes!) -->
-                    <circle cx="67.5" cy="86.5" r="2.8" fill="#ffffff"/>
-                    <circle cx="73" cy="92.5" r="1.3" fill="#ffffff" opacity="0.9"/>
-                    <!-- Star Glint for 100% password -->
-                    <text id="starLeft" x="65" y="93" font-size="9" fill="#fbbf24" opacity="0" filter="url(#starGlow)">★</text>
-                  </g>
-                  <!-- Animated Blinking Eyelid -->
-                  <ellipse class="bear-eyelid" cx="70" cy="89" rx="15" ry="17" fill="#14182b"/>
-
-                  <!-- Right Eye -->
-                  <ellipse cx="130" cy="89" rx="15" ry="17" fill="#070914" stroke="#4facfe" stroke-width="2"/>
-                  <g id="pupilRight" class="bear-pupil">
-                    <circle cx="130" cy="89" r="8" fill="url(#pupilGrad)" filter="url(#eyeGlow)"/>
-                    <!-- Specular Highlights -->
-                    <circle cx="127.5" cy="86.5" r="2.8" fill="#ffffff"/>
-                    <circle cx="133" cy="92.5" r="1.3" fill="#ffffff" opacity="0.9"/>
-                    <!-- Star Glint -->
-                    <text id="starRight" x="125" y="93" font-size="9" fill="#fbbf24" opacity="0" filter="url(#starGlow)">★</text>
-                  </g>
-                  <!-- Animated Blinking Eyelid -->
-                  <ellipse class="bear-eyelid" cx="130" cy="89" rx="15" ry="17" fill="#14182b"/>
-                </g>
-
-                <!-- Happy Crescent Eyes (shown during boop / celebration) -->
-                <g id="happyEyesGroup" class="happy-eyes">
-                  <path d="M57 91 C62 82, 78 82, 83 91" stroke="#00f2fe" stroke-width="3.5" stroke-linecap="round" fill="none" filter="url(#eyeGlow)"/>
-                  <path d="M117 91 C122 82, 138 82, 143 91" stroke="#00f2fe" stroke-width="3.5" stroke-linecap="round" fill="none" filter="url(#eyeGlow)"/>
-                </g>
-
-                <!-- Nervous Sweat Drop for Weak Passwords -->
-                <g id="mascotSweat" opacity="0" transform="translate(164, 72)">
-                  <path d="M0 8 C-3 8 -5 5 -5 2 C-5 -2 0 -7 0 -7 C0 -7 5 -2 5 2 C5 5 3 8 0 8 Z" fill="#38bdf8"/>
+                <path id="legRight" d="M 136 175 Q 142 200 150 220" stroke="#0f172a" stroke-width="6.5" stroke-linecap="round" fill="none"/>
+                <g id="shoeRight" transform="translate(132, 212)">
+                  <ellipse cx="20" cy="14" rx="19" ry="11" fill="#ffffff" stroke="#0f172a" stroke-width="3"/>
+                  <path d="M 3 16 C 5 21, 35 21, 37 16" fill="#0f172a"/>
+                  <circle cx="21" cy="7" r="4.5" fill="#f8fafc" stroke="#0f172a" stroke-width="2"/>
                 </g>
               </g>
 
-              <!-- Robotic Paws (Slide up and cover eyes) -->
-              <g id="armLeft" class="bear-arm left-arm" style="transform-origin: 38px 175px;">
-                <path d="M28 175C28 150 46 140 66 150C80 157 82 175 82 175H28Z" fill="#181c2e" stroke="#4facfe" stroke-width="2.5"/>
-                <circle cx="55" cy="157" r="8" fill="#00f2fe" opacity="0.6"/>
-                <circle cx="43" cy="151" r="2.8" fill="#6366f1"/>
-                <circle cx="55" cy="146" r="2.8" fill="#6366f1"/>
-                <circle cx="67" cy="151" r="2.8" fill="#6366f1"/>
+              <!-- CLOCK BODY & DIAL -->
+              <g id="clockBodyGroup" filter="url(#clockShadow)">
+                <circle id="clockOuterRim" cx="120" cy="115" r="72" fill="url(#clockRimGrad)" stroke="#1e293b" stroke-width="3"/>
+                <circle id="clockFace" cx="120" cy="115" r="68" fill="url(#clockDialGrad)" stroke="#0f172a" stroke-width="4"/>
+
+                <!-- Retro Curved Banner Text -->
+                <text font-family="'JetBrains Mono', 'Plus Jakarta Sans', sans-serif" font-size="7.8" font-weight="900" fill="#0f172a" letter-spacing="1">
+                  <textPath href="#textArc" startOffset="50%" text-anchor="middle">FOR ALL TIME. TOP 50 AIR.</textPath>
+                </text>
+
+                <!-- 12 Hour Dial Tick Marks -->
+                <rect x="117.5" y="51" width="5" height="13" rx="2" fill="#0f172a"/>
+                <rect x="174" y="112.5" width="13" height="5" rx="2" fill="#0f172a"/>
+                <rect x="117.5" y="169" width="5" height="13" rx="2" fill="#0f172a"/>
+                <rect x="53" y="112.5" width="13" height="5" rx="2" fill="#0f172a"/>
+
+                <!-- Minor Ticks -->
+                <line x1="152" y1="63" x2="147" y2="72" stroke="#0f172a" stroke-width="3" stroke-linecap="round"/>
+                <line x1="172" y1="83" x2="163" y2="88" stroke="#0f172a" stroke-width="3" stroke-linecap="round"/>
+                <line x1="172" y1="147" x2="163" y2="142" stroke="#0f172a" stroke-width="3" stroke-linecap="round"/>
+                <line x1="152" y1="167" x2="147" y2="158" stroke="#0f172a" stroke-width="3" stroke-linecap="round"/>
+                <line x1="88" y1="167" x2="93" y2="158" stroke="#0f172a" stroke-width="3" stroke-linecap="round"/>
+                <line x1="68" y1="147" x2="77" y2="142" stroke="#0f172a" stroke-width="3" stroke-linecap="round"/>
+                <line x1="68" y1="83" x2="77" y2="88" stroke="#0f172a" stroke-width="3" stroke-linecap="round"/>
+                <line x1="88" y1="63" x2="93" y2="72" stroke="#0f172a" stroke-width="3" stroke-linecap="round"/>
+
+                <!-- CLOCK HANDS -->
+                <g id="clockHandsSubgroup">
+                  <line id="clockHourHand" x1="120" y1="115" x2="120" y2="84" stroke="#0f172a" stroke-width="5" stroke-linecap="round" transform="rotate(-52, 120, 115)"/>
+                  <line id="clockMinuteHand" x1="120" y1="115" x2="120" y2="72" stroke="#0f172a" stroke-width="4.2" stroke-linecap="round" transform="rotate(48, 120, 115)"/>
+                  <line id="clockSecondHand" x1="120" y1="126" x2="120" y2="65" stroke="#ef4444" stroke-width="2" stroke-linecap="round" transform="rotate(18, 120, 115)"/>
+                  <circle cx="120" cy="122" r="3" fill="#ef4444"/>
+                  <circle cx="120" cy="115" r="5" fill="#dc2626" stroke="#0f172a" stroke-width="1.8"/>
+                </g>
+
+                <!-- VINTAGE RETRO CARTOON EYES -->
+                <g id="clockEyesContainer">
+                  <g id="normalClockEyes">
+                    <!-- Left Eye -->
+                    <ellipse id="eyeSocketLeft" cx="102" cy="98" rx="13.5" ry="22" fill="#ffffff" stroke="#0f172a" stroke-width="3.5"/>
+                    <g id="pupilLeft" class="clock-pupil">
+                      <ellipse cx="102" cy="98" rx="7.5" ry="16" fill="#0f172a"/>
+                      <ellipse cx="100" cy="92" rx="3" ry="7" fill="#ffffff"/>
+                      <circle cx="104" cy="104" r="1.5" fill="#ffffff"/>
+                      <text id="starLeft" x="97" y="103" font-size="12" fill="#fbbf24" opacity="0" font-weight="900">★</text>
+                    </g>
+                    <path d="M 92 78 Q 102 75 112 79" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+
+                    <!-- Right Eye -->
+                    <ellipse id="eyeSocketRight" cx="138" cy="98" rx="13.5" ry="22" fill="#ffffff" stroke="#0f172a" stroke-width="3.5"/>
+                    <g id="pupilRight" class="clock-pupil">
+                      <ellipse cx="138" cy="98" rx="7.5" ry="16" fill="#0f172a"/>
+                      <ellipse cx="136" cy="92" rx="3" ry="7" fill="#ffffff"/>
+                      <circle cx="140" cy="104" r="1.5" fill="#ffffff"/>
+                      <text id="starRight" x="133" y="103" font-size="12" fill="#fbbf24" opacity="0" font-weight="900">★</text>
+                    </g>
+                    <path d="M 128 79 Q 138 75 148 78" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                  </g>
+
+                  <!-- Happy Crescent Eyes -->
+                  <g id="happyClockEyes" class="happy-eyes">
+                    <path d="M 89 101 C 94 88, 110 88, 115 101" stroke="#0f172a" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+                    <path d="M 125 101 C 130 88, 146 88, 151 101" stroke="#0f172a" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+                  </g>
+                </g>
+
+                <!-- Soft Cheeks -->
+                <ellipse id="cheekLeft" class="cheeks" cx="86" cy="120" rx="9" ry="5.5" fill="#f43f5e" opacity="0.35"/>
+                <ellipse id="cheekRight" class="cheeks" cx="154" cy="120" rx="9" ry="5.5" fill="#f43f5e" opacity="0.35"/>
+
+                <!-- MOUTHS -->
+                <g id="clockMouthGroup">
+                  <!-- Happy Smile -->
+                  <g id="mouthHappy">
+                    <path d="M 88 126 C 94 140, 146 140, 152 126" stroke="#0f172a" stroke-width="4" stroke-linecap="round" fill="#ffffff"/>
+                    <path d="M 84 123 Q 87 128 89 130" stroke="#0f172a" stroke-width="3" stroke-linecap="round" fill="none"/>
+                    <path d="M 156 123 Q 153 128 151 130" stroke="#0f172a" stroke-width="3" stroke-linecap="round" fill="none"/>
+                    <path d="M 112 138 C 114 133, 126 133, 128 138" fill="#f43f5e"/>
+                  </g>
+                  <!-- Worried Mouth -->
+                  <path id="mouthWorried" opacity="0" d="M 96 132 Q 106 126 118 134 Q 130 142 142 130" stroke="#0f172a" stroke-width="3.8" stroke-linecap="round" fill="none"/>
+                  <!-- Alarmed Mouth -->
+                  <ellipse id="mouthAlarmed" opacity="0" cx="120" cy="133" rx="10" ry="14" fill="#0f172a" stroke="#ffffff" stroke-width="2"/>
+                </g>
+
+                <!-- Weak Password Sweat Drop -->
+                <g id="clockSweat" opacity="0" transform="translate(170, 75)">
+                  <path d="M 0 10 C -4 10 -6 6 -6 2 C -6 -3 0 -9 0 -9 C 0 -9 6 -3 6 2 C 6 6 4 10 0 10 Z" fill="#38bdf8" stroke="#0f172a" stroke-width="1.5"/>
+                </g>
+
+                <!-- Interactive Boop Nose -->
+                <circle id="clockNose" cx="120" cy="115" r="9" fill="transparent" class="cursor-pointer" onclick="handleNoseClick()" title="Boop Miss ClockEE! ⏰"/>
               </g>
 
-              <g id="armRight" class="bear-arm right-arm" style="transform-origin: 162px 175px;">
-                <path d="M172 175C172 150 154 140 134 150C120 157 118 175 118 175H172Z" fill="#181c2e" stroke="#4facfe" stroke-width="2.5"/>
-                <circle cx="145" cy="157" r="8" fill="#00f2fe" opacity="0.6"/>
-                <circle cx="157" cy="151" r="2.8" fill="#6366f1"/>
-                <circle cx="145" cy="146" r="2.8" fill="#6366f1"/>
-                <circle cx="133" cy="151" r="2.8" fill="#6366f1"/>
+              <!-- CARTOON RUBBER-HOSE ARMS & GLOVES -->
+              <g id="clockArmLeft" class="clock-arm arm-left">
+                <path d="M 60 125 C 38 115, 25 80, 20 60" stroke="#f97316" stroke-width="13" stroke-linecap="round" fill="none"/>
+                <path d="M 60 125 C 38 115, 25 80, 20 60" stroke="#0f172a" stroke-width="17" stroke-linecap="round" fill="none" style="z-index:-1;"/>
+                <path d="M 16 63 L 26 59" stroke="#0f172a" stroke-width="4" stroke-linecap="round"/>
+                <path d="M 18 69 L 28 65" stroke="#0f172a" stroke-width="4" stroke-linecap="round"/>
+                <g id="handLeft" transform="translate(2, 28) rotate(-18)">
+                  <ellipse cx="20" cy="24" rx="12" ry="10" fill="#ffffff" stroke="#0f172a" stroke-width="3"/>
+                  <rect x="18" y="3" width="7.5" height="18" rx="3.5" fill="#ffffff" stroke="#0f172a" stroke-width="2.5" transform="rotate(-15, 20, 10)"/>
+                  <rect x="26" y="5" width="7.5" height="19" rx="3.5" fill="#ffffff" stroke="#0f172a" stroke-width="2.5"/>
+                  <rect x="33" y="10" width="7.5" height="17" rx="3.5" fill="#ffffff" stroke="#0f172a" stroke-width="2.5" transform="rotate(18, 35, 18)"/>
+                  <rect x="10" y="15" width="7" height="13" rx="3.5" fill="#ffffff" stroke="#0f172a" stroke-width="2.5" transform="rotate(-35, 12, 20)"/>
+                  <line x1="22" y1="23" x2="24" y2="30" stroke="#0f172a" stroke-width="2" stroke-linecap="round"/>
+                  <line x1="27" y1="24" x2="29" y2="31" stroke="#0f172a" stroke-width="2" stroke-linecap="round"/>
+                </g>
+              </g>
+
+              <g id="clockArmRight" class="clock-arm arm-right">
+                <path d="M 180 125 C 202 115, 215 80, 220 60" stroke="#f97316" stroke-width="13" stroke-linecap="round" fill="none"/>
+                <path d="M 180 125 C 202 115, 215 80, 220 60" stroke="#0f172a" stroke-width="17" stroke-linecap="round" fill="none" style="z-index:-1;"/>
+                <path d="M 224 63 L 214 59" stroke="#0f172a" stroke-width="4" stroke-linecap="round"/>
+                <path d="M 222 69 L 212 65" stroke="#0f172a" stroke-width="4" stroke-linecap="round"/>
+                <g id="handRight" transform="translate(198, 28) rotate(18)">
+                  <ellipse cx="20" cy="24" rx="12" ry="10" fill="#ffffff" stroke="#0f172a" stroke-width="3"/>
+                  <rect x="14.5" y="3" width="7.5" height="18" rx="3.5" fill="#ffffff" stroke="#0f172a" stroke-width="2.5" transform="rotate(15, 20, 10)"/>
+                  <rect x="6.5" y="5" width="7.5" height="19" rx="3.5" fill="#ffffff" stroke="#0f172a" stroke-width="2.5"/>
+                  <rect x="-0.5" y="10" width="7.5" height="17" rx="3.5" fill="#ffffff" stroke="#0f172a" stroke-width="2.5" transform="rotate(-18, 5, 18)"/>
+                  <rect x="23" y="15" width="7" height="13" rx="3.5" fill="#ffffff" stroke="#0f172a" stroke-width="2.5" transform="rotate(35, 28, 20)"/>
+                  <line x1="18" y1="23" x2="16" y2="30" stroke="#0f172a" stroke-width="2" stroke-linecap="round"/>
+                  <line x1="13" y1="24" x2="11" y2="31" stroke="#0f172a" stroke-width="2" stroke-linecap="round"/>
+                </g>
               </g>
             </svg>
           </div>
 
-          <!-- Mascot Emotional State & Action Pill -->
+          <!-- Dynamic Mood Pill & Boop Button -->
           <div class="mt-2.5 flex items-center gap-2">
-            <div id="mascotMoodBadge" class="text-[11px] font-mono px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-cyan-300 font-bold flex items-center gap-1.5 shadow-sm">
-              <span id="mascotMoodEmoji">😊</span>
-              <span id="mascotMoodText">Friendly &amp; Ready</span>
+            <div id="mascotMoodBadge" class="text-[11px] font-mono px-3 py-1 rounded-full bg-amber-950/60 border border-amber-500/40 text-amber-300 font-bold flex items-center gap-1.5 shadow-sm">
+              <span id="mascotMoodEmoji">⏰</span>
+              <span id="mascotMoodText">For All Time. Ready!</span>
             </div>
-            <button type="button" onclick="handleNoseClick()" class="text-[11px] font-semibold text-slate-300 hover:text-cyan-300 transition px-2.5 py-1 rounded-lg bg-black/40 border border-white/10 hover:border-cyan-400/40" title="Click to boop mascot nose">
-              🐾 Boop Nose!
+            <button type="button" onclick="handleNoseClick()" class="text-[11px] font-semibold text-slate-300 hover:text-amber-300 transition px-2.5 py-1 rounded-lg bg-black/40 border border-white/10 hover:border-amber-400/40" title="Click to boop Miss ClockEE">
+              🐾 Boop Dial!
             </button>
           </div>
 
         </div>
 
-        <!-- Motivational Target Cards -->
+        <!-- Target Metrics -->
         <div class="hidden lg:grid grid-cols-2 gap-2.5 w-full max-w-xs pt-1">
           <div class="p-2.5 rounded-xl bg-white/[0.03] border border-white/10 text-center">
-            <div class="text-[10px] font-mono text-cyan-400 font-bold uppercase tracking-wider">Mission Target</div>
+            <div class="text-[10px] font-mono text-amber-400 font-bold uppercase tracking-wider">Mission Target</div>
             <div class="text-xs font-extrabold text-white">Top 50 AIR 🎯</div>
           </div>
           <div class="p-2.5 rounded-xl bg-white/[0.03] border border-white/10 text-center">
-            <div class="text-[10px] font-mono text-indigo-400 font-bold uppercase tracking-wider">Pacing Cadence</div>
+            <div class="text-[10px] font-mono text-orange-400 font-bold uppercase tracking-wider">Timeline Cadence</div>
             <div class="text-xs font-extrabold text-white">Sub-Second ⏱️</div>
           </div>
         </div>
@@ -796,7 +981,7 @@
   </div>
 
   <script>
-    // ─── 1. Whimsical Mascot Logic (Audio Squeak, Speech, & Reactions) ───
+    // ─── 1. Miss Minutes TVA ClockEE Mascot Logic & Web Audio Synthesizer ───
     const mascot = document.getElementById('mascotWrapper');
     const pupilLeft = document.getElementById('pupilLeft');
     const pupilRight = document.getElementById('pupilRight');
@@ -805,7 +990,82 @@
     const speechBubble = document.getElementById('mascotSpeechBubble');
     const starLeft = document.getElementById('starLeft');
     const starRight = document.getElementById('starRight');
-    const mascotSweat = document.getElementById('mascotSweat');
+    const mascotSweat = document.getElementById('clockSweat');
+
+    let _clockAudioCtx = null;
+    function getAudioCtx() {
+      if (!_clockAudioCtx) {
+        _clockAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      if (_clockAudioCtx.state === 'suspended') {
+        _clockAudioCtx.resume();
+      }
+      return _clockAudioCtx;
+    }
+
+    // Cartoon Boop Squeak Sound
+    function playSqueakSound() {
+      try {
+        const ctx = getAudioCtx();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = "sine";
+        osc.frequency.setValueAtTime(550, ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(1250, ctx.currentTime + 0.08);
+        osc.frequency.exponentialRampToValueAtTime(450, ctx.currentTime + 0.18);
+
+        gain.gain.setValueAtTime(0.3, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.18);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + 0.18);
+      } catch (e) {}
+    }
+
+    // Two-Tone TVA Retro Clock Chime (Ding-Dong for Tour Steps)
+    function playChimeSound() {
+      try {
+        const ctx = getAudioCtx();
+        const notes = [523.25, 659.25, 783.99]; // C5, E5, G5 major triad
+        notes.forEach((freq, idx) => {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = "triangle";
+          osc.frequency.setValueAtTime(freq, ctx.currentTime + idx * 0.09);
+
+          gain.gain.setValueAtTime(0, ctx.currentTime + idx * 0.09);
+          gain.gain.linearRampToValueAtTime(0.2, ctx.currentTime + idx * 0.09 + 0.02);
+          gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + idx * 0.09 + 0.35);
+
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(ctx.currentTime + idx * 0.09);
+          osc.stop(ctx.currentTime + idx * 0.09 + 0.36);
+        });
+      } catch (e) {}
+    }
+
+    // TVA Alert Alarm Buzzer for Incorrect Password / Failed Login
+    function playBuzzerSound() {
+      try {
+        const ctx = getAudioCtx();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = "sawtooth";
+        osc.frequency.setValueAtTime(140, ctx.currentTime);
+        osc.frequency.linearRampToValueAtTime(90, ctx.currentTime + 0.35);
+
+        gain.gain.setValueAtTime(0.35, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.35);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + 0.36);
+      } catch(e) {}
+    }
 
     window.setMascotMood = function(emoji, text, speech = null) {
       const emojiEl = document.getElementById('mascotMoodEmoji');
@@ -821,37 +1081,16 @@
       }
     };
 
-    const JEE_QUOTES = [
-      "Kinematics formula yaad hai na?! 🐻⚡",
-      "Don't fear Rotational Motion! 🐾",
-      "Entropy of your marks will increase! 🚀",
-      "Integration constant '+ C' mat bhoolna! ♾️",
-      "Bhai, 30 questions solve kiye aaj?! 📚",
-      "IIT Bombay Computer Science is waiting! 🏆",
-      "Physics Galaxy + HC Verma = Lethal Combo! ⚛️",
-      "Boop! Brain cells activated! ⚡"
+    const JEE_TVA_QUOTES = [
+      "For All Time. Top 50 AIR! ⏰⚡",
+      "No timeline deviations in Kinematics! 🚀",
+      "Entropy conserved: 30 numericals done today?! 📚",
+      "Rotational motion won't prune your marks! 🐾",
+      "Integration constant '+ C' saved the timeline! ♾️",
+      "IIT Bombay timeline is locked and loaded! 🏆",
+      "Physics Galaxy + HC Verma = Sacred Timeline! ⚛️",
+      "Boop! Brain cells synchronized! ⚡"
     ];
-
-    // Web Audio Synthesizer Squeak for Nose Click
-    function playSqueakSound() {
-      try {
-        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        const osc = audioCtx.createOscillator();
-        const gain = audioCtx.createGain();
-        osc.type = "sine";
-        osc.frequency.setValueAtTime(600, audioCtx.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(1200, audioCtx.currentTime + 0.08);
-        osc.frequency.exponentialRampToValueAtTime(400, audioCtx.currentTime + 0.18);
-
-        gain.gain.setValueAtTime(0.25, audioCtx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.18);
-
-        osc.connect(gain);
-        gain.connect(audioCtx.destination);
-        osc.start();
-        osc.stop(audioCtx.currentTime + 0.18);
-      } catch (e) {}
-    }
 
     window.handleNoseClick = function() {
       playSqueakSound();
@@ -859,23 +1098,23 @@
       cheekRight.classList.add('blushing');
       mascot.classList.add('show-happy-eyes');
 
-      const quote = JEE_QUOTES[Math.floor(Math.random() * JEE_QUOTES.length)];
+      const quote = JEE_TVA_QUOTES[Math.floor(Math.random() * JEE_TVA_QUOTES.length)];
       setMascotMood('🥰', 'Super Happy!', quote);
 
       setTimeout(() => {
         cheekLeft.classList.remove('blushing');
         cheekRight.classList.remove('blushing');
         mascot.classList.remove('show-happy-eyes');
-        setMascotMood('😊', 'Friendly & Ready');
+        setMascotMood('⏰', 'For All Time. Ready!');
       }, 1500);
     };
 
     window.triggerEasterEgg = function(type) {
       playSqueakSound();
       const msgs = {
-        atom: "⚛️ Energy = mc²! Momentum Conserved in Collision!",
-        flask: "🧪 pH = 7.0! Chemical Equilibrium shifted right!",
-        rocket: "🚀 Escape Velocity: 11.2 km/s! Target: IIT Bombay!",
+        atom: "⚛️ Quantum Boost: Momentum Conserved across all Timelines!",
+        flask: "🧪 Titration Equilibrium shifted right! Sacred Timeline intact!",
+        rocket: "🚀 Escape Velocity: 11.2 km/s! Next stop: IIT Bombay!",
         calculus: "∫ Area under curve calculated! Continuous & Differentiable!",
         trophy: "🏆 All India Rank 1 Potential detected! Keep grinding!"
       };
@@ -884,28 +1123,30 @@
       setTimeout(() => speechBubble.classList.remove('active'), 3200);
     };
 
-    // Eye Tracking while typing in any tracking input
+    // ─── 1. Looking Sideways Animation on Email & Name Inputs ───
     document.querySelectorAll('.tracking-input').forEach(input => {
       input.addEventListener('focus', () => {
-        setMascotMood('🧐', 'Attentive & Focused', "Locked in! Let's get that AIR! 🎯");
+        mascot.classList.add('looking-sideways');
+        setMascotMood('🧐', 'Checking Registry...', "I see you, variant! Enter your timeline credentials! ⏳");
       });
 
       input.addEventListener('input', (e) => {
         const len = Math.min(e.target.value.length, 30);
-        const offsetX = (len / 30) * 10 - 5;
-        const offsetY = 3;
+        const offsetX = (len / 30) * 12 + 2;
+        const offsetY = 2;
         pupilLeft.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
         pupilRight.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
       });
 
       input.addEventListener('blur', () => {
+        mascot.classList.remove('looking-sideways');
         pupilLeft.style.transform = 'translate(0px, 0px)';
         pupilRight.style.transform = 'translate(0px, 0px)';
-        setMascotMood('😊', 'Friendly & Ready');
+        setMascotMood('⏰', 'For All Time. Ready!');
       });
     });
 
-    // Paws cover eyes when focusing on any password input
+    // ─── 2. Paws Cover Eyes on Password Input Focus ───
     document.querySelectorAll('.password-input').forEach(pwdInput => {
       pwdInput.addEventListener('focus', () => {
         mascot.classList.add('covering-eyes');
@@ -914,7 +1155,7 @@
 
       pwdInput.addEventListener('blur', () => {
         mascot.classList.remove('covering-eyes', 'peeking');
-        setMascotMood('😊', 'Friendly & Ready');
+        setMascotMood('⏰', 'For All Time. Ready!');
       });
     });
 
@@ -936,7 +1177,7 @@
       }
     };
 
-    // ─── 2. Password Security Evaluation & Live Checklist ───
+    // ─── 3. Password Security Evaluation & Live Reactions ───
     window.evaluatePasswordStrength = function(pwd) {
       const hasLength = pwd.length >= 8;
       const hasUpper = /[A-Z]/.test(pwd);
@@ -967,39 +1208,36 @@
 
       const bar = document.getElementById('strengthBar');
       const label = document.getElementById('strengthLabel');
-
       bar.style.width = `${score}%`;
 
-      if (score < 40) {
+      if (score < 60) {
         bar.className = 'h-full bg-red-500 transition-all duration-300';
         label.className = 'text-red-400 font-bold';
         label.textContent = 'Weak Password';
-        mascotSweat.style.opacity = '1';
+        mascot.classList.add('weak-password');
+        mascot.classList.remove('strong-password');
         starLeft.style.opacity = '0';
         starRight.style.opacity = '0';
-      } else if (score < 75) {
+        setMascotMood('😅', 'Weak Timeline Entropy', "Hold your horses! That password is too weak for the TVA timeline! ⏳");
+      } else if (score < 100) {
         bar.className = 'h-full bg-amber-500 transition-all duration-300';
         label.className = 'text-amber-400 font-bold';
         label.textContent = 'Moderate Password';
-        mascotSweat.style.opacity = '0';
+        mascot.classList.remove('weak-password', 'strong-password');
         starLeft.style.opacity = '0';
         starRight.style.opacity = '0';
-      } else if (score < 100) {
-        bar.className = 'h-full bg-blue-500 transition-all duration-300';
-        label.className = 'text-blue-400 font-bold';
-        label.textContent = 'Strong Password';
-        mascotSweat.style.opacity = '0';
-        starLeft.style.opacity = '0';
-        starRight.style.opacity = '0';
+        setMascotMood('😃', 'Security Rising!', "Looking better! Add special characters & uppercase! 💪");
       } else {
         bar.className = 'h-full bg-emerald-400 transition-all duration-300';
         label.className = 'text-emerald-400 font-bold';
         label.textContent = 'Unstoppable JEE Vault 🔥';
-        mascotSweat.style.opacity = '0';
-        starLeft.style.opacity = '1';
-        starRight.style.opacity = '1';
+        mascot.classList.remove('weak-password');
+        mascot.classList.add('strong-password');
         cheekLeft.classList.add('blushing');
         cheekRight.classList.add('blushing');
+        starLeft.style.opacity = '1';
+        starRight.style.opacity = '1';
+        setMascotMood('⭐', 'Master Vault Cipher!', "Now that's a timeline-securing cipher! AIR 1 approved! ⭐🚀");
       }
     };
 
@@ -1038,6 +1276,160 @@
         alertBox.innerHTML = `<span>✓</span> <span>${msg}</span>`;
       }
     }
+
+    // ─── 4. Interactive Mascot Guided Tour Engine ───
+    const TOUR_STEPS = [
+      {
+        badge: "Step 1 of 6 • Welcome",
+        title: "Welcome to the ClockEE Timeline!",
+        desc: "Howdy, Variant! I'm Miss ClockEE, your interactive timeline guide. ClockEE is an autonomous JEE study operating system engineered for sub-second lap pacing and drift-free score telemetry.",
+        targetSelector: "#mascotWrapper",
+        speech: "Howdy! I'm Miss ClockEE! Welcome to the TVA of JEE prep! ⏰✨",
+        offset: { x: -30, y: -90 },
+        cardPos: { bottom: "40px", left: "50%", transform: "translateX(-50%)" }
+      },
+      {
+        badge: "Step 2 of 6 • 1-Click Cloud Sync",
+        title: "1-Click Google Cloud Sync",
+        desc: "Connect once with your Google identity! Your entire study timeline, questions log, revision bookmarks, and timer telemetry sync in real time across all your devices.",
+        targetSelector: "#btnGoogleLogin",
+        speech: "Connect with Google for instant cloud timeline sync! ☁️🚀",
+        offset: { x: -80, y: -130 },
+        cardPos: { bottom: "40px", left: "50%", transform: "translateX(-50%)" }
+      },
+      {
+        badge: "Step 3 of 6 • Cohort Target",
+        title: "Aspirant Cohort & Target Year",
+        desc: "Select your timeline cohort: JEE 2028 Foundation (Class 11) or JEE 2027 Sprint (Class 12). Milestone roadmaps and Physics-Chemistry-Maths syllabus modules adapt dynamically.",
+        targetSelector: "#signUpRole",
+        speech: "Pick your cohort! We tailor your PCM targets automatically! 🎯",
+        offset: { x: 40, y: -120 },
+        cardPos: { bottom: "40px", left: "50%", transform: "translateX(-50%)" }
+      },
+      {
+        badge: "Step 4 of 6 • Password Sentinel",
+        title: "Real-Time Entropy Sentinel",
+        desc: "Watch me while you type! Our client-side entropy sentinel evaluates length, uppercase, lowercase, numbers, and symbols in real time to ensure your records can never be breached.",
+        targetSelector: "#signInPassword",
+        speech: "I watch your password entropy in real time! Super secure! 🛡️",
+        offset: { x: 50, y: -100 },
+        cardPos: { bottom: "40px", left: "50%", transform: "translateX(-50%)" }
+      },
+      {
+        badge: "Step 5 of 6 • Guest Sandbox",
+        title: "Ephemeral Guest Sandbox",
+        desc: "Evaluating ClockEE for a hackathon or quick test? Tap 'Continue as Guest' for a 1-click ephemeral local sandbox with zero cloud footprint and automatic session cleanup.",
+        targetSelector: "button[onclick='launchGuestSandbox()']",
+        speech: "In a hurry? Launch with 1-click in our private sandbox! ⚡",
+        offset: { x: -40, y: -140 },
+        cardPos: { bottom: "40px", left: "50%", transform: "translateX(-50%)" }
+      },
+      {
+        badge: "Step 6 of 6 • For All Time. Always.",
+        title: "Timeline Cleared — Ready for Launch!",
+        desc: "You're all set, Commander! Enter your credentials or launch the guest sandbox to step into the cockpit. For All Time. Top 50 AIR!",
+        targetSelector: "#btnSubmitSignIn",
+        speech: "For All Time. Always. AIR 1 is waiting! Let's go! 🌟🏆",
+        offset: { x: 0, y: -140 },
+        cardPos: { bottom: "40px", left: "50%", transform: "translateX(-50%)" }
+      }
+    ];
+
+    let currentTourIdx = 0;
+    let isTourActive = false;
+
+    window.startMascotTour = function() {
+      isTourActive = true;
+      currentTourIdx = 0;
+      playChimeSound();
+
+      document.getElementById('tourBackdrop').classList.add('active');
+      document.getElementById('tourMascotAgent').classList.add('active');
+      document.getElementById('tourModalCard').classList.add('active');
+
+      renderTourStep(0);
+    };
+
+    function renderTourStep(idx) {
+      if (idx < 0 || idx >= TOUR_STEPS.length) return;
+      currentTourIdx = idx;
+      playChimeSound();
+
+      const step = TOUR_STEPS[idx];
+
+      // Update card content
+      document.getElementById('tourStepBadge').textContent = step.badge;
+      document.getElementById('tourStepTitle').textContent = step.title;
+      document.getElementById('tourStepDesc').textContent = step.desc;
+      document.getElementById('tourAgentSpeech').textContent = step.speech;
+      document.getElementById('tourProgressBar').style.width = `${((idx + 1) / TOUR_STEPS.length) * 100}%`;
+
+      // Buttons
+      document.getElementById('btnTourPrev').disabled = (idx === 0);
+      const nextBtn = document.getElementById('btnTourNext');
+      if (idx === TOUR_STEPS.length - 1) {
+        nextBtn.innerHTML = `<span>Finish &amp; Launch</span> 🚀`;
+      } else {
+        nextBtn.innerHTML = `<span>Next Step</span> →`;
+      }
+
+      // Remove previous highlights
+      document.querySelectorAll('.tour-highlight-target').forEach(el => el.classList.remove('tour-highlight-target'));
+
+      // Move Mascot Agent across the screen
+      const targetEl = document.querySelector(step.targetSelector) || document.body;
+      targetEl.classList.add('tour-highlight-target');
+
+      const rect = targetEl.getBoundingClientRect();
+      const mascotAgent = document.getElementById('tourMascotAgent');
+
+      let targetTop = rect.top + (step.offset?.y || -100);
+      let targetLeft = rect.left + (step.offset?.x || 0);
+
+      // Clamp within viewport
+      targetTop = Math.max(20, Math.min(window.innerHeight - 200, targetTop));
+      targetLeft = Math.max(20, Math.min(window.innerWidth - 190, targetLeft));
+
+      mascotAgent.style.top = `${targetTop}px`;
+      mascotAgent.style.left = `${targetLeft}px`;
+
+      // Position tour card comfortably
+      const card = document.getElementById('tourModalCard');
+      card.style.bottom = step.cardPos.bottom;
+      card.style.left = step.cardPos.left;
+      card.style.transform = step.cardPos.transform;
+    }
+
+    window.nextTourStep = function() {
+      if (currentTourIdx < TOUR_STEPS.length - 1) {
+        renderTourStep(currentTourIdx + 1);
+      } else {
+        exitTour();
+      }
+    };
+
+    window.prevTourStep = function() {
+      if (currentTourIdx > 0) {
+        renderTourStep(currentTourIdx - 1);
+      }
+    };
+
+    window.exitTour = function() {
+      isTourActive = false;
+      document.getElementById('tourBackdrop').classList.remove('active');
+      document.getElementById('tourMascotAgent').classList.remove('active');
+      document.getElementById('tourModalCard').classList.remove('active');
+      document.querySelectorAll('.tour-highlight-target').forEach(el => el.classList.remove('tour-highlight-target'));
+      setMascotMood('⏰', 'For All Time. Ready!');
+    };
+
+    // Keyboard navigation for Tour
+    window.addEventListener('keydown', (e) => {
+      if (!isTourActive) return;
+      if (e.key === 'Escape') exitTour();
+      if (e.key === 'ArrowRight') nextTourStep();
+      if (e.key === 'ArrowLeft') prevTourStep();
+    });
 
     // ─── 3. Google Sign-In Integration (with Rate Limiting) ───
     window.handleGoogleSignIn = async function() {
@@ -1166,6 +1558,16 @@
         finalizeUserLogin(userRecord || { uid: "user_" + btoa(email).slice(0, 10), email, name: email.split('@')[0], role: "JEE 2028 Aspirant" });
       } catch (err) {
         let errorMsg = err.message.replace('Firebase: ', '').replace('(auth/', '').replace(').', '');
+
+        // ─── TVA Mascot Alarmed Reaction on Incorrect Password / Auth Failure ───
+        playBuzzerSound();
+        mascot.classList.add('alarm-state');
+        setMascotMood('🚨', 'Invalid Credentials!', "PRUNED! Invalid password detected in this timeline! 🚨 Try again!");
+        setTimeout(() => {
+          mascot.classList.remove('alarm-state');
+          setMascotMood('⏰', 'For All Time. Ready!');
+        }, 3200);
+
         if (window.ClockEESecurity) {
           const rec = window.ClockEESecurity.RateLimiter.recordAttempt('auth_signin', false);
           btn.disabled = rec.locked;
@@ -1435,5 +1837,65 @@
       } catch(e) {}
     });
   </script>
+
+  <!-- ─── Interactive Guided Cockpit Tour Elements ─── -->
+  <div id="tourBackdrop" class="tour-backdrop" onclick="exitTour()"></div>
+
+  <!-- Floating Miss Minutes Tour Mascot Agent (Travels across the screen) -->
+  <div id="tourMascotAgent" class="tour-mascot-agent">
+    <div style="width: 155px; height: 155px; position: relative;">
+      <svg class="clockee-svg" viewBox="0 0 240 250" fill="none" style="filter: drop-shadow(0 0 20px #f97316);">
+        <use href="#clockLegsGroup"/>
+        <use href="#clockBodyGroup"/>
+        <use href="#clockArmLeft"/>
+        <use href="#clockArmRight"/>
+      </svg>
+      <div id="tourAgentSpeech" class="speech-bubble active" style="top: -45px; font-size: 11px; white-space: nowrap;">
+        Howdy, Variant! Follow me! ⏰✨
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Guided Tour Briefing Card -->
+  <div id="tourModalCard" class="tour-modal-card">
+    <div class="flex items-center justify-between pb-2 border-b border-amber-500/20 mb-3">
+      <div class="flex items-center gap-2">
+        <span class="text-lg">⏰</span>
+        <div>
+          <div class="text-xs font-black text-amber-400 uppercase tracking-wider" id="tourStepBadge">Step 1 of 6 • Cockpit Tour</div>
+          <div class="text-[10px] text-slate-400 font-mono">Miss ClockEE TVA Guide</div>
+        </div>
+      </div>
+      <button onclick="exitTour()" class="w-7 h-7 rounded-lg bg-black/40 hover:bg-red-500/20 border border-white/10 hover:border-red-500/40 text-slate-400 hover:text-red-300 text-xs font-bold transition flex items-center justify-center">✕</button>
+    </div>
+
+    <!-- Tour Step Title & Description -->
+    <div class="space-y-2 mb-4">
+      <h3 class="text-base font-extrabold text-white" id="tourStepTitle">Welcome to the ClockEE Timeline!</h3>
+      <p class="text-xs text-slate-300 leading-relaxed" id="tourStepDesc">
+        Howdy! I'm Miss ClockEE, your interactive timeline guide. ClockEE is an autonomous JEE study operating system engineered for sub-second pacing and drift-free score telemetry.
+      </p>
+    </div>
+
+    <!-- Progress Indicator Dots -->
+    <div class="w-full bg-slate-800 rounded-full h-1.5 overflow-hidden mb-4">
+      <div id="tourProgressBar" class="h-full bg-gradient-to-r from-amber-500 to-orange-500 transition-all duration-300" style="width: 16%;"></div>
+    </div>
+
+    <!-- Action Controls -->
+    <div class="flex items-center justify-between gap-2 pt-1">
+      <button type="button" id="btnTourPrev" onclick="prevTourStep()" class="px-3 py-1.5 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-300 text-xs font-bold transition border border-white/10" disabled>
+        ← Previous
+      </button>
+      <div class="flex gap-2">
+        <button type="button" onclick="exitTour()" class="px-3 py-1.5 rounded-xl text-slate-400 hover:text-white text-xs font-semibold transition">
+          Skip
+        </button>
+        <button type="button" id="btnTourNext" onclick="nextTourStep()" class="px-4 py-1.5 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 text-xs font-black transition shadow-lg shadow-orange-500/30 flex items-center gap-1.5">
+          <span>Next Step</span> →
+        </button>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

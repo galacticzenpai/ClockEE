@@ -3290,3 +3290,754 @@ if (document.readyState === "complete" || document.readyState === "interactive")
     if (e.target === modal) window.toggleCommandPalette(false);
   });
 })();
+
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   CLOCKEE GLOBAL COCKPIT INTERACTIVE TOUR & SCREEN-BLUR TOUR MENU ENGINE
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+(function initClockEETourEngine() {
+  if (typeof window === "undefined") return;
+
+  // Sound Synthesizer for Global Tour
+  let _tourAudioCtx = null;
+  function getTourAudioCtx() {
+    if (!_tourAudioCtx) {
+      _tourAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    if (_tourAudioCtx.state === 'suspended') {
+      _tourAudioCtx.resume();
+    }
+    return _tourAudioCtx;
+  }
+
+  function playTourChime() {
+    try {
+      const ctx = getTourAudioCtx();
+      const notes = [523.25, 659.25, 783.99]; // C5, E5, G5 triad
+      notes.forEach((freq, idx) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = "triangle";
+        osc.frequency.setValueAtTime(freq, ctx.currentTime + idx * 0.08);
+
+        gain.gain.setValueAtTime(0, ctx.currentTime + idx * 0.08);
+        gain.gain.linearRampToValueAtTime(0.2, ctx.currentTime + idx * 0.08 + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + idx * 0.08 + 0.32);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(ctx.currentTime + idx * 0.08);
+        osc.stop(ctx.currentTime + idx * 0.08 + 0.33);
+      });
+    } catch (e) {}
+  }
+
+  // Inject Tour CSS Styles dynamically
+  const tourStyles = document.createElement('style');
+  tourStyles.id = 'clockee-tour-global-styles';
+  tourStyles.innerHTML = `
+    .cockpit-tour-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(4, 7, 18, 0.88);
+      backdrop-filter: blur(18px) saturate(190%);
+      -webkit-backdrop-filter: blur(18px) saturate(190%);
+      z-index: 999990;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .cockpit-tour-backdrop.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .cockpit-tour-menu-modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.92);
+      width: 94%;
+      max-width: 900px;
+      max-height: 88vh;
+      overflow-y: auto;
+      background: rgba(10, 15, 30, 0.95);
+      border: 1.5px solid rgba(0, 240, 255, 0.35);
+      border-radius: 26px;
+      padding: 24px 28px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9), 0 0 45px rgba(0, 240, 255, 0.2);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      z-index: 999995;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .cockpit-tour-menu-modal.active {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+      pointer-events: auto;
+    }
+
+    .cockpit-tour-mascot-agent {
+      position: fixed;
+      z-index: 999998;
+      width: 165px;
+      height: 165px;
+      pointer-events: none;
+      transition: all 0.65s cubic-bezier(0.34, 1.35, 0.64, 1);
+      opacity: 0;
+      transform: scale(0.6);
+      filter: drop-shadow(0 16px 36px rgba(0, 240, 255, 0.45));
+    }
+    .cockpit-tour-mascot-agent.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .cockpit-tour-step-card {
+      position: fixed;
+      z-index: 999999;
+      width: 90%;
+      max-width: 440px;
+      background: rgba(10, 15, 30, 0.96);
+      border: 1.5px solid rgba(0, 240, 255, 0.45);
+      border-radius: 24px;
+      padding: 22px 26px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 35px rgba(0, 240, 255, 0.25);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      transition: all 0.5s cubic-bezier(0.34, 1.3, 0.64, 1);
+      opacity: 0;
+      transform: scale(0.9) translateY(20px);
+      pointer-events: none;
+    }
+    .cockpit-tour-step-card.active {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+      pointer-events: auto;
+    }
+
+    .cockpit-tour-highlight-target {
+      position: relative !important;
+      z-index: 999995 !important;
+      box-shadow: 0 0 0 4px #00f0ff, 0 0 30px rgba(0, 240, 255, 0.6) !important;
+      border-radius: 16px !important;
+      transition: all 0.3s ease !important;
+    }
+
+    .tour-menu-grid-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 14px 16px;
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .tour-menu-grid-card:hover {
+      background: rgba(0, 240, 255, 0.06);
+      border-color: rgba(0, 240, 255, 0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 16px rgba(0, 240, 255, 0.15);
+    }
+  `;
+  document.head.appendChild(tourStyles);
+
+  // SVG Mascot Template for Tour Menu & Floating Agent
+  const CUTE_CLOCKEE_SVG = `
+    <svg class="w-full h-full" viewBox="0 0 240 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="tourDialGrad" cx="50%" cy="40%" r="70%">
+          <stop offset="0%" stop-color="#181d36"/>
+          <stop offset="60%" stop-color="#0f1424"/>
+          <stop offset="100%" stop-color="#080b14"/>
+        </radialGradient>
+        <linearGradient id="tourRimGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#00f0ff"/>
+          <stop offset="50%" stop-color="#6366f1"/>
+          <stop offset="100%" stop-color="#a855f7"/>
+        </linearGradient>
+        <linearGradient id="tourBellGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#38bdf8"/>
+          <stop offset="100%" stop-color="#1e1b4b"/>
+        </linearGradient>
+        <radialGradient id="tourPupilGrad" cx="40%" cy="35%" r="65%">
+          <stop offset="0%" stop-color="#38bdf8"/>
+          <stop offset="55%" stop-color="#0284c7"/>
+          <stop offset="100%" stop-color="#082f49"/>
+        </radialGradient>
+      </defs>
+      <!-- Twin Bells -->
+      <path d="M 76 74 L 60 52" stroke="#38bdf8" stroke-width="5" stroke-linecap="round"/>
+      <g transform="translate(56, 48) rotate(-35)">
+        <ellipse cx="0" cy="0" rx="16" ry="10" fill="url(#tourBellGrad)" stroke="#00f0ff" stroke-width="2"/>
+        <ellipse cx="0" cy="-6" rx="8" ry="3" fill="#00f0ff" opacity="0.9"/>
+        <circle cx="0" cy="0" r="3" fill="#ffffff"/>
+      </g>
+      <path d="M 164 74 L 180 52" stroke="#38bdf8" stroke-width="5" stroke-linecap="round"/>
+      <g transform="translate(184, 48) rotate(35)">
+        <ellipse cx="0" cy="0" rx="16" ry="10" fill="url(#tourBellGrad)" stroke="#00f0ff" stroke-width="2"/>
+        <ellipse cx="0" cy="-6" rx="8" ry="3" fill="#00f0ff" opacity="0.9"/>
+        <circle cx="0" cy="0" r="3" fill="#ffffff"/>
+      </g>
+      <!-- Feet -->
+      <path d="M 94 182 Q 90 198 86 210" stroke="#38bdf8" stroke-width="5.5" stroke-linecap="round" fill="none"/>
+      <g transform="translate(86, 212)">
+        <ellipse cx="0" cy="0" rx="16" ry="8" fill="#1e293b" stroke="#00f0ff" stroke-width="2"/>
+        <ellipse cx="0" cy="2" rx="9" ry="3" fill="#00f0ff" opacity="0.8"/>
+      </g>
+      <path d="M 146 182 Q 150 198 154 210" stroke="#38bdf8" stroke-width="5.5" stroke-linecap="round" fill="none"/>
+      <g transform="translate(154, 212)">
+        <ellipse cx="0" cy="0" rx="16" ry="8" fill="#1e293b" stroke="#00f0ff" stroke-width="2"/>
+        <ellipse cx="0" cy="2" rx="9" ry="3" fill="#00f0ff" opacity="0.8"/>
+      </g>
+      <!-- Body & Dial -->
+      <circle cx="120" cy="125" r="72" fill="none" stroke="url(#tourRimGrad)" stroke-width="3.5" opacity="0.95"/>
+      <circle cx="120" cy="125" r="70" fill="#080b14" stroke="#1e293b" stroke-width="2"/>
+      <circle cx="120" cy="125" r="66" fill="url(#tourDialGrad)" stroke="#1e293b" stroke-width="1.5"/>
+      <!-- Ticks -->
+      <rect x="118.5" y="62" width="3" height="9" rx="1.5" fill="#00f0ff"/>
+      <rect x="175" y="123.5" width="9" height="3" rx="1.5" fill="#00f0ff"/>
+      <rect x="118.5" y="179" width="3" height="9" rx="1.5" fill="#00f0ff"/>
+      <rect x="56" y="123.5" width="9" height="3" rx="1.5" fill="#00f0ff"/>
+      <!-- Forehead Ticking Hands -->
+      <circle cx="120" cy="74" r="3.5" fill="#0f172a" stroke="#00f0ff" stroke-width="1.5"/>
+      <circle cx="120" cy="74" r="1.5" fill="#00f0ff"/>
+      <line x1="120" y1="74" x2="108" y2="67" stroke="#818cf8" stroke-width="3" stroke-linecap="round"/>
+      <line x1="120" y1="74" x2="134" y2="65" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round"/>
+      <!-- High Contrast Cute Eyes -->
+      <ellipse cx="94" cy="112" rx="15" ry="21" fill="#ffffff" stroke="#1e293b" stroke-width="2"/>
+      <ellipse cx="94" cy="112" rx="10.5" ry="16" fill="url(#tourPupilGrad)"/>
+      <ellipse cx="91" cy="104" rx="4" ry="6" fill="#ffffff" opacity="0.95"/>
+      <circle cx="98" cy="119" r="2.2" fill="#ffffff" opacity="0.9"/>
+      <ellipse cx="146" cy="112" rx="15" ry="21" fill="#ffffff" stroke="#1e293b" stroke-width="2"/>
+      <ellipse cx="146" cy="112" rx="10.5" ry="16" fill="url(#tourPupilGrad)"/>
+      <ellipse cx="143" cy="104" rx="4" ry="6" fill="#ffffff" opacity="0.95"/>
+      <circle cx="150" cy="119" r="2.2" fill="#ffffff" opacity="0.9"/>
+      <!-- Cheeks & Smile -->
+      <ellipse cx="76" cy="132" rx="8" ry="4.5" fill="#ec4899" opacity="0.45"/>
+      <ellipse cx="164" cy="132" rx="8" ry="4.5" fill="#ec4899" opacity="0.45"/>
+      <path d="M 108 138 Q 120 148 132 138" stroke="#38bdf8" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+      <!-- Arms -->
+      <path d="M 64 130 Q 42 138 34 148" stroke="#38bdf8" stroke-width="5" stroke-linecap="round" fill="none"/>
+      <g transform="translate(20, 142)">
+        <ellipse cx="14" cy="14" rx="13" ry="11" fill="#ffffff" stroke="#38bdf8" stroke-width="2"/>
+        <ellipse cx="14" cy="14" rx="6" ry="5" fill="#00f0ff" opacity="0.75"/>
+      </g>
+      <path d="M 176 130 Q 198 138 206 148" stroke="#38bdf8" stroke-width="5" stroke-linecap="round" fill="none"/>
+      <g transform="translate(192, 142)">
+        <ellipse cx="14" cy="14" rx="13" ry="11" fill="#ffffff" stroke="#38bdf8" stroke-width="2"/>
+        <ellipse cx="14" cy="14" rx="6" ry="5" fill="#00f0ff" opacity="0.75"/>
+      </g>
+    </svg>
+  `;
+
+  // Build DOM Elements for Cockpit Tour
+  function buildTourDOMElements() {
+    if (document.getElementById('tourCockpitBackdrop')) return;
+
+    // 1. Blurred Backdrop
+    const backdrop = document.createElement('div');
+    backdrop.id = 'tourCockpitBackdrop';
+    backdrop.className = 'cockpit-tour-backdrop';
+    backdrop.onclick = () => window.closeCockpitTour();
+    document.body.appendChild(backdrop);
+
+    // 2. Tour Menu Modal (Overview of ALL pages)
+    const menuModal = document.createElement('div');
+    menuModal.id = 'tourCockpitMenuModal';
+    menuModal.className = 'cockpit-tour-menu-modal';
+    menuModal.innerHTML = `
+      <div class="flex items-start justify-between pb-4 border-b border-white/10 mb-5">
+        <div class="flex items-center gap-4">
+          <div class="w-16 h-16 sm:w-20 sm:h-20 flex-shrink-0 animate-bounce-gentle">
+            ${CUTE_CLOCKEE_SVG}
+          </div>
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-xs font-mono px-2.5 py-0.5 rounded-full bg-cyan-950 border border-cyan-500/40 text-cyan-300 font-bold">⚡ Cockpit Navigation</span>
+              <span class="text-[10px] text-slate-400 font-mono">Interactive Platform Tour</span>
+            </div>
+            <h2 class="text-lg sm:text-2xl font-black text-white tracking-tight">ClockEE Interactive Master Tour</h2>
+            <p class="text-xs text-slate-300 mt-1 leading-relaxed">
+              Welcome, Commander! ClockEE is your precision autonomous study operating system. Explore every module or launch the step-by-step master flight!
+            </p>
+          </div>
+        </div>
+        <button onclick="window.closeCockpitTour()" class="w-8 h-8 rounded-xl bg-white/5 hover:bg-red-500/20 border border-white/10 hover:border-red-500/40 text-slate-400 hover:text-red-300 text-sm font-bold transition flex items-center justify-center flex-shrink-0">✕</button>
+      </div>
+
+      <!-- Quick Action Controls -->
+      <div class="flex flex-wrap items-center justify-between gap-3 mb-6 p-3 rounded-2xl bg-cyan-950/40 border border-cyan-500/30">
+        <div class="flex items-center gap-2">
+          <span class="text-lg">🚀</span>
+          <div>
+            <div class="text-xs font-extrabold text-white">Full Cockpit Flight Path</div>
+            <div class="text-[11px] text-cyan-200">Mascot glides across screen highlighting each feature step-by-step</div>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <button type="button" onclick="window.startCockpitGuidedTour()" class="px-5 py-2 rounded-xl bg-gradient-to-r from-indigo-500 to-cyan-500 hover:from-indigo-400 hover:to-cyan-400 text-white font-extrabold text-xs transition shadow-lg shadow-cyan-500/25 flex items-center gap-2 cursor-pointer">
+            <span>▶ Start Step-by-Step Guided Tour</span> →
+          </button>
+        </div>
+      </div>
+
+      <!-- Tour Menu Grid: Every Major Page in ClockEE -->
+      <div class="space-y-2 mb-2">
+        <h3 class="text-xs font-black uppercase tracking-wider text-slate-400 font-mono">Select Any Module to Tour Page:</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          
+          <!-- 1. Sprint Timer -->
+          <div class="tour-menu-grid-card">
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="text-lg">⏱️</span>
+                <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-500/30">timer.html</span>
+              </div>
+              <h4 class="text-xs font-bold text-white mb-1">Tactical Sprint Timer</h4>
+              <p class="text-[11px] text-slate-300 leading-snug mb-3">Sub-second pacing, lap benchmarks, lecture focus HUD, and zero-drift timer engine.</p>
+            </div>
+            <a href="timer.html?tour=true" class="text-[11px] font-bold text-cyan-400 hover:text-cyan-300 inline-flex items-center gap-1 transition">
+              <span>Tour Sprint Timer</span> →
+            </a>
+          </div>
+
+          <!-- 2. Coaching Matrix -->
+          <div class="tour-menu-grid-card">
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="text-lg">📊</span>
+                <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-indigo-950 text-indigo-300 border border-indigo-500/30">coaching.html</span>
+              </div>
+              <h4 class="text-xs font-bold text-white mb-1">Coaching Matrix &amp; Syllabus</h4>
+              <p class="text-[11px] text-slate-300 leading-snug mb-3">Complete syllabus roadmap for Physics, Chemistry &amp; Maths with chapter-level mastery.</p>
+            </div>
+            <a href="coaching.html?tour=true" class="text-[11px] font-bold text-indigo-400 hover:text-indigo-300 inline-flex items-center gap-1 transition">
+              <span>Tour Coaching Matrix</span> →
+            </a>
+          </div>
+
+          <!-- 3. CBT Exam Simulator -->
+          <div class="tour-menu-grid-card">
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="text-lg">📝</span>
+                <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-500/30">test_centre.html</span>
+              </div>
+              <h4 class="text-xs font-bold text-white mb-1">CBT Mock Exam Simulator</h4>
+              <p class="text-[11px] text-slate-300 leading-snug mb-3">Authentic NTA exam interface with official question palette, countdown clock &amp; instant scoring.</p>
+            </div>
+            <a href="test_centre.html?tour=true" class="text-[11px] font-bold text-emerald-400 hover:text-emerald-300 inline-flex items-center gap-1 transition">
+              <span>Tour CBT Simulator</span> →
+            </a>
+          </div>
+
+          <!-- 4. Today's Mission -->
+          <div class="tour-menu-grid-card">
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="text-lg">🎯</span>
+                <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-purple-950 text-purple-300 border border-purple-500/30">today.html</span>
+              </div>
+              <h4 class="text-xs font-bold text-white mb-1">Today's Mission &amp; Questions</h4>
+              <p class="text-[11px] text-slate-300 leading-snug mb-3">90 Qs/day target tracking, streak meter, active chapter goals &amp; fast numerical logger.</p>
+            </div>
+            <a href="today.html?tour=true" class="text-[11px] font-bold text-purple-400 hover:text-purple-300 inline-flex items-center gap-1 transition">
+              <span>Tour Today's Mission</span> →
+            </a>
+          </div>
+
+          <!-- 5. Task Engine -->
+          <div class="tour-menu-grid-card">
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="text-lg">📋</span>
+                <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-amber-950 text-amber-300 border border-amber-500/30">task.html</span>
+              </div>
+              <h4 class="text-xs font-bold text-white mb-1">Tasks &amp; Phase Milestones</h4>
+              <p class="text-[11px] text-slate-300 leading-snug mb-3">TickTick cloud task synchronization, Phase test deadlines &amp; milestone roadmap.</p>
+            </div>
+            <a href="task.html?tour=true" class="text-[11px] font-bold text-amber-400 hover:text-amber-300 inline-flex items-center gap-1 transition">
+              <span>Tour Task Engine</span> →
+            </a>
+          </div>
+
+          <!-- 6. Hackathon & Velocity -->
+          <div class="tour-menu-grid-card">
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="text-lg">🚀</span>
+                <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-teal-950 text-teal-300 border border-teal-500/30">hackathon.html</span>
+              </div>
+              <h4 class="text-xs font-bold text-white mb-1">Hackathon &amp; Velocity Board</h4>
+              <p class="text-[11px] text-slate-300 leading-snug mb-3">Sprint velocity graphs, daily productivity heatmaps, streak analysis &amp; badges.</p>
+            </div>
+            <a href="hackathon.html?tour=true" class="text-[11px] font-bold text-teal-400 hover:text-teal-300 inline-flex items-center gap-1 transition">
+              <span>Tour Velocity Board</span> →
+            </a>
+          </div>
+
+          <!-- 7. Wall of Inspiration -->
+          <div class="tour-menu-grid-card">
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="text-lg">💡</span>
+                <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-yellow-950 text-yellow-300 border border-yellow-500/30">inspiration.html</span>
+              </div>
+              <h4 class="text-xs font-bold text-white mb-1">Wall of Inspiration</h4>
+              <p class="text-[11px] text-slate-300 leading-snug mb-3">IIT Bombay dream board, toppers' strategies, high-yield formula vaults &amp; vision.</p>
+            </div>
+            <a href="inspiration.html?tour=true" class="text-[11px] font-bold text-yellow-400 hover:text-yellow-300 inline-flex items-center gap-1 transition">
+              <span>Tour Inspiration Wall</span> →
+            </a>
+          </div>
+
+          <!-- 8. Settings & Customizer -->
+          <div class="tour-menu-grid-card">
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="text-lg">⚙️</span>
+                <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-blue-950 text-blue-300 border border-blue-500/30">settings.html</span>
+              </div>
+              <h4 class="text-xs font-bold text-white mb-1">Settings &amp; Customizer</h4>
+              <p class="text-[11px] text-slate-300 leading-snug mb-3">Custom target years, dynamic aura theme, API configurations &amp; multi-user manager.</p>
+            </div>
+            <a href="settings.html?tour=true" class="text-[11px] font-bold text-blue-400 hover:text-blue-300 inline-flex items-center gap-1 transition">
+              <span>Tour Settings Page</span> →
+            </a>
+          </div>
+
+          <!-- 9. Admin Command Panel -->
+          <div class="tour-menu-grid-card">
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="text-lg">🛡️</span>
+                <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-rose-950 text-rose-300 border border-rose-500/30">admin.html</span>
+              </div>
+              <h4 class="text-xs font-bold text-white mb-1">Admin Command Center</h4>
+              <p class="text-[11px] text-slate-300 leading-snug mb-3">Superuser controls, security audit log, student registry &amp; mistake telemetry.</p>
+            </div>
+            <a href="admin.html?tour=true" class="text-[11px] font-bold text-rose-400 hover:text-rose-300 inline-flex items-center gap-1 transition">
+              <span>Tour Admin Center</span> →
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="pt-4 border-t border-white/10 flex items-center justify-between">
+        <span class="text-[11px] text-slate-400 font-mono">Tip: Reopen this tour anytime by tapping "🚀 Tour" in the top bar.</span>
+        <button type="button" onclick="window.closeCockpitTour()" class="px-4 py-2 rounded-xl text-xs font-semibold text-slate-300 hover:text-white transition">
+          Enter Cockpit Directly →
+        </button>
+      </div>
+    `;
+    document.body.appendChild(menuModal);
+
+    // 3. Floating Mascot Tour Agent
+    const mascotAgent = document.createElement('div');
+    mascotAgent.id = 'tourGlobalMascotAgent';
+    mascotAgent.className = 'cockpit-tour-mascot-agent';
+    mascotAgent.innerHTML = `
+      <div style="width: 140px; height: 140px; position: relative;">
+        ${CUTE_CLOCKEE_SVG}
+        <div id="tourGlobalAgentSpeech" class="speech-bubble active" style="position: absolute; top: -45px; left: 50%; transform: translateX(-50%); font-size: 11px; white-space: nowrap; background: rgba(10,15,30,0.95); border: 1.5px solid #00f0ff; color: #e0f2fe; padding: 5px 12px; border-radius: 12px; box-shadow: 0 0 15px rgba(0,240,255,0.4);">
+          Hi Aspirant! Follow me! ⏰✨
+        </div>
+      </div>
+    `;
+    document.body.appendChild(mascotAgent);
+
+    // 4. Guided Step Briefing Card
+    const stepCard = document.createElement('div');
+    stepCard.id = 'tourGlobalStepCard';
+    stepCard.className = 'cockpit-tour-step-card';
+    stepCard.innerHTML = `
+      <div class="flex items-center justify-between pb-2 border-b border-cyan-500/20 mb-3">
+        <div class="flex items-center gap-2">
+          <span class="text-lg">⏱️</span>
+          <div>
+            <div class="text-xs font-black text-cyan-400 uppercase tracking-wider" id="tourGlobalStepBadge">Step 1 of 8</div>
+            <div class="text-[10px] text-slate-400 font-mono">ClockEE Cockpit Guide</div>
+          </div>
+        </div>
+        <button onclick="window.closeCockpitTour()" class="w-7 h-7 rounded-lg bg-black/40 hover:bg-red-500/20 border border-white/10 hover:border-red-500/40 text-slate-400 hover:text-red-300 text-xs font-bold transition flex items-center justify-center">✕</button>
+      </div>
+
+      <div class="space-y-2 mb-4">
+        <h3 class="text-base font-extrabold text-white" id="tourGlobalStepTitle">Cockpit Command Center</h3>
+        <p class="text-xs text-slate-300 leading-relaxed" id="tourGlobalStepDesc"></p>
+      </div>
+
+      <!-- Action Button to Jump to Page (if applicable) -->
+      <div id="tourGlobalPageLinkWrap" class="mb-4 hidden">
+        <a id="tourGlobalPageLink" href="#" class="w-full py-2 px-3 rounded-xl bg-cyan-950/70 border border-cyan-500/40 hover:border-cyan-400 text-cyan-300 text-xs font-bold flex items-center justify-between transition">
+          <span id="tourGlobalPageLinkText">🚀 Jump to Page Tour</span>
+          <span>→</span>
+        </a>
+      </div>
+
+      <div class="w-full bg-slate-800 rounded-full h-1.5 overflow-hidden mb-4">
+        <div id="tourGlobalProgressBar" class="h-full bg-gradient-to-r from-indigo-500 to-cyan-400 transition-all duration-300" style="width: 12%;"></div>
+      </div>
+
+      <div class="flex items-center justify-between gap-2 pt-1">
+        <button type="button" id="btnTourGlobalPrev" onclick="window.prevCockpitTourStep()" class="px-3 py-1.5 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-300 text-xs font-bold transition border border-white/10" disabled>
+          ← Previous
+        </button>
+        <div class="flex gap-2">
+          <button type="button" onclick="window.showCockpitTourMenu()" class="px-3 py-1.5 rounded-xl text-slate-400 hover:text-white text-xs font-semibold transition">
+            Tour Menu
+          </button>
+          <button type="button" id="btnTourGlobalNext" onclick="window.nextCockpitTourStep()" class="px-4 py-1.5 rounded-xl bg-gradient-to-r from-indigo-500 to-cyan-500 hover:from-indigo-400 hover:to-cyan-400 text-white text-xs font-black transition shadow-lg shadow-cyan-500/30 flex items-center gap-1.5">
+            <span>Next Step</span> →
+          </button>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(stepCard);
+  }
+
+  // Master Step Data for Cockpit Guided Tour
+  const COCKPIT_STEPS = [
+    {
+      badge: "Step 1 of 8 • Command Center",
+      title: "Cockpit Command Center & Countdown",
+      desc: "Welcome to your command bridge! Here you track your real-time countdown to IIT-JEE, active study streaks, daily target progress, and live question velocity.",
+      targetSelector: "#jee-countdown-title, .countdown-card, .header-center",
+      speech: "Welcome to your Command Center! Let's conquer JEE! 🚀",
+      offset: { x: 30, y: -130 },
+      pageLink: null
+    },
+    {
+      badge: "Step 2 of 8 • Rapid Logger",
+      title: "1-Click Numerical Question Logger",
+      desc: "Log your numericals solved in real time! Tap +5, +10 or enter custom question counts for Physics, Chemistry, and Maths to dynamically boost your daily 90 Qs goal.",
+      targetSelector: "#quick-phy-today, #custom-phy-input, .mission-card",
+      speech: "Log your questions solved in 1 click! 🎯",
+      offset: { x: -40, y: -140 },
+      pageLink: null
+    },
+    {
+      badge: "Step 3 of 8 • Study Split Drawer",
+      title: "Dual-Screen Lectures & AI Doubt Solver",
+      desc: "Click the ⊟ icon to open your split study drawer! Stream video lectures, read NCERT formula PDFs, and get instant explanations from the Gemini AI Doubt Solver.",
+      targetSelector: "button[onclick='toggleSplitScreen()'], #split-drawer",
+      speech: "Open the split drawer for video lectures & AI doubts! 💡",
+      offset: { x: -80, y: -120 },
+      pageLink: null
+    },
+    {
+      badge: "Step 4 of 8 • Tactical Timer",
+      title: "Tactical Sprint Timer (timer.html)",
+      desc: "Master exam pacing! The Sprint Timer features sub-second precision, lap benchmarks for solving speed, auditory alerts, and full-screen distraction shielding.",
+      targetSelector: "a[href*='timer.html'], #btnNavTourCockpit",
+      speech: "Pace your numericals with sub-second accuracy! ⏱️",
+      offset: { x: 10, y: -130 },
+      pageLink: { text: "🚀 Open Tactical Sprint Timer (timer.html)", url: "timer.html?tour=true" }
+    },
+    {
+      badge: "Step 5 of 8 • Coaching Matrix",
+      title: "Syllabus Coaching Matrix (coaching.html)",
+      desc: "Track every chapter in Physics, Chemistry, and Maths with high-yield exam weightage, NCERT checklists, and formula retention markers.",
+      targetSelector: "a[href*='coaching.html']",
+      speech: "Track every single chapter in your syllabus! 📊",
+      offset: { x: 20, y: -130 },
+      pageLink: { text: "🚀 Open Syllabus Coaching Matrix (coaching.html)", url: "coaching.html?tour=true" }
+    },
+    {
+      badge: "Step 6 of 8 • CBT Simulator",
+      title: "Official NTA CBT Mock Exam Simulator",
+      desc: "Experience authentic JEE exam conditions! Features the official question palette (Answered, Marked for Review), section timer, and instant performance analytics.",
+      targetSelector: "a[href*='cbt_home.html'], a[href*='test_centre.html']",
+      speech: "Simulate authentic NTA computer-based exams! 📝",
+      offset: { x: -20, y: -130 },
+      pageLink: { text: "🚀 Open CBT Exam Simulator (test_centre.html)", url: "test_centre.html?tour=true" }
+    },
+    {
+      badge: "Step 7 of 8 • Task & Milestones",
+      title: "Milestone Deadlines & Tasks (task.html)",
+      desc: "Keep deadlines sharp! Sync with TickTick, schedule Phase major tests, and track milestone roadmaps so you never fall behind schedule.",
+      targetSelector: "a[href*='task.html'], a[href*='today.html']",
+      speech: "Stay on track with milestones & Phase tests! 📋",
+      offset: { x: -30, y: -130 },
+      pageLink: { text: "🚀 Open Task & Milestones Engine (task.html)", url: "task.html?tour=true" }
+    },
+    {
+      badge: "Step 8 of 8 • Ready for Launch",
+      title: "Aspirant Settings & Customization",
+      desc: "Customize your cockpit with dynamic nebula auras, target year goals, and multi-user sandbox accounts. You are all set for top AIR rank!",
+      targetSelector: "a[href*='settings.html'], [data-profile-avatar]",
+      speech: "All systems nominal! Let's get that Top 50 AIR! 🏆✨",
+      offset: { x: -60, y: -130 },
+      pageLink: { text: "🚀 Open Cockpit Settings (settings.html)", url: "settings.html?tour=true" }
+    }
+  ];
+
+  let currentGlobalTourIdx = 0;
+  let isGlobalTourActive = false;
+
+  // Open Screen-Blur Tour Menu
+  window.showCockpitTourMenu = function() {
+    buildTourDOMElements();
+    playTourChime();
+
+    // Close any active step card
+    const stepCard = document.getElementById('tourGlobalStepCard');
+    const mascotAgent = document.getElementById('tourGlobalMascotAgent');
+    if (stepCard) stepCard.classList.remove('active');
+    if (mascotAgent) mascotAgent.classList.remove('active');
+    document.querySelectorAll('.cockpit-tour-highlight-target').forEach(el => el.classList.remove('cockpit-tour-highlight-target'));
+
+    const backdrop = document.getElementById('tourCockpitBackdrop');
+    const menuModal = document.getElementById('tourCockpitMenuModal');
+    if (backdrop) backdrop.classList.add('active');
+    if (menuModal) menuModal.classList.add('active');
+  };
+
+  // Close Everything
+  window.closeCockpitTour = function() {
+    isGlobalTourActive = false;
+    localStorage.setItem('clockee_cockpit_tour_seen', 'true');
+
+    const backdrop = document.getElementById('tourCockpitBackdrop');
+    const menuModal = document.getElementById('tourCockpitMenuModal');
+    const stepCard = document.getElementById('tourGlobalStepCard');
+    const mascotAgent = document.getElementById('tourGlobalMascotAgent');
+
+    if (backdrop) backdrop.classList.remove('active');
+    if (menuModal) menuModal.classList.remove('active');
+    if (stepCard) stepCard.classList.remove('active');
+    if (mascotAgent) mascotAgent.classList.remove('active');
+
+    document.querySelectorAll('.cockpit-tour-highlight-target').forEach(el => el.classList.remove('cockpit-tour-highlight-target'));
+  };
+
+  // Launch Step-by-Step Guided Flight
+  window.startCockpitGuidedTour = function() {
+    buildTourDOMElements();
+    isGlobalTourActive = true;
+    currentGlobalTourIdx = 0;
+    playTourChime();
+
+    // Hide menu modal, keep backdrop active
+    const menuModal = document.getElementById('tourCockpitMenuModal');
+    if (menuModal) menuModal.classList.remove('active');
+
+    const backdrop = document.getElementById('tourCockpitBackdrop');
+    const stepCard = document.getElementById('tourGlobalStepCard');
+    const mascotAgent = document.getElementById('tourGlobalMascotAgent');
+
+    if (backdrop) backdrop.classList.add('active');
+    if (stepCard) stepCard.classList.add('active');
+    if (mascotAgent) mascotAgent.classList.add('active');
+
+    renderGlobalTourStep(0);
+  };
+
+  function renderGlobalTourStep(idx) {
+    if (idx < 0 || idx >= COCKPIT_STEPS.length) return;
+    currentGlobalTourIdx = idx;
+    playTourChime();
+
+    const step = COCKPIT_STEPS[idx];
+
+    // Card texts
+    document.getElementById('tourGlobalStepBadge').textContent = step.badge;
+    document.getElementById('tourGlobalStepTitle').textContent = step.title;
+    document.getElementById('tourGlobalStepDesc').textContent = step.desc;
+    document.getElementById('tourGlobalAgentSpeech').textContent = step.speech;
+    document.getElementById('tourGlobalProgressBar').style.width = `${((idx + 1) / COCKPIT_STEPS.length) * 100}%`;
+
+    // Optional page link
+    const pageLinkWrap = document.getElementById('tourGlobalPageLinkWrap');
+    const pageLink = document.getElementById('tourGlobalPageLink');
+    const pageLinkText = document.getElementById('tourGlobalPageLinkText');
+    if (step.pageLink) {
+      pageLinkWrap.classList.remove('hidden');
+      pageLink.href = step.pageLink.url;
+      pageLinkText.textContent = step.pageLink.text;
+    } else {
+      pageLinkWrap.classList.add('hidden');
+    }
+
+    // Buttons
+    document.getElementById('btnTourGlobalPrev').disabled = (idx === 0);
+    const nextBtn = document.getElementById('btnTourGlobalNext');
+    if (idx === COCKPIT_STEPS.length - 1) {
+      nextBtn.innerHTML = `<span>Finish &amp; Enter Cockpit</span> 🚀`;
+    } else {
+      nextBtn.innerHTML = `<span>Next Step</span> →`;
+    }
+
+    // Highlight target
+    document.querySelectorAll('.cockpit-tour-highlight-target').forEach(el => el.classList.remove('cockpit-tour-highlight-target'));
+    const targetEl = document.querySelector(step.targetSelector) || document.body;
+    targetEl.classList.add('cockpit-tour-highlight-target');
+
+    // Position Mascot Agent and Step Card
+    const rect = targetEl.getBoundingClientRect();
+    const mascotAgent = document.getElementById('tourGlobalMascotAgent');
+    const card = document.getElementById('tourGlobalStepCard');
+
+    let targetTop = rect.top + (step.offset?.y || -100);
+    let targetLeft = rect.left + (step.offset?.x || 0);
+
+    targetTop = Math.max(30, Math.min(window.innerHeight - 200, targetTop));
+    targetLeft = Math.max(20, Math.min(window.innerWidth - 180, targetLeft));
+
+    mascotAgent.style.top = `${targetTop}px`;
+    mascotAgent.style.left = `${targetLeft}px`;
+
+    card.style.bottom = "40px";
+    card.style.left = "50%";
+    card.style.transform = "translateX(-50%)";
+  }
+
+  window.nextCockpitTourStep = function() {
+    if (currentGlobalTourIdx < COCKPIT_STEPS.length - 1) {
+      renderGlobalTourStep(currentGlobalTourIdx + 1);
+    } else {
+      window.closeCockpitTour();
+    }
+  };
+
+  window.prevCockpitTourStep = function() {
+    if (currentGlobalTourIdx > 0) {
+      renderGlobalTourStep(currentGlobalTourIdx - 1);
+    }
+  };
+
+  // Keyboard navigation for global tour
+  window.addEventListener('keydown', (e) => {
+    if (!isGlobalTourActive) return;
+    if (e.key === 'Escape') window.closeCockpitTour();
+    if (e.key === 'ArrowRight') window.nextCockpitTourStep();
+    if (e.key === 'ArrowLeft') window.prevCockpitTourStep();
+  });
+
+  // AUTO-TRIGGER ON FIRST SIGN IN OR ?tour=true
+  document.addEventListener('DOMContentLoaded', () => {
+    const isFirstSignIn = sessionStorage.getItem('clockee_first_signin') === 'true';
+    const tourNotSeen = !localStorage.getItem('clockee_cockpit_tour_seen');
+    const isIndex = window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/') || window.location.pathname === '';
+    const urlParams = new URLSearchParams(window.location.search);
+    const hasTourParam = urlParams.get('tour') === 'true';
+
+    if (hasTourParam) {
+      setTimeout(() => {
+        window.showCockpitTourMenu();
+      }, 500);
+    } else if (isIndex && (isFirstSignIn || tourNotSeen)) {
+      sessionStorage.removeItem('clockee_first_signin');
+      setTimeout(() => {
+        window.showCockpitTourMenu();
+      }, 750);
+    }
+  });
+
+})();

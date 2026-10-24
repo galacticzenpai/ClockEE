@@ -216,7 +216,7 @@
 
     /* Continuous Sweeping Second Hand */
     #clockSecondHand {
-      transform-origin: 120px 125px;
+      transform-origin: 120px 74px;
       animation: sweepSecondHand 60s steps(60) infinite;
     }
     @keyframes sweepSecondHand {
@@ -598,7 +598,7 @@
               <defs>
                 <!-- Soft Cyber Glow Filters -->
                 <filter id="cyberGlow" x="-20%" y="-20%" width="140%" height="140%">
-                  <feGaussianBlur stdDeviation="5" result="blur"/>
+                  <feGaussianBlur stdDeviation="4" result="blur"/>
                   <feComposite in="SourceGraphic" in2="blur" operator="over"/>
                 </filter>
                 <filter id="alarmRedGlow" x="-30%" y="-30%" width="160%" height="160%">
@@ -606,182 +606,165 @@
                 </filter>
 
                 <!-- Dial & Bezel Gradients -->
-                <radialGradient id="cyberDialGrad" cx="50%" cy="40%" r="65%">
-                  <stop offset="0%" stop-color="#1e1b4b"/>
-                  <stop offset="65%" stop-color="#0f172a"/>
-                  <stop offset="100%" stop-color="#070a14"/>
+                <radialGradient id="cyberDialGrad" cx="50%" cy="40%" r="70%">
+                  <stop offset="0%" stop-color="#181d36"/>
+                  <stop offset="60%" stop-color="#0f1424"/>
+                  <stop offset="100%" stop-color="#080b14"/>
                 </radialGradient>
                 <linearGradient id="cyberRimGrad" x1="0" y1="0" x2="1" y2="1">
                   <stop offset="0%" stop-color="#00f0ff"/>
                   <stop offset="50%" stop-color="#6366f1"/>
                   <stop offset="100%" stop-color="#a855f7"/>
                 </linearGradient>
-                <linearGradient id="earBellGrad" x1="0" y1="0" x2="0" y2="1">
+                <linearGradient id="bellGrad" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="0%" stop-color="#38bdf8"/>
                   <stop offset="100%" stop-color="#1e1b4b"/>
                 </linearGradient>
                 <radialGradient id="pupilGrad" cx="40%" cy="35%" r="65%">
-                  <stop offset="0%" stop-color="#67e8f9"/>
-                  <stop offset="60%" stop-color="#06b6d4"/>
-                  <stop offset="100%" stop-color="#0284c7"/>
+                  <stop offset="0%" stop-color="#38bdf8"/>
+                  <stop offset="55%" stop-color="#0284c7"/>
+                  <stop offset="100%" stop-color="#082f49"/>
                 </radialGradient>
-                <linearGradient id="handGrad" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#f8fafc"/>
-                  <stop offset="100%" stop-color="#94a3b8"/>
-                </linearGradient>
               </defs>
 
-              <!-- CUTE ROBOTIC CLOCK EARS / TWIN BELLS -->
+              <!-- TWIN BELL EARS WITH CONNECTED ROBOTIC BRACKETS -->
               <g id="clockEarsGroup">
-                <!-- Left Bell Ear -->
-                <g id="bellLeft" transform="translate(62, 54) rotate(-35)">
-                  <rect x="-14" y="-12" width="28" height="20" rx="8" fill="url(#earBellGrad)" stroke="#38bdf8" stroke-width="2"/>
-                  <ellipse cx="0" cy="-12" rx="10" ry="4" fill="#00f0ff" opacity="0.8"/>
-                  <circle cx="0" cy="-2" r="3" fill="#ffffff" opacity="0.9"/>
+                <path d="M 76 74 L 60 52" stroke="#38bdf8" stroke-width="5" stroke-linecap="round"/>
+                <g id="bellLeft" transform="translate(56, 48) rotate(-35)">
+                  <ellipse cx="0" cy="0" rx="16" ry="10" fill="url(#bellGrad)" stroke="#00f0ff" stroke-width="2"/>
+                  <ellipse cx="0" cy="-6" rx="8" ry="3" fill="#00f0ff" opacity="0.9" filter="url(#cyberGlow)"/>
+                  <circle cx="0" cy="0" r="3" fill="#ffffff"/>
                 </g>
-                <!-- Right Bell Ear -->
-                <g id="bellRight" transform="translate(178, 54) rotate(35)">
-                  <rect x="-14" y="-12" width="28" height="20" rx="8" fill="url(#earBellGrad)" stroke="#38bdf8" stroke-width="2"/>
-                  <ellipse cx="0" cy="-12" rx="10" ry="4" fill="#00f0ff" opacity="0.8"/>
-                  <circle cx="0" cy="-2" r="3" fill="#ffffff" opacity="0.9"/>
+
+                <path d="M 164 74 L 180 52" stroke="#38bdf8" stroke-width="5" stroke-linecap="round"/>
+                <g id="bellRight" transform="translate(184, 48) rotate(35)">
+                  <ellipse cx="0" cy="0" rx="16" ry="10" fill="url(#bellGrad)" stroke="#00f0ff" stroke-width="2"/>
+                  <ellipse cx="0" cy="-6" rx="8" ry="3" fill="#00f0ff" opacity="0.9" filter="url(#cyberGlow)"/>
+                  <circle cx="0" cy="0" r="3" fill="#ffffff"/>
                 </g>
               </g>
 
-              <!-- CUTE LITTLE HOVER PODS / FEET -->
+              <!-- ROBOTIC LEGS & HOVER THRUSTERS -->
               <g id="clockFeetGroup">
-                <!-- Left Foot -->
-                <g id="footLeft" transform="translate(86, 204)">
-                  <ellipse cx="0" cy="0" rx="15" ry="8" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
-                  <ellipse cx="0" cy="2" rx="8" ry="3" fill="#00f0ff" opacity="0.6" filter="url(#cyberGlow)"/>
+                <path d="M 94 182 Q 90 198 86 210" stroke="#38bdf8" stroke-width="5.5" stroke-linecap="round" fill="none"/>
+                <g id="footLeft" transform="translate(86, 212)">
+                  <ellipse cx="0" cy="0" rx="16" ry="8" fill="#1e293b" stroke="#00f0ff" stroke-width="2"/>
+                  <ellipse cx="0" cy="2" rx="9" ry="3" fill="#00f0ff" opacity="0.8" filter="url(#cyberGlow)"/>
                 </g>
-                <!-- Right Foot -->
-                <g id="footRight" transform="translate(154, 204)">
-                  <ellipse cx="0" cy="0" rx="15" ry="8" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
-                  <ellipse cx="0" cy="2" rx="8" ry="3" fill="#00f0ff" opacity="0.6" filter="url(#cyberGlow)"/>
+
+                <path d="M 146 182 Q 150 198 154 210" stroke="#38bdf8" stroke-width="5.5" stroke-linecap="round" fill="none"/>
+                <g id="footRight" transform="translate(154, 212)">
+                  <ellipse cx="0" cy="0" rx="16" ry="8" fill="#1e293b" stroke="#00f0ff" stroke-width="2"/>
+                  <ellipse cx="0" cy="2" rx="9" ry="3" fill="#00f0ff" opacity="0.8" filter="url(#cyberGlow)"/>
                 </g>
               </g>
 
               <!-- CLOCK MAIN BODY & DIAL -->
               <g id="clockBodyGroup">
-                <!-- Outer Glow Rim -->
-                <circle id="clockOuterAura" cx="120" cy="125" r="76" fill="none" stroke="url(#cyberRimGrad)" stroke-width="3.5" opacity="0.9"/>
-                <circle cx="120" cy="125" r="74" fill="#070a14" stroke="#1e293b" stroke-width="2"/>
-                <!-- Inner Dial Face -->
-                <circle id="clockFace" cx="120" cy="125" r="70" fill="url(#cyberDialGrad)" stroke="#334155" stroke-width="1.5"/>
+                <!-- Outer Radiant Neon Rim -->
+                <circle id="clockOuterAura" cx="120" cy="125" r="72" fill="none" stroke="url(#cyberRimGrad)" stroke-width="3.5" opacity="0.95"/>
+                <circle cx="120" cy="125" r="70" fill="#080b14" stroke="#1e293b" stroke-width="2"/>
+                <circle id="clockFace" cx="120" cy="125" r="66" fill="url(#cyberDialGrad)" stroke="#1e293b" stroke-width="1.5"/>
 
-                <!-- Dial Hour Ticks (Modern Minimalist Neon Cyber Markers) -->
-                <!-- 12, 3, 6, 9 Cardinal Ticks -->
-                <rect x="118" y="60" width="4" height="11" rx="2" fill="#00f0ff" opacity="0.9"/>
-                <rect x="179" y="123" width="11" height="4" rx="2" fill="#00f0ff" opacity="0.9"/>
-                <rect x="118" y="179" width="4" height="11" rx="2" fill="#00f0ff" opacity="0.9"/>
-                <rect x="50" y="123" width="11" height="4" rx="2" fill="#00f0ff" opacity="0.9"/>
+                <!-- 12 Modern Minimalist Luminous Neon Dial Ticks (Perimeter) -->
+                <rect x="118.5" y="62" width="3" height="9" rx="1.5" fill="#00f0ff"/>
+                <rect x="175" y="123.5" width="9" height="3" rx="1.5" fill="#00f0ff"/>
+                <rect x="118.5" y="179" width="3" height="9" rx="1.5" fill="#00f0ff"/>
+                <rect x="56" y="123.5" width="9" height="3" rx="1.5" fill="#00f0ff"/>
+                <!-- Intermediate Hour Dots -->
+                <circle cx="150" cy="74" r="2.2" fill="#818cf8"/>
+                <circle cx="171" cy="98" r="2.2" fill="#818cf8"/>
+                <circle cx="171" cy="152" r="2.2" fill="#818cf8"/>
+                <circle cx="150" cy="176" r="2.2" fill="#818cf8"/>
+                <circle cx="90" cy="176" r="2.2" fill="#818cf8"/>
+                <circle cx="69" cy="152" r="2.2" fill="#818cf8"/>
+                <circle cx="69" cy="98" r="2.2" fill="#818cf8"/>
+                <circle cx="90" cy="74" r="2.2" fill="#818cf8"/>
 
-                <!-- Subtle Intermediate Dot Markers -->
-                <circle cx="152" cy="74" r="2.5" fill="#818cf8" opacity="0.75"/>
-                <circle cx="176" cy="98" r="2.5" fill="#818cf8" opacity="0.75"/>
-                <circle cx="176" cy="152" r="2.5" fill="#818cf8" opacity="0.75"/>
-                <circle cx="152" cy="176" r="2.5" fill="#818cf8" opacity="0.75"/>
-                <circle cx="88" cy="176" r="2.5" fill="#818cf8" opacity="0.75"/>
-                <circle cx="64" cy="152" r="2.5" fill="#818cf8" opacity="0.75"/>
-                <circle cx="64" cy="98" r="2.5" fill="#818cf8" opacity="0.75"/>
-                <circle cx="88" cy="74" r="2.5" fill="#818cf8" opacity="0.75"/>
-
-                <!-- CLOCK HANDS (Sleek Luminous Cyber Pointers) -->
+                <!-- FOREHEAD TIMEPIECE DIAL HANDS (Pivots at top center so eyes and mouth remain 100% unobstructed!) -->
                 <g id="clockHandsSubgroup">
-                  <!-- Hour Hand -->
-                  <line id="clockHourHand" x1="120" y1="125" x2="120" y2="94" stroke="#818cf8" stroke-width="4.5" stroke-linecap="round" transform="rotate(-40, 120, 125)"/>
-                  <!-- Minute Hand -->
-                  <line id="clockMinuteHand" x1="120" y1="125" x2="120" y2="80" stroke="#38bdf8" stroke-width="3.5" stroke-linecap="round" transform="rotate(55, 120, 125)"/>
-                  <!-- Second Hand with smooth sweep -->
-                  <line id="clockSecondHand" x1="120" y1="135" x2="120" y2="72" stroke="#00f0ff" stroke-width="1.8" stroke-linecap="round" transform="rotate(20, 120, 125)"/>
-                  <!-- Center Glowing Pivot Cap -->
-                  <circle cx="120" cy="125" r="5" fill="#0f172a" stroke="#00f0ff" stroke-width="2"/>
-                  <circle cx="120" cy="125" r="2" fill="#00f0ff"/>
+                  <circle cx="120" cy="74" r="3.5" fill="#0f172a" stroke="#00f0ff" stroke-width="1.5"/>
+                  <circle cx="120" cy="74" r="1.5" fill="#00f0ff"/>
+                  <line id="clockHourHand" x1="120" y1="74" x2="108" y2="67" stroke="#818cf8" stroke-width="3" stroke-linecap="round"/>
+                  <line id="clockMinuteHand" x1="120" y1="74" x2="134" y2="65" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round"/>
+                  <line id="clockSecondHand" x1="120" y1="79" x2="120" y2="62" stroke="#00f0ff" stroke-width="1.5" stroke-linecap="round"/>
                 </g>
 
-                <!-- CUTE FRIENDLY EXPRESSIVE DIGITAL EYES -->
+                <!-- CUTE BIG EXPRESSIVE ANIME ROBOT EYES (HIGH CONTRAST & ADORABLE) -->
                 <g id="clockEyesContainer">
-                  <!-- Standard Warm Friendly Eyes -->
                   <g id="normalClockEyes">
-                    <!-- Left Eye Socket & Pupil -->
+                    <!-- LEFT EYE -->
                     <g id="leftEyeGroup" class="clock-eyelid">
-                      <ellipse id="eyeSocketLeft" cx="98" cy="116" rx="15" ry="19" fill="#0b0f19" stroke="#1e293b" stroke-width="2"/>
+                      <ellipse id="eyeSocketLeft" cx="94" cy="112" rx="15" ry="21" fill="#ffffff" stroke="#1e293b" stroke-width="2"/>
                       <g id="pupilLeft" class="clock-pupil">
-                        <ellipse cx="98" cy="116" rx="11" ry="14" fill="url(#pupilGrad)"/>
-                        <!-- Catchlights for adorable sparkle -->
-                        <ellipse cx="95" cy="111" rx="4" ry="5.5" fill="#ffffff" opacity="0.95"/>
-                        <circle cx="102" cy="122" r="2" fill="#ffffff" opacity="0.85"/>
-                        <!-- Star Catchlight (for Strong Password) -->
-                        <text id="starLeft" x="91" y="122" font-size="14" fill="#fbbf24" opacity="0" font-weight="900">★</text>
+                        <ellipse cx="94" cy="112" rx="10.5" ry="16" fill="url(#pupilGrad)"/>
+                        <ellipse cx="91" cy="104" rx="4" ry="6" fill="#ffffff" opacity="0.95"/>
+                        <circle cx="98" cy="119" r="2.2" fill="#ffffff" opacity="0.9"/>
+                        <text id="starLeft" x="87" y="118" font-size="14" fill="#fbbf24" opacity="0" font-weight="900">★</text>
                       </g>
-                      <!-- Soft Friendly Eyelash / Brow Arc -->
-                      <path d="M 86 96 Q 98 92 110 97" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.6"/>
+                      <path d="M 83 90 Q 94 85 105 89" stroke="#38bdf8" stroke-width="2.2" stroke-linecap="round" fill="none"/>
                     </g>
 
-                    <!-- Right Eye Socket & Pupil -->
+                    <!-- RIGHT EYE -->
                     <g id="rightEyeGroup" class="clock-eyelid">
-                      <ellipse id="eyeSocketRight" cx="142" cy="116" rx="15" ry="19" fill="#0b0f19" stroke="#1e293b" stroke-width="2"/>
+                      <ellipse id="eyeSocketRight" cx="146" cy="112" rx="15" ry="21" fill="#ffffff" stroke="#1e293b" stroke-width="2"/>
                       <g id="pupilRight" class="clock-pupil">
-                        <ellipse cx="142" cy="116" rx="11" ry="14" fill="url(#pupilGrad)"/>
-                        <!-- Catchlights for adorable sparkle -->
-                        <ellipse cx="139" cy="111" rx="4" ry="5.5" fill="#ffffff" opacity="0.95"/>
-                        <circle cx="146" cy="122" r="2" fill="#ffffff" opacity="0.85"/>
-                        <!-- Star Catchlight (for Strong Password) -->
-                        <text id="starRight" x="135" y="122" font-size="14" fill="#fbbf24" opacity="0" font-weight="900">★</text>
+                        <ellipse cx="146" cy="112" rx="10.5" ry="16" fill="url(#pupilGrad)"/>
+                        <ellipse cx="143" cy="104" rx="4" ry="6" fill="#ffffff" opacity="0.95"/>
+                        <circle cx="150" cy="119" r="2.2" fill="#ffffff" opacity="0.9"/>
+                        <text id="starRight" x="139" y="118" font-size="14" fill="#fbbf24" opacity="0" font-weight="900">★</text>
                       </g>
-                      <!-- Soft Friendly Eyelash / Brow Arc -->
-                      <path d="M 130 97 Q 142 92 154 96" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.6"/>
+                      <path d="M 135 89 Q 146 85 157 90" stroke="#38bdf8" stroke-width="2.2" stroke-linecap="round" fill="none"/>
                     </g>
                   </g>
 
                   <!-- Super Cute Happy Crescent Anime Eyes (^ ^) -->
                   <g id="happyClockEyes" class="happy-eyes" opacity="0">
-                    <path d="M 85 118 Q 98 104 111 118" stroke="#00f0ff" stroke-width="4.5" stroke-linecap="round" fill="none" filter="url(#cyberGlow)"/>
-                    <path d="M 129 118 Q 142 104 155 118" stroke="#00f0ff" stroke-width="4.5" stroke-linecap="round" fill="none" filter="url(#cyberGlow)"/>
+                    <path d="M 81 114 Q 94 98 107 114" stroke="#00f0ff" stroke-width="4.5" stroke-linecap="round" fill="none" filter="url(#cyberGlow)"/>
+                    <path d="M 133 114 Q 146 98 159 114" stroke="#00f0ff" stroke-width="4.5" stroke-linecap="round" fill="none" filter="url(#cyberGlow)"/>
                   </g>
                 </g>
 
-                <!-- SOFT ADORABLE ROSY CHEEKS -->
-                <ellipse id="cheekLeft" class="cheeks" cx="80" cy="136" rx="9" ry="5" fill="#ec4899" opacity="0.45"/>
-                <ellipse id="cheekRight" class="cheeks" cx="160" cy="136" rx="9" ry="5" fill="#ec4899" opacity="0.45"/>
+                <!-- SOFT GLOWING PINK CHEEKS -->
+                <ellipse id="cheekLeft" class="cheeks" cx="76" cy="132" rx="8" ry="4.5" fill="#ec4899" opacity="0.45"/>
+                <ellipse id="cheekRight" class="cheeks" cx="164" cy="132" rx="8" ry="4.5" fill="#ec4899" opacity="0.45"/>
 
-                <!-- CUTE MOUTHS -->
+                <!-- CUTE EXPRESSIVE MOUTHS -->
                 <g id="clockMouthGroup">
-                  <!-- Friendly Soft Smile -->
                   <g id="mouthHappy">
-                    <path d="M 107 142 Q 120 152 133 142" stroke="#38bdf8" stroke-width="3" stroke-linecap="round" fill="none"/>
-                    <circle cx="106" cy="141" r="1.5" fill="#38bdf8"/>
-                    <circle cx="134" cy="141" r="1.5" fill="#38bdf8"/>
+                    <path d="M 108 138 Q 120 148 132 138" stroke="#38bdf8" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+                    <circle cx="107" cy="137" r="1.5" fill="#38bdf8"/>
+                    <circle cx="133" cy="137" r="1.5" fill="#38bdf8"/>
                   </g>
-                  <!-- Worried Mouth (for weak password) -->
-                  <path id="mouthWorried" opacity="0" d="M 110 146 Q 115 141 120 146 Q 125 151 130 145" stroke="#f59e0b" stroke-width="3" stroke-linecap="round" fill="none"/>
-                  <!-- Alarmed Surprised Cute Mouth (for error / incorrect password) -->
-                  <ellipse id="mouthAlarmed" opacity="0" cx="120" cy="147" rx="6.5" ry="8.5" fill="#0b0f19" stroke="#ef4444" stroke-width="2.5"/>
+                  <path id="mouthWorried" opacity="0" d="M 110 142 Q 115 137 120 142 Q 125 147 130 141" stroke="#f59e0b" stroke-width="3" stroke-linecap="round" fill="none"/>
+                  <ellipse id="mouthAlarmed" opacity="0" cx="120" cy="144" rx="7" ry="9" fill="#080b14" stroke="#ef4444" stroke-width="2.5"/>
                 </g>
 
                 <!-- Cute Sweat Drop (for weak password) -->
-                <g id="clockSweat" opacity="0" transform="translate(166, 88)">
+                <g id="clockSweat" opacity="0" transform="translate(168, 86)">
                   <path d="M 0 8 C -3 8 -5 5 -5 2 C -5 -2 0 -7 0 -7 C 0 -7 5 -2 5 2 C 5 5 3 8 0 8 Z" fill="#38bdf8" stroke="#0284c7" stroke-width="1.2"/>
                 </g>
 
-                <!-- Clickable Boop Area -->
-                <circle id="clockNose" cx="120" cy="125" r="18" fill="transparent" class="cursor-pointer" onclick="handleNoseClick()" title="Boop ClockEE! ✨"/>
+                <!-- Interactive Boop Area -->
+                <circle id="clockNose" cx="120" cy="128" r="16" fill="transparent" class="cursor-pointer" onclick="handleNoseClick()" title="Boop ClockEE! ✨"/>
               </g>
 
-              <!-- CUTE FLOATING CYBER HANDS -->
+              <!-- CONNECTED ROBOTIC ARMS & CUTE CYBER GLOVES -->
               <g id="clockArmLeft" class="clock-arm arm-left">
-                <g id="handLeft" transform="translate(42, 138)">
-                  <ellipse cx="14" cy="14" rx="14" ry="12" fill="url(#handGrad)" stroke="#38bdf8" stroke-width="2"/>
-                  <ellipse cx="14" cy="14" rx="6" ry="5" fill="#00f0ff" opacity="0.65" filter="url(#cyberGlow)"/>
-                  <circle cx="23" cy="9" r="4.5" fill="#ffffff" stroke="#38bdf8" stroke-width="1.5"/>
+                <path d="M 64 130 Q 42 138 34 148" stroke="#38bdf8" stroke-width="5" stroke-linecap="round" fill="none"/>
+                <g id="handLeft" transform="translate(20, 142)">
+                  <ellipse cx="14" cy="14" rx="13" ry="11" fill="#ffffff" stroke="#38bdf8" stroke-width="2"/>
+                  <ellipse cx="14" cy="14" rx="6" ry="5" fill="#00f0ff" opacity="0.75" filter="url(#cyberGlow)"/>
+                  <circle cx="23" cy="9" r="4" fill="#ffffff" stroke="#38bdf8" stroke-width="1.5"/>
                 </g>
               </g>
 
               <g id="clockArmRight" class="clock-arm arm-right">
-                <g id="handRight" transform="translate(170, 138)">
-                  <ellipse cx="14" cy="14" rx="14" ry="12" fill="url(#handGrad)" stroke="#38bdf8" stroke-width="2"/>
-                  <ellipse cx="14" cy="14" rx="6" ry="5" fill="#00f0ff" opacity="0.65" filter="url(#cyberGlow)"/>
-                  <circle cx="5" cy="9" r="4.5" fill="#ffffff" stroke="#38bdf8" stroke-width="1.5"/>
+                <path d="M 176 130 Q 198 138 206 148" stroke="#38bdf8" stroke-width="5" stroke-linecap="round" fill="none"/>
+                <g id="handRight" transform="translate(192, 142)">
+                  <ellipse cx="14" cy="14" rx="13" ry="11" fill="#ffffff" stroke="#38bdf8" stroke-width="2"/>
+                  <ellipse cx="14" cy="14" rx="6" ry="5" fill="#00f0ff" opacity="0.75" filter="url(#cyberGlow)"/>
+                  <circle cx="5" cy="9" r="4" fill="#ffffff" stroke="#38bdf8" stroke-width="1.5"/>
                 </g>
               </g>
             </svg>
@@ -1733,6 +1716,7 @@
       }
 
       localStorage.setItem('clockee_auth_active', 'true');
+      sessionStorage.setItem('clockee_first_signin', 'true');
       localStorage.setItem('clockee_current_user', JSON.stringify(user));
       
       try {

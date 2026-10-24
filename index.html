@@ -337,6 +337,10 @@
 
     <!-- Right Actions: Split Screen + Avatar Ring -->
     <div class="nav-right flex items-center gap-3">
+      <button id="btnNavTourCockpit" class="px-2.5 py-1 rounded-full bg-gradient-to-r from-indigo-500/30 to-cyan-500/30 border border-cyan-400/50 text-cyan-300 hover:from-indigo-500/50 hover:to-cyan-500/50 text-xs font-black shadow-lg shadow-cyan-500/20 flex items-center gap-1.5 transition cursor-pointer" onclick="window.showCockpitTourMenu()" title="Open Interactive Cockpit Tour Menu">
+        <span class="animate-pulse">🚀</span>
+        <span>Tour</span>
+      </button>
       <button class="nav-icon-btn hover:border-cyan-400 hover:text-cyan-300" title="Toggle Split-Screen Quick Panel" onclick="toggleSplitScreen()">⊟</button>
       <a href="settings.html" class="relative p-[2px] rounded-full hud-ring shadow-[0_0_15px_rgba(99,102,241,0.4)] cursor-pointer inline-block" title="Commander Profile & Settings">
         <img

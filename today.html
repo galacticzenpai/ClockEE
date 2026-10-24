@@ -350,7 +350,7 @@
           </div>
         </div>
         <div class="text-right">
-          <div class="text-xs font-mono font-bold text-cyan-400" id="card-date-badge">2026-10-23</div>
+          <div class="text-xs font-mono font-bold text-cyan-400" id="card-date-badge">Today</div>
           <div class="text-[10px] text-gray-500 uppercase font-semibold">Daily Report</div>
         </div>
       </div>
@@ -410,7 +410,7 @@
           <h4 class="text-xs font-bold text-gray-200 flex items-center gap-1.5">
             <span>📈</span> Performance Momentum (Yesterday vs Today)
           </h4>
-          <span class="text-[10px] text-indigo-400 font-mono" id="today-delta-tag">+0% Momentum</span>
+          <span class="text-[10px] text-slate-400 font-mono" id="today-delta-tag">0 Qs vs Yesterday</span>
         </div>
         <div class="h-44 w-full">
           <canvas id="chart-today-comparison"></canvas>
@@ -697,12 +697,12 @@
             tagEl.textContent = '0 Qs vs Yesterday';
             tagEl.className = 'text-[10px] text-slate-400 font-mono';
           } else {
-            tagEl.textContent = diffQs >= 0 ? + Qs vs Yesterday ⚡ : ${diffQs} Qs vs Yesterday;
+            tagEl.textContent = diffQs >= 0 ? `+${diffQs} Qs vs Yesterday ⚡` : `${diffQs} Qs vs Yesterday`;
             tagEl.className = diffQs >= 0 ? 'text-[10px] text-emerald-400 font-mono font-bold' : 'text-[10px] text-amber-400 font-mono font-bold';
           }
         }
 
-        const qLogs = (window.APP_STATE && window.APP_STATE.questionLogs) || [];
+        const qLogs = s.questionLogs || [];
         const now = new Date();
         const todayLogs = qLogs.filter(q => {
           const d = new Date(q.timestamp || q.date || Date.now());
@@ -711,8 +711,6 @@
         const todayCorrect = todayLogs.filter(q => q.correct !== false && q.isCorrect !== false && q.status !== 'wrong').length;
         const todayAcc = todayLogs.length > 0 ? Math.round((todayCorrect / todayLogs.length) * 100) : 0;
 
-        const yesterday = new Date();
-        yesterday.setDate(yesterday.getDate() - 1);
         const yestLogs = qLogs.filter(q => {
           const d = new Date(q.timestamp || q.date || 0);
           return d.getDate() === yesterday.getDate() && d.getMonth() === yesterday.getMonth() && d.getFullYear() === yesterday.getFullYear();

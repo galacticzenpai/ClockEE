@@ -407,7 +407,7 @@
             </div>
           </div>
           <div class="flex items-center gap-2">
-            <span class="text-[10px] font-mono px-3 py-1 rounded-full bg-gradient-to-r from-amber-500/20 via-orange-500/25 to-red-500/20 text-orange-300 border border-orange-500/40 font-black flex items-center gap-1.5 shadow-[0_0_14px_rgba(249,115,22,0.3)]"><span class="text-xs">🔥</span> 14-Day Streak</span>
+            <span class="text-[10px] font-mono px-3 py-1 rounded-full bg-gradient-to-r from-amber-500/20 via-orange-500/25 to-red-500/20 text-orange-300 border border-orange-500/40 font-black flex items-center gap-1.5 shadow-[0_0_14px_rgba(249,115,22,0.3)]"><span class="text-xs">🔥</span> <span id="home-mission-streak-text">0-Day Streak</span></span>
           </div>
         </div>
 
@@ -417,9 +417,9 @@
             <div class="text-[10px] text-slate-400 uppercase font-bold tracking-wider">Active High-Yield Chapter</div>
             <div class="text-xs font-black text-white flex items-center gap-2">
               <span class="w-2.5 h-2.5 rounded-full bg-blue-400 inline-block shadow-[0_0_8px_rgba(96,165,250,0.7)]"></span>
-              <span>Rotational Dynamics</span>
+              <span id="active-chapter-name">Kinematics &amp; Vectors</span>
             </div>
-            <div class="text-[10px] text-cyan-300 font-mono font-medium">Moment of Inertia &amp; Torque</div>
+            <div class="text-[10px] text-cyan-300 font-mono font-medium" id="active-chapter-topic">1D/2D Motion &amp; Mechanics Foundation</div>
           </div>
 
           <!-- Target Metric / Accuracy Card -->
@@ -739,6 +739,7 @@
     }
 
     function updateDailyProgress() {
+      const s = window.getState ? window.getState() : {};
       const qs = window.getQuestionsToday();
       const qPhy = document.getElementById('quick-phy-today');
       if (qPhy) qPhy.textContent = `${qs.Physics}`;
@@ -746,6 +747,18 @@
       if (qChem) qChem.textContent = `${qs.Chemistry}`;
       const qMath = document.getElementById('quick-math-today');
       if (qMath) qMath.textContent = `${qs.Maths}`;
+
+      const streak = s.stats?.streakDays || 0;
+      const streakEl = document.getElementById('home-mission-streak-text');
+      if (streakEl) streakEl.textContent = `${streak}-Day Streak`;
+
+      const inProgTask = (s.tasks || []).find(t => !t.completed && t.subject);
+      const chNameEl = document.getElementById('active-chapter-name');
+      const chTopicEl = document.getElementById('active-chapter-topic');
+      if (inProgTask && chNameEl) {
+        chNameEl.textContent = inProgTask.title || 'Kinematics & Vectors';
+        if (chTopicEl) chTopicEl.textContent = inProgTask.list || 'Active Target';
+      }
     }
     window.updateDailyProgress = updateDailyProgress;
 

@@ -14,11 +14,13 @@
 
 | Resource | Direct Link | Description |
 | :--- | :--- | :--- |
-| 🚀 **Live Production Web App** | **[Launch ClockEE Live App](https://clockee-jee-2028.tiiny.site)** | Full production suite with real-time timers, CBT exam drills, and cloud sync |
-| 🐻 **Interactive Mascot Portal** | **[Launch Login & Mascot Sandbox](https://clockee-jee-2028.tiiny.site/login.html)** | Cyber-Bear interactive mascot with gaze tracking, blush, and password eye-covering |
-| 🎯 **Tactical Pace Benchmark Sprint** | **[Launch Question Sprint Arena](https://clockee-jee-2028.tiiny.site/timer.html)** | Sub-second lap cadence, JEE +4/-1 scoring, and error autopsy uploader |
-| 📚 **Coaching Syllabus Matrix** | **[Launch Coaching Matrix](https://clockee-jee-2028.tiiny.site/coaching.html)** | PCM Milestone blocks, fuzzy chapter match, and cyber checkboxes |
-| ☁️ **Cloud Student Admin Roster** | **[Launch Cloud Admin Portal](https://clockee-jee-2028.tiiny.site/admin.html)** | Real-time multi-aspirant roster management, database ping & diagnostics |
+| 🏆 **Official Hackathon Portal** | **[Launch Hackathon Showcase](https://galacticzenpai.github.io/ClockEE/hackathon.html)** | Interactive project pitch, judge credentials, registration JSON & system tour |
+| 🌐 **GitHub Pages Live App** | **[Launch via GitHub Pages](https://galacticzenpai.github.io/ClockEE/)** | High-speed global CDN deployment of ClockEE on GitHub Pages |
+| 🚀 **Live Production Mirror (Tiiny)** | **[Launch via Tiiny Host](https://clockee-jee-2028.tiiny.site)** | Public cloud mirror with full CBT exams, timer telemetry, and cloud sync |
+| 🐻 **Interactive Mascot Portal** | **[Launch Login & Mascot Sandbox](https://galacticzenpai.github.io/ClockEE/login.html)** | Cyber-Bear interactive mascot with gaze tracking, blush, and password eye-covering |
+| 🎯 **Tactical Pace Benchmark Sprint** | **[Launch Question Sprint Arena](https://galacticzenpai.github.io/ClockEE/timer.html)** | Sub-second lap cadence, JEE +4/-1 scoring, and error autopsy uploader |
+| 📚 **Coaching Syllabus Matrix** | **[Launch Coaching Matrix](https://galacticzenpai.github.io/ClockEE/coaching.html)** | PCM Milestone blocks, fuzzy chapter match, and cyber checkboxes |
+| ☁️ **Cloud Student Admin Roster** | **[Launch Cloud Admin Portal](https://galacticzenpai.github.io/ClockEE/admin.html)** | Real-time multi-aspirant roster management, database ping & diagnostics |
 
 ---
 
@@ -142,6 +144,7 @@ flowchart TD
 
 ```text
 ClockEE/
+├── hackathon.html               # Official Hackathon Showcase, Judging Toolkit & Registration Portal
 ├── index.html                   # Master Dashboard, Mission Vitals & Heatmap
 ├── timer.html                   # Tactical Pace Sprint, Lecture Focus Block & Error Autopsy
 ├── mini_timer.html              # Dual-Screen Popout Mini-Timer for 2nd monitors
@@ -171,26 +174,42 @@ ClockEE is built with zero cumbersome build steps, compilers, or heavy node_modu
 ### Option 1: Clone and Run via Python Server
 ```bash
 # Clone the repository
-git clone https://github.com/kunalsahoo/ClockEE.git
+git clone https://github.com/galacticzenpai/ClockEE.git
 cd ClockEE
 
 # Start a local HTTP server
 python -m http.server 8080
 ```
-Open **`http://localhost:8080`** in your browser.
+Open **`http://localhost:8080`** or **`http://localhost:8080/hackathon.html`** in your browser.
 
 ### Option 2: Direct Browser Launch
-Simply double-click `index.html` or `login.html` to run in standalone client mode.
+Simply double-click `hackathon.html`, `index.html`, or `login.html` to run in standalone client mode.
 
 ---
 
-## 🏅 Hackathon Submission Credentials
+## ⚖️ Hackathon Evaluation & Judge Test Credentials
 
-- **Category / Track**: EdTech, Cognitive Optimization & Best Dual-Screen UX
+For hackathon judges and evaluators, pre-seeded test accounts and administrative PINs are provided:
+
+| Account / Role | Email / Identifier | Passcode / PIN | Description |
+| :--- | :--- | :--- | :--- |
+| 🧑‍🎓 **Student Alpha (Active)** | `alpha@clockee.app` | `password123` | Active aspirant account pre-seeded with solved questions, streaks, and syllabus progress |
+| 🧑‍💻 **Student Beta (Isolated)** | `beta@clockee.app` | `password456` | Secondary aspirant account demonstrating 100% strict multi-user client & cloud isolation |
+| 🛡️ **Admin & Mentor Panel** | `admin.html` | `2028` | Multi-user roster manager, live Firebase connection health, and custom question injector |
+| 🚀 **Guest Sandbox** | 1-Click Launch | *None* | Direct instant bypass into the complete suite with zero signup friction |
+
+---
+
+## 🏅 Hackathon Project & Registration Metadata
+
 - **Project Name**: ClockEE (JEE 2028 Study Engine)
-- **Author / Lead Developer**: Kunal Sahoo
-- **Live Demo Link**: [https://clockee-jee-2028.tiiny.site](https://clockee-jee-2028.tiiny.site)
-- **Database Engine**: Firebase Realtime Database
+- **Author / Lead Developer**: Kunal Sahoo ([@galacticzenpai](https://github.com/galacticzenpai))
+- **Category / Tracks**: EdTech, AI & Productivity, Best Dual-Screen UX, Cognitive Engineering
+- **GitHub Repository**: [https://github.com/galacticzenpai/ClockEE](https://github.com/galacticzenpai/ClockEE)
+- **Live GitHub Pages URL**: [https://galacticzenpai.github.io/ClockEE/](https://galacticzenpai.github.io/ClockEE/)
+- **Live Hackathon Portal**: [https://galacticzenpai.github.io/ClockEE/hackathon.html](https://galacticzenpai.github.io/ClockEE/hackathon.html)
+- **Live Cloud Mirror**: [https://clockee-jee-2028.tiiny.site](https://clockee-jee-2028.tiiny.site)
+- **Database Engine**: Firebase Realtime Database with Resilient Offline-First LocalStorage
 - **License**: [MIT License](LICENSE)
 
 ---

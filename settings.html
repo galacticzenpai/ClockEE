@@ -559,6 +559,36 @@
       </div>
     </div>
 
+    <!-- Retheming & Visual Studio Controls -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-3 border-t border-white/10">
+      <div>
+        <div class="flex justify-between items-center mb-1">
+          <label class="text-[10px] text-gray-300 uppercase font-bold">Glassmorphism Blur</label>
+          <span class="text-[10px] text-cyan-400 font-mono font-bold" id="blur-val-label">20px</span>
+        </div>
+        <input type="range" min="0" max="40" value="20" id="setting-glass-blur" oninput="onGlassSettingChange()" class="w-full accent-cyan-400 cursor-pointer">
+      </div>
+      <div>
+        <div class="flex justify-between items-center mb-1">
+          <label class="text-[10px] text-gray-300 uppercase font-bold">Glass Card Opacity</label>
+          <span class="text-[10px] text-cyan-400 font-mono font-bold" id="opacity-val-label">75%</span>
+        </div>
+        <input type="range" min="30" max="95" value="75" id="setting-glass-opacity" oninput="onGlassSettingChange()" class="w-full accent-cyan-400 cursor-pointer">
+      </div>
+      <div>
+        <div class="flex justify-between items-center mb-1">
+          <label class="text-[10px] text-gray-300 uppercase font-bold">Tactile Sound Pack</label>
+          <button type="button" onclick="window.playTactileFeedback()" class="text-[10px] text-purple-300 hover:text-white font-mono font-bold flex items-center gap-1">🔊 Test</button>
+        </div>
+        <select id="setting-sound-pack" onchange="onSoundSettingChange()" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl px-3 py-1.5 text-xs outline-none focus:border-cyan-400">
+          <option value="cyber">Cybernetic Pulse (Default)</option>
+          <option value="mechanical">Cherry MX Blue Mechanical Click</option>
+          <option value="thump">Soft Tactile Keyboard Thump</option>
+          <option value="silent">Silent Focus (No Click)</option>
+        </select>
+      </div>
+    </div>
+
     <!-- Live Animated Theme Preview Box -->
     <div class="mt-2 p-3 rounded-xl bg-black/50 border border-white/10">
       <div class="flex items-center justify-between mb-2">
@@ -820,6 +850,30 @@
     blob2.style.animationDuration = dur;
   };
 
+    window.onGlassSettingChange = function() {
+    const blur = document.getElementById("setting-glass-blur").value;
+    const opacity = (document.getElementById("setting-glass-opacity").value / 100).toFixed(2);
+    document.getElementById("blur-val-label").textContent = `${blur}px`;
+    document.getElementById("opacity-val-label").textContent = `${Math.round(opacity * 100)}%`;
+    document.documentElement.style.setProperty("--glass-blur", `${blur}px`);
+    document.documentElement.style.setProperty("--glass-opacity", opacity);
+    
+    const s = window.getState();
+    s.settings = s.settings || {};
+    s.settings.glassBlur = Number(blur);
+    s.settings.glassOpacity = Number(opacity);
+    window.saveState();
+  };
+
+  window.onSoundSettingChange = function() {
+    const pack = document.getElementById("setting-sound-pack").value;
+    const s = window.getState();
+    s.settings = s.settings || {};
+    s.settings.soundPack = pack;
+    window.saveState();
+    window.playTactileFeedback(pack);
+  };
+
   function initSettings() {
     const s = window.getState();
     document.getElementById('settings-name').value = s.profile?.name || 'JEE Aspirant';
@@ -883,6 +937,20 @@
     if (document.getElementById('setting-aura-theme')) {
       document.getElementById('setting-aura-theme').value = s.settings?.auraTheme || 'cyan_indigo';
     }
+    if (document.getElementById('setting-glass-blur')) {
+      const b = s.settings?.glassBlur !== undefined ? s.settings.glassBlur : 20;
+      document.getElementById('setting-glass-blur').value = b;
+      document.getElementById('blur-val-label').textContent = `${b}px`;
+    }
+    if (document.getElementById('setting-glass-opacity')) {
+      const op = s.settings?.glassOpacity !== undefined ? Math.round(s.settings.glassOpacity * 100) : 75;
+      document.getElementById('setting-glass-opacity').value = op;
+      document.getElementById('opacity-val-label').textContent = `${op}%`;
+    }
+    if (document.getElementById('setting-sound-pack')) {
+      document.getElementById('setting-sound-pack').value = s.settings?.soundPack || 'cyber';
+    }
+
     if (document.getElementById('setting-aura-speed')) {
       document.getElementById('setting-aura-speed').value = s.settings?.auraSpeed || 'fluid';
     }

@@ -356,6 +356,14 @@
       <button onclick="exportTasksICS()" class="px-3.5 py-2 bg-emerald-600/20 hover:bg-emerald-600/40 text-emerald-300 border border-emerald-500/30 font-bold rounded-xl text-xs transition flex items-center gap-1.5 shadow">
         <span>📥</span> Export ICS
       </button>
+      <!-- Auto-Flow Mistakes from CBT & Timer -->
+      <button onclick="autoFlowMistakesToTasks()" class="px-3.5 py-2 bg-gradient-to-r from-rose-600/30 to-amber-600/30 hover:from-rose-600/50 hover:to-amber-600/50 text-rose-300 border border-rose-500/40 font-bold rounded-xl text-xs transition flex items-center gap-1.5 shadow" title="Convert CBT mistakes into high-priority autopsy tasks">
+        <span>⚡</span> Auto-Flow Mistakes
+      </button>
+      <!-- Auto-Flow Coaching Syllabus -->
+      <button onclick="autoFlowSyllabusToTasks()" class="px-3.5 py-2 bg-gradient-to-r from-teal-600/30 to-cyan-600/30 hover:from-teal-600/50 hover:to-cyan-600/50 text-cyan-300 border border-teal-500/40 font-bold rounded-xl text-xs transition flex items-center gap-1.5 shadow" title="Queue in-progress chapters into prioritized practice tasks">
+        <span>🎯</span> Auto-Flow Syllabus
+      </button>
       <!-- Add Task Button -->
       <button onclick="openAddTaskModal()" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-xl text-xs transition flex items-center gap-1.5 shadow-lg shadow-indigo-600/30">
         <span>＋</span> Add Task
@@ -406,6 +414,21 @@
           <button onclick="clearCalendarFilter()" class="hover:text-white font-bold ml-1">✕</button>
         </span>
       </div>
+    </div>
+  </div>
+
+  <!-- Auto-Flow Rollover Notification Banner -->
+  <div id="rollover-alert-banner" class="hidden p-3.5 rounded-xl border border-amber-500/30 bg-amber-950/40 text-amber-200 text-xs flex items-center justify-between flex-wrap gap-2 shadow-lg">
+    <div class="flex items-center gap-2">
+      <span class="text-base">⚠️</span>
+      <div>
+        <span class="font-bold">Automated Daily Rollover Detected:</span>
+        <span id="rollover-count-text" class="text-amber-300">0 unfinished task(s) from previous days rolled over to today's priority queue.</span>
+      </div>
+    </div>
+    <div class="flex items-center gap-2">
+      <button onclick="rescheduleRolloverTasks()" class="px-3 py-1 bg-amber-600 hover:bg-amber-500 text-white font-bold rounded-lg text-[11px] transition shadow">Set All Due Today ⚡</button>
+      <button onclick="document.getElementById('rollover-alert-banner').classList.add('hidden')" class="text-amber-400 hover:text-white text-xs px-1.5">✕</button>
     </div>
   </div>
 
@@ -734,6 +757,7 @@
       tickTickKanbanFolded = !tickTickKanbanFolded;
       const btn = document.getElementById('btn-tt-kanban-fold');
       if (btn) btn.textContent = tickTickKanbanFolded ? '▾ Unfold TickTick' : '📁 Fold TickTick';
+      checkDailyRollover();
       renderKanban();
     }
 
@@ -915,9 +939,33 @@
                 </div>
               </div>
 
-              <div class="text-xs font-semibold ${t.completed ? 'line-through text-gray-500' : 'text-gray-100'}">
-                ${t.title || 'Untitled Practice Task'}
+              <div class="flex items-start justify-between gap-2">
+                <div class="text-xs font-semibold ${t.completed ? 'line-through text-gray-500' : 'text-gray-100'} leading-snug">
+                  ${t.title || 'Untitled Practice Task'}
+                </div>
+                ${t.isRolledOver ? '<span class="px-1.5 py-0.5 rounded text-[9px] bg-amber-950 text-amber-300 border border-amber-500/40 font-mono font-bold shrink-0">⚠️ Rollover</span>' : ''}
               </div>
+
+              <!-- Interactive Subtasks Checklist (Task Flow Engine) -->
+              ${t.subtasks && t.subtasks.length > 0 ? `
+                <div class="space-y-1 pt-1 border-t border-white/5">
+                  <div class="flex items-center justify-between text-[10px] text-gray-400 font-mono">
+                    <span>Checklist (${t.subtasks.filter(st => st.done).length}/${t.subtasks.length})</span>
+                    <span class="text-cyan-400">${Math.round((t.subtasks.filter(st => st.done).length / t.subtasks.length) * 100)}%</span>
+                  </div>
+                  <div class="w-full bg-gray-800 h-1 rounded-full overflow-hidden">
+                    <div class="bg-gradient-to-r from-cyan-400 to-indigo-500 h-full transition-all" style="width: ${(t.subtasks.filter(st => st.done).length / t.subtasks.length) * 100}%;"></div>
+                  </div>
+                  <div class="space-y-1 pt-1">
+                    ${t.subtasks.map((st, sIdx) => `
+                      <label class="flex items-center gap-1.5 text-[10px] text-gray-300 cursor-pointer hover:text-white select-none">
+                        <input type="checkbox" ${st.done ? 'checked' : ''} onchange="toggleTaskSubtask('${t.id}', ${sIdx})" class="rounded text-cyan-500 focus:ring-0 bg-gray-950 border-gray-700 w-3 h-3">
+                        <span class="${st.done ? 'line-through text-gray-500' : ''}">${st.title}</span>
+                      </label>
+                    `).join('')}
+                  </div>
+                </div>
+              ` : ''}
               
               <div class="flex items-center justify-between text-[10px] text-gray-400 pt-1.5 border-t border-white/5 flex-wrap gap-1">
                 <span class="flex items-center gap-1 text-gray-300 font-medium">
@@ -1090,6 +1138,165 @@
 
       renderKanban();
       window.showToast(`Filtered tasks for ${dateStr} 📅`, 'info');
+    }
+
+    // ─── Task Flow System: Auto-Flow Mistakes, Syllabus & Subtasks ───
+    function autoFlowMistakesToTasks() {
+      const s = window.getState();
+      const mistakes = s.mistakeVault || [];
+      if (mistakes.length === 0) {
+        window.showToast("No unresolved errors in Mistake Vault yet! Attempt questions or test drills first.", "info");
+        return;
+      }
+
+      s.tasks = s.tasks || [];
+      let count = 0;
+
+      mistakes.forEach((m, idx) => {
+        const mistakeKey = m.id || `mistake_${idx}`;
+        const alreadyExists = s.tasks.some(t => t.mistakeId === mistakeKey);
+        if (!alreadyExists) {
+          const subject = m.subject || "Physics";
+          const subtasks = [
+            { title: `Forensic Review: Identify Root Cause (${m.errorCategory || 'Concept Gap'})`, done: false },
+            { title: "Re-solve problem without looking at derivation", done: false },
+            { title: "Practice 1 clone in Question Cloner Studio", done: false }
+          ];
+
+          s.tasks.unshift({
+            id: 'task_autopsy_' + Date.now() + '_' + idx,
+            mistakeId: mistakeKey,
+            title: `[Autopsy] Master Error Q#${m.qNum || (idx+1)}: ${m.topic || m.title || subject + ' Problem'}`,
+            subject: subject,
+            list: 'Revision & Formula Autopsy',
+            inbox: 'JEE 2028',
+            tags: ['#mistake_vault', '#autopsy', `#${subject.toLowerCase()}`],
+            priority: 'high',
+            dueDate: window.getTodayStr(),
+            type: 'revision',
+            status: 'todo',
+            completed: false,
+            subtasks: subtasks
+          });
+          count++;
+        }
+      });
+
+      if (count > 0) {
+        window.saveState();
+        renderKanban();
+        window.showToast(`⚡ Auto-Flow: Generated ${count} targeted autopsy tasks from Mistake Vault!`, 'success');
+      } else {
+        window.showToast("All Mistake Vault items are already queued in your Task Board!", "info");
+      }
+    }
+
+    function autoFlowSyllabusToTasks() {
+      const s = window.getState();
+      s.tasks = s.tasks || [];
+      const today = window.getTodayStr();
+
+      const activeSyllabus = [
+        { subject: "Physics", chapter: "Rotational Dynamics & Torque" },
+        { subject: "Chemistry", chapter: "Thermodynamics & Thermochemistry" },
+        { subject: "Maths", chapter: "Definite Integration & Area Under Curves" }
+      ];
+
+      let count = 0;
+      activeSyllabus.forEach(item => {
+        const taskId = `task_syllabus_${item.subject.toLowerCase()}_${today}`;
+        const alreadyExists = s.tasks.some(t => t.id === taskId || t.title.includes(item.chapter));
+        if (!alreadyExists) {
+          s.tasks.unshift({
+            id: taskId,
+            title: `[Syllabus Sprint] ${item.chapter} — 30 Core Questions`,
+            subject: item.subject,
+            list: 'PW Modules & Practice Sheets',
+            inbox: 'JEE 2028',
+            tags: ['#coaching_matrix', `#${item.subject.toLowerCase()}`, '#high_yield'],
+            priority: 'normal',
+            dueDate: today,
+            type: 'homework',
+            status: 'todo',
+            completed: false,
+            subtasks: [
+              { title: "Core Formula Sheet & Standard Theorems", done: false },
+              { title: "15 Mains Level PYQs (Accuracy > 85%)", done: false },
+              { title: "15 Advanced Multi-Concept Numericals", done: false }
+            ]
+          });
+          count++;
+        }
+      });
+
+      if (count > 0) {
+        window.saveState();
+        renderKanban();
+        window.showToast(`🎯 Auto-Flow: Synced ${count} active coaching chapters into Kanban!`, 'success');
+      } else {
+        window.showToast("Active coaching chapters are already in your Task Board!", "info");
+      }
+    }
+
+    function toggleTaskSubtask(taskId, subtaskIdx) {
+      const s = window.getState();
+      const task = (s.tasks || []).find(t => t.id === taskId);
+      if (task && task.subtasks && task.subtasks[subtaskIdx]) {
+        task.subtasks[subtaskIdx].done = !task.subtasks[subtaskIdx].done;
+        
+        // Check if all subtasks complete
+        const allDone = task.subtasks.every(st => st.done);
+        if (allDone && task.status !== 'done') {
+          task.status = 'done';
+          task.completed = true;
+          window.showToast(`🎉 All subtasks complete! Moved "${task.title}" to Done.`, 'success');
+        }
+
+        window.saveState();
+        renderKanban();
+      }
+    }
+
+    function checkDailyRollover() {
+      const s = window.getState();
+      const today = window.getTodayStr();
+      const tasks = s.tasks || [];
+      let rolloverCount = 0;
+
+      tasks.forEach(t => {
+        if (!t.completed && t.status !== 'done' && t.dueDate && t.dueDate < today) {
+          t.isRolledOver = true;
+          rolloverCount++;
+        }
+      });
+
+      const banner = document.getElementById('rollover-alert-banner');
+      const text = document.getElementById('rollover-count-text');
+      if (banner && text) {
+        if (rolloverCount > 0) {
+          banner.classList.remove('hidden');
+          text.textContent = `${rolloverCount} unfinished task(s) from previous days rolled over to today's priority queue.`;
+        } else {
+          banner.classList.add('hidden');
+        }
+      }
+    }
+
+    function rescheduleRolloverTasks() {
+      const s = window.getState();
+      const today = window.getTodayStr();
+      let updated = 0;
+      (s.tasks || []).forEach(t => {
+        if (t.isRolledOver) {
+          t.dueDate = today;
+          t.isRolledOver = false;
+          updated++;
+        }
+      });
+      window.saveState();
+      renderKanban();
+      document.getElementById('rollover-alert-banner').classList.add('hidden');
+      window.showToast(`⚡ Rescheduled ${updated} rollover task(s) to Today!`, 'success');
     }
 
     // Terminal command runner

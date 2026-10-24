@@ -232,11 +232,292 @@
       }
     }
 
-    function generateVariationsFromInput() {
-      CBT_STATE.toast("Synthesizing 3 concept-aligned variations with Gemini AI...");
+    // ─── Adaptive AI Question Generation Engine (Gemini 2.0 + Algorithmic Synthesizer) ───
+    const ALGORITHMIC_BANKS = {
+      Physics: [
+        {
+          chapter: "Rotational Dynamics",
+          var1: {
+            title: "Numerical Re-Roll",
+            badge: "Fresh Parameter Set",
+            type: "reroll",
+            tag: "cbt-tag-physics",
+            color: "#60a5fa",
+            text: (v, m, l) => `A uniform rod of mass $M = ${(m*2).toFixed(1)}\\text{ kg}$ and length $L = ${(l*1.5).toFixed(1)}\\text{ m}$ is pivoted at one end on a frictionless horizontal plane. A projectile of mass $m = ${(m*0.05).toFixed(2)}\\text{ kg}$ traveling horizontally with velocity $v = ${v}\\text{ m/s}$ strikes the free end perpendicularly and embeds itself. Calculate the angular velocity $\\omega$ immediately after the collision in $\\text{rad/s}$.`
+          },
+          var2: {
+            title: "Constraint Twist",
+            badge: "Pivoted Center Boundary",
+            type: "twist",
+            tag: "cbt-tag-maths",
+            color: "#fbbf24",
+            text: (v, m, l) => `Consider the same rod of mass $M = ${(m*2).toFixed(1)}\\text{ kg}$, but now pivoted smoothly at its center of mass. If a bullet of mass $m = ${(m*0.05).toFixed(2)}\\text{ kg}$ strikes at distance $x = L/4$ from the center at speed $v = ${v}\\text{ m/s}$, find the resulting angular speed and the impulsive reaction force exerted by the central pivot pin.`
+          },
+          var3: {
+            title: "Multi-Concept Advanced",
+            badge: "Energy & Vertical Circle",
+            type: "advanced",
+            tag: "cbt-tag-chemistry",
+            color: "#c084fc",
+            text: (v, m, l) => `The rod hangs vertically under gravity. After the bullet embeds into the free bottom end at speed $v_0$, the composite system swings upward. Determine the minimum initial bullet velocity $v_{min}$ required such that the rod executes a complete vertical revolution without becoming slack ($g = 9.8\\text{ m/s}^2$).`
+          }
+        },
+        {
+          chapter: "Electrostatics & Gauss Law",
+          var1: {
+            title: "Numerical Re-Roll",
+            badge: "Charge Distribution Shift",
+            type: "reroll",
+            tag: "cbt-tag-physics",
+            color: "#60a5fa",
+            text: (v, m, l) => `A non-conducting solid sphere of radius $R = ${l*10}\\text{ cm}$ has a volume charge density $\\rho(r) = \\rho_0 \\left(1 - \\frac{r}{R}\\right)$ for $r \\le R$, where $\\rho_0 = ${(m*1.2).toFixed(1)}\\times 10^{-6}\\text{ C/m}^3$. Calculate the electric field magnitude at distance $r = ${(l*5).toFixed(1)}\\text{ cm}$ from the center.`
+          },
+          var2: {
+            title: "Constraint Twist",
+            badge: "Concentric Shells & Earthing",
+            type: "twist",
+            tag: "cbt-tag-maths",
+            color: "#fbbf24",
+            text: (v, m, l) => `Two concentric conducting spherical shells of radii $R_1 = ${(l*5).toFixed(1)}\\text{ cm}$ and $R_2 = ${(l*15).toFixed(1)}\\text{ cm}$ carry charges $q_1 = +${m}\\mu\\text{C}$ and $q_2 = -${m*2}\\mu\\text{C}$ respectively. If the outer shell is now connected to earth via a switch, determine the net charge flowing to ground and the final potential of the inner shell.`
+          },
+          var3: {
+            title: "Multi-Concept Advanced",
+            badge: "Charged Particle Oscillation",
+            type: "advanced",
+            tag: "cbt-tag-chemistry",
+            color: "#c084fc",
+            text: (v, m, l) => `A small bead of mass $m = ${(m*2).toFixed(1)}\\text{ g}$ carrying charge $q = +${(m*0.5).toFixed(1)}\\mu\\text{C}$ can slide without friction along a thin vertical insulating ring of radius $R = ${(l*0.5).toFixed(2)}\\text{ m}$. A fixed charge $Q = +${m*5}\\mu\\text{C}$ is placed at the center of the ring. For small angular oscillations about the equilibrium bottom position, derive the period of oscillation $T$.`
+          }
+        }
+      ],
+      Chemistry: [
+        {
+          chapter: "Thermodynamics & Thermochemistry",
+          var1: {
+            title: "Numerical Re-Roll",
+            badge: "Adiabatic Reversible Expansion",
+            type: "reroll",
+            tag: "cbt-tag-chemistry",
+            color: "#60a5fa",
+            text: (v, m, l) => `One mole of an ideal monoatomic gas ($\\gamma = 5/3$) initially at $T_1 = ${300 + m*10}\\text{ K}$ and $P_1 = ${m+1}\\text{ atm}$ undergoes a reversible adiabatic expansion to a final volume $V_2 = ${2+l}\\times V_1$. Calculate the work done by the gas $W$ and the change in internal energy $\\Delta U$ in Joules ($R = 8.314\\text{ J/mol}\\cdot\\text{K}$).`
+          },
+          var2: {
+            title: "Constraint Twist",
+            badge: "Irreversible Against External Pressure",
+            type: "twist",
+            tag: "cbt-tag-physics",
+            color: "#fbbf24",
+            text: (v, m, l) => `Instead of a reversible path, the same gas expands adiabatically against a constant external pressure $P_{ext} = ${(0.5 + m*0.1).toFixed(1)}\\text{ atm}$ until mechanical equilibrium is reached. Calculate the final temperature $T_f$ and show that the entropy change of the universe $\\Delta S_{univ} > 0$.`
+          },
+          var3: {
+            title: "Multi-Concept Advanced",
+            badge: "Cyclic Carnot with Chemical Potential",
+            type: "advanced",
+            tag: "cbt-tag-maths",
+            color: "#c084fc",
+            text: (v, m, l) => `A heat engine operates on a three-stage cyclic process: isothermal expansion at $T_H = ${500 + m*20}\\text{ K}$, isochoric cooling to $T_C = ${300 + m*10}\\text{ K}$, and adiabatic compression back to the initial state. Derive the analytical thermal efficiency $\\eta$ in terms of compression ratio $r = V_2/V_1$.`
+          }
+        }
+      ],
+      Maths: [
+        {
+          chapter: "Definite Integrals & Area",
+          var1: {
+            title: "Numerical Re-Roll",
+            badge: "King's Property Application",
+            type: "reroll",
+            tag: "cbt-tag-maths",
+            color: "#60a5fa",
+            text: (v, m, l) => `Evaluate the definite integral using standard integral transformation properties: $$I = \\int_{0}^{\\pi/${m+1}} \\frac{\\sin^${m+2}(x)}{\\sin^${m+2}(x) + \\cos^${m+2}(x)} \\, dx$$ Hence find the exact value of $\\frac{4I}{\\pi}$.`
+          },
+          var2: {
+            title: "Constraint Twist",
+            badge: "Piecewise Fractional Part & Greatest Integer",
+            type: "twist",
+            tag: "cbt-tag-physics",
+            color: "#fbbf24",
+            text: (v, m, l) => `Compute the value of the integral involving greatest integer function $[x]$ and fractional part $\{x\}$: $$I = \\int_{0}^{${m+3}} \\left([x^2] + \\{x\\}\\right) dx$$ where $[t]$ denotes greatest integer $\\le t$.`
+          },
+          var3: {
+            title: "Multi-Concept Advanced",
+            badge: "Leibniz Differentiation Under Integral Sign",
+            type: "advanced",
+            tag: "cbt-tag-chemistry",
+            color: "#c084fc",
+            text: (v, m, l) => `Let $f(x)$ be a continuous differentiable function satisfying: $$f(x) = ${m+2} + \\int_{0}^{x} (x - t) f(t) \\, dt$$ Find the explicit closed form of $f(x)$ and determine $\\lim_{x \\to 0} \\frac{f(x) - ${m+2}}{x^2}$.`
+          }
+        }
+      ]
+    };
+
+    async function generateVariationsFromInput() {
+      const subject = document.getElementById('clone-subject')?.value || 'Physics';
+      const chapter = document.getElementById('clone-chapter')?.value.trim() || 'Core Chapter';
+      const container = document.getElementById('variations-container');
+      const btn = event?.currentTarget;
+
+      if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = `<span class="animate-spin inline-block">⏳</span> Synthesizing Variations...`;
+      }
+
+      CBT_STATE.toast(`Synthesizing concept variations for ${subject} (${chapter})...`);
+
+      // 1. Try Gemini 2.0 API if key configured
+      const geminiKey = (window.CLOCKEE_ENV && window.CLOCKEE_ENV.GEMINI_KEY) || 
+                        (window.APP_STATE && window.APP_STATE.apiKeys && window.APP_STATE.apiKeys.gemini);
+
+      if (geminiKey && geminiKey.trim() !== '') {
+        try {
+          const prompt = `You are a premier IIT JEE Advanced problem setter.
+Generate 3 distinct high-yield problem variations for JEE Advanced on Subject: "${subject}", Topic: "${chapter}".
+Variation 1: Numerical Re-roll (same core concept, new realistic parameters).
+Variation 2: Constraint Twist (inverted boundary conditions, different geometry or constraints).
+Variation 3: Multi-Concept Advanced (blended with a secondary concept like energy conservation, SHM, or calculus).
+
+Respond with valid JSON ONLY in this exact structure without markdown backticks:
+{
+  "var1": { "title": "Numerical Re-Roll", "badge": "Parameter Shift", "text": "LaTeX problem text with $...$" },
+  "var2": { "title": "Constraint Twist", "badge": "Boundary Shift", "text": "LaTeX problem text with $...$" },
+  "var3": { "title": "Multi-Concept Advanced", "badge": "Interdisciplinary", "text": "LaTeX problem text with $...$" }
+}`;
+
+          const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${geminiKey}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
+          });
+          const data = await res.json();
+          const rawText = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+          if (rawText) {
+            const cleanJson = rawText.replace(/```json/g, '').replace(/```/g, '').trim();
+            const parsed = JSON.parse(cleanJson);
+            renderAiVariations(parsed, subject);
+            CBT_STATE.toast("✨ 3 Variations Synthesized via Gemini 2.0 Flash!");
+            if (btn) { btn.disabled = false; btn.textContent = 'Generate Variations with AI'; }
+            return;
+          }
+        } catch(e) {
+          console.warn("Gemini call failed or no internet, falling back to algorithmic bank", e);
+        }
+      }
+
+      // 2. High-Yield Algorithmic Synthesis Fallback
       setTimeout(() => {
-        CBT_STATE.toast("Fresh variations loaded into Studio!");
-      }, 800);
+        const bank = ALGORITHMIC_BANKS[subject] || ALGORITHMIC_BANKS.Physics;
+        const set = bank[Math.floor(Math.random() * bank.length)];
+        const v = Math.floor(Math.random() * 80) + 60;
+        const m = Math.floor(Math.random() * 4) + 1;
+        const l = (Math.random() * 0.8 + 0.6).toFixed(1);
+
+        const var1Text = set.var1.text(v, m, l);
+        const var2Text = set.var2.text(v, m, l);
+        const var3Text = set.var3.text(v, m, l);
+
+        container.innerHTML = `
+          <div class="cbt-variation-card reroll">
+            <div class="cbt-var-header">
+              <div>
+                <span class="cbt-tag ${set.var1.tag}">Variation 1</span>
+                <span style="font-weight: 700; color: ${set.var1.color}; margin-left: 8px;">${set.var1.title}</span>
+              </div>
+              <span style="font-size: 12px; color: var(--cbt-text-muted);">${set.var1.badge}</span>
+            </div>
+            <div class="cbt-var-text" id="var-text-1">${var1Text}</div>
+            <div style="display: flex; justify-content: flex-end; gap: 10px;">
+              <button class="cbt-btn cbt-btn-outline" onclick="bookmarkVariation(1)">🔖 Save to Notebook</button>
+              <button class="cbt-btn cbt-btn-primary" onclick="drillVariation(1)">🚀 Practice in CBT Mode</button>
+            </div>
+          </div>
+
+          <div class="cbt-variation-card twist">
+            <div class="cbt-var-header">
+              <div>
+                <span class="cbt-tag ${set.var2.tag}">Variation 2</span>
+                <span style="font-weight: 700; color: ${set.var2.color}; margin-left: 8px;">${set.var2.title}</span>
+              </div>
+              <span style="font-size: 12px; color: var(--cbt-text-muted);">${set.var2.badge}</span>
+            </div>
+            <div class="cbt-var-text" id="var-text-2">${var2Text}</div>
+            <div style="display: flex; justify-content: flex-end; gap: 10px;">
+              <button class="cbt-btn cbt-btn-outline" onclick="bookmarkVariation(2)">🔖 Save to Notebook</button>
+              <button class="cbt-btn cbt-btn-primary" onclick="drillVariation(2)">🚀 Practice in CBT Mode</button>
+            </div>
+          </div>
+
+          <div class="cbt-variation-card advanced">
+            <div class="cbt-var-header">
+              <div>
+                <span class="cbt-tag ${set.var3.tag}">Variation 3</span>
+                <span style="font-weight: 700; color: ${set.var3.color}; margin-left: 8px;">${set.var3.title}</span>
+              </div>
+              <span style="font-size: 12px; color: var(--cbt-text-muted);">${set.var3.badge}</span>
+            </div>
+            <div class="cbt-var-text" id="var-text-3">${var3Text}</div>
+            <div style="display: flex; justify-content: flex-end; gap: 10px;">
+              <button class="cbt-btn cbt-btn-outline" onclick="bookmarkVariation(3)">🔖 Save to Notebook</button>
+              <button class="cbt-btn cbt-btn-primary" onclick="drillVariation(3)">🚀 Practice in CBT Mode</button>
+            </div>
+          </div>
+        `;
+
+        renderMathInVariations();
+        CBT_STATE.toast("⚡ Fresh Algorithmic Variations Generated with Math Formulas!");
+        if (btn) { btn.disabled = false; btn.textContent = 'Generate Variations with AI'; }
+      }, 400);
+    }
+
+    function renderAiVariations(p, subject) {
+      const container = document.getElementById('variations-container');
+      const tagClass = subject === 'Physics' ? 'cbt-tag-physics' : subject === 'Chemistry' ? 'cbt-tag-chemistry' : 'cbt-tag-maths';
+
+      container.innerHTML = `
+        <div class="cbt-variation-card reroll">
+          <div class="cbt-var-header">
+            <div>
+              <span class="cbt-tag ${tagClass}">Variation 1</span>
+              <span style="font-weight: 700; color: #60a5fa; margin-left: 8px;">${p.var1.title || 'Numerical Re-Roll'}</span>
+            </div>
+            <span style="font-size: 12px; color: var(--cbt-text-muted);">${p.var1.badge || 'Parameter Shift'}</span>
+          </div>
+          <div class="cbt-var-text" id="var-text-1">${p.var1.text}</div>
+          <div style="display: flex; justify-content: flex-end; gap: 10px;">
+            <button class="cbt-btn cbt-btn-outline" onclick="bookmarkVariation(1)">🔖 Save to Notebook</button>
+            <button class="cbt-btn cbt-btn-primary" onclick="drillVariation(1)">🚀 Practice in CBT Mode</button>
+          </div>
+        </div>
+
+        <div class="cbt-variation-card twist">
+          <div class="cbt-var-header">
+            <div>
+              <span class="cbt-tag ${tagClass}">Variation 2</span>
+              <span style="font-weight: 700; color: #fbbf24; margin-left: 8px;">${p.var2.title || 'Constraint Twist'}</span>
+            </div>
+            <span style="font-size: 12px; color: var(--cbt-text-muted);">${p.var2.badge || 'Boundary Shift'}</span>
+          </div>
+          <div class="cbt-var-text" id="var-text-2">${p.var2.text}</div>
+          <div style="display: flex; justify-content: flex-end; gap: 10px;">
+            <button class="cbt-btn cbt-btn-outline" onclick="bookmarkVariation(2)">🔖 Save to Notebook</button>
+            <button class="cbt-btn cbt-btn-primary" onclick="drillVariation(2)">🚀 Practice in CBT Mode</button>
+          </div>
+        </div>
+
+        <div class="cbt-variation-card advanced">
+          <div class="cbt-var-header">
+            <div>
+              <span class="cbt-tag ${tagClass}">Variation 3</span>
+              <span style="font-weight: 700; color: #c084fc; margin-left: 8px;">${p.var3.title || 'Multi-Concept Advanced'}</span>
+            </div>
+            <span style="font-size: 12px; color: var(--cbt-text-muted);">${p.var3.badge || 'Advanced Synthesis'}</span>
+          </div>
+          <div class="cbt-var-text" id="var-text-3">${p.var3.text}</div>
+          <div style="display: flex; justify-content: flex-end; gap: 10px;">
+            <button class="cbt-btn cbt-btn-outline" onclick="bookmarkVariation(3)">🔖 Save to Notebook</button>
+            <button class="cbt-btn cbt-btn-primary" onclick="drillVariation(3)">🚀 Practice in CBT Mode</button>
+          </div>
+        </div>
+      `;
+      renderMathInVariations();
     }
 
     function bookmarkVariation(num) {

@@ -2940,3 +2940,81 @@ window.addEventListener("stateChange", function() {
   if (typeof window.initGlobalProfileMenu === "function") window.initGlobalProfileMenu();
   if (typeof window.enforceRolePermissions === "function") window.enforceRolePermissions();
 });
+
+// Retheming & Visual Studio: Sound Synthesis & Dynamic Glass Styling
+window.playTactileFeedback = function(soundType) {
+  const s = window.getState ? window.getState() : {};
+  const pack = soundType || s.settings?.soundPack || "cyber";
+  if (pack === "silent") return;
+
+  try {
+    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+    if (!AudioCtx) return;
+    const ctx = new AudioCtx();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+
+    if (pack === "mechanical") {
+      osc.type = "triangle";
+      osc.frequency.setValueAtTime(1400, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(280, ctx.currentTime + 0.035);
+      gain.gain.setValueAtTime(0.25, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.035);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start();
+      osc.stop(ctx.currentTime + 0.035);
+    } else if (pack === "thump") {
+      osc.type = "sine";
+      osc.frequency.setValueAtTime(160, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(50, ctx.currentTime + 0.05);
+      gain.gain.setValueAtTime(0.3, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.05);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start();
+      osc.stop(ctx.currentTime + 0.05);
+    } else {
+      osc.type = "sine";
+      osc.frequency.setValueAtTime(880, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(1760, ctx.currentTime + 0.045);
+      gain.gain.setValueAtTime(0.12, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.045);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start();
+      osc.stop(ctx.currentTime + 0.045);
+    }
+  } catch(e) {}
+};
+
+(function injectGlassStyles() {
+  if (document.getElementById("clockee-glass-engine")) return;
+  const style = document.createElement("style");
+  style.id = "clockee-glass-engine";
+  style.textContent = `
+    :root {
+      --glass-blur: 20px;
+      --glass-opacity: 0.75;
+    }
+    .glass-card {
+      backdrop-filter: blur(var(--glass-blur, 20px)) !important;
+      -webkit-backdrop-filter: blur(var(--glass-blur, 20px)) !important;
+      background: rgba(16, 18, 27, var(--glass-opacity, 0.75)) !important;
+    }
+  `;
+  document.head.appendChild(style);
+})();
+
+window.applyGlassSettings = function() {
+  const s = window.getState ? window.getState() : {};
+  const blur = s.settings?.glassBlur !== undefined ? s.settings.glassBlur : 20;
+  const opacity = s.settings?.glassOpacity !== undefined ? s.settings.glassOpacity : 0.75;
+  document.documentElement.style.setProperty("--glass-blur", `${blur}px`);
+  document.documentElement.style.setProperty("--glass-opacity", opacity);
+};
+if (document.readyState === "complete" || document.readyState === "interactive") {
+  setTimeout(window.applyGlassSettings, 20);
+} else {
+  document.addEventListener("DOMContentLoaded", window.applyGlassSettings);
+}

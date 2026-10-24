@@ -210,11 +210,11 @@ const CBT_DEFAULT_TESTS = [
     totalQs: 75,
     durationMin: 180,
     marks: 300,
-    status: "attempted",
-    lastScore: 226,
-    accuracy: 96.61,
-    attemptDate: "2026-10-22",
-    avgLatencySec: 88,
+    status: "available",
+    lastScore: null,
+    accuracy: null,
+    attemptDate: null,
+    avgLatencySec: null,
     questions: []
   }
 ];

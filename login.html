@@ -1684,11 +1684,12 @@
       }
     };
 
+    let pendingGuestUser = null;
     window.launchGuestSandbox = function() {
       sessionStorage.removeItem('clockee_admin_authorized');
       sessionStorage.removeItem('clockee_admin_pass');
       const gid = "guest_" + Date.now().toString(36);
-      const guestUser = {
+      pendingGuestUser = {
         uid: gid,
         id: gid,
         name: "Guest Aspirant",
@@ -1697,14 +1698,88 @@
         isGuest: true,
         pfp: "https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Aspirant"
       };
-      // Purge any stale guest entries before launching
+      const modal = document.getElementById('guestDreamModal');
+      if (modal) {
+        modal.style.display = 'flex';
+      } else {
+        finalizeGuestWithTarget("IIT Bombay", "Computer Science & Engineering", 65, 285);
+      }
+    };
+
+    window.selectDreamTarget = function(college, branch, targetAir, targetMarks) {
+      finalizeGuestWithTarget(college, branch, targetAir, targetMarks);
+    };
+
+    window.confirmCustomDreamTarget = function() {
+      const col = document.getElementById('customCollegeInput').value.trim() || 'IIT Bombay';
+      const br = document.getElementById('customBranchInput').value.trim() || 'Computer Science';
+      finalizeGuestWithTarget(col, br, 100, 270);
+    };
+
+    function finalizeGuestWithTarget(college, branch, targetAir, targetMarks) {
+      const modal = document.getElementById('guestDreamModal');
+      if (modal) modal.style.display = 'none';
+
+      const guestUser = pendingGuestUser || {
+        uid: "guest_" + Date.now().toString(36),
+        id: "guest_" + Date.now().toString(36),
+        name: "Guest Aspirant",
+        email: "guest@clockee.app",
+        role: "Guest Aspirant",
+        isGuest: true,
+        pfp: "https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Aspirant"
+      };
+      guestUser.dreamCollege = college;
+      guestUser.dreamBranch = branch;
+      guestUser.targetAir = targetAir;
+
       try {
         let list = JSON.parse(localStorage.getItem('clockee_multi_users') || '[]');
         list = list.filter(u => !u.id.startsWith('guest_') && u.role !== 'Guest Aspirant' && u.name !== 'Guest Aspirant');
         localStorage.setItem('clockee_multi_users', JSON.stringify(list));
       } catch(e) {}
+
+      // Prepopulate guest target state
+      try {
+        const guestState = {
+          profile: {
+            name: "Guest Aspirant",
+            subtitle: `${college} • ${branch}`,
+            pfp: guestUser.pfp,
+            accent: "#00f0ff"
+          },
+          targetCollege: college,
+          targetBranch: branch,
+          targetAir: targetAir,
+          targetMarks: targetMarks,
+          examMode: "advanced",
+          dailyGoals: { Physics: 35, Chemistry: 35, Maths: 35, hours: 7.0 },
+          jeeDate: "2028-05-17",
+          nextMilestone: { date: "2026-11-20", title: `Phase 1: ${college} Cutoff Mastery` },
+          collegeBranches: [
+            { college: college, branch: branch, cutoffRank: targetAir, scoreReq: targetMarks },
+            { college: "IIT Delhi", branch: "Electrical Engineering", cutoffRank: 120, scoreReq: 270 },
+            { college: "IIT Madras", branch: "AI & Data Science", cutoffRank: 180, scoreReq: 260 },
+            { college: "IIT Kanpur", branch: "Mathematics & Computing", cutoffRank: 230, scoreReq: 250 }
+          ],
+          settings: { dynamicAura: true, auraTheme: "cyan_indigo", auraSpeed: "fluid" },
+          apiKeys: { ticktick: "", gemini: "", cloudUrl: "" },
+          tasks: [
+            { id: "task_1", title: `Solve 20 PYQs for ${college} Cutoff Target`, subject: "Physics", priority: "high", completed: false },
+            { id: "task_2", title: "Organic Mechanism Drills", subject: "Chemistry", priority: "medium", completed: false }
+          ],
+          stats: { hoursToday: 0.0, streakDays: 1, questionsSolved: { Physics: 0, Chemistry: 0, Maths: 0 }, todayTarget: 105 },
+          questionLogs: [],
+          sessionLogs: [],
+          mockTests: [],
+          mistakeVault: []
+        };
+        localStorage.setItem(`clockee_user_state_${guestUser.uid}`, JSON.stringify(guestState));
+        localStorage.setItem('clockee_v5_master_state', JSON.stringify(guestState));
+      } catch(e) {}
+
       finalizeUserLogin(guestUser);
-    };
+    }
 
     function finalizeUserLogin(user) {
       showAlert(`Welcome, ${user.name}! Authorizing secure workspace...`, false);
@@ -1898,5 +1973,58 @@
       </div>
     </div>
   </div>
+
+  <!-- Guest Dream College & Branch Modal -->
+  <div id="guestDreamModal" class="fixed inset-0 z-[999999] bg-black/80 backdrop-blur-md flex items-center justify-center p-4" style="display: none;">
+    <div class="max-w-md w-full bg-[#0a0f1d] border border-cyan-400/40 rounded-2xl p-6 shadow-[0_0_50px_rgba(0,240,255,0.25)] relative text-left">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-400/30 flex items-center justify-center text-xl">🎯</div>
+        <div>
+          <h3 class="text-base font-extrabold text-white">Target Dream College & Branch</h3>
+          <p class="text-xs text-cyan-300/80">Customize your guest flight deck & milestones</p>
+        </div>
+      </div>
+
+      <div class="space-y-2 mb-4">
+        <label class="text-[11px] font-bold text-gray-400 uppercase tracking-wider">Select College & Target Branch</label>
+        <div class="space-y-1.5" id="guestCollegePresets">
+          <button type="button" onclick="selectDreamTarget('IIT Bombay', 'Computer Science & Engineering', 65, 285)" class="w-full text-left p-2.5 rounded-xl border border-white/10 hover:border-cyan-400 hover:bg-cyan-500/10 transition flex items-center justify-between text-xs text-white">
+            <span class="font-bold">🏛️ IIT Bombay — Computer Science</span>
+            <span class="text-[10px] font-mono text-cyan-400 bg-cyan-950 px-2 py-0.5 rounded border border-cyan-500/30">AIR &lt; 65</span>
+          </button>
+          <button type="button" onclick="selectDreamTarget('IIT Delhi', 'Electrical / CSE', 110, 275)" class="w-full text-left p-2.5 rounded-xl border border-white/10 hover:border-cyan-400 hover:bg-cyan-500/10 transition flex items-center justify-between text-xs text-white">
+            <span class="font-bold">🏛️ IIT Delhi — Electrical / CSE</span>
+            <span class="text-[10px] font-mono text-cyan-400 bg-cyan-950 px-2 py-0.5 rounded border border-cyan-500/30">AIR &lt; 110</span>
+          </button>
+          <button type="button" onclick="selectDreamTarget('IIT Madras', 'AI & Data Science', 180, 260)" class="w-full text-left p-2.5 rounded-xl border border-white/10 hover:border-cyan-400 hover:bg-cyan-500/10 transition flex items-center justify-between text-xs text-white">
+            <span class="font-bold">🏛️ IIT Madras — AI & Data Science</span>
+            <span class="text-[10px] font-mono text-cyan-400 bg-cyan-950 px-2 py-0.5 rounded border border-cyan-500/30">AIR &lt; 180</span>
+          </button>
+          <button type="button" onclick="selectDreamTarget('IIT Kanpur', 'Mathematics & Computing', 230, 250)" class="w-full text-left p-2.5 rounded-xl border border-white/10 hover:border-cyan-400 hover:bg-cyan-500/10 transition flex items-center justify-between text-xs text-white">
+            <span class="font-bold">🏛️ IIT Kanpur — Math & Computing</span>
+            <span class="text-[10px] font-mono text-cyan-400 bg-cyan-950 px-2 py-0.5 rounded border border-cyan-500/30">AIR &lt; 230</span>
+          </button>
+          <button type="button" onclick="selectDreamTarget('BITS Pilani', 'Computer Science (Pilani Campus)', 340, 340)" class="w-full text-left p-2.5 rounded-xl border border-white/10 hover:border-cyan-400 hover:bg-cyan-500/10 transition flex items-center justify-between text-xs text-white">
+            <span class="font-bold">🏛️ BITS Pilani — Computer Science</span>
+            <span class="text-[10px] font-mono text-amber-400 bg-amber-950 px-2 py-0.5 rounded border border-amber-500/30">Score 340+</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <label class="text-[11px] font-bold text-gray-400 uppercase tracking-wider block mb-1">Or Custom Target</label>
+        <div class="grid grid-cols-2 gap-2">
+          <input type="text" id="customCollegeInput" placeholder="College (e.g. IIT Roorkee)" class="p-2 rounded-lg bg-black/40 border border-white/20 text-xs text-white outline-none focus:border-cyan-400">
+          <input type="text" id="customBranchInput" placeholder="Branch (e.g. Data Science)" class="p-2 rounded-lg bg-black/40 border border-white/20 text-xs text-white outline-none focus:border-cyan-400">
+        </div>
+      </div>
+
+      <div class="flex items-center justify-end gap-2 pt-2 border-t border-white/10">
+        <button type="button" onclick="document.getElementById('guestDreamModal').style.display='none'" class="px-3 py-1.5 rounded-lg text-xs text-gray-400 hover:text-white">Cancel</button>
+        <button type="button" onclick="confirmCustomDreamTarget()" class="px-4 py-1.5 rounded-lg text-xs font-bold bg-cyan-500 hover:bg-cyan-400 text-black shadow-lg shadow-cyan-500/30 transition">🚀 Launch Guest Cockpit</button>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>

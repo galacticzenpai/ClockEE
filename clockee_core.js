@@ -1525,7 +1525,13 @@ window.applyAccentColor = function(color) {
     }
     .nav-btn.nav-active, .accent-bg, .btn-accent {
       background-color: ${color} !important;
+      color: #050811 !important;
       box-shadow: 0 0 16px ${accentGlow} !important;
+      font-weight: 700 !important;
+    }
+    .nav-btn.nav-active svg {
+      color: #050811 !important;
+      stroke: #050811 !important;
     }
     .hud-ring, .accent-ring {
       box-shadow: 0 0 0 2px ${color}, 0 0 15px ${accentGlow} !important;
@@ -2373,11 +2379,15 @@ window.applyAllSettingsGlobally = function() {
       border-color: rgba(255, 255, 255, 0.16) !important;
     }
     .nav-btn.nav-active {
-      background: rgba(99, 102, 241, 0.18) !important;
-      color: #a5b4fc !important;
-      border: 1px solid rgba(99, 102, 241, 0.45) !important;
-      box-shadow: 0 0 16px rgba(99, 102, 241, 0.25) !important;
-      font-weight: 600 !important;
+      background: #00f0ff !important;
+      color: #050811 !important;
+      border: 1px solid rgba(0, 240, 255, 0.8) !important;
+      box-shadow: 0 0 16px rgba(0, 240, 255, 0.5) !important;
+      font-weight: 700 !important;
+    }
+    .nav-btn.nav-active svg {
+      color: #050811 !important;
+      stroke: #050811 !important;
     }
 
     /* Frosted Dropdown Menus - Translucent with Cyber Neon Glow Outline & Deep Glass Blur */
@@ -3292,13 +3302,22 @@ if (document.readyState === "complete" || document.readyState === "interactive")
 })();
 
 /* ══════════════════════════════════════════════════════════════════════════════
-   CLOCKEE HIGH-PRECISION SPOTLIGHT GUIDED TOUR & MULTI-PAGE MASTER ENGINE
+   CLOCKEE ULTIMATE MASTER TOUR ENGINE
+   - Flexible Hovering Tour Pill (Left / Right / Below / Above with bounds clamping)
+   - Animated Theme Dotted Connector Arrow with Neon Head
+   - Smooth Morph & Scale Animation between Tour Pill and Minimized Corner Box
+   - Little Corner Box with Animated ClockEE Mascot waiting
+   - Clicking Outside Highlight Zone Minimizes Tour
+   - Mascot Flies Up on Page Interruption (Continue vs End Tour)
+   - Mascot Excited Bounce + Screen Sparkles Explosion on Task Completion
+   - Instant Fallback Populated Text (Never Empty Dialogue)
+   - Complete 8-Module Seamless Multi-Page Chain
    ══════════════════════════════════════════════════════════════════════════════ */
 
 (function initClockEETourEngine() {
   if (typeof window === "undefined") return;
 
-  // Web Audio Synthesizer for Global Tour
+  // Web Audio Synthesizer
   let _tourAudioCtx = null;
   function getTourAudioCtx() {
     if (!_tourAudioCtx) {
@@ -3313,42 +3332,68 @@ if (document.readyState === "complete" || document.readyState === "interactive")
   function playTourChime() {
     try {
       const ctx = getTourAudioCtx();
-      const notes = [523.25, 659.25, 783.99]; // C5, E5, G5 major triad
+      const notes = [523.25, 659.25, 783.99]; // C5, E5, G5
       notes.forEach((freq, idx) => {
         const osc = ctx.createOscillator();
         const gain = ctx.createGain();
         osc.type = "triangle";
-        osc.frequency.setValueAtTime(freq, ctx.currentTime + idx * 0.08);
+        osc.frequency.setValueAtTime(freq, ctx.currentTime + idx * 0.07);
 
-        gain.gain.setValueAtTime(0, ctx.currentTime + idx * 0.08);
-        gain.gain.linearRampToValueAtTime(0.2, ctx.currentTime + idx * 0.08 + 0.02);
-        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + idx * 0.08 + 0.32);
+        gain.gain.setValueAtTime(0, ctx.currentTime + idx * 0.07);
+        gain.gain.linearRampToValueAtTime(0.2, ctx.currentTime + idx * 0.07 + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + idx * 0.07 + 0.28);
 
         osc.connect(gain);
         gain.connect(ctx.destination);
-        osc.start(ctx.currentTime + idx * 0.08);
-        osc.stop(ctx.currentTime + idx * 0.08 + 0.33);
+        osc.start(ctx.currentTime + idx * 0.07);
+        osc.stop(ctx.currentTime + idx * 0.07 + 0.3);
       });
     } catch (e) {}
   }
 
-  function playSuccessChirp() {
+  function playExcitedSuccessChime() {
     try {
       const ctx = getTourAudioCtx();
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-      osc.type = "sine";
-      osc.frequency.setValueAtTime(587.33, ctx.currentTime);
-      osc.frequency.exponentialRampToValueAtTime(880, ctx.currentTime + 0.12);
+      const notes = [587.33, 739.99, 880.00, 1174.66]; // D5, F#5, A5, D6 triumphant fanfare
+      notes.forEach((freq, idx) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = "sine";
+        osc.frequency.setValueAtTime(freq, ctx.currentTime + idx * 0.08);
 
-      gain.gain.setValueAtTime(0.25, ctx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.15);
+        gain.gain.setValueAtTime(0, ctx.currentTime + idx * 0.08);
+        gain.gain.linearRampToValueAtTime(0.3, ctx.currentTime + idx * 0.08 + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + idx * 0.08 + 0.35);
 
-      osc.connect(gain);
-      gain.connect(ctx.destination);
-      osc.start();
-      osc.stop(ctx.currentTime + 0.15);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(ctx.currentTime + idx * 0.08);
+        osc.stop(ctx.currentTime + idx * 0.08 + 0.36);
+      });
     } catch(e) {}
+  }
+
+  // Typewriter Animation Engine
+  let _activeTypewriterTimer = null;
+  function typewriteText(element, text, speed = 12, onComplete = null) {
+    if (_activeTypewriterTimer) {
+      clearInterval(_activeTypewriterTimer);
+      _activeTypewriterTimer = null;
+    }
+    if (!element) return;
+    // Guaranteed non-empty: set initial snippet immediately
+    element.textContent = text.charAt(0);
+    let i = 1;
+    _activeTypewriterTimer = setInterval(() => {
+      if (i < text.length) {
+        element.textContent += text.charAt(i);
+        i++;
+      } else {
+        clearInterval(_activeTypewriterTimer);
+        _activeTypewriterTimer = null;
+        if (onComplete) onComplete();
+      }
+    }, speed);
   }
 
   // Inject Tour Styles
@@ -3361,14 +3406,14 @@ if (document.readyState === "complete" || document.readyState === "interactive")
       inset: 0;
       width: 100vw;
       height: 100vh;
-      pointer-events: none;
+      pointer-events: auto;
       z-index: 999990;
-      transition: opacity 0.35s ease;
+      transition: opacity 0.3s ease;
       opacity: 0;
+      cursor: pointer;
     }
     .cockpit-tour-spotlight-svg.active {
       opacity: 1;
-      pointer-events: auto;
     }
 
     /* Glowing Halo Box Around Target Element */
@@ -3376,968 +3421,1235 @@ if (document.readyState === "complete" || document.readyState === "interactive")
       position: fixed;
       pointer-events: none;
       z-index: 999995;
-      border: 3px solid #00f0ff;
+      border: 2px dashed #00f0ff;
       border-radius: 16px;
-      box-shadow: 0 0 30px rgba(0, 240, 255, 0.75), inset 0 0 20px rgba(0, 240, 255, 0.3);
-      transition: all 0.38s cubic-bezier(0.34, 1.35, 0.64, 1);
+      box-shadow: 0 0 35px rgba(0, 240, 255, 0.8), inset 0 0 20px rgba(0, 240, 255, 0.35);
+      transition: all 0.36s cubic-bezier(0.16, 1, 0.3, 1);
       opacity: 0;
+      animation: tourHaloPulse 2s infinite ease-in-out;
     }
     .cockpit-tour-halo.active {
       opacity: 1;
     }
 
-    /* Target Element Raised to Front */
+    @keyframes tourHaloPulse {
+      0%, 100% { box-shadow: 0 0 30px rgba(0, 240, 255, 0.7), inset 0 0 15px rgba(0, 240, 255, 0.25); border-color: #00f0ff; }
+      50% { box-shadow: 0 0 45px rgba(0, 240, 255, 0.95), inset 0 0 30px rgba(0, 240, 255, 0.45); border-color: #67e8f9; }
+    }
+
+    /* Target Element Raised to Front for Interaction */
     .cockpit-tour-target-active {
       position: relative !important;
       z-index: 999994 !important;
       pointer-events: auto !important;
     }
 
-    /* Tour Menu Modal (Overview of All Pages) */
-    .cockpit-tour-menu-modal {
+    /* Flexible Floating Tour Pill / Card */
+    .cockpit-tour-floating-card {
+      position: fixed;
+      z-index: 10000002;
+      width: 90vw;
+      max-width: 440px;
+      background: rgba(10, 15, 30, 0.95);
+      border: 1.5px solid rgba(0, 240, 255, 0.65);
+      border-radius: 24px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85), 0 0 35px rgba(0, 240, 255, 0.28), inset 0 0 20px rgba(0, 240, 255, 0.08);
+      backdrop-filter: blur(32px) saturate(200%);
+      -webkit-backdrop-filter: blur(32px) saturate(200%);
+      padding: 18px 20px;
+      color: #fff;
+      transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease, left 0.38s cubic-bezier(0.16, 1, 0.3, 1), top 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+      opacity: 0;
+      transform: scale(0.92);
+      pointer-events: none;
+    }
+    .cockpit-tour-floating-card.active {
+      opacity: 1;
+      transform: scale(1);
+      pointer-events: auto;
+    }
+    .cockpit-tour-floating-card.collapsing {
+      transform: scale(0.15) translate(400px, 400px) !important;
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
+
+    /* Theme Dotted Connector Arrow SVG Overlay */
+    .cockpit-tour-arrow-svg {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 10000001;
+      transition: opacity 0.3s ease;
+      opacity: 0;
+    }
+    .cockpit-tour-arrow-svg.active {
+      opacity: 1;
+    }
+    .cockpit-tour-arrow-path {
+      stroke: #00f0ff;
+      stroke-width: 2.5;
+      stroke-dasharray: 6 6;
+      fill: none;
+      animation: tourDashMove 1s linear infinite;
+      filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.8));
+    }
+    @keyframes tourDashMove {
+      from { stroke-dashoffset: 0; }
+      to { stroke-dashoffset: -24; }
+    }
+
+    /* Minimized Little Corner Box */
+    .cockpit-tour-corner-box {
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      z-index: 10000005;
+      background: rgba(10, 16, 32, 0.95);
+      border: 1.5px solid rgba(0, 240, 255, 0.7);
+      border-radius: 9999px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8), 0 0 25px rgba(0, 240, 255, 0.4);
+      backdrop-filter: blur(24px);
+      padding: 8px 16px 8px 10px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: scale(0.8);
+      opacity: 0;
+      pointer-events: none;
+    }
+    .cockpit-tour-corner-box.active {
+      transform: scale(1);
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .cockpit-tour-corner-box:hover {
+      transform: scale(1.05);
+      border-color: #00f0ff;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), 0 0 35px rgba(0, 240, 255, 0.6);
+    }
+
+    /* Interruption Flight Mascot Modal */
+    .cockpit-tour-interruption-modal {
       position: fixed;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%) scale(0.92);
-      width: 94%;
-      max-width: 900px;
-      max-height: 88vh;
-      overflow-y: auto;
+      transform: translate(-50%, -50%) scale(0.85);
+      z-index: 10000010;
+      max-width: 400px;
+      width: 90vw;
       background: rgba(10, 15, 30, 0.96);
-      border: 1.5px solid rgba(0, 240, 255, 0.4);
-      border-radius: 26px;
-      padding: 24px 28px;
-      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.95), 0 0 50px rgba(0, 240, 255, 0.25);
-      backdrop-filter: blur(28px);
-      -webkit-backdrop-filter: blur(28px);
-      z-index: 999998;
+      border: 2px solid #00f0ff;
+      border-radius: 24px;
+      padding: 24px;
+      text-align: center;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9), 0 0 45px rgba(0, 240, 255, 0.4);
+      backdrop-filter: blur(32px);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       opacity: 0;
       pointer-events: none;
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .cockpit-tour-menu-modal.active {
+    .cockpit-tour-interruption-modal.active {
       opacity: 1;
       transform: translate(-50%, -50%) scale(1);
       pointer-events: auto;
     }
 
-    /* Guided Step Briefing Dialog Card (Positioned Intelligently to NEVER Cover Element) */
-    .cockpit-tour-step-card {
-      position: fixed;
-      z-index: 10000000;
-      width: 92%;
-      max-width: 480px;
-      background: rgba(10, 15, 30, 0.96);
-      border: 1.5px solid rgba(0, 240, 255, 0.5);
-      border-radius: 24px;
-      padding: 20px 24px;
-      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.95), 0 0 35px rgba(0, 240, 255, 0.3);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      transition: all 0.45s cubic-bezier(0.34, 1.3, 0.64, 1);
-      opacity: 0;
-      transform: scale(0.92);
-      pointer-events: none;
+    /* Excited Bounce Animation for ClockEE */
+    @keyframes mascotExcitedBounce {
+      0%, 100% { transform: translateY(0) scale(1); }
+      20% { transform: translateY(-16px) scale(1.12) rotate(-5deg); }
+      40% { transform: translateY(0) scale(0.95); }
+      60% { transform: translateY(-12px) scale(1.08) rotate(5deg); }
+      80% { transform: translateY(0) scale(1.02); }
     }
-    .cockpit-tour-step-card.active {
-      opacity: 1;
-      transform: scale(1);
-      pointer-events: auto;
+    .mascot-excited {
+      animation: mascotExcitedBounce 0.85s ease-in-out !important;
     }
 
-    .tour-menu-grid-card {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 16px;
-      padding: 14px 16px;
-      transition: all 0.25s ease;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+    /* Particle Sparkles Explosion */
+    .tour-sparkle-particle {
+      position: fixed;
+      pointer-events: none;
+      z-index: 10000008;
+      border-radius: 50%;
+      animation: sparkleFloat 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
-    .tour-menu-grid-card:hover {
-      background: rgba(0, 240, 255, 0.06);
-      border-color: rgba(0, 240, 255, 0.45);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 16px rgba(0, 240, 255, 0.15);
+    @keyframes sparkleFloat {
+      0% { transform: translate(0, 0) scale(1); opacity: 1; }
+      100% { transform: translate(var(--tx), var(--ty)) scale(0); opacity: 0; }
     }
   `;
   document.head.appendChild(tourStyles);
 
-  // SVG Mascot Template
-  const CUTE_CLOCKEE_SVG = `
-    <svg class="w-full h-full" viewBox="0 0 240 250" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <radialGradient id="tourDialGrad" cx="50%" cy="40%" r="70%">
-          <stop offset="0%" stop-color="#181d36"/>
-          <stop offset="60%" stop-color="#0f1424"/>
-          <stop offset="100%" stop-color="#080b14"/>
-        </radialGradient>
-        <linearGradient id="tourRimGrad" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stop-color="#00f0ff"/>
-          <stop offset="50%" stop-color="#6366f1"/>
-          <stop offset="100%" stop-color="#a855f7"/>
-        </linearGradient>
-        <linearGradient id="tourBellGrad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#38bdf8"/>
-          <stop offset="100%" stop-color="#1e1b4b"/>
-        </linearGradient>
-        <radialGradient id="tourPupilGrad" cx="40%" cy="35%" r="65%">
-          <stop offset="0%" stop-color="#38bdf8"/>
-          <stop offset="55%" stop-color="#0284c7"/>
-          <stop offset="100%" stop-color="#082f49"/>
-        </radialGradient>
-      </defs>
-      <!-- Twin Bells with brackets -->
-      <path d="M 76 74 L 60 52" stroke="#38bdf8" stroke-width="5" stroke-linecap="round"/>
-      <g transform="translate(56, 48) rotate(-35)">
-        <ellipse cx="0" cy="0" rx="16" ry="10" fill="url(#tourBellGrad)" stroke="#00f0ff" stroke-width="2"/>
-        <ellipse cx="0" cy="-6" rx="8" ry="3" fill="#00f0ff" opacity="0.9"/>
-        <circle cx="0" cy="0" r="3" fill="#ffffff"/>
-      </g>
-      <path d="M 164 74 L 180 52" stroke="#38bdf8" stroke-width="5" stroke-linecap="round"/>
-      <g transform="translate(184, 48) rotate(35)">
-        <ellipse cx="0" cy="0" rx="16" ry="10" fill="url(#tourBellGrad)" stroke="#00f0ff" stroke-width="2"/>
-        <ellipse cx="0" cy="-6" rx="8" ry="3" fill="#00f0ff" opacity="0.9"/>
-        <circle cx="0" cy="0" r="3" fill="#ffffff"/>
-      </g>
-      <!-- Feet -->
-      <path d="M 94 182 Q 90 198 86 210" stroke="#38bdf8" stroke-width="5.5" stroke-linecap="round" fill="none"/>
-      <g transform="translate(86, 212)">
-        <ellipse cx="0" cy="0" rx="16" ry="8" fill="#1e293b" stroke="#00f0ff" stroke-width="2"/>
-        <ellipse cx="0" cy="2" rx="9" ry="3" fill="#00f0ff" opacity="0.8"/>
-      </g>
-      <path d="M 146 182 Q 150 198 154 210" stroke="#38bdf8" stroke-width="5.5" stroke-linecap="round" fill="none"/>
-      <g transform="translate(154, 212)">
-        <ellipse cx="0" cy="0" rx="16" ry="8" fill="#1e293b" stroke="#00f0ff" stroke-width="2"/>
-        <ellipse cx="0" cy="2" rx="9" ry="3" fill="#00f0ff" opacity="0.8"/>
-      </g>
-      <!-- Body & Dial -->
-      <circle cx="120" cy="125" r="72" fill="none" stroke="url(#tourRimGrad)" stroke-width="3.5" opacity="0.95"/>
-      <circle cx="120" cy="125" r="70" fill="#080b14" stroke="#1e293b" stroke-width="2"/>
-      <circle cx="120" cy="125" r="66" fill="url(#tourDialGrad)" stroke="#1e293b" stroke-width="1.5"/>
-      <!-- Ticks -->
-      <rect x="118.5" y="62" width="3" height="9" rx="1.5" fill="#00f0ff"/>
-      <rect x="175" y="123.5" width="9" height="3" rx="1.5" fill="#00f0ff"/>
-      <rect x="118.5" y="179" width="3" height="9" rx="1.5" fill="#00f0ff"/>
-      <rect x="56" y="123.5" width="9" height="3" rx="1.5" fill="#00f0ff"/>
-      <!-- Forehead Ticking Hands -->
-      <circle cx="120" cy="74" r="3.5" fill="#0f172a" stroke="#00f0ff" stroke-width="1.5"/>
-      <circle cx="120" cy="74" r="1.5" fill="#00f0ff"/>
-      <line x1="120" y1="74" x2="108" y2="67" stroke="#818cf8" stroke-width="3" stroke-linecap="round"/>
-      <line x1="120" y1="74" x2="134" y2="65" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round"/>
-      <!-- High Contrast Cute Eyes -->
-      <ellipse cx="94" cy="112" rx="15" ry="21" fill="#ffffff" stroke="#1e293b" stroke-width="2"/>
-      <ellipse cx="94" cy="112" rx="10.5" ry="16" fill="url(#tourPupilGrad)"/>
-      <ellipse cx="91" cy="104" rx="4" ry="6" fill="#ffffff" opacity="0.95"/>
-      <circle cx="98" cy="119" r="2.2" fill="#ffffff" opacity="0.9"/>
-      <ellipse cx="146" cy="112" rx="15" ry="21" fill="#ffffff" stroke="#1e293b" stroke-width="2"/>
-      <ellipse cx="146" cy="112" rx="10.5" ry="16" fill="url(#tourPupilGrad)"/>
-      <ellipse cx="143" cy="104" rx="4" ry="6" fill="#ffffff" opacity="0.95"/>
-      <circle cx="150" cy="119" r="2.2" fill="#ffffff" opacity="0.9"/>
-      <!-- Cheeks & Smile -->
-      <ellipse cx="76" cy="132" rx="8" ry="4.5" fill="#ec4899" opacity="0.45"/>
-      <ellipse cx="164" cy="132" rx="8" ry="4.5" fill="#ec4899" opacity="0.45"/>
-      <path d="M 108 138 Q 120 148 132 138" stroke="#38bdf8" stroke-width="3.5" stroke-linecap="round" fill="none"/>
-      <!-- Arms -->
-      <path d="M 64 130 Q 42 138 34 148" stroke="#38bdf8" stroke-width="5" stroke-linecap="round" fill="none"/>
-      <g transform="translate(20, 142)">
-        <ellipse cx="14" cy="14" rx="13" ry="11" fill="#ffffff" stroke="#38bdf8" stroke-width="2"/>
-        <ellipse cx="14" cy="14" rx="6" ry="5" fill="#00f0ff" opacity="0.75"/>
-      </g>
-      <path d="M 176 130 Q 198 138 206 148" stroke="#38bdf8" stroke-width="5" stroke-linecap="round" fill="none"/>
-      <g transform="translate(192, 142)">
-        <ellipse cx="14" cy="14" rx="13" ry="11" fill="#ffffff" stroke="#38bdf8" stroke-width="2"/>
-        <ellipse cx="14" cy="14" rx="6" ry="5" fill="#00f0ff" opacity="0.75"/>
-      </g>
-    </svg>
-  `;
+  // Reusable Friendly ClockEE Mascot SVG
+  function getClockEEMascotSvg(isExcited = false) {
+    const eyeD = isExcited 
+      ? 'M 105 106 Q 120 90 135 106' // Happy crescent eyes
+      : 'M 108 102 Q 120 96 132 102 Q 120 108 108 102';
 
-  // Build DOM Elements
-  function buildTourDOMElements() {
-    if (document.getElementById('tourSpotlightSvg')) return;
+    return `
+      <svg class="clockee-tour-avatar-svg ${isExcited ? 'mascot-excited' : ''}" style="width: 52px; height: 52px; flex-shrink: 0;" viewBox="0 0 240 250" fill="none">
+        <defs>
+          <radialGradient id="tMascotFaceGrad" cx="50%" cy="40%" r="55%">
+            <stop offset="0%" stop-color="#1e293b"/>
+            <stop offset="70%" stop-color="#090d16"/>
+            <stop offset="100%" stop-color="#020408"/>
+          </radialGradient>
+          <linearGradient id="tMascotRimGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#00f0ff"/>
+            <stop offset="50%" stop-color="#6366f1"/>
+            <stop offset="100%" stop-color="#a855f7"/>
+          </linearGradient>
+        </defs>
+        <!-- Bell Ear Clocks -->
+        <circle cx="68" cy="68" r="20" fill="url(#tMascotFaceGrad)" stroke="url(#tMascotRimGrad)" stroke-width="4"/>
+        <circle cx="172" cy="68" r="20" fill="url(#tMascotFaceGrad)" stroke="url(#tMascotRimGrad)" stroke-width="4"/>
+        <!-- Main Face Dial -->
+        <circle cx="120" cy="130" r="76" fill="url(#tMascotFaceGrad)" stroke="url(#tMascotRimGrad)" stroke-width="5"/>
+        <circle cx="120" cy="130" r="68" fill="none" stroke="rgba(0, 240, 255, 0.25)" stroke-width="1.5" stroke-dasharray="4 6"/>
+        <!-- Clock Hands on Forehead -->
+        <circle cx="120" cy="85" r="4" fill="#00f0ff"/>
+        <line x1="120" y1="85" x2="120" y2="72" stroke="#00f0ff" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="120" y1="85" x2="132" y2="85" stroke="#f43f5e" stroke-width="2" stroke-linecap="round"/>
+        <!-- Cute Eyes -->
+        <ellipse cx="98" cy="126" rx="9" ry="12" fill="#00f0ff"/>
+        <circle cx="101" cy="123" r="3.5" fill="#ffffff"/>
+        <ellipse cx="142" cy="126" rx="9" ry="12" fill="#00f0ff"/>
+        <circle cx="145" cy="123" r="3.5" fill="#ffffff"/>
+        <!-- Rosy Cheeks -->
+        <circle cx="86" cy="138" r="7" fill="rgba(244, 63, 94, 0.45)"/>
+        <circle cx="154" cy="138" r="7" fill="rgba(244, 63, 94, 0.45)"/>
+        <!-- Smile -->
+        <path d="M 110 144 Q 120 154 130 144" stroke="#ffffff" stroke-width="3" stroke-linecap="round" fill="none"/>
+      </svg>
+    `;
+  }
 
-    // 1. Fullscreen SVG Cutout Mask (Reveals the target element with 100% clarity!)
-    const svgOverlay = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    svgOverlay.setAttribute("id", "tourSpotlightSvg");
-    svgOverlay.setAttribute("class", "cockpit-tour-spotlight-svg");
-    svgOverlay.innerHTML = `
+  // Create Sparkle Particles Burst
+  function createCyberSparkleBurst(x, y) {
+    const colors = ['#00f0ff', '#6366f1', '#fbbf24', '#34d399', '#ffffff'];
+    for (let i = 0; i < 24; i++) {
+      const p = document.createElement('div');
+      p.className = 'tour-sparkle-particle';
+      const size = Math.random() * 8 + 4;
+      p.style.width = `${size}px`;
+      p.style.height = `${size}px`;
+      p.style.left = `${x}px`;
+      p.style.top = `${y}px`;
+      p.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      p.style.boxShadow = `0 0 10px ${p.style.backgroundColor}`;
+
+      const angle = (Math.PI * 2 * i) / 24 + (Math.random() - 0.5) * 0.5;
+      const dist = Math.random() * 120 + 40;
+      p.style.setProperty('--tx', `${Math.cos(angle) * dist}px`);
+      p.style.setProperty('--ty', `${Math.sin(angle) * dist}px`);
+
+      document.body.appendChild(p);
+      setTimeout(() => p.remove(), 950);
+    }
+  }
+
+  // DOM Elements Container
+  let spotlightSvg = null;
+  let spotlightCutout = null;
+  let haloEl = null;
+  let arrowSvg = null;
+  let arrowPath = null;
+  let floatingCard = null;
+  let cornerBox = null;
+  let interruptionModal = null;
+
+  function ensureTourDOMElements() {
+    if (document.getElementById('cockpit-tour-spotlight-svg')) return;
+
+    // 1. Fullscreen SVG with Cutout
+    spotlightSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    spotlightSvg.id = 'cockpit-tour-spotlight-svg';
+    spotlightSvg.setAttribute('class', 'cockpit-tour-spotlight-svg');
+    spotlightSvg.innerHTML = `
       <defs>
-        <mask id="tourSpotlightMaskHole">
-          <rect width="100%" height="100%" fill="white"/>
-          <rect id="tourHoleRect" x="0" y="0" width="0" height="0" rx="14" fill="black"/>
+        <mask id="tourCutoutMask">
+          <rect x="0" y="0" width="100%" height="100%" fill="white" />
+          <rect id="tourCutoutRect" x="0" y="0" width="0" height="0" rx="16" fill="black" />
         </mask>
       </defs>
-      <rect width="100%" height="100%" fill="rgba(4, 7, 18, 0.78)" mask="url(#tourSpotlightMaskHole)"/>
+      <rect x="0" y="0" width="100%" height="100%" fill="rgba(3, 5, 12, 0.86)" mask="url(#tourCutoutMask)" />
     `;
-    svgOverlay.onclick = (e) => {
-      // clicking outside card doesn't accidentally cancel unless explicitly intended
-    };
-    document.body.appendChild(svgOverlay);
+    // Clicking backdrop outside highlighted cutout minimizes tour!
+    spotlightSvg.addEventListener('click', (e) => {
+      if (!isTourActive || isTourMinimized) return;
+      const rect = spotlightCutout.getBoundingClientRect();
+      // If clicked outside cutout hole:
+      if (e.clientX < rect.left || e.clientX > rect.right || e.clientY < rect.top || e.clientY > rect.bottom) {
+        window.minimizeCockpitTour();
+      }
+    });
+    document.body.appendChild(spotlightSvg);
+    spotlightCutout = document.getElementById('tourCutoutRect');
 
-    // 2. Glowing Halo Box
-    const halo = document.createElement('div');
-    halo.id = 'tourSpotlightHalo';
-    halo.className = 'cockpit-tour-halo';
-    document.body.appendChild(halo);
+    // 2. Halo element
+    haloEl = document.createElement('div');
+    haloEl.id = 'cockpit-tour-halo';
+    haloEl.className = 'cockpit-tour-halo';
+    document.body.appendChild(haloEl);
 
-    // 3. Tour Menu Modal (Overview of ALL pages)
-    const menuModal = document.createElement('div');
-    menuModal.id = 'tourCockpitMenuModal';
-    menuModal.className = 'cockpit-tour-menu-modal';
-    menuModal.innerHTML = `
-      <div class="flex items-start justify-between pb-4 border-b border-white/10 mb-5">
-        <div class="flex items-center gap-4">
-          <div class="w-16 h-16 sm:w-20 sm:h-20 flex-shrink-0 animate-bounce-gentle">
-            ${CUTE_CLOCKEE_SVG}
-          </div>
-          <div>
-            <div class="flex items-center gap-2 mb-1">
-              <span class="text-xs font-mono px-2.5 py-0.5 rounded-full bg-cyan-950 border border-cyan-500/40 text-cyan-300 font-bold">⚡ Cockpit Navigation</span>
-              <span class="text-[10px] text-slate-400 font-mono">Interactive Platform Tour</span>
-            </div>
-            <h2 class="text-lg sm:text-2xl font-black text-white tracking-tight">ClockEE Interactive Master Tour</h2>
-            <p class="text-xs text-slate-300 mt-1 leading-relaxed">
-              Welcome, Commander! ClockEE is your precision autonomous study operating system. Explore every module or launch the step-by-step master flight!
-            </p>
-          </div>
-        </div>
-        <button onclick="window.closeCockpitTour()" class="w-8 h-8 rounded-xl bg-white/5 hover:bg-red-500/20 border border-white/10 hover:border-red-500/40 text-slate-400 hover:text-red-300 text-sm font-bold transition flex items-center justify-center flex-shrink-0">✕</button>
-      </div>
+    // 3. Arrow SVG Overlay
+    arrowSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    arrowSvg.id = 'cockpit-tour-arrow-svg';
+    arrowSvg.setAttribute('class', 'cockpit-tour-arrow-svg');
+    arrowSvg.innerHTML = `
+      <defs>
+        <marker id="tourArrowHead" markerWidth="10" markerHeight="7" refX="8" refY="3.5" orient="auto">
+          <polygon points="0 0, 10 3.5, 0 7" fill="#00f0ff" />
+        </marker>
+      </defs>
+      <path id="cockpitTourArrowPath" class="cockpit-tour-arrow-path" marker-end="url(#tourArrowHead)" d="" />
+    `;
+    document.body.appendChild(arrowSvg);
+    arrowPath = document.getElementById('cockpitTourArrowPath');
 
-      <!-- Quick Action Controls -->
-      <div class="flex flex-wrap items-center justify-between gap-3 mb-6 p-3.5 rounded-2xl bg-cyan-950/40 border border-cyan-500/30">
+    // 4. Flexible Floating Card / Pill
+    floatingCard = document.createElement('div');
+    floatingCard.id = 'cockpit-tour-floating-card';
+    floatingCard.className = 'cockpit-tour-floating-card';
+    floatingCard.innerHTML = `
+      <div class="flex items-center justify-between pb-2 mb-2 border-b border-cyan-500/20">
         <div class="flex items-center gap-2">
-          <span class="text-xl">🚀</span>
-          <div>
-            <div class="text-xs font-extrabold text-white">Full Step-by-Step Guided Walkthrough</div>
-            <div class="text-[11px] text-cyan-200">Spotlight focuses on every element on your screen and explains its exact function!</div>
-          </div>
+          <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_8px_#00f0ff]"></span>
+          <span id="tourBadge" class="text-[11px] font-mono font-bold text-cyan-300 uppercase tracking-wider">Step 1</span>
         </div>
         <div class="flex items-center gap-2">
-          <button type="button" onclick="window.startCockpitGuidedTour()" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-indigo-500 to-cyan-500 hover:from-indigo-400 hover:to-cyan-400 text-white font-extrabold text-xs transition shadow-lg shadow-cyan-500/25 flex items-center gap-2 cursor-pointer">
-            <span>▶ Start Guided Step-by-Step Tour</span> →
-          </button>
+          <button type="button" onclick="window.minimizeCockpitTour()" class="w-6 h-6 rounded-md bg-white/5 hover:bg-cyan-500/20 text-cyan-300 text-xs font-bold transition flex items-center justify-center cursor-pointer" title="Minimize Tour to Side Box">_</button>
+          <button type="button" onclick="window.closeCockpitTour()" class="w-6 h-6 rounded-md bg-white/5 hover:bg-rose-500/20 text-gray-400 hover:text-rose-400 text-xs font-bold transition flex items-center justify-center cursor-pointer" title="Exit Tour">✕</button>
         </div>
       </div>
 
-      <!-- Tour Menu Grid: Every Major Page in ClockEE -->
-      <div class="space-y-2 mb-2">
-        <h3 class="text-xs font-black uppercase tracking-wider text-slate-400 font-mono">Select Any Module to Tour Page:</h3>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-          
-          <!-- 1. Sprint Timer -->
-          <div class="tour-menu-grid-card">
-            <div>
-              <div class="flex items-center justify-between mb-1.5">
-                <span class="text-lg">⏱️</span>
-                <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-500/30">timer.html</span>
-              </div>
-              <h4 class="text-xs font-bold text-white mb-1">Tactical Sprint Timer</h4>
-              <p class="text-[11px] text-slate-300 leading-snug mb-3">Sub-second pacing, lap benchmarks, lecture focus HUD, and zero-drift timer engine.</p>
-            </div>
-            <a href="timer.html?tour=true" class="text-[11px] font-bold text-cyan-400 hover:text-cyan-300 inline-flex items-center gap-1 transition">
-              <span>Tour Sprint Timer</span> →
-            </a>
-          </div>
-
-          <!-- 2. Coaching Matrix -->
-          <div class="tour-menu-grid-card">
-            <div>
-              <div class="flex items-center justify-between mb-1.5">
-                <span class="text-lg">📊</span>
-                <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-indigo-950 text-indigo-300 border border-indigo-500/30">coaching.html</span>
-              </div>
-              <h4 class="text-xs font-bold text-white mb-1">Coaching Matrix &amp; Syllabus</h4>
-              <p class="text-[11px] text-slate-300 leading-snug mb-3">Complete syllabus roadmap for Physics, Chemistry &amp; Maths with chapter-level mastery.</p>
-            </div>
-            <a href="coaching.html?tour=true" class="text-[11px] font-bold text-indigo-400 hover:text-indigo-300 inline-flex items-center gap-1 transition">
-              <span>Tour Coaching Matrix</span> →
-            </a>
-          </div>
-
-          <!-- 3. CBT Exam Simulator -->
-          <div class="tour-menu-grid-card">
-            <div>
-              <div class="flex items-center justify-between mb-1.5">
-                <span class="text-lg">📝</span>
-                <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-500/30">test_centre.html</span>
-              </div>
-              <h4 class="text-xs font-bold text-white mb-1">CBT Mock Exam Simulator</h4>
-              <p class="text-[11px] text-slate-300 leading-snug mb-3">Authentic NTA exam interface with official question palette, countdown clock &amp; instant scoring.</p>
-            </div>
-            <a href="test_centre.html?tour=true" class="text-[11px] font-bold text-emerald-400 hover:text-emerald-300 inline-flex items-center gap-1 transition">
-              <span>Tour CBT Simulator</span> →
-            </a>
-          </div>
-
-          <!-- 4. Today's Mission -->
-          <div class="tour-menu-grid-card">
-            <div>
-              <div class="flex items-center justify-between mb-1.5">
-                <span class="text-lg">🎯</span>
-                <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-purple-950 text-purple-300 border border-purple-500/30">today.html</span>
-              </div>
-              <h4 class="text-xs font-bold text-white mb-1">Today's Mission &amp; Questions</h4>
-              <p class="text-[11px] text-slate-300 leading-snug mb-3">90 Qs/day target tracking, streak meter, active chapter goals &amp; fast numerical logger.</p>
-            </div>
-            <a href="today.html?tour=true" class="text-[11px] font-bold text-purple-400 hover:text-purple-300 inline-flex items-center gap-1 transition">
-              <span>Tour Today's Mission</span> →
-            </a>
-          </div>
-
-          <!-- 5. Task Engine -->
-          <div class="tour-menu-grid-card">
-            <div>
-              <div class="flex items-center justify-between mb-1.5">
-                <span class="text-lg">📋</span>
-                <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-amber-950 text-amber-300 border border-amber-500/30">task.html</span>
-              </div>
-              <h4 class="text-xs font-bold text-white mb-1">Tasks &amp; Phase Milestones</h4>
-              <p class="text-[11px] text-slate-300 leading-snug mb-3">TickTick cloud task synchronization, Phase test deadlines &amp; milestone roadmap.</p>
-            </div>
-            <a href="task.html?tour=true" class="text-[11px] font-bold text-amber-400 hover:text-amber-300 inline-flex items-center gap-1 transition">
-              <span>Tour Task Engine</span> →
-            </a>
-          </div>
-
-          <!-- 6. Hackathon & Velocity -->
-          <div class="tour-menu-grid-card">
-            <div>
-              <div class="flex items-center justify-between mb-1.5">
-                <span class="text-lg">🚀</span>
-                <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-teal-950 text-teal-300 border border-teal-500/30">hackathon.html</span>
-              </div>
-              <h4 class="text-xs font-bold text-white mb-1">Hackathon &amp; Velocity Board</h4>
-              <p class="text-[11px] text-slate-300 leading-snug mb-3">Sprint velocity graphs, daily productivity heatmaps, streak analysis &amp; badges.</p>
-            </div>
-            <a href="hackathon.html?tour=true" class="text-[11px] font-bold text-teal-400 hover:text-teal-300 inline-flex items-center gap-1 transition">
-              <span>Tour Velocity Board</span> →
-            </a>
-          </div>
-
-          <!-- 7. Wall of Inspiration -->
-          <div class="tour-menu-grid-card">
-            <div>
-              <div class="flex items-center justify-between mb-1.5">
-                <span class="text-lg">💡</span>
-                <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-yellow-950 text-yellow-300 border border-yellow-500/30">inspiration.html</span>
-              </div>
-              <h4 class="text-xs font-bold text-white mb-1">Wall of Inspiration</h4>
-              <p class="text-[11px] text-slate-300 leading-snug mb-3">IIT Bombay dream board, toppers' strategies, high-yield formula vaults &amp; vision.</p>
-            </div>
-            <a href="inspiration.html?tour=true" class="text-[11px] font-bold text-yellow-400 hover:text-yellow-300 inline-flex items-center gap-1 transition">
-              <span>Tour Inspiration Wall</span> →
-            </a>
-          </div>
-
-          <!-- 8. Settings & Customizer -->
-          <div class="tour-menu-grid-card">
-            <div>
-              <div class="flex items-center justify-between mb-1.5">
-                <span class="text-lg">⚙️</span>
-                <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-blue-950 text-blue-300 border border-blue-500/30">settings.html</span>
-              </div>
-              <h4 class="text-xs font-bold text-white mb-1">Settings &amp; Customizer</h4>
-              <p class="text-[11px] text-slate-300 leading-snug mb-3">Custom target years, dynamic aura theme, API configurations &amp; multi-user manager.</p>
-            </div>
-            <a href="settings.html?tour=true" class="text-[11px] font-bold text-blue-400 hover:text-blue-300 inline-flex items-center gap-1 transition">
-              <span>Tour Settings Page</span> →
-            </a>
-          </div>
-
-          <!-- 9. Admin Command Panel -->
-          <div class="tour-menu-grid-card">
-            <div>
-              <div class="flex items-center justify-between mb-1.5">
-                <span class="text-lg">🛡️</span>
-                <span class="text-[9px] font-mono px-2 py-0.5 rounded bg-rose-950 text-rose-300 border border-rose-500/30">admin.html</span>
-              </div>
-              <h4 class="text-xs font-bold text-white mb-1">Admin Command Center</h4>
-              <p class="text-[11px] text-slate-300 leading-snug mb-3">Superuser controls, security audit log, student registry &amp; mistake telemetry.</p>
-            </div>
-            <a href="admin.html?tour=true" class="text-[11px] font-bold text-rose-400 hover:text-rose-300 inline-flex items-center gap-1 transition">
-              <span>Tour Admin Center</span> →
-            </a>
-          </div>
-
+      <div class="flex items-start gap-3.5 mb-3">
+        <div id="tourMascotContainer" class="flex-shrink-0 cursor-pointer" onclick="window.triggerMascotExcited()" title="Tap ClockEE!">
+          ${getClockEEMascotSvg(false)}
+        </div>
+        <div class="flex-1 min-w-0">
+          <h3 id="tourTitle" class="text-sm sm:text-base font-extrabold text-white leading-tight mb-1">Module Title</h3>
+          <p id="tourDesc" class="text-xs text-slate-300 leading-relaxed min-h-[38px]">Module description...</p>
         </div>
       </div>
 
-      <div class="pt-4 border-t border-white/10 flex items-center justify-between">
-        <span class="text-[11px] text-slate-400 font-mono">Tip: Reopen this tour anytime by tapping "🚀 Tour" in the top bar.</span>
-        <button type="button" onclick="window.closeCockpitTour()" class="px-4 py-2 rounded-xl text-xs font-semibold text-slate-300 hover:text-white transition">
-          Enter Cockpit Directly →
+      <div id="tourActionBox" class="p-2.5 rounded-xl bg-cyan-950/40 border border-cyan-400/30 mb-3 flex items-center justify-between gap-2">
+        <span id="tourActionHint" class="text-[11px] text-cyan-200 font-medium">⚡ Click to test this feature!</span>
+        <button type="button" id="tourActionBtn" onclick="window.runCurrentTourAction()" class="px-2.5 py-1 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-black font-bold text-[11px] transition shadow-md shadow-cyan-500/30 flex items-center gap-1 cursor-pointer">
+          <span>⚡ Test Action</span>
+        </button>
+      </div>
+
+      <div class="flex items-center justify-between pt-1">
+        <button type="button" id="tourPrevBtn" onclick="window.prevCockpitTourStep()" class="px-3 py-1.5 rounded-xl border border-white/10 text-xs text-slate-300 hover:text-white hover:bg-white/5 transition flex items-center gap-1 cursor-pointer">
+          ← Back
+        </button>
+        <span id="tourStepIndicator" class="text-[11px] font-mono text-slate-400">1 of 8</span>
+        <button type="button" id="tourNextBtn" onclick="window.nextCockpitTourStep()" class="px-4 py-1.5 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-500 hover:from-cyan-400 hover:to-indigo-400 text-white font-extrabold text-xs shadow-lg shadow-cyan-500/25 transition flex items-center gap-1.5 cursor-pointer">
+          Next Step →
         </button>
       </div>
     `;
-    document.body.appendChild(menuModal);
+    document.body.appendChild(floatingCard);
 
-    // 4. Guided Step Briefing Dialog Card (Integrated Mascot + Never Occludes Target)
-    const stepCard = document.createElement('div');
-    stepCard.id = 'tourGlobalStepCard';
-    stepCard.className = 'cockpit-tour-step-card';
-    stepCard.innerHTML = `
-      <!-- Integrated Top Perch: Cute ClockEE Mascot Bot + Direction Indicator -->
-      <div class="flex items-center justify-between gap-3 pb-3 border-b border-cyan-500/20 mb-3">
-        <div class="flex items-center gap-3">
-          <div class="w-12 h-12 flex-shrink-0 animate-bounce-gentle" id="tourCardMascotWrap">
-            ${CUTE_CLOCKEE_SVG}
-          </div>
-          <div>
-            <div class="flex items-center gap-2">
-              <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-cyan-950 border border-cyan-500/40 text-cyan-300 font-bold" id="tourGlobalStepBadge">Step 1 of 8</span>
-              <span id="tourDirectionIndicator" class="text-[10px] text-amber-300 font-mono animate-pulse">⬇ Highlighted Below</span>
-            </div>
-            <h3 class="text-sm font-extrabold text-white mt-0.5" id="tourGlobalStepTitle">Cockpit Command Center</h3>
-          </div>
-        </div>
-        <button onclick="window.closeCockpitTour()" class="w-7 h-7 rounded-lg bg-black/40 hover:bg-red-500/20 border border-white/10 hover:border-red-500/40 text-slate-400 hover:text-red-300 text-xs font-bold transition flex items-center justify-center flex-shrink-0" title="Exit Tour">✕</button>
+    // 5. Minimized Corner Box
+    cornerBox = document.createElement('div');
+    cornerBox.id = 'cockpit-tour-corner-box';
+    cornerBox.className = 'cockpit-tour-corner-box';
+    cornerBox.onclick = () => window.expandCockpitTour();
+    cornerBox.innerHTML = `
+      <div style="width: 38px; height: 38px;">
+        ${getClockEEMascotSvg(false)}
       </div>
-
-      <!-- Mascot Speech Balloon -->
-      <div class="mb-3 p-2.5 rounded-xl bg-cyan-950/60 border border-cyan-500/30 text-cyan-200 text-xs flex items-center gap-2 shadow-sm">
-        <span class="text-base flex-shrink-0">💬</span>
-        <span id="tourCardMascotSpeech" class="font-medium leading-snug">Welcome to your Command Center! Let's conquer JEE! 🚀</span>
-      </div>
-
-      <!-- Detailed Functional Explanation -->
-      <div class="space-y-1.5 mb-3 text-xs text-slate-300 leading-relaxed" id="tourGlobalStepDesc">
-      </div>
-
-      <!-- Interactive "Try It Out / Wait for Input" Area -->
-      <div id="tourInteractiveActionBox" class="mb-3.5 p-2.5 rounded-xl bg-indigo-950/40 border border-indigo-500/30">
-        <div class="flex items-center justify-between gap-2">
-          <div class="flex items-center gap-1.5 text-[11px] text-indigo-200">
-            <span class="animate-pulse">👉</span>
-            <span id="tourInteractiveHint" class="font-semibold">Interactive: Try clicking the highlighted element on your screen!</span>
-          </div>
-          <button type="button" id="btnTourLiveAction" onclick="window.triggerTourTestAction()" class="px-2.5 py-1 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-[10px] transition shadow flex-shrink-0">
-            ⚡ Test Action
-          </button>
-        </div>
-      </div>
-
-      <!-- Action Button to Jump to Page (if applicable) -->
-      <div id="tourGlobalPageLinkWrap" class="mb-3 hidden">
-        <a id="tourGlobalPageLink" href="#" class="w-full py-2 px-3 rounded-xl bg-cyan-950/80 border border-cyan-500/40 hover:border-cyan-400 text-cyan-300 text-xs font-bold flex items-center justify-between transition">
-          <span id="tourGlobalPageLinkText">🚀 Jump to Page Tour</span>
-          <span>→</span>
-        </a>
-      </div>
-
-      <!-- Progress Bar -->
-      <div class="w-full bg-slate-800 rounded-full h-1.5 overflow-hidden mb-3">
-        <div id="tourGlobalProgressBar" class="h-full bg-gradient-to-r from-indigo-500 to-cyan-400 transition-all duration-300" style="width: 12%;"></div>
-      </div>
-
-      <!-- Controls -->
-      <div class="flex items-center justify-between gap-2 pt-1">
-        <button type="button" id="btnTourGlobalPrev" onclick="window.prevCockpitTourStep()" class="px-3 py-1.5 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-300 text-xs font-bold transition border border-white/10" disabled>
-          ← Previous
-        </button>
-        <div class="flex gap-2">
-          <button type="button" onclick="window.showCockpitTourMenu()" class="px-3 py-1.5 rounded-xl text-slate-400 hover:text-white text-xs font-semibold transition">
-            Tour Menu
-          </button>
-          <button type="button" id="btnTourGlobalNext" onclick="window.nextCockpitTourStep()" class="px-4 py-1.5 rounded-xl bg-gradient-to-r from-indigo-500 to-cyan-500 hover:from-indigo-400 hover:to-cyan-400 text-white text-xs font-black transition shadow-lg shadow-cyan-500/30 flex items-center gap-1.5">
-            <span>Next Step</span> →
-          </button>
+      <div>
+        <div class="text-[10px] font-mono text-cyan-300 font-bold uppercase" id="tourCornerStep">Step 1/8</div>
+        <div class="text-xs font-bold text-white flex items-center gap-1">
+          <span>ClockEE Tour</span>
+          <span class="text-[10px] text-cyan-400">⤢ Expand</span>
         </div>
       </div>
     `;
-    document.body.appendChild(stepCard);
+    document.body.appendChild(cornerBox);
+
+    // 6. Interruption Modal
+    interruptionModal = document.createElement('div');
+    interruptionModal.id = 'cockpit-tour-interruption-modal';
+    interruptionModal.className = 'cockpit-tour-interruption-modal';
+    interruptionModal.innerHTML = `
+      <div class="flex justify-center mb-2">
+        <div style="width: 68px; height: 68px;">
+          ${getClockEEMascotSvg(true)}
+        </div>
+      </div>
+      <h3 class="text-base font-extrabold text-white mb-1">Tour in Progress! ⏱️</h3>
+      <p class="text-xs text-slate-300 leading-relaxed mb-4">
+        Ready to continue the guided cockpit tour, or would you like to explore independently?
+      </p>
+      <div class="flex items-center justify-center gap-2">
+        <button type="button" onclick="window.expandCockpitTour()" class="px-4 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-extrabold text-xs shadow-lg shadow-cyan-500/30 transition flex items-center gap-1 cursor-pointer">
+          ▶ Continue Tour
+        </button>
+        <button type="button" onclick="window.closeCockpitTour()" class="px-3 py-2 rounded-xl border border-white/10 text-xs text-slate-400 hover:text-white hover:bg-white/5 transition cursor-pointer">
+          ✕ End Tour
+        </button>
+      </div>
+    `;
+    document.body.appendChild(interruptionModal);
+
+    // Global click listener for page interruption while tour is active
+    document.addEventListener('click', (e) => {
+      if (!isTourActive || isTourMinimized) return;
+      // If clicking interactive elements outside halo/card
+      const card = document.getElementById('cockpit-tour-floating-card');
+      const halo = document.getElementById('cockpit-tour-halo');
+      const modal = document.getElementById('cockpit-tour-interruption-modal');
+      const corner = document.getElementById('cockpit-tour-corner-box');
+      if (card && card.contains(e.target)) return;
+      if (halo && halo.contains(e.target)) return;
+      if (modal && modal.contains(e.target)) return;
+      if (corner && corner.contains(e.target)) return;
+      
+      const activeTarget = document.querySelector('.cockpit-tour-target-active');
+      if (activeTarget && activeTarget.contains(e.target)) return;
+
+      // Clicked outside on interactive links or buttons: show friendly interruption modal
+      if (e.target.closest('a, button, input, select') && !e.target.closest('#cockpit-tour-spotlight-svg')) {
+        // e.preventDefault();
+        window.showTourInterruptionPrompt();
+      }
+    }, true);
   }
 
-  // Get Page-Specific Steps (Detailed Element-by-Element Guide)
-  function getStepsForCurrentPage() {
+  // Tour State
+  let isTourActive = false;
+  let isTourMinimized = false;
+  let currentTourIdx = 0;
+  let currentPageTourConfig = null;
+
+  // Master Configuration for all 8 modules
+  function getMasterPageTourConfig() {
     const path = window.location.pathname.toLowerCase();
 
-    // 1. TIMER PAGE (timer.html)
+    // 1. COCKPIT HOME (index.html) -> Next Page: timer.html
+    if (path.endsWith("index.html") || path.endsWith("/") || path === "") {
+      return {
+        nextPageUrl: "timer.html?tour=true",
+        nextPageName: "Tactical Sprint Timer",
+        steps: [
+          {
+            badge: "Step 1 of 8 • Cockpit HUD",
+            title: "Tactical JEE Advanced Countdown",
+            desc: "Tracks exact days, hours, and seconds to JEE Advanced 2028 with milestone progress and target study cadence.",
+            targetSelector: "#jee-countdown-title, .countdown-timer, #hero-countdown",
+            speech: "Welcome to ClockEE Cockpit! Your high-velocity command center! ⏰",
+            actionHint: "Tap below to test milestone chime!",
+            actionFn: () => { playTourChime(); }
+          },
+          {
+            badge: "Step 2 of 8 • Rapid Solvers",
+            title: "Instant Problem Counter",
+            desc: "Log completed questions with 1 tap. Builds your PCM subject velocity matrix in real-time.",
+            targetSelector: "#quick-q-physics, button[onclick*='Physics'], .quick-log-btn",
+            speech: "Log your questions directly to keep solving velocity high! ✍️",
+            actionHint: "Click 'Test Action' to add +5 Physics questions!",
+            actionFn: () => {
+              if (typeof window.logQuickQuestions === 'function') window.logQuickQuestions('Physics', 5);
+              else playExcitedSuccessChime();
+            }
+          },
+          {
+            badge: "Step 3 of 8 • Tactical Vitals",
+            title: "Daily Study Target Meter",
+            desc: "Dynamic progress ring measuring today's deep work hours vs your 6.0h target.",
+            targetSelector: "#daily-study-target, .target-meter-card, #study-hours-dial",
+            speech: "6 hours of unbroken daily focus secures your top IIT seat! 🎯",
+            actionHint: "Inspect your focus pacing dials!",
+            actionFn: () => { playExcitedSuccessChime(); }
+          },
+          {
+            badge: "Step 4 of 8 • Focus Flow",
+            title: "Split-Screen Companion",
+            desc: "Keep notes, formulas, or lecture videos pinned right next to your timer without switching tabs.",
+            targetSelector: "button[onclick='toggleSplitScreen()'], .nav-icon-btn",
+            speech: "No tab clutter! Study companion slides right into view! ⊟",
+            actionHint: "Click 'Test Action' to toggle companion!",
+            actionFn: () => { if (typeof window.toggleSplitScreen === 'function') window.toggleSplitScreen(); }
+          },
+          {
+            badge: "Step 5 of 8 • Command Palette",
+            title: "Keyboard Quick Launcher (Ctrl+K)",
+            desc: "Jump anywhere in seconds: test generator, mistake vault, or daily logs with keyboard shortcuts.",
+            targetSelector: "button[onclick='openCommandPalette()'], #btnCommandPalette",
+            speech: "Press Ctrl+K anytime for lightning-fast cockpit access! ⚡",
+            actionHint: "Click 'Test Action' to trigger palette!",
+            actionFn: () => { if (typeof window.openCommandPalette === 'function') window.openCommandPalette(); }
+          },
+          {
+            badge: "Step 6 of 8 • Multi-Profile Identity",
+            title: "Guest & Cloud Synchronization",
+            desc: "Local guest mode stays isolated on this browser with zero cloud leaks. Cloud profiles auto-sync across devices.",
+            targetSelector: "#navAvatarImg, a[title*='Commander Profile']",
+            speech: "Your profile is private and local. Sign in anytime to cloud sync! 🛡️",
+            actionHint: "Inspect your active profile ring!",
+            actionFn: () => { playSuccessChirp(); }
+          },
+          {
+            badge: "Step 7 of 8 • Navigation Center",
+            title: "Unified Navigation Hub",
+            desc: "Quickly navigate across Timer, Today, Task, Coaching, CBT Exam Simulator, Inspiration, and Settings.",
+            targetSelector: "#main-nav",
+            speech: "All study tools organized in a unified cyber ribbon! 🧭",
+            actionHint: "Preview navigation tabs!",
+            actionFn: () => { playSuccessChirp(); }
+          },
+          {
+            badge: "Step 8 of 8 • Next Module",
+            title: "Cockpit Mastered — Next Page",
+            desc: "Cockpit overview complete! Next up: Tactical Sprint Timer for high-intensity question drills.",
+            targetSelector: "#main-nav a[href*='timer.html'], #main-nav",
+            speech: "Cockpit complete! Let's enter the Tactical Sprint Timer! 🚀",
+            actionHint: "Click 'Next Page: Tactical Sprint Timer' below!",
+            actionFn: () => {}
+          }
+        ]
+      };
+    }
+
+    // 2. SPRINT TIMER (timer.html) -> Next Page: today.html
     if (path.includes("timer.html")) {
-      return [
-        {
-          badge: "Step 1 of 5 • Drill Setup",
-          title: "Tactical Drill & Pace Benchmarking",
-          desc: "Configure your solving sprint! Set target questions (e.g. 15 questions in 45 mins), select exam pattern (JEE Main or JEE Advanced), and lock in your pace latency.",
-          targetSelector: "#drill-setup-panel, #tab-btn-drill, .drill-card",
-          speech: "Set your speed-solving sprint here! Benchmarking is key! ⏱️",
-          actionHint: "Tap 'Tactical Pace Sprint' or select your subject to test!",
-          actionFn: () => { const btn = document.getElementById('tab-btn-drill'); if (btn) btn.click(); },
-          pageLink: null
-        },
-        {
-          badge: "Step 2 of 5 • Pattern & Negative Marking",
-          title: "Exam Pattern Calibration",
-          desc: "Select +4 / -1 JEE Main marking or +3 / -1 / +4 partial marking for JEE Advanced. ClockEE enforces authentic exam pacing for every numerical.",
-          targetSelector: "#btn-drill-pattern-badge, #drill-pattern-val",
-          speech: "Calibrate your marking scheme to simulate real exam pressure! 🎯",
-          actionHint: "Click pattern badge to toggle between Main and Advanced mode!",
-          actionFn: () => { const el = document.getElementById('btn-drill-pattern-badge'); if (el) el.click(); },
-          pageLink: null
-        },
-        {
-          badge: "Step 3 of 5 • Subject & Chapter Focus",
-          title: "Target Subject & Chapter Lock",
-          desc: "Select Physics, Chemistry, or Maths and the specific chapter (e.g. Kinematics, GOC, Matrices) so your sprint telemetry maps directly to your Coaching Matrix.",
-          targetSelector: "#custom-glass-subject, #drill-setup-subject",
-          speech: "Tag your numericals to the right chapter for accurate telemetry! 📚",
-          actionHint: "Select your subject from the menu to test!",
-          actionFn: () => { const el = document.getElementById('custom-glass-subject'); if (el) el.click(); },
-          pageLink: null
-        },
-        {
-          badge: "Step 4 of 5 • Lecture HUD Mode",
-          title: "Lecture & Dual-Screen Focus Mode",
-          desc: "Watching an Allen/PW/Unacademy lecture? Switch to Lecture Timer for automatic 60-minute Pomodoro intervals and side-by-side note taking.",
-          targetSelector: "#tab-btn-lecture",
-          speech: "Switch to lecture mode for continuous learning blocks! 💡",
-          actionHint: "Tap 'Lecture Focus Timer' to preview the dual-screen view!",
-          actionFn: () => { const btn = document.getElementById('tab-btn-lecture'); if (btn) btn.click(); },
-          pageLink: null
-        },
-        {
-          badge: "Step 5 of 5 • Command Center Return",
-          title: "Sprint Completed — Return to Cockpit",
-          desc: "Sprint telemetry automatically feeds into your daily 90 Qs goal, productivity velocity charts, and Mistake Vault. Ready for launch!",
-          targetSelector: "#main-nav a[href*='index.html']",
-          speech: "Telemetry saved! Return to the main command center anytime! 🚀",
-          actionHint: "Click 'Home' to return to the Cockpit Dashboard!",
-          actionFn: () => {},
-          pageLink: { text: "🚀 Return to Cockpit (index.html)", url: "index.html?tour=true" }
-        }
-      ];
+      return {
+        nextPageUrl: "today.html?tour=true",
+        nextPageName: "Daily Log & Velocity",
+        steps: [
+          {
+            badge: "Step 1 of 5 • Sprint Cadence",
+            title: "Tactical Pomodoro & Drill Modes",
+            desc: "Switch between 25-minute sprints, 60-minute question marathons, and custom timed drills.",
+            targetSelector: "#timer-display, .timer-clock, #countdown-display",
+            speech: "Focus timer with zero distractions. Let the minutes work for you! ⏱️",
+            actionHint: "Test starting a focus session!",
+            actionFn: () => { playTourChime(); }
+          },
+          {
+            badge: "Step 2 of 5 • Rapid Question Logging",
+            title: "Live Question Counter During Sprints",
+            desc: "Tap +1 after every question solved without breaking your deep work momentum.",
+            targetSelector: "#btn-q-plus, .btn-log-q, #q-counter-box",
+            speech: "Keep the tally running while solving problems! ✍️",
+            actionHint: "Click 'Test Action' to log +1 Question!",
+            actionFn: () => { playExcitedSuccessChime(); }
+          },
+          {
+            badge: "Step 3 of 5 • White Noise & Ambient Audio",
+            title: "Aura Soundscapes & Binaural Beats",
+            desc: "Built-in study sounds: Cyber rain, Brown noise, Deep interstellar frequency to block background noise.",
+            targetSelector: "#sound-selector, .ambient-audio-ctrl, #sound-btn",
+            speech: "Lock in with ambient focus frequencies! 🎧",
+            actionHint: "Toggle audio atmosphere!",
+            actionFn: () => { playSuccessChirp(); }
+          },
+          {
+            badge: "Step 4 of 5 • Mistake Vault Quick Bookmark",
+            title: "1-Tap Mistake Autopsy Bookmark",
+            desc: "Flag tough problems instantly during a drill for automatic autopsy in the Mistake Vault.",
+            targetSelector: "#btn-flag-mistake, .mistake-flag-btn, #btn-bookmark",
+            speech: "Every mistake logged is a rank booster on exam day! 📑",
+            actionHint: "Click 'Test Action' to bookmark problem!",
+            actionFn: () => { playExcitedSuccessChime(); }
+          },
+          {
+            badge: "Step 5 of 5 • Next: Daily Log & Velocity",
+            title: "Timer Mastered — Next Page",
+            desc: "Sprint timer mastered! Next up is your Daily Digest to inspect today's solving momentum.",
+            targetSelector: "#main-nav a[href*='today.html'], #main-nav",
+            speech: "Sprint timer clear! Advancing to the Daily Digest & Velocity Log! 📊",
+            actionHint: "Click 'Next Page: Daily Log & Velocity' to transition!",
+            actionFn: () => {}
+          }
+        ]
+      };
     }
 
-    // 2. COACHING MATRIX (coaching.html)
+    // 3. TODAY'S DIGEST (today.html) -> Next Page: task.html
+    if (path.includes("today.html")) {
+      return {
+        nextPageUrl: "task.html?tour=true",
+        nextPageName: "Deep Work & Syllabus Tasks",
+        steps: [
+          {
+            badge: "Step 1 of 5 • Daily Digest",
+            title: "Daily Hours Tracker",
+            desc: "Consolidates all timer sessions today with automated breakdown by Physics, Chemistry, and Mathematics.",
+            targetSelector: "#stat-total-hours, .daily-hours-box, #today-hours-card",
+            speech: "Review today's study investment at a single glance! 📈",
+            actionHint: "Inspect daily hours breakdown!",
+            actionFn: () => { playTourChime(); }
+          },
+          {
+            badge: "Step 2 of 5 • Velocity Matrix",
+            title: "Subject Velocity Matrix",
+            desc: "Visualizes solving velocity: questions per hour and accuracy distribution across all three subjects.",
+            targetSelector: "#chart-subject-velocity, .velocity-card, #today-matrix",
+            speech: "Check your speed across Physics, Chemistry, and Maths! 🚀",
+            actionHint: "Review subject balance!",
+            actionFn: () => { playSuccessChirp(); }
+          },
+          {
+            badge: "Step 3 of 5 • Question Volume",
+            title: "Question Volume Counter",
+            desc: "Inspect total questions solved today vs your daily target (target: 90 questions).",
+            targetSelector: "#stat-total-questions, .q-volume-box, #stat-today-target",
+            speech: "90 questions a day keeps the competition away! 🎯",
+            actionHint: "Click 'Test Action' to celebrate progress!",
+            actionFn: () => { playExcitedSuccessChime(); }
+          },
+          {
+            badge: "Step 4 of 5 • Report Card Export",
+            title: "JPEG / PDF Daily Report Card",
+            desc: "Generate and export your official daily study report card with authentic timestamps for accountability.",
+            targetSelector: "button[onclick*='exportReport'], #btn-export-card",
+            speech: "Export and share your daily wins with mentors or study groups! 📜",
+            actionHint: "Click 'Test Action' to preview report card!",
+            actionFn: () => { playSuccessChirp(); }
+          },
+          {
+            badge: "Step 5 of 5 • Next: Task Hub",
+            title: "Daily Digest Mastered — Next Page",
+            desc: "Daily log mastered! Next up is the Task Hub for syllabus chapters, TickTick sync, and backlogs.",
+            targetSelector: "#main-nav a[href*='task.html'], #main-nav",
+            speech: "Daily stats verified! Advancing to the Task & Kanban Terminal! 📋",
+            actionHint: "Click 'Next Page: Deep Work & Syllabus Tasks' to transition!",
+            actionFn: () => {}
+          }
+        ]
+      };
+    }
+
+    // 4. TASK HUB (task.html) -> Next Page: coaching.html
+    if (path.includes("task.html")) {
+      return {
+        nextPageUrl: "coaching.html?tour=true",
+        nextPageName: "Interactive Coaching & JEE Syllabus",
+        steps: [
+          {
+            badge: "Step 1 of 4 • Task Terminal",
+            title: "Syllabus Task Management",
+            desc: "Organize chapters into actionable tasks with subject tagging, priority labels, and target completion dates.",
+            targetSelector: "#task-form, .task-input-box, #task-input",
+            speech: "Organize your study backlog with surgical precision! 📝",
+            actionHint: "Focus task input field!",
+            actionFn: () => {
+              const el = document.getElementById('task-input') || document.querySelector('input[type="text"]');
+              if (el) el.focus();
+            }
+          },
+          {
+            badge: "Step 2 of 4 • Task Kanban",
+            title: "Visual Status Columns",
+            desc: "Drag or move tasks across Backlog, In Progress, and Mastered columns as you study.",
+            targetSelector: "#task-columns, .kanban-container, .task-list",
+            speech: "Keep your daily priorities crystal clear! 📌",
+            actionHint: "Inspect your task pipeline!",
+            actionFn: () => { playSuccessChirp(); }
+          },
+          {
+            badge: "Step 3 of 4 • TickTick 2-Way Cloud Sync",
+            title: "TickTick Cloud Integration",
+            desc: "Connect your TickTick API token in Settings to sync your tasks bi-directionally with your phone.",
+            targetSelector: "button[onclick*='syncTickTick'], #btn-sync-ticktick, .sync-btn",
+            speech: "TickTick sync ensures your phone tasks stay in sync with Cockpit! 🔄",
+            actionHint: "Click 'Test Action' to test sync indicator!",
+            actionFn: () => { playSuccessChirp(); }
+          },
+          {
+            badge: "Step 4 of 4 • Next: Coaching & Syllabus",
+            title: "Tasks Mastered — Next Page",
+            desc: "Task hub mastered! Next up is the Coaching Matrix, covering syllabus weightage and test logs.",
+            targetSelector: "#main-nav a[href*='coaching.html'], #main-nav",
+            speech: "Tasks organized! Advancing to Coaching & Syllabus Roadmap! 🎓",
+            actionHint: "Click 'Next Page: Coaching & Syllabus' to transition!",
+            actionFn: () => {}
+          }
+        ]
+      };
+    }
+
+    // 5. COACHING MATRIX (coaching.html) -> Next Page: cbt_home.html
     if (path.includes("coaching.html")) {
-      return [
-        {
-          badge: "Step 1 of 5 • Syllabus Tree",
-          title: "Complete PCM Syllabus Coverage",
-          desc: "Track every chapter across Class 11 and Class 12 for Physics, Chemistry, and Maths with high-yield JEE exam weightage and completion rings.",
-          targetSelector: "#pane-syllabus, .syllabus-container, #pcm-milestone-blocks",
-          speech: "Here is your master syllabus roadmap! Never miss a chapter! 📊",
-          actionHint: "Filter by Class 11 or Class 12 using the selector buttons!",
-          actionFn: () => { const b = document.getElementById('btn-class-11'); if (b) b.click(); },
-          pageLink: null
-        },
-        {
-          badge: "Step 2 of 5 • Class Filter",
-          title: "Class 11 Foundation vs Class 12 Sprint",
-          desc: "Filter between Class 11 (Mechanics, Chemical Bonding, Algebra) and Class 12 (Electrodynamics, Organic, Calculus) to isolate revision priorities.",
-          targetSelector: "#btn-class-all, #btn-class-11, #btn-class-12",
-          speech: "Isolate Class 11 vs 12 to target your weak revision spots! 🎯",
-          actionHint: "Click 'Class 12' to view senior syllabus modules!",
-          actionFn: () => { const b = document.getElementById('btn-class-12'); if (b) b.click(); },
-          pageLink: null
-        },
-        {
-          badge: "Step 3 of 5 • Subject Mastery Filters",
-          title: "Physics, Chemistry & Mathematics Tabs",
-          desc: "Drill down into individual subjects to view formula checklists, NCERT exercises completed, and HC Verma / MS Chouhan problem counts.",
-          targetSelector: "#btn-sub-all, #btn-sub-physics, #btn-sub-chemistry",
-          speech: "Drill into Physics or Chemistry to inspect micro-topics! ⚛️",
-          actionHint: "Click 'Physics' to view mechanics and electrodynamics!",
-          actionFn: () => { const b = document.getElementById('btn-sub-physics'); if (b) b.click(); },
-          pageLink: null
-        },
-        {
-          badge: "Step 4 of 5 • Test Performance & OCR",
-          title: "Test Performance & Mistake Vault",
-          desc: "Log your offline coaching test scores (Allen, Resonance, FIITJEE). ClockEE calculates subject percentile drift and flags recurrent error patterns.",
-          targetSelector: "#coaching-tab-btn-tests, a[href*='tests']",
-          speech: "Log your test scores to track your rank growth! 📈",
-          actionHint: "Click 'Test Performance' tab to preview the analytics!",
-          actionFn: () => { const b = document.getElementById('coaching-tab-btn-tests'); if (b) b.click(); },
-          pageLink: null
-        },
-        {
-          badge: "Step 5 of 5 • Personal Question Log",
-          title: "Chronological Question Archive",
-          desc: "Review every question solved today, this week, and this month with subject tags, timestamp, and accuracy telemetry.",
-          targetSelector: "#coaching-tab-btn-logs, a[href*='logs']",
-          speech: "Your master archive of all questions solved! Top 50 AIR! 🏆",
-          actionHint: "Click 'Personal Question Log' to inspect your history!",
-          actionFn: () => { const b = document.getElementById('coaching-tab-btn-logs'); if (b) b.click(); },
-          pageLink: { text: "🚀 Return to Cockpit (index.html)", url: "index.html?tour=true" }
-        }
-      ];
+      return {
+        nextPageUrl: "cbt_home.html?tour=true",
+        nextPageName: "CBT Mock Portal",
+        steps: [
+          {
+            badge: "Step 1 of 5 • Syllabus Tree",
+            title: "Complete PCM Syllabus Coverage",
+            desc: "Track every chapter across Class 11 and Class 12 for Physics, Chemistry, and Maths with high-yield JEE exam weightage and completion rings.",
+            targetSelector: "#pane-syllabus, .syllabus-container, #pcm-milestone-blocks",
+            speech: "Here is your master syllabus roadmap! Never miss a chapter! 📚",
+            actionHint: "Filter by Class 11 or Class 12 using the selector buttons!",
+            actionFn: () => { const b = document.getElementById('btn-class-11'); if (b) b.click(); }
+          },
+          {
+            badge: "Step 2 of 5 • Test Score & OCR",
+            title: "Coaching Test Score Tracker",
+            desc: "Log your offline Allen/Fitjee/Resonance test marks. Upload scorecards to extract marks automatically via OCR.",
+            targetSelector: "#pane-tests, #test-tracker-card, .test-table",
+            speech: "Log your offline coaching mocks here to measure real rank growth! 📊",
+            actionHint: "Review your test progress timeline!",
+            actionFn: () => { playSuccessChirp(); }
+          },
+          {
+            badge: "Step 3 of 5 • Question Log & Notes",
+            title: "Personal Concept Question Bank",
+            desc: "Store breakthrough questions, tricky derivations, and conceptual traps directly linked to each chapter.",
+            targetSelector: "#pane-logs, .question-bank-card, #question-log-table",
+            speech: "Save gold-standard problems you can revise right before exam day! 💡",
+            actionHint: "Inspect your stored problem bank!",
+            actionFn: () => { playSuccessChirp(); }
+          },
+          {
+            badge: "Step 4 of 5 • All Syllabus Selector",
+            title: "Class 11 & 12 Filter Controls",
+            desc: "Toggle between Class 11 foundations, Class 12 advanced concepts, or complete merged syllabus with 1 click.",
+            targetSelector: "#btn-class-all, .syllabus-filter-pill, .filter-btn-group",
+            speech: "Notice how the card smoothly docks beside this button without covering it! 🎯",
+            actionHint: "Click 'Test Action' to select All Syllabus!",
+            actionFn: () => {
+              const b = document.getElementById('btn-class-all') || document.querySelector('.syllabus-filter-pill');
+              if (b) b.click();
+              playExcitedSuccessChime();
+            }
+          },
+          {
+            badge: "Step 5 of 5 • Next: CBT Simulator",
+            title: "Coaching Mastered — Next Page",
+            desc: "Syllabus clear! Next up is the CBT Mock Exam Portal, with authentic NTA computer-based exam conditions.",
+            targetSelector: "#main-nav a[href*='cbt_home.html'], #main-nav",
+            speech: "Syllabus clear! Advancing to the official NTA CBT Mock Exam Portal! 💻",
+            actionHint: "Click 'Next Page: CBT Mock Portal' to transition!",
+            actionFn: () => {}
+          }
+        ]
+      };
     }
 
-    // 3. CBT TEST CENTRE (test_centre.html)
-    if (path.includes("test_centre.html") || path.includes("cbt_home.html")) {
-      return [
-        {
-          badge: "Step 1 of 5 • CBT Hub",
-          title: "Official NTA Computer Based Test Portal",
-          desc: "Practice in the identical interface used in actual JEE Main and Advanced! Familiarity with the official interface saves 10-15 minutes on exam day.",
-          targetSelector: ".cbt-card, #main-nav, .grid",
-          speech: "Experience authentic NTA exam conditions! Zero exam-day anxiety! 📝",
-          actionHint: "Inspect test options or launch a test to begin!",
-          actionFn: () => {},
-          pageLink: null
-        },
-        {
-          badge: "Step 2 of 5 • Full Mock Tests",
-          title: "300-Mark Full Syllabus Mocks",
-          desc: "Complete 3-hour tests (75 questions: 25 Physics, 25 Chemistry, 25 Maths) with strict sectional timing and live countdown clock.",
-          targetSelector: "a[href*='cbt_exam.html'], .btn-start-mock",
-          speech: "Simulate a real 3-hour test to build exam stamina! ⏱️",
-          actionHint: "Click any mock test card to inspect details!",
-          actionFn: () => {},
-          pageLink: null
-        },
-        {
-          badge: "Step 3 of 5 • Chapterwise Speed Tests",
-          title: "Chapter-Level Precision Drills",
-          desc: "Weak in Rotational Motion or Thermodynamics? Launch a focused 30-minute test specifically on that topic to eradicate conceptual flaws.",
-          targetSelector: "a[href*='cbt_cloner.html'], .chapter-test-card",
-          speech: "Pinpoint and conquer specific weak topics! 🎯",
-          actionHint: "Filter tests by subject or difficulty!",
-          actionFn: () => {},
-          pageLink: null
-        },
-        {
-          badge: "Step 4 of 5 • Mistake Vault & Weakness AI",
-          title: "Error Categorization Engine",
-          desc: "ClockEE categorizes every mistake as 'Calculation Error', 'Formula Miss', or 'Conceptual Gap' so you know exactly what to revise.",
-          targetSelector: "a[href*='cbt_mistakes.html'], .mistake-vault-card",
-          speech: "Turn your errors into your highest-scoring strengths! 💡",
-          actionHint: "Click 'Mistake Vault' to inspect flagged questions!",
-          actionFn: () => {},
-          pageLink: null
-        },
-        {
-          badge: "Step 5 of 5 • Command Center Return",
-          title: "Test Centre Mastered — Launch Ahead",
-          desc: "All test scores sync instantly with your study streak and XP progression. Ready to conquer your daily mission!",
-          targetSelector: "#main-nav a[href*='index.html']",
-          speech: "All set, Commander! Return to the cockpit to log today's progress! 🚀",
-          actionHint: "Click 'Home' to return to Cockpit Command Center!",
-          actionFn: () => {},
-          pageLink: { text: "🚀 Return to Cockpit (index.html)", url: "index.html?tour=true" }
-        }
-      ];
+    // 6. CBT PORTAL (cbt_home.html) -> Next Page: inspiration.html
+    if (path.includes("cbt_home.html") || path.includes("test_centre.html")) {
+      return {
+        nextPageUrl: "inspiration.html?tour=true",
+        nextPageName: "Inspiration Board",
+        steps: [
+          {
+            badge: "Step 1 of 5 • CBT Hub & Profile",
+            title: "Official NTA CBT Mock Portal",
+            desc: "Practice in the identical interface used in actual JEE Main and Advanced! Familiarity with the official interface saves 10-15 minutes on exam day.",
+            targetSelector: "#cbt-home-user-name, .cbt-header-banner, .cbt-user-badge",
+            speech: "Welcome to the CBT Mock Portal! Authentic NTA exam conditions! 📝",
+            actionHint: "Inspect your mock test vitals and average score!",
+            actionFn: () => { playSuccessChirp(); }
+          },
+          {
+            badge: "Step 2 of 5 • Accuracy & Solving Latency",
+            title: "Score & Latency Vitals",
+            desc: "Tracks your average score across tests, average time per question (target: 90s for JEE Main, 150s for JEE Advanced), and negative mark penalty.",
+            targetSelector: "#vit-score, #vit-latency, #vit-acc",
+            speech: "Pacing vitals ensure you finish all 75 questions with time to spare! ⏱️",
+            actionHint: "Vitals update automatically upon test submission!",
+            actionFn: () => { playSuccessChirp(); }
+          },
+          {
+            badge: "Step 3 of 5 • Adaptive Test Generator",
+            title: "AI Adaptive Test Generator",
+            desc: "Want a quick customized drill? Generate targeted tests by selecting exact chapter, difficulty, and question count in 1 click.",
+            targetSelector: "button[onclick='openGeneratorModal()'], .cbt-generator-banner",
+            speech: "Generate an adaptive test tailored to your weakest chapter! 🎯",
+            actionHint: "Click 'Generate Adaptive Test' to preview the configuration modal!",
+            actionFn: () => { if (typeof window.openGeneratorModal === 'function') window.openGeneratorModal(); }
+          },
+          {
+            badge: "Step 4 of 5 • Available Test Suite",
+            title: "Authentic Mock Exam Library",
+            desc: "Browse Full JEE Main simulations, chapter drills, and PYQ tests. Click 'Launch Test' to enter authentic full-screen exam mode.",
+            targetSelector: ".cbt-test-card:first-child, #cbt-tests-container, #all-tests",
+            speech: "Simulate a real 3-hour test to build exam stamina! 🏆",
+            actionHint: "Click 'Test Action' to inspect first available test!",
+            actionFn: () => { playExcitedSuccessChime(); }
+          },
+          {
+            badge: "Step 5 of 5 • Next: Inspiration Board",
+            title: "CBT Portal Mastered — Next Page",
+            desc: "CBT simulator mastered! Next up is the Wall of Inspiration, featuring toppers' proven rank strategies and mindset fuels.",
+            targetSelector: "a[title*='Return to ClockEE'], .cbt-header-banner a[href*='index.html']",
+            speech: "Exam engine mastered! Advancing to the Wall of Inspiration! 💡",
+            actionHint: "Click 'Next Page: Inspiration Board' to transition!",
+            actionFn: () => {}
+          }
+        ]
+      };
     }
 
-    // DEFAULT: COCKPIT COMMAND CENTER (index.html) — 8 Detailed Steps
-    return [
-      {
-        badge: "Step 1 of 8 • Target Countdown",
-        title: "IIT-JEE Target Countdown Telemetry",
-        desc: "This precision countdown displays the exact months, weeks, and days remaining until your JEE examination date (configurable in Settings). It establishes your daily revision pace.",
-        targetSelector: "#jee-countdown-title, .cd-box, #jee-target-date-label",
-        speech: "Here is your target countdown! Every second counts toward AIR 1! ⏳🚀",
-        actionHint: "Notice the days, weeks, and months countdown timers updating live!",
-        actionFn: () => { playSuccessChirp(); },
-        pageLink: null
-      },
-      {
-        badge: "Step 2 of 8 • Daily Mission Streak",
-        title: "Daily 90-Question Mission & Streak Engine",
-        desc: "Your daily mission target is 90 questions (30 Physics, 30 Chemistry, 30 Maths). The streak badge tracks consecutive study days and awards XP levels as your volume grows.",
-        targetSelector: "#daily-mission-subtitle, #home-mission-streak-text",
-        speech: "Consistency is your superpower! Maintain your daily streak! 🔥",
-        actionHint: "Watch your streak and XP level as questions are logged!",
-        actionFn: () => { playSuccessChirp(); },
-        pageLink: null
-      },
-      {
-        badge: "Step 3 of 8 • Active Chapter Focus",
-        title: "Active Syllabus Chapter Tracker",
-        desc: "Displays the active chapter currently in progress (e.g. Rotational Motion or Calculus). Clicking it takes you directly into the Coaching Matrix to review sub-topics.",
-        targetSelector: "#active-chapter-name, #active-chapter-topic",
-        speech: "Always know your active chapter target before starting numericals! 📚",
-        actionHint: "Try clicking on the active chapter to inspect sub-topics!",
-        actionFn: () => { playSuccessChirp(); },
-        pageLink: null
-      },
-      {
-        badge: "Step 4 of 8 • 1-Click Numerical Logger",
-        title: "Physics Rapid Question Logger",
-        desc: "Log questions solved with zero friction! Tap +5, +10 or enter custom numbers. Telemetry immediately recalculates your daily progress and streak.",
-        targetSelector: "#quick-phy-today, #custom-phy-input",
-        speech: "Try clicking +5 Physics now to see your progress bar jump! ⚡",
-        actionHint: "Click the '+5' Physics button to test real-time question logging!",
-        actionFn: () => {
-          if (typeof window.logQuickQuestions === 'function') {
-            window.logQuickQuestions('Physics', 5);
-            playSuccessChirp();
+    // 7. INSPIRATION PAGE (inspiration.html) -> Next Page: settings.html
+    if (path.includes("inspiration.html")) {
+      return {
+        nextPageUrl: "settings.html?tour=true",
+        nextPageName: "Settings & Customizer",
+        steps: [
+          {
+            badge: "Step 1 of 3 • Mindset Engine",
+            title: "Topper Rank Fuel & Mental Fortitude",
+            desc: "Curated collection of proven psychological strategies from AIR 1-50 toppers to eliminate exam anxiety and stay locked-in.",
+            targetSelector: "#inspiration-hero, .spark-card, .quote-box",
+            speech: "Fuel your mindset with daily discipline quotes and proven rank strategies! ⚡",
+            actionHint: "Generate a daily spark quote!",
+            actionFn: () => {
+              const b = document.getElementById('btnSummonDailySpark');
+              if (b) b.click();
+            }
+          },
+          {
+            badge: "Step 2 of 3 • Dream IIT Vision Board",
+            title: "Dream College Vision Pinboard",
+            desc: "Pin sticky notes of your target rank, dream IIT campus (Bombay CSE, Delhi, Madras), and milestone dates directly to your dashboard.",
+            targetSelector: "#notes-grid, .sticky-notes-container, #pinboard",
+            speech: "Visualize your dream college every single day! 🏛️",
+            actionHint: "Click 'Test Action' to pin a dream note!",
+            actionFn: () => { playExcitedSuccessChime(); }
+          },
+          {
+            badge: "Step 3 of 3 • Next: Settings & Customizer",
+            title: "Inspiration Mastered — Next Page",
+            desc: "Inspiration clear! Next up is Settings to customize accent auras, profile identity, and connected APIs.",
+            targetSelector: "#main-nav a[href*='settings.html'], #main-nav",
+            speech: "Vision set! Let's proceed to the Settings & Customizer! ⚙️",
+            actionHint: "Click 'Next Page: Settings & Customizer' to transition!",
+            actionFn: () => {}
           }
-        },
-        pageLink: null
-      },
-      {
-        badge: "Step 5 of 8 • Chemistry & Maths Balance",
-        title: "Subject Balance Sentinel",
-        desc: "Prevents subject bias! Quick-log buttons for Chemistry and Mathematics ensure balanced prep across all three subjects so you never neglect organic or algebra.",
-        targetSelector: "#quick-chem-today, #quick-math-today",
-        speech: "Balance your subjects! Top ranks require high scores in all three! ⚖️",
-        actionHint: "Try tapping +5 Chemistry or +5 Maths to balance your distribution!",
-        actionFn: () => {
-          if (typeof window.logQuickQuestions === 'function') {
-            window.logQuickQuestions('Chemistry', 5);
-            playSuccessChirp();
+        ]
+      };
+    }
+
+    // 8. SETTINGS & CUSTOMIZATION (settings.html) -> Finish Tour!
+    if (path.includes("settings.html")) {
+      return {
+        nextPageUrl: "index.html",
+        nextPageName: "Cockpit Home",
+        steps: [
+          {
+            badge: "Step 1 of 4 • Identity & Goals",
+            title: "Profile & Examination Target",
+            desc: "Configure your target exam year (JEE 2028), target dream college (IIT Bombay), and personalize your avatar.",
+            targetSelector: "#sec-identity, #profile-settings, .settings-identity-card",
+            speech: "Set your target examination date and candidate identity! 👤",
+            actionHint: "Review your profile parameters!",
+            actionFn: () => { playTourChime(); }
+          },
+          {
+            badge: "Step 2 of 4 • Cyber Themes & Auras",
+            title: "Themes, Accent Colors & Audio Packs",
+            desc: "Customize your cockpit aura: Neon Cyan, Cyber Violet, Obsidian Amber. Choose sound pack tactile clicks.",
+            targetSelector: "#sec-aura, .theme-picker, #accent-color-picker",
+            speech: "Customize your visual aura to match your study energy! 🎨",
+            actionHint: "Click 'Test Action' to sample Cyan Aura!",
+            actionFn: () => {
+              if (typeof window.applyAccentColor === 'function') window.applyAccentColor('#00f0ff');
+              playExcitedSuccessChime();
+            }
+          },
+          {
+            badge: "Step 3 of 4 • Cloud & API Integrations",
+            title: "TickTick & Gemini AI API Keys",
+            desc: "Add your personal Gemini API key for instant smart problem generation, or connect TickTick for mobile sync.",
+            targetSelector: "#sec-apis, .api-keys-card, #input-gemini-key",
+            speech: "Add personal API keys for unrestricted AI problem cloning! 🔑",
+            actionHint: "Inspect connected cloud APIs!",
+            actionFn: () => { playSuccessChirp(); }
+          },
+          {
+            badge: "Step 4 of 4 • Tour Complete!",
+            title: "Master Tour Completed! 🚀",
+            desc: "Congratulations, Commander! You have explored all 8 core modules of ClockEE. Your high-velocity study flight begins now!",
+            targetSelector: "#navAvatarImg, a[title*='Commander Profile']",
+            speech: "All systems online and calibrated! Top 50 AIR begins today! 🏆",
+            actionHint: "Click 'Finish Master Tour' to launch Cockpit!",
+            actionFn: () => { playExcitedSuccessChime(); }
           }
-        },
-        pageLink: null
-      },
-      {
-        badge: "Step 6 of 8 • Split Study Drawer & AI",
-        title: "Dual-Screen Lecture & AI Doubt Solver",
-        desc: "Click ⊟ to slide open your study drawer! Watch pinned video lectures, read NCERT formula PDFs, and get instant multi-step explanations from the Gemini AI Doubt Solver.",
-        targetSelector: "button[onclick='toggleSplitScreen()'], #split-drawer",
-        speech: "Open the split drawer for video lectures & instant AI doubts! 💡",
-        actionHint: "Tap 'Test Action' to open and preview the split study drawer!",
-        actionFn: () => {
-          if (typeof window.toggleSplitScreen === 'function') {
-            window.toggleSplitScreen();
-            playSuccessChirp();
-          }
-        },
-        pageLink: null
-      },
-      {
-        badge: "Step 7 of 8 • Task Planner & Phase Tests",
-        title: "TickTick Tasks & Phase Milestone Dates",
-        desc: "Schedule revision blocks, sync TickTick checklists, and view deadlines for upcoming coaching Phase Tests (Phase Test #01, Major Test #02).",
-        targetSelector: "#btn-toggle-tt-fold, #home-tasks-list, #milestones-list",
-        speech: "Plan your tasks and upcoming coaching phase test deadlines! 📋",
-        actionHint: "Click to toggle and fold/expand your tasks list!",
-        actionFn: () => {
-          if (typeof window.toggleTickTickFold === 'function') {
-            window.toggleTickTickFold();
-            playSuccessChirp();
-          }
-        },
-        pageLink: null
-      },
-      {
-        badge: "Step 8 of 8 • Full Navigation & Modules",
-        title: "Cockpit Navigation & Module Suite",
-        desc: "Access dedicated modules: Tactical Sprint Timer (timer.html), Coaching Matrix (coaching.html), CBT Exam Simulator (test_centre.html), and Settings.",
-        targetSelector: "#main-nav, #btnNavTourCockpit",
-        speech: "You're all set! Explore any module or return here anytime! 🌟🏆",
-        actionHint: "Click any nav item or open the Tour Menu to explore other pages!",
-        actionFn: () => { playSuccessChirp(); },
-        pageLink: { text: "🚀 Open Tactical Sprint Timer Tour (timer.html)", url: "timer.html?tour=true" }
-      }
-    ];
+        ]
+      };
+    }
+
+    // Fallback: Default to Cockpit
+    return {
+      nextPageUrl: "index.html",
+      nextPageName: "Cockpit Home",
+      steps: [
+        {
+          badge: "Step 1 of 1 • System Active",
+          title: "ClockEE Module Active",
+          desc: "ClockEE study cockpit is fully operational. Tap Next to continue.",
+          targetSelector: "body",
+          speech: "Module active and operational! ⏰",
+          actionHint: "Ready for focus!",
+          actionFn: () => { playTourChime(); }
+        }
+      ]
+    };
   }
 
-  let currentTourIdx = 0;
-  let isTourActive = false;
-  let activeTourSteps = [];
+  // Smart Flexible Position Solver
+  function positionSpotlightAndCard(targetEl) {
+    if (!targetEl || !isTourActive) return;
 
-  // Open Screen-Blur Tour Menu
-  window.showCockpitTourMenu = function() {
-    buildTourDOMElements();
+    // Bring into view smoothly
+    targetEl.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
+
+    setTimeout(() => {
+      const rect = targetEl.getBoundingClientRect();
+      const padding = 12;
+      const holeX = Math.max(0, rect.left - padding);
+      const holeY = Math.max(0, rect.top - padding);
+      const holeW = Math.max(30, rect.width + padding * 2);
+      const holeH = Math.max(30, rect.height + padding * 2);
+
+      // 1. Update SVG Cutout Hole
+      if (spotlightCutout) {
+        spotlightCutout.setAttribute('x', holeX);
+        spotlightCutout.setAttribute('y', holeY);
+        spotlightCutout.setAttribute('width', holeW);
+        spotlightCutout.setAttribute('height', holeH);
+      }
+      spotlightSvg.classList.add('active');
+
+      // 2. Update Halo
+      if (haloEl) {
+        haloEl.style.left = `${holeX}px`;
+        haloEl.style.top = `${holeY}px`;
+        haloEl.style.width = `${holeW}px`;
+        haloEl.style.height = `${holeH}px`;
+        haloEl.classList.add('active');
+      }
+
+      // If Minimized: Do not position card, keep corner box active
+      if (isTourMinimized) return;
+
+      // 3. Flexible Card Positioning (Left, Right, Below, Above)
+      const vpW = window.innerWidth;
+      const vpH = window.innerHeight;
+      const cardW = Math.min(440, vpW - 32);
+      const cardH = floatingCard.offsetHeight || 240;
+
+      let cardX = 16;
+      let cardY = 16;
+      let arrowStartX = 0;
+      let arrowStartY = 0;
+      let arrowEndX = 0;
+      let arrowEndY = 0;
+
+      const spaceRight = vpW - (holeX + holeW);
+      const spaceLeft = holeX;
+      const spaceBelow = vpH - (holeY + holeH);
+      const spaceAbove = holeY;
+
+      // Decision logic: prefer right if enough room, else left, else below, else above
+      if (spaceRight >= cardW + 36) {
+        // Place to RIGHT of element
+        cardX = holeX + holeW + 28;
+        cardY = Math.max(16, Math.min(vpH - cardH - 16, holeY + holeH / 2 - cardH / 2));
+        arrowStartX = cardX;
+        arrowStartY = cardY + cardH / 2;
+        arrowEndX = holeX + holeW;
+        arrowEndY = holeY + holeH / 2;
+      } else if (spaceLeft >= cardW + 36) {
+        // Place to LEFT of element
+        cardX = holeX - cardW - 28;
+        cardY = Math.max(16, Math.min(vpH - cardH - 16, holeY + holeH / 2 - cardH / 2));
+        arrowStartX = cardX + cardW;
+        arrowStartY = cardY + cardH / 2;
+        arrowEndX = holeX;
+        arrowEndY = holeY + holeH / 2;
+      } else if (spaceBelow >= cardH + 36) {
+        // Place BELOW element
+        cardX = Math.max(16, Math.min(vpW - cardW - 16, holeX + holeW / 2 - cardW / 2));
+        cardY = holeY + holeH + 24;
+        arrowStartX = cardX + cardW / 2;
+        arrowStartY = cardY;
+        arrowEndX = holeX + holeW / 2;
+        arrowEndY = holeY + holeH;
+      } else {
+        // Place ABOVE element
+        cardX = Math.max(16, Math.min(vpW - cardW - 16, holeX + holeW / 2 - cardW / 2));
+        cardY = Math.max(16, holeY - cardH - 24);
+        arrowStartX = cardX + cardW / 2;
+        arrowStartY = cardY + cardH;
+        arrowEndX = holeX + holeW / 2;
+        arrowEndY = holeY;
+      }
+
+      // Apply coordinates to Floating Card
+      floatingCard.style.left = `${cardX}px`;
+      floatingCard.style.top = `${cardY}px`;
+      floatingCard.classList.remove('collapsing');
+      floatingCard.classList.add('active');
+
+      // 4. Draw Theme-colored Dotted Arrow Path
+      if (arrowPath) {
+        const dx = arrowEndX - arrowStartX;
+        const dy = arrowEndY - arrowStartY;
+        const cx1 = arrowStartX + dx * 0.4;
+        const cy1 = arrowStartY;
+        const cx2 = arrowStartX + dx * 0.6;
+        const cy2 = arrowEndY;
+        arrowPath.setAttribute('d', `M ${arrowStartX} ${arrowStartY} C ${cx1} ${cy1}, ${cx2} ${cy2}, ${arrowEndX} ${arrowEndY}`);
+        arrowSvg.classList.add('active');
+      }
+    }, 280);
+  }
+
+  // Render Step
+  function renderTourStep(idx) {
+    if (!currentPageTourConfig || !currentPageTourConfig.steps || !currentPageTourConfig.steps[idx]) return;
+    currentTourIdx = idx;
+    const step = currentPageTourConfig.steps[idx];
+    const totalSteps = currentPageTourConfig.steps.length;
+    const isLastStep = idx === totalSteps - 1;
+
+    ensureTourDOMElements();
+
+    // 1. Populate Text Immediately (Guaranteed NEVER empty!)
+    const badgeEl = document.getElementById('tourBadge');
+    const titleEl = document.getElementById('tourTitle');
+    const descEl = document.getElementById('tourDesc');
+    const hintEl = document.getElementById('tourActionHint');
+    const stepIndEl = document.getElementById('tourStepIndicator');
+    const cornerStepEl = document.getElementById('tourCornerStep');
+    const nextBtn = document.getElementById('tourNextBtn');
+    const prevBtn = document.getElementById('tourPrevBtn');
+    const actionBtn = document.getElementById('tourActionBtn');
+
+    if (badgeEl) badgeEl.textContent = step.badge || `Step ${idx + 1} of ${totalSteps}`;
+    if (titleEl) titleEl.textContent = step.title || "Cockpit Module";
+    if (hintEl) hintEl.textContent = step.actionHint || "⚡ Click to test this feature!";
+    if (stepIndEl) stepIndEl.textContent = `${idx + 1} of ${totalSteps}`;
+    if (cornerStepEl) cornerStepEl.textContent = `Step ${idx + 1}/${totalSteps}`;
+
+    // Reset action button
+    if (actionBtn) {
+      actionBtn.innerHTML = `<span>⚡ Test Action</span>`;
+      actionBtn.className = "px-2.5 py-1 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-black font-bold text-[11px] transition shadow-md shadow-cyan-500/30 flex items-center gap-1 cursor-pointer";
+    }
+
+    // Typewrite Description smoothly
+    const fullText = `${step.speech || ''} ${step.desc || ''}`.trim();
+    if (descEl) {
+      typewriteText(descEl, fullText, 10);
+    }
+
+    // Prev / Next button states
+    if (prevBtn) {
+      prevBtn.style.visibility = idx > 0 ? 'visible' : 'hidden';
+    }
+
+    if (nextBtn) {
+      if (isLastStep) {
+        if (currentPageTourConfig.nextPageUrl && !currentPageTourConfig.nextPageUrl.includes("index.html")) {
+          nextBtn.innerHTML = `<span>Next Page: ${currentPageTourConfig.nextPageName} →</span>`;
+          nextBtn.className = "px-4 py-1.5 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-white font-extrabold text-xs shadow-lg shadow-emerald-500/30 transition flex items-center gap-1.5 cursor-pointer";
+        } else {
+          nextBtn.innerHTML = `<span>Finish Master Tour 🚀</span>`;
+          nextBtn.className = "px-4 py-1.5 rounded-xl bg-gradient-to-r from-purple-500 via-indigo-500 to-cyan-500 hover:from-purple-400 hover:to-cyan-400 text-white font-extrabold text-xs shadow-lg shadow-purple-500/30 transition flex items-center gap-1.5 cursor-pointer";
+        }
+      } else {
+        nextBtn.innerHTML = `<span>Next Step →</span>`;
+        nextBtn.className = "px-4 py-1.5 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-500 hover:from-cyan-400 hover:to-indigo-400 text-white font-extrabold text-xs shadow-lg shadow-cyan-500/25 transition flex items-center gap-1.5 cursor-pointer";
+      }
+    }
+
+    // Play soft chime
     playTourChime();
 
-    // Close any active step card & halo
-    const stepCard = document.getElementById('tourGlobalStepCard');
-    const svgOverlay = document.getElementById('tourSpotlightSvg');
-    const halo = document.getElementById('tourSpotlightHalo');
-
-    if (stepCard) stepCard.classList.remove('active');
-    if (halo) halo.classList.remove('active');
+    // 2. Highlight Target Element
     document.querySelectorAll('.cockpit-tour-target-active').forEach(el => el.classList.remove('cockpit-tour-target-active'));
 
-    const menuModal = document.getElementById('tourCockpitMenuModal');
-    if (svgOverlay) {
-      svgOverlay.classList.add('active');
-      // Set full dark scrim (no hole in menu mode)
-      const hole = document.getElementById('tourHoleRect');
-      if (hole) {
-        hole.setAttribute('x', '0');
-        hole.setAttribute('y', '0');
-        hole.setAttribute('width', '0');
-        hole.setAttribute('height', '0');
+    let targetEl = null;
+    if (step.targetSelector) {
+      const selectors = step.targetSelector.split(',').map(s => s.trim());
+      for (const sel of selectors) {
+        const found = document.querySelector(sel);
+        if (found) { targetEl = found; break; }
       }
     }
-    if (menuModal) menuModal.classList.add('active');
-  };
 
-  // Close Everything
-  window.closeCockpitTour = function() {
-    isTourActive = false;
-    localStorage.setItem('clockee_cockpit_tour_seen', 'true');
-
-    const svgOverlay = document.getElementById('tourSpotlightSvg');
-    const menuModal = document.getElementById('tourCockpitMenuModal');
-    const stepCard = document.getElementById('tourGlobalStepCard');
-    const halo = document.getElementById('tourSpotlightHalo');
-
-    if (svgOverlay) svgOverlay.classList.remove('active');
-    if (menuModal) menuModal.classList.remove('active');
-    if (stepCard) stepCard.classList.remove('active');
-    if (halo) halo.classList.remove('active');
-
-    document.querySelectorAll('.cockpit-tour-target-active').forEach(el => el.classList.remove('cockpit-tour-target-active'));
-  };
-
-  // Trigger Interactive Test Action for Current Step
-  window.triggerTourTestAction = function() {
-    if (!isTourActive || !activeTourSteps[currentTourIdx]) return;
-    const step = activeTourSteps[currentTourIdx];
-    if (typeof step.actionFn === 'function') {
-      step.actionFn();
-      // Mascot celebrates
-      const speech = document.getElementById('tourCardMascotSpeech');
-      if (speech) {
-        const orig = speech.textContent;
-        speech.textContent = "✨ Great job! Action triggered! Progress updated in real-time!";
-        setTimeout(() => { speech.textContent = orig; }, 2600);
+    if (targetEl) {
+      targetEl.classList.add('cockpit-tour-target-active');
+      positionSpotlightAndCard(targetEl);
+    } else {
+      // Fallback: center in screen
+      if (spotlightCutout) {
+        spotlightCutout.setAttribute('x', window.innerWidth / 2 - 100);
+        spotlightCutout.setAttribute('y', window.innerHeight / 2 - 60);
+        spotlightCutout.setAttribute('width', 200);
+        spotlightCutout.setAttribute('height', 120);
       }
+      floatingCard.style.left = `${Math.max(16, window.innerWidth / 2 - 220)}px`;
+      floatingCard.style.top = `${Math.max(16, window.innerHeight / 2 - 120)}px`;
+      floatingCard.classList.remove('collapsing');
+      floatingCard.classList.add('active');
+      if (arrowSvg) arrowSvg.classList.remove('active');
+    }
+  }
+
+  // Minimize Tour to Corner Box
+  window.minimizeCockpitTour = function() {
+    if (!isTourActive) return;
+    isTourMinimized = true;
+
+    if (floatingCard) {
+      floatingCard.classList.add('collapsing');
+      setTimeout(() => {
+        floatingCard.classList.remove('active');
+      }, 350);
+    }
+    if (arrowSvg) arrowSvg.classList.remove('active');
+    if (haloEl) haloEl.classList.remove('active');
+    if (spotlightSvg) spotlightSvg.classList.remove('active');
+    if (interruptionModal) interruptionModal.classList.remove('active');
+
+    if (cornerBox) {
+      cornerBox.classList.add('active');
+    }
+
+    if (window.showToast) window.showToast("⏱️ Tour minimized to corner. Tap anytime to resume!", "info");
+  };
+
+  // Expand Tour from Corner Box
+  window.expandCockpitTour = function() {
+    if (!isTourActive) return;
+    isTourMinimized = false;
+
+    if (interruptionModal) interruptionModal.classList.remove('active');
+    if (cornerBox) cornerBox.classList.remove('active');
+
+    renderTourStep(currentTourIdx);
+  };
+
+  // Interruption Prompt
+  window.showTourInterruptionPrompt = function() {
+    if (!isTourActive) return;
+    if (interruptionModal) {
+      interruptionModal.classList.add('active');
+      playTourChime();
     }
   };
 
-  // Start Guided Tour for Current Page
+  // Trigger Mascot Excited Celebration
+  window.triggerMascotExcited = function() {
+    const mascotBox = document.getElementById('tourMascotContainer');
+    if (mascotBox) {
+      mascotBox.innerHTML = getClockEEMascotSvg(true);
+      setTimeout(() => {
+        mascotBox.innerHTML = getClockEEMascotSvg(false);
+      }, 1200);
+    }
+
+    const cardRect = floatingCard.getBoundingClientRect();
+    createCyberSparkleBurst(cardRect.left + 50, cardRect.top + 50);
+    playExcitedSuccessChime();
+  };
+
+  // Run Current Tour Action
+  window.runCurrentTourAction = function() {
+    if (!currentPageTourConfig || !currentPageTourConfig.steps || !currentPageTourConfig.steps[currentTourIdx]) return;
+    const step = currentPageTourConfig.steps[currentTourIdx];
+
+    // Trigger excited mascot
+    window.triggerMascotExcited();
+
+    // Trigger step action function
+    try {
+      if (typeof step.actionFn === 'function') {
+        step.actionFn();
+      }
+    } catch(e) {}
+
+    // Update Action Button to Completed!
+    const btn = document.getElementById('tourActionBtn');
+    if (btn) {
+      btn.innerHTML = `<span>✓ Completed! +50 XP</span>`;
+      btn.className = "px-2.5 py-1 rounded-lg bg-emerald-500 text-black font-extrabold text-[11px] shadow-lg shadow-emerald-500/40 flex items-center gap-1 transition";
+    }
+
+    // Update speech to celebration praise
+    const descEl = document.getElementById('tourDesc');
+    if (descEl) {
+      typewriteText(descEl, "WOOHOO! 🚀 Action mastered! +50 Focus XP added to your flight deck!", 10);
+    }
+  };
+
+  // Start Tour
   window.startCockpitGuidedTour = function() {
-    buildTourDOMElements();
-    activeTourSteps = getStepsForCurrentPage();
-    if (!activeTourSteps || activeTourSteps.length === 0) return;
+    ensureTourDOMElements();
+    currentPageTourConfig = getMasterPageTourConfig();
+    if (!currentPageTourConfig || !currentPageTourConfig.steps || currentPageTourConfig.steps.length === 0) return;
 
     isTourActive = true;
-    currentTourIdx = 0;
-    playTourChime();
+    isTourMinimized = false;
 
-    // Close menu modal
-    const menuModal = document.getElementById('tourCockpitMenuModal');
-    if (menuModal) menuModal.classList.remove('active');
-
-    const svgOverlay = document.getElementById('tourSpotlightSvg');
-    const stepCard = document.getElementById('tourGlobalStepCard');
-    const halo = document.getElementById('tourSpotlightHalo');
-
-    if (svgOverlay) svgOverlay.classList.add('active');
-    if (stepCard) stepCard.classList.add('active');
-    if (halo) halo.classList.add('active');
+    // Close overview menu if open
+    const menuModal = document.getElementById('cockpitTourMenuModal');
+    if (menuModal) menuModal.style.display = 'none';
 
     renderTourStep(0);
   };
 
-  function renderTourStep(idx) {
-    if (idx < 0 || idx >= activeTourSteps.length) return;
-    currentTourIdx = idx;
-    playTourChime();
+  // Close Tour Cleanly
+  window.closeCockpitTour = function() {
+    isTourActive = false;
+    isTourMinimized = false;
 
-    const step = activeTourSteps[idx];
-
-    // Card texts
-    document.getElementById('tourGlobalStepBadge').textContent = step.badge;
-    document.getElementById('tourGlobalStepTitle').textContent = step.title;
-    document.getElementById('tourGlobalStepDesc').textContent = step.desc;
-    document.getElementById('tourCardMascotSpeech').textContent = step.speech;
-    document.getElementById('tourInteractiveHint').textContent = step.actionHint || "Try interacting with the highlighted element!";
-    document.getElementById('tourGlobalProgressBar').style.width = `${((idx + 1) / activeTourSteps.length) * 100}%`;
-
-    // Optional page link
-    const pageLinkWrap = document.getElementById('tourGlobalPageLinkWrap');
-    const pageLink = document.getElementById('tourGlobalPageLink');
-    const pageLinkText = document.getElementById('tourGlobalPageLinkText');
-    if (step.pageLink) {
-      pageLinkWrap.classList.remove('hidden');
-      pageLink.href = step.pageLink.url;
-      pageLinkText.textContent = step.pageLink.text;
-    } else {
-      pageLinkWrap.classList.add('hidden');
+    if (spotlightSvg) spotlightSvg.classList.remove('active');
+    if (haloEl) haloEl.classList.remove('active');
+    if (arrowSvg) arrowSvg.classList.remove('active');
+    if (floatingCard) {
+      floatingCard.classList.remove('active');
+      floatingCard.classList.remove('collapsing');
     }
+    if (cornerBox) cornerBox.classList.remove('active');
+    if (interruptionModal) interruptionModal.classList.remove('active');
 
-    // Buttons
-    document.getElementById('btnTourGlobalPrev').disabled = (idx === 0);
-    const nextBtn = document.getElementById('btnTourGlobalNext');
-    if (idx === activeTourSteps.length - 1) {
-      nextBtn.innerHTML = `<span>Finish &amp; Enter Cockpit</span> 🚀`;
-    } else {
-      nextBtn.innerHTML = `<span>Next Step</span> →`;
-    }
-
-    // Remove previous targets
     document.querySelectorAll('.cockpit-tour-target-active').forEach(el => el.classList.remove('cockpit-tour-target-active'));
 
-    // Find Target Element
-    const targetEl = document.querySelector(step.targetSelector) || document.body;
-    targetEl.classList.add('cockpit-tour-target-active');
-
-    // Smooth scroll into center view
+    // Mark tour seen in localStorage
     try {
-      targetEl.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
+      localStorage.setItem('clockee_cockpit_tour_seen', 'true');
     } catch(e) {}
+  };
 
-    // Allow 180ms for scroll to settle, then position spotlight and dialog card
-    setTimeout(() => {
-      positionSpotlightAndCard(targetEl);
-    }, 200);
-  }
-
-  function positionSpotlightAndCard(targetEl) {
-    const rect = targetEl.getBoundingClientRect();
-    const pad = 10;
-
-    const holeX = Math.max(0, rect.left - pad);
-    const holeY = Math.max(0, rect.top - pad);
-    const holeW = Math.min(window.innerWidth - holeX, rect.width + pad * 2);
-    const holeH = Math.min(window.innerHeight - holeY, rect.height + pad * 2);
-
-    // 1. Cut the transparent hole in SVG mask
-    const hole = document.getElementById('tourHoleRect');
-    if (hole) {
-      hole.setAttribute('x', `${holeX}`);
-      hole.setAttribute('y', `${holeY}`);
-      hole.setAttribute('width', `${holeW}`);
-      hole.setAttribute('height', `${holeH}`);
-      hole.setAttribute('rx', '16');
-    }
-
-    // 2. Position the glowing halo border
-    const halo = document.getElementById('tourSpotlightHalo');
-    if (halo) {
-      halo.style.left = `${holeX}px`;
-      halo.style.top = `${holeY}px`;
-      halo.style.width = `${holeW}px`;
-      halo.style.height = `${holeH}px`;
-      halo.classList.add('active');
-    }
-
-    // 3. Position the Briefing Card & Direction Indicator (NEVER HIDE THE BOT OR TARGET!)
-    const card = document.getElementById('tourGlobalStepCard');
-    const dirIndicator = document.getElementById('tourDirectionIndicator');
-    if (!card) return;
-
-    // Check if target is in bottom half or top half of viewport
-    const targetCenterY = rect.top + rect.height / 2;
-    const isTargetInBottomHalf = targetCenterY > (window.innerHeight * 0.45);
-
-    if (isTargetInBottomHalf) {
-      // TARGET IS LOW: Card sits at TOP of screen
-      card.style.top = "28px";
-      card.style.bottom = "auto";
-      card.style.left = "50%";
-      card.style.transform = "translateX(-50%)";
-      if (dirIndicator) {
-        dirIndicator.textContent = "⬇ Element highlighted below";
-        dirIndicator.className = "text-[10px] text-cyan-300 font-mono font-bold animate-pulse";
-      }
-    } else {
-      // TARGET IS HIGH: Card sits at BOTTOM of screen
-      card.style.bottom = "28px";
-      card.style.top = "auto";
-      card.style.left = "50%";
-      card.style.transform = "translateX(-50%)";
-      if (dirIndicator) {
-        dirIndicator.textContent = "⬆ Element highlighted above";
-        dirIndicator.className = "text-[10px] text-cyan-300 font-mono font-bold animate-pulse";
-      }
-    }
-  }
-
+  // Step Navigation
   window.nextCockpitTourStep = function() {
-    if (currentTourIdx < activeTourSteps.length - 1) {
-      renderTourStep(currentTourIdx + 1);
+    if (!currentPageTourConfig || !currentPageTourConfig.steps) return;
+    const totalSteps = currentPageTourConfig.steps.length;
+
+    if (currentTourIdx >= totalSteps - 1) {
+      // Last step: advance to next page or finish!
+      if (currentPageTourConfig.nextPageUrl && !currentPageTourConfig.nextPageUrl.includes("index.html")) {
+        window.closeCockpitTour();
+        setTimeout(() => {
+          window.location.href = currentPageTourConfig.nextPageUrl;
+        }, 150);
+      } else {
+        // Final Finish
+        window.closeCockpitTour();
+        setTimeout(() => {
+          window.location.href = "index.html";
+        }, 150);
+      }
     } else {
-      window.closeCockpitTour();
+      renderTourStep(currentTourIdx + 1);
     }
   };
 
@@ -4347,25 +4659,133 @@ if (document.readyState === "complete" || document.readyState === "interactive")
     }
   };
 
-  // Re-adjust spotlight on window resize or scroll
+  // Re-adjust spotlight on resize or scroll
   window.addEventListener('resize', () => {
-    if (!isTourActive || !activeTourSteps[currentTourIdx]) return;
-    const targetEl = document.querySelector(activeTourSteps[currentTourIdx].targetSelector);
+    if (!isTourActive || isTourMinimized || !currentPageTourConfig || !currentPageTourConfig.steps[currentTourIdx]) return;
+    const step = currentPageTourConfig.steps[currentTourIdx];
+    let targetEl = null;
+    if (step.targetSelector) {
+      const selectors = step.targetSelector.split(',').map(s => s.trim());
+      for (const sel of selectors) {
+        const found = document.querySelector(sel);
+        if (found) { targetEl = found; break; }
+      }
+    }
     if (targetEl) positionSpotlightAndCard(targetEl);
   });
   window.addEventListener('scroll', () => {
-    if (!isTourActive || !activeTourSteps[currentTourIdx]) return;
-    const targetEl = document.querySelector(activeTourSteps[currentTourIdx].targetSelector);
+    if (!isTourActive || isTourMinimized || !currentPageTourConfig || !currentPageTourConfig.steps[currentTourIdx]) return;
+    const step = currentPageTourConfig.steps[currentTourIdx];
+    let targetEl = null;
+    if (step.targetSelector) {
+      const selectors = step.targetSelector.split(',').map(s => s.trim());
+      for (const sel of selectors) {
+        const found = document.querySelector(sel);
+        if (found) { targetEl = found; break; }
+      }
+    }
     if (targetEl) positionSpotlightAndCard(targetEl);
   }, { passive: true });
 
   // Keyboard navigation
   window.addEventListener('keydown', (e) => {
-    if (!isTourActive) return;
+    if (!isTourActive || isTourMinimized) return;
     if (e.key === 'Escape') window.closeCockpitTour();
     if (e.key === 'ArrowRight') window.nextCockpitTourStep();
     if (e.key === 'ArrowLeft') window.prevCockpitTourStep();
   });
+
+  // Tour Menu Modal (Only 8 Core Modules, No Hackathon, No Admin)
+  window.showCockpitTourMenu = function() {
+    let modal = document.getElementById('cockpitTourMenuModal');
+    if (!modal) {
+      modal = document.createElement('div');
+      modal.id = 'cockpitTourMenuModal';
+      modal.className = 'cockpit-tour-menu-modal-backdrop';
+      modal.style.cssText = 'position:fixed;inset:0;background:rgba(2,4,10,0.88);backdrop-filter:blur(24px);z-index:999999;display:flex;align-items:center;justify-content:center;padding:16px;';
+      modal.innerHTML = `
+        <div style="max-width:820px;width:100%;max-height:90vh;overflow-y:auto;background:rgba(10,15,30,0.96);border:1.5px solid rgba(0,240,255,0.5);border-radius:24px;padding:24px;box-shadow:0 24px 60px rgba(0,0,0,0.9),0 0 40px rgba(0,240,255,0.3);color:#fff;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+            <div style="display:flex;align-items:center;gap:12px;">
+              <span style="font-size:26px;">🚀</span>
+              <div>
+                <h2 style="font-size:18px;font-weight:800;margin:0;">ClockEE Master Interactive Tour</h2>
+                <p style="font-size:12px;color:#94a3b8;margin:2px 0 0 0;">8 Verified Study Modules • Precision JEE Advanced Cadence</p>
+              </div>
+            </div>
+            <button onclick="document.getElementById('cockpitTourMenuModal').style.display='none'" style="background:none;border:none;color:#94a3b8;font-size:20px;cursor:pointer;">✕</button>
+          </div>
+
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:20px;">
+            <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(0,240,255,0.2);border-radius:16px;padding:14px;">
+              <div style="font-size:20px;margin-bottom:6px;">⏱️</div>
+              <h4 style="font-size:13px;font-weight:700;margin:0 0 4px 0;">1. Cockpit HUD</h4>
+              <p style="font-size:11px;color:#94a3b8;margin:0 0 10px 0;">JEE 2028 Countdown & Solvers</p>
+              <a href="index.html?tour=true" style="font-size:11px;color:#00f0ff;text-decoration:none;font-weight:700;">Start Cockpit →</a>
+            </div>
+
+            <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(0,240,255,0.2);border-radius:16px;padding:14px;">
+              <div style="font-size:20px;margin-bottom:6px;">⚡</div>
+              <h4 style="font-size:13px;font-weight:700;margin:0 0 4px 0;">2. Sprint Timer</h4>
+              <p style="font-size:11px;color:#94a3b8;margin:0 0 10px 0;">Pomodoro & White Noise</p>
+              <a href="timer.html?tour=true" style="font-size:11px;color:#00f0ff;text-decoration:none;font-weight:700;">Start Timer →</a>
+            </div>
+
+            <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(0,240,255,0.2);border-radius:16px;padding:14px;">
+              <div style="font-size:20px;margin-bottom:6px;">📊</div>
+              <h4 style="font-size:13px;font-weight:700;margin:0 0 4px 0;">3. Daily Log</h4>
+              <p style="font-size:11px;color:#94a3b8;margin:0 0 10px 0;">Velocity & Report Cards</p>
+              <a href="today.html?tour=true" style="font-size:11px;color:#00f0ff;text-decoration:none;font-weight:700;">Start Today →</a>
+            </div>
+
+            <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(0,240,255,0.2);border-radius:16px;padding:14px;">
+              <div style="font-size:20px;margin-bottom:6px;">📋</div>
+              <h4 style="font-size:13px;font-weight:700;margin:0 0 4px 0;">4. Task Hub</h4>
+              <p style="font-size:11px;color:#94a3b8;margin:0 0 10px 0;">TickTick Sync & Kanban</p>
+              <a href="task.html?tour=true" style="font-size:11px;color:#00f0ff;text-decoration:none;font-weight:700;">Start Tasks →</a>
+            </div>
+
+            <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(0,240,255,0.2);border-radius:16px;padding:14px;">
+              <div style="font-size:20px;margin-bottom:6px;">🎓</div>
+              <h4 style="font-size:13px;font-weight:700;margin:0 0 4px 0;">5. Coaching Matrix</h4>
+              <p style="font-size:11px;color:#94a3b8;margin:0 0 10px 0;">Full PCM Syllabus Tree</p>
+              <a href="coaching.html?tour=true" style="font-size:11px;color:#00f0ff;text-decoration:none;font-weight:700;">Start Coaching →</a>
+            </div>
+
+            <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(0,240,255,0.2);border-radius:16px;padding:14px;">
+              <div style="font-size:20px;margin-bottom:6px;">💻</div>
+              <h4 style="font-size:13px;font-weight:700;margin:0 0 4px 0;">6. CBT Simulator</h4>
+              <p style="font-size:11px;color:#94a3b8;margin:0 0 10px 0;">Authentic NTA Exam Suite</p>
+              <a href="cbt_home.html?tour=true" style="font-size:11px;color:#00f0ff;text-decoration:none;font-weight:700;">Start CBT →</a>
+            </div>
+
+            <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(0,240,255,0.2);border-radius:16px;padding:14px;">
+              <div style="font-size:20px;margin-bottom:6px;">💡</div>
+              <h4 style="font-size:13px;font-weight:700;margin:0 0 4px 0;">7. Inspiration</h4>
+              <p style="font-size:11px;color:#94a3b8;margin:0 0 10px 0;">Dream Board & Topper Mindset</p>
+              <a href="inspiration.html?tour=true" style="font-size:11px;color:#00f0ff;text-decoration:none;font-weight:700;">Start Inspiration →</a>
+            </div>
+
+            <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(0,240,255,0.2);border-radius:16px;padding:14px;">
+              <div style="font-size:20px;margin-bottom:6px;">⚙️</div>
+              <h4 style="font-size:13px;font-weight:700;margin:0 0 4px 0;">8. Settings</h4>
+              <p style="font-size:11px;color:#94a3b8;margin:0 0 10px 0;">Aura Themes & APIs</p>
+              <a href="settings.html?tour=true" style="font-size:11px;color:#00f0ff;text-decoration:none;font-weight:700;">Start Settings →</a>
+            </div>
+          </div>
+
+          <div style="display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,0.1);padding-top:16px;">
+            <span style="font-size:12px;color:#94a3b8;">Continuous multi-page walkthrough across all 8 modules.</span>
+            <button onclick="window.startCockpitGuidedTour()" style="padding:10px 20px;border-radius:12px;background:linear-gradient(to right,#00f0ff,#6366f1);color:#fff;font-weight:800;border:none;cursor:pointer;box-shadow:0 0 20px rgba(0,240,255,0.4);">
+              🚀 Start Full Continuous Tour
+            </button>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(modal);
+    }
+    modal.style.display = 'flex';
+  };
 
   // AUTO-TRIGGER ON FIRST SIGN IN OR ?tour=true
   document.addEventListener('DOMContentLoaded', () => {
@@ -4378,12 +4798,12 @@ if (document.readyState === "complete" || document.readyState === "interactive")
     if (hasTourParam) {
       setTimeout(() => {
         window.startCockpitGuidedTour();
-      }, 550);
+      }, 400);
     } else if (isIndex && (isFirstSignIn || tourNotSeen)) {
       sessionStorage.removeItem('clockee_first_signin');
       setTimeout(() => {
         window.showCockpitTourMenu();
-      }, 750);
+      }, 600);
     }
   });
 

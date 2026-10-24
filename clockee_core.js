@@ -3302,6 +3302,398 @@ if (document.readyState === "complete" || document.readyState === "interactive")
 })();
 
 /* ══════════════════════════════════════════════════════════════════════════════
+   CLOCKEE UNIVERSAL RESPONSIVE MOBILE NAVIGATION & TOUCH ERGONOMICS SUITE
+   - Mobile Header Cyber Hamburger Menu (☰)
+   - Frosted Glass Cyber Mobile Drawer (#clockeeMobileDrawer) with Quick Switches
+   - One-Thumb Mobile Bottom Navigation Bar (#clockeeBottomNav)
+   - Fluid Viewport Scaling & Touch Target Guardrails (Min 44px)
+   - Seamless Cross-Module CBT Integration
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+(function initClockEEMobileNavSuite() {
+  if (typeof window === "undefined") return;
+
+  // 1. Inject Universal Responsive CSS
+  const mobileStyles = document.createElement("style");
+  mobileStyles.id = "clockee-mobile-responsive-styles";
+  mobileStyles.innerHTML = `
+    /* Universal Mobile Responsive Overrides */
+    @media (max-width: 840px) {
+      /* Hide desktop horizontal nav bar to prevent ugly overflow */
+      #main-nav {
+        display: none !important;
+      }
+      
+      /* Make top headers clean and touch-friendly */
+      header.border-b, .cbt-header-banner, header {
+        padding: 8px 14px !important;
+        min-height: 56px !important;
+      }
+
+      /* Body padding for fixed bottom navigation */
+      body:not(.in-cbt-exam) {
+        padding-bottom: calc(76px + env(safe-area-inset-bottom)) !important;
+      }
+
+      /* Touch target size & ergonomics */
+      button, a.nav-btn, .cbt-btn, input, select {
+        min-height: 44px;
+        touch-action: manipulation;
+      }
+
+      /* Grids stack into single or dual column */
+      .grid-cols-12 {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 16px !important;
+      }
+      .lg\\:col-span-5, .lg\\:col-span-7, .lg\\:col-span-8, .lg\\:col-span-4 {
+        width: 100% !important;
+      }
+    }
+
+    /* Mobile Hamburger Button in Top Header */
+    .clockee-mobile-hamburger-btn {
+      display: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: rgba(0, 240, 255, 0.08);
+      border: 1.5px solid rgba(0, 240, 255, 0.4);
+      color: #00f0ff;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-size: 1.15rem;
+      box-shadow: 0 0 12px rgba(0, 240, 255, 0.2);
+    }
+    .clockee-mobile-hamburger-btn:hover, .clockee-mobile-hamburger-btn:active {
+      background: rgba(0, 240, 255, 0.2);
+      border-color: #00f0ff;
+      transform: scale(0.96);
+    }
+    @media (max-width: 840px) {
+      .clockee-mobile-hamburger-btn {
+        display: flex !important;
+      }
+    }
+
+    /* Frosted Glass Cyber Mobile Drawer */
+    .clockee-mobile-drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(3, 6, 14, 0.8);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      z-index: 999998;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .clockee-mobile-drawer-backdrop.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .clockee-mobile-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: min(340px, 86vw);
+      background: rgba(8, 12, 24, 0.96);
+      border-left: 1.5px solid rgba(0, 240, 255, 0.4);
+      box-shadow: -20px 0 50px rgba(0, 0, 0, 0.9), 0 0 30px rgba(0, 240, 255, 0.25);
+      backdrop-filter: blur(36px) saturate(220%);
+      -webkit-backdrop-filter: blur(36px) saturate(220%);
+      z-index: 999999;
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      overflow-y: auto;
+      padding: 20px 16px calc(24px + env(safe-area-inset-bottom));
+    }
+    .clockee-mobile-drawer.active {
+      transform: translateX(0);
+    }
+
+    .drawer-nav-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      color: #94a3b8;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      margin-bottom: 8px;
+      transition: all 0.2s ease;
+      touch-action: manipulation;
+    }
+    .drawer-nav-item:hover, .drawer-nav-item:active {
+      background: rgba(0, 240, 255, 0.12);
+      border-color: rgba(0, 240, 255, 0.4);
+      color: #00f0ff;
+      transform: translateX(4px);
+    }
+    .drawer-nav-item.active {
+      background: rgba(0, 240, 255, 0.18);
+      border-color: #00f0ff;
+      color: #00f0ff;
+      box-shadow: 0 0 16px rgba(0, 240, 255, 0.35);
+      font-weight: 700;
+    }
+
+    /* Fixed Bottom Navigation Bar (1-Thumb Ergonomics) */
+    .clockee-bottom-nav {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: calc(60px + env(safe-area-inset-bottom));
+      padding-bottom: env(safe-area-inset-bottom);
+      background: rgba(8, 12, 24, 0.92);
+      backdrop-filter: blur(28px) saturate(200%);
+      -webkit-backdrop-filter: blur(28px) saturate(200%);
+      border-top: 1px solid rgba(0, 240, 255, 0.35);
+      box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 240, 255, 0.15);
+      z-index: 99990;
+      align-items: center;
+      justify-content: space-around;
+      touch-action: manipulation;
+    }
+    @media (max-width: 840px) {
+      body:not(.in-cbt-exam) .clockee-bottom-nav {
+        display: flex !important;
+      }
+    }
+
+    .bottom-nav-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 0.65rem;
+      font-weight: 600;
+      flex: 1;
+      height: 100%;
+      transition: all 0.18s ease;
+      cursor: pointer;
+    }
+    .bottom-nav-btn svg {
+      width: 20px;
+      height: 20px;
+      transition: transform 0.2s ease, stroke 0.2s ease;
+    }
+    .bottom-nav-btn:hover, .bottom-nav-btn:active {
+      color: #00f0ff;
+    }
+    .bottom-nav-btn:active svg {
+      transform: scale(0.9);
+    }
+    .bottom-nav-btn.active {
+      color: #00f0ff;
+      font-weight: 700;
+    }
+    .bottom-nav-btn.active svg {
+      stroke: #00f0ff;
+      filter: drop-shadow(0 0 6px rgba(0, 240, 255, 0.8));
+    }
+  `;
+  document.head.appendChild(mobileStyles);
+
+  // 2. Render Drawer and Bottom Nav
+  function ensureMobileNavigationDOM() {
+    if (document.getElementById('clockee-mobile-drawer-backdrop')) return;
+
+    // Detect Active Page
+    const path = window.location.pathname.toLowerCase();
+    const isHome = path.endsWith('index.html') || path.endsWith('/') || path === '';
+    const isTimer = path.includes('timer.html');
+    const isToday = path.includes('today.html');
+    const isTask = path.includes('task.html');
+    const isCoaching = path.includes('coaching.html');
+    const isCBT = path.includes('cbt_') || path.includes('test_centre.html');
+    const isInspiration = path.includes('inspiration.html');
+    const isSettings = path.includes('settings.html');
+
+    // Get Active User & Dream Target
+    let user = { name: "Guest Aspirant", role: "Aspirant", dreamCollege: "IIT Bombay CSE", targetAir: 65 };
+    try {
+      const u = localStorage.getItem("clockee_current_user");
+      if (u) user = Object.assign(user, JSON.parse(u));
+    } catch(e) {}
+
+    // A. Drawer Backdrop & Container
+    const backdrop = document.createElement('div');
+    backdrop.id = 'clockee-mobile-drawer-backdrop';
+    backdrop.className = 'clockee-mobile-drawer-backdrop';
+    backdrop.onclick = () => window.closeMobileDrawer();
+
+    const drawer = document.createElement('div');
+    drawer.id = 'clockee-mobile-drawer';
+    drawer.className = 'clockee-mobile-drawer';
+    drawer.innerHTML = `
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="font-size:22px;">⚡</span>
+          <span style="font-weight:900;font-size:16px;background:linear-gradient(to right,#00f0ff,#a5b4fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">ClockEE Cockpit</span>
+        </div>
+        <button onclick="window.closeMobileDrawer()" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:#fff;width:34px;height:34px;border-radius:10px;font-size:16px;display:flex;align-items:center;justify-content:center;cursor:pointer;">✕</button>
+      </div>
+
+      <!-- User Flight Deck Card -->
+      <div style="background:linear-gradient(135deg,rgba(0,240,255,0.1),rgba(99,102,241,0.12));border:1px solid rgba(0,240,255,0.3);border-radius:16px;padding:12px;margin-bottom:16px;display:flex;align-items:center;gap:10px;">
+        <img src="${user.pfp || 'https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Aspirant'}" style="width:38px;height:38px;border-radius:50%;border:1.5px solid #00f0ff;background:#030712;">
+        <div style="flex:1;min-width:0;">
+          <div style="font-size:13px;font-weight:800;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${user.name}</div>
+          <div style="font-size:10px;color:#00f0ff;font-mono;">🎯 ${user.dreamCollege || 'IIT Bombay CSE'}</div>
+        </div>
+        <button onclick="window.handleUserLogout()" style="background:none;border:none;color:#ef4444;font-size:11px;font-weight:700;cursor:pointer;" title="Sign Out">Sign Out</button>
+      </div>
+
+      <!-- Quick Action: Master Tour -->
+      <button onclick="window.closeMobileDrawer(); window.showCockpitTourMenu();" style="width:100%;padding:10px 14px;border-radius:14px;background:linear-gradient(to right,rgba(0,240,255,0.2),rgba(99,102,241,0.3));border:1px solid rgba(0,240,255,0.5);color:#00f0ff;font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:14px;cursor:pointer;box-shadow:0 0 15px rgba(0,240,255,0.2);">
+        <span>🚀 Master Interactive Tour</span>
+      </button>
+
+      <!-- Navigation Modules List -->
+      <div style="flex:1;">
+        <a href="index.html" class="drawer-nav-item ${isHome ? 'active' : ''}">
+          <span style="font-size:16px;">🏠</span>
+          <span>Cockpit Home</span>
+        </a>
+        <a href="timer.html" class="drawer-nav-item ${isTimer ? 'active' : ''}">
+          <span style="font-size:16px;">⏱️</span>
+          <span>Tactical Sprint Timer</span>
+        </a>
+        <a href="today.html" class="drawer-nav-item ${isToday ? 'active' : ''}">
+          <span style="font-size:16px;">📊</span>
+          <span>Today's Daily Digest</span>
+        </a>
+        <a href="task.html" class="drawer-nav-item ${isTask ? 'active' : ''}">
+          <span style="font-size:16px;">📋</span>
+          <span>Tasks &amp; TickTick Sync</span>
+        </a>
+        <a href="coaching.html" class="drawer-nav-item ${isCoaching ? 'active' : ''}">
+          <span style="font-size:16px;">🎓</span>
+          <span>Coaching &amp; Syllabus Tree</span>
+        </a>
+        <a href="cbt_home.html" class="drawer-nav-item ${isCBT ? 'active' : ''}">
+          <span style="font-size:16px;">💻</span>
+          <span>Authentic CBT Exam Portal</span>
+        </a>
+        <a href="inspiration.html" class="drawer-nav-item ${isInspiration ? 'active' : ''}">
+          <span style="font-size:16px;">💡</span>
+          <span>Wall of Inspiration</span>
+        </a>
+        <a href="settings.html" class="drawer-nav-item ${isSettings ? 'active' : ''}">
+          <span style="font-size:16px;">⚙️</span>
+          <span>Settings &amp; Themes</span>
+        </a>
+      </div>
+
+      <!-- Quick Controls -->
+      <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:12px;display:flex;align-items:center;justify-content:space-between;">
+        <button onclick="if(typeof toggleSplitScreen==='function') toggleSplitScreen(); window.closeMobileDrawer();" style="padding:8px 12px;border-radius:10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#94a3b8;font-size:11px;font-weight:600;display:flex;align-items:center;gap:6px;cursor:pointer;">
+          <span>⊟</span> Split View
+        </button>
+        <button onclick="if(typeof applyAccentColor==='function') applyAccentColor('#00f0ff');" style="width:28px;height:28px;border-radius:50%;background:#00f0ff;border:2px solid #fff;box-shadow:0 0 10px #00f0ff;cursor:pointer;" title="Cyan Neon Theme"></button>
+        <button onclick="if(typeof applyAccentColor==='function') applyAccentColor('#6366f1');" style="width:28px;height:28px;border-radius:50%;background:#6366f1;border:2px solid #fff;box-shadow:0 0 10px #6366f1;cursor:pointer;" title="Indigo Aura"></button>
+        <button onclick="if(typeof applyAccentColor==='function') applyAccentColor('#f59e0b');" style="width:28px;height:28px;border-radius:50%;background:#f59e0b;border:2px solid #fff;box-shadow:0 0 10px #f59e0b;cursor:pointer;" title="Amber Aura"></button>
+      </div>
+    `;
+
+    document.body.appendChild(backdrop);
+    document.body.appendChild(drawer);
+
+    // B. Mobile Bottom Navigation Bar (5 Thumb Items)
+    const bottomNav = document.createElement('nav');
+    bottomNav.id = 'clockee-bottom-nav';
+    bottomNav.className = 'clockee-bottom-nav';
+    bottomNav.innerHTML = `
+      <a href="index.html" class="bottom-nav-btn ${isHome ? 'active' : ''}">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <span>Home</span>
+      </a>
+      <a href="timer.html" class="bottom-nav-btn ${isTimer ? 'active' : ''}">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span>Timer</span>
+      </a>
+      <a href="today.html" class="bottom-nav-btn ${isToday ? 'active' : ''}">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        <span>Today</span>
+      </a>
+      <a href="cbt_home.html" class="bottom-nav-btn ${isCBT ? 'active' : ''}">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        <span>CBT</span>
+      </a>
+      <button type="button" onclick="window.openMobileDrawer()" class="bottom-nav-btn" style="background:none;border:none;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <span>Menu</span>
+      </button>
+    `;
+    document.body.appendChild(bottomNav);
+
+    // C. Inject Hamburger button into existing page headers
+    const headerRight = document.querySelector('.nav-right, header > div:last-child, .cbt-header-banner > div:last-child');
+    if (headerRight && !document.getElementById('clockeeHamburgerBtn')) {
+      const btn = document.createElement('button');
+      btn.id = 'clockeeHamburgerBtn';
+      btn.type = 'button';
+      btn.className = 'clockee-mobile-hamburger-btn';
+      btn.setAttribute('aria-label', 'Open Mobile Navigation Menu');
+      btn.onclick = () => window.openMobileDrawer();
+      btn.innerHTML = `<span>☰</span>`;
+      headerRight.appendChild(btn);
+    }
+  }
+
+  window.openMobileDrawer = function() {
+    ensureMobileNavigationDOM();
+    const bd = document.getElementById('clockee-mobile-drawer-backdrop');
+    const dr = document.getElementById('clockee-mobile-drawer');
+    if (bd && dr) {
+      bd.classList.add('active');
+      dr.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  };
+
+  window.closeMobileDrawer = function() {
+    const bd = document.getElementById('clockee-mobile-drawer-backdrop');
+    const dr = document.getElementById('clockee-mobile-drawer');
+    if (bd && dr) {
+      bd.classList.remove('active');
+      dr.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  };
+
+  // Keyboard navigation for drawer
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') window.closeMobileDrawer();
+  });
+
+  // Run on DOM Ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', ensureMobileNavigationDOM);
+  } else {
+    setTimeout(ensureMobileNavigationDOM, 50);
+  }
+
+})();
+
+/* ══════════════════════════════════════════════════════════════════════════════
    CLOCKEE ULTIMATE MASTER TOUR ENGINE
    - Flexible Hovering Tour Pill (Left / Right / Below / Above with bounds clamping)
    - Animated Theme Dotted Connector Arrow with Neon Head

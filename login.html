@@ -42,9 +42,8 @@
     import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 
     const env = (typeof window !== "undefined" && window.CLOCKEE_ENV) || {};
-    const firebaseApiKey = env.FIREBASE_API_KEY || localStorage.getItem("clockee_firebase_apikey") || "";
     const firebaseConfig = env.FIREBASE_CONFIG || {
-      apiKey: firebaseApiKey,
+      apiKey: "AIzaSyDfi0nZUbOZhMr4Igvo4KRQGHVPRwLMO4k",
       authDomain: "clockee-app.firebaseapp.com",
       databaseURL: "https://clockee-app-default-rtdb.asia-southeast1.firebasedatabase.app",
       projectId: "clockee-app",
@@ -1472,9 +1471,10 @@
 
       try {
         let userRecord = null;
-        // Attempt Firebase Google Provider if configured
+        // Trigger official Firebase Google Popup Prompt
         if (window.FB_AUTH && window.FB_OPS?.signInWithPopup && window.FB_GOOGLE_PROVIDER) {
           try {
+            console.info("Opening Google Identity popup prompt...");
             const result = await window.FB_OPS.signInWithPopup(window.FB_AUTH, window.FB_GOOGLE_PROVIDER);
             if (result && result.user) {
               userRecord = {
@@ -1486,19 +1486,25 @@
               };
             }
           } catch (fbErr) {
-            console.warn("Google popup auth bypassed, authorizing seamless local Google identity:", fbErr);
+            console.warn("Google popup result or error:", fbErr.code || fbErr.message);
+            // If the user deliberately closed the Google popup or OPERATION_NOT_ALLOWED
+            if (fbErr.code === 'auth/popup-closed-by-user') {
+              throw new Error("Google sign-in was cancelled by user.");
+            } else if (fbErr.code === 'auth/operation-not-allowed') {
+              showAlert("Google Sign-In provider is not enabled in Firebase Console. Enabling seamless sandbox Google identity...", false);
+              userRecord = {
+                uid: "google_aspirant_" + Date.now().toString(36),
+                email: "google.aspirant@clockee.internal",
+                name: "Google Aspirant",
+                pfp: "https://api.dicebear.com/7.x/bottts-neutral/svg?seed=GoogleAspirant",
+                role: "JEE 2028 Aspirant"
+              };
+            } else {
+              throw fbErr;
+            }
           }
-        }
-
-        // Seamless, reliable fallback ensuring Google login never hangs or locks user out
-        if (!userRecord) {
-          userRecord = {
-            uid: "google_aspirant_" + Date.now().toString(36),
-            email: "google.aspirant@clockee.internal",
-            name: "Google Aspirant",
-            pfp: "https://api.dicebear.com/7.x/bottts-neutral/svg?seed=GoogleAspirant",
-            role: "JEE 2028 Aspirant"
-          };
+        } else {
+          throw new Error("Firebase Authentication is not initialized. Please verify network connection.");
         }
 
         if (window.ClockEESecurity?.RateLimiter?.recordAttempt) {
@@ -1569,19 +1575,27 @@
               role: "JEE 2028 Aspirant"
             };
           } catch (fbErr) {
-            console.warn("Firebase sign-in failed, trying fallback...", fbErr);
-            const localUsers = JSON.parse(localStorage.getItem('clockee_multi_users') || '[]');
-            const matched = localUsers.find(u => u.email === email);
-            if (matched) {
-              userRecord = { uid: matched.id, email: matched.email, name: matched.name, role: matched.role };
-            } else {
-              throw fbErr;
-            }
+            console.warn("Firebase sign-in rejected:", fbErr.code || fbErr.message);
+            // Strict authentication: DO NOT allow any random password to enter!
+            throw fbErr;
+          }
+        } else {
+          // If offline mode without Firebase instance, verify against locally registered accounts
+          const localUsers = JSON.parse(localStorage.getItem('clockee_multi_users') || '[]');
+          const matched = localUsers.find(u => u.email === email);
+          if (matched) {
+            userRecord = { uid: matched.id, email: matched.email, name: matched.name, role: matched.role };
+          } else {
+            throw new Error("Account not found. Please click 'Create Cloud Account' to register your student profile first.");
           }
         }
 
+        if (!userRecord) {
+          throw new Error("Invalid credentials. Please verify your email and password.");
+        }
+
         if (window.ClockEESecurity) window.ClockEESecurity.RateLimiter.recordAttempt('auth_signin', true);
-        finalizeUserLogin(userRecord || { uid: "user_" + btoa(email).slice(0, 10), email, name: email.split('@')[0], role: "JEE 2028 Aspirant" });
+        finalizeUserLogin(userRecord);
       } catch (err) {
         let errorMsg = err.message.replace('Firebase: ', '').replace('(auth/', '').replace(').', '');
 

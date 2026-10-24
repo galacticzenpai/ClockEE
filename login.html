@@ -1156,13 +1156,21 @@
     window.launchGuestSandbox = function() {
       sessionStorage.removeItem('clockee_admin_authorized');
       sessionStorage.removeItem('clockee_admin_pass');
+      const gid = "guest_" + Date.now().toString(36);
       const guestUser = {
-        uid: "guest_" + Date.now().toString(36),
+        uid: gid,
+        id: gid,
         name: "Guest Aspirant",
         email: "guest@clockee.app",
         role: "Guest Aspirant",
         isGuest: true
       };
+      // Purge any stale guest entries before launching
+      try {
+        let list = JSON.parse(localStorage.getItem('clockee_multi_users') || '[]');
+        list = list.filter(u => !u.id.startsWith('guest_') && u.role !== 'Guest Aspirant' && u.name !== 'Guest Aspirant');
+        localStorage.setItem('clockee_multi_users', JSON.stringify(list));
+      } catch(e) {}
       finalizeUserLogin(guestUser);
     };
 

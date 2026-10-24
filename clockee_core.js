@@ -2748,87 +2748,101 @@ window.initGlobalProfileMenu = function() {
   }
 
   function renderPopoverContent() {
-    const activeUser = window.getUsersList().find(u => u.active) || { name: "JEE Aspirant", role: "JEE 2028 Aspirant", id: "user_aspirant" };
-    const users = window.getUsersList();
-    const otherUsers = users.filter(u => u.id !== activeUser.id);
-    const lastSync = localStorage.getItem(`clockee_last_sync_${activeUser.id}`);
-    const syncText = lastSync ? new Date(lastSync).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : "Just now";
-    
-    // Strict Role-Based Admin Permissions: Only Mentor/Admin or Authorized Admin gets admin perms
-    const isAdmin = Boolean(
-      activeUser.role === "Mentor / Faculty" || 
-      activeUser.role === "Admin" || 
-      activeUser.isAdmin === true ||
+    let user = null;
+    try {
+      const raw = localStorage.getItem("clockee_current_user");
+      if (raw) user = JSON.parse(raw);
+    } catch(e) {}
+    if (!user) {
+      user = window.getUsersList().find(u => u.active) || { name: "JEE Aspirant", role: "JEE 2028 Aspirant", id: "user_aspirant" };
+    }
+
+    const s = window.getState ? window.getState() : {};
+    const sidebarName = document.getElementById("sidebar-profile-name")?.textContent?.trim();
+    const isGuest = Boolean(
+      user.isGuest ||
+      (user.uid && user.uid.startsWith("guest_")) ||
+      (user.id && user.id.startsWith("guest_")) ||
+      user.role === "Guest" ||
+      user.role === "Guest Aspirant" ||
+      user.name === "Guest Aspirant" ||
+      sidebarName === "Guest Aspirant" ||
+      s.profile?.name === "Guest Aspirant"
+    );
+
+    // If guest, enforce clean guest profile fields
+    const displayName = isGuest ? "Guest Aspirant" : (user.name || "JEE Aspirant");
+    const displayRole = isGuest ? "Guest Sandbox Session" : (user.role || "JEE 2028 Aspirant");
+    const displayPfp = isGuest 
+      ? "https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Guest"
+      : (user.pfp || 'https://api.dicebear.com/7.x/bottts-neutral/svg?seed=' + encodeURIComponent(displayName));
+
+    const isAdmin = !isGuest && Boolean(
+      user.role === "Mentor / Faculty" || 
+      user.role === "Admin" || 
+      user.isAdmin === true ||
       sessionStorage.getItem('clockee_admin_authorized') === 'true'
     );
 
-    popover.innerHTML = `
+    let html = `
       <div class="flex items-center gap-3 border-b border-white/10 pb-3">
-        <img src="${activeUser.pfp || 'https://api.dicebear.com/7.x/bottts-neutral/svg?seed=' + encodeURIComponent(activeUser.name)}" class="w-11 h-11 rounded-full border-2 ${isAdmin ? 'border-purple-400' : 'border-indigo-400'} bg-black/40">
+        <img src="${displayPfp}" class="w-11 h-11 rounded-full border-2 ${isAdmin ? 'border-purple-400' : 'border-cyan-400'} bg-black/40">
         <div class="flex-1 min-w-0">
           <div class="text-sm font-extrabold text-white truncate flex items-center gap-1.5">
-            <span>${activeUser.name}</span>
-            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" title="Cloud Active"></span>
+            <span>${displayName}</span>
+            <span class="w-2 h-2 rounded-full ${isGuest ? 'bg-cyan-400' : 'bg-emerald-400'} animate-pulse" title="${isGuest ? 'Sandbox Active' : 'Active'}"></span>
           </div>
-          <div class="text-[11px] ${isAdmin ? 'text-purple-300 font-bold' : 'text-indigo-300'} font-medium truncate">
-            ${activeUser.role} ${isAdmin ? '★ Admin' : ''}
+          <div class="text-[11px] ${isAdmin ? 'text-purple-300 font-bold' : isGuest ? 'text-cyan-300 font-bold' : 'text-indigo-300'} font-medium truncate">
+            ${displayRole} ${isAdmin ? '★ Admin' : ''}
           </div>
-          <div class="text-[10px] text-gray-400 font-mono flex items-center gap-1 mt-0.5">
-            <span>☁️</span> <span>Firebase Synced • ${syncText}</span>
+          <div class="text-[10px] text-slate-400 font-mono flex items-center gap-1 mt-0.5">
+            <span>⚡</span> <span>${isGuest ? 'Ephemeral Local Sandbox' : 'Auto-Sync Active'}</span>
           </div>
         </div>
       </div>
+    `;
 
-      <div class="space-y-1.5">
-        <div class="text-[10px] font-bold uppercase tracking-wider text-gray-400 flex justify-between items-center">
-          <span>Switch Profile</span>
-          <span class="text-[9px] text-indigo-400 font-normal">Isolated data</span>
-        </div>
-        <div class="space-y-1 max-h-28 overflow-y-auto pr-1">
-          ${otherUsers.length > 0 ? otherUsers.map(u => `
-            <button onclick="window.switchUser('${u.id}')" class="w-full text-left p-2 rounded-lg bg-white/5 hover:bg-indigo-600/20 border border-white/5 hover:border-indigo-500/30 flex items-center gap-2.5 transition">
-              <img src="${u.pfp}" class="w-6 h-6 rounded-full border border-gray-600">
-              <div class="flex-1 min-w-0">
-                <div class="text-xs font-semibold text-gray-200 truncate">${u.name}</div>
-                <div class="text-[10px] text-gray-400 truncate">${u.role}</div>
-              </div>
-              <span class="text-[10px] text-indigo-400 font-bold">&rarr;</span>
-            </button>
-          `).join('') : '<div class="text-[11px] text-gray-500 italic py-1">No other profiles registered</div>'}
-        </div>
-      </div>
+    // ONLY show other profiles if user is an authenticated non-guest user
+    if (!isGuest) {
+      const users = window.getUsersList().filter(u => !u.id.startsWith("guest_") && u.role !== "Guest Aspirant" && u.name !== "Guest Aspirant");
+      const otherUsers = users.filter(u => u.id !== user.id && u.id !== user.uid);
+      if (otherUsers.length > 0) {
+        html += `
+          <div class="space-y-1.5">
+            <div class="text-[10px] font-bold uppercase tracking-wider text-gray-400 flex justify-between items-center">
+              <span>Switch Profile</span>
+              <span class="text-[9px] text-indigo-400 font-normal">Isolated data</span>
+            </div>
+            <div class="space-y-1 max-h-28 overflow-y-auto pr-1">
+              ${otherUsers.map(u => `
+                <button onclick="window.switchUser('${u.id}')" class="w-full text-left p-2 rounded-lg bg-white/5 hover:bg-indigo-600/20 border border-white/5 hover:border-indigo-500/30 flex items-center gap-2.5 transition">
+                  <img src="${u.pfp}" class="w-6 h-6 rounded-full border border-gray-600">
+                  <div class="flex-1 min-w-0">
+                    <div class="text-xs font-semibold text-gray-200 truncate">${u.name}</div>
+                    <div class="text-[10px] text-gray-400 truncate">${u.role}</div>
+                  </div>
+                  <span class="text-[10px] text-indigo-400 font-bold">&rarr;</span>
+                </button>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      }
+    }
 
-      <div class="p-2.5 rounded-xl bg-indigo-950/40 border border-indigo-500/20 flex items-center justify-between">
-        <div class="text-[11px]">
-          <div class="font-bold text-indigo-200">Cloud Realtime Sync</div>
-          <div class="text-[9px] text-gray-400">Database: clockee-app</div>
-        </div>
-        <button onclick="window.pushToCloud()" class="px-2.5 py-1 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-[11px] font-bold transition flex items-center gap-1 shadow">
-          <span>⚡</span> <span>Sync</span>
-        </button>
-      </div>
-
-      <div class="grid grid-cols-2 gap-1.5 pt-1 text-xs">
-        <a href="login.html" class="p-2 rounded-lg bg-gray-900/80 hover:bg-gray-800 border border-white/10 text-center font-bold text-gray-200 transition flex items-center justify-center gap-1.5">
-          <span>🔑</span> <span>Sign In / New</span>
-        </a>
-        ${isAdmin ? `
-          <a href="admin.html" class="p-2 rounded-lg bg-purple-950/60 hover:bg-purple-900/60 border border-purple-500/30 text-center font-bold text-purple-200 transition flex items-center justify-center gap-1.5">
-            <span>👥</span> <span>Admin Panel</span>
-          </a>
-        ` : `
-          <a href="cbt_home.html" class="p-2 rounded-lg bg-blue-950/60 hover:bg-blue-900/60 border border-blue-500/30 text-center font-bold text-blue-200 transition flex items-center justify-center gap-1.5">
-            <span>📝</span> <span>CBT Tests</span>
-          </a>
-        `}
-        <a href="settings.html" class="p-2 rounded-lg bg-gray-900/80 hover:bg-gray-800 border border-white/10 text-center font-bold text-gray-200 transition flex items-center justify-center gap-1.5">
+    // ONLY Settings and Sign Out (as requested: "only settings and signout should go here")
+    html += `
+      <div class="grid grid-cols-2 gap-2 pt-1 text-xs">
+        <a href="settings.html" class="p-2.5 rounded-xl bg-gray-900/90 hover:bg-gray-800 border border-white/10 text-center font-bold text-gray-200 transition flex items-center justify-center gap-1.5 shadow">
           <span>⚙️</span> <span>Settings</span>
         </a>
-        <button onclick="window.handleUserLogout()" class="p-2 rounded-lg bg-red-950/50 hover:bg-red-900/50 border border-red-500/30 text-center font-bold text-red-300 transition flex items-center justify-center gap-1.5">
+        <button onclick="window.handleUserLogout()" class="p-2.5 rounded-xl bg-red-950/60 hover:bg-red-900/70 border border-red-500/30 text-center font-bold text-red-300 transition flex items-center justify-center gap-1.5 shadow">
           <span>🚪</span> <span>Sign Out</span>
         </button>
       </div>
     `;
+
+    popover.innerHTML = html;
   }
 
   avatarLink.addEventListener("click", function(e) {
@@ -2860,7 +2874,12 @@ window.enforceRolePermissions = function() {
     user = list.find(u => u.active) || { role: "JEE 2028 Aspirant" };
   }
 
-  const isGuest = Boolean(!user || (user.uid && user.uid.startsWith("guest_")) || (user.id && user.id.startsWith("guest_")) || user.role === "Guest" || user.role === "Guest Aspirant" || user.isGuest);
+  const s = window.getState ? window.getState() : {};
+  const isGuest = Boolean(!user || (user.uid && user.uid.startsWith("guest_")) || (user.id && user.id.startsWith("guest_")) || user.role === "Guest" || user.role === "Guest Aspirant" || user.isGuest || user.name === "Guest Aspirant" || s.profile?.name === "Guest Aspirant");
+  if (isGuest) {
+    sessionStorage.removeItem('clockee_admin_authorized');
+    sessionStorage.removeItem('clockee_admin_pass');
+  }
   const isAdmin = !isGuest && Boolean(
     user.role === "Mentor / Faculty" || 
     user.role === "Admin" || 
@@ -2913,10 +2932,40 @@ window.enforceRolePermissions = function() {
 })();
 
 window.handleUserLogout = function() {
+  let currentUser = null;
+  try {
+    const raw = localStorage.getItem("clockee_current_user");
+    if (raw) currentUser = JSON.parse(raw);
+  } catch(e) {}
+
+  const s = window.getState ? window.getState() : {};
+  const isGuest = !currentUser || 
+    (currentUser.uid && currentUser.uid.startsWith("guest_")) || 
+    (currentUser.id && currentUser.id.startsWith("guest_")) || 
+    currentUser.role === "Guest" || 
+    currentUser.role === "Guest Aspirant" || 
+    currentUser.isGuest ||
+    currentUser.name === "Guest Aspirant" ||
+    s.profile?.name === "Guest Aspirant";
+
+  // "delete guest appearance as soon as end of ssession"
+  if (isGuest || (currentUser && (currentUser.uid?.startsWith("guest_") || currentUser.id?.startsWith("guest_")))) {
+    const guestId = currentUser?.uid || currentUser?.id;
+    if (guestId) {
+      localStorage.removeItem(`clockee_user_state_${guestId}`);
+    }
+    try {
+      let list = JSON.parse(localStorage.getItem("clockee_multi_users") || "[]");
+      list = list.filter(u => !u.id.startsWith("guest_") && u.role !== "Guest" && u.role !== "Guest Aspirant" && !u.isGuest && u.name !== "Guest Aspirant");
+      localStorage.setItem("clockee_multi_users", JSON.stringify(list));
+    } catch(e) {}
+  }
+
   localStorage.removeItem("clockee_current_user");
   localStorage.removeItem("clockee_auth_active");
   sessionStorage.removeItem("clockee_admin_authorized");
-  window.showToast("Signed out. Please authorize to enter.", "info");
+  sessionStorage.removeItem("clockee_admin_pass");
+  window.showToast("Signed out. Session ended.", "info");
   setTimeout(() => window.location.href = "login.html", 300);
 };
 

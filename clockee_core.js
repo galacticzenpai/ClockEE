@@ -460,45 +460,55 @@ window.renderClockEESidebar = function() {
   const mount = document.getElementById("clockee-sidebar-root");
   if (!mount) return;
 
+  const now = new Date();
+  const weekday = now.toLocaleDateString("en-US", { weekday: "long" });
+  const fullDate = now.toLocaleDateString("en-US", { day: "numeric", month: "short", year: "numeric" });
+  const s = window.getState ? window.getState() : {};
+  const year = (s.jeeDate || "2028-05-17").slice(0, 4) || "2028";
+  const quotes = [
+    "“Consistency is the DNA of IIT-JEE mastery.”",
+    "“Hard work beats talent when talent doesn’t work hard.”",
+    "“Small disciplines repeated every day lead to great achievements.”",
+    "“AIR 1 isn’t born in a day; it’s forged question by question.”",
+    "“Do something today that your future self will thank you for.”",
+    "“Focus on the process, and the rank will follow.”"
+  ];
+  const activeQuote = quotes[now.getDate() % quotes.length];
+
   mount.innerHTML = `
 <aside class="w-full h-full glass-card border border-white/10 p-4 space-y-3.5 shadow-2xl relative bg-[#090b14]/90 backdrop-blur-2xl flex flex-col justify-between">
-  <!-- Brand / Aspirant Logo & Title -->
-  <div class="flex items-center gap-2.5 pb-3 border-b border-white/10">
-    <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-indigo-500/20 to-cyan-500/20 border border-white/15 flex items-center justify-center shadow-[0_0_15px_rgba(99,102,241,0.25)]">
-      <svg class="w-4 h-4 text-cyan-400 animate-spin-slow" viewBox="0 0 64 64" fill="none">
-        <circle cx="32" cy="32" r="28" stroke="url(#sideLogoGrad)" stroke-width="4" stroke-dasharray="6 6"/>
-        <path d="M32 16V32L42 42" stroke="#38bdf8" stroke-width="4" stroke-linecap="round"/>
-        <circle cx="32" cy="32" r="4" fill="#38bdf8"/>
-        <defs>
-          <linearGradient id="sideLogoGrad" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#38bdf8"/>
-            <stop offset="0.5" stop-color="#818cf8"/>
-            <stop offset="1" stop-color="#c084fc"/>
-          </linearGradient>
-        </defs>
-      </svg>
+  <!-- Today is Header Card (Prominent Large Display) -->
+  <div class="pb-3 border-b border-white/10 space-y-1.5">
+    <div class="flex items-center justify-between">
+      <span class="text-[10px] font-black uppercase tracking-widest text-cyan-400 flex items-center gap-1.5 bg-cyan-950/70 border border-cyan-500/30 px-2 py-0.5 rounded-md shadow-sm">
+        <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+        TODAY IS
+      </span>
+      <span class="text-xs font-mono font-bold text-slate-400" id="sidebar-today-time-indicator">LIVE</span>
     </div>
-    <div class="truncate">
-      <div class="text-base font-extrabold tracking-tight bg-gradient-to-r from-cyan-400 via-indigo-300 to-purple-400 bg-clip-text text-transparent">
-        ClockEE Aspirant
+    <div class="flex items-baseline justify-between flex-wrap gap-1">
+      <div class="text-xl sm:text-2xl font-black tracking-tight text-white drop-shadow" id="sidebar-today-weekday">
+        ${weekday}
       </div>
-      <span class="text-[10px] text-gray-400 font-medium">JEE 2028 Study Engine</span>
+      <div class="text-xs sm:text-sm font-extrabold font-mono text-cyan-300 tracking-tight" id="sidebar-today-full-date">
+        ${fullDate}
+      </div>
     </div>
   </div>
 
-  <!-- Aspirant Profile Card (Clean Minimalist: No Switch User / Crop Photo buttons on homepage) -->
+  <!-- Aspirant Profile Card with Inspiring Quote & Dynamic JEE Year -->
   <div class="p-3.5 rounded-2xl bg-black/40 border border-white/10 hover:border-white/20 transition-all shadow-md relative group">
     <div class="relative w-16 h-16 mx-auto mb-2">
       <img class="w-16 h-16 rounded-full bg-[#070913] object-cover border-2 border-indigo-400/80 shadow-[0_0_20px_rgba(99,102,241,0.25)]" data-profile-avatar src="https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Kunal" alt="Avatar" />
       <span class="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-emerald-400 ring-2 ring-[#070913]" title="Active"></span>
     </div>
-    <div class="text-center space-y-0.5">
+    <div class="text-center space-y-1">
       <div class="text-base font-black text-white tracking-tight" data-profile-name>Kunal Sahoo</div>
-      <div class="text-[11px] text-slate-400 font-mono font-medium" data-profile-subtitle>@kunalsahoo • JEE 2028</div>
+      <div class="text-[11px] text-cyan-200/90 italic font-medium pt-0.5 px-1 leading-snug tracking-tight" id="sidebar-profile-quote">${activeQuote}</div>
     </div>
-    <div class="text-[11px] font-extrabold uppercase tracking-wider text-indigo-300 bg-indigo-950/50 border border-indigo-500/30 rounded-lg py-1 px-2.5 text-center mt-2 flex items-center justify-center gap-1.5 shadow-sm">
+    <div class="text-[11px] font-extrabold uppercase tracking-wider text-indigo-300 bg-indigo-950/50 border border-indigo-500/30 rounded-lg py-1 px-2.5 text-center mt-2 flex items-center justify-center gap-1.5 shadow-sm" id="sidebar-jee-target-badge">
       <svg class="w-3.5 h-3.5 text-indigo-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
-      <span>JEE Advanced 2028</span>
+      <span id="sidebar-jee-badge-text">JEE ${year}</span>
     </div>
   </div>
 
@@ -758,6 +768,29 @@ window.initSidebar = function() {
   document.querySelectorAll("[data-profile-avatar]").forEach(el => {
     if (profile.pfp) el.src = profile.pfp;
   });
+
+  const now = new Date();
+  const weekdayEl = document.getElementById("sidebar-today-weekday");
+  if (weekdayEl) weekdayEl.textContent = now.toLocaleDateString("en-US", { weekday: "long" });
+  const fullDateEl = document.getElementById("sidebar-today-full-date");
+  if (fullDateEl) fullDateEl.textContent = now.toLocaleDateString("en-US", { day: "numeric", month: "short", year: "numeric" });
+
+  const year = (s.jeeDate || "2028-05-17").slice(0, 4) || "2028";
+  const badgeText = document.getElementById("sidebar-jee-badge-text");
+  if (badgeText) badgeText.textContent = `JEE ${year}`;
+
+  const quoteEl = document.getElementById("sidebar-profile-quote");
+  if (quoteEl) {
+    const quotes = [
+      "“Consistency is the DNA of IIT-JEE mastery.”",
+      "“Hard work beats talent when talent doesn’t work hard.”",
+      "“Small disciplines repeated every day lead to great achievements.”",
+      "“AIR 1 isn’t born in a day; it’s forged question by question.”",
+      "“Do something today that your future self will thank you for.”",
+      "“Focus on the process, and the rank will follow.”"
+    ];
+    quoteEl.textContent = quotes[now.getDate() % quotes.length];
+  }
 
   const lvlBadge = document.getElementById("sidebar-lvl-badge");
   if (lvlBadge) lvlBadge.textContent = `Lv.${stats.level}`;
@@ -1128,6 +1161,22 @@ window.applyAuraSettings = function() {
     c1 = "rgba(239, 68, 68, 0.48)";
     c2 = "rgba(245, 158, 11, 0.42)";
     c3 = "rgba(168, 85, 247, 0.35)";
+  } else if (theme === "midnight_aurora") {
+    c1 = "rgba(56, 189, 248, 0.46)";
+    c2 = "rgba(45, 212, 191, 0.40)";
+    c3 = "rgba(99, 102, 241, 0.35)";
+  } else if (theme === "cyber_gold") {
+    c1 = "rgba(245, 158, 11, 0.48)";
+    c2 = "rgba(234, 179, 8, 0.42)";
+    c3 = "rgba(249, 115, 22, 0.36)";
+  } else if (theme === "synthwave_sunset") {
+    c1 = "rgba(244, 63, 94, 0.48)";
+    c2 = "rgba(168, 85, 247, 0.44)";
+    c3 = "rgba(251, 146, 60, 0.38)";
+  } else if (theme === "deep_void") {
+    c1 = "rgba(30, 41, 59, 0.55)";
+    c2 = "rgba(51, 65, 85, 0.45)";
+    c3 = "rgba(15, 23, 42, 0.6)";
   } else {
     // default cyan_indigo
     c1 = "rgba(99, 102, 241, 0.48)";
@@ -1151,6 +1200,60 @@ window.applyAuraSettings = function() {
   [b1, b2, b3].forEach(b => {
     if (b) b.style.animationDuration = duration;
   });
+
+  // Apply active profile accent globally
+  window.applyAccentColor(s.profile?.accent);
+};
+
+// ─── 7.1 Reactive Working Master Accent Color Engine ────────
+window.applyAccentColor = function(color) {
+  if (!color) {
+    const s = window.getState();
+    color = s.profile?.accent || '#6366f1';
+  }
+  const root = document.documentElement;
+  root.style.setProperty("--accent", color);
+
+  let r = 99, g = 102, b = 241;
+  if (/^#([0-9a-f]{3}|[0-9a-f]{6})$/i.test(color)) {
+    let hex = color.slice(1);
+    if (hex.length === 3) hex = hex.split('').map(x => x + x).join('');
+    const num = parseInt(hex, 16);
+    r = (num >> 16) & 255;
+    g = (num >> 8) & 255;
+    b = num & 255;
+  }
+  const accentSoft = `rgba(${r}, ${g}, ${b}, 0.20)`;
+  const accentGlow = `rgba(${r}, ${g}, ${b}, 0.50)`;
+  root.style.setProperty("--accent-soft", accentSoft);
+  root.style.setProperty("--accent-glow", accentGlow);
+
+  let dynStyle = document.getElementById("clockee-dynamic-accent-style");
+  if (!dynStyle) {
+    dynStyle = document.createElement("style");
+    dynStyle.id = "clockee-dynamic-accent-style";
+    document.head.appendChild(dynStyle);
+  }
+  dynStyle.innerHTML = `
+    :root {
+      --accent: ${color} !important;
+      --accent-soft: ${accentSoft} !important;
+      --accent-glow: ${accentGlow} !important;
+    }
+    .nav-btn.nav-active, .accent-bg, .btn-accent {
+      background-color: ${color} !important;
+      box-shadow: 0 0 16px ${accentGlow} !important;
+    }
+    .hud-ring, .accent-ring {
+      box-shadow: 0 0 0 2px ${color}, 0 0 15px ${accentGlow} !important;
+    }
+    .accent-text, .text-accent {
+      color: ${color} !important;
+    }
+    .accent-border, .border-accent {
+      border-color: ${color} !important;
+    }
+  `;
 };
 
 // ─── 8. TickTick Sync (Defensive: No Revision Sync) ────────
@@ -1702,7 +1805,7 @@ window.insertNoteTimestamp = function() {
   window.saveLiveNotes(area.value);
 };
 
-// ─── AI Doubt Tutor Integration (Gemini 3.8 Flash) ─────────
+// ─── AI Doubt Tutor Integration (Gemini 2.5 Flash) ─────────
 window.sendAIDoubtMessage = async function() {
   const input = document.getElementById("ai-doubt-input");
   const container = document.getElementById("ai-chat-messages");
@@ -1721,15 +1824,41 @@ window.sendAIDoubtMessage = async function() {
   // Append loading bubble
   const loadDiv = document.createElement("div");
   loadDiv.className = "bg-indigo-950/60 border border-indigo-500/30 rounded-xl p-3 text-indigo-200 text-xs italic flex items-center gap-2";
-  loadDiv.innerHTML = `<span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span> Thinking with Gemini 3.8 Flash...`;
+  loadDiv.innerHTML = `<span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span> Thinking with Gemini 2.5 Flash...`;
   container.appendChild(loadDiv);
   container.scrollTop = container.scrollHeight;
 
   const s = window.getState();
-  const key = s.apiKeys?.gemini || "AQ.Ab8RN6Ky3sZAql7vgGdJtgm8NWXWE8XUV8GBzlPa7jepaNHTjQ";
+  const key = s.apiKeys?.gemini;
+
+  // If no Gemini key is provided or test mode, give authentic offline/sandbox AI guidance
+  if (!key || key.startsWith("AQ.")) {
+    setTimeout(() => {
+      loadDiv.remove();
+      const botDiv = document.createElement("div");
+      botDiv.className = "bg-indigo-950/50 border border-indigo-500/30 rounded-xl p-3 text-indigo-100 font-medium mr-6 leading-relaxed whitespace-pre-wrap";
+      
+      let answer = "";
+      const lower = msg.toLowerCase();
+      if (lower.includes("lenz") || lower.includes("induction") || lower.includes("faraday")) {
+        answer = "⚡ **Lenz's Law Summary:**\n*The induced electromotive force (EMF) and current always oppose the change in magnetic flux that produces them:* `ε = -dΦ/dt` (Law of Conservation of Energy applied to electromagnetism).\n\n💡 *JEE Advanced Tip:* Always use the right-hand grip rule to find opposing flux directions in moving loops!";
+      } else if (lower.includes("rotational") || lower.includes("inertia") || lower.includes("torque")) {
+        answer = "🎯 **Rotational Dynamics Key Principle:**\n`τ_net = I α` and `L = I ω`. When external torque is zero (`τ_ext = 0`), total angular momentum is strictly conserved.\n\n💡 *Common JEE Trap:* Remember that moment of inertia depends on the axis of rotation (`I = I_cm + Md²`).";
+      } else if (lower.includes("integration") || lower.includes("calculus") || lower.includes("derivative")) {
+        answer = "∫ **Calculus & Problem Solving Core:**\nUse King's property: `∫[a to b] f(x) dx = ∫[a to b] f(a+b-x) dx` for trigonometric or symmetry integrals.\n\n💡 *High-Yield Strategy:* Pair it with Leibniz rule when differentiating integral functions.";
+      } else {
+        answer = `🤖 **JEE Commander AI Tutor:**\nRegarding **"${msg}"**:\nFocus on fundamental first principles. Break the problem into free-body diagrams or reaction mechanisms, verify boundary conditions, and check unit dimensions before final calculation! (Configure your personal Gemini API key in Settings for full real-time cloud inference).`;
+      }
+
+      botDiv.innerHTML = window.marked ? marked.parse(answer) : answer;
+      container.appendChild(botDiv);
+      container.scrollTop = container.scrollHeight;
+    }, 600);
+    return;
+  }
 
   try {
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent?key=${key}`;
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${key}`;
     const prompt = `You are an elite IIT-JEE Mentor for JEE 2028. Answer this student doubt concisely with clear physics/chemistry/math concepts, LaTeX formulas if applicable, and high-yield tips:\n\n${msg}`;
     const res = await fetch(url, {
       method: "POST",
@@ -1968,26 +2097,131 @@ window.applyAllSettingsGlobally = function() {
       font-weight: 600 !important;
     }
 
-    /* Frosted Dropdown Menus */
+    /* Frosted Dropdown Menus - Translucent with Cyber Neon Glow Outline & Deep Glass Blur */
     .nav-dropdown-menu {
-      background: rgba(11, 15, 27, 0.92) !important;
-      backdrop-filter: blur(24px) saturate(190%) !important;
-      -webkit-backdrop-filter: blur(24px) saturate(190%) !important;
-      border: 1px solid rgba(255, 255, 255, 0.1) !important;
-      border-radius: 14px !important;
-      box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.05) !important;
+      background: rgba(8, 12, 26, 0.62) !important;
+      backdrop-filter: blur(32px) saturate(220%) !important;
+      -webkit-backdrop-filter: blur(32px) saturate(220%) !important;
+      border: 1px solid rgba(0, 240, 255, 0.48) !important;
+      border-radius: 16px !important;
+      box-shadow: 0 20px 50px -8px rgba(0, 0, 0, 0.9), 0 0 25px rgba(0, 240, 255, 0.25), inset 0 0 14px rgba(0, 240, 255, 0.08) !important;
       padding: 6px !important;
     }
     .nav-dropdown-item {
       color: #94a3b8 !important;
-      border-radius: 8px !important;
+      border-radius: 10px !important;
       padding: 8px 12px !important;
       font-size: 0.8rem !important;
       font-weight: 500 !important;
+      transition: all 0.15s ease !important;
     }
     .nav-dropdown-item:hover {
-      background: rgba(99, 102, 241, 0.18) !important;
-      color: #ffffff !important;
+      background: rgba(0, 240, 255, 0.16) !important;
+      color: #00f0ff !important;
+      box-shadow: 0 0 12px rgba(0, 240, 255, 0.2) !important;
+    }
+
+    /* Custom Glassmorphic Cyber Dropdown Component */
+    .custom-glass-dropdown {
+      position: relative;
+      user-select: none;
+      width: 100%;
+    }
+    .custom-glass-trigger {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      width: 100%;
+      background: rgba(12, 16, 30, 0.68) !important;
+      backdrop-filter: blur(24px) saturate(200%) !important;
+      -webkit-backdrop-filter: blur(24px) saturate(200%) !important;
+      border: 1px solid rgba(0, 240, 255, 0.42) !important;
+      border-radius: 12px !important;
+      padding: 10px 14px !important;
+      color: #f8fafc;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4), 0 0 12px rgba(0, 240, 255, 0.1);
+    }
+    .custom-glass-trigger:hover, .custom-glass-dropdown.open .custom-glass-trigger {
+      border-color: #00f0ff !important;
+      box-shadow: 0 0 16px rgba(0, 240, 255, 0.32), 0 6px 20px rgba(0, 0, 0, 0.5) !important;
+    }
+    .custom-glass-trigger .chevron-icon {
+      transition: transform 0.25s ease;
+      color: #00f0ff;
+    }
+    .custom-glass-dropdown.open .chevron-icon {
+      transform: rotate(180deg);
+    }
+    .custom-glass-menu {
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 0;
+      right: 0;
+      background: rgba(8, 12, 26, 0.78) !important;
+      backdrop-filter: blur(32px) saturate(220%) !important;
+      -webkit-backdrop-filter: blur(32px) saturate(220%) !important;
+      border: 1px solid rgba(0, 240, 255, 0.48) !important;
+      border-radius: 16px !important;
+      padding: 6px !important;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), 0 0 25px rgba(0, 240, 255, 0.25), inset 0 0 12px rgba(0, 240, 255, 0.06) !important;
+      z-index: 1000;
+      display: none;
+      flex-direction: column;
+      gap: 3px;
+      max-height: 270px;
+      overflow-y: auto;
+    }
+    .custom-glass-dropdown.open .custom-glass-menu {
+      display: flex;
+    }
+    .custom-glass-option {
+      padding: 8px 12px;
+      border-radius: 10px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: #94a3b8;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      transition: all 0.15s ease;
+    }
+    .custom-glass-option:hover {
+      background: rgba(0, 240, 255, 0.15);
+      color: #00f0ff;
+      transform: translateX(2px);
+    }
+    .custom-glass-option.selected {
+      background: rgba(99, 102, 241, 0.24);
+      color: #38bdf8;
+      font-weight: 700;
+      border: 1px solid rgba(0, 240, 255, 0.3);
+    }
+
+    /* Universal Cyber Select & Dropdown Styling */
+    select {
+      background: rgba(12, 16, 30, 0.78) !important;
+      backdrop-filter: blur(16px) !important;
+      -webkit-backdrop-filter: blur(16px) !important;
+      border: 1px solid rgba(0, 240, 255, 0.4) !important;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.55), 0 0 12px rgba(0, 240, 255, 0.12) !important;
+      color: #f1f5f9 !important;
+      border-radius: 12px !important;
+    }
+    select:focus {
+      border-color: rgba(0, 240, 255, 0.8) !important;
+      box-shadow: 0 0 16px rgba(0, 240, 255, 0.35) !important;
+      outline: none !important;
+    }
+    select option {
+      background: #0c101e !important;
+      color: #e2e8f0 !important;
     }
 
     /* Calibrated Ambient Cosmic Aura Background (Quirky animation preserved, glare removed) */
@@ -2044,6 +2278,60 @@ window.applyAllSettingsGlobally = function() {
       100% { transform: translate(35px, -35px) scale(1.04) rotate(135deg); }
     }
 
+    /* Cyber Checkboxes with Glowing Effects */
+    .cyber-checkbox-container {
+      display: inline-flex;
+      align-items: center;
+      position: relative;
+      cursor: pointer;
+      user-select: none;
+    }
+    .cyber-checkbox-container input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+    }
+    .cyber-checkmark {
+      width: 18px;
+      height: 18px;
+      border-radius: 6px;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1.5px solid rgba(0, 240, 255, 0.45);
+      box-shadow: 0 0 8px rgba(0, 240, 255, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .cyber-checkbox-container:hover input ~ .cyber-checkmark {
+      border-color: #00f0ff;
+      box-shadow: 0 0 12px rgba(0, 240, 255, 0.4);
+      transform: scale(1.08);
+    }
+    .cyber-checkbox-container input:checked ~ .cyber-checkmark {
+      background: linear-gradient(135deg, #00f0ff 0%, #6366f1 100%);
+      border-color: #00f0ff;
+      box-shadow: 0 0 16px rgba(0, 240, 255, 0.55), inset 0 0 6px rgba(255, 255, 255, 0.5);
+      animation: cyberCheckPulse 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .cyber-checkmark svg {
+      display: none;
+      width: 11px;
+      height: 11px;
+      stroke: #070913;
+      stroke-width: 3.2;
+    }
+    .cyber-checkbox-container input:checked ~ .cyber-checkmark svg {
+      display: block;
+    }
+    @keyframes cyberCheckPulse {
+      0% { transform: scale(0.8); }
+      50% { transform: scale(1.22); }
+      100% { transform: scale(1); }
+    }
+
     /* Minimalist Scrollbars */
     ::-webkit-scrollbar { width: 6px; height: 6px; }
     ::-webkit-scrollbar-track { background: rgba(7, 8, 14, 0.8); }
@@ -2087,6 +2375,48 @@ window.applyAllSettingsGlobally = function() {
     ensureAuraDOM();
   }
 })();
+
+// ─── 10. Web Audio Cyber Synthesizer (Tick, Chime, SFX) ──────────────
+let _cyberAudioCtx = null;
+window.playCyberTick = function(checked = true) {
+  try {
+    if (!_cyberAudioCtx) {
+      _cyberAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    if (_cyberAudioCtx.state === 'suspended') {
+      _cyberAudioCtx.resume();
+    }
+    const now = _cyberAudioCtx.currentTime;
+    const osc = _cyberAudioCtx.createOscillator();
+    const gain = _cyberAudioCtx.createGain();
+    
+    if (checked) {
+      // High-tech cyber chime: D5 -> A5 (587Hz -> 880Hz)
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(587.33, now);
+      osc.frequency.exponentialRampToValueAtTime(880, now + 0.08);
+      gain.gain.setValueAtTime(0.08, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.14);
+      osc.connect(gain);
+      gain.connect(_cyberAudioCtx.destination);
+      osc.start(now);
+      osc.stop(now + 0.15);
+    } else {
+      // Cyber dampening tick: 440Hz -> 220Hz
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(440, now);
+      osc.frequency.exponentialRampToValueAtTime(220, now + 0.06);
+      gain.gain.setValueAtTime(0.06, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
+      osc.connect(gain);
+      gain.connect(_cyberAudioCtx.destination);
+      osc.start(now);
+      osc.stop(now + 0.09);
+    }
+  } catch (e) {
+    // Graceful fallback if audio context restricted
+  }
+};
 
 // ─── 11. Global Cloud Sync & Multi-User Profile Flyout ──────────────
 window.pushToCloud = async function() {
@@ -2136,8 +2466,8 @@ window.pullFromCloud = async function() {
 
 window.initGlobalProfileMenu = function() {
   const navRight = document.querySelector(".nav-right");
-  const avatarLink = document.querySelector('a[href="settings.html"]') || document.querySelector("[data-profile-avatar]")?.closest("a");
-  if (!navRight || !avatarLink) return;
+  const avatarLink = document.querySelector("#navAvatarImg")?.closest("a") || document.querySelector("[data-profile-avatar]")?.closest("a") || document.querySelector(".nav-right a");
+  if (!avatarLink) return;
 
   avatarLink.removeAttribute("href");
   avatarLink.style.cursor = "pointer";
@@ -2156,18 +2486,29 @@ window.initGlobalProfileMenu = function() {
     const otherUsers = users.filter(u => u.id !== activeUser.id);
     const lastSync = localStorage.getItem(`clockee_last_sync_${activeUser.id}`);
     const syncText = lastSync ? new Date(lastSync).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : "Just now";
+    
+    // Strict Role-Based Admin Permissions: Only Mentor/Admin or Commander gets admin perms
+    const isAdmin = Boolean(
+      activeUser.role === "Mentor / Faculty" || 
+      activeUser.role === "Admin" || 
+      activeUser.email === "kunalsahoo4015@gmail.com" || 
+      activeUser.id === "user_kunal" || 
+      activeUser.isAdmin === true
+    );
 
     popover.innerHTML = `
       <div class="flex items-center gap-3 border-b border-white/10 pb-3">
-        <img src="${activeUser.pfp || 'https://api.dicebear.com/7.x/bottts-neutral/svg?seed=' + encodeURIComponent(activeUser.name)}" class="w-11 h-11 rounded-full border-2 border-indigo-400 bg-black/40">
+        <img src="${activeUser.pfp || 'https://api.dicebear.com/7.x/bottts-neutral/svg?seed=' + encodeURIComponent(activeUser.name)}" class="w-11 h-11 rounded-full border-2 ${isAdmin ? 'border-purple-400' : 'border-indigo-400'} bg-black/40">
         <div class="flex-1 min-w-0">
           <div class="text-sm font-extrabold text-white truncate flex items-center gap-1.5">
             <span>${activeUser.name}</span>
             <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" title="Cloud Active"></span>
           </div>
-          <div class="text-[11px] text-indigo-300 font-medium truncate">${activeUser.role}</div>
+          <div class="text-[11px] ${isAdmin ? 'text-purple-300 font-bold' : 'text-indigo-300'} font-medium truncate">
+            ${activeUser.role} ${isAdmin ? '★ Admin' : ''}
+          </div>
           <div class="text-[10px] text-gray-400 font-mono flex items-center gap-1 mt-0.5">
-            <span>☁️</span> <span>Firebase Synced</span>
+            <span>☁️</span> <span>Firebase Synced • ${syncText}</span>
           </div>
         </div>
       </div>
@@ -2205,9 +2546,15 @@ window.initGlobalProfileMenu = function() {
         <a href="login.html" class="p-2 rounded-lg bg-gray-900/80 hover:bg-gray-800 border border-white/10 text-center font-bold text-gray-200 transition flex items-center justify-center gap-1.5">
           <span>🔑</span> <span>Sign In / New</span>
         </a>
-        <a href="admin.html" class="p-2 rounded-lg bg-purple-950/60 hover:bg-purple-900/60 border border-purple-500/30 text-center font-bold text-purple-200 transition flex items-center justify-center gap-1.5">
-          <span>👥</span> <span>Admin Panel</span>
-        </a>
+        ${isAdmin ? `
+          <a href="admin.html" class="p-2 rounded-lg bg-purple-950/60 hover:bg-purple-900/60 border border-purple-500/30 text-center font-bold text-purple-200 transition flex items-center justify-center gap-1.5">
+            <span>👥</span> <span>Admin Panel</span>
+          </a>
+        ` : `
+          <a href="cbt_home.html" class="p-2 rounded-lg bg-blue-950/60 hover:bg-blue-900/60 border border-blue-500/30 text-center font-bold text-blue-200 transition flex items-center justify-center gap-1.5">
+            <span>📝</span> <span>CBT Tests</span>
+          </a>
+        `}
         <a href="settings.html" class="p-2 rounded-lg bg-gray-900/80 hover:bg-gray-800 border border-white/10 text-center font-bold text-gray-200 transition flex items-center justify-center gap-1.5">
           <span>⚙️</span> <span>Settings</span>
         </a>
@@ -2236,6 +2583,54 @@ window.initGlobalProfileMenu = function() {
   });
 };
 
+window.enforceRolePermissions = function() {
+  const activeUser = window.getUsersList().find(u => u.active) || { role: "JEE 2028 Aspirant" };
+  const isAdmin = Boolean(
+    activeUser.role === "Mentor / Faculty" || 
+    activeUser.role === "Admin" || 
+    activeUser.email === "kunalsahoo4015@gmail.com" || 
+    activeUser.id === "user_kunal" || 
+    activeUser.isAdmin === true
+  );
+
+  document.querySelectorAll('a[href="admin.html"]').forEach(el => {
+    if (!window.location.pathname.endsWith('admin.html')) {
+      el.style.display = isAdmin ? 'inline-flex' : 'none';
+    }
+  });
+};
+
+// Universal Responsive Clamp Injection
+(function injectResponsiveClamp() {
+  if (document.getElementById("clockee-responsive-clamp")) return;
+  const style = document.createElement("style");
+  style.id = "clockee-responsive-clamp";
+  style.textContent = `
+    html, body {
+      overflow-x: hidden !important;
+      max-width: 100vw !important;
+    }
+    @media (max-width: 900px) {
+      #main-nav {
+        overflow-x: auto !important;
+        scrollbar-width: none !important;
+        -ms-overflow-style: none !important;
+        -webkit-overflow-scrolling: touch !important;
+        max-width: 100% !important;
+      }
+      #main-nav::-webkit-scrollbar {
+        display: none !important;
+      }
+    }
+    @media (min-width: 901px) {
+      #main-nav {
+        overflow: visible !important;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+})();
+
 window.handleUserLogout = function() {
   const users = window.getUsersList();
   let guest = users.find(u => u.id === "user_guest");
@@ -2258,20 +2653,23 @@ window.handleUserLogout = function() {
   setTimeout(() => window.location.href = "login.html", 400);
 };
 
-// Auto-run sidebar and profile menu on load
+// Auto-run sidebar, profile menu and permissions on load
 if (document.readyState === "complete" || document.readyState === "interactive") {
   setTimeout(() => { 
     if (typeof window.initSidebar === "function") window.initSidebar(); 
     if (typeof window.initGlobalProfileMenu === "function") window.initGlobalProfileMenu();
+    if (typeof window.enforceRolePermissions === "function") window.enforceRolePermissions();
   }, 15);
 }
 
 document.addEventListener("DOMContentLoaded", function() {
   if (typeof window.initSidebar === "function") window.initSidebar();
   if (typeof window.initGlobalProfileMenu === "function") window.initGlobalProfileMenu();
+  if (typeof window.enforceRolePermissions === "function") window.enforceRolePermissions();
 });
 
 window.addEventListener("stateChange", function() {
   if (typeof window.initSidebar === "function") window.initSidebar();
   if (typeof window.initGlobalProfileMenu === "function") window.initGlobalProfileMenu();
+  if (typeof window.enforceRolePermissions === "function") window.enforceRolePermissions();
 });

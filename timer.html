@@ -99,18 +99,18 @@
       top: 100%;
       left: 0;
       margin-top: 6px;
-      min-width: 215px;
-      background: rgba(13, 17, 26, 0.96);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 12px;
-      padding: 6px;
+      min-width: 220px;
+      background: rgba(8, 12, 26, 0.62) !important;
+      border: 1px solid rgba(0, 240, 255, 0.48) !important;
+      border-radius: 16px !important;
+      padding: 6px !important;
       display: none;
       flex-direction: column;
-      gap: 2px;
+      gap: 3px;
       z-index: 100;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.85), 0 0 15px rgba(99,102,241,0.2);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 20px 50px -8px rgba(0, 0, 0, 0.9), 0 0 25px rgba(0, 240, 255, 0.25), inset 0 0 14px rgba(0, 240, 255, 0.08) !important;
+      backdrop-filter: blur(32px) saturate(220%) !important;
+      -webkit-backdrop-filter: blur(32px) saturate(220%) !important;
     }
     .nav-dropdown:hover .nav-dropdown-menu { display: flex; }
     .nav-dropdown-item {
@@ -186,16 +186,29 @@
       <!-- Timer Dropdown -->
       <div class="nav-dropdown relative inline-block">
         <a href="timer.html" class="nav-btn nav-active">
-          Timer <span class="nav-caret">▼</span>
+          <span>Timer</span> <span class="nav-caret">▼</span>
         </a>
         <div class="nav-dropdown-menu">
-          <a href="timer.html?mode=drill" class="nav-dropdown-item">
-            <svg class="w-3.5 h-3.5 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-            <span>Manual Question Drill</span>
+          <a href="timer.html?mode=drill" class="nav-dropdown-item group">
+            <div class="w-7 h-7 rounded-lg bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center text-cyan-400 group-hover:scale-105 group-hover:border-cyan-400 transition shadow-[0_0_10px_rgba(0,240,255,0.2)]">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <div>
+              <div class="font-bold text-white group-hover:text-cyan-300 transition text-xs flex items-center gap-1.5">
+                <span>Tactical Pace Sprint</span>
+                <span class="text-[9px] px-1.5 py-0.2 rounded bg-cyan-950 text-cyan-300 border border-cyan-500/30 font-mono">NEW</span>
+              </div>
+              <div class="text-[10px] text-slate-400 font-mono">Pace benchmark &amp; lap latency</div>
+            </div>
           </a>
-          <a href="timer.html?mode=lecture" class="nav-dropdown-item">
-            <svg class="w-3.5 h-3.5 text-indigo-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            <span>Lecture Focus Timer</span>
+          <a href="timer.html?mode=lecture" class="nav-dropdown-item group">
+            <div class="w-7 h-7 rounded-lg bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center text-indigo-400 group-hover:scale-105 group-hover:border-indigo-400 transition shadow-[0_0_10px_rgba(99,102,241,0.2)]">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <div class="font-bold text-white group-hover:text-indigo-300 transition text-xs">Lecture Focus Timer</div>
+              <div class="text-[10px] text-slate-400 font-mono">Dual-screen &amp; mini timer HUD</div>
+            </div>
           </a>
         </div>
       </div>
@@ -337,127 +350,408 @@
       </button>
     </div>
 
-    <!-- Drill Setup Panel -->
-    <div id="drill-setup-panel" class="glass-card p-6 border border-white/10 space-y-6">
-      <div class="space-y-2">
-        <label class="text-xs font-black text-slate-400 uppercase tracking-widest block">1. Select Subject</label>
-        <div class="grid grid-cols-3 gap-3">
-          <button type="button" onclick="selectSubject('Physics')" id="btn-sub-phy" class="p-3.5 rounded-xl border border-blue-500/40 bg-blue-950/40 text-blue-300 font-black text-sm flex items-center justify-center gap-2 transition hover:bg-blue-900/50 shadow">
-            <span class="w-2.5 h-2.5 rounded-full bg-blue-400 inline-block shadow-[0_0_8px_rgba(96,165,250,0.7)]"></span>
-            <span>Physics</span>
-          </button>
-          <button type="button" onclick="selectSubject('Chemistry')" id="btn-sub-chem" class="p-3.5 rounded-xl border border-white/10 bg-gray-900 text-slate-400 font-black text-sm flex items-center justify-center gap-2 transition hover:text-white">
-            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block shadow-[0_0_8px_rgba(52,211,153,0.7)]"></span>
-            <span>Chemistry</span>
-          </button>
-          <button type="button" onclick="selectSubject('Maths')" id="btn-sub-math" class="p-3.5 rounded-xl border border-white/10 bg-gray-900 text-slate-400 font-black text-sm flex items-center justify-center gap-2 transition hover:text-white">
-            <span class="w-2.5 h-2.5 rounded-full bg-amber-400 inline-block shadow-[0_0_8px_rgba(251,191,36,0.7)]"></span>
-            <span>Maths</span>
-          </button>
+    <!-- 1. Question Solving Sprint Setup (Matches Screenshot 1) -->
+    <div id="drill-setup-panel" class="glass-card p-6 border border-white/10 space-y-5 bg-[#090b14]/90 backdrop-blur-2xl rounded-2xl shadow-2xl">
+      <!-- Top Title & JEE Pattern Badge -->
+      <div class="flex items-center justify-between pb-3 border-b border-white/10 flex-wrap gap-2">
+        <div>
+          <h3 class="text-base font-black text-white flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 inline-block shadow-[0_0_8px_rgba(0,240,255,0.7)]"></span>
+            <span>Question Solving Sprint Setup</span>
+          </h3>
+          <p class="text-xs text-slate-400 font-medium mt-0.5">Define target questions and block duration. Real-time pace benchmark is calculated automatically.</p>
+        </div>
+        <button type="button" onclick="toggleJeeDrillPattern()" id="btn-drill-pattern-badge" class="px-3.5 py-1.5 rounded-full bg-slate-900 border border-slate-700 hover:border-cyan-500/50 text-cyan-300 font-mono text-xs font-bold transition flex items-center gap-2 shadow-sm cursor-pointer" title="Click to toggle JEE Mains (+4/-1) or Advanced (+4/-2)">
+          <span class="text-gray-400 font-sans font-semibold">JEE Pattern:</span>
+          <span id="drill-pattern-val" class="text-emerald-400 font-black">+4 / -1</span>
+        </button>
+      </div>
+
+      <!-- 4 Themed Setup Inputs: Subject, Chapter, Target Qs, Duration -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-end">
+        <!-- Subject Custom Glass Dropdown -->
+        <div class="space-y-1.5 relative">
+          <label class="text-xs font-bold text-slate-300">Subject</label>
+          <div class="custom-glass-dropdown" id="custom-glass-subject">
+            <button type="button" class="custom-glass-trigger" onclick="toggleCustomGlassDropdown('custom-glass-subject')">
+              <span class="flex items-center gap-2">
+                <span id="custom-subject-icon" class="text-xs">⚛️</span>
+                <span id="custom-subject-label" class="text-white font-bold">Physics</span>
+              </span>
+              <svg class="w-3.5 h-3.5 chevron-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+            </button>
+            <div class="custom-glass-menu" id="custom-subject-menu">
+              <div class="custom-glass-option selected" onclick="selectCustomSubject('Physics', '⚛️')">
+                <span class="flex items-center gap-2"><span>⚛️</span><span class="font-bold text-blue-400">Physics</span></span>
+                <span class="text-[10px] font-mono text-cyan-400">Selected</span>
+              </div>
+              <div class="custom-glass-option" onclick="selectCustomSubject('Chemistry', '🧪')">
+                <span class="flex items-center gap-2"><span>🧪</span><span class="font-bold text-emerald-400">Chemistry</span></span>
+              </div>
+              <div class="custom-glass-option" onclick="selectCustomSubject('Maths', '📐')">
+                <span class="flex items-center gap-2"><span>📐</span><span class="font-bold text-amber-400">Maths</span></span>
+              </div>
+            </div>
+          </div>
+          <!-- Hidden Native Select for Full Backward Compatibility -->
+          <select id="drill-setup-subject" onchange="onDrillSubjectChange()" class="hidden">
+            <option value="Physics">Physics</option>
+            <option value="Chemistry">Chemistry</option>
+            <option value="Maths">Maths</option>
+          </select>
+        </div>
+
+        <!-- Chapter Custom Glass Dropdown -->
+        <div class="space-y-1.5 relative">
+          <label class="text-xs font-bold text-slate-300">Chapter (JEE 2028 Syllabus)</label>
+          <div class="custom-glass-dropdown" id="custom-glass-chapter">
+            <button type="button" class="custom-glass-trigger" onclick="toggleCustomGlassDropdown('custom-glass-chapter')">
+              <span class="flex items-center gap-2 truncate">
+                <span class="text-xs">📚</span>
+                <span id="custom-chapter-label" class="text-white font-bold truncate">Basic Mathematics &amp; Vectors</span>
+              </span>
+              <svg class="w-3.5 h-3.5 chevron-icon flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+            </button>
+            <div class="custom-glass-menu" id="custom-chapter-menu">
+              <!-- Dynamically Populated with Custom Glass Rows -->
+            </div>
+          </div>
+          <!-- Hidden Native Select for Full Backward Compatibility -->
+          <select id="drill-setup-chapter" onchange="updatePaceBenchmark()" class="hidden">
+          </select>
+        </div>
+
+        <!-- Target Questions -->
+        <div class="space-y-1.5">
+          <div class="flex items-center justify-between">
+            <label class="text-xs font-bold text-slate-300">Target Questions</label>
+            <span class="text-[11px] font-mono font-bold text-cyan-400" id="badge-target-qs">15 Qs</span>
+          </div>
+          <input type="number" id="drill-setup-target-qs" value="15" min="1" max="150" oninput="updatePaceBenchmark()" class="w-full bg-[#0c0f1d] border border-slate-700/80 hover:border-cyan-500/50 text-white rounded-xl py-2.5 px-3 text-xs outline-none focus:border-cyan-400 font-mono font-bold transition">
+        </div>
+
+        <!-- Block Duration (Mins) with Preset Chips -->
+        <div class="space-y-1.5">
+          <div class="flex items-center justify-between">
+            <label class="text-xs font-bold text-slate-300">Block Duration (Mins)</label>
+            <span class="text-[11px] font-mono font-bold text-cyan-400" id="badge-duration-mins">5 mins</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <input type="number" id="drill-setup-duration-mins" value="5" min="1" max="360" oninput="updatePaceBenchmark()" class="w-full bg-[#0c0f1d] border border-slate-700/80 hover:border-cyan-500/50 text-white rounded-xl py-2.5 px-3 text-xs outline-none focus:border-cyan-400 font-mono font-bold transition">
+            <button type="button" onclick="setDrillDurationPreset(5)" class="px-2.5 py-2 rounded-xl bg-slate-900 hover:bg-cyan-950 border border-slate-700 text-slate-300 hover:text-cyan-300 text-xs font-mono font-bold transition cursor-pointer">5m</button>
+            <button type="button" onclick="setDrillDurationPreset(40)" class="px-2.5 py-2 rounded-xl bg-slate-900 hover:bg-cyan-950 border border-slate-700 text-slate-300 hover:text-cyan-300 text-xs font-mono font-bold transition cursor-pointer">40m</button>
+          </div>
         </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div>
-          <label class="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-1">2. Chapter / Topic</label>
-          <select id="drill-chapter-select" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl p-2.5 text-xs outline-none focus:border-indigo-500">
-          </select>
+      <!-- Bottom Row: Pace Benchmark & Start Button -->
+      <div class="flex items-center justify-between pt-3 border-t border-white/10 flex-wrap gap-3">
+        <div class="text-xs font-mono text-slate-300 flex items-center gap-2">
+          <span class="text-slate-400">Target Pace Benchmark:</span>
+          <span class="text-cyan-400 font-black text-sm" id="drill-target-pace-display">20.0s / question</span>
+          <span class="text-amber-400 font-semibold text-xs" id="drill-pace-label">(Rapid Drill / Recall Pace)</span>
         </div>
-        <div>
-          <label class="text-xs font-bold text-gray-400 uppercase tracking-wider block mb-1">3. Exam Mode &amp; Marking</label>
-          <select id="drill-mode-select" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl p-2.5 text-xs outline-none focus:border-indigo-500">
-            <option value="mains">JEE Mains (+4 / -1 / 0)</option>
-            <option value="adv">JEE Advanced (+4 / +2 / -2)</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="flex items-center justify-between pt-2 border-t border-white/10 flex-wrap gap-3">
-        <div class="flex items-center gap-2 text-xs text-gray-400">
-          <span>Target Latency per Question:</span>
-          <button type="button" onclick="setTargetLatency(90)" class="target-latency-btn px-3 py-1 rounded-xl text-xs font-bold border border-cyan-500 bg-cyan-500/20 text-cyan-300">90s (Mains)</button>
-          <button type="button" onclick="setTargetLatency(120)" class="target-latency-btn px-3 py-1 rounded-xl text-xs font-bold border border-gray-700 bg-gray-900 text-gray-300 hover:border-cyan-400">120s (Adv)</button>
-        </div>
-        <button onclick="startQuestionDrill()" class="px-6 py-2.5 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-bold rounded-xl text-xs transition shadow-lg shadow-indigo-600/30">
-          ▶ Start Question Drill
+        <button onclick="startSprintSession()" class="px-7 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-extrabold text-xs transition shadow-lg shadow-cyan-500/25 flex items-center gap-2 cursor-pointer">
+          <span>▶</span>
+          <span>Start Drill Session</span>
         </button>
       </div>
     </div>
 
-    <!-- Active Drill Panel -->
-    <div id="drill-active-panel" class="hidden glass-card p-6 border border-indigo-500/40 space-y-6 bg-gradient-to-br from-[#0c0e18] to-[#12162a]">
-      <div class="flex items-center justify-between border-b border-white/10 pb-3">
-        <div>
-          <span class="text-xs font-mono font-bold text-indigo-400" id="active-drill-info">Physics &bull; Rotational Dynamics</span>
-          <div class="text-2xl font-extrabold text-white font-mono mt-0.5" id="active-q-number">Question #1</div>
-        </div>
-        <div class="flex items-center gap-4 text-right">
-          <div>
-            <div class="text-xs text-gray-400">Session Clock</div>
-            <div class="text-xl font-bold font-mono text-white" id="drill-total-timer">00:00:00</div>
+    <!-- 2. Active Drill & Tactical Pace Engine (Matches Screenshot 2) -->
+    <div id="drill-active-panel" class="hidden space-y-6">
+      <!-- 4 Metric Cards Header Row -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-3.5">
+        <!-- Card 1: TOTAL ELAPSED -->
+        <div class="glass-card p-4 border border-white/10 bg-[#090b14]/90 rounded-2xl shadow-xl space-y-1">
+          <div class="text-[10px] font-black uppercase tracking-wider text-slate-400">TOTAL ELAPSED</div>
+          <div class="text-2xl sm:text-3xl font-black font-mono text-white tracking-tight" id="active-total-elapsed">00:00.0</div>
+          <div class="text-[11px] font-mono text-slate-400 flex items-center justify-between pt-0.5">
+            <span id="active-target-duration-display">Target: 05:00</span>
+            <span class="text-cyan-400 font-bold" id="active-rem-time-display">05:00 rem</span>
           </div>
-          <div>
-            <div class="text-xs text-gray-400">Question Latency</div>
-            <div class="text-xl font-bold font-mono text-cyan-400" id="drill-lap-timer">00:00.0</div>
+        </div>
+
+        <!-- Card 2: ACTIVE QUESTION -->
+        <div class="glass-card p-4 border border-cyan-500/40 bg-gradient-to-br from-[#0c1024] to-[#090b14] rounded-2xl shadow-xl space-y-1 relative">
+          <div class="flex items-center justify-between">
+            <div class="text-[10px] font-black uppercase tracking-wider text-cyan-300">ACTIVE QUESTION</div>
+            <span class="px-2 py-0.5 rounded-md bg-cyan-950 border border-cyan-500/40 text-cyan-300 font-mono text-[10px] font-black" id="active-q-badge">Q #1</span>
+          </div>
+          <div class="text-2xl sm:text-3xl font-black font-mono text-cyan-300 tracking-tight" id="active-q-lap-time">00:00.0</div>
+          <div class="text-[11px] font-mono text-slate-400 flex items-center justify-between pt-0.5">
+            <span id="active-q-counter-display">Question 1 / 15</span>
+            <span class="font-bold text-emerald-400" id="active-q-delta-pace">-0.0s (Faster)</span>
+          </div>
+        </div>
+
+        <!-- Card 3: PACE HEALTH -->
+        <div class="glass-card p-4 border border-white/10 bg-[#090b14]/90 rounded-2xl shadow-xl space-y-1">
+          <div class="text-[10px] font-black uppercase tracking-wider text-slate-400">PACE HEALTH</div>
+          <div class="text-base sm:text-lg font-black text-emerald-400 flex items-center gap-1.5 pt-1" id="active-pace-health-title">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block shadow-[0_0_8px_rgba(52,211,153,0.7)]" id="active-pace-health-dot"></span>
+            <span id="active-pace-health-text">Ahead of Pace</span>
+          </div>
+          <div class="text-[11px] font-mono text-slate-400 pt-1">
+            <span>Avg Pace: </span><span class="text-slate-200 font-bold" id="active-avg-pace">0.0s</span>
+          </div>
+        </div>
+
+        <!-- Card 4: PROJECTED JEE SCORE -->
+        <div class="glass-card p-4 border border-white/10 bg-[#090b14]/90 rounded-2xl shadow-xl space-y-1">
+          <div class="text-[10px] font-black uppercase tracking-wider text-slate-400">PROJECTED JEE SCORE</div>
+          <div class="text-2xl sm:text-3xl font-black font-mono text-amber-400 tracking-tight">
+            <span id="active-current-score">0</span> <span class="text-base font-normal text-slate-400">/ <span id="active-max-score">60</span> pts</span>
+          </div>
+          <div class="text-[11px] font-mono text-slate-400 pt-0.5">
+            <span>Est. Finish: </span><span class="text-slate-200 font-bold" id="active-est-finish">--:--</span>
           </div>
         </div>
       </div>
 
-      <!-- Action Buttons Row -->
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-        <button onclick="recordDrillAction('correct')" class="py-3 px-4 rounded-xl bg-emerald-600/20 hover:bg-emerald-600 border border-emerald-500/40 text-emerald-300 hover:text-white font-bold text-xs transition shadow">
-          ✓ Correct [C]
-        </button>
-        <button onclick="recordDrillAction('partial')" id="btn-partial" class="hidden py-3 px-4 rounded-xl bg-amber-600/20 hover:bg-amber-600 border border-amber-500/40 text-amber-300 hover:text-white font-bold text-xs transition shadow">
-          ⊘ Partial [P]
-        </button>
-        <button onclick="recordDrillAction('wrong')" class="py-3 px-4 rounded-xl bg-red-600/20 hover:bg-red-600 border border-red-500/40 text-red-300 hover:text-white font-bold text-xs transition shadow">
-          ✕ Wrong [X]
-        </button>
-        <button onclick="recordDrillAction('skip')" class="py-3 px-4 rounded-xl bg-gray-800 hover:bg-gray-700 border border-white/10 text-gray-300 font-bold text-xs transition">
-          → Skip [S]
-        </button>
+      <!-- Center Question Pacing Card -->
+      <div class="glass-card p-6 border border-white/10 bg-[#090b14]/90 rounded-2xl shadow-2xl space-y-5 text-center">
+        <!-- Chapter Tag -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-slate-900 border border-slate-700 text-xs font-mono font-bold text-cyan-300">
+          <span id="active-drill-subject-pill">Physics</span>
+          <span>&bull;</span>
+          <span id="active-drill-chapter-pill">Units &amp; Measurements</span>
+        </div>
+
+        <!-- Overall Drill Progress -->
+        <div class="max-w-md mx-auto space-y-1.5">
+          <div class="flex items-center justify-between text-[11px] text-slate-400 font-bold uppercase tracking-wider">
+            <span>Overall Drill Progress</span>
+            <span class="text-cyan-300 font-mono" id="active-drill-pct">0%</span>
+          </div>
+          <div class="w-full bg-slate-900 rounded-full h-2 overflow-hidden border border-white/5">
+            <div id="active-drill-progress-bar" class="h-full bg-gradient-to-r from-cyan-400 to-indigo-500 rounded-full transition-all duration-300" style="width: 0%"></div>
+          </div>
+        </div>
+
+        <!-- Subtitle Instruction -->
+        <p class="text-xs text-slate-400 font-medium">Select the outcome of the current question to record lap time &amp; update pacing:</p>
+
+        <!-- 3 Large Outcome Buttons -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-xl mx-auto">
+          <!-- Correct -->
+          <button onclick="recordOutcome('correct')" class="p-4 rounded-2xl border-2 border-emerald-500/50 bg-emerald-950/20 hover:bg-emerald-900/30 text-emerald-300 transition-all shadow-[0_0_20px_rgba(16,185,129,0.15)] hover:shadow-[0_0_25px_rgba(16,185,129,0.3)] hover:scale-[1.02] flex flex-col items-center justify-center gap-1 group cursor-pointer">
+            <div class="flex items-center gap-1.5 text-base font-black text-emerald-300 group-hover:text-emerald-200">
+              <span>✓</span>
+              <span>Correct</span>
+            </div>
+            <div class="text-xs font-bold text-emerald-400/90 font-mono" id="label-correct-marks">+4 Marks</div>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-900/50 text-emerald-200 border border-emerald-500/30 font-bold mt-1">Press [ C ]</span>
+          </button>
+
+          <!-- Incorrect -->
+          <button onclick="recordOutcome('wrong')" class="p-4 rounded-2xl border-2 border-red-500/50 bg-red-950/20 hover:bg-red-900/30 text-red-300 transition-all shadow-[0_0_20px_rgba(239,68,68,0.15)] hover:shadow-[0_0_25px_rgba(239,68,68,0.3)] hover:scale-[1.02] flex flex-col items-center justify-center gap-1 group cursor-pointer">
+            <div class="flex items-center gap-1.5 text-base font-black text-red-300 group-hover:text-red-200">
+              <span>✕</span>
+              <span>Incorrect</span>
+            </div>
+            <div class="text-xs font-bold text-red-400/90 font-mono" id="label-wrong-marks">-1 Mark</div>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-red-900/50 text-red-200 border border-red-500/30 font-bold mt-1">Press [ X ]</span>
+          </button>
+
+          <!-- Skip -->
+          <button onclick="recordOutcome('skip')" class="p-4 rounded-2xl border-2 border-slate-700 bg-slate-900/40 hover:bg-slate-800 text-slate-300 transition-all hover:scale-[1.02] flex flex-col items-center justify-center gap-1 group cursor-pointer">
+            <div class="flex items-center gap-1.5 text-base font-black text-slate-200 group-hover:text-white">
+              <span>≫</span>
+              <span>Skip</span>
+            </div>
+            <div class="text-xs font-bold text-slate-400 font-mono">0 Marks</div>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-600 font-bold mt-1">Press [ S ]</span>
+          </button>
+        </div>
+
+        <!-- Controls: Pause & End Session -->
+        <div class="flex items-center justify-center gap-4 pt-2">
+          <button onclick="togglePauseSprint()" id="btn-pause-sprint" class="px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300 text-xs font-bold transition flex items-center gap-1.5 cursor-pointer">
+            <span>⏸</span>
+            <span>Pause [Space]</span>
+          </button>
+          <button onclick="endSessionAndAnalyze()" class="px-4 py-2 rounded-xl bg-red-950/40 hover:bg-red-900/50 border border-red-500/40 text-red-300 hover:text-red-200 text-xs font-bold transition cursor-pointer">
+            End Session &amp; View Analysis
+          </button>
+        </div>
       </div>
 
-      <div class="flex items-center justify-between pt-2 border-t border-white/10 text-xs">
-        <button onclick="togglePauseDrill()" id="btn-pause-drill" class="text-gray-400 hover:text-white transition flex items-center gap-1">
-          <span>⏸</span> Pause [Space]
-        </button>
-        <button onclick="finishQuestionDrill()" class="text-indigo-400 hover:text-indigo-300 font-bold transition">
-          Stop &amp; Analyze Session →
-        </button>
+      <!-- Bottom Log: CURRENT SESSION QUESTION LOG -->
+      <div class="glass-card p-5 border border-white/10 bg-[#090b14]/90 rounded-2xl shadow-xl space-y-3">
+        <div class="flex items-center justify-between flex-wrap gap-2 pb-2 border-b border-white/10">
+          <div class="text-xs font-black uppercase tracking-wider text-slate-300">CURRENT SESSION QUESTION LOG</div>
+          <div class="flex items-center gap-3 text-xs font-mono font-bold">
+            <span class="text-emerald-400 flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-400"></span> Correct: <span id="tally-correct">0</span></span>
+            <span class="text-red-400 flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-red-400"></span> Incorrect: <span id="tally-incorrect">0</span></span>
+            <span class="text-slate-400 flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-slate-400"></span> Skipped: <span id="tally-skipped">0</span></span>
+          </div>
+        </div>
+        <!-- Chips Container -->
+        <div id="session-question-chips" class="flex flex-wrap gap-2.5 min-h-[48px] items-center">
+          <span class="text-xs text-slate-500 italic">No questions completed yet in this session.</span>
+        </div>
       </div>
     </div>
 
-    <!-- Drill Summary Analytics Panel -->
-    <div id="drill-summary-panel" class="hidden glass-card p-6 border border-white/10 space-y-6">
-      <h3 class="text-base font-bold text-white flex items-center gap-2">📊 Drill Performance Autopsy</h3>
+    <!-- 3. Immediate Error Logger Modal (Shown on Incorrect Question) -->
+    <div id="autopsy-modal" class="hidden fixed inset-0 z-[9999] bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+      <div class="glass-card max-w-lg w-full p-6 border border-red-500/40 bg-[#0d1020] rounded-2xl shadow-2xl space-y-4">
+        <div class="flex items-center justify-between border-b border-white/10 pb-3">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-lg bg-red-950/70 border border-red-500/40 flex items-center justify-center text-red-400 font-bold">✕</div>
+            <div>
+              <h3 class="text-sm font-black text-white" id="autopsy-modal-title">Question Marked Incorrect</h3>
+              <p class="text-[11px] text-slate-400">Log this error to your Forensic Autopsy Vault for targeted revision.</p>
+            </div>
+          </div>
+          <button onclick="closeAutopsyModal()" class="text-slate-400 hover:text-white text-lg font-bold cursor-pointer">✕</button>
+        </div>
+
+        <div class="space-y-3">
+          <div>
+            <label class="text-xs font-bold text-slate-300 block mb-1.5">Root Cause Classification</label>
+            <div class="grid grid-cols-2 gap-2 text-xs" id="autopsy-causes-grid">
+              <button type="button" onclick="selectAutopsyCause('Conceptual Confusion', this)" class="autopsy-cause-pill p-2 rounded-xl border border-slate-700 bg-slate-900/60 text-slate-300 font-semibold text-left hover:border-red-400 transition flex items-center gap-1.5 cursor-pointer">
+                <span>🧠</span> <span>Conceptual</span>
+              </button>
+              <button type="button" onclick="selectAutopsyCause('Calculation / Sign Error', this)" class="autopsy-cause-pill p-2 rounded-xl border border-red-500 bg-red-950/40 text-red-200 font-semibold text-left hover:border-red-400 transition flex items-center gap-1.5 cursor-pointer">
+                <span>✏️</span> <span>Calculation</span>
+              </button>
+              <button type="button" onclick="selectAutopsyCause('Formula Forgot / Misapplied', this)" class="autopsy-cause-pill p-2 rounded-xl border border-slate-700 bg-slate-900/60 text-slate-300 font-semibold text-left hover:border-red-400 transition flex items-center gap-1.5 cursor-pointer">
+                <span>📖</span> <span>Formula Forgot</span>
+              </button>
+              <button type="button" onclick="selectAutopsyCause('Misread Question / Trap', this)" class="autopsy-cause-pill p-2 rounded-xl border border-slate-700 bg-slate-900/60 text-slate-300 font-semibold text-left hover:border-red-400 transition flex items-center gap-1.5 cursor-pointer">
+                <span>👀</span> <span>Misread Trap</span>
+              </button>
+              <button type="button" onclick="selectAutopsyCause('Time Panic / Rushed', this)" class="autopsy-cause-pill p-2 rounded-xl border border-slate-700 bg-slate-900/60 text-slate-300 font-semibold text-left hover:border-red-400 transition flex items-center gap-1.5 cursor-pointer">
+                <span>⏳</span> <span>Time Panic</span>
+              </button>
+              <button type="button" onclick="selectAutopsyCause('Wild Guess', this)" class="autopsy-cause-pill p-2 rounded-xl border border-slate-700 bg-slate-900/60 text-slate-300 font-semibold text-left hover:border-red-400 transition flex items-center gap-1.5 cursor-pointer">
+                <span>🎲</span> <span>Wild Guess</span>
+              </button>
+            </div>
+            <input type="hidden" id="autopsy-cause" value="Calculation / Sign Error">
+          </div>
+
+          <div>
+            <label class="text-xs font-bold text-slate-300 block mb-1">Quick Error Notes</label>
+            <input type="text" id="autopsy-notes" placeholder="e.g. Forgot g factor, integrated wrong boundary, unit conversion..." class="w-full bg-[#070913] border border-slate-700 text-white rounded-xl p-2.5 text-xs outline-none focus:border-red-400 font-sans">
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between pt-2 border-t border-white/10">
+          <button onclick="closeAutopsyModal()" class="text-xs text-slate-400 hover:text-white cursor-pointer">Skip &amp; Keep Going</button>
+          <button onclick="saveErrorAutopsy()" class="px-5 py-2 bg-red-600 hover:bg-red-500 text-white font-bold rounded-xl text-xs transition shadow-lg shadow-red-600/30 cursor-pointer">
+            ✓ Save to Error Vault
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Drill Summary & Analysis Panel (With Text & Screenshot Question Attachment) -->
+    <div id="drill-summary-panel" class="hidden glass-card p-6 border border-white/10 space-y-6 bg-[#090b14]/90 rounded-2xl shadow-2xl">
+      <div class="flex items-center justify-between pb-3 border-b border-white/10 flex-wrap gap-2">
+        <h3 class="text-base font-black text-white flex items-center gap-2">
+          <span>📊</span>
+          <span>Drill Performance Autopsy</span>
+        </h3>
+        <span class="text-xs font-mono font-bold text-cyan-400 px-3 py-1 rounded-full bg-slate-900 border border-slate-700" id="summary-chapter-badge">Physics &bull; Units &amp; Measurements</span>
+      </div>
       
+      <!-- 4 Autopsy Vitals -->
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
-        <div class="bg-black/40 p-3 rounded-xl border border-white/5">
-          <div class="text-2xl font-bold font-mono text-cyan-400" id="sum-qs">0</div>
-          <div class="text-[10px] text-gray-400 uppercase mt-1">Questions Solved</div>
+        <div class="bg-black/40 p-4 rounded-xl border border-white/5">
+          <div class="text-2xl font-black font-mono text-cyan-400" id="sum-qs">0</div>
+          <div class="text-[10px] text-gray-400 uppercase mt-1 font-bold">Questions Attempted</div>
         </div>
-        <div class="bg-black/40 p-3 rounded-xl border border-white/5">
-          <div class="text-2xl font-bold font-mono text-emerald-400" id="sum-accuracy">0%</div>
-          <div class="text-[10px] text-gray-400 uppercase mt-1">Accuracy</div>
+        <div class="bg-black/40 p-4 rounded-xl border border-white/5">
+          <div class="text-2xl font-black font-mono text-emerald-400" id="sum-accuracy">0%</div>
+          <div class="text-[10px] text-gray-400 uppercase mt-1 font-bold">Accuracy</div>
         </div>
-        <div class="bg-black/40 p-3 rounded-xl border border-white/5">
-          <div class="text-2xl font-bold font-mono text-indigo-400" id="sum-score">0</div>
-          <div class="text-[10px] text-gray-400 uppercase mt-1">Total Score</div>
+        <div class="bg-black/40 p-4 rounded-xl border border-white/5">
+          <div class="text-2xl font-black font-mono text-amber-400" id="sum-score">0</div>
+          <div class="text-[10px] text-gray-400 uppercase mt-1 font-bold">Final Score</div>
         </div>
-        <div class="bg-black/40 p-3 rounded-xl border border-white/5">
-          <div class="text-2xl font-bold font-mono text-cyan-400" id="sum-speed">0s</div>
-          <div class="text-[10px] text-gray-400 uppercase mt-1">Avg Time / Q</div>
+        <div class="bg-black/40 p-4 rounded-xl border border-white/5">
+          <div class="text-2xl font-black font-mono text-cyan-400" id="sum-speed">0s</div>
+          <div class="text-[10px] text-gray-400 uppercase mt-1 font-bold">Avg Latency / Q</div>
         </div>
       </div>
 
-      <div class="h-64 w-full">
-        <canvas id="drill-time-chart"></canvas>
+      <!-- Latency Chart -->
+      <div class="space-y-1">
+        <div class="text-xs font-bold text-slate-300">Question Latency Timeline (Seconds per Question)</div>
+        <div class="h-56 w-full bg-black/30 p-2 rounded-xl border border-white/5">
+          <canvas id="drill-time-chart"></canvas>
+        </div>
+      </div>
+
+      <!-- Structured Incorrect Sequence Question Uploader -->
+      <div id="incorrect-seq-panel" class="p-5 rounded-2xl bg-gradient-to-br from-[#140b17] to-[#0c0e1c] border border-red-500/35 space-y-4 shadow-xl">
+        <div class="flex items-center justify-between flex-wrap gap-2 pb-3 border-b border-white/10">
+          <div>
+            <h4 class="text-sm font-black text-white flex items-center gap-2">
+              <span class="text-red-400">⚠️</span>
+              <span>Upload Incorrect Questions in Sequence</span>
+              <span id="incorrect-seq-count-badge" class="px-2 py-0.5 rounded-full bg-red-950 text-red-300 border border-red-500/40 text-[10px] font-mono">0 Incorrect</span>
+            </h4>
+            <p class="text-xs text-slate-400 mt-0.5">Upload problem statement &amp; screenshot for each question marked wrong in the exact order attempted.</p>
+          </div>
+          <!-- Sequence Question Pills -->
+          <div id="incorrect-seq-tabs" class="flex flex-wrap gap-1.5"></div>
+        </div>
+
+        <!-- Active Incorrect Question Editor -->
+        <div id="incorrect-seq-editor" class="space-y-3"></div>
+      </div>
+
+      <!-- Interactive Question Paper / Attempted Questions Attachment (Text + Screenshot!) -->
+      <div class="p-5 rounded-2xl bg-black/40 border border-cyan-500/30 space-y-4">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <div>
+            <h4 class="text-sm font-black text-white flex items-center gap-2">
+              <span class="text-cyan-400">📥</span>
+              <span>Attach Questions Attempted to Session Record</span>
+            </h4>
+            <p class="text-xs text-slate-400 mt-0.5">Attach the questions, formula hints, or a screenshot of the DPP / problem sheet for future review.</p>
+          </div>
+          <div class="flex gap-1.5 bg-slate-900 p-1 rounded-xl border border-slate-700">
+            <button type="button" onclick="switchAttachTab('text')" id="btn-attach-text" class="px-3 py-1 rounded-lg text-xs font-bold bg-cyan-600 text-white transition cursor-pointer">📝 Text</button>
+            <button type="button" onclick="switchAttachTab('image')" id="btn-attach-image" class="px-3 py-1 rounded-lg text-xs font-bold text-slate-400 hover:text-white transition cursor-pointer">📸 Screenshot</button>
+          </div>
+        </div>
+
+        <!-- Text Tab -->
+        <div id="attach-tab-text" class="space-y-2">
+          <textarea id="attach-text-content" rows="3" placeholder="Type or paste question statements, options, or problem references (e.g. HCV Ch 5 Q 12-18, PYQ 2024 Shift 2)..." class="w-full bg-[#0c0f1d] border border-slate-700 text-white rounded-xl p-3 text-xs outline-none focus:border-cyan-400 font-mono"></textarea>
+        </div>
+
+        <!-- Screenshot Tab with Drag, File Picker and Clipboard Paste (Ctrl+V) -->
+        <div id="attach-tab-image" class="hidden space-y-3">
+          <div id="paste-drop-zone" onclick="document.getElementById('attach-file-input').click()" class="p-6 border-2 border-dashed border-slate-700 hover:border-cyan-400 rounded-xl bg-slate-900/40 text-center cursor-pointer transition space-y-1.5">
+            <input type="file" id="attach-file-input" accept="image/*" class="hidden" onchange="handleQuestionScreenshotUpload(event)">
+            <svg class="w-8 h-8 text-cyan-400 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <div class="text-xs font-bold text-white">Click to upload screenshot or press Ctrl+V anywhere to paste</div>
+            <div class="text-[10px] text-slate-400 font-mono">PNG, JPG, WEBP &bull; Max 5MB</div>
+          </div>
+          <!-- Image Preview -->
+          <div id="attach-image-preview-box" class="hidden relative max-h-56 overflow-hidden rounded-xl border border-slate-700 bg-black text-center p-2">
+            <img id="attach-image-preview" src="" alt="Screenshot" class="max-h-52 mx-auto rounded object-contain">
+            <button type="button" onclick="removeAttachedImage()" class="absolute top-3 right-3 px-2 py-1 rounded bg-red-600/90 text-white text-[10px] font-bold shadow hover:bg-red-500 cursor-pointer">✕ Remove</button>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between pt-2 border-t border-white/5">
+          <span class="text-[11px] text-slate-400 font-mono" id="attach-save-status">Ready to save with session log</span>
+          <button type="button" onclick="saveSessionQuestions()" class="px-5 py-2 rounded-xl bg-gradient-to-r from-cyan-600 to-indigo-600 hover:from-cyan-500 hover:to-indigo-500 text-white font-bold text-xs transition shadow-lg shadow-cyan-600/30 cursor-pointer">
+            💾 Commit Questions to Vault
+          </button>
+        </div>
       </div>
 
       <div class="flex justify-end gap-3 pt-4 border-t border-white/10">
-        <button onclick="resetDrillSetup()" class="px-5 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-xs font-bold transition">
+        <button onclick="resetDrillSetup()" class="px-6 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-xs font-bold transition shadow-lg cursor-pointer">
           Start Another Drill →
         </button>
       </div>
@@ -531,6 +825,23 @@
       <!-- Clock Box Area (With Up / Down Arrows above & below Hours, Minutes, Seconds) -->
       <div id="lecture-clock-col" class="text-center py-4 bg-black/30 rounded-2xl border border-white/5 p-4">
         
+        <!-- Quick Focus Preset Chips -->
+        <div class="flex items-center justify-center flex-wrap gap-2 mb-3">
+          <span class="text-[11px] font-bold text-gray-400 uppercase tracking-wider mr-1">Presets:</span>
+          <button type="button" onclick="setLecturePreset(25, '25m Pomodoro')" class="px-3 py-1 rounded-xl text-xs font-semibold bg-white/5 hover:bg-rose-500/20 text-rose-300 border border-white/10 hover:border-rose-400 transition flex items-center gap-1 shadow-sm">
+            <span>🍅</span> 25m Pomodoro
+          </button>
+          <button type="button" onclick="setLecturePreset(50, '50m Deep Work')" class="px-3 py-1 rounded-xl text-xs font-semibold bg-white/5 hover:bg-indigo-500/20 text-indigo-300 border border-white/10 hover:border-indigo-400 transition flex items-center gap-1 shadow-sm">
+            <span>⚡</span> 50m Deep Work
+          </button>
+          <button type="button" onclick="setLecturePreset(90, '90m JEE Mains')" class="px-3 py-1 rounded-xl text-xs font-semibold bg-white/5 hover:bg-cyan-500/20 text-cyan-300 border border-white/10 hover:border-cyan-400 transition flex items-center gap-1 shadow-sm">
+            <span>📝</span> 90m JEE Mains
+          </button>
+          <button type="button" onclick="setLecturePreset(180, '180m Advanced')" class="px-3 py-1 rounded-xl text-xs font-semibold bg-white/5 hover:bg-purple-500/20 text-purple-300 border border-white/10 hover:border-purple-400 transition flex items-center gap-1 shadow-sm">
+            <span>🏆</span> 180m Advanced
+          </button>
+        </div>
+
         <div class="inline-flex items-center justify-center gap-2 sm:gap-4 py-2">
           <!-- Hours Box with ▲ and ▼ -->
           <div class="flex flex-col items-center">
@@ -723,157 +1034,500 @@
   <script src="clockee_core.js"></script>
   <script>
     const CHAPTERS_DATA = {
-      Physics: ["Basic Math & Vectors","Kinematics 1D","Kinematics 2D","Laws of Motion","Work Energy Power","Circular Motion","Rotational Dynamics","Gravitation","SHM","Mechanical Waves","Fluid Mechanics","Heat & Thermodynamics","Electrostatics","Current Electricity","Magnetism","EMI & AC","Optics","Modern Physics","Semiconductors"],
-      Chemistry: ["Mole Concept","Atomic Structure","Chemical Bonding","Thermodynamics","Chemical Equilibrium","Ionic Equilibrium","Redox","Periodic Table","Coordination Compounds","Organic Chemistry Basics","Hydrocarbons","Haloalkanes","Alcohols & Ethers","Carbonyls","Amines","Electrochemistry","Chemical Kinetics"],
-      Maths: ["Sets & Relations","Functions","Trigonometry","Quadratic Equations","Sequence & Series","Binomial Theorem","Permutation & Combination","Straight Lines","Circles","Conic Sections","Limits & Continuity","Derivatives","Definite Integration","Differential Equations","Vectors 3D","Probability","Matrices & Determinants"]
+      Physics: [
+        "Basic Mathematics & Vectors",
+        "Units, Dimensions & Errors",
+        "Kinematics 1D & 2D",
+        "Newton's Laws of Motion & Friction",
+        "Work, Energy & Power",
+        "Circular Motion",
+        "Center of Mass & Collisions",
+        "Rotational Dynamics",
+        "Gravitation",
+        "Mechanical Properties of Solids & Fluids",
+        "Thermal Properties & Heat Transfer",
+        "Thermodynamics & KTG",
+        "Simple Harmonic Motion (SHM)",
+        "Waves & Sound",
+        "Electrostatics & Gauss Law",
+        "Capacitance",
+        "Current Electricity",
+        "Magnetic Effects of Current",
+        "Magnetism & Matter",
+        "Electromagnetic Induction (EMI)",
+        "Alternating Current (AC)",
+        "Electromagnetic Waves",
+        "Ray Optics & Optical Instruments",
+        "Wave Optics",
+        "Dual Nature & Photoelectric Effect",
+        "Atomic Physics",
+        "Nuclear Physics",
+        "Semiconductor Electronics"
+      ],
+      Chemistry: [
+        "Some Basic Concepts of Chemistry (Mole Concept)",
+        "Atomic Structure",
+        "Periodic Classification & Periodicity",
+        "Chemical Bonding & Molecular Structure",
+        "Thermodynamics & Thermochemistry",
+        "Chemical Equilibrium",
+        "Ionic Equilibrium",
+        "Redox Reactions",
+        "Solutions & Colligative Properties",
+        "Electrochemistry",
+        "Chemical Kinetics",
+        "Coordination Compounds",
+        "p-Block Elements",
+        "d and f Block Elements",
+        "General Organic Chemistry (GOC)",
+        "Hydrocarbons (Alkanes, Alkenes, Alkynes)",
+        "Haloalkanes & Haloarenes",
+        "Alcohols, Phenols & Ethers",
+        "Aldehydes, Ketones & Carboxylic Acids",
+        "Amines & Diazonium Salts",
+        "Biomolecules"
+      ],
+      Maths: [
+        "Sets, Relations & Functions",
+        "Trigonometric Functions & Equations",
+        "Complex Numbers & Quadratic Equations",
+        "Permutations & Combinations",
+        "Binomial Theorem",
+        "Sequences & Series (AP, GP, HP)",
+        "Straight Lines & Pair of Straight Lines",
+        "Circles",
+        "Conic Sections (Parabola, Ellipse, Hyperbola)",
+        "Limits, Continuity & Differentiability",
+        "Application of Derivatives (AOD)",
+        "Indefinite Integration",
+        "Definite Integrals & Properties",
+        "Area Under Curves",
+        "Differential Equations",
+        "Vector Algebra",
+        "Three Dimensional Geometry (3D)",
+        "Matrices & Determinants",
+        "Probability & Distributions"
+      ]
     };
 
+    // ─── Custom Glassmorphic Dropdown Controllers ──────────
+    window.toggleCustomGlassDropdown = function(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const isOpen = el.classList.contains('open');
+      document.querySelectorAll('.custom-glass-dropdown.open').forEach(d => {
+        if (d !== el) d.classList.remove('open');
+      });
+      el.classList.toggle('open', !isOpen);
+    };
+
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.custom-glass-dropdown')) {
+        document.querySelectorAll('.custom-glass-dropdown.open').forEach(d => d.classList.remove('open'));
+      }
+    });
+
+    window.selectCustomSubject = function(sub, icon) {
+      const lbl = document.getElementById('custom-subject-label');
+      if (lbl) lbl.textContent = sub;
+      const ico = document.getElementById('custom-subject-icon');
+      if (ico) ico.textContent = icon || (sub === 'Physics' ? '⚛️' : sub === 'Chemistry' ? '🧪' : '📐');
+      
+      const subSelect = document.getElementById('drill-setup-subject');
+      if (subSelect) {
+        subSelect.value = sub;
+      }
+      selectedSubject = sub;
+      
+      const menu = document.getElementById('custom-subject-menu');
+      if (menu) {
+        menu.querySelectorAll('.custom-glass-option').forEach(opt => {
+          const isSel = opt.textContent.includes(sub);
+          opt.classList.toggle('selected', isSel);
+          const badge = opt.querySelector('.text-cyan-400');
+          if (badge) badge.remove();
+          if (isSel) {
+            const b = document.createElement('span');
+            b.className = 'text-[10px] font-mono text-cyan-400';
+            b.textContent = 'Selected';
+            opt.appendChild(b);
+          }
+        });
+      }
+      document.getElementById('custom-glass-subject')?.classList.remove('open');
+      populateDrillChapters(sub);
+      updatePaceBenchmark();
+    };
+
+    window.selectCustomChapter = function(ch) {
+      const lbl = document.getElementById('custom-chapter-label');
+      if (lbl) lbl.textContent = ch;
+      
+      const chSelect = document.getElementById('drill-setup-chapter');
+      if (chSelect) {
+        chSelect.value = ch;
+      }
+      selectedChapter = ch;
+      
+      const menu = document.getElementById('custom-chapter-menu');
+      if (menu) {
+        menu.querySelectorAll('.custom-glass-option').forEach(opt => {
+          const isSel = opt.getAttribute('data-chapter') === ch;
+          opt.classList.toggle('selected', isSel);
+          const badge = opt.querySelector('.text-cyan-400');
+          if (badge) badge.remove();
+          if (isSel) {
+            const b = document.createElement('span');
+            b.className = 'text-[10px] font-mono text-cyan-400';
+            b.textContent = 'Active';
+            opt.appendChild(b);
+          }
+        });
+      }
+      document.getElementById('custom-glass-chapter')?.classList.remove('open');
+      updatePaceBenchmark();
+    };
+
+    // ─── Tactical Sprint Engine State ───────────────────────
     let selectedSubject = 'Physics';
     let selectedChapter = 'Rotational Dynamics';
     let drillActive = false;
     let drillPaused = false;
     let currentQ = 1;
-    let questionTimes = [];
-    let drillStats = { correct: 0, partial: 0, wrong: 0, skip: 0, score: 0 };
-    let drillTotalSec = 0;
+    let targetTotalQs = 15;
+    let targetDurationMins = 5;
+    let targetDurationSec = 300;
+    let targetPaceSec = 20.0;
+    let drillPattern = 'mains'; // mains (+4 / -1) or adv (+4 / -2)
     let currentLapMs = 0;
+    let drillTotalMs = 0;
     let totalTimerInterval = null;
     let lapTimerInterval = null;
+    let questionTimes = [];
+    let drillStats = { correct: 0, wrong: 0, skip: 0, score: 0 };
+    let attachedQuestionData = { text: '', image: '' };
+    let drillChartInstance = null;
 
     function switchTimerMode(mode) {
       if (mode === 'lecture') {
         document.getElementById('section-drill').classList.add('hidden');
         document.getElementById('section-lecture').classList.remove('hidden');
-        document.getElementById('tab-btn-drill').className = 'px-4 py-2 rounded-xl text-xs font-bold text-gray-400 hover:text-white transition';
-        document.getElementById('tab-btn-lecture').className = 'px-4 py-2 rounded-xl text-xs font-bold bg-indigo-600 text-white shadow-lg transition';
+        document.getElementById('tab-btn-drill').className = 'px-4 py-2 rounded-xl text-xs font-bold text-gray-400 hover:text-white transition cursor-pointer';
+        document.getElementById('tab-btn-lecture').className = 'px-4 py-2 rounded-xl text-xs font-bold bg-indigo-600 text-white shadow-lg transition cursor-pointer';
       } else {
         document.getElementById('section-lecture').classList.add('hidden');
         document.getElementById('section-drill').classList.remove('hidden');
-        document.getElementById('tab-btn-lecture').className = 'px-4 py-2 rounded-xl text-xs font-bold text-gray-400 hover:text-white transition';
-        document.getElementById('tab-btn-drill').className = 'px-4 py-2 rounded-xl text-xs font-bold bg-indigo-600 text-white shadow-lg transition';
+        document.getElementById('tab-btn-lecture').className = 'px-4 py-2 rounded-xl text-xs font-bold text-gray-400 hover:text-white transition cursor-pointer';
+        document.getElementById('tab-btn-drill').className = 'px-4 py-2 rounded-xl text-xs font-bold bg-indigo-600 text-white shadow-lg transition cursor-pointer';
       }
     }
 
-    function selectSubject(sub) {
+    function onDrillSubjectChange() {
+      const sub = document.getElementById('drill-setup-subject')?.value || 'Physics';
       selectedSubject = sub;
-      ['phy','chem','math'].forEach(s => {
-        const btn = document.getElementById(`btn-sub-${s}`);
-        const isMatch = (s === 'phy' && sub === 'Physics') || (s === 'chem' && sub === 'Chemistry') || (s === 'math' && sub === 'Maths');
-        btn.className = isMatch
-          ? (s === 'phy' ? 'p-3.5 rounded-xl border border-blue-500/40 bg-blue-950/40 text-blue-300 font-bold text-sm flex items-center justify-center gap-2 shadow' :
-             s === 'chem' ? 'p-3.5 rounded-xl border border-emerald-500/40 bg-emerald-950/40 text-emerald-300 font-bold text-sm flex items-center justify-center gap-2 shadow' :
-             'p-3.5 rounded-xl border border-amber-500/40 bg-amber-950/40 text-amber-300 font-bold text-sm flex items-center justify-center gap-2 shadow')
-          : 'p-3.5 rounded-xl border border-white/10 bg-gray-900 text-gray-400 font-semibold text-sm flex items-center justify-center gap-2 transition hover:text-white';
-      });
-      populateChapters(sub);
+      populateDrillChapters(sub);
+      updatePaceBenchmark();
     }
 
-    function populateChapters(sub) {
-      const select = document.getElementById('drill-chapter-select');
+    function populateDrillChapters(sub) {
+      const select = document.getElementById('drill-setup-chapter');
+      if (!select) return;
       select.innerHTML = '';
-      (CHAPTERS_DATA[sub] || []).forEach(ch => {
+      let chapters = (CHAPTERS_DATA[sub] || []).slice();
+      try {
+        const custom = JSON.parse(localStorage.getItem('clockee_custom_syllabus_v2') || '[]');
+        custom.filter(c => c.subject.toLowerCase() === sub.toLowerCase()).forEach(c => {
+          if (!chapters.includes(c.name)) chapters.push(c.name);
+        });
+      } catch (e) {}
+
+      chapters.forEach(ch => {
         const opt = document.createElement('option');
         opt.value = ch;
         opt.textContent = ch;
         select.appendChild(opt);
       });
-      selectedChapter = select.value;
+      selectedChapter = select.value || chapters[0] || 'Core Theory';
+
+      // Populate custom glass dropdown options
+      const customMenu = document.getElementById('custom-chapter-menu');
+      if (customMenu) {
+        customMenu.innerHTML = chapters.map(ch => `
+          <div class="custom-glass-option ${ch === selectedChapter ? 'selected' : ''}" data-chapter="${ch.replace(/"/g, '&quot;')}" onclick="selectCustomChapter('${ch.replace(/'/g, "\\'")}')">
+            <span class="truncate">${ch}</span>
+            ${ch === selectedChapter ? '<span class="text-[10px] font-mono text-cyan-400">Active</span>' : ''}
+          </div>
+        `).join('');
+      }
+      const chLabel = document.getElementById('custom-chapter-label');
+      if (chLabel) chLabel.textContent = selectedChapter;
+    }
+
+    function updatePaceBenchmark() {
+      const qsInput = document.getElementById('drill-setup-target-qs');
+      const durInput = document.getElementById('drill-setup-duration-mins');
+      let qs = parseInt(qsInput?.value || 15);
+      let mins = parseInt(durInput?.value || 5);
+      if (isNaN(qs) || qs < 1) qs = 1;
+      if (isNaN(mins) || mins < 1) mins = 1;
+      targetTotalQs = qs;
+      targetDurationMins = mins;
+      targetDurationSec = mins * 60;
+      
+      const pace = (targetDurationSec / qs);
+      targetPaceSec = parseFloat(pace.toFixed(1));
+      
+      const bQs = document.getElementById('badge-target-qs');
+      if (bQs) bQs.textContent = `${qs} Qs`;
+      const bDur = document.getElementById('badge-duration-mins');
+      if (bDur) bDur.textContent = `${mins} mins`;
+      
+      const paceDisp = document.getElementById('drill-target-pace-display');
+      if (paceDisp) paceDisp.textContent = `${targetPaceSec.toFixed(1)}s / question`;
+      
+      const label = document.getElementById('drill-pace-label');
+      if (label) {
+        if (targetPaceSec < 30) label.textContent = '(Rapid Drill / Recall Pace)';
+        else if (targetPaceSec <= 90) label.textContent = '(Mains Speed Pace)';
+        else if (targetPaceSec <= 150) label.textContent = '(Advanced Calculation Pace)';
+        else label.textContent = '(Deep Problem Solving)';
+      }
+    }
+
+    function setDrillDurationPreset(mins) {
+      const durInput = document.getElementById('drill-setup-duration-mins');
+      if (durInput) durInput.value = mins;
+      updatePaceBenchmark();
+    }
+
+    function toggleJeeDrillPattern() {
+      drillPattern = drillPattern === 'mains' ? 'adv' : 'mains';
+      const val = document.getElementById('drill-pattern-val');
+      const lblWrong = document.getElementById('label-wrong-marks');
+      if (val) val.textContent = drillPattern === 'mains' ? '+4 / -1' : '+4 / -2';
+      if (lblWrong) lblWrong.textContent = drillPattern === 'mains' ? '-1 Mark' : '-2 Marks';
+      window.showToast?.(`Pattern set to ${drillPattern === 'mains' ? 'JEE Mains (+4 / -1)' : 'JEE Advanced (+4 / -2)'}`, 'info');
     }
 
     function applyRecommendedDrill(sub, ch) {
-      selectSubject(sub);
-      const sel = document.getElementById('drill-chapter-select');
-      if (sel) sel.value = ch;
-      selectedChapter = ch;
-      startQuestionDrill();
+      selectedSubject = sub;
+      const subSelect = document.getElementById('drill-setup-subject');
+      if (subSelect) subSelect.value = sub;
+      const ico = sub === 'Physics' ? '⚛️' : sub === 'Chemistry' ? '🧪' : '📐';
+      window.selectCustomSubject(sub, ico);
+      window.selectCustomChapter(ch);
+      startSprintSession();
     }
 
-    function startQuestionDrill() {
-      selectedChapter = document.getElementById('drill-chapter-select').value;
-      const examMode = document.getElementById('drill-mode-select').value;
+    function formatMMSS(sec) {
+      const m = Math.floor(sec / 60);
+      const s = Math.floor(sec % 60);
+      return `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+    }
 
-      document.getElementById('btn-partial').classList.toggle('hidden', examMode !== 'adv');
-      document.getElementById('active-drill-info').textContent = `${selectedSubject} • ${selectedChapter} (${examMode.toUpperCase()})`;
-      document.getElementById('drill-setup-panel').classList.add('hidden');
-      document.getElementById('drill-active-panel').classList.remove('hidden');
+    function formatMMSSDec(ms) {
+      const totalSec = Math.floor(ms / 1000);
+      const m = Math.floor(totalSec / 60);
+      const s = totalSec % 60;
+      const d = Math.floor((ms % 1000) / 100);
+      return `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}.${d}`;
+    }
+
+    function startSprintSession() {
+      selectedSubject = document.getElementById('drill-setup-subject')?.value || 'Physics';
+      selectedChapter = document.getElementById('drill-setup-chapter')?.value || 'Units & Measurements';
+      updatePaceBenchmark();
 
       drillActive = true;
       drillPaused = false;
       currentQ = 1;
       questionTimes = [];
-      drillStats = { correct: 0, partial: 0, wrong: 0, skip: 0, score: 0 };
-      drillTotalSec = 0;
+      drillStats = { correct: 0, wrong: 0, skip: 0, score: 0 };
+      drillTotalMs = 0;
       currentLapMs = 0;
+      attachedQuestionData = { text: '', image: '' };
 
-      updateDrillDisplay();
-      startTimers();
+      // Initialize HUD UI
+      document.getElementById('active-drill-subject-pill').textContent = selectedSubject;
+      document.getElementById('active-drill-chapter-pill').textContent = selectedChapter;
+      document.getElementById('active-target-duration-display').textContent = `Target: ${formatMMSS(targetDurationSec)}`;
+      document.getElementById('active-rem-time-display').textContent = `${formatMMSS(targetDurationSec)} rem`;
+      document.getElementById('active-q-badge').textContent = `Q #1`;
+      document.getElementById('active-q-counter-display').textContent = `Question 1 / ${targetTotalQs}`;
+      document.getElementById('active-max-score').textContent = `${targetTotalQs * 4}`;
+      document.getElementById('active-current-score').textContent = '0';
+      document.getElementById('active-drill-pct').textContent = '0%';
+      document.getElementById('active-drill-progress-bar').style.width = '0%';
+      document.getElementById('active-total-elapsed').textContent = '00:00.0';
+      document.getElementById('active-q-lap-time').textContent = '00:00.0';
+      document.getElementById('active-q-delta-pace').textContent = '-0.0s (Faster)';
+      document.getElementById('active-q-delta-pace').className = 'font-bold text-emerald-400';
+      document.getElementById('active-pace-health-text').textContent = 'Ahead of Pace';
+      document.getElementById('active-avg-pace').textContent = '0.0s';
+      document.getElementById('active-est-finish').textContent = formatMMSS(targetDurationSec);
+
+      document.getElementById('tally-correct').textContent = '0';
+      document.getElementById('tally-incorrect').textContent = '0';
+      document.getElementById('tally-skipped').textContent = '0';
+      document.getElementById('session-question-chips').innerHTML = '<span class="text-xs text-slate-500 italic">No questions completed yet in this session.</span>';
+
+      document.getElementById('drill-setup-panel').classList.add('hidden');
+      document.getElementById('drill-summary-panel').classList.add('hidden');
+      document.getElementById('drill-active-panel').classList.remove('hidden');
+
+      startSprintTimers();
     }
 
-    function startTimers() {
+    function startSprintTimers() {
       clearInterval(totalTimerInterval);
       clearInterval(lapTimerInterval);
 
       totalTimerInterval = setInterval(() => {
         if (!drillPaused && drillActive) {
-          drillTotalSec++;
-          const h = Math.floor(drillTotalSec / 3600);
-          const m = Math.floor((drillTotalSec % 3600) / 60);
-          const s = drillTotalSec % 60;
-          document.getElementById('drill-total-timer').textContent =
-            `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+          drillTotalMs += 100;
+          document.getElementById('active-total-elapsed').textContent = formatMMSSDec(drillTotalMs);
+          
+          const elapsedSec = Math.floor(drillTotalMs / 1000);
+          const remSec = Math.max(0, targetDurationSec - elapsedSec);
+          document.getElementById('active-rem-time-display').textContent = `${formatMMSS(remSec)} rem`;
+          
+          // Estimated Finish
+          const done = questionTimes.length;
+          if (done > 0) {
+            const avgSec = (drillTotalMs / 1000) / done;
+            const estTotalSec = Math.round(targetTotalQs * avgSec);
+            document.getElementById('active-est-finish').textContent = formatMMSS(estTotalSec);
+          }
         }
-      }, 1000);
+      }, 100);
 
-      const lapStart = Date.now();
       lapTimerInterval = setInterval(() => {
         if (!drillPaused && drillActive) {
           currentLapMs += 100;
-          const totalSecs = Math.floor(currentLapMs / 1000);
-          const m = Math.floor(totalSecs / 60);
-          const s = totalSecs % 60;
-          const ds = Math.floor((currentLapMs % 1000) / 100);
-          document.getElementById('drill-lap-timer').textContent =
-            `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}.${ds}`;
+          document.getElementById('active-q-lap-time').textContent = formatMMSSDec(currentLapMs);
+
+          const lapSec = currentLapMs / 1000;
+          const delta = lapSec - targetPaceSec;
+          const deltaEl = document.getElementById('active-q-delta-pace');
+          if (deltaEl) {
+            if (delta <= 0) {
+              deltaEl.textContent = `-${Math.abs(delta).toFixed(1)}s (Faster)`;
+              deltaEl.className = 'font-bold text-emerald-400';
+            } else {
+              deltaEl.textContent = `+${delta.toFixed(1)}s (Slower)`;
+              deltaEl.className = 'font-bold text-rose-400';
+            }
+          }
         }
       }, 100);
     }
 
-    function recordDrillAction(action) {
+    function recordOutcome(action) {
       if (!drillActive || drillPaused) return;
-      const timeSpentSec = Math.round(currentLapMs / 1000);
-      questionTimes.push({ q: currentQ, time: timeSpentSec, action });
-
-      const mode = document.getElementById('drill-mode-select').value;
+      const lapSec = parseFloat((currentLapMs / 1000).toFixed(1));
+      let marks = 0;
       if (action === 'correct') {
+        marks = 4;
         drillStats.correct++;
         drillStats.score += 4;
-      } else if (action === 'partial') {
-        drillStats.partial++;
-        drillStats.score += 2;
       } else if (action === 'wrong') {
+        marks = drillPattern === 'adv' ? -2 : -1;
         drillStats.wrong++;
-        drillStats.score -= (mode === 'adv' ? 2 : 1);
-        openAutopsyModal(currentQ);
+        drillStats.score += marks;
       } else if (action === 'skip') {
+        marks = 0;
         drillStats.skip++;
       }
 
-      currentQ++;
-      currentLapMs = 0;
-      updateDrillDisplay();
-    }
+      questionTimes.push({ q: currentQ, time: lapSec, action: action, marks: marks });
 
-    function updateDrillDisplay() {
-      document.getElementById('active-q-number').textContent = `Question #${currentQ}`;
+      // Update tallies
+      document.getElementById('tally-correct').textContent = drillStats.correct;
+      document.getElementById('tally-incorrect').textContent = drillStats.wrong;
+      document.getElementById('tally-skipped').textContent = drillStats.skip;
+
+      // Update question chips
+      const chipsContainer = document.getElementById('session-question-chips');
+      if (questionTimes.length === 1 && chipsContainer) chipsContainer.innerHTML = '';
+      if (chipsContainer) {
+        const chip = document.createElement('div');
+        const colorClass = action === 'correct' ? 'bg-emerald-950/50 border-emerald-500/50 text-emerald-300' :
+                           action === 'wrong' ? 'bg-red-950/50 border-red-500/50 text-red-300' :
+                           'bg-slate-900 border-slate-700 text-slate-400';
+        chip.className = `px-2.5 py-1 rounded-xl border font-mono text-xs flex flex-col items-center justify-center min-w-[54px] shadow-sm ${colorClass}`;
+        chip.innerHTML = `<span class="font-bold">Q${currentQ} ${marks >= 0 ? '+' + marks : marks}</span><span class="text-[10px] opacity-75">${lapSec}s</span>`;
+        chipsContainer.appendChild(chip);
+      }
+
+      // Update overall progress
+      const pct = Math.min(100, Math.round((currentQ / targetTotalQs) * 100));
+      document.getElementById('active-drill-pct').textContent = `${pct}%`;
+      document.getElementById('active-drill-progress-bar').style.width = `${pct}%`;
+
+      // Update Pace Health & Projected Score
+      const totalSec = drillTotalMs / 1000;
+      const avgPace = parseFloat((totalSec / questionTimes.length).toFixed(1));
+      document.getElementById('active-avg-pace').textContent = `${avgPace}s`;
+
+      const healthTitle = document.getElementById('active-pace-health-title');
+      const healthText = document.getElementById('active-pace-health-text');
+      const healthDot = document.getElementById('active-pace-health-dot');
+      if (avgPace <= targetPaceSec) {
+        if (healthTitle) healthTitle.className = 'text-base sm:text-lg font-black text-emerald-400 flex items-center gap-1.5 pt-1';
+        if (healthDot) healthDot.className = 'w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block shadow-[0_0_8px_rgba(52,211,153,0.7)]';
+        if (healthText) healthText.textContent = 'Ahead of Pace';
+      } else {
+        if (healthTitle) healthTitle.className = 'text-base sm:text-lg font-black text-rose-400 flex items-center gap-1.5 pt-1';
+        if (healthDot) healthDot.className = 'w-2.5 h-2.5 rounded-full bg-rose-400 inline-block shadow-[0_0_8px_rgba(244,63,94,0.7)]';
+        if (healthText) healthText.textContent = 'Behind Pace';
+      }
+
+      // Projected Score
+      const completed = questionTimes.length;
+      const rem = Math.max(0, targetTotalQs - completed);
+      const accRate = completed > 0 ? (drillStats.correct / completed) : 0;
+      const projRem = Math.round(rem * accRate * 4);
+      const projectedScore = drillStats.score + projRem;
+      document.getElementById('active-current-score').textContent = drillStats.score;
+
+      // Reset Lap Clock
+      currentLapMs = 0;
+
+      // If Wrong: Immediate error logging modal prompt!
+      if (action === 'wrong') {
+        openAutopsyModal(currentQ);
+      }
+
+      // Check if finished
+      if (currentQ >= targetTotalQs) {
+        setTimeout(() => endSessionAndAnalyze(), 300);
+      } else {
+        currentQ++;
+        document.getElementById('active-q-badge').textContent = `Q #${currentQ}`;
+        document.getElementById('active-q-counter-display').textContent = `Question ${currentQ} / ${targetTotalQs}`;
+      }
     }
 
     function openAutopsyModal(qNum) {
+      document.getElementById('autopsy-modal-title').textContent = `Question #${qNum} Marked Incorrect`;
       document.getElementById('autopsy-modal').classList.remove('hidden');
       document.getElementById('autopsy-notes').value = '';
     }
+
     function closeAutopsyModal() {
       document.getElementById('autopsy-modal').classList.add('hidden');
     }
+
+    function selectAutopsyCause(cause, btn) {
+      document.getElementById('autopsy-cause').value = cause;
+      document.querySelectorAll('.autopsy-cause-pill').forEach(b => {
+        b.className = 'autopsy-cause-pill p-2 rounded-xl border border-slate-700 bg-slate-900/60 text-slate-300 font-semibold text-left hover:border-red-400 transition flex items-center gap-1.5 cursor-pointer';
+      });
+      if (btn) {
+        btn.className = 'autopsy-cause-pill p-2 rounded-xl border border-red-500 bg-red-950/40 text-red-200 font-semibold text-left transition flex items-center gap-1.5 cursor-pointer';
+      }
+    }
+
     function saveErrorAutopsy() {
       const cause = document.getElementById('autopsy-cause').value;
       const notes = document.getElementById('autopsy-notes').value;
@@ -886,19 +1540,23 @@
         chapter: selectedChapter,
         qNum: currentQ - 1,
         rootCause: cause,
-        notes: notes
+        notes: notes,
+        timestamp: Date.now()
       });
       window.saveState();
       closeAutopsyModal();
-      window.showToast('✓ Error logged into Forensic Autopsy', 'info');
+      window.showToast?.('✓ Error logged into Forensic Autopsy', 'info');
     }
 
-    function togglePauseDrill() {
+    function togglePauseSprint() {
       drillPaused = !drillPaused;
-      document.getElementById('btn-pause-drill').innerHTML = drillPaused ? '<span>▶</span> Resume [Space]' : '<span>⏸</span> Pause [Space]';
+      const btn = document.getElementById('btn-pause-sprint');
+      if (btn) {
+        btn.innerHTML = drillPaused ? '<span>▶</span><span>Resume [Space]</span>' : '<span>⏸</span><span>Pause [Space]</span>';
+      }
     }
 
-    function finishQuestionDrill() {
+    function endSessionAndAnalyze() {
       drillActive = false;
       clearInterval(totalTimerInterval);
       clearInterval(lapTimerInterval);
@@ -908,51 +1566,342 @@
 
       const totalQs = questionTimes.length;
       const acc = totalQs > 0 ? Math.round((drillStats.correct / totalQs) * 100) : 0;
-      const avgTime = totalQs > 0 ? Math.round(drillTotalSec / totalQs) : 0;
+      const totalSec = Math.floor(drillTotalMs / 1000);
+      const avgTime = totalQs > 0 ? Math.round(totalSec / totalQs) : 0;
 
+      document.getElementById('summary-chapter-badge').textContent = `${selectedSubject} • ${selectedChapter}`;
       document.getElementById('sum-qs').textContent = totalQs;
       document.getElementById('sum-accuracy').textContent = acc + '%';
       document.getElementById('sum-score').textContent = drillStats.score;
       document.getElementById('sum-speed').textContent = avgTime + 's';
 
+      // Save question log to state
       const s = window.getState();
       s.questionLogs = s.questionLogs || [];
-      s.questionLogs.push({
+      const newLog = {
+        id: 'drill_' + Date.now(),
         date: window.getTodayStr(),
         subject: selectedSubject,
         chapter: selectedChapter,
         questions: totalQs,
         correct: drillStats.correct,
+        wrong: drillStats.wrong,
+        skip: drillStats.skip,
         score: drillStats.score,
-        durationMs: drillTotalSec * 1000,
-        source: 'manual_drill',
-        timestamp: Date.now()
-      });
+        durationMs: drillTotalMs,
+        avgPaceSec: avgTime,
+        targetPaceSec: targetPaceSec,
+        source: 'tactical_sprint',
+        pattern: drillPattern,
+        timestamp: Date.now(),
+        attachedQuestions: attachedQuestionData
+      };
+      s.questionLogs.push(newLog);
+
+      if (!s.chapterStats[selectedChapter]) {
+        s.chapterStats[selectedChapter] = { solved: 0, correct: 0, hours: 0, status: 'in_progress' };
+      }
+      s.chapterStats[selectedChapter].solved += totalQs;
+      s.chapterStats[selectedChapter].correct += drillStats.correct;
+      s.chapterStats[selectedChapter].hours = parseFloat(((s.chapterStats[selectedChapter].hours || 0) + (drillTotalMs / 3600000)).toFixed(2));
+
       window.saveState();
 
+      // Render Latency Bar Chart
       const ctx = document.getElementById('drill-time-chart').getContext('2d');
-      new Chart(ctx, {
+      if (drillChartInstance) drillChartInstance.destroy();
+      drillChartInstance = new Chart(ctx, {
         type: 'bar',
         data: {
           labels: questionTimes.map(x => `Q${x.q}`),
           datasets: [{
-            label: 'Time Spent (s)',
+            label: 'Latency (s)',
             data: questionTimes.map(x => x.time),
-            backgroundColor: questionTimes.map(x => x.action === 'correct' ? '#10b981' : x.action === 'wrong' ? '#ef4444' : '#6b7280'),
+            backgroundColor: questionTimes.map(x => x.action === 'correct' ? '#10b981' : x.action === 'wrong' ? '#ef4444' : '#64748b'),
             borderRadius: 6
           }]
         },
         options: {
           responsive: true,
           maintainAspectRatio: false,
-          plugins: { legend: { display: false } },
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                label: ctx => `Latency: ${ctx.parsed.y}s (${questionTimes[ctx.dataIndex]?.action})`
+              }
+            }
+          },
           scales: {
-            y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#9ca3af' } },
-            x: { grid: { display: false }, ticks: { color: '#9ca3af' } }
+            y: { grid: { color: 'rgba(255,255,255,0.06)' }, ticks: { color: '#94a3b8' } },
+            x: { grid: { display: false }, ticks: { color: '#94a3b8' } }
           }
         }
       });
+
+      renderIncorrectSequenceUploader();
     }
+
+    // ─── Incorrect Question Sequence Uploader ────────────────
+    let incorrectQuestionUploads = {};
+    let activeIncorrectSeqIndex = 0;
+
+    function renderIncorrectSequenceUploader() {
+      const panel = document.getElementById('incorrect-seq-panel');
+      const badge = document.getElementById('incorrect-seq-count-badge');
+      const tabs = document.getElementById('incorrect-seq-tabs');
+      const editor = document.getElementById('incorrect-seq-editor');
+      if (!panel || !badge || !tabs || !editor) return;
+
+      const incorrectQs = questionTimes.filter(x => x.action === 'wrong');
+      badge.textContent = `${incorrectQs.length} Incorrect`;
+
+      if (incorrectQs.length === 0) {
+        tabs.innerHTML = '';
+        editor.innerHTML = `
+          <div class="p-4 rounded-xl bg-emerald-950/30 border border-emerald-500/20 text-center text-xs text-emerald-300 font-mono">
+            🌟 Zero Incorrect Questions! 100% Accuracy achieved on this sprint. Use the general attachment vault below if you want to save the entire DPP / problem paper.
+          </div>
+        `;
+        return;
+      }
+
+      if (activeIncorrectSeqIndex >= incorrectQs.length) {
+        activeIncorrectSeqIndex = 0;
+      }
+
+      tabs.innerHTML = incorrectQs.map((item, idx) => {
+        const isActive = idx === activeIncorrectSeqIndex;
+        const hasData = incorrectQuestionUploads[item.q] && (incorrectQuestionUploads[item.q].text || incorrectQuestionUploads[item.q].image);
+        return `
+          <button type="button" onclick="selectIncorrectSeqTab(${idx})" class="px-3 py-1 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer ${isActive ? 'bg-red-600 text-white shadow-lg shadow-red-600/30 border border-red-400' : 'bg-slate-900 text-slate-300 hover:text-white border border-slate-700'}">
+            <span>✕ Q#${item.q}</span>
+            <span class="text-[10px] opacity-80 font-mono">(${item.time}s)</span>
+            ${hasData ? '<span class="text-emerald-400 text-[10px]">✓</span>' : ''}
+          </button>
+        `;
+      }).join('');
+
+      const cur = incorrectQs[activeIncorrectSeqIndex];
+      const saved = incorrectQuestionUploads[cur.q] || { text: '', image: '' };
+
+      editor.innerHTML = `
+        <div class="p-4 rounded-xl bg-black/40 border border-red-500/20 space-y-3">
+          <div class="flex items-center justify-between flex-wrap gap-2 text-xs">
+            <span class="font-bold text-white flex items-center gap-2">
+              <span class="px-2 py-0.5 rounded bg-red-950 text-red-300 border border-red-500/40 font-mono">Sequence Step ${activeIncorrectSeqIndex + 1} of ${incorrectQs.length}</span>
+              <span>Question #${cur.q} Problem &amp; Working</span>
+            </span>
+            <span class="font-mono text-slate-400">Attempt Latency: <strong class="text-cyan-300">${cur.time}s</strong></span>
+          </div>
+
+          <div>
+            <label class="text-[11px] font-bold text-slate-300 block mb-1">Problem Statement / Formula Trap</label>
+            <textarea id="inc-q-text" rows="3" placeholder="Type or paste Question #${cur.q} text, options, or why the calculation failed..." class="w-full bg-[#0c0f1d] border border-slate-700 text-white rounded-xl p-3 text-xs outline-none focus:border-red-400 font-mono">${saved.text || ''}</textarea>
+          </div>
+
+          <div>
+            <label class="text-[11px] font-bold text-slate-300 block mb-1">Question Screenshot / Solution Snapshot</label>
+            <div onclick="document.getElementById('inc-q-file').click()" class="p-4 border-2 border-dashed border-slate-700 hover:border-red-400 rounded-xl bg-slate-900/40 text-center cursor-pointer transition">
+              <input type="file" id="inc-q-file" accept="image/*" class="hidden" onchange="handleIncorrectSeqImageUpload(event, ${cur.q})">
+              <div class="text-xs font-semibold text-slate-200">📸 Click to upload screenshot for Q#${cur.q} (or press Ctrl+V to paste)</div>
+              <div class="text-[10px] text-slate-500 font-mono mt-0.5">PNG, JPG, WEBP</div>
+            </div>
+
+            <div id="inc-img-preview-box" class="${saved.image ? '' : 'hidden'} mt-2 relative max-h-48 overflow-hidden rounded-xl border border-red-500/30 bg-black text-center p-2">
+              <img id="inc-img-preview" src="${saved.image || ''}" class="max-h-44 mx-auto rounded object-contain" alt="Q${cur.q} Screenshot">
+              <button type="button" onclick="removeIncorrectSeqImage(${cur.q})" class="absolute top-2 right-2 px-2 py-0.5 rounded bg-red-600 text-white text-[10px] font-bold">✕ Remove</button>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between pt-2 border-t border-white/5 flex-wrap gap-2">
+            <span class="text-[11px] text-slate-400 font-mono" id="inc-save-status">
+              ${saved.text || saved.image ? '✓ Saved in memory for Q#' + cur.q : 'Pending upload'}
+            </span>
+            <div class="flex gap-2">
+              <button type="button" onclick="saveIncorrectSeqQuestion(${cur.q})" class="px-4 py-2 bg-red-600 hover:bg-red-500 text-white font-bold text-xs rounded-xl shadow-lg shadow-red-600/30 transition cursor-pointer">
+                💾 Save Q#${cur.q} to Mistake Vault
+              </button>
+              ${activeIncorrectSeqIndex < incorrectQs.length - 1 ? `
+                <button type="button" onclick="selectIncorrectSeqTab(${activeIncorrectSeqIndex + 1})" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs rounded-xl transition cursor-pointer">
+                  Next Q →
+                </button>
+              ` : ''}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function selectIncorrectSeqTab(idx) {
+      // Auto save current text before switching
+      const incorrectQs = questionTimes.filter(x => x.action === 'wrong');
+      if (incorrectQs[activeIncorrectSeqIndex]) {
+        const curQ = incorrectQs[activeIncorrectSeqIndex].q;
+        const curText = document.getElementById('inc-q-text')?.value;
+        if (curText !== undefined) {
+          incorrectQuestionUploads[curQ] = incorrectQuestionUploads[curQ] || {};
+          incorrectQuestionUploads[curQ].text = curText;
+        }
+      }
+      activeIncorrectSeqIndex = idx;
+      renderIncorrectSequenceUploader();
+    }
+
+    function handleIncorrectSeqImageUpload(e, qNum) {
+      const file = e.target.files && e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        incorrectQuestionUploads[qNum] = incorrectQuestionUploads[qNum] || {};
+        incorrectQuestionUploads[qNum].image = evt.target.result;
+        renderIncorrectSequenceUploader();
+        window.showToast?.(`📸 Attached screenshot for Q#${qNum}!`, 'info');
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function removeIncorrectSeqImage(qNum) {
+      if (incorrectQuestionUploads[qNum]) {
+        incorrectQuestionUploads[qNum].image = '';
+      }
+      renderIncorrectSequenceUploader();
+    }
+
+    function saveIncorrectSeqQuestion(qNum) {
+      const text = document.getElementById('inc-q-text')?.value || '';
+      incorrectQuestionUploads[qNum] = incorrectQuestionUploads[qNum] || {};
+      incorrectQuestionUploads[qNum].text = text;
+
+      const s = window.getState();
+      s.errors = s.errors || [];
+      // Find corresponding error in s.errors
+      const err = s.errors.find(e => e.qNum === qNum && e.chapter === selectedChapter);
+      if (err) {
+        err.questionText = text;
+        err.screenshot = incorrectQuestionUploads[qNum].image || '';
+      } else {
+        s.errors.push({
+          id: 'err_' + Date.now(),
+          date: window.getTodayStr(),
+          subject: selectedSubject,
+          chapter: selectedChapter,
+          qNum: qNum,
+          rootCause: 'Incorrect Sequence Attempt',
+          questionText: text,
+          screenshot: incorrectQuestionUploads[qNum].image || '',
+          timestamp: Date.now()
+        });
+      }
+
+      if (s.questionLogs && s.questionLogs.length > 0) {
+        const lastLog = s.questionLogs[s.questionLogs.length - 1];
+        lastLog.incorrectQuestionUploads = incorrectQuestionUploads;
+      }
+      window.saveState();
+
+      const statusEl = document.getElementById('inc-save-status');
+      if (statusEl) statusEl.textContent = `✓ Q#${qNum} saved to Mistake Vault!`;
+      window.showToast?.(`✓ Q#${qNum} successfully saved to Mistake Vault!`, 'success');
+    }
+
+    // ─── Question Paper Attachment (Text & Screenshot) ───────
+    function switchAttachTab(tab) {
+      const textTab = document.getElementById('attach-tab-text');
+      const imgTab = document.getElementById('attach-tab-image');
+      const btnText = document.getElementById('btn-attach-text');
+      const btnImg = document.getElementById('btn-attach-image');
+
+      if (tab === 'text') {
+        textTab.classList.remove('hidden');
+        imgTab.classList.add('hidden');
+        btnText.className = 'px-3 py-1 rounded-lg text-xs font-bold bg-cyan-600 text-white transition cursor-pointer';
+        btnImg.className = 'px-3 py-1 rounded-lg text-xs font-bold text-slate-400 hover:text-white transition cursor-pointer';
+      } else {
+        textTab.classList.add('hidden');
+        imgTab.classList.remove('hidden');
+        btnImg.className = 'px-3 py-1 rounded-lg text-xs font-bold bg-cyan-600 text-white transition cursor-pointer';
+        btnText.className = 'px-3 py-1 rounded-lg text-xs font-bold text-slate-400 hover:text-white transition cursor-pointer';
+      }
+    }
+
+    function handleQuestionScreenshotUpload(e) {
+      const file = e.target.files && e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        setAttachedImage(evt.target.result);
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function setAttachedImage(dataUrl) {
+      attachedQuestionData.image = dataUrl;
+      const preview = document.getElementById('attach-image-preview');
+      const box = document.getElementById('attach-image-preview-box');
+      if (preview && box) {
+        preview.src = dataUrl;
+        box.classList.remove('hidden');
+      }
+      switchAttachTab('image');
+      const statusEl = document.getElementById('attach-save-status');
+      if (statusEl) statusEl.textContent = '📸 Screenshot attached & ready to save';
+    }
+
+    function removeAttachedImage() {
+      attachedQuestionData.image = '';
+      const box = document.getElementById('attach-image-preview-box');
+      if (box) box.classList.add('hidden');
+      const fileInput = document.getElementById('attach-file-input');
+      if (fileInput) fileInput.value = '';
+    }
+
+    function saveSessionQuestions() {
+      const text = document.getElementById('attach-text-content')?.value || '';
+      attachedQuestionData.text = text;
+      
+      const s = window.getState();
+      if (s.questionLogs && s.questionLogs.length > 0) {
+        const lastLog = s.questionLogs[s.questionLogs.length - 1];
+        lastLog.attachedQuestions = {
+          text: text,
+          image: attachedQuestionData.image || ''
+        };
+        window.saveState();
+        const statusEl = document.getElementById('attach-save-status');
+        if (statusEl) statusEl.textContent = '✓ Questions committed to session record!';
+        window.showToast?.('✓ Attempted questions saved to session archive!', 'success');
+      }
+    }
+
+    // Clipboard paste anywhere in summary panel
+    window.addEventListener('paste', function(e) {
+      const summaryPanel = document.getElementById('drill-summary-panel');
+      if (!summaryPanel || summaryPanel.classList.contains('hidden')) return;
+      const items = e.clipboardData?.items;
+      if (!items) return;
+      for (let i = 0; i < items.length; i++) {
+        if (items[i].type.indexOf('image') !== -1) {
+          const blob = items[i].getAsFile();
+          const reader = new FileReader();
+          reader.onload = function(evt) {
+            const incorrectQs = questionTimes.filter(x => x.action === 'wrong');
+            if (incorrectQs.length > 0 && incorrectQs[activeIncorrectSeqIndex]) {
+              const curQ = incorrectQs[activeIncorrectSeqIndex].q;
+              incorrectQuestionUploads[curQ] = incorrectQuestionUploads[curQ] || {};
+              incorrectQuestionUploads[curQ].image = evt.target.result;
+              renderIncorrectSequenceUploader();
+              window.showToast?.(`📸 Screenshot pasted for Incorrect Q#${curQ}!`, 'success');
+            } else {
+              setAttachedImage(evt.target.result);
+              window.showToast?.('📸 Screenshot captured from clipboard!', 'success');
+            }
+          };
+          reader.readAsDataURL(blob);
+          break;
+        }
+      }
+    });
 
     function resetDrillSetup() {
       document.getElementById('drill-summary-panel').classList.add('hidden');
@@ -962,11 +1911,10 @@
     document.addEventListener('keydown', function(e) {
       if (!drillActive || drillPaused) return;
       if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-      if (e.key === 'c' || e.key === 'C') recordDrillAction('correct');
-      if (e.key === 'p' || e.key === 'P') recordDrillAction('partial');
-      if (e.key === 'x' || e.key === 'X') recordDrillAction('wrong');
-      if (e.key === 's' || e.key === 'S') recordDrillAction('skip');
-      if (e.key === ' ') { e.preventDefault(); togglePauseDrill(); }
+      if (e.key === 'c' || e.key === 'C') recordOutcome('correct');
+      if (e.key === 'x' || e.key === 'X') recordOutcome('wrong');
+      if (e.key === 's' || e.key === 'S') recordOutcome('skip');
+      if (e.key === ' ') { e.preventDefault(); togglePauseSprint(); }
     });
 
     // ─── Precision Lecture Focus Timer Logic ─────────────────
@@ -1114,6 +2062,23 @@
       renderLectureDisplay();
     }
 
+    function setLecturePreset(mins, label) {
+      if (lecActive) {
+        if (!confirm('A focus timer is actively running. Reset and apply ' + label + '?')) return;
+        clearInterval(lecInterval);
+        lecActive = false;
+        const btn = document.getElementById('btn-lec-start');
+        if (btn) {
+          btn.innerHTML = '▶ Start Focus Block';
+          btn.className = 'px-7 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold transition shadow-lg';
+        }
+      }
+      lecSec = mins * 60;
+      lecElapsedSec = 0;
+      renderLectureDisplay();
+      if (window.showToast) window.showToast(`⏱ Set timer to ${label}`, 'info');
+    }
+
     function setLectureMode(m) {
       lecMode = m;
       document.getElementById('lec-mode-down').className = m === 'down' ? 'px-2.5 py-1 rounded-md bg-indigo-600 text-white font-bold text-[11px]' : 'px-2.5 py-1 rounded-md bg-gray-800 text-gray-400 font-bold text-[11px]';
@@ -1209,7 +2174,8 @@
     }
 
     document.addEventListener('DOMContentLoaded', function() {
-      populateChapters('Physics');
+      populateDrillChapters('Physics');
+      updatePaceBenchmark();
       populateLectureChapters('Physics');
       renderLectureDisplay();
       const p = new URLSearchParams(window.location.search);

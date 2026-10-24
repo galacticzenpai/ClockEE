@@ -106,17 +106,17 @@
       left: 0;
       margin-top: 6px;
       min-width: 215px;
-      background: rgba(13, 17, 26, 0.96);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 12px;
+      background: rgba(10, 14, 28, 0.72);
+      border: 1px solid rgba(0, 240, 255, 0.45);
+      border-radius: 14px;
       padding: 6px;
       display: none;
       flex-direction: column;
       gap: 2px;
       z-index: 100;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.85), 0 0 15px rgba(99,102,241,0.2);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.85), 0 0 20px rgba(0, 240, 255, 0.22), inset 0 0 12px rgba(0, 240, 255, 0.05);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
     }
     .nav-dropdown:hover .nav-dropdown-menu { display: flex; }
     .nav-dropdown-item {
@@ -365,7 +365,7 @@
         </div>
         <div class="bg-black/40 p-4 rounded-xl border border-white/5 text-center">
           <div class="text-xs text-gray-400 font-semibold">Tasks Completed</div>
-          <div class="text-3xl font-extrabold font-mono text-indigo-400 mt-1" id="digest-tasks">0 / 0</div>
+          <div class="text-3xl font-extrabold font-mono text-indigo-400 mt-1" id="digest-tasks">0</div>
         </div>
       </div>
 
@@ -546,10 +546,10 @@
       const acc = totalSolved > 0 ? Math.round((totalCorrect / totalSolved) * 100) : 0;
       document.getElementById('digest-accuracy').textContent = acc + '%';
 
-      // Tasks
+      // Tasks (Count of completed tasks, not a limit quota)
       const todayTasks = (s.tasks || []).filter(t => (t.dueDate || '').slice(0, 10) === today);
       const doneTasks = todayTasks.filter(t => t.completed).length;
-      document.getElementById('digest-tasks').textContent = `${doneTasks} / ${todayTasks.length}`;
+      document.getElementById('digest-tasks').textContent = String(doneTasks);
       renderTodayCharts();
 
       // Timeline

@@ -101,17 +101,17 @@
       left: 0;
       margin-top: 6px;
       min-width: 215px;
-      background: rgba(13, 17, 26, 0.96);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 12px;
+      background: rgba(10, 14, 28, 0.72);
+      border: 1px solid rgba(0, 240, 255, 0.45);
+      border-radius: 14px;
       padding: 6px;
       display: none;
       flex-direction: column;
       gap: 2px;
       z-index: 100;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.85), 0 0 15px rgba(99,102,241,0.2);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.85), 0 0 20px rgba(0, 240, 255, 0.22), inset 0 0 12px rgba(0, 240, 255, 0.05);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
     }
     .nav-dropdown:hover .nav-dropdown-menu { display: flex; }
     .nav-dropdown-item {
@@ -345,6 +345,10 @@
       <!-- Sync TickTick Button -->
       <button onclick="syncTickTickTasks()" class="px-3.5 py-2 bg-cyan-600/20 hover:bg-cyan-600/40 text-cyan-300 border border-cyan-500/30 font-bold rounded-xl text-xs transition flex items-center gap-1.5 shadow">
         <span>🔄</span> Sync TickTick
+      </button>
+      <!-- Export ICS Button -->
+      <button onclick="exportTasksICS()" class="px-3.5 py-2 bg-emerald-600/20 hover:bg-emerald-600/40 text-emerald-300 border border-emerald-500/30 font-bold rounded-xl text-xs transition flex items-center gap-1.5 shadow">
+        <span>📥</span> Export ICS
       </button>
       <!-- Add Task Button -->
       <button onclick="openAddTaskModal()" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-xl text-xs transition flex items-center gap-1.5 shadow-lg shadow-indigo-600/30">
@@ -1118,10 +1122,34 @@
         const done = (s.tasks || []).filter(t => t.completed).length;
         log(`Queue Status: ${pending} pending, ${done} completed.`, 'text-cyan-300');
       } else if (action === 'add') {
-        const title = cmd.slice(4).trim();
+        const rest = cmd.slice(4).trim();
+        let title = rest;
         let sub = 'Physics';
-        if (title.toLowerCase().includes('chem')) sub = 'Chemistry';
-        else if (title.toLowerCase().includes('math')) sub = 'Maths';
+
+        // Match: "Title in quotes" Subject
+        const quoteMatch = rest.match(/^["']([^"']+)["']\s*(.*)$/);
+        if (quoteMatch) {
+          title = quoteMatch[1].trim();
+          const trailingSub = quoteMatch[2].trim();
+          if (/chem/i.test(trailingSub)) sub = 'Chemistry';
+          else if (/math/i.test(trailingSub)) sub = 'Maths';
+          else if (/phy/i.test(trailingSub)) sub = 'Physics';
+          else if (/gen/i.test(trailingSub)) sub = 'General';
+          else if (/chem/i.test(title)) sub = 'Chemistry';
+          else if (/math/i.test(title)) sub = 'Maths';
+        } else {
+          const parts = rest.split(/\s+/);
+          const lastPart = parts[parts.length - 1];
+          if (/^(physics|chemistry|maths|general)$/i.test(lastPart)) {
+            sub = lastPart.charAt(0).toUpperCase() + lastPart.slice(1).toLowerCase();
+            parts.pop();
+            title = parts.join(' ');
+          } else {
+            if (/chem/i.test(title)) sub = 'Chemistry';
+            else if (/math/i.test(title)) sub = 'Maths';
+          }
+        }
+
         const s = window.getState();
         s.tasks = s.tasks || [];
         s.tasks.push({
@@ -1139,7 +1167,7 @@
         });
         window.saveState();
         renderKanban();
-        log(`✓ Task added: ${title} [${sub}]`, 'text-emerald-400');
+        log(`✓ Task added: "${title}" [${sub}]`, 'text-emerald-400 font-bold');
       } else {
         log(`Unknown command: ${action}. Type "help" for syntax.`, 'text-yellow-400');
       }
@@ -1148,6 +1176,57 @@
     function clearTerminalLogs() {
       document.getElementById('terminal-output').innerHTML = '<div class="text-gray-500">$ console cleared.</div>';
     }
+
+    window.exportTasksICS = function() {
+      const s = window.getState();
+      const tasks = s.tasks || [];
+      if (tasks.length === 0) {
+        window.showToast("No tasks available to export", "info");
+        return;
+      }
+
+      let icsContent = [
+        "BEGIN:VCALENDAR",
+        "VERSION:2.0",
+        "PRODID:-//ClockEE//JEE Study Planner//EN",
+        "CALSCALE:GREGORIAN",
+        "METHOD:PUBLISH"
+      ];
+
+      tasks.forEach(t => {
+        const nowStr = new Date().toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
+        const dueStr = (t.dueDate ? t.dueDate.replace(/-/g, "") : nowStr.slice(0, 8)) + "T090000Z";
+        const uid = (t.id || ("task_" + Math.random().toString(36).slice(2))) + "@clockee.app";
+        const summary = t.title ? t.title.replace(/[,;]/g, " ") : "JEE Study Task";
+        const desc = `Subject: ${t.subject || "JEE"} | Priority: ${t.priority || "Medium"} | Status: ${t.status || "todo"} | Tags: ${(t.tags || []).join(" ")}`;
+
+        icsContent.push(
+          "BEGIN:VEVENT",
+          `UID:${uid}`,
+          `DTSTAMP:${nowStr}`,
+          `DTSTART:${dueStr}`,
+          `DTEND:${dueStr}`,
+          `SUMMARY:${summary}`,
+          `DESCRIPTION:${desc}`,
+          `STATUS:${t.completed ? "COMPLETED" : "CONFIRMED"}`,
+          `PRIORITY:${t.priority === "high" ? "1" : t.priority === "low" ? "9" : "5"}`,
+          "END:VEVENT"
+        );
+      });
+
+      icsContent.push("END:VCALENDAR");
+
+      const blob = new Blob([icsContent.join("\r\n")], { type: "text/calendar;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `ClockEE_Tasks_${window.getTodayStr ? window.getTodayStr() : new Date().toISOString().slice(0, 10)}.ics`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      window.showToast("✓ Exported tasks as .ics calendar file!", "success");
+    };
 
     document.addEventListener('DOMContentLoaded', renderKanban);
     window.addEventListener('stateChange', renderKanban);

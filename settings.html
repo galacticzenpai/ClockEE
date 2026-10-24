@@ -495,8 +495,23 @@
         </div>
       </div>
       <div>
-        <label class="text-[10px] text-gray-400 uppercase font-bold block mb-1">Theme Accent</label>
-        <input type="color" id="settings-accent" value="#6366f1" class="w-12 h-9 bg-transparent cursor-pointer rounded-lg border border-gray-700 p-0.5">
+        <label class="text-[10px] text-gray-300 uppercase font-bold block mb-1.5 flex items-center justify-between">
+          <span>Theme Accent Color</span>
+          <span class="text-[10px] text-cyan-400 font-mono font-semibold" id="active-accent-label">#6366f1</span>
+        </label>
+        <div class="flex items-center gap-2 flex-wrap">
+          <input type="color" id="settings-accent" value="#6366f1" oninput="setThemeAccent(this.value)" class="w-10 h-8 bg-transparent cursor-pointer rounded-lg border border-gray-700 p-0.5" title="Custom Color Picker">
+          <div class="flex items-center gap-1.5 flex-wrap">
+            <button type="button" onclick="setThemeAccent('#00f0ff')" class="w-6 h-6 rounded-full bg-[#00f0ff] border-2 border-white/20 hover:scale-110 transition shadow-[0_0_8px_rgba(0,240,255,0.6)] cursor-pointer" title="Cyber Cyan"></button>
+            <button type="button" onclick="setThemeAccent('#6366f1')" class="w-6 h-6 rounded-full bg-[#6366f1] border-2 border-white/20 hover:scale-110 transition shadow-[0_0_8px_rgba(99,102,241,0.6)] cursor-pointer" title="Indigo Laser"></button>
+            <button type="button" onclick="setThemeAccent('#a855f7')" class="w-6 h-6 rounded-full bg-[#a855f7] border-2 border-white/20 hover:scale-110 transition shadow-[0_0_8px_rgba(168,85,247,0.6)] cursor-pointer" title="Deep Violet"></button>
+            <button type="button" onclick="setThemeAccent('#10b981')" class="w-6 h-6 rounded-full bg-[#10b981] border-2 border-white/20 hover:scale-110 transition shadow-[0_0_8px_rgba(16,185,129,0.6)] cursor-pointer" title="Matrix Emerald"></button>
+            <button type="button" onclick="setThemeAccent('#f59e0b')" class="w-6 h-6 rounded-full bg-[#f59e0b] border-2 border-white/20 hover:scale-110 transition shadow-[0_0_8px_rgba(245,158,11,0.6)] cursor-pointer" title="Quantum Gold"></button>
+            <button type="button" onclick="setThemeAccent('#f43f5e')" class="w-6 h-6 rounded-full bg-[#f43f5e] border-2 border-white/20 hover:scale-110 transition shadow-[0_0_8px_rgba(244,63,94,0.6)] cursor-pointer" title="Crimson Nova"></button>
+            <button type="button" onclick="setThemeAccent('#38bdf8')" class="w-6 h-6 rounded-full bg-[#38bdf8] border-2 border-white/20 hover:scale-110 transition shadow-[0_0_8px_rgba(56,189,248,0.6)] cursor-pointer" title="Ice Blue"></button>
+            <button type="button" onclick="setThemeAccent('#84cc16')" class="w-6 h-6 rounded-full bg-[#84cc16] border-2 border-white/20 hover:scale-110 transition shadow-[0_0_8px_rgba(132,204,22,0.6)] cursor-pointer" title="Neon Lime"></button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -522,6 +537,10 @@
           <option value="deep_violet">Deep Space Violet &amp; Magenta</option>
           <option value="emerald_matrix">Emerald Matrix &amp; Electric Teal</option>
           <option value="crimson_nova">Crimson Nova &amp; Sunset Amber</option>
+          <option value="midnight_aurora">Midnight Arctic Aurora &amp; Ice Blue</option>
+          <option value="cyber_gold">Quantum Gold &amp; Amber Circuit</option>
+          <option value="synthwave_sunset">80s Synthwave Sunset &amp; Electric Rose</option>
+          <option value="deep_void">Stealth Obsidian &amp; Steel Blue</option>
         </select>
       </div>
       <div>
@@ -736,6 +755,23 @@
     }
   };
 
+  
+  window.setThemeAccent = function(color) {
+    const picker = document.getElementById('settings-accent');
+    if (picker) picker.value = color;
+    const lbl = document.getElementById('active-accent-label');
+    if (lbl) lbl.textContent = color;
+    
+    // Apply immediately to :root & dynamic stylesheet
+    if (window.applyAccentColor) window.applyAccentColor(color);
+    
+    const s = window.getState();
+    s.profile = s.profile || {};
+    s.profile.accent = color;
+    window.saveState();
+    window.showToast?.(`Applied accent ${color} globally! 🎨`, 'info');
+  };
+
   window.onAuraSettingChange = function() {
     const toggleEl = document.getElementById('setting-aura-toggle');
     const dynamicAura = toggleEl ? toggleEl.checked : true;
@@ -837,7 +873,7 @@
     }
     window.showToast('Pinging Gemini 2.0 Flash API...', 'info');
     try {
-      const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent?key=${key}`, {
+      const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${key}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ contents: [{ parts: [{ text: 'Ping test' }] }] })

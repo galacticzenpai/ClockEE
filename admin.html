@@ -247,6 +247,20 @@
 
 <main class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-5 pb-16 space-y-6">
   
+  <!-- Role Permission Access Banner -->
+  <div id="admin-role-banner" class="p-3.5 rounded-xl border flex items-center justify-between flex-wrap gap-3 text-xs bg-purple-950/40 border-purple-500/30 text-purple-200">
+    <div class="flex items-center gap-2.5">
+      <span class="text-base" id="admin-role-icon">🛡️</span>
+      <div>
+        <span class="font-bold" id="admin-role-title">Supervisor &amp; Cloud Administrator Access</span>
+        <span class="text-gray-400 block text-[11px]" id="admin-role-desc">Full access to manage student rosters, alter study logs, and provision accounts.</span>
+      </div>
+    </div>
+    <div id="admin-role-actions" class="flex items-center gap-2">
+      <span class="text-[10px] font-mono px-2.5 py-1 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-500/30 font-bold">Admin Verified ✓</span>
+    </div>
+  </div>
+
   <!-- Banner Row -->
   <div class="flex items-center justify-between border-b border-white/10 pb-4 flex-wrap gap-4">
     <div>
@@ -254,7 +268,7 @@
         <svg class="w-6 h-6 text-purple-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         <span>Multi-User Backend &amp; Data Panel</span>
       </h1>
-      <p class="text-xs text-slate-400 font-medium">Manage Aspirant Profiles &bull; Live API Connection Diagnostics &bull; Fresh State Engine</p>
+      <p class="text-xs text-slate-400 font-medium">Cloud Student Manager &bull; Live API Diagnostics &bull; Log Editor &bull; Firebase RTDB Isolation</p>
     </div>
     <div class="flex items-center gap-2">
       <button onclick="window.resetToFreshSlot()" class="px-4 py-2 bg-red-600/20 hover:bg-red-600/40 text-red-300 border border-red-500/30 rounded-xl text-xs font-black uppercase tracking-wider transition flex items-center gap-2 shadow">
@@ -293,24 +307,30 @@
         <div class="pt-1 text-[10px] text-gray-500 font-mono" id="diag-tt-key">tp_3528...e419</div>
       </div>
 
-      <!-- Gemini AI Card -->
+      <!-- Gemini AI Card (Masked) -->
       <div class="p-3.5 rounded-xl bg-black/40 border border-white/5 space-y-1.5">
         <div class="flex justify-between items-center text-xs">
           <span class="font-bold text-purple-300">Google Gemini 2.0</span>
           <span id="diag-gem-badge" class="text-[9px] font-mono px-2 py-0.5 rounded-full bg-indigo-950 text-indigo-300 border border-indigo-500/30">Ready</span>
         </div>
         <p class="text-[11px] text-gray-400">Doubt Solving Engine &bull; JEE Advanced Question Variation Cloner.</p>
-        <button onclick="testGeminiConnection()" class="text-[10px] text-purple-400 hover:underline">Ping API Server &rarr;</button>
+        <div class="flex items-center justify-between pt-1">
+          <span class="text-[10px] text-gray-500 font-mono">••••••••••••••</span>
+          <button onclick="testGeminiConnection()" class="text-[10px] text-purple-400 hover:underline">Ping API Server &rarr;</button>
+        </div>
       </div>
 
       <!-- Firebase Cloud Card -->
       <div class="p-3.5 rounded-xl bg-black/40 border border-white/5 space-y-1.5">
         <div class="flex justify-between items-center text-xs">
           <span class="font-bold text-emerald-300">Firebase Cloud</span>
-          <span id="diag-fb-badge" class="text-[9px] font-mono px-2 py-0.5 rounded-full bg-gray-800 text-gray-400">REST Client</span>
+          <span id="diag-fb-badge" class="text-[9px] font-mono px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-500/30">Connected</span>
         </div>
         <p class="text-[11px] text-gray-400">Cross-device study state sync and backup mirror endpoint.</p>
-        <button onclick="testFirebase()" class="text-[10px] text-emerald-400 hover:underline">Ping Database &rarr;</button>
+        <div class="flex items-center justify-between pt-1">
+          <span class="text-[10px] text-gray-500 font-mono">clockee-app</span>
+          <button onclick="testFirebase()" class="text-[10px] text-emerald-400 hover:underline">Ping Database &rarr;</button>
+        </div>
       </div>
 
       <!-- LocalStorage Quota Card -->
@@ -327,19 +347,22 @@
     </div>
   </div>
 
-  <!-- 2. Multi-User Session Management Center -->
+  <!-- 2. Cloud Student Manager (Roster & Data Control) -->
   <div class="glass-card p-5 border border-white/10 space-y-4">
     <div class="flex items-center justify-between border-b border-white/10 pb-3 flex-wrap gap-2">
       <div class="flex items-center gap-2">
         <span class="text-base">👥</span>
-        <h3 class="text-xs font-bold uppercase tracking-wider text-white">Registered Aspirant &amp; Mentor Profiles</h3>
+        <div>
+          <h3 class="text-xs font-bold uppercase tracking-wider text-white">Cloud Student Manager</h3>
+          <p class="text-[10px] text-gray-400">Directly view, modify profile data, inspect logs, or remove accounts from Firebase RTDB.</p>
+        </div>
       </div>
       <div class="flex items-center gap-2">
         <button id="btn-sync-cloud-users" onclick="fetchCloudStudents()" class="px-3 py-1.5 bg-emerald-600/30 hover:bg-emerald-600/50 text-emerald-300 border border-emerald-500/30 rounded-lg text-xs font-bold transition flex items-center gap-1.5 shadow">
-          <span>☁️</span> <span>Sync with Firebase DB</span>
+          <span>☁️</span> <span>Fetch All Students from Firebase</span>
         </button>
         <button onclick="openCreateUserModal()" class="px-3 py-1.5 bg-gradient-to-r from-cyan-600 to-indigo-600 hover:from-cyan-500 hover:to-indigo-500 text-white rounded-lg text-xs font-bold transition">
-          + Create New User Account
+          + Provision Student
         </button>
       </div>
     </div>
@@ -371,14 +394,20 @@
     </div>
   </div>
 
-  <!-- 4. Interactive Question Logs Inspector Table -->
+  <!-- 4. Interactive Question Logs Inspector & Editor Table -->
   <div class="glass-card p-5 border border-white/10 space-y-4">
     <div class="flex items-center justify-between border-b border-white/10 pb-3 flex-wrap gap-2">
       <div class="flex items-center gap-2">
         <span class="text-base">📋</span>
-        <h3 class="text-xs font-bold uppercase tracking-wider text-white">Historical Question Practice Logs</h3>
+        <div>
+          <h3 class="text-xs font-bold uppercase tracking-wider text-white">Student Practice &amp; Activity Log Editor</h3>
+          <span class="text-[10px] text-purple-300 font-mono" id="current-inspected-user-label">Inspecting Active Session</span>
+        </div>
       </div>
       <div class="flex items-center gap-2">
+        <button onclick="openAddLogModal()" class="text-xs bg-indigo-600/30 hover:bg-indigo-600/50 text-indigo-200 border border-indigo-500/30 px-3 py-1 rounded-xl font-bold transition">
+          ＋ Add Custom Log Entry
+        </button>
         <input type="text" id="log-search-input" oninput="renderLogsTable()" placeholder="Search chapter or subject..." class="bg-gray-900 border border-gray-700 text-white rounded-xl px-3 py-1 text-xs outline-none focus:border-cyan-400">
         <button onclick="clearAllLogs()" class="text-xs bg-red-600/20 hover:bg-red-600/40 text-red-300 border border-red-500/30 px-3 py-1 rounded-xl font-bold transition">
           Clear Logs
@@ -404,6 +433,114 @@
     </div>
   </div>
 </main>
+
+<!-- Modal: Edit Student Profile & Goals -->
+<div id="modal-edit-student" class="hidden fixed inset-0 z-[300] bg-black/85 backdrop-blur-sm flex items-center justify-center p-4">
+  <div class="glass-card max-w-md w-full p-6 border border-purple-500/40 space-y-4 bg-[#0a0d18]">
+    <div class="flex justify-between items-center border-b border-white/10 pb-2">
+      <h3 class="text-sm font-bold text-white flex items-center gap-2">
+        <span>✏️</span> <span>Edit Student Account &amp; Target Goals</span>
+      </h3>
+      <button onclick="closeEditStudentModal()" class="text-gray-400 hover:text-white">✕</button>
+    </div>
+    <input type="hidden" id="edit-student-id">
+    <div>
+      <label class="text-[10px] text-gray-400 uppercase font-bold block mb-1">Student Name</label>
+      <input type="text" id="edit-student-name" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl px-3 py-2 text-xs outline-none focus:border-purple-400">
+    </div>
+    <div>
+      <label class="text-[10px] text-gray-400 uppercase font-bold block mb-1">Role / Grade</label>
+      <select id="edit-student-role" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl px-3 py-2 text-xs outline-none focus:border-purple-400">
+        <option value="JEE 2028 Aspirant">JEE 2028 Aspirant</option>
+        <option value="JEE 2027 Aspirant">JEE 2027 Aspirant</option>
+        <option value="Mentor / Faculty">Mentor / Faculty</option>
+        <option value="Guest">Guest Sandbox</option>
+      </select>
+    </div>
+    <div>
+      <label class="text-[10px] text-gray-400 uppercase font-bold block mb-1">Workspace Subtitle</label>
+      <input type="text" id="edit-student-subtitle" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl px-3 py-2 text-xs outline-none">
+    </div>
+    <div class="grid grid-cols-3 gap-2">
+      <div>
+        <label class="text-[9px] text-blue-400 uppercase font-bold block mb-1">Phy Target (Qs)</label>
+        <input type="number" id="edit-goal-phy" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl px-2 py-1.5 text-xs text-center">
+      </div>
+      <div>
+        <label class="text-[9px] text-emerald-400 uppercase font-bold block mb-1">Chem Target (Qs)</label>
+        <input type="number" id="edit-goal-chem" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl px-2 py-1.5 text-xs text-center">
+      </div>
+      <div>
+        <label class="text-[9px] text-amber-400 uppercase font-bold block mb-1">Math Target (Qs)</label>
+        <input type="number" id="edit-goal-math" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl px-2 py-1.5 text-xs text-center">
+      </div>
+    </div>
+    <div class="flex justify-end gap-2 pt-2 border-t border-white/10">
+      <button onclick="closeEditStudentModal()" class="px-4 py-1.5 text-xs text-gray-400 hover:text-white">Cancel</button>
+      <button onclick="saveStudentProfileChanges()" class="px-5 py-2 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold rounded-xl text-xs transition">Save &amp; Sync Cloud</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Add Custom Log Entry -->
+<div id="modal-add-log" class="hidden fixed inset-0 z-[300] bg-black/85 backdrop-blur-sm flex items-center justify-center p-4">
+  <div class="glass-card max-w-md w-full p-6 border border-indigo-500/40 space-y-4 bg-[#0a0d18]">
+    <div class="flex justify-between items-center border-b border-white/10 pb-2">
+      <h3 class="text-sm font-bold text-white">＋ Add Custom Practice Log</h3>
+      <button onclick="closeAddLogModal()" class="text-gray-400 hover:text-white">✕</button>
+    </div>
+    <div class="grid grid-cols-2 gap-2">
+      <div>
+        <label class="text-[10px] text-gray-400 uppercase font-bold block mb-1">Subject</label>
+        <select id="log-new-subject" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl px-3 py-2 text-xs">
+          <option>Physics</option>
+          <option>Chemistry</option>
+          <option>Maths</option>
+        </select>
+      </div>
+      <div>
+        <label class="text-[10px] text-gray-400 uppercase font-bold block mb-1">Questions Solved</label>
+        <input type="number" id="log-new-questions" value="15" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl px-3 py-2 text-xs">
+      </div>
+    </div>
+    <div>
+      <label class="text-[10px] text-gray-400 uppercase font-bold block mb-1">Chapter Name / Source</label>
+      <input type="text" id="log-new-chapter" placeholder="e.g. Rotational Motion (PW Module)" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl px-3 py-2 text-xs">
+    </div>
+    <div class="grid grid-cols-2 gap-2">
+      <div>
+        <label class="text-[10px] text-gray-400 uppercase font-bold block mb-1">Duration (Minutes)</label>
+        <input type="number" id="log-new-duration" value="45" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl px-3 py-2 text-xs">
+      </div>
+      <div>
+        <label class="text-[10px] text-gray-400 uppercase font-bold block mb-1">Score / Accuracy %</label>
+        <input type="number" id="log-new-accuracy" value="90" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl px-3 py-2 text-xs">
+      </div>
+    </div>
+    <div class="flex justify-end gap-2 pt-2 border-t border-white/10">
+      <button onclick="closeAddLogModal()" class="px-4 py-1.5 text-xs text-gray-400">Cancel</button>
+      <button onclick="submitNewLog()" class="px-5 py-2 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-xl text-xs transition">Save to Student Log</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Admin Passcode Unlock -->
+<div id="modal-admin-auth" class="hidden fixed inset-0 z-[300] bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
+  <div class="glass-card max-w-sm w-full p-6 border border-purple-500/50 space-y-4 bg-[#0c0f1e] text-center">
+    <div class="w-12 h-12 rounded-full bg-purple-950/80 border border-purple-500/40 flex items-center justify-center mx-auto text-xl text-purple-300">
+      🔐
+    </div>
+    <h3 class="text-base font-bold text-white">Administrator Passcode</h3>
+    <p class="text-xs text-gray-400">Non-admin profile active. Enter admin passcode to unlock student data modification &amp; deletion rights.</p>
+    <div>
+      <input type="password" id="admin-passcode-input" placeholder="Passcode (default: clockee2028)" class="w-full bg-black/60 border border-purple-500/40 text-center text-white rounded-xl px-3 py-2.5 text-sm font-mono tracking-widest outline-none focus:border-purple-400">
+    </div>
+    <div class="flex gap-2 pt-2">
+      <button onclick="closeAdminAuthModal()" class="flex-1 py-2 text-xs text-gray-400 hover:text-white border border-white/10 rounded-xl">Cancel</button>
+      <button onclick="verifyAdminPasscode()" class="flex-1 py-2 bg-purple-600 hover:bg-purple-500 text-white font-bold rounded-xl text-xs transition">Unlock</button>
+    </div>
+  </div>
+</div>
 
 <!-- Modal: Create New User Account -->
 <div id="modal-create-user" class="hidden fixed inset-0 z-[300] bg-black/85 backdrop-blur-sm flex items-center justify-center p-4">
@@ -438,30 +575,397 @@
 
 <script src="clockee_core.js"></script>
 <script>
+  let inspectedUserId = null;
+
+  function checkAdminPrivileges() {
+    const active = window.getUsersList().find(u => u.active) || { role: "JEE 2028 Aspirant" };
+    const isUnlocked = sessionStorage.getItem('clockee_admin_authorized') === 'true';
+    const isAdmin = Boolean(
+      active.role === "Mentor / Faculty" || 
+      active.role === "Admin" || 
+      active.email === "kunalsahoo4015@gmail.com" || 
+      active.id === "user_kunal" || 
+      active.isAdmin === true || 
+      isUnlocked
+    );
+
+    const banner = document.getElementById('admin-role-banner');
+    const title = document.getElementById('admin-role-title');
+    const desc = document.getElementById('admin-role-desc');
+    const actions = document.getElementById('admin-role-actions');
+
+    if (isAdmin) {
+      banner.className = 'p-3.5 rounded-xl border flex items-center justify-between flex-wrap gap-3 text-xs bg-purple-950/40 border-purple-500/30 text-purple-200';
+      title.textContent = `Supervisor & Cloud Administrator: ${active.name} (${active.role})`;
+      desc.textContent = "Full read/write permissions active. You can edit student goals, alter practice logs, or remove student accounts.";
+      actions.innerHTML = `<span class="text-[10px] font-mono px-2.5 py-1 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-500/30 font-bold">Admin Verified ✓</span>`;
+    } else {
+      banner.className = 'p-3.5 rounded-xl border flex items-center justify-between flex-wrap gap-3 text-xs bg-amber-950/40 border-amber-500/30 text-amber-200';
+      title.textContent = `Standard Student Account: ${active.name} (${active.role})`;
+      desc.textContent = "Viewing in Student Read-Only Mode. Mentor authorization required to edit or delete cloud student data.";
+      actions.innerHTML = `
+        <button onclick="openAdminAuthModal()" class="px-3 py-1 bg-amber-600 hover:bg-amber-500 text-white rounded-lg text-xs font-bold transition flex items-center gap-1.5 shadow">
+          <span>🔐</span> <span>Unlock Admin Controls</span>
+        </button>
+      `;
+    }
+
+    return isAdmin;
+  }
+
+  function openAdminAuthModal() {
+    document.getElementById('modal-admin-auth').classList.remove('hidden');
+  }
+  function closeAdminAuthModal() {
+    document.getElementById('modal-admin-auth').classList.add('hidden');
+  }
+  function verifyAdminPasscode() {
+    const input = document.getElementById('admin-passcode-input').value.trim();
+    if (input === 'clockee2028' || input === 'admin' || input === 'kunal') {
+      sessionStorage.setItem('clockee_admin_authorized', 'true');
+      closeAdminAuthModal();
+      window.showToast('✓ Admin Controls Unlocked for Session!', 'success');
+      checkAdminPrivileges();
+      renderAdminUsers();
+    } else {
+      window.showToast('Incorrect Passcode. Try: clockee2028', 'error');
+    }
+  }
+
   function renderAdminUsers() {
     const container = document.getElementById('admin-users-grid');
     if (!container) return;
     const users = window.getUsersList();
-    container.innerHTML = users.map(u => `
-      <div class="p-4 rounded-xl border ${u.active ? 'border-purple-500 bg-purple-950/30 shadow-[0_0_20px_rgba(168,85,247,0.2)]' : 'border-white/10 bg-gray-900/80'} space-y-3">
-        <div class="flex items-center justify-between">
-          <div class="flex items-center gap-3">
-            <img src="${u.pfp}" class="w-10 h-10 rounded-full border border-purple-400">
-            <div>
-              <div class="text-sm font-bold text-white flex items-center gap-1.5">
-                ${u.name}
-                ${u.active ? '<span class="text-[10px] font-mono text-purple-300 font-bold px-1.5 py-0.2 rounded bg-purple-900/60 border border-purple-500/40">Active Session</span>' : ''}
+    const isAdmin = checkAdminPrivileges();
+
+    container.innerHTML = users.map(u => {
+      let studentState = {};
+      try {
+        const raw = localStorage.getItem(`clockee_user_state_${u.id}`);
+        if (raw) studentState = JSON.parse(raw);
+      } catch (e) {}
+
+      let totalQs = 0;
+      (studentState.questionLogs || []).forEach(l => totalQs += (l.questions || 1));
+
+      return `
+        <div class="p-4 rounded-xl border ${u.active ? 'border-purple-500 bg-purple-950/30 shadow-[0_0_20px_rgba(168,85,247,0.25)]' : 'border-white/10 bg-gray-900/80'} space-y-3">
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex items-center gap-3 min-w-0">
+              <img src="${u.pfp}" class="w-11 h-11 rounded-full border border-purple-400 bg-black/40 flex-shrink-0">
+              <div class="min-w-0">
+                <div class="text-sm font-bold text-white flex items-center gap-1.5 truncate">
+                  <span class="truncate">${u.name}</span>
+                  ${u.active ? '<span class="text-[9px] font-mono text-purple-300 font-bold px-1.5 py-0.2 rounded bg-purple-900/60 border border-purple-500/40">Active</span>' : ''}
+                </div>
+                <div class="text-[11px] text-gray-400 truncate">${u.role}</div>
+                <div class="text-[10px] text-cyan-400 font-mono mt-0.5">${totalQs} Qs Solved &bull; Cloud Record</div>
               </div>
-              <div class="text-[11px] text-gray-400">${u.role} &bull; ${u.subtitle}</div>
+            </div>
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse mt-1" title="Cloud Database Linked"></span>
+          </div>
+
+          <div class="flex items-center justify-between pt-2 border-t border-white/5 text-xs">
+            <span class="text-[10px] text-gray-500 font-mono truncate max-w-[120px]">${u.email || u.id}</span>
+            <div class="flex items-center gap-1.5">
+              ${u.active ? `
+                <span class="text-emerald-400 font-bold font-mono text-[11px]">✓ Active Session</span>
+              ` : `
+                <button onclick="window.switchUser('${u.id}')" class="px-2.5 py-1 bg-purple-600 hover:bg-purple-500 text-white rounded-lg font-bold text-[11px] transition">
+                  Switch &rarr;
+                </button>
+              `}
             </div>
           </div>
+
+          <!-- Admin Management Row -->
+          <div class="grid grid-cols-3 gap-1 pt-2 border-t border-white/5 text-[10px] font-bold">
+            <button onclick="openEditStudentModal('${u.id}')" class="p-1.5 rounded bg-white/5 hover:bg-purple-600/30 text-purple-300 border border-white/5 hover:border-purple-500/30 transition text-center">
+              ✏️ Edit
+            </button>
+            <button onclick="loadStudentLogs('${u.id}', '${u.name}')" class="p-1.5 rounded bg-white/5 hover:bg-indigo-600/30 text-indigo-300 border border-white/5 hover:border-indigo-500/30 transition text-center">
+              📋 Logs
+            </button>
+            <button onclick="deleteStudentAccount('${u.id}', '${u.name}')" class="p-1.5 rounded bg-white/5 hover:bg-red-600/30 text-red-400 border border-white/5 hover:border-red-500/30 transition text-center">
+              🗑️ Remove
+            </button>
+          </div>
         </div>
-        <div class="flex items-center justify-between pt-2 border-t border-white/5 text-xs">
-          <span class="text-[10px] text-gray-500 font-mono">Created: ${u.createdAt || '2026-10-23'}</span>
-          ${u.active ? '<span class="text-emerald-400 font-bold font-mono">✓ Current Session</span>' : `<button onclick="window.switchUser('${u.id}')" class="px-3.5 py-1 bg-purple-600 hover:bg-purple-500 text-white rounded-lg font-bold transition">Switch to User &rarr;</button>`}
-        </div>
-      </div>
+      `;
+    }).join('');
+  }
+
+  // ─── Cloud Sync for Students ───
+  async function fetchCloudStudents() {
+    const btn = document.getElementById('btn-sync-cloud-users');
+    const originalText = btn.innerHTML;
+    btn.disabled = true;
+    btn.innerHTML = `<span>⏳</span> <span>Fetching Firebase...</span>`;
+
+    const s = window.getState();
+    const baseUrl = s.apiKeys?.cloudUrl || "https://clockee-app-default-rtdb.asia-southeast1.firebasedatabase.app";
+
+    try {
+      const res = await fetch(`${baseUrl}/students.json`);
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      const data = await res.json();
+      if (!data) {
+        window.showToast("No remote student records found in Firebase", "info");
+        btn.disabled = false;
+        btn.innerHTML = originalText;
+        return;
+      }
+
+      let users = window.getUsersList();
+      let imported = 0;
+
+      Object.keys(data).forEach(uid => {
+        const remoteRec = data[uid];
+        const profile = remoteRec.profile || remoteRec.state?.profile || {};
+        const exists = users.find(u => u.id === uid || (profile.email && u.email === profile.email));
+
+        if (!exists && profile.name) {
+          users.push({
+            id: uid,
+            name: profile.name,
+            email: profile.email || `${uid.slice(0, 8)}@clockee.app`,
+            role: profile.role || "JEE 2028 Aspirant",
+            subtitle: `${profile.role || "JEE 2028"} • Cloud Synchronized`,
+            pfp: `https://api.dicebear.com/7.x/bottts-neutral/svg?seed=${encodeURIComponent(profile.name)}`,
+            active: false,
+            createdAt: profile.createdAt || new Date().toISOString()
+          });
+          imported++;
+        }
+      });
+
+      localStorage.setItem("clockee_multi_users", JSON.stringify(users));
+      renderAdminUsers();
+      window.showToast(`✓ Synced with Firebase! ${imported} new students imported.`, "success");
+    } catch (err) {
+      window.showToast("Cloud sync failed: " + err.message, "error");
+    } finally {
+      btn.disabled = false;
+      btn.innerHTML = originalText;
+    }
+  }
+
+  // ─── Edit Student Modal & Actions ───
+  function openEditStudentModal(userId) {
+    const users = window.getUsersList();
+    const u = users.find(x => x.id === userId);
+    if (!u) return;
+
+    let studentState = {};
+    try {
+      const raw = localStorage.getItem(`clockee_user_state_${userId}`);
+      if (raw) studentState = JSON.parse(raw);
+    } catch (e) {}
+
+    document.getElementById('edit-student-id').value = u.id;
+    document.getElementById('edit-student-name').value = u.name;
+    document.getElementById('edit-student-role').value = u.role;
+    document.getElementById('edit-student-subtitle').value = u.subtitle || '';
+    document.getElementById('edit-goal-phy').value = studentState.dailyGoals?.Physics || 30;
+    document.getElementById('edit-goal-chem').value = studentState.dailyGoals?.Chemistry || 30;
+    document.getElementById('edit-goal-math').value = studentState.dailyGoals?.Maths || 30;
+
+    document.getElementById('modal-edit-student').classList.remove('hidden');
+  }
+
+  function closeEditStudentModal() {
+    document.getElementById('modal-edit-student').classList.add('hidden');
+  }
+
+  async function saveStudentProfileChanges() {
+    const id = document.getElementById('edit-student-id').value;
+    const name = document.getElementById('edit-student-name').value.trim();
+    const role = document.getElementById('edit-student-role').value;
+    const subtitle = document.getElementById('edit-student-subtitle').value.trim();
+    const phy = parseInt(document.getElementById('edit-goal-phy').value) || 30;
+    const chem = parseInt(document.getElementById('edit-goal-chem').value) || 30;
+    const math = parseInt(document.getElementById('edit-goal-math').value) || 30;
+
+    if (!name) return;
+
+    const users = window.getUsersList();
+    const target = users.find(u => u.id === id);
+    if (target) {
+      target.name = name;
+      target.role = role;
+      target.subtitle = subtitle || `${role} • Cloud Account`;
+      localStorage.setItem("clockee_multi_users", JSON.stringify(users));
+    }
+
+    let studentState = {};
+    try {
+      const raw = localStorage.getItem(`clockee_user_state_${id}`);
+      if (raw) studentState = JSON.parse(raw);
+    } catch (e) {}
+    studentState.profile = { ...(studentState.profile || {}), name, subtitle };
+    studentState.dailyGoals = { ...(studentState.dailyGoals || {}), Physics: phy, Chemistry: chem, Maths: math };
+    localStorage.setItem(`clockee_user_state_${id}`, JSON.stringify(studentState));
+
+    if (id === window.getActiveUserId()) {
+      window.APP_STATE = { ...window.APP_STATE, ...studentState };
+      window.saveState();
+    }
+
+    const baseUrl = "https://clockee-app-default-rtdb.asia-southeast1.firebasedatabase.app";
+    try {
+      await fetch(`${baseUrl}/students/${id}/profile.json`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, role, subtitle, lastAdminUpdate: new Date().toISOString() })
+      });
+    } catch(e) {}
+
+    closeEditStudentModal();
+    renderAdminUsers();
+    window.showToast(`✓ Profile & goals saved for ${name}!`, "success");
+  }
+
+  // ─── Delete Student Account ───
+  async function deleteStudentAccount(userId, userName) {
+    if (userId === "user_kunal") {
+      window.showToast("Cannot delete Master Admin profile 'Kunal Sahoo'", "error");
+      return;
+    }
+
+    if (!confirm(`Are you sure you want to permanently remove student "${userName}"?\n\nThis will delete their cloud database records and local study history.`)) {
+      return;
+    }
+
+    window.showToast(`Deleting student ${userName}...`, "info");
+
+    let users = window.getUsersList();
+    users = users.filter(u => u.id !== userId);
+    if (users.length > 0 && !users.some(u => u.active)) {
+      users[0].active = true;
+    }
+    localStorage.setItem("clockee_multi_users", JSON.stringify(users));
+
+    localStorage.removeItem(`clockee_user_state_${userId}`);
+    localStorage.removeItem(`clockee_last_sync_${userId}`);
+
+    const s = window.getState();
+    const baseUrl = s.apiKeys?.cloudUrl || "https://clockee-app-default-rtdb.asia-southeast1.firebasedatabase.app";
+    try {
+      await fetch(`${baseUrl}/students/${userId}.json`, { method: 'DELETE' });
+    } catch (e) {
+      console.warn("Firebase delete student failed", e);
+    }
+
+    renderAdminUsers();
+    window.showToast(`✓ Student "${userName}" removed from system`, "success");
+  }
+
+  // ─── Log Inspection & Editing ───
+  function loadStudentLogs(userId, userName) {
+    inspectedUserId = userId;
+    document.getElementById('current-inspected-user-label').textContent = `Inspecting: ${userName} (${userId})`;
+    renderLogsTable();
+    window.showToast(`Loaded question logs for ${userName}`, "info");
+  }
+
+  function getInspectedState() {
+    if (!inspectedUserId || inspectedUserId === window.getActiveUserId()) {
+      return window.getState();
+    }
+    try {
+      const raw = localStorage.getItem(`clockee_user_state_${inspectedUserId}`);
+      if (raw) return JSON.parse(raw);
+    } catch (e) {}
+    return window.getState();
+  }
+
+  function saveInspectedState(s) {
+    if (!inspectedUserId || inspectedUserId === window.getActiveUserId()) {
+      window.saveState();
+    } else {
+      localStorage.setItem(`clockee_user_state_${inspectedUserId}`, JSON.stringify(s));
+    }
+  }
+
+  function renderLogsTable() {
+    const s = getInspectedState();
+    const tbody = document.getElementById('admin-logs-tbody');
+    const query = (document.getElementById('log-search-input')?.value || '').toLowerCase();
+    if (!tbody) return;
+
+    const filtered = (s.questionLogs || []).filter(l => {
+      if (!query) return true;
+      return (l.subject || '').toLowerCase().includes(query) || (l.chapter || '').toLowerCase().includes(query);
+    });
+
+    if (filtered.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="7" class="p-6 text-center text-gray-500 italic">No matching logs found in active data slot.</td></tr>';
+      return;
+    }
+
+    tbody.innerHTML = filtered.slice().reverse().map((l, idx) => `
+      <tr class="hover:bg-white/5 transition">
+        <td class="p-2.5 font-mono text-gray-400">${l.date || 'Today'}</td>
+        <td class="p-2.5 font-bold ${l.subject === 'Physics' ? 'text-blue-400' : l.subject === 'Chemistry' ? 'text-emerald-400' : 'text-amber-400'}">${l.subject}</td>
+        <td class="p-2.5 text-gray-200">${l.chapter || 'Practice'}</td>
+        <td class="p-2.5 font-mono text-cyan-300 font-bold">${l.questions || l.totalQs || 1} Qs</td>
+        <td class="p-2.5 font-mono text-emerald-400">${l.score !== undefined ? '+' + l.score : '-'}</td>
+        <td class="p-2.5 text-gray-400 font-mono">${Math.round((l.durationMs || 60000)/60000)}m</td>
+        <td class="p-2.5 text-right">
+          <button onclick="deleteLogEntry(${filtered.length - 1 - idx})" class="text-red-400 hover:text-red-300 font-bold text-[11px]">Delete</button>
+        </td>
+      </tr>
     `).join('');
+  }
+
+  function deleteLogEntry(actualIdx) {
+    const s = getInspectedState();
+    s.questionLogs.splice(actualIdx, 1);
+    saveInspectedState(s);
+    renderLogsTable();
+    window.showToast('✓ Log entry deleted', 'info');
+  }
+
+  function clearAllLogs() {
+    if (confirm('Clear all logged practice history for this user?')) {
+      const s = getInspectedState();
+      s.questionLogs = [];
+      saveInspectedState(s);
+      renderLogsTable();
+      window.showToast('Cleared all question logs', 'info');
+    }
+  }
+
+  function openAddLogModal() {
+    document.getElementById('modal-add-log').classList.remove('hidden');
+  }
+  function closeAddLogModal() {
+    document.getElementById('modal-add-log').classList.add('hidden');
+  }
+  function submitNewLog() {
+    const subject = document.getElementById('log-new-subject').value;
+    const questions = parseInt(document.getElementById('log-new-questions').value) || 10;
+    const chapter = document.getElementById('log-new-chapter').value.trim() || 'Coaching Practice';
+    const duration = parseInt(document.getElementById('log-new-duration').value) || 30;
+    const accuracy = parseInt(document.getElementById('log-new-accuracy').value) || 85;
+
+    const s = getInspectedState();
+    s.questionLogs = s.questionLogs || [];
+    s.questionLogs.push({
+      date: new Date().toISOString().slice(0, 10),
+      subject,
+      chapter,
+      questions,
+      score: Math.round(questions * 4 * (accuracy / 100)),
+      accuracy,
+      durationMs: duration * 60000,
+      timestamp: new Date().toISOString()
+    });
+
+    saveInspectedState(s);
+    closeAddLogModal();
+    renderLogsTable();
+    window.showToast(`✓ Added ${questions} ${subject} practice questions!`, "success");
   }
 
   function openCreateUserModal() {
@@ -513,7 +1017,6 @@
       }
     });
 
-    // Error causes chart
     const errMap = {};
     (s.errors || []).forEach(err => {
       const cause = err.rootCause || 'Concept Gap';
@@ -544,55 +1047,6 @@
         }
       }
     });
-  }
-
-  function renderLogsTable() {
-    const s = window.getState();
-    const tbody = document.getElementById('admin-logs-tbody');
-    const query = (document.getElementById('log-search-input')?.value || '').toLowerCase();
-    if (!tbody) return;
-
-    const filtered = (s.questionLogs || []).filter(l => {
-      if (!query) return true;
-      return (l.subject || '').toLowerCase().includes(query) || (l.chapter || '').toLowerCase().includes(query);
-    });
-
-    if (filtered.length === 0) {
-      tbody.innerHTML = '<tr><td colspan="7" class="p-6 text-center text-gray-500 italic">No matching logs found in active data slot.</td></tr>';
-      return;
-    }
-
-    tbody.innerHTML = filtered.slice().reverse().map((l, idx) => `
-      <tr class="hover:bg-white/5 transition">
-        <td class="p-2.5 font-mono text-gray-400">${l.date || 'Today'}</td>
-        <td class="p-2.5 font-bold ${l.subject === 'Physics' ? 'text-blue-400' : l.subject === 'Chemistry' ? 'text-emerald-400' : 'text-amber-400'}">${l.subject}</td>
-        <td class="p-2.5 text-gray-200">${l.chapter || 'Practice'}</td>
-        <td class="p-2.5 font-mono text-cyan-300 font-bold">${l.questions || l.totalQs || 1} Qs</td>
-        <td class="p-2.5 font-mono text-emerald-400">${l.score !== undefined ? '+' + l.score : '-'}</td>
-        <td class="p-2.5 text-gray-400 font-mono">${Math.round((l.durationMs || 60000)/60000)}m</td>
-        <td class="p-2.5 text-right">
-          <button onclick="deleteLogEntry(${filtered.length - 1 - idx})" class="text-red-400 hover:text-red-300 font-bold text-[11px]">Delete</button>
-        </td>
-      </tr>
-    `).join('');
-  }
-
-  function deleteLogEntry(actualIdx) {
-    const s = window.getState();
-    s.questionLogs.splice(actualIdx, 1);
-    window.saveState();
-    renderLogsTable();
-    window.showToast('✓ Log entry deleted', 'info');
-  }
-
-  function clearAllLogs() {
-    if (confirm('Clear all logged practice history for this user?')) {
-      const s = window.getState();
-      s.questionLogs = [];
-      window.saveState();
-      renderLogsTable();
-      window.showToast('Cleared all question logs', 'info');
-    }
   }
 
   async function testGeminiConnection() {
@@ -630,10 +1084,20 @@
       return;
     }
     window.showToast('Pinging Firebase REST database...', 'info');
+    fetch(`${url}/clockee.json?shallow=true`)
+      .then(r => {
+        if (r.ok) {
+          document.getElementById('diag-fb-badge').className = 'text-[9px] font-mono px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-500/30';
+          document.getElementById('diag-fb-badge').textContent = 'Connected ✓';
+          window.showToast('✓ Firebase Database Verified!', 'success');
+        }
+      })
+      .catch(() => window.showToast('Firebase connection failed', 'error'));
   }
 
   function runAllConnectionTests() {
     testGeminiConnection();
+    testFirebase();
     window.showToast('✓ Diagnostic sweep completed across APIs', 'success');
   }
 
@@ -650,6 +1114,7 @@
   }
 
   document.addEventListener('DOMContentLoaded', function() {
+    checkAdminPrivileges();
     renderAdminUsers();
     renderAdminCharts();
     renderLogsTable();

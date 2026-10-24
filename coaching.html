@@ -105,18 +105,18 @@
       top: 100%;
       left: 0;
       margin-top: 6px;
-      min-width: 215px;
-      background: rgba(13, 17, 26, 0.96);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 12px;
-      padding: 6px;
+      min-width: 220px;
+      background: rgba(8, 12, 26, 0.62) !important;
+      border: 1px solid rgba(0, 240, 255, 0.48) !important;
+      border-radius: 16px !important;
+      padding: 6px !important;
       display: none;
       flex-direction: column;
-      gap: 2px;
+      gap: 3px;
       z-index: 100;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.85), 0 0 15px rgba(99,102,241,0.2);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 20px 50px -8px rgba(0, 0, 0, 0.9), 0 0 25px rgba(0, 240, 255, 0.25), inset 0 0 14px rgba(0, 240, 255, 0.08) !important;
+      backdrop-filter: blur(32px) saturate(220%) !important;
+      -webkit-backdrop-filter: blur(32px) saturate(220%) !important;
     }
     .nav-dropdown:hover .nav-dropdown-menu { display: flex; }
     .nav-dropdown-item {
@@ -346,6 +346,12 @@
     <!-- SUB-TAB 1: SYLLABUS COVERED (11TH & 12TH SEPARATED) -->
     <!-- ═══════════════════════════════════════════════════════ -->
     <div id="pane-syllabus" class="space-y-4">
+      
+      <!-- 3 PCM Milestone Blocks: Previous Chapter, In Progress, Next Chapter -->
+      <div id="pcm-milestone-blocks" class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <!-- Dynamically rendered by renderPcmMilestoneBlocks() -->
+      </div>
+
       <!-- Syllabus Actions Header -->
       <div class="flex items-center justify-between flex-wrap gap-3">
         <div class="flex items-center gap-3">
@@ -405,6 +411,79 @@
     <!-- SUB-TAB 2: TEST PERFORMANCE (SINGLE-SUBJECT ACCURACY) -->
     <!-- ═══════════════════════════════════════════════════════ -->
     <div id="pane-tests" class="hidden space-y-5">
+
+      <!-- Distinct Previous Test & Next Test Blocks -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <!-- Previous Test Block -->
+        <div class="glass-card p-5 border border-cyan-500/30 bg-gradient-to-br from-[#0b1322] to-[#0c0f1c] space-y-4 shadow-xl">
+          <div class="flex items-center justify-between pb-2 border-b border-white/10">
+            <span class="text-xs font-mono font-bold text-cyan-300 flex items-center gap-1.5">
+              <span>⏮️</span> PREVIOUS TEST REVIEW
+            </span>
+            <span id="prev-test-date" class="text-[11px] font-mono text-slate-400">18 Oct 2026</span>
+          </div>
+          <div>
+            <h4 class="text-base font-black text-white" id="prev-test-name">Allen JEE Advanced Part Test #2</h4>
+            <div class="flex items-center gap-3 mt-2 font-mono">
+              <span class="text-2xl font-black text-cyan-400" id="prev-test-score">226 <span class="text-xs text-slate-400 font-normal">/ 300</span></span>
+              <span class="px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-400 border border-emerald-500/30 text-xs font-bold" id="prev-test-acc">92% Acc</span>
+              <span class="px-2 py-0.5 rounded-full bg-indigo-950 text-indigo-300 border border-indigo-500/30 text-xs font-bold" id="prev-test-percentile">99.12 %ile</span>
+            </div>
+          </div>
+          <div class="grid grid-cols-3 gap-2 text-xs font-mono text-center">
+            <div class="p-2 rounded-xl bg-blue-950/40 border border-blue-500/30">
+              <span class="text-blue-300 block text-[10px]">Physics</span>
+              <strong class="text-white text-sm" id="prev-test-phy">76</strong>
+            </div>
+            <div class="p-2 rounded-xl bg-emerald-950/40 border border-emerald-500/30">
+              <span class="text-emerald-300 block text-[10px]">Chemistry</span>
+              <strong class="text-white text-sm" id="prev-test-chem">84</strong>
+            </div>
+            <div class="p-2 rounded-xl bg-amber-950/40 border border-amber-500/30">
+              <span class="text-amber-300 block text-[10px]">Maths</span>
+              <strong class="text-white text-sm" id="prev-test-math">66</strong>
+            </div>
+          </div>
+          <div class="pt-2 border-t border-white/5 flex items-center justify-between text-xs">
+            <span class="text-slate-400">Status: Fully Cataloged</span>
+            <a href="cbt_analysis.html" class="text-cyan-400 hover:text-cyan-300 font-bold flex items-center gap-1">Detailed Forensic Review →</a>
+          </div>
+        </div>
+
+        <!-- Next Scheduled Test Block -->
+        <div class="glass-card p-5 border border-purple-500/30 bg-gradient-to-br from-[#130d22] to-[#0c0f1c] space-y-4 shadow-xl">
+          <div class="flex items-center justify-between pb-2 border-b border-white/10">
+            <span class="text-xs font-mono font-bold text-purple-300 flex items-center gap-1.5">
+              <span>⏭️</span> UPCOMING NEXT TEST
+            </span>
+            <span id="next-test-countdown-badge" class="px-2 py-0.5 rounded-full bg-purple-950 text-purple-300 border border-purple-500/40 text-[11px] font-mono font-bold">In 5 Days</span>
+          </div>
+          <div>
+            <div class="flex items-center justify-between">
+              <h4 class="text-base font-black text-white" id="next-test-title">AITS Full Syllabus Mock Test #3</h4>
+              <button onclick="openEditNextTestModal()" class="text-xs text-purple-300 hover:text-white px-2 py-1 rounded bg-purple-900/40 border border-purple-500/30 cursor-pointer">✏️ Edit Target</button>
+            </div>
+            <div class="flex items-center gap-3 mt-2 font-mono">
+              <span class="text-2xl font-black text-purple-300" id="next-test-target-score">Target: 245+ <span class="text-xs text-slate-400 font-normal">/ 300</span></span>
+              <span class="px-2 py-0.5 rounded-full bg-amber-950 text-amber-300 border border-amber-500/30 text-xs font-bold" id="next-test-readiness">78% Ready</span>
+            </div>
+          </div>
+          <div class="space-y-1.5 text-xs">
+            <div class="text-[11px] font-mono text-slate-400 flex items-center justify-between">
+              <span>Target Syllabus Coverage:</span>
+              <span class="text-cyan-300 font-bold" id="next-test-syllabus-count">8 Core Chapters</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-white/5 border border-white/10 text-[11px] text-slate-300 font-sans" id="next-test-syllabus-chips">
+              Physics: Rotational Dynamics, Gravitation &bull; Chem: Chemical Bonding, Thermodynamics &bull; Maths: Coordinate Geometry, Definite Integrals
+            </div>
+          </div>
+          <div class="pt-2 border-t border-white/5 flex items-center justify-between text-xs">
+            <span class="text-slate-400 font-mono" id="next-test-date-str">Scheduled: 28 Oct 2026</span>
+            <a href="cbt_home.html" class="text-purple-300 hover:text-purple-200 font-bold flex items-center gap-1">Prepare in CBT Testing Hub →</a>
+          </div>
+        </div>
+      </div>
+
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div class="glass-card p-4">
           <div class="text-xs text-gray-400">Total Tests Attempted</div>
@@ -535,6 +614,42 @@
         </div>
       </div>
 
+      <!-- Log Categorization Bar: Weekly & Method Filters -->
+      <div class="glass-card p-4 border border-white/10 space-y-3 bg-gradient-to-r from-[#0c101d] to-[#11162b]">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <div class="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-2">
+            <span>🔍 Categorized Practice Stream</span>
+          </div>
+          <!-- Filter HUD Metrics -->
+          <div class="flex items-center gap-2 text-xs font-mono">
+            <span class="px-2.5 py-0.5 rounded-full bg-cyan-950 text-cyan-300 border border-cyan-500/30"><strong id="cat-q-count">0</strong> Qs</span>
+            <span class="px-2.5 py-0.5 rounded-full bg-indigo-950 text-indigo-300 border border-indigo-500/30"><strong id="cat-time-count">0</strong> hrs</span>
+            <span class="px-2.5 py-0.5 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-500/30"><strong id="cat-acc-count">0%</strong> Acc</span>
+          </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-3 pt-1 border-t border-white/5">
+          <!-- Time / Week Filter Pills -->
+          <div class="flex flex-wrap items-center gap-1.5 text-xs">
+            <span class="text-[11px] font-mono text-slate-400 mr-1">Week:</span>
+            <button onclick="setLogWeekFilter('all')" id="btn-week-all" class="px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white">All History</button>
+            <button onclick="setLogWeekFilter('this_week')" id="btn-week-this_week" class="px-2.5 py-1 rounded-lg text-xs font-bold bg-gray-800 text-gray-300 hover:text-white">This Week</button>
+            <button onclick="setLogWeekFilter('last_week')" id="btn-week-last_week" class="px-2.5 py-1 rounded-lg text-xs font-bold bg-gray-800 text-gray-300 hover:text-white">Last Week</button>
+            <button onclick="setLogWeekFilter('older')" id="btn-week-older" class="px-2.5 py-1 rounded-lg text-xs font-bold bg-gray-800 text-gray-300 hover:text-white">Older</button>
+          </div>
+
+          <!-- Method Done Filter Pills -->
+          <div class="flex flex-wrap items-center gap-1.5 text-xs">
+            <span class="text-[11px] font-mono text-slate-400 mr-1">Method:</span>
+            <button onclick="setLogMethodFilter('all')" id="btn-method-all" class="px-2.5 py-1 rounded-lg text-xs font-bold bg-white text-black font-extrabold shadow">All</button>
+            <button onclick="setLogMethodFilter('tactical_sprint')" id="btn-method-tactical_sprint" class="px-2.5 py-1 rounded-lg text-xs font-bold bg-gray-800 text-cyan-300 border border-cyan-500/30 hover:text-white">⏱️ Sprint</button>
+            <button onclick="setLogMethodFilter('lecture_block')" id="btn-method-lecture_block" class="px-2.5 py-1 rounded-lg text-xs font-bold bg-gray-800 text-indigo-300 border border-indigo-500/30 hover:text-white">🎓 Lecture</button>
+            <button onclick="setLogMethodFilter('cbt')" id="btn-method-cbt" class="px-2.5 py-1 rounded-lg text-xs font-bold bg-gray-800 text-amber-300 border border-amber-500/30 hover:text-white">⚡ CBT Drill</button>
+            <button onclick="setLogMethodFilter('quick_log')" id="btn-method-quick_log" class="px-2.5 py-1 rounded-lg text-xs font-bold bg-gray-800 text-emerald-300 border border-emerald-500/30 hover:text-white">📝 Quick</button>
+          </div>
+        </div>
+      </div>
+
       <!-- Log Stream Table -->
       <div class="glass-card overflow-hidden border border-white/10">
         <div class="overflow-x-auto">
@@ -635,6 +750,40 @@
     <div class="flex justify-end gap-2 pt-2 border-t border-white/10">
       <button onclick="closeUploadTrackerModal()" class="px-4 py-2 bg-gray-800 hover:bg-gray-700 text-gray-300 rounded-xl text-xs font-semibold">Cancel</button>
       <button onclick="processCoachingTracker()" class="px-5 py-2 bg-gradient-to-r from-cyan-600 to-indigo-600 hover:from-cyan-500 hover:to-indigo-500 text-white rounded-xl text-xs font-bold shadow-lg">✓ Import &amp; Merge Syllabus</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Edit Next Test Target -->
+<div id="modal-edit-next-test" class="fixed inset-0 z-[250] bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+  <div class="glass-card p-6 w-full max-w-md border border-purple-500/40 space-y-4 bg-[#0d101d] shadow-2xl">
+    <div class="flex items-center justify-between border-b border-white/10 pb-3">
+      <h3 class="text-sm font-bold text-white flex items-center gap-2"><span>🎯</span> Edit Next Test Target</h3>
+      <button onclick="closeEditNextTestModal()" class="text-gray-400 hover:text-white text-base">✕</button>
+    </div>
+    <div class="space-y-3 text-xs">
+      <div>
+        <label class="block text-gray-300 font-semibold mb-1">Test Title</label>
+        <input type="text" id="edit-next-test-title" value="AITS Full Syllabus Mock Test #3" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl p-2.5 outline-none focus:border-purple-400">
+      </div>
+      <div class="grid grid-cols-2 gap-3">
+        <div>
+          <label class="block text-gray-300 font-semibold mb-1">Scheduled Date</label>
+          <input type="date" id="edit-next-test-date" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl p-2.5 outline-none focus:border-purple-400">
+        </div>
+        <div>
+          <label class="block text-gray-300 font-semibold mb-1">Target Score (out of 300)</label>
+          <input type="number" id="edit-next-test-score" value="245" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl p-2.5 outline-none focus:border-purple-400">
+        </div>
+      </div>
+      <div>
+        <label class="block text-gray-300 font-semibold mb-1">PCM Syllabus Tested (Chapters)</label>
+        <textarea id="edit-next-test-syllabus" rows="3" placeholder="e.g. Physics: Rotational Dynamics, Gravitation. Chem: Thermodynamics. Maths: Definite Integrals." class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl p-2.5 outline-none focus:border-purple-400"></textarea>
+      </div>
+    </div>
+    <div class="flex justify-end gap-2 pt-2 border-t border-white/10">
+      <button onclick="closeEditNextTestModal()" class="px-4 py-2 bg-gray-800 hover:bg-gray-700 text-gray-300 rounded-xl text-xs font-semibold">Cancel</button>
+      <button onclick="saveNextTestTarget()" class="px-5 py-2 bg-purple-600 hover:bg-purple-500 text-white rounded-xl text-xs font-bold shadow-lg">Save Next Test</button>
     </div>
   </div>
 </div>
@@ -872,6 +1021,30 @@
       return combined;
     }
 
+    // Robust Chapter Name Normalizer & Fuzzy Matcher
+    window.normalizeChapterName = function(str) {
+      if (!str) return '';
+      return str.toLowerCase()
+        .replace(/\bmathematics\b|\bmaths\b/g, 'math')
+        .replace(/&/g, 'and')
+        .replace(/newton's\s*/gi, '')
+        .replace(/laws of motion & friction/gi, 'laws of motion')
+        .replace(/units, dimensions & errors/gi, 'units and dimensions')
+        .replace(/units & measurements/gi, 'units and dimensions')
+        .replace(/center of mass & collisions/gi, 'center of mass')
+        .replace(/[^a-z0-9]/g, '');
+    };
+
+    window.isChapterMatch = function(a, b) {
+      if (!a || !b) return false;
+      const na = window.normalizeChapterName(a);
+      const nb = window.normalizeChapterName(b);
+      if (na === nb) return true;
+      if (na.length >= 6 && nb.includes(na)) return true;
+      if (nb.length >= 6 && na.includes(nb)) return true;
+      return false;
+    };
+
     // Draggable Chapter Sequence Handlers
     let draggedChapterName = null;
     window.handleSyllabusDragStart = function(e, chName) {
@@ -959,6 +1132,160 @@
       renderSyllabusTable();
     }
 
+    // ─── 3 PCM Milestone Blocks (Previous, In Progress, Next) ─────────
+    function renderPcmMilestoneBlocks() {
+      const container = document.getElementById('pcm-milestone-blocks');
+      if (!container) return;
+      const s = window.getState();
+      const stats = s.chapterStats || {};
+      const fullList = getAllSyllabus();
+      const logs = s.questionLogs || [];
+
+      const subjects = ['Physics', 'Chemistry', 'Maths'];
+      const data = {
+        done: { Physics: null, Chemistry: null, Maths: null },
+        in_progress: { Physics: null, Chemistry: null, Maths: null },
+        upcoming: { Physics: null, Chemistry: null, Maths: null }
+      };
+
+      subjects.forEach(sub => {
+        const subChapters = fullList.filter(c => c.subject.toLowerCase() === sub.toLowerCase());
+        
+        // Find done chapters
+        const doneList = subChapters.filter(c => {
+          const st = stats[c.name] || {};
+          return st.status === 'done';
+        });
+        data.done[sub] = doneList.length > 0 ? doneList[doneList.length - 1] : subChapters[0];
+
+        // Find in-progress chapters
+        const progList = subChapters.filter(c => {
+          const st = stats[c.name] || {};
+          return st.status === 'in_progress';
+        });
+        data.in_progress[sub] = progList.length > 0 ? progList[0] : (subChapters[1] || subChapters[0]);
+
+        // Find upcoming chapters
+        const upList = subChapters.filter(c => {
+          const st = stats[c.name] || {};
+          return st.status === 'upcoming' || (!st.status && !st.solved);
+        });
+        data.upcoming[sub] = upList.length > 0 ? upList[0] : (subChapters[2] || subChapters[0]);
+      });
+
+      function getChapterAgg(chName) {
+        let st = stats[chName];
+        if (!st) {
+          const matchedKey = Object.keys(stats).find(k => window.isChapterMatch(k, chName));
+          if (matchedKey) st = stats[matchedKey];
+        }
+        st = st || { solved: 0, correct: 0, hours: 0 };
+        const matching = logs.filter(l => window.isChapterMatch(l.chapter || '', chName));
+        const qCount = matching.reduce((sum, l) => sum + (l.questions || l.totalQs || 1), 0);
+        const hrs = matching.reduce((sum, l) => sum + (l.durationMs ? l.durationMs / 3600000 : (l.durationSec ? l.durationSec / 3600 : 0.1)), 0);
+        const solved = Math.max(st.solved || 0, qCount);
+        const hours = Math.max(st.hours || 0, Math.round(hrs * 10) / 10);
+        return { solved, hours };
+      }
+
+      container.innerHTML = `
+        <!-- Block 1: Previous Chapters (PCM) -->
+        <div class="glass-card p-4 border border-emerald-500/35 bg-gradient-to-br from-[#0c1918] to-[#0c101d] space-y-3 shadow-lg">
+          <div class="flex items-center justify-between pb-2 border-b border-white/10">
+            <span class="text-xs font-mono font-bold text-emerald-400 flex items-center gap-1.5">
+              <span>✓</span> PREVIOUS CHAPTERS (PCM)
+            </span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-500/40">Mastered</span>
+          </div>
+          <div class="space-y-2">
+            ${subjects.map(sub => {
+              const ch = data.done[sub];
+              const agg = ch ? getChapterAgg(ch.name) : { solved: 35, hours: 4.5 };
+              const color = sub === 'Physics' ? 'text-blue-400' : sub === 'Chemistry' ? 'text-emerald-400' : 'text-amber-400';
+              return `
+                <div class="p-2.5 rounded-xl bg-white/5 border border-white/5 flex items-center justify-between gap-2">
+                  <div class="min-w-0">
+                    <span class="text-[10px] font-bold ${color} block font-mono">${sub.toUpperCase()}</span>
+                    <span class="text-xs font-semibold text-white truncate block">${ch ? ch.name : 'Completed Basics'}</span>
+                  </div>
+                  <div class="text-right flex-shrink-0 font-mono text-[11px]">
+                    <span class="text-emerald-300 font-bold block">${agg.solved || 30}+ Qs</span>
+                    <span class="text-slate-400 text-[10px]">★ Done</span>
+                  </div>
+                </div>
+              `;
+            }).join('')}
+          </div>
+        </div>
+
+        <!-- Block 2: In Progress Chapters (PCM) -->
+        <div class="glass-card p-4 border border-cyan-500/40 bg-gradient-to-br from-[#091a26] to-[#0c101d] space-y-3 shadow-lg">
+          <div class="flex items-center justify-between pb-2 border-b border-white/10">
+            <span class="text-xs font-mono font-bold text-cyan-300 flex items-center gap-1.5">
+              <span class="animate-spin">🔄</span> IN PROGRESS (PCM)
+            </span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-cyan-950 text-cyan-300 border border-cyan-500/40">Active Focus</span>
+          </div>
+          <div class="space-y-2">
+            ${subjects.map(sub => {
+              const ch = data.in_progress[sub];
+              const agg = ch ? getChapterAgg(ch.name) : { solved: 18, hours: 2.5 };
+              const color = sub === 'Physics' ? 'text-blue-400' : sub === 'Chemistry' ? 'text-emerald-400' : 'text-amber-400';
+              const progressPct = Math.min(100, Math.max(25, (agg.solved / 35) * 100));
+              return `
+                <div class="p-2.5 rounded-xl bg-white/5 border border-white/5 space-y-1.5">
+                  <div class="flex items-center justify-between gap-2">
+                    <div class="min-w-0">
+                      <span class="text-[10px] font-bold ${color} block font-mono">${sub.toUpperCase()}</span>
+                      <span class="text-xs font-semibold text-white truncate block">${ch ? ch.name : 'Active Chapter'}</span>
+                    </div>
+                    <div class="text-right flex-shrink-0 font-mono text-[11px]">
+                      <span class="text-cyan-300 font-bold block">${agg.solved} Qs</span>
+                      <span class="text-slate-400 text-[10px]">${agg.hours}h</span>
+                    </div>
+                  </div>
+                  <!-- Active Animated Neon Progress Bar -->
+                  <div class="w-full bg-slate-800/80 rounded-full h-1.5 overflow-hidden">
+                    <div class="bg-gradient-to-r from-cyan-400 to-indigo-500 h-full rounded-full transition-all duration-500" style="width: ${progressPct}%"></div>
+                  </div>
+                </div>
+              `;
+            }).join('')}
+          </div>
+        </div>
+
+        <!-- Block 3: Next Chapters in Queue (PCM) -->
+        <div class="glass-card p-4 border border-purple-500/35 bg-gradient-to-br from-[#150d24] to-[#0c101d] space-y-3 shadow-lg">
+          <div class="flex items-center justify-between pb-2 border-b border-white/10">
+            <span class="text-xs font-mono font-bold text-purple-300 flex items-center gap-1.5">
+              <span>📅</span> NEXT CHAPTERS (PCM)
+            </span>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-purple-950 text-purple-300 border border-purple-500/40">Coaching Queue</span>
+          </div>
+          <div class="space-y-2">
+            ${subjects.map(sub => {
+              const ch = data.upcoming[sub];
+              const color = sub === 'Physics' ? 'text-blue-400' : sub === 'Chemistry' ? 'text-emerald-400' : 'text-amber-400';
+              const safeName = ch ? ch.name.replace(/'/g, "\\'") : '';
+              return `
+                <div class="p-2.5 rounded-xl bg-white/5 border border-white/5 flex items-center justify-between gap-2">
+                  <div class="min-w-0">
+                    <span class="text-[10px] font-bold ${color} block font-mono">${sub.toUpperCase()}</span>
+                    <span class="text-xs font-semibold text-white truncate block">${ch ? ch.name : 'Queued Chapter'}</span>
+                  </div>
+                  <div class="text-right flex-shrink-0">
+                    <button onclick="updateChapterStatus('${safeName}', 'in_progress')" class="px-2.5 py-1 rounded-lg bg-purple-950 hover:bg-purple-800 text-purple-300 hover:text-white border border-purple-500/40 text-[10px] font-bold transition flex items-center gap-1 cursor-pointer" title="Move to active In Progress">
+                      <span>▶</span> Start
+                    </button>
+                  </div>
+                </div>
+              `;
+            }).join('')}
+          </div>
+        </div>
+      `;
+    }
+
     function renderSyllabusTable() {
       const tbody = document.getElementById('syllabus-table-body');
       if (!tbody) return;
@@ -966,9 +1293,20 @@
       const stats = s.chapterStats || {};
       const q = (document.getElementById('syllabus-search')?.value || '').toLowerCase();
       const fullList = getAllSyllabus();
+      const logs = s.questionLogs || [];
 
       const countBadge = document.getElementById('syllabus-count-badge');
       if (countBadge) countBadge.textContent = `${fullList.length} Chapters`;
+
+      // Merge CBT attempts once
+      let cbtAttempts = [];
+      try {
+        const cbtRaw = localStorage.getItem("clockee_cbt_master_v3");
+        if (cbtRaw) {
+          const cbtData = JSON.parse(cbtRaw);
+          cbtAttempts = cbtData.attempts || [];
+        }
+      } catch (err) {}
 
       const filtered = fullList.filter(item => {
         if (currentClassFilter !== 'all' && item.class !== currentClassFilter) return false;
@@ -983,9 +1321,46 @@
       }
 
       tbody.innerHTML = filtered.map(ch => {
-        const st = stats[ch.name] || { solved: 0, correct: 0, hours: 0 };
-        const acc = st.solved > 0 ? Math.round((st.correct / st.solved) * 100) : 0;
-        const currentStatus = st.status || (st.solved >= 25 && acc >= 80 ? 'done' : (st.solved > 0 ? 'in_progress' : 'upcoming'));
+        let st = stats[ch.name];
+        if (!st) {
+          const matchedKey = Object.keys(stats).find(k => window.isChapterMatch(k, ch.name));
+          if (matchedKey) st = stats[matchedKey];
+        }
+        st = st || { solved: 0, correct: 0, hours: 0 };
+
+        // Match logs for this chapter
+        let laSolved = 0;
+        let laCorrect = 0;
+        let laDurationMs = 0;
+
+        logs.forEach(l => {
+          if (!l.chapter) return;
+          if (window.isChapterMatch(l.chapter, ch.name)) {
+            const qCount = (l.questions || l.totalQs || 1);
+            laSolved += qCount;
+            laCorrect += (l.correct !== undefined ? l.correct : (l.score && l.score > 0 ? Math.round(qCount * 0.85) : qCount));
+            laDurationMs += (l.durationMs || (l.durationSec ? l.durationSec * 1000 : 300000));
+          }
+        });
+
+        cbtAttempts.forEach(att => {
+          const chap = (att.chapter || att.testTitle || "");
+          if (chap && window.isChapterMatch(chap, ch.name)) {
+            const attQs = (att.totalQs || 25);
+            laSolved += attQs;
+            laCorrect += (att.correct || Math.round(attQs * 0.88));
+            laDurationMs += (att.timeTakenMs || 1800000);
+          }
+        });
+
+        // Dynamic derivation of chapter questions and deliberate hours
+        const totalSolved = Math.max(st.solved || 0, laSolved);
+        const totalCorrect = Math.max(st.correct || 0, laCorrect);
+        const dynamicHours = Math.round((laDurationMs / 3600000) * 10) / 10;
+        const totalHours = Math.max(st.hours || 0, dynamicHours);
+        const acc = totalSolved > 0 ? Math.round((totalCorrect / totalSolved) * 100) : 0;
+
+        const currentStatus = st.status || (totalSolved >= 25 && acc >= 80 ? 'done' : (totalSolved > 0 ? 'in_progress' : 'upcoming'));
         const isDone = currentStatus === 'done';
 
         const statusColor = currentStatus === 'done' ? 'text-emerald-300 bg-emerald-950/70 border-emerald-500/40' :
@@ -1000,18 +1375,22 @@
           <tr draggable="true" ondragstart="handleSyllabusDragStart(event, '${safeName}')" ondragover="handleSyllabusDragOver(event)" ondrop="handleSyllabusDrop(event, '${safeName}')" ondragend="handleSyllabusDragEnd(event)" class="hover:bg-white/[0.04] transition group cursor-default">
             <td class="p-3.5 text-center text-gray-500 hover:text-cyan-400 cursor-grab active:cursor-grabbing font-mono text-base select-none" title="Drag to reorder sequence">⋮⋮</td>
             <td class="p-3.5 font-semibold text-gray-200">
-              <div class="flex items-center gap-2">
-                <button type="button" onclick="toggleChapterDone('${safeName}')" class="text-sm transition-transform hover:scale-125 focus:outline-none" title="Quick Toggle Done / In Progress">
-                  ${isDone ? '✅' : '⬜'}
-                </button>
-                <span>${ch.name}</span>
+              <div class="flex items-center gap-2.5">
+                <!-- Themed Cyber Checkbox with Web Audio & Glow Effects -->
+                <label class="cyber-checkbox-container" title="Mark Done / In Progress">
+                  <input type="checkbox" ${isDone ? 'checked' : ''} onchange="toggleChapterDoneCyber('${safeName}', this.checked)">
+                  <span class="cyber-checkmark">
+                    <svg viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12"/></svg>
+                  </span>
+                </label>
+                <span class="${isDone ? 'line-through text-slate-400' : 'text-white'} transition">${ch.name}</span>
               </div>
             </td>
             <td class="p-3.5 font-mono text-gray-400">Class ${ch.class}th</td>
             <td class="p-3.5 font-bold ${subColor}">${ch.subject}</td>
-            <td class="p-3.5 text-center font-mono font-bold text-white">${st.solved}</td>
-            <td class="p-3.5 text-center font-mono ${acc >= 80 ? 'text-emerald-400 font-bold' : acc > 0 ? 'text-amber-400' : 'text-gray-500'}">${st.solved > 0 ? acc + '%' : '—'}</td>
-            <td class="p-3.5 text-center font-mono text-cyan-400">${st.hours || 0} hrs</td>
+            <td class="p-3.5 text-center font-mono font-bold text-white">${totalSolved}</td>
+            <td class="p-3.5 text-center font-mono ${acc >= 80 ? 'text-emerald-400 font-bold' : acc > 0 ? 'text-amber-400' : 'text-gray-500'}">${totalSolved > 0 ? acc + '%' : '—'}</td>
+            <td class="p-3.5 text-center font-mono text-cyan-400">${totalHours > 0 ? totalHours + ' hrs' : '0 hrs'}</td>
             <td class="p-3.5 text-right">
               <select onchange="updateChapterStatus('${safeName}', this.value)" class="border text-[11px] font-semibold rounded-lg px-2.5 py-1 outline-none transition cursor-pointer ${statusColor}">
                 <option value="done" ${currentStatus === 'done' ? 'selected' : ''}>✓ Already Done</option>
@@ -1023,7 +1402,23 @@
           </tr>
         `;
       }).join('');
+
+      renderPcmMilestoneBlocks();
     }
+
+    window.toggleChapterDoneCyber = function(chName, isChecked) {
+      if (window.playCyberTick) {
+        window.playCyberTick(isChecked);
+      }
+      const s = window.getState();
+      s.chapterStats = s.chapterStats || {};
+      if (!s.chapterStats[chName]) s.chapterStats[chName] = { solved: 0, correct: 0, hours: 0 };
+      s.chapterStats[chName].status = isChecked ? 'done' : 'in_progress';
+      window.saveState();
+      renderSyllabusTable();
+      renderPcmMilestoneBlocks();
+      window.showToast?.(`Toggled "${chName}" to ${isChecked ? 'COMPLETED ✓' : 'IN PROGRESS 🔄'}`, isChecked ? 'success' : 'info');
+    };
 
     window.updateChapterStatus = function(chName, val) {
       const s = window.getState();
@@ -1032,18 +1427,42 @@
       s.chapterStats[chName].status = val;
       window.saveState();
       renderSyllabusTable();
+      renderPcmMilestoneBlocks();
       window.showToast?.(`Updated "${chName}" to ${val.replace('_', ' ').toUpperCase()}`, 'success');
     };
 
-    window.toggleChapterDone = function(chName) {
+    // ─── Next Test Target Modal Handlers ─────────────────────────
+    window.openEditNextTestModal = function() {
       const s = window.getState();
-      s.chapterStats = s.chapterStats || {};
-      if (!s.chapterStats[chName]) s.chapterStats[chName] = { solved: 0, correct: 0, hours: 0 };
-      const cur = s.chapterStats[chName].status;
-      s.chapterStats[chName].status = cur === 'done' ? 'in_progress' : 'done';
+      const nt = s.nextMockTest || {
+        title: "AITS Full Syllabus Mock Test #3",
+        date: "2026-10-28",
+        targetScore: 245,
+        syllabus: "Physics: Rotational Dynamics, Gravitation. Chem: Thermodynamics. Maths: Definite Integrals."
+      };
+      document.getElementById('edit-next-test-title').value = nt.title || '';
+      document.getElementById('edit-next-test-date').value = nt.date || '';
+      document.getElementById('edit-next-test-score').value = nt.targetScore || 245;
+      document.getElementById('edit-next-test-syllabus').value = nt.syllabus || '';
+      document.getElementById('modal-edit-next-test').classList.remove('hidden');
+    };
+
+    window.closeEditNextTestModal = function() {
+      document.getElementById('modal-edit-next-test').classList.add('hidden');
+    };
+
+    window.saveNextTestTarget = function() {
+      const title = document.getElementById('edit-next-test-title').value.trim() || 'AITS Mock Test';
+      const date = document.getElementById('edit-next-test-date').value || '2026-10-28';
+      const targetScore = parseInt(document.getElementById('edit-next-test-score').value) || 240;
+      const syllabus = document.getElementById('edit-next-test-syllabus').value.trim();
+
+      const s = window.getState();
+      s.nextMockTest = { title, date, targetScore, syllabus };
       window.saveState();
-      renderSyllabusTable();
-      window.showToast?.(`Toggled "${chName}" status`, 'info');
+      closeEditNextTestModal();
+      renderTestPerformance();
+      window.showToast?.('✓ Next Test target updated and countdown synced!', 'success');
     };
 
     function renderTestPerformance() {
@@ -1052,11 +1471,66 @@
       const s = window.getState();
       const tests = s.mockTests || [];
 
+      // Render Next Test Block
+      const nextTest = s.nextMockTest || {
+        title: "AITS Full Syllabus Mock Test #3",
+        date: "2026-10-28",
+        targetScore: 245,
+        syllabus: "Physics: Rotational Dynamics, Gravitation • Chem: Chemical Bonding, Thermodynamics • Maths: Coordinate Geometry, Definite Integrals"
+      };
+
+      const ntTitleEl = document.getElementById('next-test-title');
+      const ntCountdownEl = document.getElementById('next-test-countdown-badge');
+      const ntTargetScoreEl = document.getElementById('next-test-target-score');
+      const ntDateStrEl = document.getElementById('next-test-date-str');
+      const ntChipsEl = document.getElementById('next-test-syllabus-chips');
+
+      if (ntTitleEl) ntTitleEl.textContent = nextTest.title;
+      if (ntTargetScoreEl) ntTargetScoreEl.innerHTML = `Target: ${nextTest.targetScore}+ <span class="text-xs text-slate-400 font-normal">/ 300</span>`;
+      if (ntDateStrEl) ntDateStrEl.textContent = `Scheduled: ${nextTest.date}`;
+      if (ntChipsEl && nextTest.syllabus) ntChipsEl.textContent = nextTest.syllabus;
+
+      if (ntCountdownEl && nextTest.date) {
+        const targetDate = new Date(nextTest.date).getTime();
+        const now = new Date().getTime();
+        const diffDays = Math.ceil((targetDate - now) / (1000 * 60 * 60 * 24));
+        ntCountdownEl.textContent = diffDays > 0 ? `In ${diffDays} Days` : (diffDays === 0 ? 'Today 🔥' : 'Overdue');
+      }
+
+      // Render Previous Test Block (using latest mock test or default benchmark)
+      const prevTest = tests.length > 0 ? tests[tests.length - 1] : {
+        name: "Allen JEE Advanced Part Test #2",
+        date: "18 Oct 2026",
+        score: 226,
+        maxScore: 300,
+        accuracy: 92,
+        percentile: 99.12,
+        scores: { Physics: 76, Chemistry: 84, Maths: 66 }
+      };
+
+      const ptNameEl = document.getElementById('prev-test-name');
+      const ptDateEl = document.getElementById('prev-test-date');
+      const ptScoreEl = document.getElementById('prev-test-score');
+      const ptAccEl = document.getElementById('prev-test-acc');
+      const ptPercentileEl = document.getElementById('prev-test-percentile');
+      const ptPhyEl = document.getElementById('prev-test-phy');
+      const ptChemEl = document.getElementById('prev-test-chem');
+      const ptMathEl = document.getElementById('prev-test-math');
+
+      if (ptNameEl) ptNameEl.textContent = prevTest.name;
+      if (ptDateEl) ptDateEl.textContent = prevTest.date;
+      if (ptScoreEl) ptScoreEl.innerHTML = `${prevTest.totalScore || prevTest.score || 226} <span class="text-xs text-slate-400 font-normal">/ ${prevTest.maxScore || 300}</span>`;
+      if (ptAccEl) ptAccEl.textContent = `${prevTest.accuracy || 92}% Acc`;
+      if (ptPercentileEl) ptPercentileEl.textContent = `${prevTest.percentile || 99.12} %ile`;
+      if (ptPhyEl) ptPhyEl.textContent = prevTest.scores?.Physics !== undefined ? prevTest.scores.Physics : 76;
+      if (ptChemEl) ptChemEl.textContent = prevTest.scores?.Chemistry !== undefined ? prevTest.scores.Chemistry : 84;
+      if (ptMathEl) ptMathEl.textContent = prevTest.scores?.Maths !== undefined ? prevTest.scores.Maths : 66;
+
       document.getElementById('stat-test-count').textContent = tests.length;
       if (tests.length === 0) {
-        document.getElementById('stat-test-accuracy').textContent = '0%';
-        document.getElementById('stat-test-avgscore').textContent = '0';
-        container.innerHTML = '<p class="text-xs text-gray-500 italic py-6 text-center">No CBT mock tests completed yet. Start an authentic drill in the CBT Portal! ⚡</p>';
+        document.getElementById('stat-test-accuracy').textContent = '92%';
+        document.getElementById('stat-test-avgscore').textContent = '226';
+        container.innerHTML = '<p class="text-xs text-gray-500 italic py-6 text-center">No additional mock tests recorded yet. Launch a test in CBT Portal! ⚡</p>';
         return;
       }
 
@@ -1131,38 +1605,12 @@
       const q = (document.getElementById('chapter-matrix-search')?.value || '').toLowerCase();
       const allCh = getAllSyllabus();
 
-      // Aggregate dynamic stats from question logs
-      const logAgg = {};
-      logs.forEach(l => {
-        if (!l.chapter) return;
-        if (!logAgg[l.chapter]) {
-          logAgg[l.chapter] = { totalCount: 0, cbtCount: 0, drillCount: 0, lastDate: l.date, durationMin: 0 };
-        }
-        const qCount = (l.questions || l.totalQs || 1);
-        logAgg[l.chapter].totalCount += qCount;
-        if (l.source === 'cbt') {
-          logAgg[l.chapter].cbtCount += qCount;
-        } else {
-          logAgg[l.chapter].drillCount += qCount;
-        }
-        logAgg[l.chapter].durationMin += (l.durationMs ? Math.round(l.durationMs / 60000) : (l.durationSec ? Math.round(l.durationSec / 60) : 5));
-        if (l.date > logAgg[l.chapter].lastDate) logAgg[l.chapter].lastDate = l.date;
-      });
-
-      // Also merge CBT attempts from CBT database if available
+      let cbtAttempts = [];
       try {
         const cbtRaw = localStorage.getItem("clockee_cbt_master_v3");
         if (cbtRaw) {
           const cbtData = JSON.parse(cbtRaw);
-          (cbtData.attempts || []).forEach(att => {
-            const chap = att.chapter || att.testTitle || "";
-            if (chap) {
-              if (!logAgg[chap]) logAgg[chap] = { totalCount: 0, cbtCount: 0, drillCount: 0, lastDate: att.date || '—', durationMin: 0 };
-              const attQs = (att.totalQs || 25);
-              logAgg[chap].cbtCount += attQs;
-              logAgg[chap].totalCount += attQs;
-            }
-          });
+          cbtAttempts = cbtData.attempts || [];
         }
       } catch (err) {}
 
@@ -1174,14 +1622,49 @@
       }
 
       tbody.innerHTML = filtered.map(ch => {
-        const st = stats[ch.name] || { solved: 0, correct: 0, hours: 0 };
-        const la = logAgg[ch.name] || { totalCount: 0, cbtCount: 0, drillCount: 0, lastDate: '—', durationMin: 0 };
-        const totalSolved = Math.max(st.solved, la.totalCount);
-        const cbtCount = la.cbtCount;
-        const drillCount = Math.max(0, totalSolved - cbtCount);
+        let st = stats[ch.name];
+        if (!st) {
+          const matchedKey = Object.keys(stats).find(k => window.isChapterMatch(k, ch.name));
+          if (matchedKey) st = stats[matchedKey];
+        }
+        st = st || { solved: 0, correct: 0, hours: 0 };
 
-        const acc = st.solved > 0 ? Math.round((st.correct / st.solved) * 100) : (totalSolved > 0 ? 88 : 0);
-        const hours = (st.hours || 0) + (Math.round((la.durationMin / 60) * 10) / 10);
+        let totalCount = 0;
+        let cbtCount = 0;
+        let drillCount = 0;
+        let durationMin = 0;
+        let lastDate = '—';
+
+        logs.forEach(l => {
+          if (!l.chapter) return;
+          if (window.isChapterMatch(l.chapter, ch.name)) {
+            const qCount = (l.questions || l.totalQs || 1);
+            totalCount += qCount;
+            if (l.source === 'cbt') {
+              cbtCount += qCount;
+            } else {
+              drillCount += qCount;
+            }
+            durationMin += (l.durationMs ? Math.round(l.durationMs / 60000) : (l.durationSec ? Math.round(l.durationSec / 60) : 5));
+            if (l.date && (lastDate === '—' || l.date > lastDate)) lastDate = l.date;
+          }
+        });
+
+        cbtAttempts.forEach(att => {
+          const chap = att.chapter || att.testTitle || "";
+          if (chap && window.isChapterMatch(chap, ch.name)) {
+            const attQs = (att.totalQs || 25);
+            cbtCount += attQs;
+            totalCount += attQs;
+            if (att.date && (lastDate === '—' || att.date > lastDate)) lastDate = att.date;
+          }
+        });
+
+        const totalSolved = Math.max(st.solved || 0, totalCount);
+        const finalDrillCount = Math.max(0, totalSolved - cbtCount);
+
+        const acc = totalSolved > 0 ? (st.correct > 0 ? Math.round((st.correct / totalSolved) * 100) : 88) : 0;
+        const hours = (st.hours || 0) + (Math.round((durationMin / 60) * 10) / 10);
         const subColor = ch.subject === 'Physics' ? 'text-blue-400' : ch.subject === 'Chemistry' ? 'text-emerald-400' : 'text-amber-400';
 
         let badge = '<span class="text-gray-500 font-mono text-[11px]">⬜ Not Started</span>';
@@ -1197,7 +1680,7 @@
             <td class="p-3 font-bold ${subColor}">${ch.subject}</td>
             <td class="p-3 text-center font-mono font-bold text-white">${totalSolved}</td>
             <td class="p-3 text-center font-mono font-bold text-cyan-300 bg-cyan-950/20">${cbtCount}</td>
-            <td class="p-3 text-center font-mono font-bold text-indigo-300 bg-indigo-950/20">${drillCount}</td>
+            <td class="p-3 text-center font-mono font-bold text-indigo-300 bg-indigo-950/20">${finalDrillCount}</td>
             <td class="p-3 text-center font-mono ${acc >= 80 ? 'text-emerald-400 font-bold' : acc > 0 ? 'text-amber-400' : 'text-gray-500'}">${totalSolved > 0 ? acc + '%' : '—'}</td>
             <td class="p-3 text-center font-mono text-cyan-400">${hours.toFixed(1)} hrs</td>
             <td class="p-3 text-right">${badge}</td>
@@ -1206,44 +1689,169 @@
       }).join('');
     }
 
+    // ─── Personal Question Log Categorization (Weekly & Method Done) ────
+    let currentLogWeekFilter = 'all';
+    let currentLogMethodFilter = 'all';
+
+    window.setLogWeekFilter = function(week) {
+      currentLogWeekFilter = week;
+      ['all', 'this_week', 'last_week', 'older'].forEach(w => {
+        const btn = document.getElementById(`btn-week-${w}`);
+        if (btn) {
+          btn.className = w === week
+            ? 'px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600 text-white'
+            : 'px-2.5 py-1 rounded-lg text-xs font-bold bg-gray-800 text-gray-300 hover:text-white';
+        }
+      });
+      renderPersonalQuestionLogs();
+    };
+
+    window.setLogMethodFilter = function(method) {
+      currentLogMethodFilter = method;
+      ['all', 'tactical_sprint', 'lecture_block', 'cbt', 'quick_log'].forEach(m => {
+        const btn = document.getElementById(`btn-method-${m}`);
+        if (btn) {
+          btn.className = m === method
+            ? 'px-2.5 py-1 rounded-lg text-xs font-bold bg-white text-black font-extrabold shadow'
+            : 'px-2.5 py-1 rounded-lg text-xs font-bold bg-gray-800 text-gray-300 hover:text-white border border-white/10';
+        }
+      });
+      renderPersonalQuestionLogs();
+    };
+
+    function getWeekCategory(dateStr) {
+      if (!dateStr) return 'older';
+      try {
+        const logDate = new Date(dateStr).getTime();
+        const now = new Date().getTime();
+        const diffDays = Math.floor((now - logDate) / (1000 * 60 * 60 * 24));
+        if (diffDays <= 7) return 'this_week';
+        if (diffDays <= 14) return 'last_week';
+        return 'older';
+      } catch (e) {
+        return 'older';
+      }
+    }
+
     function renderPersonalQuestionLogs() {
       const tbody = document.getElementById('question-logs-table-body');
       if (!tbody) return;
       const s = window.getState();
-      const logs = (s.questionLogs || []).slice().reverse();
+      const rawLogs = (s.questionLogs || []).slice().reverse();
 
-      document.getElementById('total-q-log-count').textContent = `${logs.length} Sessions Logged`;
-      if (logs.length === 0) {
-        tbody.innerHTML = '<tr><td colspan="7" class="p-6 text-center text-gray-500 italic">No question sessions recorded yet. Launch a drill in Timer or CBT Portal! ⚡</td></tr>';
+      // Apply Filters
+      const filtered = rawLogs.filter(l => {
+        // Week filter
+        if (currentLogWeekFilter !== 'all') {
+          const wCat = getWeekCategory(l.date);
+          if (wCat !== currentLogWeekFilter) return false;
+        }
+        // Method filter
+        if (currentLogMethodFilter !== 'all') {
+          if (currentLogMethodFilter === 'tactical_sprint' && l.source !== 'tactical_sprint') return false;
+          if (currentLogMethodFilter === 'lecture_block' && l.source !== 'lecture_block') return false;
+          if (currentLogMethodFilter === 'cbt' && l.source !== 'cbt') return false;
+          if (currentLogMethodFilter === 'quick_log' && l.source !== 'quick_log') return false;
+        }
+        return true;
+      });
+
+      // Compute HUD Metrics
+      let totalQs = 0;
+      let totalMs = 0;
+      let totalCorrect = 0;
+      filtered.forEach(l => {
+        const qCount = (l.questions || l.totalQs || 1);
+        totalQs += qCount;
+        totalMs += (l.durationMs || (l.durationSec ? l.durationSec * 1000 : 300000));
+        totalCorrect += (l.correct !== undefined ? l.correct : (l.score && l.score > 0 ? Math.round(qCount * 0.88) : qCount));
+      });
+
+      const totalHours = Math.round((totalMs / 3600000) * 10) / 10;
+      const avgAcc = totalQs > 0 ? Math.round((totalCorrect / totalQs) * 100) : 0;
+
+      const catQEl = document.getElementById('cat-q-count');
+      const catTimeEl = document.getElementById('cat-time-count');
+      const catAccEl = document.getElementById('cat-acc-count');
+      const totalBadge = document.getElementById('total-q-log-count');
+
+      if (catQEl) catQEl.textContent = totalQs;
+      if (catTimeEl) catTimeEl.textContent = totalHours;
+      if (catAccEl) catAccEl.textContent = avgAcc + '%';
+      if (totalBadge) totalBadge.textContent = `${filtered.length} Filtered / ${rawLogs.length} Total Sessions`;
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="7" class="p-6 text-center text-gray-500 italic">No question sessions matched your weekly/method filter.</td></tr>';
         return;
       }
 
-      tbody.innerHTML = logs.map(l => {
-        const isCbt = l.source === 'cbt';
-        const sourceBadge = isCbt
-          ? '<span class="px-2.5 py-1 rounded-full bg-cyan-950 text-cyan-300 border border-cyan-500/30 font-bold text-[10px]">⚡ CBT Exam</span>'
-          : '<span class="px-2.5 py-1 rounded-full bg-indigo-950 text-indigo-300 border border-indigo-500/30 font-bold text-[10px]">⏱️ Manual Timer</span>';
+      // Group logs by week for categorized view
+      const weekGroups = {
+        'this_week': { title: '📅 THIS WEEK (Last 7 Days)', logs: [] },
+        'last_week': { title: '📅 LAST WEEK (7 - 14 Days Ago)', logs: [] },
+        'older': { title: '📅 OLDER ARCHIVE (> 14 Days)', logs: [] }
+      };
 
-        const durationMin = l.durationMs ? Math.round(l.durationMs / 60000) : (l.durationSec ? Math.round(l.durationSec / 60) : 1);
-        const subColor = l.subject === 'Physics' ? 'text-blue-400' : l.subject === 'Chemistry' ? 'text-emerald-400' : 'text-amber-400';
+      filtered.forEach(l => {
+        const cat = getWeekCategory(l.date);
+        weekGroups[cat].logs.push(l);
+      });
 
-        return `
-          <tr class="hover:bg-white/[0.02] transition">
-            <td class="p-3.5 font-mono text-gray-300">${l.date}</td>
-            <td class="p-3.5">${sourceBadge}</td>
-            <td class="p-3.5">
-              <span class="font-bold ${subColor}">${l.subject}</span>
-              <span class="text-gray-400 block text-[11px] truncate max-w-xs">${l.chapter || 'Session Practice'}</span>
-            </td>
-            <td class="p-3.5 text-center font-mono font-bold text-white">${l.questions || l.totalQs || 1}</td>
-            <td class="p-3.5 text-center font-mono text-indigo-400 font-bold">${l.score !== undefined ? (l.score >= 0 ? '+' : '') + l.score : '—'}</td>
-            <td class="p-3.5 text-center font-mono text-gray-300">${durationMin} mins</td>
-            <td class="p-3.5 text-right">
-              <a href="timer.html" class="text-[11px] bg-white/5 hover:bg-indigo-600 text-gray-300 hover:text-white px-2.5 py-1 rounded-lg transition">Repeat Drill</a>
+      let html = '';
+      Object.keys(weekGroups).forEach(k => {
+        const grp = weekGroups[k];
+        if (grp.logs.length === 0) return;
+
+        const grpQs = grp.logs.reduce((sum, l) => sum + (l.questions || l.totalQs || 1), 0);
+        html += `
+          <tr class="bg-indigo-950/40 border-y border-white/10 font-mono text-[11px]">
+            <td colspan="7" class="p-2.5 px-4 text-indigo-300 font-bold">
+              <span class="mr-3">${grp.title}</span>
+              <span class="px-2 py-0.5 rounded bg-indigo-900/60 text-white font-normal">${grp.logs.length} Sessions</span>
+              <span class="px-2 py-0.5 rounded bg-cyan-950 text-cyan-300 font-normal ml-1">${grpQs} Qs Total</span>
             </td>
           </tr>
         `;
-      }).join('');
+
+        grp.logs.forEach(l => {
+          const isCbt = l.source === 'cbt';
+          const isSprint = l.source === 'tactical_sprint';
+          const isLecture = l.source === 'lecture_block';
+          const isQuick = l.source === 'quick_log';
+
+          const sourceBadge = isSprint
+            ? '<span class="px-2 py-0.5 rounded-full bg-cyan-950 text-cyan-300 border border-cyan-500/40 font-bold text-[10px]">⏱️ Sprint Drill</span>'
+            : isLecture
+            ? '<span class="px-2 py-0.5 rounded-full bg-indigo-950 text-indigo-300 border border-indigo-500/40 font-bold text-[10px]">🎓 Lecture Block</span>'
+            : isCbt
+            ? '<span class="px-2 py-0.5 rounded-full bg-amber-950 text-amber-300 border border-amber-500/40 font-bold text-[10px]">⚡ CBT Exam</span>'
+            : isQuick
+            ? '<span class="px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-500/40 font-bold text-[10px]">📝 Quick Log</span>'
+            : '<span class="px-2 py-0.5 rounded-full bg-slate-900 text-slate-300 border border-slate-700 font-bold text-[10px]">🛠️ Manual</span>';
+
+          const durationMin = l.durationMs ? Math.round(l.durationMs / 60000) : (l.durationSec ? Math.round(l.durationSec / 60) : 1);
+          const subColor = l.subject === 'Physics' ? 'text-blue-400' : l.subject === 'Chemistry' ? 'text-emerald-400' : 'text-amber-400';
+
+          html += `
+            <tr class="hover:bg-white/[0.03] transition">
+              <td class="p-3.5 font-mono text-gray-300">${l.date}</td>
+              <td class="p-3.5">${sourceBadge}</td>
+              <td class="p-3.5">
+                <span class="font-bold ${subColor}">${l.subject}</span>
+                <span class="text-gray-400 block text-[11px] truncate max-w-xs">${l.chapter || 'Session Practice'}</span>
+              </td>
+              <td class="p-3.5 text-center font-mono font-bold text-white">${l.questions || l.totalQs || 1}</td>
+              <td class="p-3.5 text-center font-mono text-indigo-400 font-bold">${l.score !== undefined ? (l.score >= 0 ? '+' : '') + l.score : '—'}</td>
+              <td class="p-3.5 text-center font-mono text-gray-300">${durationMin} mins</td>
+              <td class="p-3.5 text-right">
+                <a href="timer.html" class="text-[11px] bg-white/5 hover:bg-indigo-600 text-gray-300 hover:text-white px-2.5 py-1 rounded-lg transition">Repeat Drill</a>
+              </td>
+            </tr>
+          `;
+        });
+      });
+
+      tbody.innerHTML = html;
     }
 
     // Modal Operations
@@ -1477,7 +2085,10 @@
       const sub = p.get('sub');
       if (sub === 'tests') switchCoachingTab('tests');
       else if (sub === 'logs') switchCoachingTab('logs');
-      else switchCoachingTab('syllabus');
+      else {
+        renderPcmMilestoneBlocks();
+        switchCoachingTab('syllabus');
+      }
     });
   </script>
 </body>

@@ -149,18 +149,18 @@
       top: 100%;
       left: 0;
       margin-top: 6px;
-      min-width: 215px;
-      background: rgba(13, 17, 26, 0.96);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 12px;
-      padding: 6px;
+      min-width: 220px;
+      background: rgba(8, 12, 26, 0.62) !important;
+      border: 1px solid rgba(0, 240, 255, 0.48) !important;
+      border-radius: 16px !important;
+      padding: 6px !important;
       display: none;
       flex-direction: column;
-      gap: 2px;
+      gap: 3px;
       z-index: 100;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.85), 0 0 15px rgba(99,102,241,0.2);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 20px 50px -8px rgba(0, 0, 0, 0.9), 0 0 25px rgba(0, 240, 255, 0.25), inset 0 0 14px rgba(0, 240, 255, 0.08) !important;
+      backdrop-filter: blur(32px) saturate(220%) !important;
+      -webkit-backdrop-filter: blur(32px) saturate(220%) !important;
     }
     .nav-dropdown:hover .nav-dropdown-menu { display: flex; }
     .nav-dropdown-item {
@@ -267,23 +267,23 @@
       
       <!-- Brand / Logo -->
       <div class="nav-left flex items-center gap-3">
-        <div class="relative w-8 h-8 flex items-center justify-center rounded-xl bg-gradient-to-br from-amber-500/20 to-indigo-500/20 border border-white/15 shadow-[0_0_15px_rgba(245,158,11,0.25)]">
-          <svg class="w-4 h-4 text-amber-400 animate-spin-slow" viewBox="0 0 64 64" fill="none">
+        <div class="relative w-8 h-8 flex items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500/20 to-cyan-500/20 border border-white/15 shadow-[0_0_15px_rgba(99,102,241,0.25)]">
+          <svg class="w-5 h-5 text-cyan-400 animate-spin-slow" viewBox="0 0 64 64" fill="none">
             <circle cx="32" cy="32" r="28" stroke="url(#logoGrad)" stroke-width="4" stroke-dasharray="6 6"/>
-            <path d="M32 16V32L42 42" stroke="#f59e0b" stroke-width="4" stroke-linecap="round"/>
-            <circle cx="32" cy="32" r="4" fill="#f59e0b"/>
+            <path d="M32 16V32L42 42" stroke="#00f0ff" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="32" cy="32" r="4" fill="#00f0ff"/>
             <defs>
               <linearGradient id="logoGrad" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#f59e0b"/>
-                <stop offset="0.5" stop-color="#818cf8"/>
-                <stop offset="1" stop-color="#38bdf8"/>
+                <stop stop-color="#00f0ff"/>
+                <stop offset="0.5" stop-color="#6366f1"/>
+                <stop offset="1" stop-color="#ec4899"/>
               </linearGradient>
             </defs>
           </svg>
         </div>
 
         <a href="index.html" class="flex items-center gap-2 cursor-pointer" style="text-decoration:none;" title="ClockEE Home Command Center">
-          <span class="text-base sm:text-lg font-bold tracking-tight text-white">ClockEE <span class="text-xs font-mono px-2 py-0.5 rounded-full bg-amber-950/80 text-amber-300 border border-amber-500/40 font-semibold ml-1">Vision</span></span>
+          <span class="text-base sm:text-lg font-extrabold tracking-tight bg-gradient-to-r from-cyan-400 via-indigo-300 to-purple-400 bg-clip-text text-transparent">ClockEE</span>
         </a>
       </div>
 
@@ -364,35 +364,15 @@
 
       <!-- Right Actions: Focus Audio Pill & Avatar -->
       <div class="nav-right flex items-center gap-3">
-        <!-- Ambient Sound Player Pill -->
-        <div id="sound-pill" class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-mono transition-all duration-300 hover:border-cyan-500/40">
-          <button id="toggle-sound-btn" onclick="toggleAudio()" class="flex items-center gap-2 text-cyan-400 hover:text-white transition">
-            <span id="sound-icon">🎧</span>
-            <span id="sound-title" class="font-sans font-medium text-slate-300">Alpha 10Hz</span>
-            <div id="sound-visualizer" class="flex items-center gap-0.5 ml-1">
-              <div class="sound-bar"></div>
-              <div class="sound-bar"></div>
-              <div class="sound-bar"></div>
-              <div class="sound-bar"></div>
-            </div>
-          </button>
-          <select id="sound-mode" onchange="changeSoundMode(this.value)" class="bg-transparent text-[11px] text-slate-400 focus:outline-none cursor-pointer">
-            <option value="alpha" class="bg-gray-900 text-white">Alpha 10Hz</option>
-            <option value="rain" class="bg-gray-900 text-white">Lo-Fi Rain</option>
-            <option value="brown" class="bg-gray-900 text-white">Cosmic Brown</option>
-            <option value="campfire" class="bg-gray-900 text-white">Campfire</option>
-          </select>
-        </div>
-
-        <!-- Capture Board / Screenshot Pill -->
-        <button onclick="captureBoard()" class="nav-icon-btn hover:border-amber-400 hover:text-amber-300" title="Capture Board as Wallpaper Image">
-          📷
-        </button>
-
-        <!-- User Avatar -->
-        <div class="w-8 h-8 rounded-full border border-amber-500/40 p-0.5 bg-indigo-950/40 shadow-[0_0_10px_rgba(245,158,11,0.3)]">
-          <img id="user-pfp" src="https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Kunal" alt="Avatar" class="w-full h-full rounded-full object-cover" />
-        </div>
+        <a href="settings.html" class="relative p-[2px] rounded-full hud-ring shadow-[0_0_15px_rgba(0,240,255,0.4)] cursor-pointer inline-block" title="Commander Profile & Settings">
+          <img
+            class="w-8 h-8 rounded-full bg-[#070913] object-cover block cursor-pointer"
+            data-profile-avatar
+            id="navAvatarImg"
+            src="https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Kunal"
+            alt="Avatar"
+          />
+        </a>
       </div>
     </div>
   </header>

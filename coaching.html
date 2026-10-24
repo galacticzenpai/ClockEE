@@ -302,7 +302,7 @@
         </div>
       </div>
 
-      <a href="admin.html" class="nav-btn text-purple-300 font-bold" style="text-decoration: none;">
+      <a href="admin.html" class="nav-admin-link nav-btn nav-admin-link hidden text-purple-300 font-bold" style="display: none !important; text-decoration: none; display: none !important;">
         <svg class="w-3.5 h-3.5 text-purple-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         <span>Admin</span>
       </a>
@@ -426,33 +426,33 @@
             <span class="text-xs font-mono font-bold text-cyan-300 flex items-center gap-1.5">
               <span>⏮️</span> PREVIOUS TEST REVIEW
             </span>
-            <span id="prev-test-date" class="text-[11px] font-mono text-slate-400">18 Oct 2026</span>
+            <span id="prev-test-date" class="text-[11px] font-mono text-slate-400">--</span>
           </div>
           <div>
-            <h4 class="text-base font-black text-white" id="prev-test-name">Allen JEE Advanced Part Test #2</h4>
+            <h4 class="text-base font-black text-white" id="prev-test-name">No Tests Recorded Yet</h4>
             <div class="flex items-center gap-3 mt-2 font-mono">
-              <span class="text-2xl font-black text-cyan-400" id="prev-test-score">226 <span class="text-xs text-slate-400 font-normal">/ 300</span></span>
-              <span class="px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-400 border border-emerald-500/30 text-xs font-bold" id="prev-test-acc">92% Acc</span>
-              <span class="px-2 py-0.5 rounded-full bg-indigo-950 text-indigo-300 border border-indigo-500/30 text-xs font-bold" id="prev-test-percentile">99.12 %ile</span>
+              <span class="text-2xl font-black text-cyan-400" id="prev-test-score">0 <span class="text-xs text-slate-400 font-normal">/ 300</span></span></span>
+              <span class="px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-400 border border-emerald-500/30 text-xs font-bold" id="prev-test-acc">0% Acc</span>
+              <span class="px-2 py-0.5 rounded-full bg-indigo-950 text-indigo-300 border border-indigo-500/30 text-xs font-bold" id="prev-test-percentile">-- %ile</span>
             </div>
           </div>
           <div class="grid grid-cols-3 gap-2 text-xs font-mono text-center">
             <div class="p-2 rounded-xl bg-blue-950/40 border border-blue-500/30">
               <span class="text-blue-300 block text-[10px]">Physics</span>
-              <strong class="text-white text-sm" id="prev-test-phy">76</strong>
+              <strong class="text-white text-sm" id="prev-test-phy">0</strong>
             </div>
             <div class="p-2 rounded-xl bg-emerald-950/40 border border-emerald-500/30">
               <span class="text-emerald-300 block text-[10px]">Chemistry</span>
-              <strong class="text-white text-sm" id="prev-test-chem">84</strong>
+              <strong class="text-white text-sm" id="prev-test-chem">0</strong>
             </div>
             <div class="p-2 rounded-xl bg-amber-950/40 border border-amber-500/30">
               <span class="text-amber-300 block text-[10px]">Maths</span>
-              <strong class="text-white text-sm" id="prev-test-math">66</strong>
+              <strong class="text-white text-sm" id="prev-test-math">0</strong>
             </div>
           </div>
           <div class="pt-2 border-t border-white/5 flex items-center justify-between text-xs">
-            <span class="text-slate-400">Status: Fully Cataloged</span>
-            <a href="cbt_analysis.html" class="text-cyan-400 hover:text-cyan-300 font-bold flex items-center gap-1">Detailed Forensic Review →</a>
+            <span class="text-slate-400">Status: Ready for First Test</span>
+            <a href="cbt.html" class="text-cyan-400 hover:text-cyan-300 font-bold flex items-center gap-1">Take Mock Test in CBT →</a>
           </div>
         </div>
 
@@ -531,7 +531,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
           <div>
             <label class="text-[10px] text-gray-400 uppercase font-bold block mb-1">Test / Exam Name</label>
-            <input type="text" id="c-ocr-name" value="Allen JEE Advanced Part Test #2" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl p-2 text-xs outline-none focus:border-indigo-500">
+            <input type="text" id="c-ocr-name" value="" placeholder="e.g. AITS Part Test #01" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl p-2 text-xs outline-none focus:border-indigo-500">
           </div>
           <div>
             <label class="text-[10px] text-gray-400 uppercase font-bold block mb-1">Exam Date</label>
@@ -554,7 +554,7 @@
           </div>
           <div>
             <label class="text-[10px] text-gray-400 uppercase font-bold block mb-1">Total Marks</label>
-            <input type="number" id="c-ocr-tot" value="226" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl p-2 text-xs outline-none font-bold text-cyan-400">
+            <input type="number" id="c-ocr-tot" value="" placeholder="Score" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl p-2 text-xs outline-none font-bold text-cyan-400">
           </div>
         </div>
 
@@ -834,7 +834,7 @@
     </div>
     <div id="ai-chat-messages" class="flex-1 overflow-y-auto space-y-2.5 pr-1 text-xs">
       <div class="bg-indigo-950/40 border border-indigo-500/20 rounded-xl p-3 text-indigo-200">
-        👋 Hi Kunal! I'm your JEE Tutor. Ask me any conceptual doubt from Physics, Chemistry, or Maths, or ask for problem solving steps!
+        👋 Welcome! I'm your JEE Tutor. Ask me any conceptual doubt from Physics, Chemistry, or Maths, or ask for problem solving steps!
       </div>
     </div>
     <div class="mt-3 flex gap-2">
@@ -1206,8 +1206,9 @@
           <div class="space-y-2">
             ${subjects.map(sub => {
               const ch = data.done[sub];
-              const agg = ch ? getChapterAgg(ch.name) : { solved: 35, hours: 4.5 };
+              const agg = ch ? getChapterAgg(ch.name) : { solved: 0, hours: 0 };
               const color = sub === 'Physics' ? 'text-blue-400' : sub === 'Chemistry' ? 'text-emerald-400' : 'text-amber-400';
+              const solvedCount = agg.solved || 0;
               return `
                 <div class="p-2.5 rounded-xl bg-white/5 border border-white/5 flex items-center justify-between gap-2">
                   <div class="min-w-0">
@@ -1215,8 +1216,8 @@
                     <span class="text-xs font-semibold text-white truncate block">${ch ? ch.name : 'Completed Basics'}</span>
                   </div>
                   <div class="text-right flex-shrink-0 font-mono text-[11px]">
-                    <span class="text-emerald-300 font-bold block">${agg.solved || 30}+ Qs</span>
-                    <span class="text-slate-400 text-[10px]">★ Done</span>
+                    <span class="${solvedCount > 0 ? 'text-emerald-300' : 'text-slate-400'} font-bold block">${solvedCount} Qs</span>
+                    <span class="text-slate-400 text-[10px]">${solvedCount > 0 ? '★ Mastered' : '○ Pending'}</span>
                   </div>
                 </div>
               `;
@@ -1235,9 +1236,9 @@
           <div class="space-y-2">
             ${subjects.map(sub => {
               const ch = data.in_progress[sub];
-              const agg = ch ? getChapterAgg(ch.name) : { solved: 18, hours: 2.5 };
+              const agg = ch ? getChapterAgg(ch.name) : { solved: 0, hours: 0 };
               const color = sub === 'Physics' ? 'text-blue-400' : sub === 'Chemistry' ? 'text-emerald-400' : 'text-amber-400';
-              const progressPct = Math.min(100, Math.max(25, (agg.solved / 35) * 100));
+              const progressPct = agg.solved > 0 ? Math.min(100, Math.round((agg.solved / 35) * 100)) : 0;
               return `
                 <div class="p-2.5 rounded-xl bg-white/5 border border-white/5 space-y-1.5">
                   <div class="flex items-center justify-between gap-2">
@@ -1503,15 +1504,15 @@
         ntCountdownEl.textContent = diffDays > 0 ? `In ${diffDays} Days` : (diffDays === 0 ? 'Today 🔥' : 'Overdue');
       }
 
-      // Render Previous Test Block (using latest mock test or default benchmark)
+      // Render Previous Test Block (using latest mock test or clean empty benchmark)
       const prevTest = tests.length > 0 ? tests[tests.length - 1] : {
-        name: "Allen JEE Advanced Part Test #2",
-        date: "18 Oct 2026",
-        score: 226,
+        name: "No Tests Attempted Yet",
+        date: "--",
+        score: 0,
         maxScore: 300,
-        accuracy: 92,
-        percentile: 99.12,
-        scores: { Physics: 76, Chemistry: 84, Maths: 66 }
+        accuracy: 0,
+        percentile: 0,
+        scores: { Physics: 0, Chemistry: 0, Maths: 0 }
       };
 
       const ptNameEl = document.getElementById('prev-test-name');
@@ -1525,18 +1526,18 @@
 
       if (ptNameEl) ptNameEl.textContent = prevTest.name;
       if (ptDateEl) ptDateEl.textContent = prevTest.date;
-      if (ptScoreEl) ptScoreEl.innerHTML = `${prevTest.totalScore || prevTest.score || 226} <span class="text-xs text-slate-400 font-normal">/ ${prevTest.maxScore || 300}</span>`;
-      if (ptAccEl) ptAccEl.textContent = `${prevTest.accuracy || 92}% Acc`;
-      if (ptPercentileEl) ptPercentileEl.textContent = `${prevTest.percentile || 99.12} %ile`;
-      if (ptPhyEl) ptPhyEl.textContent = prevTest.scores?.Physics !== undefined ? prevTest.scores.Physics : 76;
-      if (ptChemEl) ptChemEl.textContent = prevTest.scores?.Chemistry !== undefined ? prevTest.scores.Chemistry : 84;
-      if (ptMathEl) ptMathEl.textContent = prevTest.scores?.Maths !== undefined ? prevTest.scores.Maths : 66;
+      if (ptScoreEl) ptScoreEl.innerHTML = `${prevTest.totalScore !== undefined ? prevTest.totalScore : (prevTest.score !== undefined ? prevTest.score : 0)} <span class="text-xs text-slate-400 font-normal">/ ${prevTest.maxScore || 300}</span>`;
+      if (ptAccEl) ptAccEl.textContent = `${prevTest.accuracy || 0}% Acc`;
+      if (ptPercentileEl) ptPercentileEl.textContent = prevTest.percentile ? `${prevTest.percentile} %ile` : `-- %ile`;
+      if (ptPhyEl) ptPhyEl.textContent = prevTest.scores?.Physics !== undefined ? prevTest.scores.Physics : 0;
+      if (ptChemEl) ptChemEl.textContent = prevTest.scores?.Chemistry !== undefined ? prevTest.scores.Chemistry : 0;
+      if (ptMathEl) ptMathEl.textContent = prevTest.scores?.Maths !== undefined ? prevTest.scores.Maths : 0;
 
       document.getElementById('stat-test-count').textContent = tests.length;
       if (tests.length === 0) {
-        document.getElementById('stat-test-accuracy').textContent = '92%';
-        document.getElementById('stat-test-avgscore').textContent = '226';
-        container.innerHTML = '<p class="text-xs text-gray-500 italic py-6 text-center">No additional mock tests recorded yet. Launch a test in CBT Portal! ⚡</p>';
+        document.getElementById('stat-test-accuracy').textContent = '--';
+        document.getElementById('stat-test-avgscore').textContent = '0';
+        container.innerHTML = '<p class="text-xs text-gray-500 italic py-6 text-center">No mock tests recorded yet. Launch a test in CBT Portal! ⚡</p>';
         return;
       }
 

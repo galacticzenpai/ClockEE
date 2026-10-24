@@ -1154,17 +1154,26 @@
     };
 
     window.launchGuestSandbox = function() {
+      sessionStorage.removeItem('clockee_admin_authorized');
+      sessionStorage.removeItem('clockee_admin_pass');
       const guestUser = {
         uid: "guest_" + Date.now().toString(36),
         name: "Guest Aspirant",
         email: "guest@clockee.app",
-        role: "JEE 2028 Aspirant"
+        role: "Guest Aspirant",
+        isGuest: true
       };
       finalizeUserLogin(guestUser);
     };
 
     function finalizeUserLogin(user) {
       showAlert(`Welcome, ${user.name}! Authorizing secure workspace...`, false);
+
+      const isGuest = Boolean(user.isGuest || (user.uid && user.uid.startsWith("guest_")));
+      if (isGuest) {
+        sessionStorage.removeItem('clockee_admin_authorized');
+        sessionStorage.removeItem('clockee_admin_pass');
+      }
 
       localStorage.setItem('clockee_auth_active', 'true');
       localStorage.setItem('clockee_current_user', JSON.stringify(user));
@@ -1177,7 +1186,7 @@
           id: user.uid,
           name: user.name,
           email: user.email,
-          subtitle: `${user.role} • Cloud Account`,
+          subtitle: isGuest ? "Guest Aspirant • Local Sandbox" : `${user.role} • Cloud Account`,
           role: user.role,
           pfp: user.pfp || `https://api.dicebear.com/7.x/bottts-neutral/svg?seed=${encodeURIComponent(user.name)}`,
           active: true,
@@ -1194,11 +1203,11 @@
       // Ensure a pristine blank slate state for fresh users (no pre-set questions, no leaked logs)
       try {
         const userStateKey = `clockee_user_state_${user.uid}`;
-        if (!localStorage.getItem(userStateKey)) {
+        if (!localStorage.getItem(userStateKey) || isGuest) {
           const blankSlate = {
             profile: {
               name: user.name,
-              subtitle: `${user.role} • Cloud Account`,
+              subtitle: isGuest ? "Guest Aspirant • Local Sandbox" : `${user.role} • Cloud Account`,
               pfp: user.pfp || `https://api.dicebear.com/7.x/bottts-neutral/svg?seed=${encodeURIComponent(user.name)}`,
               accent: "#00f2fe"
             },
@@ -1207,15 +1216,32 @@
             jeeDate: "2028-05-17",
             nextMilestone: { date: "2026-11-15", title: "Phase Major Test #01" },
             settings: { dynamicAura: true, auraTheme: "cyan_indigo", auraSpeed: "fluid" },
-            apiKeys: { ticktick: (window.CLOCKEE_ENV?.TICKTICK_TOKEN || ""), gemini: (window.CLOCKEE_ENV?.GEMINI_KEY || ""), cloudUrl: "https://clockee-app-default-rtdb.asia-southeast1.firebasedatabase.app" },
+            apiKeys: {
+              ticktick: isGuest ? "" : (window.CLOCKEE_ENV?.TICKTICK_TOKEN || ""),
+              gemini: isGuest ? "" : (window.CLOCKEE_ENV?.GEMINI_KEY || ""),
+              cloudUrl: isGuest ? "" : (window.CLOCKEE_ENV?.FIREBASE_CONFIG?.databaseURL || "")
+            },
+            firebaseConfig: {
+              apiKey: "",
+              authDomain: "",
+              databaseURL: "",
+              projectId: "",
+              storageBucket: "",
+              messagingSenderId: "",
+              appId: "",
+              measurementId: ""
+            },
             tasks: [],
             stats: { hoursToday: 0.0, streakDays: 0, questionsSolved: { Physics: 0, Chemistry: 0, Maths: 0 }, todayTarget: 90 },
             questionLogs: [],
             sessionLogs: [],
+            mockTests: [],
             mistakeVault: []
           };
           localStorage.setItem(userStateKey, JSON.stringify(blankSlate));
-          localStorage.setItem('clockee_v5_master_state', JSON.stringify(blankSlate));
+          if (isGuest) {
+            localStorage.setItem('clockee_v5_master_state', JSON.stringify(blankSlate));
+          }
         }
       } catch(e) {}
 

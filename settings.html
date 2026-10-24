@@ -382,7 +382,7 @@
         </div>
       </div>
 
-      <a href="admin.html" class="nav-btn text-purple-300 font-bold" style="text-decoration: none;">
+      <a href="admin.html" class="nav-admin-link nav-btn nav-admin-link hidden text-purple-300 font-bold" style="display: none !important; text-decoration: none; display: none !important;">
         <svg class="w-3.5 h-3.5 text-purple-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         <span>Admin</span>
       </a>
@@ -415,7 +415,7 @@
       <p class="text-xs text-slate-400 font-medium">Multi-User Backend &bull; Dynamic Animated Backgrounds &bull; Fresh Clean Data Reset</p>
     </div>
     <div class="flex items-center gap-2">
-      <a href="admin.html" class="px-4 py-2 bg-gradient-to-r from-purple-600/30 to-indigo-600/30 hover:from-purple-600/50 hover:to-indigo-600/50 text-purple-300 border border-purple-500/40 rounded-xl text-xs font-black uppercase tracking-wider transition flex items-center gap-2 shadow">
+      <a href="admin.html" class="nav-admin-link hidden px-4 py-2 bg-gradient-to-r from-purple-600/30 to-indigo-600/30 hover:from-purple-600/50 hover:to-indigo-600/50 text-purple-300 border border-purple-500/40 rounded-xl text-xs font-black uppercase tracking-wider transition flex items-center gap-2 shadow" style="display: none !important;">
         <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         <span>Admin &amp; Mentor Panel</span>
       </a>
@@ -728,7 +728,7 @@
     </div>
     <div id="user-sessions-list" class="space-y-2 max-h-60 overflow-y-auto"></div>
     <div class="pt-3 border-t border-white/10 flex justify-between items-center">
-      <a href="admin.html" class="text-xs text-purple-400 hover:underline">Manage All in Admin Panel →</a>
+      <a href="admin.html" class="nav-admin-link hidden text-xs text-purple-400 hover:underline" style="display: none !important;">Manage All in Admin Panel →</a>
       <button onclick="document.getElementById('user-session-modal').classList.add('hidden')" class="px-4 py-1.5 bg-gray-800 hover:bg-gray-700 text-white rounded-xl text-xs font-semibold">Close</button>
     </div>
   </div>
@@ -835,9 +835,47 @@
     document.getElementById('settings-next-milestone-title').value = s.nextMilestone?.title || 'Phase Major Test #01 (Physics & Chemistry)';
     document.getElementById('settings-next-deadline').value = s.nextMilestone?.date || '2026-11-15';
 
-    document.getElementById('key-ticktick').value = s.apiKeys?.ticktick || (window.CLOCKEE_ENV && window.CLOCKEE_ENV.TICKTICK_TOKEN) || '';
-    document.getElementById('key-gemini').value = s.apiKeys?.gemini || (window.CLOCKEE_ENV && window.CLOCKEE_ENV.GEMINI_KEY) || '';
-    document.getElementById('key-firebase').value = s.apiKeys?.cloudUrl || 'https://clockee-app-default-rtdb.asia-southeast1.firebasedatabase.app';
+    let currentUser = null;
+    try {
+      const rawUser = localStorage.getItem('clockee_current_user');
+      if (rawUser) currentUser = JSON.parse(rawUser);
+    } catch(e) {}
+    const isGuest = !currentUser || (currentUser.uid && currentUser.uid.startsWith('guest_')) || (currentUser.id && currentUser.id.startsWith('guest_')) || currentUser.role === 'Guest' || currentUser.role === 'Guest Aspirant' || currentUser.isGuest;
+
+    const tickInput = document.getElementById('key-ticktick');
+    const geminiInput = document.getElementById('key-gemini');
+    const firebaseInput = document.getElementById('key-firebase');
+
+    if (isGuest) {
+      if (tickInput) {
+        tickInput.value = '';
+        tickInput.placeholder = '🔒 API Keys Locked in Guest Sandbox Mode';
+        tickInput.disabled = true;
+      }
+      if (geminiInput) {
+        geminiInput.value = '';
+        geminiInput.placeholder = '🔒 API Keys Locked in Guest Sandbox Mode';
+        geminiInput.disabled = true;
+      }
+      if (firebaseInput) {
+        firebaseInput.value = '';
+        firebaseInput.placeholder = '🔒 Cloud Database Locked in Guest Sandbox Mode';
+        firebaseInput.disabled = true;
+      }
+    } else {
+      if (tickInput) {
+        tickInput.value = s.apiKeys?.ticktick || (window.CLOCKEE_ENV && window.CLOCKEE_ENV.TICKTICK_TOKEN) || '';
+        tickInput.disabled = false;
+      }
+      if (geminiInput) {
+        geminiInput.value = s.apiKeys?.gemini || (window.CLOCKEE_ENV && window.CLOCKEE_ENV.GEMINI_KEY) || '';
+        geminiInput.disabled = false;
+      }
+      if (firebaseInput) {
+        firebaseInput.value = s.apiKeys?.cloudUrl || (window.CLOCKEE_ENV?.FIREBASE_CONFIG?.databaseURL || '');
+        firebaseInput.disabled = false;
+      }
+    }
 
     if (document.getElementById('setting-aura-toggle')) {
       document.getElementById('setting-aura-toggle').checked = s.settings?.dynamicAura ?? true;

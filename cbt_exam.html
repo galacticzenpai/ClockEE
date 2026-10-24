@@ -509,7 +509,7 @@
       <div class="nta-candidate-header-box">
         <div class="nta-avatar-placeholder">PHOTO</div>
         <div>
-          <div style="font-weight: bold; font-size: 13px; color: #003366;" id="top-cand-name">Kunal Sahoo</div>
+          <div style="font-weight: bold; font-size: 13px; color: #003366;" id="top-cand-name">Candidate</div>
           <div style="font-size: 11px; color: #666;">Sub: <span style="font-weight: bold;">B.TECH</span> | System: <span style="font-weight: bold; color: #0056b3;">C001</span></div>
         </div>
       </div>
@@ -699,7 +699,7 @@
       
       document.getElementById('exam-header-title').innerText = currentTest.title;
       if (state.profile) {
-        document.getElementById('top-cand-name').innerText = state.profile.name || "Kunal Sahoo";
+        document.getElementById('top-cand-name').innerText = state.profile?.name || "Candidate";
       }
 
       // Load or generate questions

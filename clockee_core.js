@@ -274,17 +274,17 @@ const DEFAULT_STATE = {
   apiKeys: {
     ticktick: CLOCKEE_ENV.TICKTICK_TOKEN || "",
     gemini: CLOCKEE_ENV.GEMINI_KEY || "",
-    cloudUrl: CLOCKEE_ENV.FIREBASE_CONFIG?.databaseURL || "https://clockee-app-default-rtdb.asia-southeast1.firebasedatabase.app"
+    cloudUrl: CLOCKEE_ENV.FIREBASE_CONFIG?.databaseURL || ""
   },
   firebaseConfig: CLOCKEE_ENV.FIREBASE_CONFIG || {
     apiKey: "",
-    authDomain: "clockee-app.firebaseapp.com",
-    databaseURL: "https://clockee-app-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "clockee-app",
-    storageBucket: "clockee-app.firebasestorage.app",
-    messagingSenderId: "66153109265",
-    appId: "1:66153109265:web:dde95257b9b1ae0c6c9eb0",
-    measurementId: "G-BFSXRW308R"
+    authDomain: "",
+    databaseURL: "",
+    projectId: "",
+    storageBucket: "",
+    messagingSenderId: "",
+    appId: "",
+    measurementId: ""
   },
   tasks: [],
   questionLogs: [],
@@ -380,7 +380,10 @@ window.APP_STATE = (function() {
     // 1. Look for user-scoped state first for strict data isolation
     let raw = localStorage.getItem(`clockee_user_state_${activeId}`);
     if (!raw) {
-      raw = localStorage.getItem("clockee_v5_master_state");
+      // NEVER fall back to master state for guest or fresh users
+      if (!activeId.startsWith("guest_") && activeId !== "user_guest") {
+        raw = localStorage.getItem("clockee_v5_master_state");
+      }
     }
     if (raw) {
       const parsed = JSON.parse(raw);
@@ -801,7 +804,7 @@ window.renderClockEESidebar = function() {
         <svg class="w-3.5 h-3.5 text-indigo-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>
         <span class="text-xs font-black uppercase tracking-wider text-slate-200">PCM Focus Balance</span>
       </div>
-      <span class="text-[9px] font-mono text-indigo-300 font-bold">Accuracy: 88%</span>
+      <span class="text-[9px] font-mono text-indigo-300 font-bold" id="sidebar-pcm-acc">Accuracy: --</span>
     </div>
     
     <div class="flex items-center gap-3 bg-black/40 rounded-xl p-2.5 border border-white/5 shadow-inner">
@@ -865,8 +868,6 @@ window.renderSidebarMiniChart = function() {
     logs.forEach(l => {
       if (l.date === dateStr) sum += (l.questions || l.totalQs || 1);
     });
-    // Ensure pleasant preview data if fresh slot
-    if (sum === 0 && (i === 1 || i === 3 || i === 4)) sum = (i * 12) + 15;
     counts.push(sum);
   }
 
@@ -918,21 +919,69 @@ window.renderSidebarPcmChart = function() {
   if (!canvas || typeof Chart === "undefined") return;
   const s = window.getState();
   const todayQs = window.getQuestionsToday();
-  const pCount = Math.max(1, todayQs.Physics || 28);
-  const cCount = Math.max(1, todayQs.Chemistry || 24);
-  const mCount = Math.max(1, todayQs.Maths || 20);
+  const pCount = todayQs.Physics || 0;
+  const cCount = todayQs.Chemistry || 0;
+  const mCount = todayQs.Maths || 0;
   const total = pCount + cCount + mCount;
+
+  const elP = document.getElementById("sidebar-pcm-phy");
+  const elC = document.getElementById("sidebar-pcm-chem");
+  const elM = document.getElementById("sidebar-pcm-math");
+  const elAcc = document.getElementById("sidebar-pcm-acc");
+
+  if (total === 0) {
+    if (elP) elP.textContent = "0% (0Q)";
+    if (elC) elC.textContent = "0% (0Q)";
+    if (elM) elM.textContent = "0% (0Q)";
+    if (elAcc) elAcc.textContent = "Accuracy: --";
+
+    if (window._sidebarPcmChartInstance) window._sidebarPcmChartInstance.destroy();
+    const ctx = canvas.getContext("2d");
+    window._sidebarPcmChartInstance = new Chart(ctx, {
+      type: "doughnut",
+      data: {
+        labels: ["No Practice Today"],
+        datasets: [{
+          data: [1],
+          backgroundColor: ["#1e293b"],
+          borderWidth: 1,
+          borderColor: "#090d1a"
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        cutout: "70%",
+        plugins: {
+          legend: { display: false },
+          tooltip: { enabled: false }
+        }
+      }
+    });
+    return;
+  }
 
   const pPct = Math.round((pCount / total) * 100);
   const cPct = Math.round((cCount / total) * 100);
   const mPct = 100 - pPct - cPct;
 
-  const elP = document.getElementById("sidebar-pcm-phy");
-  const elC = document.getElementById("sidebar-pcm-chem");
-  const elM = document.getElementById("sidebar-pcm-math");
   if (elP) elP.textContent = `${pPct}% (${pCount}Q)`;
   if (elC) elC.textContent = `${cPct}% (${cCount}Q)`;
   if (elM) elM.textContent = `${mPct}% (${mCount}Q)`;
+
+  // Calculate real accuracy from today's question logs
+  const logs = s.questionLogs || [];
+  const today = window.getTodayStr();
+  let correct = 0, attempted = 0;
+  logs.forEach(l => {
+    if (l.date === today) {
+      attempted += (l.questions || l.totalQs || 1);
+      correct += (l.correct !== undefined ? l.correct : 0);
+    }
+  });
+  if (elAcc) {
+    elAcc.textContent = attempted > 0 ? `Accuracy: ${Math.round((correct / attempted) * 100)}%` : "Accuracy: --";
+  }
 
   if (window._sidebarPcmChartInstance) window._sidebarPcmChartInstance.destroy();
 
@@ -1280,7 +1329,12 @@ window.resetToFreshSlot = function() {
     ...DEFAULT_STATE,
     profile: {
       ...DEFAULT_STATE.profile,
-      name: s.profile?.name || "Kunal Sahoo",
+      name: s.profile?.name || (function() {
+        try {
+          const u = JSON.parse(localStorage.getItem('clockee_current_user'));
+          return u?.name || "JEE Aspirant";
+        } catch(e) { return "JEE Aspirant"; }
+      })(),
       subtitle: s.profile?.subtitle || "JEE 2028 Workspace",
       pfp: s.profile?.pfp || DEFAULT_STATE.profile.pfp
     },
@@ -2797,17 +2851,33 @@ window.initGlobalProfileMenu = function() {
 };
 
 window.enforceRolePermissions = function() {
-  const activeUser = window.getUsersList().find(u => u.active) || { role: "JEE 2028 Aspirant" };
-  const isAdmin = Boolean(
-    activeUser.role === "Mentor / Faculty" || 
-    activeUser.role === "Admin" || 
-    activeUser.isAdmin === true ||
+  let user = null;
+  try {
+    const raw = localStorage.getItem('clockee_current_user');
+    if (raw) user = JSON.parse(raw);
+  } catch(e) {}
+  if (!user) {
+    const list = window.getUsersList();
+    user = list.find(u => u.active) || { role: "JEE 2028 Aspirant" };
+  }
+
+  const isGuest = Boolean(!user || (user.uid && user.uid.startsWith("guest_")) || (user.id && user.id.startsWith("guest_")) || user.role === "Guest" || user.role === "Guest Aspirant" || user.isGuest);
+  const isAdmin = !isGuest && Boolean(
+    user.role === "Mentor / Faculty" || 
+    user.role === "Admin" || 
+    user.isAdmin === true ||
     sessionStorage.getItem('clockee_admin_authorized') === 'true'
   );
 
-  document.querySelectorAll('a[href="admin.html"]').forEach(el => {
+  document.querySelectorAll('a[href="admin.html"], .nav-admin-link').forEach(el => {
     if (!window.location.pathname.endsWith('admin.html')) {
-      el.style.display = isAdmin ? 'inline-flex' : 'none';
+      if (isAdmin) {
+        el.style.setProperty('display', 'inline-flex', 'important');
+        el.classList.remove('hidden');
+      } else {
+        el.style.setProperty('display', 'none', 'important');
+        el.classList.add('hidden');
+      }
     }
   });
 };

@@ -539,73 +539,31 @@ function syncWithClockEE(score, durationSec, qCount, subject) {
 // 5. SIDEBAR & NAVIGATION RENDERER
 // ==========================================
 
-function renderCBTSidebar(activeNavId) {
+function renderCBTSidebar(activeNavId = "home") {
   const container = document.getElementById("cbt-sidebar-container");
   if (!container) return;
 
   const state = loadCBTState();
-  const seriesName = state.profile?.series || "ClockEE Adaptive PYQs";
-
   const navItems = [
-    { id: "home", label: "Home & Generator", icon: `<svg class="w-4 h-4" style="width:16px;height:16px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`, href: "cbt_home.html" },
-    { id: "tests", label: "All Tests", icon: `<svg class="w-4 h-4" style="width:16px;height:16px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>`, href: "cbt_home.html#all-tests" },
-    { id: "analysis", label: "Real Diagnostics", icon: `<svg class="w-4 h-4" style="width:16px;height:16px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>`, href: "cbt_analysis.html" },
-    { id: "mistakes", label: "Mistakes Hub", icon: `<svg class="w-4 h-4" style="width:16px;height:16px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>`, href: "cbt_mistakes.html", badge: state.mistakes.length },
-    { id: "notebooks", label: "Notebooks", icon: `<svg class="w-4 h-4" style="width:16px;height:16px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>`, href: "cbt_notebooks.html" },
-    { id: "vault", label: "Reference Vault & PDF", icon: `<svg class="w-4 h-4" style="width:16px;height:16px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>`, href: "cbt_reference_vault.html" },
-    { id: "cloner", label: "Question Cloner", icon: `<svg class="w-4 h-4" style="width:16px;height:16px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>`, href: "cbt_cloner.html" }
+    { id: "home", label: "Home & Generator", icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`, href: "cbt_home.html" },
+    { id: "tests", label: "Available Tests", icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>`, href: "cbt_home.html#all-tests" },
+    { id: "analysis", label: "Real Diagnostics", icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>`, href: "cbt_analysis.html" },
+    { id: "mistakes", label: "Mistakes Hub", icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>`, href: "cbt_mistakes.html", badge: state.mistakes.length },
+    { id: "notebooks", label: "Formula Notebooks", icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>`, href: "cbt_notebooks.html" },
+    { id: "vault", label: "Reference Vault", icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>`, href: "cbt_reference_vault.html" },
+    { id: "cloner", label: "AI Question Cloner", icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>`, href: "cbt_cloner.html" }
   ];
 
   const html = `
-    <aside class="cbt-sidebar">
-      <a href="cbt_home.html" class="cbt-sidebar-brand" title="ClockEE CBT Portal">
-        <div class="cbt-brand-logo">
-          <svg class="cbt-logo-svg" viewBox="0 0 64 64" fill="none">
-            <circle cx="32" cy="32" r="28" stroke="url(#cbtAtomicLogoGrad)" stroke-width="4" stroke-dasharray="6 6"/>
-            <path d="M32 16V32L42 42" stroke="#00f0ff" stroke-width="4" stroke-linecap="round"/>
-            <circle cx="32" cy="32" r="4" fill="#00f0ff"/>
-            <defs>
-              <linearGradient id="cbtAtomicLogoGrad" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#00f0ff"/>
-                <stop offset="0.5" stop-color="#6366f1"/>
-                <stop offset="1" stop-color="#ec4899"/>
-              </linearGradient>
-            </defs>
-          </svg>
-        </div>
-
-        <div>
-          <div class="cbt-brand-title">ClockEE CBT</div>
-          <div class="cbt-brand-sub">Real Adaptive Diagnostics</div>
-        </div>
-      </a>
-
-
-
-
-
-
-
-
-
-      <nav class="cbt-nav">
-        ${navItems.map(item => `
-          <a href="${item.href}" class="cbt-nav-item ${activeNavId === item.id ? 'active' : ''}">
-            <span class="cbt-nav-icon">${item.icon}</span>
-            <span>${item.label}</span>
-            ${item.badge !== undefined ? `<span class="cbt-nav-badge">${item.badge}</span>` : ''}
-          </a>
-        `).join('')}
-      </nav>
-
-      <!-- Sidebar Footer -->
-      <div class="cbt-sidebar-footer">
-        <a href="index.html" class="cbt-btn-back">
-          <span class="cbt-nav-icon">←</span>
-          <span>Back to ClockEE</span>
+    <nav class="cbt-subnav-ribbon" aria-label="CBT Sub-Modules">
+      ${navItems.map(item => `
+        <a href="${item.href}" class="cbt-subnav-pill ${activeNavId === item.id ? 'active' : ''}">
+          ${item.icon}
+          <span>${item.label}</span>
+          ${item.badge ? `<span style="font-size:10px;font-mono;background:rgba(239,68,68,0.25);color:#f87171;padding:1px 6px;border-radius:9999px;border:1px solid rgba(239,68,68,0.4);">${item.badge}</span>` : ''}
         </a>
-      </div>
-    </aside>
+      `).join('')}
+    </nav>
   `;
 
   container.innerHTML = html;

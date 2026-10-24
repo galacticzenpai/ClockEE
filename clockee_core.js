@@ -3112,8 +3112,8 @@ if (document.readyState === "complete" || document.readyState === "interactive")
 
 
 // ─── Universal Command Palette Engine (Ctrl + K / Cmd + K) ───
-(function injectCommandPalette() {
-  if (document.getElementById("clockee-cmd-palette-modal")) return;
+function injectCommandPalette() {
+  if (document.getElementById("clockee-cmd-palette-modal") || !document.body) return;
 
   // 1. Create Modal DOM
   const modal = document.createElement("div");
@@ -3299,7 +3299,12 @@ if (document.readyState === "complete" || document.readyState === "interactive")
   modal.addEventListener("click", function(e) {
     if (e.target === modal) window.toggleCommandPalette(false);
   });
-})();
+}
+if (document.readyState === "complete" || document.readyState === "interactive") {
+  setTimeout(injectCommandPalette, 20);
+} else {
+  document.addEventListener("DOMContentLoaded", injectCommandPalette);
+}
 
 /* ══════════════════════════════════════════════════════════════════════════════
    CLOCKEE UNIVERSAL RESPONSIVE MOBILE NAVIGATION & TOUCH ERGONOMICS SUITE

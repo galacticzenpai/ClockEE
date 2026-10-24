@@ -42,8 +42,9 @@
     import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 
     const env = (typeof window !== "undefined" && window.CLOCKEE_ENV) || {};
+    const firebaseApiKey = env.FIREBASE_API_KEY || localStorage.getItem("clockee_firebase_apikey") || "";
     const firebaseConfig = env.FIREBASE_CONFIG || {
-      apiKey: env.FIREBASE_API_KEY || localStorage.getItem("clockee_firebase_apikey") || "",
+      apiKey: firebaseApiKey,
       authDomain: "clockee-app.firebaseapp.com",
       databaseURL: "https://clockee-app-default-rtdb.asia-southeast1.firebasedatabase.app",
       projectId: "clockee-app",
@@ -53,10 +54,19 @@
       measurementId: "G-BFSXRW308R"
     };
 
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-    const db = getDatabase(app);
-    const googleProvider = new GoogleAuthProvider();
+    let app = null, auth = null, db = null, googleProvider = null;
+    if (firebaseConfig.apiKey) {
+      try {
+        app = initializeApp(firebaseConfig);
+        auth = getAuth(app);
+        db = getDatabase(app);
+        googleProvider = new GoogleAuthProvider();
+      } catch (err) {
+        console.warn("Firebase initialization skipped or failed:", err.message);
+      }
+    } else {
+      console.info("ClockEE running in Local Offline Guest Mode (no external Firebase key configured).");
+    }
 
     window.FB_APP = app;
     window.FB_AUTH = auth;

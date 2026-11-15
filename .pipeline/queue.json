@@ -64,15 +64,17 @@
       "ui_ux": {
         "target_id": "06a7d47b-b225-40f4-b830-b58baaaf8b3a",
         "target_name": "UI / UX",
-        "status": "PENDING",
-        "instruction": "Graphify has mapped all frontend CSS and script links.\n\nReview integrations/graphify/reports/GRAPH_REPORT.md:\n1. Note that Tailwind CDN (cdn.tailwindcss.com) is injected into 17 files independently.\n2. Ensure custom utility classes or theme CSS variables added to cbt_shared.css do not collide across modules."
+        "status": "STAGED_FOR_DISPATCH",
+        "instruction": "Graphify has mapped all frontend CSS and script links.\n\nReview integrations/graphify/reports/GRAPH_REPORT.md:\n1. Note that Tailwind CDN (cdn.tailwindcss.com) is injected into 17 files independently.\n2. Ensure custom utility classes or theme CSS variables added to cbt_shared.css do not collide across modules.",
+        "staged_at": "2026-11-16T01:22:09.884889"
       },
       "simulation": {
-        "target_id": "62adc180-be21-4671-848c-c8df59e2c202",
+        "source": "ui_ux",
+        "target_key": "simulation",
         "target_name": "SIMULATION",
-        "status": "COMPLETED",
-        "instruction": "Graphify Knowledge Graph runner is installed in integrations/graphify/.\n\nAutomated Verification Task:\n1. Run python integrations/graphify/graph_runner.py build to ensure all 263 entities and 320 edges index cleanly with exit code 0.\n2. Verify that integrations/graphify/reports/graph.json and GRAPH_REPORT.md are refreshed.",
-        "completed_at": "2026-11-16T01:07:09.075528"
+        "target_id": "62adc180-be21-4671-848c-c8df59e2c202",
+        "instruction": "You are SIMULATION.\nPrerequisites Met: Phase 2 UI/UX styling, Hallmark themes, and responsive layout updates are fully completed and committed across all ClockEE frontend templates (sloplint average score 100.0/100).\n\nYour Task:\n1. Run a comprehensive multi-viewport regression test across the 8 canonical viewports ([320px, 375px, 414px, 768px, 1024px, 1280px, 1440px, 1920px]).\n2. Execute `python integrations/hallmark_design/hallmark_cli.py audit --all` to verify zero floor gate failures and zero reflex slop tells.\n3. Validate that the `--kept` contract holds across all interactive timer controls, CBT answer palettes, and modal interactions.\n4. Output your Phase 3 verification report following the Universal System Directive.",
+        "status": "QUEUED"
       },
       "db_backend": {
         "target_id": "d3700ff3-1bfb-458a-9968-8257ef2ca7e2",

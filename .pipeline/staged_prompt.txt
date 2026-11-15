@@ -1,11 +1,11 @@
-You are Untitled conversation (Main Feature).
+You are UI / UX.
 
 --- TASK ASSIGNMENT ---
-Graphify Codebase Knowledge Graph has been vendored at integrations/graphify/.
+Graphify has mapped all frontend CSS and script links.
 
-Review integrations/graphify/reports/GRAPH_REPORT.md before making any structural DOM or function renames:
-1. Note the identified God Nodes: clockee_core.js (16 dependent files), cbt_shared.js (9 files), env.js (21 files).
-2. Use python integrations/graphify/graph_runner.py query <symbol_name> before refactoring any shared utility functions or storage keys.
+Review integrations/graphify/reports/GRAPH_REPORT.md:
+1. Note that Tailwind CDN (cdn.tailwindcss.com) is injected into 17 files independently.
+2. Ensure custom utility classes or theme CSS variables added to cbt_shared.css do not collide across modules.
 
 --- MESH COORDINATION DIRECTIVE ---
 1. Implement all domain fixes and features cleanly without disturbing sibling modules.

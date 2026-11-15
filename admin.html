@@ -71,40 +71,45 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <style>
+    /* Technical Slate Theme (Hallmark Design System) */
     :root {
-      --bg-base: #07080d;
-      --bg-surface: #10121b;
-      --bg-elevated: #161924;
-      --border-subtle: rgba(255, 255, 255, 0.08);
-      --accent: #6366f1;
+      --bg-base: #0a0c10;
+      --bg-surface: #12151c;
+      --bg-elevated: #161b24;
+      --border-subtle: #30363d;
+      --border-medium: #484f58;
+      --accent: #388bfd;
+      --text-primary: #f0f3f6;
+      --text-secondary: #8b949e;
     }
     body {
       background-color: var(--bg-base);
-      color: #f3f4f6;
-      font-family: 'Inter', sans-serif;
+      color: var(--text-primary);
+      font-family: 'Inter', -apple-system, sans-serif;
       min-height: 100vh;
     }
     .mono { font-family: 'JetBrains Mono', monospace; }
     .glass-card {
-      backdrop-filter: blur(20px);
-      background: rgba(16, 18, 27, 0.75);
+      background: var(--bg-surface);
       border: 1px solid var(--border-subtle);
-      border-radius: 16px;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
     }
     .nav-btn {
       padding: 6px 14px;
-      border-radius: 9999px;
+      border-radius: 6px;
       font-size: 0.8125rem;
       font-weight: 500;
-      color: #9ca3af;
-      transition: all 0.2s ease;
+      color: var(--text-secondary);
+      transition: all 0.15s ease;
       display: inline-flex;
       align-items: center;
       gap: 4px;
       text-decoration: none;
+      border: 1px solid transparent;
     }
-    .nav-btn:hover { background: rgba(99, 102, 241, 0.16); color: #fff; }
-    .nav-btn.nav-active { background: #6366f1; color: #fff; box-shadow: 0 0 15px rgba(99, 102, 241, 0.5); }
+    .nav-btn:hover { background: rgba(56, 139, 253, 0.12); color: #fff; border-color: rgba(56, 139, 253, 0.3); }
+    .nav-btn.nav-active { background: var(--accent); color: #fff; box-shadow: 0 0 12px rgba(56, 139, 253, 0.35); }
 
     .nav-dropdown {
       position: relative;
@@ -125,9 +130,10 @@
       left: 0;
       margin-top: 6px;
       min-width: 210px;
-      background: rgba(8, 12, 26, 0.98);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 12px;
+      background: #12151c;
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
       padding: 6px;
       display: none;
       flex-direction: column;

@@ -46,6 +46,21 @@
       --text-secondary: #9ca3af;
     }
 
+    /* Retro Terminal Theme (Hallmark Design System) */
+    [data-theme="retro_terminal"],
+    body.theme-retro-terminal,
+    body[data-page-theme="retro_terminal"] {
+      --bg-base: #0c0a06;
+      --bg-surface: #18140c;
+      --bg-elevated: #241e12;
+      --border-subtle: #3b2f1e;
+      --border-focus: #ff9e3b;
+      --accent: #ff9e3b;
+      --accent-soft: rgba(255, 158, 59, 0.16);
+      --text-primary: #ffb454;
+      --text-secondary: #c68a3e;
+    }
+
     body {
       background-color: var(--bg-base);
       color: var(--text-primary);
@@ -62,6 +77,17 @@
       background: rgba(16, 18, 27, 0.7);
       border: 1px solid var(--border-subtle);
       border-radius: 16px;
+    }
+
+    [data-theme="retro_terminal"] .glass-card,
+    body.theme-retro-terminal .glass-card,
+    body[data-page-theme="retro_terminal"] .glass-card {
+      background: #18140c;
+      border: 1px solid #3b2f1e;
+      border-radius: 4px;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8), 0 0 12px rgba(255, 158, 59, 0.05);
     }
 
     .nav-btn {

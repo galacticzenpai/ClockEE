@@ -59,6 +59,21 @@
       --text-secondary: #9ca3af;
     }
 
+    /* Industrial Bauhaus Theme (Hallmark Design System) */
+    [data-theme="industrial_bauhaus"],
+    body.theme-industrial-bauhaus,
+    body[data-page-theme="industrial_bauhaus"] {
+      --bg-base: #ecebe4;
+      --bg-surface: #ffffff;
+      --bg-elevated: #e2e0d7;
+      --border-subtle: #1a1a1a;
+      --border-focus: #0047bb;
+      --accent: #0047bb;
+      --accent-soft: rgba(0, 71, 187, 0.12);
+      --text-primary: #0f0f0f;
+      --text-secondary: #4a4a4a;
+    }
+
     body {
       background-color: var(--bg-base);
       color: var(--text-primary);
@@ -76,6 +91,17 @@
       border: 1px solid var(--border-subtle);
       border-radius: 16px;
       transition: all 0.25s ease;
+    }
+
+    [data-theme="industrial_bauhaus"] .glass-card,
+    body.theme-industrial-bauhaus .glass-card,
+    body[data-page-theme="industrial_bauhaus"] .glass-card {
+      background: #ffffff;
+      border: 2px solid #1a1a1a;
+      border-radius: 2px;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      box-shadow: 4px 4px 0px #1a1a1a;
     }
 
     .nav-btn {

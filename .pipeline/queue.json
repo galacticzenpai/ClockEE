@@ -57,8 +57,9 @@
       "untitled_conversation": {
         "target_id": "6371cba6-7d2f-4b29-a250-627d88d1b4f1",
         "target_name": "Untitled conversation (Main Feature)",
-        "status": "PENDING",
-        "instruction": "Graphify Codebase Knowledge Graph has been vendored at integrations/graphify/.\n\nReview integrations/graphify/reports/GRAPH_REPORT.md before making any structural DOM or function renames:\n1. Note the identified God Nodes: clockee_core.js (16 dependent files), cbt_shared.js (9 files), env.js (21 files).\n2. Use python integrations/graphify/graph_runner.py query <symbol_name> before refactoring any shared utility functions or storage keys."
+        "status": "STAGED_FOR_DISPATCH",
+        "instruction": "Graphify Codebase Knowledge Graph has been vendored at integrations/graphify/.\n\nReview integrations/graphify/reports/GRAPH_REPORT.md before making any structural DOM or function renames:\n1. Note the identified God Nodes: clockee_core.js (16 dependent files), cbt_shared.js (9 files), env.js (21 files).\n2. Use python integrations/graphify/graph_runner.py query <symbol_name> before refactoring any shared utility functions or storage keys.",
+        "staged_at": "2026-11-16T01:07:09.076293"
       },
       "ui_ux": {
         "target_id": "06a7d47b-b225-40f4-b830-b58baaaf8b3a",
@@ -69,8 +70,9 @@
       "simulation": {
         "target_id": "62adc180-be21-4671-848c-c8df59e2c202",
         "target_name": "SIMULATION",
-        "status": "PENDING",
-        "instruction": "Graphify Knowledge Graph runner is installed in integrations/graphify/.\n\nAutomated Verification Task:\n1. Run python integrations/graphify/graph_runner.py build to ensure all 263 entities and 320 edges index cleanly with exit code 0.\n2. Verify that integrations/graphify/reports/graph.json and GRAPH_REPORT.md are refreshed."
+        "status": "COMPLETED",
+        "instruction": "Graphify Knowledge Graph runner is installed in integrations/graphify/.\n\nAutomated Verification Task:\n1. Run python integrations/graphify/graph_runner.py build to ensure all 263 entities and 320 edges index cleanly with exit code 0.\n2. Verify that integrations/graphify/reports/graph.json and GRAPH_REPORT.md are refreshed.",
+        "completed_at": "2026-11-16T01:07:09.075528"
       },
       "db_backend": {
         "target_id": "d3700ff3-1bfb-458a-9968-8257ef2ca7e2",

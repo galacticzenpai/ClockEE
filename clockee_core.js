@@ -1694,6 +1694,10 @@ window.switchDrawerTab = function(tab) {
     window.renderPdfsDrawer();
   } else if (tab === "audio") {
     window.renderMusicCorner();
+  } else if (tab === "ai") {
+    if (window.ClockEEChatNetwork && typeof window.ClockEEChatNetwork.render === "function") {
+      window.ClockEEChatNetwork.render();
+    }
   }
 };
 
@@ -2094,85 +2098,1020 @@ window.insertNoteTimestamp = function() {
   window.saveLiveNotes(area.value);
 };
 
-// ─── AI Doubt Tutor Integration (Gemini 2.5 Flash) ─────────
-window.sendAIDoubtMessage = async function() {
-  const input = document.getElementById("ai-doubt-input");
-  const container = document.getElementById("ai-chat-messages");
-  if (!input || !container) return;
-  const msg = input.value.trim();
-  if (!msg) return;
-
-  // Append user message bubble
-  const userDiv = document.createElement("div");
-  userDiv.className = "bg-white/10 border border-white/10 rounded-xl p-3 text-white font-medium ml-6";
-  userDiv.innerText = msg;
-  container.appendChild(userDiv);
-  input.value = "";
-  container.scrollTop = container.scrollHeight;
-
-  // Append loading bubble
-  const loadDiv = document.createElement("div");
-  loadDiv.className = "bg-indigo-950/60 border border-indigo-500/30 rounded-xl p-3 text-indigo-200 text-xs italic flex items-center gap-2";
-  loadDiv.innerHTML = `<span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span> Thinking with Gemini 2.5 Flash...`;
-  container.appendChild(loadDiv);
-  container.scrollTop = container.scrollHeight;
-
-  const s = window.getState();
-  const key = s.apiKeys?.gemini;
-
-  // If no Gemini key is provided or test mode, give authentic offline/sandbox AI guidance
-  if (!key || key.startsWith("AQ.")) {
-    setTimeout(() => {
-      loadDiv.remove();
-      const botDiv = document.createElement("div");
-      botDiv.className = "bg-indigo-950/50 border border-indigo-500/30 rounded-xl p-3 text-indigo-100 font-medium mr-6 leading-relaxed whitespace-pre-wrap";
-      
-      let answer = "";
-      const lower = msg.toLowerCase();
-      if (lower.includes("lenz") || lower.includes("induction") || lower.includes("faraday")) {
-        answer = "⚡ **Lenz's Law Summary:**\n*The induced electromotive force (EMF) and current always oppose the change in magnetic flux that produces them:* `ε = -dΦ/dt` (Law of Conservation of Energy applied to electromagnetism).\n\n💡 *JEE Advanced Tip:* Always use the right-hand grip rule to find opposing flux directions in moving loops!";
-      } else if (lower.includes("rotational") || lower.includes("inertia") || lower.includes("torque")) {
-        answer = "🎯 **Rotational Dynamics Key Principle:**\n`τ_net = I α` and `L = I ω`. When external torque is zero (`τ_ext = 0`), total angular momentum is strictly conserved.\n\n💡 *Common JEE Trap:* Remember that moment of inertia depends on the axis of rotation (`I = I_cm + Md²`).";
-      } else if (lower.includes("integration") || lower.includes("calculus") || lower.includes("derivative")) {
-        answer = "∫ **Calculus & Problem Solving Core:**\nUse King's property: `∫[a to b] f(x) dx = ∫[a to b] f(a+b-x) dx` for trigonometric or symmetry integrals.\n\n💡 *High-Yield Strategy:* Pair it with Leibniz rule when differentiating integral functions.";
-      } else {
-        answer = `🤖 **JEE Commander AI Tutor:**\nRegarding **"${msg}"**:\nFocus on fundamental first principles. Break the problem into free-body diagrams or reaction mechanisms, verify boundary conditions, and check unit dimensions before final calculation! (Configure your personal Gemini API key in Settings for full real-time cloud inference).`;
-      }
-
-      botDiv.innerHTML = window.marked ? marked.parse(answer) : answer;
-      container.appendChild(botDiv);
-      container.scrollTop = container.scrollHeight;
-    }, 600);
-    return;
-  }
+// ─── 10B. ClockEE Universal Connected AI Chat Network (Simultaneous Multi-Chat Engine) ─────────
+// Interconnects all chat instances across all pages, windows, and tabs via
+// BroadcastChannel + LocalStorage with real-time simultaneous parallel reasoning.
+(function() {
+  const CHAT_CHANNEL_NAME = "clockee_universal_chat_network";
+  const TAB_INSTANCE_ID = "chat_tab_" + Math.random().toString(36).slice(2, 9);
+  let _broadcastChannel = null;
 
   try {
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${key}`;
-    const prompt = `You are an elite IIT-JEE Mentor for JEE 2028. Answer this student doubt concisely with clear physics/chemistry/math concepts, LaTeX formulas if applicable, and high-yield tips:\n\n${msg}`;
-    const res = await fetch(url, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        contents: [{ parts: [{ text: prompt }] }]
-      })
-    });
-    const data = await res.json();
-    const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text;
-    loadDiv.remove();
+    if (typeof BroadcastChannel !== "undefined") {
+      _broadcastChannel = new BroadcastChannel(CHAT_CHANNEL_NAME);
+    }
+  } catch (e) {
+    console.warn("BroadcastChannel error:", e);
+  }
 
-    const botDiv = document.createElement("div");
-    botDiv.className = "bg-indigo-950/50 border border-indigo-500/30 rounded-xl p-3 text-indigo-100 font-medium mr-6 leading-relaxed whitespace-pre-wrap";
-    botDiv.innerHTML = reply ? (window.marked ? marked.parse(reply) : reply) : "Sorry, I couldn't generate a response. Please check your network.";
-    container.appendChild(botDiv);
-    container.scrollTop = container.scrollHeight;
-  } catch (err) {
-    loadDiv.remove();
-    const errDiv = document.createElement("div");
-    errDiv.className = "bg-red-950/40 border border-red-500/30 rounded-xl p-3 text-red-300 text-xs";
-    errDiv.innerText = "Error: " + err.message;
-    container.appendChild(errDiv);
+  // Active connected tabs registry
+  const _connectedTabs = new Map();
+  _connectedTabs.set(TAB_INSTANCE_ID, Date.now());
+
+  // Active concurrent query requests (enables simultaneous processing)
+  const _activeQueries = new Map();
+
+  // Mentor Definitions
+  const MENTORS = {
+    council: {
+      id: "council",
+      name: "All-Mentors Council",
+      role: "Simultaneous Multi-Disciplinary Panel",
+      icon: "🌟",
+      badgeBg: "rgba(99, 102, 241, 0.25)",
+      badgeBorder: "rgba(99, 102, 241, 0.5)",
+      badgeText: "#a5b4fc",
+      accentColor: "#818cf8",
+      description: "Physics, Chemistry & Maths mentors collaborate and solve simultaneously"
+    },
+    physics: {
+      id: "physics",
+      name: "Physics Professor",
+      role: "Mechanics, Fields & Core Laws",
+      icon: "⚛️",
+      badgeBg: "rgba(6, 182, 212, 0.25)",
+      badgeBorder: "rgba(6, 182, 212, 0.5)",
+      badgeText: "#67e8f9",
+      accentColor: "#22d3ee",
+      description: "Fundamental laws, free-body diagrams, and JEE Advanced traps"
+    },
+    chemistry: {
+      id: "chemistry",
+      name: "Chemistry Maestro",
+      role: "Organic, Physical & Inorganic",
+      icon: "🧪",
+      badgeBg: "rgba(16, 185, 129, 0.25)",
+      badgeBorder: "rgba(16, 185, 129, 0.5)",
+      badgeText: "#6ee7b7",
+      accentColor: "#34d399",
+      description: "Reaction mechanisms, thermodynamics, and periodic trends"
+    },
+    maths: {
+      id: "maths",
+      name: "Mathematics Virtuoso",
+      role: "Calculus, Vectors & Speed Tricks",
+      icon: "📐",
+      badgeBg: "rgba(245, 158, 11, 0.25)",
+      badgeBorder: "rgba(245, 158, 11, 0.5)",
+      badgeText: "#fcd34d",
+      accentColor: "#fbbf24",
+      description: "Calculus shortcuts, symmetry tricks, and geometric intuition"
+    },
+    strategy: {
+      id: "strategy",
+      name: "JEE Strategy Coach",
+      role: "Test Tactics & Score Maximizer",
+      icon: "🎯",
+      badgeBg: "rgba(168, 85, 247, 0.25)",
+      badgeBorder: "rgba(168, 85, 247, 0.5)",
+      badgeText: "#d8b4fe",
+      accentColor: "#c084fc",
+      description: "3-hour exam tactics, question triage & error autopsy"
+    }
+  };
+
+  function getStorageKey() {
+    const uid = typeof window.getActiveUserId === "function" ? window.getActiveUserId() : "default";
+    return `clockee_connected_chats_v2_${uid}`;
+  }
+
+  function getInitialSession() {
+    return {
+      activeChannel: "council",
+      simultaneousMode: true,
+      channels: {
+        council: [
+          {
+            id: "welcome_council",
+            role: "assistant",
+            mentor: "council",
+            mentorName: "All-Mentors Council",
+            content: "🌟 **Welcome to the ClockEE JEE 2028 Connected AI Council!**\n\nEvery chat across **all open windows, tabs, and pages** is now linked together in real-time.\n\n⚡ **Simultaneous Mode Active:** When you ask a question in this Council, your **Physics, Chemistry, and Mathematics mentors will analyze and respond in parallel simultaneously**!\n\nSwitch to individual mentors anytime above, or open ClockEE in multiple tabs to see instantaneous cross-window synchronization.",
+            timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+          }
+        ],
+        physics: [
+          {
+            id: "welcome_physics",
+            role: "assistant",
+            mentor: "physics",
+            mentorName: "Physics Professor",
+            content: "⚛️ **Physics AI Master Online.**\nAsk any concept or problem from Mechanics, Electromagnetism, Modern Physics, Optics, or Thermodynamics. I'll break it down using first principles and high-yield IIT-JEE shortcuts.",
+            timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+          }
+        ],
+        chemistry: [
+          {
+            id: "welcome_chemistry",
+            role: "assistant",
+            mentor: "chemistry",
+            mentorName: "Chemistry Maestro",
+            content: "🧪 **Chemistry AI Specialist Ready.**\nAsk any reaction mechanism, physical chemistry numerical, or inorganic periodic trend. Let's make every reaction predictable!",
+            timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+          }
+        ],
+        maths: [
+          {
+            id: "welcome_maths",
+            role: "assistant",
+            mentor: "maths",
+            mentorName: "Mathematics Virtuoso",
+            content: "📐 **Mathematics Virtuoso Ready.**\nMaster Calculus, Coordinate Geometry, Vectors, and Algebra with elegant proofs and speed-solving shortcuts.",
+            timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+          }
+        ],
+        strategy: [
+          {
+            id: "welcome_strategy",
+            role: "assistant",
+            mentor: "strategy",
+            mentorName: "JEE Strategy Coach",
+            content: "🎯 **JEE Strategy Coach on Duty.**\nGet tactical advice on mock test pacing, avoiding negative marking, syllabus revision schedules, and peak exam temperament.",
+            timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+          }
+        ]
+      }
+    };
+  }
+
+  function loadSession() {
+    try {
+      const raw = localStorage.getItem(getStorageKey());
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        if (parsed && parsed.channels) return parsed;
+      }
+    } catch(e) {}
+    return getInitialSession();
+  }
+
+  function saveSession(session) {
+    try {
+      localStorage.setItem(getStorageKey(), JSON.stringify(session));
+    } catch(e) {}
+  }
+
+  // Cross-Tab Broadcast Engine
+  function broadcast(payload) {
+    const envelope = { ...payload, fromTab: TAB_INSTANCE_ID, sentAt: Date.now() };
+    if (_broadcastChannel) {
+      try {
+        _broadcastChannel.postMessage(envelope);
+      } catch(e) {}
+    }
+    try {
+      localStorage.setItem("clockee_chat_broadcast_sync", JSON.stringify({ ...envelope, _nonce: Math.random() }));
+    } catch(e) {}
+  }
+
+  function handleIncomingBroadcast(envelope) {
+    if (!envelope || envelope.fromTab === TAB_INSTANCE_ID) return;
+
+    if (envelope.type === "PRESENCE_PING") {
+      _connectedTabs.set(envelope.fromTab, Date.now());
+      updatePresenceUI();
+      if (_broadcastChannel) {
+        try {
+          _broadcastChannel.postMessage({ type: "PRESENCE_PONG", fromTab: TAB_INSTANCE_ID, sentAt: Date.now() });
+        } catch(e) {}
+      }
+    } else if (envelope.type === "PRESENCE_PONG") {
+      _connectedTabs.set(envelope.fromTab, Date.now());
+      updatePresenceUI();
+    } else if (envelope.type === "USER_MESSAGE") {
+      const session = loadSession();
+      if (!session.channels[envelope.channel]) session.channels[envelope.channel] = [];
+      const exists = session.channels[envelope.channel].some(m => m.id === envelope.message.id);
+      if (!exists) {
+        session.channels[envelope.channel].push(envelope.message);
+        saveSession(session);
+      }
+      renderMessages();
+      scrollMessagesToBottom();
+      notifyChannelActivity(envelope.channel);
+    } else if (envelope.type === "THINKING_START") {
+      envelope.mentors.forEach(m => {
+        _activeQueries.set(`${envelope.promptId}_${m}`, {
+          promptId: envelope.promptId,
+          channel: envelope.channel,
+          mentor: m,
+          prompt: envelope.prompt,
+          startTime: Date.now()
+        });
+      });
+      renderThinkingIndicators();
+      scrollMessagesToBottom();
+    } else if (envelope.type === "MENTOR_RESPONSE") {
+      _activeQueries.delete(`${envelope.promptId}_${envelope.mentor}`);
+      const session = loadSession();
+      if (!session.channels[envelope.channel]) session.channels[envelope.channel] = [];
+      const exists = session.channels[envelope.channel].some(m => m.id === envelope.message.id);
+      if (!exists) {
+        session.channels[envelope.channel].push(envelope.message);
+        saveSession(session);
+      }
+      renderMessages();
+      scrollMessagesToBottom();
+      notifyChannelActivity(envelope.channel);
+    } else if (envelope.type === "CLEAR_HISTORY") {
+      const session = loadSession();
+      if (envelope.channel === "all") {
+        const fresh = getInitialSession();
+        saveSession(fresh);
+      } else if (session.channels[envelope.channel]) {
+        session.channels[envelope.channel] = [];
+        saveSession(session);
+      }
+      renderMessages();
+    }
+  }
+
+  if (_broadcastChannel) {
+    _broadcastChannel.onmessage = (event) => handleIncomingBroadcast(event.data);
+  }
+
+  window.addEventListener("storage", (e) => {
+    if (e.key === "clockee_chat_broadcast_sync" && e.newValue) {
+      try {
+        const payload = JSON.parse(e.newValue);
+        handleIncomingBroadcast(payload);
+      } catch(err) {}
+    } else if (e.key && e.key.startsWith("clockee_connected_chats_v2_")) {
+      renderMessages();
+    }
+  });
+
+  // Heartbeat presence pings every 7s
+  setInterval(() => {
+    const now = Date.now();
+    for (const [id, ts] of _connectedTabs.entries()) {
+      if (id !== TAB_INSTANCE_ID && (now - ts) > 18000) {
+        _connectedTabs.delete(id);
+      }
+    }
+    updatePresenceUI();
+    broadcast({ type: "PRESENCE_PING" });
+  }, 7000);
+
+  function getConnectedTabCount() {
+    return Math.max(1, _connectedTabs.size);
+  }
+
+  function updatePresenceUI() {
+    const count = getConnectedTabCount();
+    const badges = document.querySelectorAll(".clockee-chat-presence-badge");
+    badges.forEach(b => {
+      if (count > 1) {
+        b.innerHTML = `<span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse inline-block mr-1"></span> <span class="font-extrabold text-emerald-300">${count} Chats Connected</span> <span class="opacity-75">• Live Sync Active</span>`;
+      } else {
+        b.innerHTML = `<span class="w-2 h-2 rounded-full bg-cyan-400 inline-block mr-1"></span> <span class="font-bold text-cyan-300">Connected</span> <span class="opacity-75">• Real-time Network Ready</span>`;
+      }
+    });
+
+    const floatingBadges = document.querySelectorAll("#chat-tabs-counter-badge");
+    floatingBadges.forEach(fb => {
+      fb.textContent = count > 1 ? `${count} linked` : "sync ready";
+    });
+  }
+
+  function notifyChannelActivity(channelKey) {
+    const session = loadSession();
+    if (session.activeChannel !== channelKey) {
+      const tabBtn = document.querySelector(`[data-chat-channel="${channelKey}"]`);
+      if (tabBtn) {
+        tabBtn.classList.add("ring-2", "ring-cyan-400", "animate-pulse");
+      }
+    }
+  }
+
+  // Markdown & LaTeX Math Formatter
+  function renderMarkdownAndMath(raw) {
+    if (!raw) return "";
+    let str = String(raw);
+
+    // If marked is loaded, use marked
+    let html = "";
+    if (typeof window.marked !== "undefined" && typeof window.marked.parse === "function") {
+      try {
+        html = window.marked.parse(str);
+      } catch(e) {
+        html = fallbackFormat(str);
+      }
+    } else {
+      html = fallbackFormat(str);
+    }
+
+    // Render LaTeX Math if KaTeX is present
+    if (typeof window.katex !== "undefined" && typeof window.katex.renderToString === "function") {
+      try {
+        // Display math $$ ... $$
+        html = html.replace(/\$\$([\s\S]+?)\$\$/g, (m, formula) => {
+          try {
+            return `<div class="my-2 overflow-x-auto p-2 bg-black/40 rounded-lg text-center">${window.katex.renderToString(formula.trim(), { displayMode: true, throwOnError: false })}</div>`;
+          } catch(e) { return m; }
+        });
+        // Inline math $ ... $
+        html = html.replace(/\$([^\$\n]+?)\$/g, (m, formula) => {
+          try {
+            return `<span class="inline-block px-1">${window.katex.renderToString(formula.trim(), { displayMode: false, throwOnError: false })}</span>`;
+          } catch(e) { return m; }
+        });
+      } catch(e) {}
+    } else {
+      // Elegant styled fallback for math expressions
+      html = html.replace(/\$\$([\s\S]+?)\$\$/g, '<div class="my-2 p-2.5 bg-black/60 rounded-xl text-cyan-300 font-mono text-xs text-center border border-cyan-500/30 overflow-x-auto">$1</div>');
+      html = html.replace(/\$([^\$\n]+?)\$/g, '<code class="bg-indigo-950/70 text-cyan-300 px-1.5 py-0.5 rounded font-mono text-[11px] border border-cyan-500/20">$1</code>');
+    }
+
+    return html;
+  }
+
+  function fallbackFormat(text) {
+    let s = text
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+
+    // Code blocks
+    s = s.replace(/```([a-zA-Z0-9_-]*)\n([\s\S]+?)```/g, (m, lang, code) => {
+      return `<div class="relative my-2 rounded-xl overflow-hidden border border-slate-700 bg-slate-950/90 text-left">
+        <div class="flex items-center justify-between px-3 py-1 bg-slate-900 border-b border-slate-800 text-[10px] text-slate-400 font-mono">
+          <span>${lang || 'code'}</span>
+          <button onclick="window.ClockEEChatNetwork.copyCodeSnippet(this)" class="hover:text-cyan-400 font-bold cursor-pointer">Copy</button>
+        </div>
+        <pre class="p-3 text-cyan-200 font-mono text-xs overflow-x-auto"><code>${code}</code></pre>
+      </div>`;
+    });
+
+    // Inline code
+    s = s.replace(/`([^`]+)`/g, '<code class="bg-black/50 text-cyan-300 px-1.5 py-0.5 rounded font-mono text-[11px] border border-white/10">$1</code>');
+    // Bold
+    s = s.replace(/\*\*([^*]+)\*\*/g, '<strong class="text-white font-bold">$1</strong>');
+    // Italic
+    s = s.replace(/\*([^*]+)\*/g, '<em class="text-indigo-200">$1</em>');
+    // Bullet lists
+    s = s.replace(/^\s*[-*]\s+(.+)$/gm, '<li class="ml-4 list-disc text-slate-200 my-0.5">$1</li>');
+    // Numbered lists
+    s = s.replace(/^\s*(\d+)\.\s+(.+)$/gm, '<li class="ml-4 list-decimal text-slate-200 my-0.5">$2</li>');
+    // Line breaks
+    s = s.replace(/\n\n/g, '<div class="h-2"></div>');
+    s = s.replace(/\n/g, '<br>');
+
+    return s;
+  }
+
+  // Authentic Offline JEE Mentor Reasoning
+  function queryOfflineMentor(mentorKey, msg) {
+    return new Promise((resolve) => {
+      // Simulate realistic concurrent calculation delay
+      const delay = mentorKey === "physics" ? 350 : (mentorKey === "chemistry" ? 500 : (mentorKey === "maths" ? 650 : 400));
+      setTimeout(() => {
+        const lower = msg.toLowerCase();
+        let content = "";
+
+        if (mentorKey === "physics") {
+          if (lower.includes("lenz") || lower.includes("faraday") || lower.includes("induction") || lower.includes("flux")) {
+            content = "⚡ **Physics Professor Analysis:**\n\n**Lenz's Law & Conservation of Energy:**\n$$\\varepsilon = -\\frac{d\\Phi_B}{dt}$$\n*The negative sign embodies Lenz's Law: The induced current always flows in such a direction that its magnetic effect opposes the magnetic flux change producing it.*\n\n* **Mechanical Work Equivalence:** The external mechanical work required to move a conductor against the Lorentz magnetic braking force ($F = I(\\vec{l} \\times \\vec{B})$) is exactly converted into electrical Joule heating ($I^2R$).\n* **Right-Hand Grip Rule:** Point thumb opposite to $\\Delta\\Phi$ to determine loop induced current direction.\n\n💡 *JEE Advanced Pitfall:* If flux increases into the page, induced $B$-field must point OUT of the page to counteract the change!";
+          } else if (lower.includes("rotat") || lower.includes("inertia") || lower.includes("torque") || lower.includes("rolling")) {
+            content = "🎯 **Physics Professor Analysis:**\n\n**Rotational Dynamics & Angular Momentum Conservation:**\n$$\\vec{\\tau}_{\\text{ext}} = \\frac{d\\vec{L}}{dt} = I\\vec{\\alpha}$$\nWhen external torque about an axis is zero ($\\sum \\tau_{\\text{ext}} = 0$), angular momentum $\\vec{L} = I\\vec{\\omega}$ is strictly conserved.\n\n* **Rolling Without Slipping:** Point of contact is instantaneously at rest: $v_{\\text{cm}} = R\\omega$ and $a_{\\text{cm}} = R\\alpha$.\n* **Parallel Axis Theorem:** $I = I_{\\text{cm}} + M d^2$.\n\n💡 *High-Yield Shortcut:* Total Kinetic Energy in pure rolling: $K_{\\text{total}} = \\frac{1}{2}Mv_{\\text{cm}}^2 \\left(1 + \\frac{k^2}{R^2}\\right)$.";
+          } else if (lower.includes("thermo") || lower.includes("carnot") || lower.includes("entropy")) {
+            content = "🔥 **Physics Professor Analysis:**\n\n**First & Second Laws of Thermodynamics:**\n$$dQ = dU + dW = nC_v dT + P dV$$\n* **Carnot Maximum Efficiency:** $\\eta = 1 - \\frac{T_C}{T_H} = \\frac{W_{\\text{net}}}{Q_H}$.\n* **Adiabatic Process:** $PV^\\gamma = \\text{const}$, $W_{\\text{adiabatic}} = \\frac{P_1V_1 - P_2V_2}{\\gamma - 1}$.\n\n💡 *JEE Advanced Tip:* Check the direction of the $PV$ cycle (clockwise = heat engine, work done $>0$; counter-clockwise = refrigerator).";
+          } else {
+            content = `⚛️ **Physics Professor Guidance:**\n\nRegarding **"${msg}"**:\n1. **First Principles:** Isolate the system and draw a clean Free-Body Diagram (FBD) or Field Diagram.\n2. **Conservation Laws:** Check if Energy ($E$), Linear Momentum ($P$), or Angular Momentum ($L$) is conserved along the chosen axes.\n3. **Dimensional Consistency:** Always verify your answer's dimensions and test extreme boundary limits ($m \\to 0$, $\\theta \\to 0, 90^\\circ$).`;
+          }
+        } else if (mentorKey === "chemistry") {
+          if (lower.includes("sn1") || lower.includes("sn2") || lower.includes("mechanism") || lower.includes("nucleophil")) {
+            content = "🧪 **Chemistry Maestro Analysis:**\n\n**Nucleophilic Substitution ($S_N1$ vs $S_N2$):**\n\n| Parameter | $S_N1$ (Unimolecular) | $S_N2$ (Bimolecular) |\n| :--- | :--- | :--- |\n| **Kinetics** | Rate $= k[R-X]$ | Rate $= k[R-X][\\text{Nu}^-]$ |\n| **Intermediate** | Planar Carbocation ($sp^2$) | Pentavalent Transition State |\n| **Substrate Order** | $3^\\circ > 2^\\circ \\gg 1^\\circ$ (Carbocation stability) | $1^\\circ > 2^\\circ \\gg 3^\\circ$ (Steric hindrance) |\n| **Stereochemistry** | Racemization (with slight inversion) | Strict Walden Inversion ($100\\%$) |\n| **Solvent** | Polar Protic ($H_2O, EtOH$) | Polar Aprotic (DMSO, DMF, Acetone) |\n\n💡 *JEE Advanced Alert:* Watch out for hydride or methyl shifts during $S_N1$ carbocation rearrangement!";
+          } else if (lower.includes("thermo") || lower.includes("gibbs") || lower.includes("equilibrium") || lower.includes("le chatelier")) {
+            content = "⚖️ **Chemistry Maestro Analysis:**\n\n**Chemical Thermodynamics & Spontaneity:**\n$$\\Delta G^\\circ = \\Delta H^\\circ - T\\Delta S^\\circ = -RT \\ln K_{\\text{eq}}$$\n* **Spontaneity:** $\\Delta G < 0$ at constant $T, P$.\n* **Van 't Hoff Equation:** $\\frac{d\\ln K}{dT} = \\frac{\\Delta H^\\circ}{RT^2}$. For endothermic ($\\Delta H > 0$), increasing temperature increases $K_{\\text{eq}}$.\n\n💡 *Common Trap:* Catalysts speed up both forward and backward rates equally; they never shift the equilibrium position or change $\\Delta G^\\circ$!";
+          } else {
+            content = `🧪 **Chemistry Maestro Guidance:**\n\nRegarding **"${msg}"**:\n1. **Electronic Factors:** Assess resonance stabilization, inductive effects, and hyperconjugation.\n2. **Thermodynamic vs Kinetic Control:** Low temperature favors kinetically controlled product (lowest $E_a$); high temperature favors thermodynamically stable product (lowest $\\Delta G$).\n3. **Inorganic Geometry:** Check crystal field splitting (CFSE) and spectrochemical series for transition metals.`;
+          }
+        } else if (mentorKey === "maths") {
+          if (lower.includes("integral") || lower.includes("calculus") || lower.includes("derivative") || lower.includes("king")) {
+            content = "📐 **Mathematics Virtuoso Analysis:**\n\n**King's Rule & Leibniz Differentiation Formula:**\n\n**1. King's Property:**\n$$\\int_a^b f(x) dx = \\int_a^b f(a + b - x) dx$$\nPairing $I + I = 2I$ immediately simplifies complicated trigonometric or fractional rational integrands into constants!\n\n**2. Leibniz Rule for Differentiating Integrals:**\n$$\\frac{d}{dx} \\left( \\int_{u(x)}^{v(x)} f(t) dt \\right) = f(v(x)) v'(x) - f(u(x)) u'(x)$$\n\n💡 *JEE Speed Shortcut:* For integrals of the form $\\int_0^{\\pi/2} \\frac{f(\\sin x)}{f(\\sin x) + f(\\cos x)} dx = \\frac{\\pi}{4}$ regardless of function complexity!";
+          } else if (lower.includes("conic") || lower.includes("parabola") || lower.includes("ellipse") || lower.includes("hyperbola") || lower.includes("tangent")) {
+            content = "📐 **Mathematics Virtuoso Analysis:**\n\n**Conic Sections Master Tangency Formulae:**\n* **Parabola ($y^2 = 4ax$):** Tangent is $y = mx + \\frac{a}{m}$, point of contact is $\\left(\\frac{a}{m^2}, \\frac{2a}{m}\\right)$.\n* **Ellipse ($\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$):** Tangent is $y = mx \\pm \\sqrt{a^2m^2 + b^2}$.\n* **Hyperbola ($\\frac{x^2}{a^2} - \\frac{y^2}{b^2} = 1$):** Tangent is $y = mx \\pm \\sqrt{a^2m^2 - b^2}$.\n\n💡 *Geometric Trick:* Locus of perpendicular tangents is the **Director Circle**: $x^2 + y^2 = a^2 + b^2$ (ellipse) and $x = -a$ (parabola directrix).";
+          } else {
+            content = `📐 **Mathematics Virtuoso Guidance:**\n\nRegarding **"${msg}"**:\n1. **Symmetry & Invariants:** Look for reflectional symmetry, parity (even/odd), or homogeneous coordinate substitutions.\n2. **Extrema & Monotonicity:** Test derivatives $f'(x)$ to classify increasing/decreasing behavior and inflection points.\n3. **Algebraic Rigour:** Always verify domain restrictions and eliminate extraneous roots introduced by squaring or division by zero.`;
+          }
+        } else if (mentorKey === "strategy") {
+          content = `🎯 **JEE Strategy Coach Insights:**\n\nRegarding **"${msg}"**:\n* **3-Hour Pacing Protocol (35-45-70 Rule):**\n  1. **Phase 1 (Sweep):** 35 mins Chemistry (scoring bulk) + 40 mins Physics (direct standard questions).\n  2. **Phase 2 (Calculated Solve):** 60 mins Mathematics + remaining multi-step questions.\n  3. **Phase 3 (Review & Buffer):** 20 mins to check flagged questions and verify calculation steps.\n* **Strict 2-Minute Rule:** If a question has not yielded a clear path in 120 seconds, flag and SKIP immediately. Negative marks kill percentile faster than unsolved questions!`;
+        }
+
+        resolve(content);
+      }, delay);
+    });
+  }
+
+  // Live Cloud Gemini API Integration
+  async function queryGeminiAPI(mentorKey, userPrompt, apiKey) {
+    const s = window.getState ? window.getState() : {};
+    const mentor = MENTORS[mentorKey] || MENTORS.physics;
+    
+    const systemPrompts = {
+      physics: "You are the elite IIT-JEE Physics Professor. Provide a rigorous, concise explanation using core physical laws, free-body diagrams in ASCII or LaTeX, step-by-step mathematical derivations, and highlight high-yield IIT-JEE traps and shortcuts.",
+      chemistry: "You are the top IIT-JEE Chemistry Guru. Provide clear molecular mechanisms, electron shifts, thermodynamic and kinetic aspects, and memory mnemonics for physical, organic, and inorganic chemistry.",
+      maths: "You are the premier IIT-JEE Mathematics Virtuoso. Provide clean calculus/algebraic derivations, symmetry tricks (like King's property, Leibniz rule), geometric intuition, and high-speed solving techniques.",
+      strategy: "You are an AIR 1 IIT-JEE Strategic Mentor. Give battle-tested advice on 3-hour exam pacing, mistake autopsy, syllabus sequencing, and peak test temperament."
+    };
+
+    const sysPrompt = systemPrompts[mentorKey] || systemPrompts.physics;
+    const fullPrompt = `${sysPrompt}\n\nStudent Query: "${userPrompt}"\n\nFormat your response with clean Markdown headers, bullet points, and LaTeX equations ($...$ inline and $$...$$ block). Be concise, rigorous, and inspiring.`;
+
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
+    try {
+      const res = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          contents: [{ parts: [{ text: fullPrompt }] }]
+        })
+      });
+      if (!res.ok) {
+        // Fallback to gemini-1.5-flash if 2.5 is unavailable
+        const fallbackUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+        const fbRes = await fetch(fallbackUrl, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ contents: [{ parts: [{ text: fullPrompt }] }] })
+        });
+        const fbData = await fbRes.json();
+        const fbText = fbData?.candidates?.[0]?.content?.parts?.[0]?.text;
+        if (fbText) return fbText;
+      } else {
+        const data = await res.json();
+        const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+        if (text) return text;
+      }
+    } catch(e) {
+      console.warn("Gemini cloud inference error, falling back to offline knowledge base:", e);
+    }
+    return await queryOfflineMentor(mentorKey, userPrompt);
+  }
+
+  // Mount Enhanced Chat Interface into DOM
+  function mountUI(container) {
+    if (!container) return;
+    container.classList.remove("hidden");
+    container.classList.add("flex", "flex-col");
+
+    const session = loadSession();
+    const activeCh = session.activeChannel || "council";
+    const simActive = session.simultaneousMode !== false;
+    const tabCount = getConnectedTabCount();
+
+    container.innerHTML = `
+      <!-- Synchronized Network Header -->
+      <div class="pb-2.5 mb-2.5 border-b border-white/10 flex flex-col gap-2">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-1.5">
+            <span class="clockee-chat-presence-badge text-[11px] font-bold">
+              ${tabCount > 1 
+                ? `<span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse inline-block mr-1"></span> <span class="font-extrabold text-emerald-300">${tabCount} Chats Connected</span> <span class="opacity-75">• Live Sync Active</span>`
+                : `<span class="w-2 h-2 rounded-full bg-cyan-400 inline-block mr-1"></span> <span class="font-bold text-cyan-300">Connected</span> <span class="opacity-75">• Real-time Sync Ready</span>`}
+            </span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="window.ClockEEChatNetwork.toggleSimultaneousMode()" id="chat-sim-toggle-btn" class="px-2 py-0.5 rounded-lg text-[10px] font-extrabold transition cursor-pointer ${simActive ? 'bg-indigo-600/60 text-indigo-200 border border-indigo-400/50 shadow-[0_0_10px_rgba(99,102,241,0.3)]' : 'bg-gray-800 text-gray-400 border border-gray-700'}" title="Toggle Simultaneous Multi-Mentor Solving">
+              ⚡ Simultaneous: ${simActive ? 'ON' : 'OFF'}
+            </button>
+            <button onclick="window.ClockEEChatNetwork.clearCurrentChannel()" class="text-[10px] text-slate-400 hover:text-rose-400 transition" title="Clear this chat history">🗑️</button>
+            <button onclick="window.ClockEEChatNetwork.exportChat()" class="text-[10px] text-slate-400 hover:text-cyan-300 transition" title="Copy conversation markdown">📋</button>
+          </div>
+        </div>
+
+        <!-- Multi-Channel Selector Tabs -->
+        <div class="flex items-center gap-1.5 overflow-x-auto pb-1 text-[11px] scrollbar-none">
+          <button data-chat-channel="council" onclick="window.ClockEEChatNetwork.switchChannel('council')" class="px-2.5 py-1 rounded-lg font-bold transition flex items-center gap-1 whitespace-nowrap cursor-pointer ${activeCh === 'council' ? 'bg-indigo-600 text-white shadow-md' : 'bg-white/5 text-slate-400 hover:bg-white/10 hover:text-white'}">
+            <span>🌟</span><span>Council</span>
+          </button>
+          <button data-chat-channel="physics" onclick="window.ClockEEChatNetwork.switchChannel('physics')" class="px-2.5 py-1 rounded-lg font-bold transition flex items-center gap-1 whitespace-nowrap cursor-pointer ${activeCh === 'physics' ? 'bg-cyan-600 text-white shadow-md' : 'bg-white/5 text-slate-400 hover:bg-white/10 hover:text-white'}">
+            <span>⚛️</span><span>Physics</span>
+          </button>
+          <button data-chat-channel="chemistry" onclick="window.ClockEEChatNetwork.switchChannel('chemistry')" class="px-2.5 py-1 rounded-lg font-bold transition flex items-center gap-1 whitespace-nowrap cursor-pointer ${activeCh === 'chemistry' ? 'bg-emerald-600 text-white shadow-md' : 'bg-white/5 text-slate-400 hover:bg-white/10 hover:text-white'}">
+            <span>🧪</span><span>Chemistry</span>
+          </button>
+          <button data-chat-channel="maths" onclick="window.ClockEEChatNetwork.switchChannel('maths')" class="px-2.5 py-1 rounded-lg font-bold transition flex items-center gap-1 whitespace-nowrap cursor-pointer ${activeCh === 'maths' ? 'bg-amber-600 text-white shadow-md' : 'bg-white/5 text-slate-400 hover:bg-white/10 hover:text-white'}">
+            <span>📐</span><span>Maths</span>
+          </button>
+          <button data-chat-channel="strategy" onclick="window.ClockEEChatNetwork.switchChannel('strategy')" class="px-2.5 py-1 rounded-lg font-bold transition flex items-center gap-1 whitespace-nowrap cursor-pointer ${activeCh === 'strategy' ? 'bg-purple-600 text-white shadow-md' : 'bg-white/5 text-slate-400 hover:bg-white/10 hover:text-white'}">
+            <span>🎯</span><span>Strategy</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Messages Scroll Area -->
+      <div id="ai-chat-messages" class="flex-1 overflow-y-auto space-y-3 pr-1 text-xs">
+        <!-- Injected dynamically via renderMessages -->
+      </div>
+
+      <!-- Quick Doubt Prompt Chips -->
+      <div class="pt-2 pb-1.5 flex items-center gap-1.5 overflow-x-auto text-[10px] scrollbar-none border-t border-white/5 mt-1">
+        <span class="text-slate-500 font-bold whitespace-nowrap">⚡ Quick:</span>
+        <button onclick="window.ClockEEChatNetwork.insertPrompt('Derive Lenz\\'s Law from conservation of energy and explain right-hand grip rule')" class="px-2 py-0.5 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-cyan-300 hover:bg-cyan-900 transition whitespace-nowrap cursor-pointer">⚡ Lenz's Law</button>
+        <button onclick="window.ClockEEChatNetwork.insertPrompt('Explain King\\'s property in definite integrals and the Leibniz differentiation rule with shortcuts')" class="px-2 py-0.5 rounded-full bg-amber-950/60 border border-amber-500/30 text-amber-300 hover:bg-amber-900 transition whitespace-nowrap cursor-pointer">∫ King's Rule</button>
+        <button onclick="window.ClockEEChatNetwork.insertPrompt('Compare SN1 vs SN2 reaction mechanisms with stereochemistry and carbocation shifts')" class="px-2 py-0.5 rounded-full bg-emerald-950/60 border border-emerald-500/30 text-emerald-300 hover:bg-emerald-900 transition whitespace-nowrap cursor-pointer">🧪 SN1 vs SN2</button>
+        <button onclick="window.ClockEEChatNetwork.insertPrompt('Explain rotational dynamics, rolling without slipping, and angular momentum conservation')" class="px-2 py-0.5 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-cyan-300 hover:bg-cyan-900 transition whitespace-nowrap cursor-pointer">🌀 Rotational</button>
+        <button onclick="window.ClockEEChatNetwork.insertPrompt('What is the optimal 3-hour JEE test pacing strategy to maximize score and avoid negative marks?')" class="px-2 py-0.5 rounded-full bg-purple-950/60 border border-purple-500/30 text-purple-300 hover:bg-purple-900 transition whitespace-nowrap cursor-pointer">🎯 3-Hr Strategy</button>
+      </div>
+
+      <!-- Input Bar -->
+      <div class="mt-2 flex gap-2 items-center">
+        <textarea id="ai-doubt-input" rows="1" placeholder="Ask JEE question (synced live across all chats)..." class="flex-1 bg-gray-900/90 border border-gray-700/80 text-white rounded-xl px-3 py-2 text-xs outline-none focus:border-indigo-500 font-medium resize-none max-h-24 leading-relaxed transition" onkeydown="if(event.key==='Enter' && !event.shiftKey){ event.preventDefault(); window.ClockEEChatNetwork.sendUserMessage(); }"></textarea>
+        <button onclick="window.ClockEEChatNetwork.sendUserMessage()" class="px-4 py-2 bg-gradient-to-r from-indigo-600 to-cyan-600 hover:from-indigo-500 hover:to-cyan-500 text-white rounded-xl text-xs font-black shadow-lg flex items-center gap-1 transition cursor-pointer">
+          <span>Send</span>
+          <span>⚡</span>
+        </button>
+      </div>
+    `;
+
+    renderMessages();
+    scrollMessagesToBottom();
+  }
+
+  function renderMessages() {
+    const containers = document.querySelectorAll("#ai-chat-messages");
+    if (!containers || containers.length === 0) return;
+
+    const session = loadSession();
+    const activeCh = session.activeChannel || "council";
+    const messages = session.channels[activeCh] || [];
+
+    containers.forEach(container => {
+      container.innerHTML = "";
+
+      messages.forEach(msg => {
+        const bubble = document.createElement("div");
+        if (msg.role === "user") {
+          bubble.className = "bg-white/10 border border-white/15 rounded-2xl p-3 text-white font-medium ml-6 shadow-sm";
+          bubble.innerHTML = `
+            <div class="flex items-center justify-between text-[10px] text-slate-400 mb-1">
+              <span class="font-bold flex items-center gap-1"><span>👤</span> <span>You</span></span>
+              <span>${msg.timestamp || ''}</span>
+            </div>
+            <div class="leading-relaxed whitespace-pre-wrap">${renderMarkdownAndMath(msg.content)}</div>
+          `;
+        } else {
+          const mentor = MENTORS[msg.mentor] || MENTORS[activeCh] || MENTORS.council;
+          bubble.className = "rounded-2xl p-3.5 mr-4 shadow-md border text-slate-100 text-xs leading-relaxed space-y-1.5 transition";
+          bubble.style.background = "rgba(15, 23, 42, 0.75)";
+          bubble.style.borderColor = mentor.badgeBorder || "rgba(255, 255, 255, 0.15)";
+
+          bubble.innerHTML = `
+            <div class="flex items-center justify-between pb-1.5 border-b border-white/10">
+              <div class="flex items-center gap-2">
+                <span class="text-base">${mentor.icon}</span>
+                <div>
+                  <span class="font-extrabold text-white text-[11px]">${mentor.name}</span>
+                  <span class="text-[9px] px-1.5 py-0.5 rounded font-mono ml-1.5" style="background:${mentor.badgeBg};color:${mentor.badgeText};border:1px solid ${mentor.badgeBorder}">${mentor.role}</span>
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-[9px] text-slate-400 font-mono">${msg.timestamp || ''}</span>
+                <button onclick="window.ClockEEChatNetwork.copyBubble(this)" class="text-[10px] text-slate-400 hover:text-cyan-300 font-bold transition cursor-pointer" title="Copy answer">Copy</button>
+              </div>
+            </div>
+            <div class="chat-bubble-body text-slate-200 mt-1">${renderMarkdownAndMath(msg.content)}</div>
+          `;
+        }
+        container.appendChild(bubble);
+      });
+
+      // Render any active concurrent thinking indicators
+      renderThinkingIndicatorsForContainer(container, activeCh);
+    });
+  }
+
+  function renderThinkingIndicators() {
+    const containers = document.querySelectorAll("#ai-chat-messages");
+    const session = loadSession();
+    const activeCh = session.activeChannel || "council";
+    containers.forEach(c => renderThinkingIndicatorsForContainer(c, activeCh));
+  }
+
+  function renderThinkingIndicatorsForContainer(container, activeCh) {
+    // Remove existing thinking indicators
+    container.querySelectorAll(".clockee-chat-thinking-indicator").forEach(el => el.remove());
+
+    for (const [key, q] of _activeQueries.entries()) {
+      if (q.channel === activeCh || activeCh === "council") {
+        const mentor = MENTORS[q.mentor] || MENTORS.council;
+        const loadDiv = document.createElement("div");
+        loadDiv.className = "clockee-chat-thinking-indicator rounded-2xl p-3 mr-6 text-xs italic flex items-center gap-3 border shadow-md animate-pulse";
+        loadDiv.style.background = mentor.badgeBg;
+        loadDiv.style.borderColor = mentor.badgeBorder;
+        loadDiv.style.color = mentor.badgeText;
+        loadDiv.innerHTML = `
+          <div class="relative flex items-center justify-center w-5 h-5">
+            <span class="absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping" style="background:${mentor.accentColor}"></span>
+            <span class="relative text-sm">${mentor.icon}</span>
+          </div>
+          <div class="flex-1">
+            <span class="font-extrabold">${mentor.name}</span> is analyzing simultaneously...
+            <span class="text-[10px] opacity-75 font-mono ml-1">(Gemini Flash connected)</span>
+          </div>
+        `;
+        container.appendChild(loadDiv);
+      }
+    }
+  }
+
+  function scrollMessagesToBottom() {
+    const containers = document.querySelectorAll("#ai-chat-messages");
+    containers.forEach(c => {
+      c.scrollTop = c.scrollHeight;
+    });
+  }
+
+  // Master Send Function
+  async function sendUserMessage(overrideText) {
+    const inputs = document.querySelectorAll("#ai-doubt-input");
+    let text = (overrideText || "").trim();
+    if (!text && inputs.length > 0) {
+      for (const inp of inputs) {
+        if (inp.value && inp.value.trim()) {
+          text = inp.value.trim();
+          inp.value = "";
+          break;
+        }
+      }
+    }
+    if (!text) return;
+
+    const session = loadSession();
+    const currentChannel = session.activeChannel || "council";
+    const simActive = session.simultaneousMode !== false;
+    const promptId = "req_" + Date.now() + "_" + Math.random().toString(36).slice(2, 6);
+
+    const userMsg = {
+      id: "msg_" + Date.now() + "_" + Math.random().toString(36).slice(2, 6),
+      role: "user",
+      content: text,
+      channel: currentChannel,
+      timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+      tabId: TAB_INSTANCE_ID
+    };
+
+    if (!session.channels[currentChannel]) session.channels[currentChannel] = [];
+    session.channels[currentChannel].push(userMsg);
+    saveSession(session);
+
+    // Broadcast user message across all connected tabs immediately
+    broadcast({ type: "USER_MESSAGE", channel: currentChannel, message: userMsg });
+    renderMessages();
+    scrollMessagesToBottom();
+
+    // Determine target mentors
+    let targetMentors = [];
+    if (currentChannel === "council") {
+      targetMentors = simActive ? ["physics", "chemistry", "maths"] : ["physics"];
+    } else {
+      targetMentors = [currentChannel];
+    }
+
+    // Register active queries locally and broadcast thinking state
+    targetMentors.forEach(m => {
+      _activeQueries.set(`${promptId}_${m}`, {
+        promptId,
+        channel: currentChannel,
+        mentor: m,
+        prompt: text,
+        startTime: Date.now()
+      });
+    });
+
+    broadcast({ type: "THINKING_START", channel: currentChannel, promptId, mentors: targetMentors, prompt: text });
+    renderThinkingIndicators();
+    scrollMessagesToBottom();
+
+    // Execute queries simultaneously in parallel!
+    const s = window.getState ? window.getState() : {};
+    const apiKey = s.apiKeys?.gemini;
+    const isOnline = apiKey && !apiKey.startsWith("AQ.");
+
+    const queryPromises = targetMentors.map(async (mentorKey) => {
+      let replyContent = "";
+      try {
+        if (isOnline) {
+          replyContent = await queryGeminiAPI(mentorKey, text, apiKey);
+        } else {
+          replyContent = await queryOfflineMentor(mentorKey, text);
+        }
+      } catch(err) {
+        replyContent = await queryOfflineMentor(mentorKey, text);
+      }
+
+      const mentorObj = MENTORS[mentorKey] || MENTORS.physics;
+      const botMsg = {
+        id: "ans_" + Date.now() + "_" + mentorKey + "_" + Math.random().toString(36).slice(2, 6),
+        role: "assistant",
+        mentor: mentorKey,
+        mentorName: mentorObj.name,
+        content: replyContent,
+        channel: currentChannel,
+        promptId: promptId,
+        timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+      };
+
+      _activeQueries.delete(`${promptId}_${mentorKey}`);
+
+      // Persist response
+      const updatedSession = loadSession();
+      if (!updatedSession.channels[currentChannel]) updatedSession.channels[currentChannel] = [];
+      updatedSession.channels[currentChannel].push(botMsg);
+      saveSession(updatedSession);
+
+      // Broadcast completed mentor response to all connected chats simultaneously!
+      broadcast({ type: "MENTOR_RESPONSE", channel: currentChannel, promptId, mentor: mentorKey, message: botMsg });
+      renderMessages();
+      scrollMessagesToBottom();
+      return botMsg;
+    });
+
+    await Promise.allSettled(queryPromises);
+    renderThinkingIndicators();
+  }
+
+  function switchChannel(channelKey) {
+    if (!MENTORS[channelKey]) return;
+    const session = loadSession();
+    session.activeChannel = channelKey;
+    saveSession(session);
+
+    // Update active tab buttons
+    document.querySelectorAll("[data-chat-channel]").forEach(btn => {
+      const ch = btn.getAttribute("data-chat-channel");
+      btn.classList.remove("ring-2", "ring-cyan-400", "animate-pulse");
+      if (ch === channelKey) {
+        btn.className = "px-2.5 py-1 rounded-lg font-bold transition flex items-center gap-1 whitespace-nowrap cursor-pointer text-white shadow-md " + 
+          (channelKey === 'council' ? 'bg-indigo-600' : (channelKey === 'physics' ? 'bg-cyan-600' : (channelKey === 'chemistry' ? 'bg-emerald-600' : (channelKey === 'maths' ? 'bg-amber-600' : 'bg-purple-600'))));
+      } else {
+        btn.className = "px-2.5 py-1 rounded-lg font-bold transition flex items-center gap-1 whitespace-nowrap cursor-pointer bg-white/5 text-slate-400 hover:bg-white/10 hover:text-white";
+      }
+    });
+
+    renderMessages();
+    scrollMessagesToBottom();
+  }
+
+  function toggleSimultaneousMode() {
+    const session = loadSession();
+    session.simultaneousMode = session.simultaneousMode === false ? true : false;
+    saveSession(session);
+
+    const btn = document.getElementById("chat-sim-toggle-btn");
+    if (btn) {
+      if (session.simultaneousMode) {
+        btn.className = "px-2 py-0.5 rounded-lg text-[10px] font-extrabold transition cursor-pointer bg-indigo-600/60 text-indigo-200 border border-indigo-400/50 shadow-[0_0_10px_rgba(99,102,241,0.3)]";
+        btn.textContent = "⚡ Simultaneous: ON";
+      } else {
+        btn.className = "px-2 py-0.5 rounded-lg text-[10px] font-extrabold transition cursor-pointer bg-gray-800 text-gray-400 border border-gray-700";
+        btn.textContent = "⚡ Simultaneous: OFF";
+      }
+    }
+    if (typeof window.showToast === "function") {
+      window.showToast(session.simultaneousMode ? "Simultaneous Multi-Mentor Mode Activated!" : "Single Mentor Mode Enabled.", "info");
+    }
+  }
+
+  function clearCurrentChannel() {
+    const session = loadSession();
+    const ch = session.activeChannel || "council";
+    if (confirm(`Clear all chat messages in the ${MENTORS[ch]?.name || ch} channel? (This will sync across all connected tabs)`)) {
+      session.channels[ch] = [];
+      saveSession(session);
+      broadcast({ type: "CLEAR_HISTORY", channel: ch });
+      renderMessages();
+      if (typeof window.showToast === "function") window.showToast("Chat history cleared across all chats.", "info");
+    }
+  }
+
+  function exportChat() {
+    const session = loadSession();
+    const ch = session.activeChannel || "council";
+    const messages = session.channels[ch] || [];
+    let md = `# ClockEE AI Tutor Log • Channel: ${MENTORS[ch]?.name || ch}\nExported: ${new Date().toLocaleString()}\nConnected Instances: ${getConnectedTabCount()}\n\n---\n\n`;
+    messages.forEach(m => {
+      const sender = m.role === "user" ? "👤 Student" : `🤖 ${m.mentorName || 'Mentor'}`;
+      md += `### ${sender} [${m.timestamp || ''}]\n${m.content}\n\n`;
+    });
+    navigator.clipboard.writeText(md).then(() => {
+      if (typeof window.showToast === "function") window.showToast("✓ Chat transcript copied to clipboard!", "success");
+    }).catch(() => {
+      prompt("Copy your chat transcript below:", md);
+    });
+  }
+
+  function insertPrompt(text) {
+    const inputs = document.querySelectorAll("#ai-doubt-input");
+    inputs.forEach(inp => {
+      inp.value = text;
+      inp.focus();
+    });
+    sendUserMessage(text);
+  }
+
+  function copyCodeSnippet(btn) {
+    const pre = btn.closest(".relative")?.querySelector("code");
+    if (!pre) return;
+    navigator.clipboard.writeText(pre.innerText).then(() => {
+      const old = btn.textContent;
+      btn.textContent = "Copied!";
+      setTimeout(() => { btn.textContent = old; }, 1800);
+    });
+  }
+
+  function copyBubble(btn) {
+    const body = btn.closest(".rounded-2xl")?.querySelector(".chat-bubble-body");
+    if (!body) return;
+    navigator.clipboard.writeText(body.innerText).then(() => {
+      const old = btn.textContent;
+      btn.textContent = "✓";
+      setTimeout(() => { btn.textContent = old; }, 1500);
+    });
+  }
+
+  // Universal Floating Chat Launcher
+  function ensureFloatingLauncher() {
+    if (document.getElementById("clockee-chat-floating-pill")) return;
+    const path = (window.location.pathname || "").toLowerCase();
+    if (path.endsWith("login.html")) return;
+
+    const btn = document.createElement("button");
+    btn.id = "clockee-chat-floating-pill";
+    btn.type = "button";
+    btn.setAttribute("aria-label", "Toggle Connected JEE AI Tutor");
+    btn.onclick = () => toggleChatView();
+
+    btn.style.cssText = `
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 9990;
+      background: rgba(13, 17, 34, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(0, 240, 255, 0.35);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 240, 255, 0.2);
+      border-radius: 9999px;
+      padding: 8px 16px;
+      color: #fff;
+      font-family: inherit;
+      font-size: 11px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    `;
+
+    btn.innerHTML = `
+      <span class="relative flex h-2.5 w-2.5">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-500"></span>
+      </span>
+      <span style="font-size: 14px;">💬</span>
+      <span style="letter-spacing: 0.05em; text-transform: uppercase;">AI Tutor</span>
+      <span id="chat-tabs-counter-badge" style="background: rgba(0, 240, 255, 0.15); border: 1px solid rgba(0, 240, 255, 0.3); color: #67e8f9; padding: 2px 6px; border-radius: 8px; font-size: 9px; font-weight: 700;">sync ready</span>
+    `;
+
+    btn.addEventListener("mouseenter", () => {
+      btn.style.transform = "translateY(-3px) scale(1.02)";
+      btn.style.boxShadow = "0 12px 36px rgba(0, 0, 0, 0.6), 0 0 24px rgba(0, 240, 255, 0.4)";
+    });
+    btn.addEventListener("mouseleave", () => {
+      btn.style.transform = "translateY(0) scale(1)";
+      btn.style.boxShadow = "0 8px 32px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 240, 255, 0.2)";
+    });
+
+    document.body.appendChild(btn);
+
+    // Adjust position on mobile screens
+    if (window.innerWidth < 768) {
+      btn.style.bottom = "76px";
+      btn.style.right = "16px";
+    }
+  }
+
+  function toggleChatView() {
+    const splitDrawer = document.getElementById("split-drawer");
+    if (splitDrawer) {
+      if (typeof window.toggleSplitScreen === "function") {
+        window.toggleSplitScreen();
+        window.switchDrawerTab("ai");
+      }
+      return;
+    }
+
+    // For pages without split-drawer, inject and toggle floating drawer
+    let floatingDrawer = document.getElementById("clockee-universal-chat-drawer");
+    if (!floatingDrawer) {
+      floatingDrawer = document.createElement("div");
+      floatingDrawer.id = "clockee-universal-chat-drawer";
+      floatingDrawer.style.cssText = `
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 420px;
+        max-width: 95vw;
+        height: 100vh;
+        background: rgba(12, 14, 23, 0.98);
+        border-left: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        z-index: 99999;
+        display: flex;
+        flex-direction: column;
+        transform: translateX(100%);
+        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      `;
+
+      floatingDrawer.innerHTML = `
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:16px;border-bottom:1px solid rgba(255,255,255,0.1);">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <div style="width:28px;height:28px;border-radius:8px;background:rgba(99,102,241,0.25);border:1px solid rgba(99,102,241,0.5);display:flex;align-items:center;justify-content:center;color:#a5b4fc;">
+              <span style="font-size:16px;">🌟</span>
+            </div>
+            <div>
+              <span style="color:#fff;font-weight:900;text-transform:uppercase;font-size:12px;letter-spacing:0.05em;">Connected AI Tutor Hub</span>
+              <div style="font-size:10px;color:#94a3b8;">Simultaneous Multi-Chat Network</div>
+            </div>
+          </div>
+          <button onclick="document.getElementById('clockee-universal-chat-drawer').style.transform='translateX(100%)'" style="background:none;border:none;color:#94a3b8;font-size:16px;cursor:pointer;padding:4px 8px;border-radius:6px;">✕</button>
+        </div>
+        <div id="drawer-pane-ai" style="flex:1;display:flex;flex-direction:column;overflow:hidden;padding:16px;">
+        </div>
+      `;
+      document.body.appendChild(floatingDrawer);
+      mountUI(floatingDrawer.querySelector("#drawer-pane-ai"));
+    }
+
+    const isClosed = floatingDrawer.style.transform === "translateX(100%)" || !floatingDrawer.style.transform;
+    floatingDrawer.style.transform = isClosed ? "translateX(0%)" : "translateX(100%)";
+    if (isClosed) {
+      renderMessages();
+      scrollMessagesToBottom();
+    }
+  }
+
+  // Initialize Chat Network on Current Page
+  function init() {
+    const existingPane = document.getElementById("drawer-pane-ai");
+    if (existingPane) {
+      mountUI(existingPane);
+    }
+    ensureFloatingLauncher();
+    updatePresenceUI();
+    broadcast({ type: "PRESENCE_PING" });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    setTimeout(init, 50);
+  }
+
+  return {
+    init,
+    mount: mountUI,
+    render: () => {
+      renderMessages();
+      scrollMessagesToBottom();
+      updatePresenceUI();
+    },
+    sendUserMessage,
+    switchChannel,
+    toggleSimultaneousMode,
+    clearCurrentChannel,
+    exportChat,
+    insertPrompt,
+    copyCodeSnippet,
+    copyBubble,
+    toggleChatView,
+    getConnectedTabCount
+  };
+})();
+
+// Backwards-compatible Global Caller for all HTML pages & forms
+window.sendAIDoubtMessage = function(overrideText) {
+  if (window.ClockEEChatNetwork && typeof window.ClockEEChatNetwork.sendUserMessage === "function") {
+    return window.ClockEEChatNetwork.sendUserMessage(overrideText);
   }
 };
+
 
 // ─── 11. Global Settings Synchronization ──────────────────
 window.applyAllSettingsGlobally = function() {

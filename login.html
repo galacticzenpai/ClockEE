@@ -1544,7 +1544,16 @@
       }
 
       const email = rawEmail.trim();
-        // Check credentials against dedicated backend server first
+      const password = rawPassword;
+
+      btn.disabled = true;
+      btn.innerHTML = `<span class="animate-spin">⏳</span> Authenticating...`;
+
+      try {
+        let userRecord = null;
+        let backendUserData = null;
+
+        // 1. Authenticate against dedicated backend server first (SQLite + session tokens)
         try {
           const apiResp = await fetch('/api/signin', {
             method: 'POST',
@@ -1554,51 +1563,55 @@
           if (apiResp.ok) {
             const apiData = await apiResp.json();
             userRecord = apiData.user;
+            backendUserData = apiData.userData;
+            if (apiData.token) {
+              localStorage.setItem('clockee_session_token', apiData.token);
+            }
           } else if (apiResp.status === 401 || apiResp.status === 404) {
             const errData = await apiResp.json();
             throw new Error(errData.error || "Invalid email or password.");
           }
         } catch(apiErr) {
-          if (apiErr.message.includes("Invalid email or password") || apiErr.message.includes("Account not found")) {
+          if (apiErr.message && (apiErr.message.includes("Invalid email or password") || apiErr.message.includes("Account not found"))) {
             throw apiErr;
           }
         }
 
-      const password = rawPassword;
-
-      btn.disabled = true;
-      btn.innerHTML = `<span class="animate-spin">⏳</span> Authenticating...`;
-
-      try {
-        let userRecord = null;
-
-        if (window.FB_AUTH && window.FB_OPS?.signInWithEmailAndPassword) {
-          try {
-            const cred = await window.FB_OPS.signInWithEmailAndPassword(window.FB_AUTH, email, password);
-            userRecord = {
-              uid: cred.user.uid,
-              email: cred.user.email,
-              name: cred.user.displayName || email.split('@')[0],
-              role: "JEE 2028 Aspirant"
-            };
-          } catch (fbErr) {
-            console.warn("Firebase sign-in rejected:", fbErr.code || fbErr.message);
-            // Strict authentication: DO NOT allow any random password to enter!
-            throw fbErr;
-          }
-        } else {
-          // If offline mode without Firebase instance, verify against locally registered accounts
-          const localUsers = JSON.parse(localStorage.getItem('clockee_multi_users') || '[]');
-          const matched = localUsers.find(u => u.email === email);
-          if (matched) {
-            userRecord = { uid: matched.id, email: matched.email, name: matched.name, role: matched.role };
+        // 2. If backend didn't authenticate (e.g. running without local server), try Firebase
+        if (!userRecord) {
+          if (window.FB_AUTH && window.FB_OPS?.signInWithEmailAndPassword) {
+            try {
+              const cred = await window.FB_OPS.signInWithEmailAndPassword(window.FB_AUTH, email, password);
+              userRecord = {
+                uid: cred.user.uid,
+                email: cred.user.email,
+                name: cred.user.displayName || email.split('@')[0],
+                role: "JEE 2028 Aspirant"
+              };
+            } catch (fbErr) {
+              console.warn("Firebase sign-in rejected:", fbErr.code || fbErr.message);
+              // Strict authentication: DO NOT allow any random password to enter!
+              throw fbErr;
+            }
           } else {
-            throw new Error("Account not found. Please click 'Create Cloud Account' to register your student profile first.");
+            // If offline mode without server or Firebase, verify against locally registered accounts
+            const localUsers = JSON.parse(localStorage.getItem('clockee_multi_users') || '[]');
+            const matched = localUsers.find(u => u.email === email);
+            if (matched) {
+              userRecord = { uid: matched.id, email: matched.email, name: matched.name, role: matched.role };
+            } else {
+              throw new Error("Account not found. Please click 'Create Cloud Account' to register your student profile first.");
+            }
           }
         }
 
         if (!userRecord) {
           throw new Error("Invalid credentials. Please verify your email and password.");
+        }
+
+        if (backendUserData) {
+          const activeUid = userRecord.uid || userRecord.id;
+          localStorage.setItem(`clockee_user_state_${activeUid}`, JSON.stringify(backendUserData));
         }
 
         if (window.ClockEESecurity) window.ClockEESecurity.RateLimiter.recordAttempt('auth_signin', true);
@@ -1684,8 +1697,34 @@
 
       try {
         let userRecord = null;
+        let backendUserData = null;
 
-        if (window.FB_AUTH && window.FB_OPS?.createUserWithEmailAndPassword) {
+        // 1. Try registering in backend database first
+        try {
+          const apiResp = await fetch('/api/signup', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password, name, role })
+          });
+          if (apiResp.ok) {
+            const apiData = await apiResp.json();
+            userRecord = apiData.user;
+            backendUserData = apiData.userData;
+            if (apiData.token) {
+              localStorage.setItem('clockee_session_token', apiData.token);
+            }
+          } else if (apiResp.status === 409) {
+            const errData = await apiResp.json();
+            throw new Error(errData.error || "An account with this email already exists.");
+          }
+        } catch(apiErr) {
+          if (apiErr.message && apiErr.message.includes("already exists")) {
+            throw apiErr;
+          }
+        }
+
+        // 2. If backend was offline, fallback to Firebase
+        if (!userRecord && window.FB_AUTH && window.FB_OPS?.createUserWithEmailAndPassword) {
           try {
             const cred = await window.FB_OPS.createUserWithEmailAndPassword(window.FB_AUTH, email, password);
             userRecord = {

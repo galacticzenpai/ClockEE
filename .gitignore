@@ -31,3 +31,11 @@ tmp_chrome/
 test_screenshot.png
 test.png
 scanner.py
+
+# Video & Media temp downloads
+temp_media/
+*.mp4
+*.webm
+*.mov
+*.mkv
+*.avi

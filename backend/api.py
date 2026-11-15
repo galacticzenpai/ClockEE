@@ -407,6 +407,22 @@ class ClockEEBackendRouter:
 
             elif method in ('PUT', 'POST'):
                 state_body = parse_body(handler)
+                if not isinstance(state_body, dict):
+                    state_body = {}
+
+                # Extract and sanitize theme_preference and aura_mode
+                raw_theme = state_body.get('theme_preference') or state_body.get('theme') or (state_body.get('settings', {}).get('auraTheme') if isinstance(state_body.get('settings'), dict) else None)
+                raw_aura = state_body.get('aura_mode') or state_body.get('auraSpeed') or (state_body.get('settings', {}).get('auraSpeed') if isinstance(state_body.get('settings'), dict) else None)
+                theme_pref = sanitize_theme(raw_theme)
+                aura_mode = sanitize_aura_mode(raw_aura)
+
+                if not isinstance(state_body.get('settings'), dict):
+                    state_body['settings'] = {}
+                state_body['settings']['auraTheme'] = theme_pref
+                state_body['settings']['auraSpeed'] = aura_mode
+                state_body['theme_preference'] = theme_pref
+                state_body['aura_mode'] = aura_mode
+
                 state_json_str = json.dumps(state_body)
 
                 conn = get_db()
@@ -418,8 +434,12 @@ class ClockEEBackendRouter:
                     ON CONFLICT(user_id) DO UPDATE SET state_json = excluded.state_json, updated_at = CURRENT_TIMESTAMP
                 """, (user_id, state_json_str))
 
-                # Update users.data_json
-                cur.execute("UPDATE users SET data_json = ? WHERE id = ?", (state_json_str, user_id))
+                # Update users table with data_json, theme_preference, and aura_mode
+                cur.execute("""
+                    UPDATE users 
+                    SET data_json = ?, theme_preference = ?, aura_mode = ? 
+                    WHERE id = ?
+                """, (state_json_str, theme_pref, aura_mode, user_id))
 
                 # Also automatically synchronize relational tasks and question logs if present in state
                 try:
@@ -500,15 +520,54 @@ class ClockEEBackendRouter:
             conn.close()
             return handler.send_json(200, {"success": True, "deleted_id": user_id})
 
-        # 3.5 Legacy /api/userdata (GET / POST)
+        # 3.5 /api/userdata (GET / POST)
         if path == '/api/userdata':
             if method == 'POST':
                 req = parse_body(handler)
                 email = req.get('email', '').strip().lower()
-                user_data = req.get('data', {})
+                user_data = req.get('data')
+                if user_data is None:
+                    user_data = {k: v for k, v in req.items() if k != 'email'}
+                elif not isinstance(user_data, dict):
+                    user_data = {}
+
+                # Extract theme_preference and aura_mode with clean fallbacks
+                raw_theme = (
+                    req.get('theme_preference') or 
+                    req.get('theme') or 
+                    user_data.get('theme_preference') or 
+                    user_data.get('theme') or 
+                    (user_data.get('settings', {}).get('auraTheme') if isinstance(user_data.get('settings'), dict) else None)
+                )
+                raw_aura = (
+                    req.get('aura_mode') or 
+                    req.get('auraSpeed') or 
+                    user_data.get('aura_mode') or 
+                    user_data.get('auraSpeed') or 
+                    (user_data.get('settings', {}).get('auraSpeed') if isinstance(user_data.get('settings'), dict) else None)
+                )
+
+                theme_pref = sanitize_theme(raw_theme)
+                aura_mode = sanitize_aura_mode(raw_aura)
+
+                # Mirror sanitized values in user_data dictionary
+                if not isinstance(user_data.get('settings'), dict):
+                    user_data['settings'] = {}
+                user_data['settings']['auraTheme'] = theme_pref
+                user_data['settings']['auraSpeed'] = aura_mode
+                user_data['theme_preference'] = theme_pref
+                user_data['aura_mode'] = aura_mode
+
+                state_json_str = json.dumps(user_data)
+
                 conn = get_db()
                 cur = conn.cursor()
-                cur.execute("UPDATE users SET data_json = ? WHERE email = ?", (json.dumps(user_data), email))
+                cur.execute("""
+                    UPDATE users 
+                    SET data_json = ?, theme_preference = ?, aura_mode = ? 
+                    WHERE email = ?
+                """, (state_json_str, theme_pref, aura_mode, email))
+
                 # Also find id and update student_states
                 cur.execute("SELECT id FROM users WHERE email = ?", (email,))
                 row = cur.fetchone()
@@ -516,19 +575,40 @@ class ClockEEBackendRouter:
                     cur.execute("""
                         INSERT INTO student_states (user_id, state_json) VALUES (?, ?)
                         ON CONFLICT(user_id) DO UPDATE SET state_json = excluded.state_json, updated_at = CURRENT_TIMESTAMP
-                    """, (row['id'], json.dumps(user_data)))
+                    """, (row['id'], state_json_str))
                 conn.commit()
                 conn.close()
-                return handler.send_json(200, {"success": True})
+
+                return handler.send_json(200, {
+                    "success": True,
+                    "theme_preference": theme_pref,
+                    "aura_mode": aura_mode
+                })
+
             elif method == 'GET':
                 email = qs.get('email', [''])[0].strip().lower()
                 conn = get_db()
                 cur = conn.cursor()
-                cur.execute("SELECT data_json FROM users WHERE email = ?", (email,))
+                cur.execute("SELECT theme_preference, aura_mode, data_json FROM users WHERE email = ?", (email,))
                 row = cur.fetchone()
                 conn.close()
                 if row:
-                    return handler.send_json(200, {"success": True, "data": json.loads(row['data_json'] or '{}')})
+                    theme_pref = sanitize_theme(row['theme_preference'])
+                    aura_mode = sanitize_aura_mode(row['aura_mode'])
+                    data_obj = json.loads(row['data_json'] or '{}')
+                    if not isinstance(data_obj.get('settings'), dict):
+                        data_obj['settings'] = {}
+                    data_obj['settings']['auraTheme'] = theme_pref
+                    data_obj['settings']['auraSpeed'] = aura_mode
+                    data_obj['theme_preference'] = theme_pref
+                    data_obj['aura_mode'] = aura_mode
+
+                    return handler.send_json(200, {
+                        "success": True,
+                        "theme_preference": theme_pref,
+                        "aura_mode": aura_mode,
+                        "data": data_obj
+                    })
                 return handler.send_json(404, {"error": "User not found"})
 
         # ── 4. MASTER QUESTION BANK API (5,775 JEE PYQs) ──

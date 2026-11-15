@@ -769,6 +769,105 @@ class ClockEEBackendRouter:
                 conn.close()
                 return handler.send_json(200, {"success": True, "exam_id": eid})
 
+        # ── 7.5 SIMULATION TELEMETRY & ERROR AUTOPSY TO MAIN CONTROL ──
+        if path == '/api/simulations/report':
+            if method == 'POST':
+                req = parse_body(handler)
+                uid = req.get('user_id') or get_auth_user_id(handler) or 'user_alpha'
+                sim_id = req.get('test_id') or f"sim_{secrets.token_hex(6)}"
+                title = req.get('title', 'JEE Exam Simulation')
+                sub = req.get('subject', 'Full')
+                score = req.get('score', 0)
+                max_score = req.get('max_score', 300)
+                acc = float(req.get('accuracy', 0.0))
+                tot_q = req.get('total_questions', 75)
+                mistakes = req.get('mistakes', [])
+                ana = req.get('analytics', {})
+
+                conn = get_db()
+                cur = conn.cursor()
+
+                # 1. Store in cbt_exams
+                cur.execute("""
+                    INSERT INTO cbt_exams (
+                        id, user_id, test_id, title, mode, subject, chapter, total_questions,
+                        time_spent_seconds, score, max_score, accuracy, status, responses_json, analytics_json, completed_at
+                    ) VALUES (?, ?, ?, ?, 'simulation', ?, 'Main Control Simulation', ?, ?, ?, ?, ?, 'completed', ?, ?, CURRENT_TIMESTAMP)
+                """, (
+                    f"sim_exam_{secrets.token_hex(4)}", uid, sim_id, title, sub, tot_q,
+                    int(ana.get('avgLatencySec', 75) * tot_q), score, max_score, acc,
+                    json.dumps(mistakes), json.dumps(ana)
+                ))
+
+                # 2. Store question error logs and tasks for each mistake
+                tasks_created = 0
+                for m in mistakes:
+                    q_num = m.get('qNum', 1)
+                    m_sub = m.get('subject', sub)
+                    m_cat = m.get('errorCategory', 'Calculation Mistake')
+                    m_topic = m.get('topic') or m.get('chapter') or 'Concept Problem'
+                    
+                    cur.execute("""
+                        INSERT INTO question_logs (
+                            id, user_id, subject, chapter, question_num, duration_seconds,
+                            is_correct, mistake_tag, score_delta, notes
+                        ) VALUES (?, ?, ?, ?, ?, ?, 0, ?, -1, ?)
+                    """, (
+                        f"qlog_{secrets.token_hex(6)}", uid, m_sub, m.get('chapter', 'Simulation Autopsy'),
+                        q_num, float(m.get('timeSpentSec', 75)), m_cat, m.get('reasonDetail', '')
+                    ))
+
+                    # Create actionable task in tasks table
+                    task_id = f"task_autopsy_{secrets.token_hex(4)}"
+                    task_title = f"[Autopsy] Master Error Q#{q_num}: {m_topic}"
+                    cur.execute("""
+                        INSERT INTO tasks (id, user_id, title, subject, priority, completed, due_date)
+                        VALUES (?, ?, ?, ?, 'high', 0, CURRENT_DATE)
+                    """, (task_id, uid, task_title, m_sub))
+                    tasks_created += 1
+
+                # 3. Update student_states snapshot if exists
+                cur.execute("SELECT state_json FROM student_states WHERE user_id = ?", (uid,))
+                row = cur.fetchone()
+                if row:
+                    try:
+                        st = json.loads(row['state_json'] or '{}')
+                        st['mistakeVault'] = st.get('mistakeVault', [])
+                        st['simulations'] = st.get('simulations', [])
+                        st['simulations'].insert(0, {
+                            'id': sim_id, 'title': title, 'subject': sub, 'score': score,
+                            'maxScore': max_score, 'accuracy': acc, 'errorsCount': len(mistakes),
+                            'timestamp': int(datetime.now().timestamp() * 1000)
+                        })
+                        for m in mistakes:
+                            if not any(x.get('id') == m.get('id') for x in st['mistakeVault']):
+                                st['mistakeVault'].insert(0, m)
+                        cur.execute("UPDATE student_states SET state_json = ?, updated_at = CURRENT_TIMESTAMP WHERE user_id = ?", (json.dumps(st), uid))
+                    except Exception as e:
+                        pass
+
+                conn.commit()
+                conn.close()
+
+                return handler.send_json(200, {
+                    "success": True,
+                    "simulation_id": sim_id,
+                    "errors_logged": len(mistakes),
+                    "tasks_created": tasks_created,
+                    "message": f"Successfully processed simulation & forwarded {len(mistakes)} errors to Main Control"
+                })
+
+            elif method == 'GET':
+                uid = qs.get('user_id', [None])[0] or get_auth_user_id(handler) or 'user_alpha'
+                conn = get_db()
+                cur = conn.cursor()
+                cur.execute("SELECT * FROM cbt_exams WHERE user_id = ? AND mode = 'simulation' ORDER BY created_at DESC LIMIT 20", (uid,))
+                sims = [dict(r) for r in cur.fetchall()]
+                cur.execute("SELECT * FROM question_logs WHERE user_id = ? AND is_correct = 0 ORDER BY created_at DESC LIMIT 30", (uid,))
+                errors = [dict(r) for r in cur.fetchall()]
+                conn.close()
+                return handler.send_json(200, {"simulations": sims, "recent_errors": errors})
+
         # ── 8. ADMIN ACTIONS (Re-seed & Backup Export) ──
         if path == '/api/admin/seed' and method == 'POST':
             seed_database(force_questions=True)

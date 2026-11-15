@@ -37,10 +37,11 @@
 - **PCM Milestone Coverage Matrix**: 3-block tracking (Previous Mastered, In-Progress, Next Queued) with cyber chimes.
 - **8 Dynamic Nebula Themes & Accent Engine**: Real-time reactive CSS variable recalculation without page reload.
 
-### 🚧 Phase 2: Cognitive Pipeline In Development (50% Remaining)
-- **1. Task Flow System**: Algorithmic task queue converting CBT test error autopsies and coaching syllabus gaps into prioritized daily tasks, complete with drag-and-drop Kanban matrix, sub-tasks, and automated rollover.
-- **2. Adaptive AI Question Generation**: Fine-tuned algorithmic generator synthesizing tailored JEE Mains and Advanced numerical problems, multi-correct challenges, and step-by-step LaTeX formula derivations adapting to aspirant difficulty.
-- **3. Retheming & Visual Studio**: Comprehensive user customization studio for backdrop blur intensity, glassmorphic refraction, custom color wheel gradients, and Web Audio synthesizer mechanical clicker sound packs.
+### 🚧 Phase 2: Cognitive Pipeline (Delivered)
+- **1. Task Flow & Mistake Autopsy System**: Algorithmic task queue converting CBT test error autopsies and coaching syllabus gaps into prioritized daily tasks, complete with drag-and-drop Kanban matrix, sub-tasks, and automated rollover.
+- **2. Tactical Simulation Engine & Error Radar**: Autonomous simulation runner executing full 75-Q JEE Mock tests or 25-Q speed drills across 139,000+ real questions, performing rigorous error diagnostics (Calculation, Concept, Sign, and Pacing Latency), and streaming error autopsies directly to Main Control (`index.html`).
+- **3. Adaptive AI Question Generation**: Fine-tuned algorithmic generator synthesizing tailored JEE Mains and Advanced numerical problems, multi-correct challenges, and step-by-step LaTeX formula derivations adapting to aspirant difficulty.
+- **4. Retheming & Visual Studio**: Comprehensive user customization studio for backdrop blur intensity, glassmorphic refraction, custom color wheel gradients, and Web Audio synthesizer mechanical clicker sound packs.
 
 ---
 
@@ -187,21 +188,55 @@ ClockEE/
 
 ## 🚀 Quick Start / Local Installation
 
-ClockEE is built with zero cumbersome build steps, compilers, or heavy node_modules. It runs instantly in any modern web browser!
+ClockEE is built with zero cumbersome build steps, compilers, or heavy node_modules. It runs instantly with its built-in full-stack Python server and SQLite database!
 
-### Option 1: Clone and Run via Python Server
+### Option 1: Launch Full-Stack Server & SQLite Backend (Recommended)
 ```bash
 # Clone the repository
 git clone https://github.com/galacticzenpai/ClockEE.git
 cd ClockEE
 
-# Start a local HTTP server
-python -m http.server 8080
+# Launch Full-Stack Server & SQLite Engine (Windows 1-Click)
+start_backend.bat
+# Or via Python:
+python server.py
 ```
-Open **`http://localhost:8080`** or **`http://localhost:8080/hackathon.html`** in your browser.
+Open **`http://localhost:8000/`** or **`http://localhost:8000/hackathon.html`** in your browser.
 
-### Option 2: Direct Browser Launch
-Simply double-click `hackathon.html`, `index.html`, or `login.html` to run in standalone client mode.
+### Option 2: Run Automated Backend & Database Tests
+```bash
+python test_backend.py
+```
+Validates all 10 test suites: Auth, Password Hashing, Session Management, SQLite 5,775+ Question Bank querying, Firebase-compatible Cloud Sync, and CBT Crash-Recovery snapshots.
+
+### Option 3: Direct Browser Launch (Static Client Mode)
+Simply open `hackathon.html`, `index.html`, or `login.html` directly in your browser.
+
+---
+
+## 💾 Full-Stack Backend & SQLite Database Architecture
+
+ClockEE features an integrated, zero-dependency Python backend (`server.py`) and a relational SQLite database (`clockee.db`) with Write-Ahead Logging (WAL):
+
+### Database Schema (8 Relational Tables)
+1. **`users`**: Secure account store with PBKDF2-HMAC-SHA256 password hashing, salt isolation, and role authorization.
+2. **`sessions`**: Cryptographic session tokens with 30-day expiration for persistent authenticated workspaces.
+3. **`student_states`**: Full serialized state snapshots enabling multi-device continuous progress.
+4. **`question_logs`**: Sub-second question cadence, mistake taxonomy categorization (Calculation, Concept Gap, Silly Error), and autopsy notes.
+5. **`tasks`**: Kanban matrix task items with subject tagging, priority levels, and completion status.
+6. **`coaching_syllabus`**: PCM syllabus matrix tracking Mastered, In-Progress, and Queued chapters with question counts.
+7. **`cbt_exams`**: Historical CBT examination results, MathJax response logs, subject scores, and accuracy percentages.
+8. **`cbt_active_sessions`**: Real-time crash-recovery state snapshots (timer, marked palette, active question index) ensuring zero data loss during reloads.
+9. **`questions`**: Indexed Master Question Bank loaded with **5,775 authentic JEE Main & Advanced questions** from reference vault books.
+
+### Active REST & Cloud Sync API Endpoints
+- **Authentication**: `POST /api/signin`, `POST /api/signup`, `POST /api/check-email`, `GET /api/me`
+- **Dual-Mode Cloud Sync**: `GET/PUT /students/<id>/state.json`, `GET /students.json`, `PATCH /students/<id>/profile.json`, `DELETE /students/<id>.json`
+- **Master Question Bank**: `GET /api/questions`, `GET /api/questions/random`, `GET /api/questions/chapters`
+- **Sprints & Logs**: `GET/POST /api/logs`
+- **Tasks Matrix**: `GET/POST/PUT/DELETE /api/tasks`
+- **CBT Crash Recovery**: `POST /api/cbt/crash-save`, `GET /api/cbt/crash-resume`, `GET/POST /api/cbt/exams`
+- **System Diagnostics**: `GET /clockee.json`, `GET /api/health`, `GET /api/admin/export`
 
 ---
 

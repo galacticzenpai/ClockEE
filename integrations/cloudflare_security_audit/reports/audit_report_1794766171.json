@@ -1,0 +1,53 @@
+{
+  "skill": "cloudflare/security-audit-skill",
+  "timestamp": "2026-11-15 23:39:31",
+  "reconnaissance": {
+    "root": "D:\\Desktop\\ClockEE",
+    "html_entrypoints": [
+      "admin.html",
+      "analysis.html",
+      "cbt.html",
+      "cbt_analysis.html",
+      "cbt_cloner.html",
+      "cbt_exam.html",
+      "cbt_home.html",
+      "cbt_instructions.html",
+      "cbt_mistakes.html",
+      "cbt_notebooks.html",
+      "cbt_reference_vault.html",
+      "coaching.html",
+      "hackathon.html",
+      "index.html",
+      "inspiration.html",
+      "login.html",
+      "mini_timer.html",
+      "settings.html",
+      "task.html",
+      "test_centre.html",
+      "timer.html",
+      "today.html"
+    ],
+    "js_modules": [
+      "cbt_master_bank.js",
+      "cbt_shared.js",
+      "clockee_core.js",
+      "env.example.js",
+      "env.js"
+    ],
+    "endpoints": [],
+    "auth_surfaces": []
+  },
+  "metrics": {
+    "total_candidates_flagged": 175,
+    "adversarially_disproved_false_positives": 0,
+    "actionable_verified_vulnerabilities": 175
+  },
+  "verified_vulnerabilities": [
+    {
+      "cwe": "CWE-79",
+      "title": "DOM-Based Cross-Site Scripting (XSS)",
+      "severity": "HIGH",
+      "file": "admin.html",
+      "line": 672,
+      "code": "actions.innerHTML = `<span class=\"text-[10px] font-mono px-2.5 py-1 rounded-full bg-emerald-950 text-emerald-300 border ",
+      "disprove_fn": 

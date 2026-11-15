@@ -33,3 +33,15 @@ This directory contains the 5 packages adapted from the developer showcase (`pet
 * **Core Script**: `mcp_recommender.py`
 * **Run Command**: `python integrations/codebase_scanner/mcp_recommender.py`
 * **Purpose**: Scans project structure and line counts, recommending the optimal Model Context Protocol (MCP) servers and Antigravity skills.
+
+---
+
+### 6. Cloudflare Security Audit Skill (Adversarial False-Positive Disproval)
+* **Source Showcase**: `waitwhatdidyoudo [De9bqWtoARc]`
+* **Upstream**: Cloudflare open-source `cloudflare/security-audit-skill` (MIT License)
+* **Directory**: `integrations/cloudflare_security_audit/`
+* **Skill Specification**: `integrations/cloudflare_security_audit/SKILL.md`
+* **Core Script**: `integrations/cloudflare_security_audit/audit_runner.py`
+* **Run Command**: `python integrations/cloudflare_security_audit/audit_runner.py`
+* **Output Reports**: `integrations/cloudflare_security_audit/reports/`
+* **Purpose**: Performs a 4-phase static application security audit (Reconnaissance, Coverage Hunting, Adversarial Disproval to eliminate false positives, and Machine-Readable JSON reporting).

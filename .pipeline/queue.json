@@ -51,7 +51,7 @@
     "batch_id": "batch_hallmark_sloplint_001",
     "source": "github",
     "package": "nutlope/hallmark",
-    "status": "DISPATCHED",
+    "status": "COMPLETED",
     "timestamp": "2026-11-16T00:15:30Z",
     "tasks": {
       "untitled_conversation": {
@@ -71,14 +71,17 @@
       "simulation": {
         "target_id": "62adc180-be21-4671-848c-c8df59e2c202",
         "target_name": "SIMULATION",
-        "status": "DISPATCHED",
+        "status": "COMPLETED",
         "dispatched_at": "2026-11-16T00:15:23Z",
-        "instruction": "Hallmark design linter and Cloudflare security audit runners are now installed in `integrations/`.\n\nAs the SIMULATION agent, please execute our automated quality gates:\n1. Run `python integrations/hallmark_design/sloplint.py --all` to audit responsive layout score across all 8 canonical viewports (320px to 1920px).\n2. Run `python integrations/cloudflare_security_audit/audit_runner.py` to verify DOM XSS candidates.\n3. Generate a structured regression report listing remaining floor-gate errors and score metrics.",
-        "last_run": "2026-11-16T00:11:43.729450",
-        "gate_results": {
-          "sloplint": true,
-          "security_audit": true
-        }
+        "completed_at": "2026-11-16T00:19:12Z",
+        "audit_summary": {
+          "pages_audited": 22,
+          "perfect_pages": 13,
+          "failed_threshold": 9,
+          "average_score": 89.5,
+          "security_xss_candidates": 175
+        },
+        "instruction": "Hallmark design linter and Cloudflare security audit runners are now installed in `integrations/`.\n\nAs the SIMULATION agent, please execute our automated quality gates:\n1. Run `python integrations/hallmark_design/sloplint.py --all` to audit responsive layout score across all 8 canonical viewports (320px to 1920px).\n2. Run `python integrations/cloudflare_security_audit/audit_runner.py` to verify DOM XSS candidates.\n3. Generate a structured regression report listing remaining floor-gate errors and score metrics."
       },
       "db_backend": {
         "target_id": "d3700ff3-1bfb-458a-9968-8257ef2ca7e2",

@@ -64,6 +64,70 @@ def get_auth_user_id(handler):
             
     return None
 
+VALID_THEMES = {
+    'cyan_indigo',
+    'space_violet',
+    'emerald_matrix',
+    'crimson_nova',
+    'arctic_aurora',
+    'quantum_gold',
+    'synthwave_sunset',
+    'stealth_obsidian'
+}
+DEFAULT_THEME = 'cyan_indigo'
+
+VALID_AURA_MODES = {
+    'fluid',
+    'slow',
+    'rapid',
+    'static',
+    'pulse',
+    'off'
+}
+DEFAULT_AURA_MODE = 'fluid'
+
+THEME_ALIASES = {
+    'cyber cyan & indigo': 'cyan_indigo',
+    'cyber cyan': 'cyan_indigo',
+    'cyber_cyan': 'cyan_indigo',
+    'deep space violet & neon magenta': 'space_violet',
+    'deep space violet': 'space_violet',
+    'space violet': 'space_violet',
+    'deep_space_violet': 'space_violet',
+    'emerald matrix & electric teal': 'emerald_matrix',
+    'emerald matrix': 'emerald_matrix',
+    'crimson nova & sunset amber': 'crimson_nova',
+    'crimson nova': 'crimson_nova',
+    'midnight arctic aurora & ice blue': 'arctic_aurora',
+    'arctic aurora': 'arctic_aurora',
+    'quantum gold & amber circuit': 'quantum_gold',
+    'quantum gold': 'quantum_gold',
+    '80s synthwave sunset & electric rose': 'synthwave_sunset',
+    'synthwave sunset': 'synthwave_sunset',
+    'synthwave': 'synthwave_sunset',
+    'stealth obsidian & steel blue': 'stealth_obsidian',
+    'stealth obsidian': 'stealth_obsidian',
+    'stealth': 'stealth_obsidian'
+}
+
+def sanitize_theme(theme_str):
+    if not theme_str or not isinstance(theme_str, str):
+        return DEFAULT_THEME
+    clean = theme_str.strip().lower()
+    if clean in THEME_ALIASES:
+        return THEME_ALIASES[clean]
+    if clean in VALID_THEMES:
+        return clean
+    return DEFAULT_THEME
+
+def sanitize_aura_mode(mode_str):
+    if not mode_str or not isinstance(mode_str, str):
+        return DEFAULT_AURA_MODE
+    clean = mode_str.strip().lower()
+    if clean in VALID_AURA_MODES:
+        return clean
+    return DEFAULT_AURA_MODE
+
 class ClockEEBackendRouter:
     """
     Central API router handling REST, dual-mode Firebase Realtime DB emulation,
@@ -134,12 +198,21 @@ class ClockEEBackendRouter:
             pwd_hash, salt = hash_password(password)
             user_id = "user_" + secrets.token_hex(8)
             pfp = f"https://api.dicebear.com/7.x/bottts-neutral/svg?seed={urllib.parse.quote(name)}"
+            theme_pref = sanitize_theme(req.get('theme_preference') or req.get('theme'))
+            aura_mode = sanitize_aura_mode(req.get('aura_mode') or req.get('auraSpeed'))
 
             initial_state = {
                 "profile": { "name": name, "subtitle": f"{role} • Cloud Account", "pfp": pfp, "accent": "#00f2fe" },
                 "examMode": "mains",
                 "dailyGoals": { "Physics": 30, "Chemistry": 30, "Maths": 30, "hours": 6.0 },
                 "jeeDate": "2028-05-17",
+                "settings": {
+                    "dynamicAura": True,
+                    "auraTheme": theme_pref,
+                    "auraSpeed": aura_mode
+                },
+                "theme_preference": theme_pref,
+                "aura_mode": aura_mode,
                 "tasks": [],
                 "questionLogs": [],
                 "mockTests": [],
@@ -150,9 +223,9 @@ class ClockEEBackendRouter:
             cur = conn.cursor()
             try:
                 cur.execute("""
-                    INSERT INTO users (id, email, name, role, subtitle, pfp, password_hash, salt, data_json)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-                """, (user_id, email, name, role, f"{role} • Cloud Account", pfp, pwd_hash, salt, json.dumps(initial_state)))
+                    INSERT INTO users (id, email, name, role, subtitle, pfp, password_hash, salt, is_admin, theme_preference, aura_mode, data_json)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """, (user_id, email, name, role, f"{role} • Cloud Account", pfp, pwd_hash, salt, 0, theme_pref, aura_mode, json.dumps(initial_state)))
 
                 cur.execute("""
                     INSERT INTO student_states (user_id, state_json) VALUES (?, ?)
@@ -180,7 +253,9 @@ class ClockEEBackendRouter:
                     "email": email,
                     "name": name,
                     "role": role,
-                    "pfp": pfp
+                    "pfp": pfp,
+                    "theme_preference": theme_pref,
+                    "aura_mode": aura_mode
                 },
                 "userData": initial_state
             })
@@ -193,7 +268,7 @@ class ClockEEBackendRouter:
             conn = get_db()
             cur = conn.cursor()
             cur.execute("""
-                SELECT id, name, role, subtitle, pfp, password_hash, salt, is_admin, data_json
+                SELECT id, name, role, subtitle, pfp, password_hash, salt, is_admin, theme_preference, aura_mode, data_json
                 FROM users WHERE email = ?
             """, (email,))
             row = cur.fetchone()
@@ -210,6 +285,8 @@ class ClockEEBackendRouter:
             stored_hash = row['password_hash']
             salt = row['salt']
             is_admin = bool(row['is_admin'])
+            theme_pref = sanitize_theme(row['theme_preference'])
+            aura_mode = sanitize_aura_mode(row['aura_mode'])
 
             check_hash, _ = hash_password(password, salt)
             if check_hash != stored_hash:
@@ -220,6 +297,12 @@ class ClockEEBackendRouter:
             cur.execute("SELECT state_json FROM student_states WHERE user_id = ?", (user_id,))
             state_row = cur.fetchone()
             state_data = json.loads(state_row['state_json'] if state_row else (row['data_json'] or '{}'))
+            if not isinstance(state_data.get('settings'), dict):
+                state_data['settings'] = {}
+            state_data['settings']['auraTheme'] = theme_pref
+            state_data['settings']['auraSpeed'] = aura_mode
+            state_data['theme_preference'] = theme_pref
+            state_data['aura_mode'] = aura_mode
 
             # Issue session token
             session_token = secrets.token_hex(24)
@@ -240,7 +323,9 @@ class ClockEEBackendRouter:
                     "role": role,
                     "subtitle": subtitle,
                     "pfp": pfp,
-                    "isAdmin": is_admin
+                    "isAdmin": is_admin,
+                    "theme_preference": theme_pref,
+                    "aura_mode": aura_mode
                 },
                 "userData": state_data
             })
@@ -271,13 +356,15 @@ class ClockEEBackendRouter:
         if (path == '/students.json' or path == '/api/students') and method == 'GET':
             conn = get_db()
             cur = conn.cursor()
-            cur.execute("SELECT u.id, u.email, u.name, u.role, u.subtitle, u.pfp, u.is_admin, u.created_at, s.state_json FROM users u LEFT JOIN student_states s ON u.id = s.user_id")
+            cur.execute("SELECT u.id, u.email, u.name, u.role, u.subtitle, u.pfp, u.is_admin, u.theme_preference, u.aura_mode, u.created_at, s.state_json FROM users u LEFT JOIN student_states s ON u.id = s.user_id")
             rows = cur.fetchall()
             conn.close()
 
             result = {}
             for r in rows:
                 state_data = json.loads(r['state_json'] or '{}') if r['state_json'] else {}
+                theme_pref = sanitize_theme(r['theme_preference'])
+                aura_mode = sanitize_aura_mode(r['aura_mode'])
                 result[r['id']] = {
                     "profile": {
                         "name": r['name'],
@@ -286,6 +373,8 @@ class ClockEEBackendRouter:
                         "subtitle": r['subtitle'],
                         "pfp": r['pfp'],
                         "isAdmin": bool(r['is_admin']),
+                        "theme_preference": theme_pref,
+                        "aura_mode": aura_mode,
                         "createdAt": r['created_at']
                     },
                     "state": state_data

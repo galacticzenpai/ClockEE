@@ -38,6 +38,8 @@ def init_db():
             password_hash TEXT NOT NULL,
             salt TEXT NOT NULL,
             is_admin INTEGER DEFAULT 0,
+            theme_preference TEXT DEFAULT 'cyan_indigo',
+            aura_mode TEXT DEFAULT 'fluid',
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             last_login TIMESTAMP,
             data_json TEXT DEFAULT '{}'
@@ -187,8 +189,36 @@ def init_db():
     cur.execute("CREATE INDEX IF NOT EXISTS idx_cbt_exams_user ON cbt_exams(user_id)")
     cur.execute("CREATE INDEX IF NOT EXISTS idx_syllabus_user ON coaching_syllabus(user_id, subject)")
 
+    # Run Schema Migrations
+    migrate_db(conn)
+
     conn.commit()
     conn.close()
+
+    # Also migrate legacy clockee_auth.db if present
+    auth_db_path = os.path.join(WORKSPACE_DIR, "clockee_auth.db")
+    if os.path.isfile(auth_db_path) and os.path.abspath(auth_db_path) != os.path.abspath(DB_PATH):
+        try:
+            auth_conn = sqlite3.connect(auth_db_path)
+            migrate_db(auth_conn)
+            auth_conn.close()
+        except Exception as e:
+            print(f"[!] Warning migrating clockee_auth.db: {e}")
+
+def migrate_db(conn):
+    """Ensure all required columns exist in existing database tables."""
+    cur = conn.cursor()
+    try:
+        cur.execute("PRAGMA table_info(users)")
+        existing_cols = {row[1] for row in cur.fetchall()}
+        if existing_cols:
+            if 'theme_preference' not in existing_cols:
+                cur.execute("ALTER TABLE users ADD COLUMN theme_preference TEXT DEFAULT 'cyan_indigo'")
+            if 'aura_mode' not in existing_cols:
+                cur.execute("ALTER TABLE users ADD COLUMN aura_mode TEXT DEFAULT 'fluid'")
+        conn.commit()
+    except Exception as e:
+        print(f"[!] Migration notice: {e}")
 
 if __name__ == '__main__':
     init_db()

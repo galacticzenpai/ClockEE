@@ -136,22 +136,22 @@ def seed_database(force_questions=False):
     }
 
     users_to_seed = [
-        (alpha_id, alpha_email, alpha_name, alpha_role, alpha_subtitle, alpha_pfp, alpha_pwd_hash, alpha_salt, 0, json.dumps(alpha_state)),
-        (beta_id, beta_email, beta_name, beta_role, beta_subtitle, beta_pfp, beta_pwd_hash, beta_salt, 0, json.dumps(beta_state)),
-        (admin_id, admin_email, admin_name, admin_role, admin_subtitle, admin_pfp, admin_pwd_hash, admin_salt, 1, json.dumps(admin_state))
+        (alpha_id, alpha_email, alpha_name, alpha_role, alpha_subtitle, alpha_pfp, alpha_pwd_hash, alpha_salt, 0, "cyan_indigo", "fluid", json.dumps(alpha_state)),
+        (beta_id, beta_email, beta_name, beta_role, beta_subtitle, beta_pfp, beta_pwd_hash, beta_salt, 0, "space_violet", "fluid", json.dumps(beta_state)),
+        (admin_id, admin_email, admin_name, admin_role, admin_subtitle, admin_pfp, admin_pwd_hash, admin_salt, 1, "cyan_indigo", "fluid", json.dumps(admin_state))
     ]
 
     for u in users_to_seed:
         cur.execute("""
-            INSERT OR REPLACE INTO users (id, email, name, role, subtitle, pfp, password_hash, salt, is_admin, data_json)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            INSERT OR REPLACE INTO users (id, email, name, role, subtitle, pfp, password_hash, salt, is_admin, theme_preference, aura_mode, data_json)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """, u)
         
         # Also seed into student_states
         cur.execute("""
             INSERT OR REPLACE INTO student_states (user_id, state_json)
             VALUES (?, ?)
-        """, (u[0], u[9]))
+        """, (u[0], u[11]))
 
     print(f"[✓] Pre-seeded 3 core test accounts: Alpha, Beta, Admin")
 

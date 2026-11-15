@@ -202,7 +202,7 @@ def stage_prompt_to_file(text):
         return False
 
 def discover_handoff_prompts(convo_key, steps):
-    """Linear, non-backtracking handoff prompt extractor."""
+    """Linear, non-backtracking handoff prompt extractor matching the Universal System Directive."""
     discovered = []
     if not steps:
         return discovered
@@ -214,10 +214,12 @@ def discover_handoff_prompts(convo_key, steps):
         target_key = None
         accumulated = []
         for line in lines:
-            m = re.match(r"^(?:---|\*\*\*|###)?\s*(?:PROMPT FOR|Prompt for)\s+([A-Za-z /_-]+)", line.strip(), re.I)
+            trimmed = line.strip()
+            # Match --- PROMPT FOR [NAME] --- or ```handoff-prompt followed by --- PROMPT FOR
+            m = re.match(r"^(?:```[a-z_-]*\s*)?(?:---|\*\*\*|###)?\s*(?:PROMPT FOR|Prompt for)\s+([A-Za-z /_() -]+?)(?:\s*---|\s*\*\*\*|\s*###)?$", trimmed, re.I)
             if m:
                 if target_key and accumulated:
-                    instruction = "\n".join(accumulated).strip()
+                    instruction = "\n".join(accumulated).strip().strip("`")
                     if len(instruction) > 10:
                         discovered.append({
                             "source": convo_key,
@@ -231,8 +233,8 @@ def discover_handoff_prompts(convo_key, steps):
                 target_key = classify_text_domain(target_str)
                 accumulated = []
             elif target_key is not None:
-                if line.strip().startswith("---") and len(accumulated) > 0:
-                    instruction = "\n".join(accumulated).strip()
+                if (trimmed == "```" or trimmed.startswith("---")) and len(accumulated) > 0:
+                    instruction = "\n".join(accumulated).strip().strip("`")
                     if len(instruction) > 10:
                         discovered.append({
                             "source": convo_key,
@@ -247,7 +249,7 @@ def discover_handoff_prompts(convo_key, steps):
                 else:
                     accumulated.append(line)
         if target_key and accumulated:
-            instruction = "\n".join(accumulated).strip()
+            instruction = "\n".join(accumulated).strip().strip("`")
             if len(instruction) > 10:
                 discovered.append({
                     "source": convo_key,

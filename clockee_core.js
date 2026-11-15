@@ -2391,14 +2391,34 @@ window.applyAllSettingsGlobally = function() {
     }
 
     /* Frosted Dropdown Menus - Translucent with Cyber Neon Glow Outline & Deep Glass Blur */
+    .nav-dropdown {
+      position: relative !important;
+      display: inline-block !important;
+    }
+    .nav-dropdown:hover .nav-caret {
+      transform: rotate(180deg) !important;
+    }
     .nav-dropdown-menu {
-      background: rgba(8, 12, 26, 0.62) !important;
+      position: absolute !important;
+      top: 100% !important;
+      left: 0 !important;
+      margin-top: 6px !important;
+      min-width: 215px !important;
+      display: none !important;
+      flex-direction: column !important;
+      gap: 2px !important;
+      z-index: 100 !important;
+      background: rgba(8, 12, 26, 0.88) !important;
       backdrop-filter: blur(32px) saturate(220%) !important;
       -webkit-backdrop-filter: blur(32px) saturate(220%) !important;
       border: 1px solid rgba(0, 240, 255, 0.48) !important;
       border-radius: 16px !important;
       box-shadow: 0 20px 50px -8px rgba(0, 0, 0, 0.9), 0 0 25px rgba(0, 240, 255, 0.25), inset 0 0 14px rgba(0, 240, 255, 0.08) !important;
       padding: 6px !important;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu,
+    .nav-dropdown:focus-within .nav-dropdown-menu {
+      display: flex !important;
     }
     .nav-dropdown-item {
       color: #94a3b8 !important;
@@ -4152,10 +4172,12 @@ if (document.readyState === "complete" || document.readyState === "interactive")
     spotlightSvg.addEventListener('click', (e) => {
       if (!isTourActive || isTourMinimized) return;
       const rect = spotlightCutout.getBoundingClientRect();
-      // If clicked outside cutout hole:
-      if (e.clientX < rect.left || e.clientX > rect.right || e.clientY < rect.top || e.clientY > rect.bottom) {
+      // Strictly ONLY minimize when clicking the dark backdrop OUTSIDE the highlighted zone
+      const isInsideCutout = (e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom);
+      if (!isInsideCutout) {
         window.minimizeCockpitTour();
       }
+      // If inside cutout, do NOTHING (do not minimize!)
     });
     document.body.appendChild(spotlightSvg);
     spotlightCutout = document.getElementById('tourCutoutRect');

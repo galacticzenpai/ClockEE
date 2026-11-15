@@ -528,6 +528,7 @@
     </div>
   </div>
 
+  <script src="cbt_master_bank.js" onerror="/* Optional master question bank */"></script>
   <script src="cbt_shared.js"></script>
   <script>
     let currentSubjectFilter = "All";
@@ -637,12 +638,26 @@
 
     function updateChapterOptions(sub) {
       const select = document.getElementById('gen-chapter');
-      const chapters = {
-        Physics: ["Kinematics 1D & 2D", "Rotational Dynamics", "Heat & Thermodynamics", "Electrostatics", "Magnetism & EMI", "Optics", "All Physics"],
-        Chemistry: ["Chemical Bonding", "Thermodynamics", "Coordination Chemistry", "Organic Mechanisms", "All Chemistry"],
-        Maths: ["Definite Integrals", "Vectors & 3D", "Matrices & Determinants", "Probability", "All Maths"],
-        Full: ["Full Syllabus JEE Simulation"]
-      }[sub] || ["General Syllabus"];
+      let chapters = [];
+      
+      // Dynamically load real chapters from Kunal's Library Book Log
+      if (typeof window !== "undefined" && window.CBT_BOOK_LOG && window.CBT_BOOK_LOG.length) {
+        const book = window.CBT_BOOK_LOG.find(b => b.subject === sub);
+        if (book && book.chapters && book.chapters.length) {
+          chapters = book.chapters.map(c => c.chapterName);
+        }
+      }
+
+      if (!chapters.length) {
+        chapters = {
+          Physics: ["Kinematics", "Rotational Motion", "Thermodynamics", "Electrostatics", "Optics", "Units and Dimension", "All Physics"],
+          Chemistry: ["Atomic Structure", "Chemical Bonding", "Chemical Equilibrium", "Thermodynamics", "Hydrocarbon", "All Chemistry"],
+          Maths: ["Binomial Theorem", "Complex Numbers", "Matrices & Determinants", "Probability", "Quadratic Equations", "All Maths"],
+          Full: ["Full Syllabus JEE Simulation"]
+        }[sub] || ["General Syllabus"];
+      } else {
+        chapters.unshift(`All ${sub}`);
+      }
 
       select.innerHTML = chapters.map(c => `<option value="${c}">${c}</option>`).join('');
     }

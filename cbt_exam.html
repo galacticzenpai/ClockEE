@@ -654,6 +654,7 @@
     </div>
   </div>
 
+  <script src="cbt_master_bank.js" onerror="/* Optional master question bank */"></script>
   <script src="cbt_shared.js"></script>
   <script>
     // State Variables
@@ -1244,6 +1245,29 @@
     }
 
     function generateAuthenticChapterQuestions(test) {
+      const sub = test.subject || "Chemistry";
+      const chap = test.chapter || test.title;
+      const targetCount = test.totalQs || 25;
+
+      // Prioritize authentic questions extracted from Kunal's Library Master Question Bank
+      if (typeof window !== "undefined" && window.CBT_MASTER_QUESTION_BANK && window.CBT_MASTER_QUESTION_BANK.length) {
+        const normCh = (chap || "").toLowerCase().trim();
+        let pool = window.CBT_MASTER_QUESTION_BANK.filter(q => {
+          const qCh = (q.chapter || "").toLowerCase();
+          return q.subject === sub && (normCh.includes("all") || qCh.includes(normCh) || normCh.includes(qCh));
+        });
+        if (pool.length < targetCount) {
+          const subPool = window.CBT_MASTER_QUESTION_BANK.filter(q => q.subject === sub && !pool.includes(q));
+          pool = [...pool, ...subPool.sort(() => 0.5 - Math.random())];
+        }
+        if (pool.length >= targetCount) {
+          return pool.slice(0, targetCount).map((q, idx) => ({
+            ...q,
+            num: idx + 1
+          }));
+        }
+      }
+
       const qList = test.questions ? [...test.questions] : [];
       const sub = test.subject || "Chemistry";
       const chap = test.chapter || test.title;

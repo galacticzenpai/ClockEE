@@ -722,7 +722,7 @@
 
   <!-- Master Apply Button -->
   <div class="text-center pt-2">
-    <button onclick="applyAllSettingsGlobally()"
+    <button onclick="applyAllSettingsGlobally(this)"
       class="w-full sm:w-auto px-10 py-3.5 bg-gradient-to-r from-emerald-500 via-teal-500 to-indigo-600 hover:scale-105 text-white font-extrabold text-sm rounded-2xl shadow-xl shadow-emerald-500/30 transition-all flex items-center justify-center gap-2 mx-auto">
       <span>⚡</span> Apply &amp; Synchronize All Settings Globally
     </button>
@@ -872,6 +872,40 @@
     s.settings.soundPack = pack;
     window.saveState();
     window.playTactileFeedback(pack);
+  };
+
+  const baseApply = window.applyAllSettingsGlobally;
+  window.applyAllSettingsGlobally = function(btn) {
+    if (baseApply) {
+      try { baseApply(); } catch (e) { console.error("Base apply error:", e); }
+    }
+    
+    // Also synchronize UI-specific sliders and selectors
+    const s = window.getState ? window.getState() : {};
+    s.settings = s.settings || {};
+    const blurEl = document.getElementById("setting-glass-blur");
+    if (blurEl) s.settings.glassBlur = Number(blurEl.value);
+    const opEl = document.getElementById("setting-glass-opacity");
+    if (opEl) s.settings.glassOpacity = (Number(opEl.value) / 100);
+    const soundEl = document.getElementById("setting-sound-pack");
+    if (soundEl) s.settings.soundPack = soundEl.value;
+    if (window.saveState) window.saveState();
+
+    // Tactile button confirmation
+    const masterBtn = btn || document.querySelector("button[onclick*='applyAllSettingsGlobally']");
+    if (masterBtn) {
+      const origHtml = masterBtn.innerHTML;
+      masterBtn.innerHTML = '<span>✅</span> All Settings Synchronized Globally!';
+      masterBtn.classList.add('ring-4', 'ring-emerald-400/50', 'scale-[1.02]');
+      setTimeout(() => {
+        masterBtn.innerHTML = origHtml;
+        masterBtn.classList.remove('ring-4', 'ring-emerald-400/50', 'scale-[1.02]');
+      }, 2500);
+    }
+
+    if (window.showToast) {
+      window.showToast("All global settings synchronized successfully!", "success");
+    }
   };
 
   function initSettings() {

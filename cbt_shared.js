@@ -438,8 +438,51 @@ function getInitialMistakes() {
 }
 
 // ==========================================
-// 3. ADAPTIVE TEST GENERATOR ENGINE
+// 3. ADAPTIVE TEST GENERATOR ENGINE (Connected to Master Question Bank)
 // ==========================================
+
+function getRealQuestionsFromBank(subject, chapter, qCount, targetLatency) {
+  if (typeof window === "undefined" || !window.CBT_MASTER_QUESTION_BANK || !window.CBT_MASTER_QUESTION_BANK.length) {
+    return null;
+  }
+  
+  const bank = window.CBT_MASTER_QUESTION_BANK;
+  let pool = [];
+
+  if (subject === "Full") {
+    // For Full mock: 1/3 Physics, 1/3 Chemistry, 1/3 Maths
+    const perSub = Math.floor(qCount / 3);
+    const pPool = bank.filter(q => q.subject === "Physics").sort(() => 0.5 - Math.random()).slice(0, perSub);
+    const cPool = bank.filter(q => q.subject === "Chemistry").sort(() => 0.5 - Math.random()).slice(0, perSub);
+    const mPool = bank.filter(q => q.subject === "Maths").sort(() => 0.5 - Math.random()).slice(0, qCount - (perSub * 2));
+    pool = [...pPool, ...cPool, ...mPool];
+  } else {
+    // Filter by subject and chapter
+    const normCh = (chapter || "").toLowerCase().trim();
+    if (normCh && !normCh.includes("all") && normCh !== "mixed chapters" && normCh !== "general syllabus") {
+      pool = bank.filter(q => {
+        const qCh = (q.chapter || "").toLowerCase();
+        return q.subject === subject && (qCh.includes(normCh) || normCh.includes(qCh));
+      });
+    }
+
+    // If not enough questions in specific chapter, expand to entire subject
+    if (pool.length < qCount) {
+      const remainingNeeded = qCount - pool.length;
+      const subPool = bank.filter(q => q.subject === subject && !pool.includes(q));
+      pool = [...pool, ...subPool.sort(() => 0.5 - Math.random()).slice(0, remainingNeeded)];
+    }
+  }
+
+  if (pool.length === 0) return null;
+
+  // Format into test sequence
+  return pool.slice(0, qCount).map((q, idx) => ({
+    ...q,
+    num: idx + 1,
+    idealTimeSec: targetLatency || q.idealTimeSec || 75
+  }));
+}
 
 function generateAdaptiveTest(config) {
   const state = loadCBTState();
@@ -454,26 +497,31 @@ function generateAdaptiveTest(config) {
   const titlePrefix = mode === "latency" ? "Latency Drill:" : mode === "performance" ? "Peak Performance:" : "Chapter Mastery:";
   const title = `${titlePrefix} ${chapter} (${qCount} Qs)`;
 
-  // Generate question set
-  const generatedQuestions = [];
-  for (let i = 1; i <= qCount; i++) {
-    const isNum = i > Math.floor(qCount * 0.8);
-    generatedQuestions.push({
-      id: `${subject.toLowerCase().slice(0,3)}_${Date.now()}_${i}`,
-      num: i,
-      type: isNum ? "numerical" : "single",
-      subject: subject,
-      chapter: chapter,
-      topic: `${chapter} Core Concept #${i}`,
-      difficulty: mode === "performance" ? (i % 2 === 0 ? "Tough" : "Moderate") : (i % 3 === 0 ? "Tough" : "Moderate"),
-      idealTimeSec: targetLatency,
-      text: `Adaptive question #${i} for ${chapter} under ${mode.toUpperCase()} test conditions. Determine the required physical parameter or choice.`,
-      options: isNum ? null : ["Option (A)", "Option (B)", "Option (C)", "Option (D)"],
-      correct: 0,
-      correctNum: 25,
-      marking: { correct: 4, wrong: -1 },
-      referenceBook: `ClockEE Adaptive Question Bank • Chapter ${chapter}`
-    });
+  // Generate question set from real master bank if available
+  let generatedQuestions = getRealQuestionsFromBank(subject, chapter, qCount, targetLatency);
+
+  // Fallback placeholder generation only if bank not loaded
+  if (!generatedQuestions || generatedQuestions.length === 0) {
+    generatedQuestions = [];
+    for (let i = 1; i <= qCount; i++) {
+      const isNum = i > Math.floor(qCount * 0.8);
+      generatedQuestions.push({
+        id: `${subject.toLowerCase().slice(0,3)}_${Date.now()}_${i}`,
+        num: i,
+        type: isNum ? "numerical" : "single",
+        subject: subject,
+        chapter: chapter,
+        topic: `${chapter} Core Concept #${i}`,
+        difficulty: mode === "performance" ? (i % 2 === 0 ? "Tough" : "Moderate") : (i % 3 === 0 ? "Tough" : "Moderate"),
+        idealTimeSec: targetLatency,
+        text: `Adaptive question #${i} for ${chapter} under ${mode.toUpperCase()} test conditions. Determine the required physical parameter or choice.`,
+        options: isNum ? null : ["Option (A)", "Option (B)", "Option (C)", "Option (D)"],
+        correct: 0,
+        correctNum: 25,
+        marking: { correct: 4, wrong: -1 },
+        referenceBook: `ClockEE Adaptive Question Bank • Chapter ${chapter}`
+      });
+    }
   }
 
   const newTest = {
@@ -484,9 +532,9 @@ function generateAdaptiveTest(config) {
     targetLatencySec: targetLatency,
     subject: subject,
     chapter: chapter,
-    totalQs: qCount,
+    totalQs: generatedQuestions.length,
     durationMin: durationMin,
-    marks: qCount * 4,
+    marks: generatedQuestions.length * 4,
     status: "available",
     questions: generatedQuestions
   };

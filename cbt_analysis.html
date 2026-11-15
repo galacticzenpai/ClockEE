@@ -959,18 +959,105 @@
       }).join('');
     }
 
+    function renderMathText(str) {
+      if (!str) return '';
+      if (!window.katex) return str;
+      return str
+        .replace(/\$\$([\s\S]+?)\$\$/g, (m, tex) => {
+          try { return katex.renderToString(tex, { displayMode: true, throwOnError: false }); } catch(e) { return m; }
+        })
+        .replace(/\$([^\$]+?)\$/g, (m, tex) => {
+          try { return katex.renderToString(tex, { displayMode: false, throwOnError: false }); } catch(e) { return m; }
+        });
+    }
+
     function viewQuestionSolution(qNum) {
       const modal = document.getElementById('modal-solution');
+      if (!modal) return;
       document.getElementById('modal-sol-title').innerText = `Solution & Explanation — Question #${qNum}`;
+
+      // Retrieve state and search for authentic question data
+      const state = (window.CBT_STATE && window.CBT_STATE.load) ? window.CBT_STATE.load() : null;
+      const allTests = (state?.tests || []).concat(typeof CBT_DEFAULT_TESTS !== 'undefined' ? CBT_DEFAULT_TESTS : []);
+      const currentTestId = (activeAttempt && activeAttempt.testId) || testId;
+      const currentTest = allTests.find(t => t.id === currentTestId);
+      
+      let qData = null;
+      if (currentTest && currentTest.questions) {
+        qData = currentTest.questions.find(q => q.num === qNum) || currentTest.questions[qNum - 1];
+      }
+
+      // Check user telemetry response if available
+      const latencyItem = (activeAttempt?.questionLatencies || []).find(l => l.qNum === qNum);
+      const userStatus = latencyItem?.status;
+
+      let subject = qData?.subject || latencyItem?.subject || activeAttempt?.subjects?.[0] || 'Physics';
+      let chapter = qData?.chapter || currentTest?.chapter || 'Core Mechanics';
+      let topic = qData?.topic || 'JEE Concept Verification';
+      let difficulty = qData?.difficulty || 'JEE Main Moderate';
+      let qText = qData?.text || `Problem #${qNum} tests application of ${subject} fundamentals under timed pressure.`;
+      let solutionText = qData?.solution;
+      let referenceBook = qData?.referenceBook || `ClockEE Question Bank • ${subject}`;
+
+      let correctAnsText = '';
+      if (qData) {
+        if (qData.correctNum !== undefined) {
+          correctAnsText = `Numerical Answer: <span class="text-cyan-400 font-mono font-bold">${qData.correctNum}</span>`;
+        } else if (qData.options && qData.correct !== undefined) {
+          const optLetter = String.fromCharCode(65 + qData.correct);
+          const optVal = qData.options[qData.correct] || '';
+          correctAnsText = `Correct Option: <span class="text-emerald-400 font-mono font-bold">${optLetter}</span> (${renderMathText(optVal)})`;
+        }
+      }
+
+      if (!solutionText) {
+        if (subject === 'Physics') {
+          solutionText = `Apply kinematics relative motion principles: relative velocity $v_{rel} = v_1 - v_2$, distance $s = 100\\text{ m}$. Catching time $t = s / v_{rel}$. Check boundary conditions and SI unit conversions.`;
+        } else if (subject === 'Chemistry') {
+          solutionText = `Calculate valence shell electron pairs, bonding orbitals, and formal charges. Apply standard thermodynamic and structural criteria.`;
+        } else {
+          solutionText = `Evaluate standard derivatives and integral bounds. Verify function continuity and symmetry properties.`;
+        }
+      }
+
+      let statusBadge = userStatus === 'correct' 
+        ? '<span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-[10px] font-bold">✓ Marked Correct (+4)</span>'
+        : userStatus === 'wrong'
+        ? '<span class="px-2 py-0.5 rounded bg-red-500/20 text-red-400 border border-red-500/30 text-[10px] font-bold">✕ Marked Incorrect (-1)</span>'
+        : '<span class="px-2 py-0.5 rounded bg-gray-700/50 text-gray-400 border border-white/10 text-[10px] font-mono">○ Unattempted (0)</span>';
+
       document.getElementById('modal-sol-body').innerHTML = `
-        <div class="p-3 rounded-xl bg-gray-900 border border-white/10 space-y-2">
-          <p class="font-semibold text-gray-200">Question #${qNum} addresses core JEE principles.</p>
-          <div class="p-3 rounded-lg bg-black/40 text-cyan-300 font-mono text-xs">
-            Concept Verification &amp; Step-by-Step Breakdown
+        <div class="space-y-3">
+          <div class="flex items-center justify-between flex-wrap gap-2 pb-2 border-b border-white/10">
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">${subject}</span>
+              <span class="text-xs text-gray-300 font-medium">${chapter} • ${topic}</span>
+            </div>
+            <div>${statusBadge}</div>
           </div>
-          <p class="text-gray-400 text-xs leading-relaxed">
-            Standard approach: identify symmetry and hybridization of central atom. Xenon in XeF4 forms 4 covalent bonds with fluorines and retains 2 axial lone pairs, resulting in square planar shape.
-          </p>
+
+          <div class="p-3.5 rounded-xl bg-gray-900/90 border border-white/10 space-y-2">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-gray-400">Problem Statement</span>
+            <div class="text-xs text-white leading-relaxed font-sans">${renderMathText(qText)}</div>
+            ${correctAnsText ? `<div class="mt-2 pt-2 border-t border-white/10 text-xs text-gray-300">${correctAnsText}</div>` : ''}
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-indigo-950/30 border border-indigo-500/30 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-cyan-400 flex items-center gap-1.5">
+                <span>⚡</span> Step-by-Step Derivation &amp; Solution
+              </span>
+              <span class="text-[10px] text-gray-400 font-mono">${difficulty}</span>
+            </div>
+            <div class="text-xs text-gray-200 leading-relaxed font-sans">${renderMathText(solutionText)}</div>
+          </div>
+
+          ${referenceBook ? `
+            <div class="text-[11px] text-gray-400 flex items-center gap-1.5 pt-1">
+              <span class="text-indigo-400">📖</span>
+              <span>Source / Reference: <span class="text-gray-300">${referenceBook}</span></span>
+            </div>
+          ` : ''}
         </div>
       `;
       modal.classList.remove('hidden');

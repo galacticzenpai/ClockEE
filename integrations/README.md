@@ -45,3 +45,17 @@ This directory contains the 5 packages adapted from the developer showcase (`pet
 * **Run Command**: `python integrations/cloudflare_security_audit/audit_runner.py`
 * **Output Reports**: `integrations/cloudflare_security_audit/reports/`
 * **Purpose**: Performs a 4-phase static application security audit (Reconnaissance, Coverage Hunting, Adversarial Disproval to eliminate false positives, and Machine-Readable JSON reporting).
+
+---
+
+### 7. Hallmark Anti-AI-Slop Design Skill & Linter
+* **Source Showcase**: `waitwhatdidyoudo [DfCznzwKh4k]`
+* **Upstream**: Together AI / Hassan El Mghari `nutlope/hallmark` (MIT License)
+* **Directory**: `integrations/hallmark_design/`
+* **Skill Specification**: `integrations/hallmark_design/SKILL.md`
+* **Core Linter**: `integrations/hallmark_design/sloplint.py`
+* **Theme Catalog**: `integrations/hallmark_design/themes_catalog.json`
+* **CLI Utility**: `integrations/hallmark_design/hallmark_cli.py`
+* **Audit Command**: `python integrations/hallmark_design/hallmark_cli.py audit [file.html or --all]`
+* **Theme Command**: `python integrations/hallmark_design/hallmark_cli.py themes`
+* **Purpose**: Enforces human-crafted UI design and eliminates AI clichés (purple gradients, single colored words in headings, generic glass cards, dummy forms) with a 3-tier quality gate (Floor, Reflex, Finish) and 50 curated material themes.

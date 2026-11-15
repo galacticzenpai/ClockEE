@@ -1,0 +1,27 @@
+{
+  "timestamp": "2026-11-16 00:02:59",
+  "skill": "nutlope/hallmark (Together AI) Design & Slop Linter",
+  "metrics": {
+    "pages_scanned": 1,
+    "floor_gate_failures": 1,
+    "reflex_slop_cliches": 0,
+    "average_design_score": 75.0
+  },
+  "reports": [
+    {
+      "file": "index.html",
+      "floor_violations": [
+        {
+          "gate": "FLOOR",
+          "code": "FIXED_MOBILE_OVERFLOW",
+          "message": "Hardcoded wide pixel width (w-[...px]) causes mobile viewport overflow. Use max-w or flex/grid.",
+          "line": 663,
+          "snippet": "<div id=\"split-drawer\" class=\"fixed top-0 right-0 h-full w-[420px] max-w-[95vw] bg-[#0c0e17]/98 bord"
+        }
+      ],
+      "reflex_violations": [],
+      "finish_advisories": [],
+      "score": 75
+    }
+  ]
+}

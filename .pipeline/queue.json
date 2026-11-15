@@ -69,19 +69,13 @@
         "instruction": "We have vendored Together AI's Hallmark anti-AI-slop design skill in `integrations/hallmark_design/`.\n\nAs the UI / UX agent, please review `integrations/hallmark_design/themes_catalog.json` and `SKILL.md`:\n1. Audit ClockEE's color tokens and eliminate generic AI design clich\u00e9s (e.g. repetitive purple radial gradient glow blobs).\n2. Configure concrete theme tokens for our modules:\n   - `cbt_exam.html` & `admin.html` -> 'technical_slate' (clean 1px borders, high contrast, zero translucent glass blur).\n   - `cbt_mistakes.html` & `cbt_notebooks.html` -> 'warm_notebook' (warm paper, archival typography).\n   - `timer.html` -> 'retro_terminal' (focused monochrome contrast).\n3. Update `cbt_shared.css` with the clean typography pairings and theme material properties."
       },
       "simulation": {
-        "target_id": "62adc180-be21-4671-848c-c8df59e2c202",
+        "source": "ui_ux",
+        "target_key": "simulation",
         "target_name": "SIMULATION",
-        "status": "COMPLETED",
-        "dispatched_at": "2026-11-16T00:15:23Z",
-        "completed_at": "2026-11-16T00:19:12Z",
-        "audit_summary": {
-          "pages_audited": 22,
-          "perfect_pages": 13,
-          "failed_threshold": 9,
-          "average_score": 89.5,
-          "security_xss_candidates": 175
-        },
-        "instruction": "Hallmark design linter and Cloudflare security audit runners are now installed in `integrations/`.\n\nAs the SIMULATION agent, please execute our automated quality gates:\n1. Run `python integrations/hallmark_design/sloplint.py --all` to audit responsive layout score across all 8 canonical viewports (320px to 1920px).\n2. Run `python integrations/cloudflare_security_audit/audit_runner.py` to verify DOM XSS candidates.\n3. Generate a structured regression report listing remaining floor-gate errors and score metrics."
+        "target_id": "62adc180-be21-4671-848c-c8df59e2c202",
+        "instruction": "You are SIMULATION.\nPrerequisites Met: Phase 2 UI/UX styling, Hallmark themes, and responsive layout updates are fully completed and committed across all ClockEE frontend templates (sloplint average score 100.0/100).\n\nYour Task:\n1. Run a comprehensive multi-viewport regression test across the 8 canonical viewports ([320px, 375px, 414px, 768px, 1024px, 1280px, 1440px, 1920px]).\n2. Execute `python integrations/hallmark_design/hallmark_cli.py audit --all` to verify zero floor gate failures and zero reflex slop tells.\n3. Validate that the `--kept` contract holds across all interactive timer controls, CBT answer palettes, and modal interactions.\n4. Output your Phase 3 verification report following the Universal System Directive.\n```",
+        "status": "STAGED_FOR_DISPATCH",
+        "staged_at": "2026-11-16T00:33:58.221946"
       },
       "db_backend": {
         "target_id": "d3700ff3-1bfb-458a-9968-8257ef2ca7e2",

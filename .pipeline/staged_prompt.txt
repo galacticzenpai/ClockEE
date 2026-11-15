@@ -1,0 +1,17 @@
+You are SIMULATION.
+
+--- TASK ASSIGNMENT ---
+You are SIMULATION.
+Prerequisites Met: Phase 2 UI/UX styling, Hallmark themes, and responsive layout updates are fully completed and committed across all ClockEE frontend templates (sloplint average score 100.0/100).
+
+Your Task:
+1. Run a comprehensive multi-viewport regression test across the 8 canonical viewports ([320px, 375px, 414px, 768px, 1024px, 1280px, 1440px, 1920px]).
+2. Execute `python integrations/hallmark_design/hallmark_cli.py audit --all` to verify zero floor gate failures and zero reflex slop tells.
+3. Validate that the `--kept` contract holds across all interactive timer controls, CBT answer palettes, and modal interactions.
+4. Output your Phase 3 verification report following the Universal System Directive.
+```
+
+--- MESH COORDINATION DIRECTIVE ---
+1. Implement all domain fixes and features cleanly without disturbing sibling modules.
+2. When complete, provide a concise summary of changes.
+3. If your work generates a follow-up requirement for another conversation (e.g. UI/UX styling, DB schema, or Simulation testing), output a dedicated block labeled `--- PROMPT FOR [TARGET AGENT] ---` so the Backbone Coordinator routes it automatically.

@@ -558,24 +558,49 @@ class ClockEEBackendRouter:
                 user_data['theme_preference'] = theme_pref
                 user_data['aura_mode'] = aura_mode
 
-                state_json_str = json.dumps(user_data)
-
                 conn = get_db()
                 cur = conn.cursor()
-                cur.execute("""
-                    UPDATE users 
-                    SET data_json = ?, theme_preference = ?, aura_mode = ? 
-                    WHERE email = ?
-                """, (state_json_str, theme_pref, aura_mode, email))
 
-                # Also find id and update student_states
-                cur.execute("SELECT id FROM users WHERE email = ?", (email,))
+                # Find user and merge with existing state so existing profile/goals/stats are never lost
+                cur.execute("SELECT id, data_json FROM users WHERE email = ?", (email,))
                 row = cur.fetchone()
                 if row:
+                    user_id = row['id']
+                    cur.execute("SELECT state_json FROM student_states WHERE user_id = ?", (user_id,))
+                    s_row = cur.fetchone()
+                    try:
+                        existing_state = json.loads(s_row['state_json'] if s_row and s_row['state_json'] else (row['data_json'] or '{}'))
+                    except Exception:
+                        existing_state = {}
+
+                    if isinstance(existing_state, dict):
+                        existing_state.update(user_data)
+                        if 'settings' in user_data and isinstance(user_data['settings'], dict):
+                            existing_settings = existing_state.get('settings', {})
+                            if isinstance(existing_settings, dict):
+                                existing_settings.update(user_data['settings'])
+                                existing_state['settings'] = existing_settings
+                        final_state_str = json.dumps(existing_state)
+                    else:
+                        final_state_str = json.dumps(user_data)
+
+                    cur.execute("""
+                        UPDATE users 
+                        SET data_json = ?, theme_preference = ?, aura_mode = ? 
+                        WHERE email = ?
+                    """, (final_state_str, theme_pref, aura_mode, email))
+
                     cur.execute("""
                         INSERT INTO student_states (user_id, state_json) VALUES (?, ?)
                         ON CONFLICT(user_id) DO UPDATE SET state_json = excluded.state_json, updated_at = CURRENT_TIMESTAMP
-                    """, (row['id'], state_json_str))
+                    """, (user_id, final_state_str))
+                else:
+                    cur.execute("""
+                        UPDATE users 
+                        SET data_json = ?, theme_preference = ?, aura_mode = ? 
+                        WHERE email = ?
+                    """, (json.dumps(user_data), theme_pref, aura_mode, email))
+
                 conn.commit()
                 conn.close()
 

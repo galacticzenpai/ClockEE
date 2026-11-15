@@ -14,6 +14,114 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
   <style>
+    /* Hallmark Technical Slate Theme tokens for CBT Exam */
+    :root {
+      --cbt-exam-bg: #f4f6f9;
+      --cbt-exam-surface: #ffffff;
+      --cbt-exam-header-bg: #ffffff;
+      --cbt-exam-header-border: #0056b3;
+      --cbt-exam-text: #333333;
+      --cbt-exam-border: #ced4da;
+      --cbt-exam-accent: #0056b3;
+      --cbt-exam-timer-bg: #eef5fc;
+      --cbt-exam-timer-border: #b8daff;
+      --cbt-exam-timer-text: #004085;
+    }
+
+    [data-theme="technical_slate"] body,
+    body.theme-technical-slate,
+    body[data-page-theme="technical_slate"] {
+      --cbt-exam-bg: #0a0c10;
+      --cbt-exam-surface: #12151c;
+      --cbt-exam-header-bg: #12151c;
+      --cbt-exam-header-border: #388bfd;
+      --cbt-exam-text: #f0f3f6;
+      --cbt-exam-border: #30363d;
+      --cbt-exam-accent: #388bfd;
+      --cbt-exam-timer-bg: #161b24;
+      --cbt-exam-timer-border: #30363d;
+      --cbt-exam-timer-text: #388bfd;
+      background: var(--cbt-exam-bg) !important;
+      color: var(--cbt-exam-text) !important;
+    }
+
+    [data-theme="technical_slate"] .nta-top-bar,
+    body.theme-technical-slate .nta-top-bar {
+      background: var(--cbt-exam-header-bg) !important;
+      border-bottom: 2px solid var(--cbt-exam-header-border) !important;
+      color: var(--cbt-exam-text) !important;
+    }
+
+    [data-theme="technical_slate"] .nta-exam-name,
+    body.theme-technical-slate .nta-exam-name {
+      color: var(--cbt-exam-accent) !important;
+    }
+
+    [data-theme="technical_slate"] .nta-timer-box,
+    body.theme-technical-slate .nta-timer-box {
+      background: var(--cbt-exam-timer-bg) !important;
+      border-color: var(--cbt-exam-timer-border) !important;
+      color: var(--cbt-exam-timer-text) !important;
+    }
+
+    [data-theme="technical_slate"] .nta-section-bar,
+    body.theme-technical-slate .nta-section-bar {
+      background: #161b24 !important;
+      border-bottom-color: var(--cbt-exam-border) !important;
+    }
+
+    [data-theme="technical_slate"] .nta-sec-btn,
+    body.theme-technical-slate .nta-sec-btn {
+      background: #12151c !important;
+      border-color: var(--cbt-exam-border) !important;
+      color: #8b949e !important;
+    }
+
+    [data-theme="technical_slate"] .nta-sec-btn.active,
+    body.theme-technical-slate .nta-sec-btn.active {
+      background: #1c212c !important;
+      color: #388bfd !important;
+      border-bottom-color: #388bfd !important;
+    }
+
+    [data-theme="technical_slate"] .nta-question-pane,
+    body.theme-technical-slate .nta-question-pane {
+      background: var(--cbt-exam-surface) !important;
+      border-right-color: var(--cbt-exam-border) !important;
+      color: var(--cbt-exam-text) !important;
+    }
+
+    [data-theme="technical_slate"] .nta-q-meta-bar,
+    body.theme-technical-slate .nta-q-meta-bar {
+      background: #161b24 !important;
+      border-bottom-color: var(--cbt-exam-border) !important;
+    }
+
+    [data-theme="technical_slate"] .nta-q-scroll-area,
+    body.theme-technical-slate .nta-q-scroll-area {
+      background: var(--cbt-exam-surface) !important;
+      color: var(--cbt-exam-text) !important;
+    }
+
+    [data-theme="technical_slate"] .nta-palette-pane,
+    body.theme-technical-slate .nta-palette-pane {
+      background: #0f121a !important;
+      border-left-color: var(--cbt-exam-border) !important;
+      color: var(--cbt-exam-text) !important;
+    }
+
+    [data-theme="technical_slate"] .nta-candidate-card,
+    body.theme-technical-slate .nta-candidate-card {
+      background: #161b24 !important;
+      border-bottom-color: var(--cbt-exam-border) !important;
+    }
+
+    [data-theme="technical_slate"] .nta-bottom-bar,
+    body.theme-technical-slate .nta-bottom-bar {
+      background: #161b24 !important;
+      border-top-color: var(--cbt-exam-border) !important;
+    }
+
     /* 100% Authentic Official NTA CBT Exam Interface - Pixel Faithful */
     * {
       box-sizing: border-box;

@@ -144,4 +144,32 @@ def run_tests():
     print("\n[🎉] ALL 13 TEST SUITES PASSED FLAWLESSLY!")
 
 if __name__ == '__main__':
-    run_tests()
+    import socket
+    import threading
+    from http.server import ThreadingHTTPServer
+    from server import ClockEEServerHandler
+    from backend.db import init_db
+
+    # Check if server is already running on port 8000
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    is_running = False
+    try:
+        s.connect(('127.0.0.1', 8000))
+        is_running = True
+        s.close()
+    except Exception:
+        pass
+
+    httpd = None
+    if not is_running:
+        init_db()
+        httpd = ThreadingHTTPServer(('127.0.0.1', 8000), ClockEEServerHandler)
+        thread = threading.Thread(target=httpd.serve_forever, daemon=True)
+        thread.start()
+        time.sleep(0.5)
+
+    try:
+        run_tests()
+    finally:
+        if httpd:
+            httpd.shutdown()

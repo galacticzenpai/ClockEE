@@ -290,6 +290,8 @@ const DEFAULT_STATE = {
   questionLogs: [],
   mockTests: [],
   chapterStats: {},
+  mistakeVault: [],
+  simulations: [],
   curatedLectures: {
     pcm: [
       { id: "jfKfPfyJRdk", title: "Rotational Dynamics Advanced JEE Problem Solving", channel: "Physics Galaxy", subject: "Physics", duration: "2h 45m" },
@@ -2101,7 +2103,7 @@ window.insertNoteTimestamp = function() {
 // ─── 10B. ClockEE Universal Connected AI Chat Network (Simultaneous Multi-Chat Engine) ─────────
 // Interconnects all chat instances across all pages, windows, and tabs via
 // BroadcastChannel + LocalStorage with real-time simultaneous parallel reasoning.
-(function() {
+window.ClockEEChatNetwork = (function() {
   const CHAT_CHANNEL_NAME = "clockee_universal_chat_network";
   const TAB_INSTANCE_ID = "chat_tab_" + Math.random().toString(36).slice(2, 9);
   let _broadcastChannel = null;
@@ -3069,10 +3071,8 @@ window.insertNoteTimestamp = function() {
 
   // Initialize Chat Network on Current Page
   function init() {
-    const existingPane = document.getElementById("drawer-pane-ai");
-    if (existingPane) {
-      mountUI(existingPane);
-    }
+    const existingPanes = document.querySelectorAll("#drawer-pane-ai");
+    existingPanes.forEach(pane => mountUI(pane));
     ensureFloatingLauncher();
     updatePresenceUI();
     broadcast({ type: "PRESENCE_PING" });
@@ -3347,7 +3347,7 @@ window.applyAllSettingsGlobally = function() {
       flex-direction: column !important;
       gap: 2px !important;
       z-index: 100 !important;
-      background: rgba(8, 12, 26, 0.88) !important;
+      background: rgba(8, 12, 26, 0.98) !important;
       backdrop-filter: blur(32px) saturate(220%) !important;
       -webkit-backdrop-filter: blur(32px) saturate(220%) !important;
       border: 1px solid rgba(0, 240, 255, 0.48) !important;
@@ -3686,11 +3686,19 @@ window.playCyberTick = function(checked = true) {
 };
 
 // ─── 11. Global Cloud Sync & Multi-User Profile Flyout ──────────────
+window.getCloudBaseUrl = function() {
+  const s = window.getState ? window.getState() : {};
+  if (s.apiKeys?.cloudUrl && s.apiKeys.cloudUrl.trim()) return s.apiKeys.cloudUrl.trim();
+  const isLocal = typeof window !== "undefined" && (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1");
+  return isLocal ? window.location.origin : "https://clockee-app-default-rtdb.asia-southeast1.firebasedatabase.app";
+};
+
 window.pushToCloud = async function() {
   const activeId = window.getActiveUserId ? window.getActiveUserId() : "user_aspirant";
   const s = window.getState();
-  const baseUrl = s.apiKeys?.cloudUrl || "https://clockee-app-default-rtdb.asia-southeast1.firebasedatabase.app";
-  window.showToast("☁️ Pushing student state to Firebase...", "info");
+  const baseUrl = window.getCloudBaseUrl();
+  const isLocal = baseUrl.includes("localhost") || baseUrl.includes("127.0.0.1");
+  window.showToast(isLocal ? "💾 Syncing state to ClockEE Backend Database..." : "☁️ Pushing student state to Cloud...", "info");
   try {
     const res = await fetch(`${baseUrl}/students/${activeId}/state.json`, {
       method: 'PUT',
@@ -3698,11 +3706,11 @@ window.pushToCloud = async function() {
       body: JSON.stringify(s)
     });
     if (res.ok) {
-      window.showToast(`✓ Cloud Synced for ${s.profile?.name || activeId}!`, "success");
+      window.showToast(`✓ Database Synced for ${s.profile?.name || activeId}!`, "success");
       localStorage.setItem(`clockee_last_sync_${activeId}`, new Date().toISOString());
       window.dispatchEvent(new CustomEvent("cloudSyncComplete", { detail: { timestamp: new Date() } }));
     } else {
-      window.showToast("Cloud sync failed: " + res.statusText, "error");
+      window.showToast("Database sync failed: " + res.statusText, "error");
     }
   } catch (err) {
     window.showToast("Sync error: " + err.message, "error");
@@ -3712,8 +3720,9 @@ window.pushToCloud = async function() {
 window.pullFromCloud = async function() {
   const activeId = window.getActiveUserId ? window.getActiveUserId() : "user_aspirant";
   const s = window.getState();
-  const baseUrl = s.apiKeys?.cloudUrl || "https://clockee-app-default-rtdb.asia-southeast1.firebasedatabase.app";
-  window.showToast("⬇️ Pulling state from Firebase...", "info");
+  const baseUrl = window.getCloudBaseUrl();
+  const isLocal = baseUrl.includes("localhost") || baseUrl.includes("127.0.0.1");
+  window.showToast(isLocal ? "⬇️ Pulling state from ClockEE Database..." : "⬇️ Pulling state from Cloud...", "info");
   try {
     const res = await fetch(`${baseUrl}/students/${activeId}/state.json`);
     if (!res.ok) throw new Error("Server returned " + res.status);
@@ -3721,10 +3730,10 @@ window.pullFromCloud = async function() {
     if (remote) {
       window.APP_STATE = { ...DEFAULT_STATE, ...remote };
       window.saveState();
-      window.showToast("✓ Successfully pulled cloud data!", "success");
+      window.showToast("✓ Successfully pulled database state!", "success");
       setTimeout(() => location.reload(), 400);
     } else {
-      window.showToast("No remote cloud record found for this profile", "info");
+      window.showToast("No remote database record found for this profile", "info");
     }
   } catch (err) {
     window.showToast("Pull failed: " + err.message, "error");
@@ -4833,14 +4842,17 @@ if (document.readyState === "complete" || document.readyState === "interactive")
       inset: 0;
       width: 100vw;
       height: 100vh;
-      pointer-events: auto;
+      pointer-events: none;
       z-index: 999990;
       transition: opacity 0.3s ease;
       opacity: 0;
       cursor: pointer;
+      display: none;
     }
     .cockpit-tour-spotlight-svg.active {
       opacity: 1;
+      pointer-events: auto;
+      display: block;
     }
 
     /* Glowing Halo Box Around Target Element */
@@ -5752,10 +5764,13 @@ if (document.readyState === "complete" || document.readyState === "interactive")
         spotlightCutout.setAttribute('width', holeW);
         spotlightCutout.setAttribute('height', holeH);
       }
+      spotlightSvg.style.display = 'block';
+      spotlightSvg.style.pointerEvents = 'auto';
       spotlightSvg.classList.add('active');
 
       // 2. Update Halo
       if (haloEl) {
+        haloEl.style.display = 'block';
         haloEl.style.left = `${holeX}px`;
         haloEl.style.top = `${holeY}px`;
         haloEl.style.width = `${holeW}px`;
@@ -5822,6 +5837,7 @@ if (document.readyState === "complete" || document.readyState === "interactive")
       // Apply coordinates to Floating Card
       floatingCard.style.left = `${cardX}px`;
       floatingCard.style.top = `${cardY}px`;
+      floatingCard.style.display = 'block';
       floatingCard.classList.remove('collapsing');
       floatingCard.classList.add('active');
 
@@ -5926,6 +5942,7 @@ if (document.readyState === "complete" || document.readyState === "interactive")
       }
       floatingCard.style.left = `${Math.max(16, window.innerWidth / 2 - 220)}px`;
       floatingCard.style.top = `${Math.max(16, window.innerHeight / 2 - 120)}px`;
+      floatingCard.style.display = 'block';
       floatingCard.classList.remove('collapsing');
       floatingCard.classList.add('active');
       if (arrowSvg) arrowSvg.classList.remove('active');
@@ -6040,15 +6057,33 @@ if (document.readyState === "complete" || document.readyState === "interactive")
     isTourActive = false;
     isTourMinimized = false;
 
-    if (spotlightSvg) spotlightSvg.classList.remove('active');
-    if (haloEl) haloEl.classList.remove('active');
-    if (arrowSvg) arrowSvg.classList.remove('active');
+    if (spotlightSvg) {
+      spotlightSvg.classList.remove('active');
+      spotlightSvg.style.display = 'none';
+      spotlightSvg.style.pointerEvents = 'none';
+    }
+    if (haloEl) {
+      haloEl.classList.remove('active');
+      haloEl.style.display = 'none';
+    }
+    if (arrowSvg) {
+      arrowSvg.classList.remove('active');
+      arrowSvg.style.display = 'none';
+    }
     if (floatingCard) {
       floatingCard.classList.remove('active');
       floatingCard.classList.remove('collapsing');
+      floatingCard.style.display = 'none';
     }
-    if (cornerBox) cornerBox.classList.remove('active');
-    if (interruptionModal) interruptionModal.classList.remove('active');
+    if (cornerBox) {
+      cornerBox.classList.remove('active');
+      cornerBox.style.display = 'none';
+    }
+    if (interruptionModal) {
+      interruptionModal.classList.remove('active');
+      interruptionModal.style.display = 'none';
+      interruptionModal.style.pointerEvents = 'none';
+    }
 
     document.querySelectorAll('.cockpit-tour-target-active').forEach(el => el.classList.remove('cockpit-tour-target-active'));
 

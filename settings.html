@@ -107,7 +107,7 @@
       left: 0;
       margin-top: 6px;
       min-width: 215px;
-      background: rgba(13, 17, 26, 0.96);
+      background: rgba(8, 12, 26, 0.98);
       border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 12px;
       padding: 6px;
@@ -116,8 +116,8 @@
       gap: 2px;
       z-index: 100;
       box-shadow: 0 12px 30px rgba(0,0,0,0.85), 0 0 15px rgba(99,102,241,0.2);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(32px) saturate(220%);
+      -webkit-backdrop-filter: blur(32px) saturate(220%);
     }
     .nav-dropdown:hover .nav-dropdown-menu { display: flex; }
     .nav-dropdown-item {
@@ -700,24 +700,7 @@
       <p class="text-[10px] text-gray-500">Used by the AI Tutor drawer panel and Question Cloner.</p>
     </div>
 
-    <!-- Firebase Cloud Realtime Sync -->
-    <div class="p-4 rounded-xl bg-gray-900/90 border border-white/10 space-y-2">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center gap-2">
-          <span class="text-base">☁️</span>
-          <span class="text-xs font-bold text-white">Firebase Realtime Cloud Sync</span>
-        </div>
-        <div class="flex gap-2">
-          <button onclick="pushToCloud()" class="px-3 py-1 bg-emerald-600/30 hover:bg-emerald-600/50 text-emerald-300 border border-emerald-500/30 font-bold rounded-lg text-xs transition">
-            ☁️ Push State
-          </button>
-          <button onclick="pullFromCloud()" class="px-3 py-1 bg-indigo-600/30 hover:bg-indigo-600/50 text-indigo-300 border border-indigo-500/30 font-bold rounded-lg text-xs transition">
-            ⬇️ Pull State
-          </button>
-        </div>
-      </div>
-      <input type="text" id="key-firebase" placeholder="https://your-project.firebaseio.com" class="w-full bg-black/60 border border-gray-700 text-white rounded-xl px-3 py-1.5 text-xs font-mono outline-none focus:border-emerald-500">
-    </div>
+    
   </div>
 
   <!-- Master Apply Button -->
@@ -932,7 +915,7 @@
 
     const tickInput = document.getElementById('key-ticktick');
     const geminiInput = document.getElementById('key-gemini');
-    const firebaseInput = document.getElementById('key-firebase');
+    const firebaseInput = null;
 
     if (isGuest) {
       if (tickInput) {
@@ -946,7 +929,7 @@
         geminiInput.disabled = true;
       }
       if (firebaseInput) {
-        firebaseInput.value = '';
+        # ignored = '';
         firebaseInput.placeholder = '🔒 Cloud Database Locked in Guest Sandbox Mode';
         firebaseInput.disabled = true;
       }
@@ -960,7 +943,7 @@
         geminiInput.disabled = false;
       }
       if (firebaseInput) {
-        firebaseInput.value = s.apiKeys?.cloudUrl || (window.CLOCKEE_ENV?.FIREBASE_CONFIG?.databaseURL || '');
+        # ignored = s.apiKeys?.cloudUrl || (window.CLOCKEE_ENV?.FIREBASE_CONFIG?.databaseURL || '');
         firebaseInput.disabled = false;
       }
     }

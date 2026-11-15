@@ -1219,7 +1219,48 @@
       });
 
       CBT_STATE.save(state);
-      CBT_STATE.syncWithClockEE(attemptResult.score, durationTakenMin * 60, attemptedCount, currentTest.subject);
+      CBT_STATE.syncWithClockEE(attemptResult.score, durationTakenMin * 60, attemptedCount, currentTest.subject, attemptResult, mistakeRecords);
+
+      // Render Dynamic Telemetry in Splash
+      const splashCard = document.querySelector('#nta-submitted-splash .nta-summary-card');
+      if (splashCard) {
+        splashCard.innerHTML = `
+          <div style="font-size: 50px; color: #10b981; margin-bottom: 12px; line-height: 1;">✓</div>
+          <h2 style="font-size: 22px; font-weight: 800; color: #0056b3; margin-bottom: 6px;">Simulation Evaluated & Transmitted!</h2>
+          <p style="font-size: 13.5px; color: #555; margin-bottom: 16px;">Responses evaluated under authentic JEE (+4 / -1) guidelines.</p>
+          
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 18px; text-align: center;">
+            <div style="background: #f0fdf4; border: 1px solid #bbf7d0; padding: 10px; border-radius: 8px;">
+              <div style="font-size: 20px; font-weight: 800; color: #15803d;">${attemptResult.score} <span style="font-size: 12px; color: #666;">/ ${attemptResult.maxScore}</span></div>
+              <div style="font-size: 11px; text-transform: uppercase; color: #166534; font-weight: 700;">Score</div>
+            </div>
+            <div style="background: #eff6ff; border: 1px solid #bfdbfe; padding: 10px; border-radius: 8px;">
+              <div style="font-size: 20px; font-weight: 800; color: #1d4ed8;">${attemptResult.accuracy}%</div>
+              <div style="font-size: 11px; text-transform: uppercase; color: #1e40af; font-weight: 700;">Accuracy</div>
+            </div>
+            <div style="background: #fef2f2; border: 1px solid #fecaca; padding: 10px; border-radius: 8px;">
+              <div style="font-size: 20px; font-weight: 800; color: #b91c1c;">${mistakeRecords.length}</div>
+              <div style="font-size: 11px; text-transform: uppercase; color: #991b1b; font-weight: 700;">Errors Autopsied</div>
+            </div>
+          </div>
+
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px 14px; margin-bottom: 20px; font-size: 12px; color: #334155; text-align: left; display: flex; align-items: center; gap: 8px;">
+            <span style="font-size: 16px;">📡</span>
+            <div>
+              <strong>Main Control Synchronized:</strong> ${mistakeRecords.length} mistakes sent to Mistake Vault and queued in Task Flow.
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+            <button class="nta-btn-action nta-btn-save-next" style="padding: 10px 22px; font-size: 14px;" onclick="goToDiagnostics()">
+              View Solutions &amp; Analysis →
+            </button>
+            <a href="index.html" class="nta-btn-action nta-btn-clear" style="padding: 10px 22px; font-size: 14px; text-decoration: none; display: inline-block;">
+              Return to Main Control (Cockpit)
+            </a>
+          </div>
+        `;
+      }
 
       document.getElementById('nta-submitted-splash').classList.add('active');
     }

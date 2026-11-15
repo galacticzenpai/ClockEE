@@ -125,7 +125,7 @@
       left: 0;
       margin-top: 6px;
       min-width: 210px;
-      background: #0d111a;
+      background: rgba(8, 12, 26, 0.98);
       border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 12px;
       padding: 6px;
@@ -134,8 +134,8 @@
       gap: 2px;
       z-index: 100;
       box-shadow: 0 10px 30px rgba(0,0,0,0.85), 0 0 15px rgba(99,102,241,0.2);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(32px) saturate(220%);
+      -webkit-backdrop-filter: blur(32px) saturate(220%);
     }
     .nav-dropdown:hover .nav-dropdown-menu {
       display: flex;
@@ -797,7 +797,7 @@
     btn.innerHTML = `<span>⏳</span> <span>Fetching Firebase...</span>`;
 
     const s = window.getState();
-    const baseUrl = s.apiKeys?.cloudUrl || "https://clockee-app-default-rtdb.asia-southeast1.firebasedatabase.app";
+    const baseUrl = window.getCloudBaseUrl ? window.getCloudBaseUrl() : (s.apiKeys?.cloudUrl || ((window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') ? window.location.origin : "https://clockee-app-default-rtdb.asia-southeast1.firebasedatabase.app"));
 
     try {
       const res = await fetch(`${baseUrl}/students.json`);
@@ -905,7 +905,8 @@
       window.saveState();
     }
 
-    const baseUrl = "https://clockee-app-default-rtdb.asia-southeast1.firebasedatabase.app";
+    const s = window.getState ? window.getState() : {};
+    const baseUrl = window.getCloudBaseUrl ? window.getCloudBaseUrl() : (s.apiKeys?.cloudUrl || ((window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') ? window.location.origin : "https://clockee-app-default-rtdb.asia-southeast1.firebasedatabase.app"));
     try {
       await fetch(`${baseUrl}/students/${id}/profile.json`, {
         method: 'PATCH',
@@ -943,7 +944,7 @@
     localStorage.removeItem(`clockee_last_sync_${userId}`);
 
     const s = window.getState();
-    const baseUrl = s.apiKeys?.cloudUrl || "https://clockee-app-default-rtdb.asia-southeast1.firebasedatabase.app";
+    const baseUrl = window.getCloudBaseUrl ? window.getCloudBaseUrl() : (s.apiKeys?.cloudUrl || ((window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') ? window.location.origin : "https://clockee-app-default-rtdb.asia-southeast1.firebasedatabase.app"));
     try {
       await fetch(`${baseUrl}/students/${userId}.json`, { method: 'DELETE' });
     } catch (e) {
@@ -1180,22 +1181,23 @@
   }
 
   function testFirebase() {
-    const s = window.getState();
-    const url = s.apiKeys?.cloudUrl;
+    const s = window.getState ? window.getState() : {};
+    const url = window.getCloudBaseUrl ? window.getCloudBaseUrl() : (s.apiKeys?.cloudUrl || ((window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') ? window.location.origin : "https://clockee-app-default-rtdb.asia-southeast1.firebasedatabase.app"));
     if (!url) {
-      window.showToast('Configure Firebase Cloud URL in Settings', 'error');
+      window.showToast('Configure Cloud URL in Settings', 'error');
       return;
     }
-    window.showToast('Pinging Firebase REST database...', 'info');
+    const isLocal = url.includes('localhost') || url.includes('127.0.0.1');
+    window.showToast(isLocal ? 'Pinging ClockEE SQLite Backend...' : 'Pinging Firebase REST database...', 'info');
     fetch(`${url}/clockee.json?shallow=true`)
       .then(r => {
         if (r.ok) {
           document.getElementById('diag-fb-badge').className = 'text-[9px] font-mono px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-500/30';
-          document.getElementById('diag-fb-badge').textContent = 'Connected ✓';
-          window.showToast('✓ Firebase Database Verified!', 'success');
+          document.getElementById('diag-fb-badge').textContent = isLocal ? 'Backend Active ✓' : 'Connected ✓';
+          window.showToast(isLocal ? '✓ ClockEE SQLite Backend Verified!' : '✓ Firebase Database Verified!', 'success');
         }
       })
-      .catch(() => window.showToast('Firebase connection failed', 'error'));
+      .catch(() => window.showToast('Database connection failed', 'error'));
   }
 
   function runAllConnectionTests() {

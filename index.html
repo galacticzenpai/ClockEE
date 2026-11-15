@@ -120,7 +120,7 @@
       left: 0;
       margin-top: 6px;
       min-width: 215px;
-      background: rgba(10, 14, 28, 0.72);
+      background: rgba(8, 12, 26, 0.98);
       border: 1px solid rgba(0, 240, 255, 0.45);
       border-radius: 14px;
       padding: 6px;
@@ -129,8 +129,8 @@
       gap: 2px;
       z-index: 100;
       box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.85), 0 0 20px rgba(0, 240, 255, 0.22), inset 0 0 12px rgba(0, 240, 255, 0.05);
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      backdrop-filter: blur(36px) saturate(220%);
+      -webkit-backdrop-filter: blur(36px) saturate(220%);
     }
     .nav-dropdown:hover .nav-dropdown-menu { display: flex; }
     .nav-dropdown-item {
@@ -527,7 +527,94 @@
         </div>
       </div>
 
-      <!-- 4. Today's Queue (Foldable TickTick section) & Upcoming Milestones -->
+      <!-- 4. Tactical Simulation & Error Diagnostics Control (Main Control Radar) -->
+      <div id="main-control-simulations-card" class="glass-card p-5 border border-cyan-500/30 bg-[#0c1022]/85 shadow-2xl space-y-4 relative overflow-hidden">
+        <!-- Top Glow Ambient Accent -->
+        <div class="absolute -top-12 -right-12 w-44 h-44 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <!-- Header Row -->
+        <div class="flex items-center justify-between pb-3 border-b border-white/10 flex-wrap gap-2 relative z-10">
+          <div class="flex items-center gap-2.5">
+            <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-cyan-500/20 to-indigo-500/30 border border-cyan-500/40 flex items-center justify-center text-cyan-300 shadow-[0_0_15px_rgba(0,240,255,0.25)]">
+              <svg class="w-4 h-4 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07l14.14-14.14"/><circle cx="12" cy="12" r="3" fill="#00f0ff"/></svg>
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <h3 class="text-xs sm:text-sm font-black uppercase tracking-wider text-white">Tactical Simulation &amp; Error Control Station</h3>
+                <span id="sim-radar-status" class="text-[9px] font-mono px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-500/30 font-bold flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                  <span>Telemetry Live</span>
+                </span>
+              </div>
+              <p class="text-[11px] text-slate-400 font-medium">Autonomous JEE exam simulations &bull; Real-time error autopsies &bull; Task Flow rollover</p>
+            </div>
+          </div>
+
+          <!-- Quick Action Buttons -->
+          <div class="flex items-center gap-2 flex-wrap">
+            <button onclick="triggerMainControlSimulationModal()" class="px-3.5 py-1.5 bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white font-extrabold rounded-xl text-xs transition shadow-lg shadow-cyan-500/20 flex items-center gap-1.5">
+              <span>⚡</span> Run Simulation &amp; Error Check
+            </button>
+            <button onclick="autoFlowSimulationErrors()" class="px-3 py-1.5 bg-rose-600/20 hover:bg-rose-600/40 text-rose-300 border border-rose-500/30 font-bold rounded-xl text-xs transition flex items-center gap-1.5" title="Convert all unresolved errors into Kanban tasks">
+              <span>📋</span> Auto-Flow Errors
+            </button>
+            <a href="cbt_home.html" class="px-3 py-1.5 bg-white/5 hover:bg-white/10 text-cyan-300 border border-cyan-500/30 rounded-xl text-xs font-bold transition flex items-center gap-1">
+              <span>CBT Portal</span> <span>→</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 4-Metric Vitals HUD -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
+          <div class="bg-black/40 rounded-xl p-3 border border-white/5 shadow-inner">
+            <div id="sim-total-runs" class="text-2xl font-black font-mono text-cyan-400">0</div>
+            <div class="text-[10px] text-slate-400 uppercase tracking-widest font-bold mt-0.5">Simulations Run</div>
+          </div>
+          <div class="bg-black/40 rounded-xl p-3 border border-white/5 shadow-inner">
+            <div id="sim-active-errors" class="text-2xl font-black font-mono text-rose-400">0</div>
+            <div class="text-[10px] text-slate-400 uppercase tracking-widest font-bold mt-0.5">Mistake Vault Errors</div>
+          </div>
+          <div class="bg-black/40 rounded-xl p-3 border border-white/5 shadow-inner">
+            <div id="sim-avg-accuracy" class="text-2xl font-black font-mono text-emerald-400">--%</div>
+            <div class="text-[10px] text-slate-400 uppercase tracking-widest font-bold mt-0.5">Simulation Accuracy</div>
+          </div>
+          <div class="bg-black/40 rounded-xl p-3 border border-white/5 shadow-inner">
+            <div id="sim-avg-latency" class="text-2xl font-black font-mono text-amber-400">--s</div>
+            <div class="text-[10px] text-slate-400 uppercase tracking-widest font-bold mt-0.5">Pacing Benchmark</div>
+          </div>
+        </div>
+
+        <!-- Simulations & Error Stream Columns -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-3.5 pt-1">
+          <!-- Recent Simulations History (5 cols) -->
+          <div class="md:col-span-5 bg-black/30 border border-white/5 rounded-xl p-3 space-y-2">
+            <div class="flex items-center justify-between border-b border-white/5 pb-2">
+              <span class="text-[11px] font-bold text-slate-300 uppercase tracking-wider flex items-center gap-1.5">
+                <svg class="w-3.5 h-3.5 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                <span>Latest Simulations</span>
+              </span>
+              <span class="text-[10px] text-slate-500 font-mono" id="sim-stream-count">0 recorded</span>
+            </div>
+            <div id="sim-recent-list" class="space-y-1.5 max-h-48 overflow-y-auto pr-1"></div>
+          </div>
+
+          <!-- Live Error Autopsy Radar Stream (7 cols) -->
+          <div class="md:col-span-7 bg-black/30 border border-white/5 rounded-xl p-3 space-y-2">
+            <div class="flex items-center justify-between border-b border-white/5 pb-2">
+              <span class="text-[11px] font-bold text-rose-300 uppercase tracking-wider flex items-center gap-1.5">
+                <span class="text-xs">⚠️</span>
+                <span>Active Mistake Autopsy Stream</span>
+              </span>
+              <div class="flex items-center gap-2">
+                <a href="cbt_mistakes.html" class="text-[10px] text-cyan-400 hover:underline font-mono font-bold">Mistakes Hub →</a>
+              </div>
+            </div>
+            <div id="sim-errors-list" class="space-y-1.5 max-h-48 overflow-y-auto pr-1"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Today's Queue (Foldable TickTick section) & Upcoming Milestones -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 flex-1 items-stretch">
         <!-- Today's Queue with Foldable TickTick Tasks -->
         <div class="glass-card p-5 space-y-3.5 flex flex-col justify-between h-full bg-[#0d1122]/75 border border-white/10 shadow-xl">
@@ -687,6 +774,8 @@
   </div>
 </div>
 
+  <script src="cbt_master_bank.js" onerror="/* Optional master question bank */"></script>
+  <script src="cbt_shared.js"></script>
   <script src="clockee_core.js"></script>
   <script>
     let tickTickFolded = true;
@@ -947,18 +1036,344 @@
       }
     };
 
+    // ─── Main Control Simulation & Error Diagnostics Control ───
+    function renderSimulationControlHUD() {
+      const s = window.getState ? window.getState() : {};
+      const simulations = s.simulations || [];
+      const mistakes = s.mistakeVault || [];
+
+      // Metrics HUD
+      const totalRunsEl = document.getElementById('sim-total-runs');
+      if (totalRunsEl) totalRunsEl.textContent = simulations.length;
+
+      const activeErrorsEl = document.getElementById('sim-active-errors');
+      if (activeErrorsEl) activeErrorsEl.textContent = mistakes.length;
+
+      const avgAccEl = document.getElementById('sim-avg-accuracy');
+      if (avgAccEl) {
+        if (simulations.length > 0) {
+          const avg = Math.round(simulations.reduce((sum, sim) => sum + (sim.accuracy || 0), 0) / simulations.length);
+          avgAccEl.textContent = `${avg}%`;
+        } else {
+          avgAccEl.textContent = '--%';
+        }
+      }
+
+      const avgLatEl = document.getElementById('sim-avg-latency');
+      if (avgLatEl) {
+        if (simulations.length > 0) {
+          const lat = Math.round(simulations.reduce((sum, sim) => sum + (sim.avgLatencySec || 75), 0) / simulations.length);
+          avgLatEl.textContent = `${lat}s`;
+        } else {
+          avgLatEl.textContent = '--s';
+        }
+      }
+
+      // Recent Simulations History
+      const countEl = document.getElementById('sim-stream-count');
+      if (countEl) countEl.textContent = `${simulations.length} recorded`;
+
+      const recentList = document.getElementById('sim-recent-list');
+      if (recentList) {
+        if (simulations.length === 0) {
+          recentList.innerHTML = `
+            <div class="p-3 text-center rounded-xl bg-black/20 border border-white/5 space-y-2">
+              <p class="text-xs text-slate-400 font-medium">No simulation tests run yet.</p>
+              <button onclick="triggerMainControlSimulationModal()" class="px-3 py-1 bg-cyan-600/20 hover:bg-cyan-600 text-cyan-300 hover:text-white border border-cyan-500/30 rounded-lg text-xs font-bold transition">
+                ⚡ Run First Simulation
+              </button>
+            </div>
+          `;
+        } else {
+          recentList.innerHTML = simulations.slice(0, 6).map(sim => {
+            const subBadge = sim.subject === 'Physics' ? 'text-blue-300 bg-blue-950/60 border-blue-500/30' :
+                             sim.subject === 'Chemistry' ? 'text-emerald-300 bg-emerald-950/60 border-emerald-500/30' :
+                             sim.subject === 'Maths' ? 'text-amber-300 bg-amber-950/60 border-amber-500/30' :
+                             'text-cyan-300 bg-cyan-950/60 border-cyan-500/30';
+            const accCol = (sim.accuracy >= 75) ? 'text-emerald-400' : (sim.accuracy >= 50 ? 'text-amber-400' : 'text-rose-400');
+            const scoreCol = (sim.score / (sim.maxScore || 100) >= 0.6) ? 'text-cyan-400' : 'text-slate-200';
+
+            return `
+              <div class="p-2 rounded-xl bg-gray-900/70 border border-white/5 hover:border-white/10 transition flex items-center justify-between gap-2">
+                <div class="truncate flex-1 min-w-0">
+                  <div class="flex items-center gap-1.5 truncate">
+                    <span class="text-[9px] px-1.5 py-0.2 rounded-full border ${subBadge} font-mono font-bold shrink-0">${sim.subject || 'Full'}</span>
+                    <span class="text-xs font-bold text-white truncate" title="${sim.title}">${sim.title}</span>
+                  </div>
+                  <div class="text-[10px] text-slate-400 font-mono mt-0.5 flex items-center gap-2">
+                    <span>Score: <strong class="${scoreCol}">${sim.score}/${sim.maxScore}</strong></span>
+                    <span>•</span>
+                    <span>Acc: <strong class="${accCol}">${sim.accuracy}%</strong></span>
+                    <span>•</span>
+                    <span class="text-rose-400">${sim.errorsCount || 0} errs</span>
+                  </div>
+                </div>
+                <a href="cbt_analysis.html?testId=${encodeURIComponent(sim.id)}" class="px-2 py-1 bg-white/5 hover:bg-white/15 text-slate-300 rounded text-[10px] font-mono shrink-0 transition" title="Inspect Test Diagnostics">
+                  Inspect →
+                </a>
+              </div>
+            `;
+          }).join('');
+        }
+      }
+
+      // Live Error Autopsy Radar Stream
+      const errorsList = document.getElementById('sim-errors-list');
+      if (errorsList) {
+        if (mistakes.length === 0) {
+          errorsList.innerHTML = `
+            <div class="p-3 text-center rounded-xl bg-black/20 border border-white/5 space-y-1">
+              <p class="text-xs text-emerald-400 font-bold">✓ Zero Unresolved Errors in Vault</p>
+              <p class="text-[11px] text-slate-400">Run a simulation benchmark to test your formula derivations & pacing.</p>
+            </div>
+          `;
+        } else {
+          errorsList.innerHTML = mistakes.slice(0, 5).map(m => {
+            const catCol = m.errorCategory === 'Calculation Mistake' ? 'bg-amber-950/60 text-amber-300 border-amber-500/30' :
+                           m.errorCategory === 'Concept Gap' ? 'bg-rose-950/60 text-rose-300 border-rose-500/30' :
+                           'bg-purple-950/60 text-purple-300 border-purple-500/30';
+
+            const subCol = m.subject === 'Physics' ? 'text-blue-400' :
+                           m.subject === 'Chemistry' ? 'text-emerald-400' : 'text-amber-400';
+
+            const snippet = (m.questionText || '').replace(/\n/g, ' ').slice(0, 55) + '...';
+
+            return `
+              <div class="p-2 rounded-xl bg-gray-900/70 border border-white/5 hover:border-rose-500/30 transition flex items-center justify-between gap-2">
+                <div class="truncate flex-1 min-w-0">
+                  <div class="flex items-center gap-1.5 flex-wrap">
+                    <span class="text-[9px] font-mono font-bold ${subCol}">Q#${m.qNum}</span>
+                    <span class="text-[9px] font-mono px-1.5 py-0.2 rounded-full border ${catCol} font-bold">${m.errorCategory || 'Mistake'}</span>
+                    <span class="text-xs font-bold text-slate-200 truncate">${m.chapter || m.topic}</span>
+                  </div>
+                  <div class="text-[10px] text-slate-400 truncate mt-0.5" title="${m.questionText || ''}">${snippet}</div>
+                  <div class="text-[9px] font-mono text-slate-500 mt-0.5">
+                    Marked: <span class="text-rose-400">${m.markedOption}</span> -> Correct: <span class="text-emerald-400">${m.correctOption}</span> (${m.timeSpentSec || 75}s)
+                  </div>
+                </div>
+                <button onclick="createTaskFromMistake('${m.id}')" class="px-2 py-1 rounded bg-rose-600/20 hover:bg-rose-600 text-rose-300 hover:text-white border border-rose-500/30 text-[10px] font-mono font-bold transition shrink-0" title="Convert to Actionable Revision Task">
+                  + Task
+                </button>
+              </div>
+            `;
+          }).join('');
+        }
+      }
+    }
+
+    window.createTaskFromMistake = function(mistakeId) {
+      const s = window.getState ? window.getState() : {};
+      s.mistakeVault = s.mistakeVault || [];
+      s.tasks = s.tasks || [];
+      const m = s.mistakeVault.find(x => x.id === mistakeId);
+      if (!m) return;
+
+      const already = s.tasks.some(t => t.mistakeId === mistakeId);
+      if (already) {
+        window.showToast("Task already queued for this mistake!", "info");
+        return;
+      }
+
+      s.tasks.unshift({
+        id: `task_autopsy_${Date.now()}`,
+        mistakeId: mistakeId,
+        title: `[Autopsy] Master Error Q#${m.qNum}: ${m.topic || m.chapter || 'Problem'}`,
+        subject: m.subject || 'Physics',
+        list: 'Revision & Formula Autopsy',
+        inbox: 'JEE 2028',
+        tags: ['#simulation_error', '#autopsy'],
+        priority: 'high',
+        dueDate: window.getTodayStr(),
+        type: 'revision',
+        status: 'todo',
+        completed: false,
+        subtasks: [
+          { title: `Forensic Review: Root cause analysis (${m.errorCategory})`, done: false },
+          { title: `Re-derive without answer key (${m.markedOption} -> ${m.correctOption})`, done: false },
+          { title: "Solve clone problem in AI Cloner Studio", done: false }
+        ]
+      });
+
+      window.saveState();
+      renderTodaysTasks();
+      window.showToast(`✓ Queued revision task for Q#${m.qNum}!`, "success");
+    };
+
+    window.autoFlowSimulationErrors = function() {
+      const s = window.getState ? window.getState() : {};
+      const mistakes = s.mistakeVault || [];
+      if (mistakes.length === 0) {
+        window.showToast("Zero unresolved errors in Mistake Vault! Run a simulation first.", "info");
+        return;
+      }
+      s.tasks = s.tasks || [];
+      let count = 0;
+      mistakes.forEach(m => {
+        if (!s.tasks.some(t => t.mistakeId === m.id)) {
+          s.tasks.unshift({
+            id: `task_autopsy_${Date.now()}_${Math.random().toString(36).substr(2, 4)}`,
+            mistakeId: m.id,
+            title: `[Autopsy] Master Error Q#${m.qNum}: ${m.topic || m.chapter || 'Problem'}`,
+            subject: m.subject || 'Physics',
+            list: 'Revision & Formula Autopsy',
+            inbox: 'JEE 2028',
+            tags: ['#simulation_error', '#autopsy'],
+            priority: 'high',
+            dueDate: window.getTodayStr(),
+            type: 'revision',
+            status: 'todo',
+            completed: false,
+            subtasks: [
+              { title: `Forensic Review: Root cause analysis (${m.errorCategory})`, done: false },
+              { title: `Re-derive solution (${m.markedOption} -> ${m.correctOption})`, done: false },
+              { title: "Solve 1 clone in Question Cloner Studio", done: false }
+            ]
+          });
+          count++;
+        }
+      });
+
+      if (count > 0) {
+        window.saveState();
+        renderTodaysTasks();
+        renderSimulationControlHUD();
+        window.showToast(`⚡ Converted ${count} simulation errors into priority Kanban tasks!`, "success");
+      } else {
+        window.showToast("All current errors are already queued in Task Flow.", "info");
+      }
+    };
+
+    window.triggerMainControlSimulationModal = function() {
+      let modal = document.getElementById('main-control-sim-modal');
+      if (modal) modal.remove();
+
+      modal = document.createElement('div');
+      modal.id = 'main-control-sim-modal';
+      modal.className = 'fixed inset-0 z-[300] bg-black/85 backdrop-blur-md flex items-center justify-center p-4';
+      modal.innerHTML = `
+        <div class="glass-card max-w-lg w-full p-6 border border-cyan-500/40 bg-[#0d1124] shadow-2xl space-y-5">
+          <div class="flex items-center justify-between pb-3 border-b border-white/10">
+            <div class="flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-lg bg-cyan-950/60 border border-cyan-500/40 flex items-center justify-center text-cyan-300">
+                ⚡
+              </div>
+              <div>
+                <h3 class="text-sm font-black text-white uppercase tracking-wider">Run Tactical Simulation &amp; Error Check</h3>
+                <p class="text-[11px] text-slate-400 font-medium">Evaluate questions &bull; Categorize mistakes &bull; Send to Main Control</p>
+              </div>
+            </div>
+            <button onclick="document.getElementById('main-control-sim-modal').remove()" class="text-slate-400 hover:text-white text-lg">&times;</button>
+          </div>
+
+          <div class="space-y-3.5">
+            <div>
+              <label class="block text-xs font-bold text-slate-300 mb-1.5">Simulation Syllabus Target:</label>
+              <select id="sim-target-sub" class="w-full bg-black/60 border border-white/10 rounded-xl px-3 py-2 text-xs text-white font-medium outline-none focus:border-cyan-400">
+                <option value="Full">Full Syllabus JEE Main Simulation (75 Questions)</option>
+                <option value="Physics">Physics High-Pace Simulation (25 Questions)</option>
+                <option value="Chemistry">Chemistry Speed &amp; Accuracy Drill (25 Questions)</option>
+                <option value="Maths">Mathematics Numerical Benchmark (25 Questions)</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-300 mb-1.5">Simulated Candidate Skill Level:</label>
+              <select id="sim-target-skill" class="w-full bg-black/60 border border-white/10 rounded-xl px-3 py-2 text-xs text-white font-medium outline-none focus:border-cyan-400">
+                <option value="balanced">Balanced Aspirant (70-75% Accuracy • Real-world Calculation Slips)</option>
+                <option value="topper">Target AIR &lt; 500 Topper (90%+ Accuracy • Sub-second Pacing)</option>
+                <option value="stress">Stress Test (50% Accuracy • High Concept Confusion & Latency Drift)</option>
+              </select>
+            </div>
+
+            <div class="p-3 rounded-xl bg-cyan-950/30 border border-cyan-500/20 text-xs text-cyan-200/90 space-y-1">
+              <div class="font-bold flex items-center gap-1.5 text-cyan-300">
+                <span>ℹ️</span> Simulation Pipeline Workflow:
+              </div>
+              <p class="text-[11px] text-slate-300 leading-relaxed">
+                1. Retrieves authentic PYQ/adaptive questions from the 139,000+ question bank.<br>
+                2. Simulates candidate response latency, choices, and numerical entries.<br>
+                3. Checks each answer, categorizes errors into Calculation, Concept, and Latency.<br>
+                4. Transmits full autopsy telemetry to Main Control, Mistake Vault, and Task Flow!
+              </p>
+            </div>
+          </div>
+
+          <div class="flex gap-2.5 pt-2">
+            <button onclick="document.getElementById('main-control-sim-modal').remove()" class="flex-1 py-2.5 rounded-xl border border-white/10 text-xs font-bold text-slate-400 hover:text-white transition">
+              Cancel
+            </button>
+            <button id="btn-run-sim-confirm" onclick="executeMainControlSimulation()" class="flex-1 py-2.5 bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white font-extrabold rounded-xl text-xs transition shadow-lg shadow-cyan-500/25 flex items-center justify-center gap-1.5">
+              <span>🚀</span> Launch &amp; Audit Now
+            </button>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(modal);
+    };
+
+    window.executeMainControlSimulation = function() {
+      const subSelect = document.getElementById('sim-target-sub');
+      const skillSelect = document.getElementById('sim-target-skill');
+      const sub = subSelect ? subSelect.value : 'Full';
+      const skill = skillSelect ? skillSelect.value : 'balanced';
+
+      const btn = document.getElementById('btn-run-sim-confirm');
+      if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = `<span class="animate-spin">⏳</span> Running & Auditing Simulation...`;
+      }
+
+      setTimeout(() => {
+        if (typeof window.runSimulationBenchmark === 'function') {
+          const res = window.runSimulationBenchmark({
+            subject: sub,
+            qCount: sub === 'Full' ? 75 : 25,
+            skillProfile: skill
+          });
+
+          const modal = document.getElementById('main-control-sim-modal');
+          if (modal) modal.remove();
+
+          renderSimulationControlHUD();
+          updateDailyProgress();
+          renderTodaysTasks();
+          if (typeof window.renderMonthlyHeatmap === 'function') window.renderMonthlyHeatmap();
+
+          window.showToast(`✓ Simulation Complete: ${res.evalResult.score}/${res.evalResult.maxScore} pts • ${res.evalResult.mistakes.length} errors autopsied & sent to Main Control!`, "success");
+        } else {
+          window.showToast("CBT Simulation Engine is initializing...", "info");
+        }
+      }, 400);
+    };
+
+    // Cross-Tab Broadcast Synchronization
+    try {
+      const channel = new BroadcastChannel('clockee_main_control_sync');
+      channel.onmessage = function(e) {
+        if (e.data && e.data.type === 'SIMULATION_COMPLETED') {
+          renderSimulationControlHUD();
+          updateDailyProgress();
+          renderTodaysTasks();
+          if (typeof window.renderMonthlyHeatmap === 'function') window.renderMonthlyHeatmap();
+          window.showToast(`📡 Telemetry incoming: ${e.data.errorsCount} errors sent to Main Control!`, "info");
+        }
+      };
+    } catch(e) {}
+
     document.addEventListener('DOMContentLoaded', function() {
       tickCountdown();
       setInterval(tickCountdown, 1000);
       updateDailyProgress();
       renderTodaysTasks();
       renderMilestones();
+      renderSimulationControlHUD();
     });
 
     window.addEventListener('stateChange', function() {
       updateDailyProgress();
       renderTodaysTasks();
       renderMilestones();
+      renderSimulationControlHUD();
     });
   </script>
 </body>

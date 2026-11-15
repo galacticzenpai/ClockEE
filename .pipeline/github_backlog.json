@@ -1,0 +1,41 @@
+{
+  "version": "1.0.0",
+  "backlog": [],
+  "history": [
+    {
+      "id": "item_001",
+      "url": "https://www.instagram.com/p/DeZzNXlTELF/",
+      "source_handle": "petergriffin.ai",
+      "packages": [
+        "litellm_router",
+        "strix_security_scanner",
+        "agent_memory_vault",
+        "agent_reach",
+        "mcp_recommender"
+      ],
+      "status": "COMPLETED",
+      "completed_at": "2026-11-15T23:30:00Z"
+    },
+    {
+      "id": "item_002",
+      "url": "https://www.instagram.com/p/De9bqWtoARc/",
+      "source_handle": "waitwhatdidyoudo",
+      "packages": [
+        "cloudflare_security_audit"
+      ],
+      "status": "COMPLETED",
+      "completed_at": "2026-11-15T23:40:00Z"
+    },
+    {
+      "id": "item_003",
+      "url": "https://www.instagram.com/p/DfCznzwKh4k/",
+      "source_handle": "waitwhatdidyoudo",
+      "packages": [
+        "hallmark_design"
+      ],
+      "status": "ACTIVE_IN_PIPELINE",
+      "active_batch_id": "batch_hallmark_sloplint_001",
+      "timestamp": "2026-11-16T00:15:00Z"
+    }
+  ]
+}

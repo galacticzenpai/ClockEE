@@ -51,25 +51,28 @@
     "batch_id": "batch_hallmark_sloplint_001",
     "source": "github",
     "package": "nutlope/hallmark",
-    "status": "QUEUED",
-    "timestamp": "2026-11-16T00:10:00Z",
+    "status": "DISPATCHED",
+    "timestamp": "2026-11-16T00:15:30Z",
     "tasks": {
       "untitled_conversation": {
         "target_id": "6371cba6-7d2f-4b29-a250-627d88d1b4f1",
         "target_name": "Untitled conversation (Main Feature)",
-        "status": "PENDING",
+        "status": "DISPATCHED",
+        "dispatched_at": "2026-11-16T00:15:17Z",
         "instruction": "Cloudflare Security Audit and Hallmark linters are vendored in `integrations/`.\n\nAs the Main Feature implementor (Untitled conversation), please implement the structural HTML and DOM fixes:\n1. Fix the blocking mobile floor violation in `index.html` at line 663 (replace the hardcoded wide pixel width `w-[...px]` with responsive flex/max-w classes so it never overflows viewports <414px).\n2. Sanitize unescaped `.innerHTML` dynamic insertions flagged in `integrations/cloudflare_security_audit/reports/` across `admin.html`, `cbt_exam.html`, and `today.html` by switching to `textContent` or proper sanitization.\n3. Ensure all existing timers, event listeners, and form submit handlers remain 100% functional."
       },
       "ui_ux": {
         "target_id": "06a7d47b-b225-40f4-b830-b58baaaf8b3a",
         "target_name": "UI / UX",
-        "status": "PENDING",
+        "status": "DISPATCHED",
+        "dispatched_at": "2026-11-16T00:15:09Z",
         "instruction": "We have vendored Together AI's Hallmark anti-AI-slop design skill in `integrations/hallmark_design/`.\n\nAs the UI / UX agent, please review `integrations/hallmark_design/themes_catalog.json` and `SKILL.md`:\n1. Audit ClockEE's color tokens and eliminate generic AI design clich\u00e9s (e.g. repetitive purple radial gradient glow blobs).\n2. Configure concrete theme tokens for our modules:\n   - `cbt_exam.html` & `admin.html` -> 'technical_slate' (clean 1px borders, high contrast, zero translucent glass blur).\n   - `cbt_mistakes.html` & `cbt_notebooks.html` -> 'warm_notebook' (warm paper, archival typography).\n   - `timer.html` -> 'retro_terminal' (focused monochrome contrast).\n3. Update `cbt_shared.css` with the clean typography pairings and theme material properties."
       },
       "simulation": {
         "target_id": "62adc180-be21-4671-848c-c8df59e2c202",
         "target_name": "SIMULATION",
-        "status": "GATES_EVALUATED",
+        "status": "DISPATCHED",
+        "dispatched_at": "2026-11-16T00:15:23Z",
         "instruction": "Hallmark design linter and Cloudflare security audit runners are now installed in `integrations/`.\n\nAs the SIMULATION agent, please execute our automated quality gates:\n1. Run `python integrations/hallmark_design/sloplint.py --all` to audit responsive layout score across all 8 canonical viewports (320px to 1920px).\n2. Run `python integrations/cloudflare_security_audit/audit_runner.py` to verify DOM XSS candidates.\n3. Generate a structured regression report listing remaining floor-gate errors and score metrics.",
         "last_run": "2026-11-16T00:11:43.729450",
         "gate_results": {
@@ -80,8 +83,16 @@
       "db_backend": {
         "target_id": "d3700ff3-1bfb-458a-9968-8257ef2ca7e2",
         "target_name": "DB / BACKEND",
-        "status": "PENDING",
+        "status": "DISPATCHED",
+        "dispatched_at": "2026-11-16T00:15:28Z",
         "instruction": "Hallmark themes and user customization tokens require persistent storage.\n\nAs the DB / BACKEND agent, please ensure user theme preferences are saved:\n1. Review `server.py` `/api/userdata` endpoint to ensure `theme_preference` and `aura_mode` fields are preserved in SQLite `users` table.\n2. Ensure default state schema has clean fallbacks if an unrecognized theme string is supplied."
+      },
+      "bug_fixes": {
+        "target_id": "6b74e384-a9b2-458e-ba34-4798334dd509",
+        "target_name": "BUG FIXES",
+        "status": "DISPATCHED",
+        "dispatched_at": "2026-11-16T00:15:34Z",
+        "instruction": "Concrete defects identified by Hallmark and Cloudflare linters:\n1. `index.html` (L663): Hardcoded pixel width (`w-[...px]`) causes horizontal overflow on mobile viewports (<380px). Refactor to `w-full max-w-...` or responsive grid.\n2. Search all entry points for dummy form handlers that trigger dead `alert('Thanks')` popups without state persistence, and replace them with local storage or active dispatch logic."
       }
     }
   }

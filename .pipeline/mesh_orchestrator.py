@@ -359,7 +359,7 @@ def run_mesh_process():
 
     # STEP 5: Workspace Git Sync
     print("\n--- [Step 5] Synchronizing Local Workspace State ---")
-    sync_res = run_command_sync("python auto_sync.py")
+    sync_res = run_command_sync("python auto_sync.py --once")
     print("  ✔ Git workspace auto-sync completed.")
 
     print("\n=================================================================")

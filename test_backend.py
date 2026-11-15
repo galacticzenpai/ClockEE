@@ -92,7 +92,56 @@ def run_tests():
     assert status == 200 and res.get("current_question") == 3 and res.get("remaining_seconds") == 2450
     print(f"  [✓] /api/cbt/crash-save & resume OK: Resumed at Q#3 with exact timer (2450s)")
 
-    print("\n[🎉] ALL 10 TEST SUITES PASSED FLAWLESSLY!")
+    # 11. Theme & Customization Persistence via /api/userdata
+    theme_payload = {
+        "email": "alpha@clockee.app",
+        "theme_preference": "space_violet",
+        "aura_mode": "pulse",
+        "data": {
+            "customization_token": "token_halo_violet_99",
+            "glass_blur": 32
+        }
+    }
+    status, res = req("/api/userdata", "POST", theme_payload)
+    assert status == 200 and res.get("success") is True
+    assert res.get("theme_preference") == "space_violet"
+    assert res.get("aura_mode") == "pulse"
+    print(f"  [✓] /api/userdata POST OK: Saved Hallmark theme 'space_violet' and aura 'pulse'")
+
+    # Verify retrieval
+    status, res = req("/api/userdata?email=alpha@clockee.app")
+    assert status == 200 and res.get("theme_preference") == "space_violet"
+    assert res.get("aura_mode") == "pulse"
+    assert res.get("data", {}).get("customization_token") == "token_halo_violet_99"
+    print(f"  [✓] /api/userdata GET OK: Retrieved persisted Hallmark theme and customization tokens")
+
+    # 12. Fallback on Unrecognized Theme & Aura String
+    invalid_theme_payload = {
+        "email": "beta@clockee.app",
+        "theme_preference": "completely_unrecognized_slop_theme_x",
+        "aura_mode": "hyper_turbo_unsupported",
+        "data": {}
+    }
+    status, res = req("/api/userdata", "POST", invalid_theme_payload)
+    assert status == 200 and res.get("success") is True
+    assert res.get("theme_preference") == "cyan_indigo", f"Expected clean fallback to 'cyan_indigo', got {res.get('theme_preference')}"
+    assert res.get("aura_mode") == "fluid", f"Expected clean fallback to 'fluid', got {res.get('aura_mode')}"
+    print(f"  [✓] Unrecognized Theme Fallback OK: Safely defaulted to 'cyan_indigo' / 'fluid'")
+
+    # 13. Direct Database Column Verification
+    import sqlite3
+    conn = sqlite3.connect("clockee.db")
+    cur = conn.cursor()
+    cur.execute("SELECT theme_preference, aura_mode FROM users WHERE email = 'alpha@clockee.app'")
+    row = cur.fetchone()
+    assert row is not None and row[0] == "space_violet" and row[1] == "pulse"
+    cur.execute("SELECT theme_preference, aura_mode FROM users WHERE email = 'beta@clockee.app'")
+    row_b = cur.fetchone()
+    assert row_b is not None and row_b[0] == "cyan_indigo" and row_b[1] == "fluid"
+    conn.close()
+    print(f"  [✓] SQLite Database Columns OK: users.theme_preference and users.aura_mode verified directly in SQLite")
+
+    print("\n[🎉] ALL 13 TEST SUITES PASSED FLAWLESSLY!")
 
 if __name__ == '__main__':
     run_tests()

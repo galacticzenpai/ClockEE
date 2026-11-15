@@ -3,7 +3,7 @@
    Matches Quizrr / MathonGo Dark Theme with Obsidian Black & Violet Accents
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Cinzel:wght@600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Space+Mono:wght@400;700&family=VT323&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
 
 :root {
   --cbt-bg-base: #07080d;
@@ -34,6 +34,159 @@
   --cbt-radius-full: 9999px;
   --cbt-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --cbt-font-mono: 'JetBrains Mono', monospace;
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Hallmark Design System Material Themes (nutlope/hallmark)
+   ────────────────────────────────────────────────────────────────────────── */
+
+/* 1. Technical Slate & Blueprint (for cbt_exam.html, admin.html) */
+[data-theme="technical_slate"],
+body[data-page-theme="technical_slate"],
+.theme-technical-slate {
+  --cbt-bg-base: #0a0c10;
+  --cbt-bg-surface: #12151c;
+  --cbt-bg-elevated: #161b24;
+  --cbt-bg-card: #12151c;
+  --cbt-border-subtle: #30363d;
+  --cbt-border-medium: #484f58;
+  --cbt-border-focus: #388bfd;
+  --cbt-accent: #388bfd;
+  --cbt-accent-dark: #1f6feb;
+  --cbt-accent-light: rgba(56, 139, 253, 0.12);
+  --cbt-accent-gradient: linear-gradient(135deg, #388bfd 0%, #1f6feb 100%);
+  --cbt-text-primary: #f0f3f6;
+  --cbt-text-secondary: #8b949e;
+  --cbt-text-muted: #6e7681;
+  --cbt-font-sans: 'Inter', -apple-system, sans-serif;
+  --cbt-font-mono: 'JetBrains Mono', monospace;
+  --cbt-radius-sm: 4px;
+  --cbt-radius-md: 6px;
+  --cbt-radius-lg: 8px;
+}
+
+/* 2. Warm Paper & Archival Ink (for cbt_mistakes.html, cbt_notebooks.html) */
+[data-theme="warm_notebook"],
+body[data-page-theme="warm_notebook"],
+.theme-warm-notebook {
+  --cbt-bg-base: #f5f0eb;
+  --cbt-bg-surface: #fbf8f5;
+  --cbt-bg-elevated: #ede6dc;
+  --cbt-bg-card: #fbf8f5;
+  --cbt-border-subtle: #dfd7ce;
+  --cbt-border-medium: #c8beaf;
+  --cbt-border-focus: #8c4a2f;
+  --cbt-accent: #8c4a2f;
+  --cbt-accent-dark: #6e3620;
+  --cbt-accent-light: rgba(140, 74, 47, 0.12);
+  --cbt-accent-gradient: linear-gradient(135deg, #8c4a2f 0%, #b25d38 100%);
+  --cbt-text-primary: #2b2622;
+  --cbt-text-secondary: #6e665f;
+  --cbt-text-muted: #9c9288;
+  --cbt-font-sans: 'Lora', 'Merriweather', Georgia, serif;
+  --cbt-font-mono: 'Courier Prime', 'JetBrains Mono', monospace;
+  --cbt-font-heading: 'Cinzel', 'Playfair Display', serif;
+  --cbt-radius-sm: 4px;
+  --cbt-radius-md: 8px;
+  --cbt-radius-lg: 12px;
+}
+
+[data-theme="warm_notebook"] body,
+body[data-page-theme="warm_notebook"] {
+  background-color: #f5f0eb;
+  color: #2b2622;
+  font-family: var(--cbt-font-sans);
+}
+[data-theme="warm_notebook"] .cbt-navbar,
+body[data-page-theme="warm_notebook"] .cbt-navbar {
+  background: #fbf8f5;
+  border-bottom: 1px solid #dfd7ce;
+}
+[data-theme="warm_notebook"] .cbt-nav-title,
+body[data-page-theme="warm_notebook"] .cbt-nav-title {
+  color: #2b2622;
+  font-family: var(--cbt-font-heading);
+}
+[data-theme="warm_notebook"] .cbt-subnav-ribbon,
+body[data-page-theme="warm_notebook"] .cbt-subnav-ribbon {
+  background: #ede6dc;
+  border-color: #dfd7ce;
+  box-shadow: 0 2px 10px rgba(43, 38, 34, 0.06);
+}
+[data-theme="warm_notebook"] .cbt-subnav-pill,
+body[data-page-theme="warm_notebook"] .cbt-subnav-pill {
+  color: #6e665f;
+}
+[data-theme="warm_notebook"] .cbt-subnav-pill.active,
+body[data-page-theme="warm_notebook"] .cbt-subnav-pill.active {
+  background: #fbf8f5;
+  color: #8c4a2f;
+  border-color: #8c4a2f;
+  box-shadow: 0 1px 4px rgba(140, 74, 47, 0.15);
+}
+[data-theme="warm_notebook"] .cbt-mistake-card,
+[data-theme="warm_notebook"] .cbt-nb-card,
+body[data-page-theme="warm_notebook"] .cbt-mistake-card,
+body[data-page-theme="warm_notebook"] .cbt-nb-card {
+  background: #fbf8f5;
+  border-color: #dfd7ce;
+  box-shadow: 0 1px 3px rgba(43, 38, 34, 0.05);
+}
+[data-theme="warm_notebook"] .cbt-card-title,
+[data-theme="warm_notebook"] .cbt-nb-card-title,
+body[data-page-theme="warm_notebook"] .cbt-card-title,
+body[data-page-theme="warm_notebook"] .cbt-nb-card-title {
+  color: #2b2622;
+}
+
+/* 3. Retro Terminal (for timer.html, mini_timer.html) */
+[data-theme="retro_terminal"],
+body[data-page-theme="retro_terminal"],
+.theme-retro-terminal {
+  --cbt-bg-base: #0c0a06;
+  --cbt-bg-surface: #18140c;
+  --cbt-bg-elevated: #241e12;
+  --cbt-bg-card: #18140c;
+  --cbt-border-subtle: #3b2f1e;
+  --cbt-border-medium: #59462c;
+  --cbt-border-focus: #ff9e3b;
+  --cbt-accent: #ff9e3b;
+  --cbt-accent-dark: #d9771e;
+  --cbt-accent-light: rgba(255, 158, 59, 0.15);
+  --cbt-accent-gradient: linear-gradient(135deg, #ff9e3b 0%, #ffb454 100%);
+  --cbt-text-primary: #ffb454;
+  --cbt-text-secondary: #c68a3e;
+  --cbt-text-muted: #8c632e;
+  --cbt-font-sans: 'Space Mono', 'JetBrains Mono', monospace;
+  --cbt-font-mono: 'VT323', 'Space Mono', monospace;
+  --cbt-radius-sm: 2px;
+  --cbt-radius-md: 4px;
+  --cbt-radius-lg: 4px;
+}
+
+/* 4. Industrial Bauhaus (for index.html, today.html) */
+[data-theme="industrial_bauhaus"],
+body[data-page-theme="industrial_bauhaus"],
+.theme-industrial-bauhaus {
+  --cbt-bg-base: #ecebe4;
+  --cbt-bg-surface: #ffffff;
+  --cbt-bg-elevated: #e2e0d7;
+  --cbt-bg-card: #ffffff;
+  --cbt-border-subtle: #1a1a1a;
+  --cbt-border-medium: #1a1a1a;
+  --cbt-border-focus: #0047bb;
+  --cbt-accent: #0047bb;
+  --cbt-accent-dark: #003080;
+  --cbt-accent-light: rgba(0, 71, 187, 0.12);
+  --cbt-accent-gradient: linear-gradient(135deg, #0047bb 0%, #002b70 100%);
+  --cbt-text-primary: #0f0f0f;
+  --cbt-text-secondary: #4a4a4a;
+  --cbt-text-muted: #737373;
+  --cbt-font-sans: 'Plus Jakarta Sans', sans-serif;
+  --cbt-font-mono: 'Space Mono', monospace;
+  --cbt-radius-sm: 0px;
+  --cbt-radius-md: 2px;
+  --cbt-radius-lg: 4px;
 }
 
 * {

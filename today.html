@@ -576,7 +576,7 @@
             <div class="flex items-center gap-3">
               <span class="text-base">${isCbt ? '⚡' : '📝'}</span>
               <div>
-                <div class="text-xs font-bold text-white">${l.subject} • ${l.chapter || 'Practice'}</div>
+                <div class="text-xs font-bold text-white">${escapeHtml(l.subject)} • ${escapeHtml(l.chapter || 'Practice')}</div>
                 <div class="text-[10px] text-gray-400">${badge} • ${mins} minutes</div>
               </div>
             </div>

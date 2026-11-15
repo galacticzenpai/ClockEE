@@ -11,12 +11,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ClockEE - Second-Screen Floating Mini Timer</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Space+Mono:wght@400;700&family=VT323&display=swap" rel="stylesheet" />
   <style>
+    /* Retro Terminal Theme (Hallmark Design System) */
+    :root {
+      --term-bg: #0c0a06;
+      --term-surface: #18140c;
+      --term-border: #3b2f1e;
+      --term-text: #ffb454;
+      --term-muted: #c68a3e;
+      --term-accent: #ff9e3b;
+    }
     body {
-      background: #060810;
-      color: #f3f4f6;
-      font-family: 'Inter', sans-serif;
+      background: var(--term-bg);
+      color: var(--term-text);
+      font-family: 'Space Mono', 'JetBrains Mono', monospace;
       user-select: none;
       overflow: hidden;
       margin: 0;
@@ -24,52 +33,52 @@
     }
     .mono { font-family: 'JetBrains Mono', monospace; }
     .glass-box {
-      background: rgba(14, 18, 30, 0.95);
-      border: 1px solid rgba(0, 240, 255, 0.35);
-      border-radius: 18px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9), 0 0 20px rgba(0, 240, 255, 0.2);
+      background: var(--term-surface);
+      border: 1px solid var(--term-border);
+      border-radius: 4px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.9), 0 0 16px rgba(255, 158, 59, 0.08);
     }
   </style>
 </head>
 <body class="flex items-center justify-center min-h-screen">
   <div class="glass-box p-5 w-full max-w-sm text-center space-y-4">
     <!-- Header -->
-    <div class="flex items-center justify-between border-b border-white/10 pb-2">
+    <div class="flex items-center justify-between border-b border-[#3b2f1e] pb-2">
       <div class="flex items-center gap-2">
-        <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-ping"></span>
-        <span class="text-xs font-extrabold tracking-tight bg-gradient-to-r from-cyan-400 to-indigo-300 bg-clip-text text-transparent">ClockEE Second Screen Timer</span>
+        <span class="w-2.5 h-2.5 rounded-full bg-[#ff9e3b] animate-ping"></span>
+        <span class="text-xs font-bold font-mono tracking-tight text-[#ffb454]">ClockEE CRT Console</span>
       </div>
-      <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-indigo-950 text-indigo-300 border border-indigo-500/30 font-bold" id="mode-badge">Countdown</span>
+      <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-[#241e12] text-[#ff9e3b] border border-[#3b2f1e] font-bold" id="mode-badge">Countdown</span>
     </div>
 
     <!-- Active Topic -->
-    <div class="truncate text-xs text-gray-300 font-semibold" id="topic-label">
+    <div class="truncate text-xs text-[#c68a3e] font-mono font-semibold" id="topic-label">
       Physics • Deep Focus Block
     </div>
 
     <!-- Big Digital Display -->
     <div class="py-2">
-      <div class="text-5xl font-extrabold font-mono text-cyan-300 tracking-wider drop-shadow-[0_0_15px_rgba(0,240,255,0.4)]" id="mini-timer-display">
+      <div class="text-5xl font-extrabold font-mono text-[#ffb454] tracking-wider drop-shadow-[0_0_15px_rgba(255,180,84,0.4)]" id="mini-timer-display">
         02:00:00
       </div>
     </div>
 
     <!-- Controls Row -->
     <div class="flex items-center justify-center gap-2 pt-1">
-      <button onclick="toggleTimer()" id="btn-mini-play" class="flex-1 py-2 rounded-xl bg-gradient-to-r from-cyan-600 to-indigo-600 hover:from-cyan-500 hover:to-indigo-500 text-white text-xs font-bold transition shadow-lg">
+      <button onclick="toggleTimer()" id="btn-mini-play" class="flex-1 py-2 rounded bg-[#ff9e3b] hover:bg-[#ffa94d] text-[#0c0a06] text-xs font-bold font-mono transition shadow-lg shadow-[#ff9e3b]/20">
         ▶ Start
       </button>
-      <button onclick="resetTimer()" class="py-2 px-3 rounded-xl bg-white/5 hover:bg-white/10 text-gray-300 border border-white/10 text-xs font-semibold transition">
+      <button onclick="resetTimer()" class="py-2 px-3 rounded bg-[#241e12] hover:bg-[#342b1a] text-[#c68a3e] border border-[#3b2f1e] text-xs font-mono font-semibold transition">
         ↺ Reset
       </button>
     </div>
 
     <!-- Quick Time Adjusters -->
-    <div class="grid grid-cols-4 gap-1.5 pt-2 border-t border-white/10 text-[10px] font-mono">
-      <button onclick="adjustTime(300)" class="py-1 rounded-lg bg-white/5 hover:bg-white/10 text-cyan-300">+5m</button>
-      <button onclick="adjustTime(900)" class="py-1 rounded-lg bg-white/5 hover:bg-white/10 text-indigo-300">+15m</button>
-      <button onclick="adjustTime(1800)" class="py-1 rounded-lg bg-white/5 hover:bg-white/10 text-purple-300">+30m</button>
-      <button onclick="adjustTime(-300)" class="py-1 rounded-lg bg-white/5 hover:bg-white/10 text-red-300">-5m</button>
+    <div class="grid grid-cols-4 gap-1.5 pt-2 border-t border-[#3b2f1e] text-[10px] font-mono">
+      <button onclick="adjustTime(300)" class="py-1 rounded bg-[#1f1a10] hover:bg-[#2c2417] text-[#ffb454] border border-[#3b2f1e]">+5m</button>
+      <button onclick="adjustTime(900)" class="py-1 rounded bg-[#1f1a10] hover:bg-[#2c2417] text-[#ffb454] border border-[#3b2f1e]">+15m</button>
+      <button onclick="adjustTime(1800)" class="py-1 rounded bg-[#1f1a10] hover:bg-[#2c2417] text-[#ffb454] border border-[#3b2f1e]">+30m</button>
+      <button onclick="adjustTime(-300)" class="py-1 rounded bg-[#1f1a10] hover:bg-[#2c2417] text-[#ff9e3b] border border-[#3b2f1e]">-5m</button>
     </div>
   </div>
 

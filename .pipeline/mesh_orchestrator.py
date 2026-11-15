@@ -194,13 +194,15 @@ def run_command_sync(cmd):
     except Exception as e:
         return {"returncode": -1, "stdout": "", "stderr": str(e)}
 
-def copy_to_clipboard(text):
+STAGED_PROMPT_FILE = PIPELINE_DIR / "staged_prompt.txt"
+
+def stage_prompt_to_file(text):
     try:
-        p = subprocess.Popen(["powershell", "-NoProfile", "-Command", "$input | Set-Clipboard"],
-                             stdin=subprocess.PIPE, text=True)
-        p.communicate(input=text)
-        return p.returncode == 0
-    except Exception:
+        with open(STAGED_PROMPT_FILE, "w", encoding="utf-8") as f:
+            f.write(text)
+        return True
+    except Exception as e:
+        print(f"[Orchestrator] Warning: Failed to stage prompt file: {e}", flush=True)
         return False
 
 def discover_handoff_prompts(convo_key, steps):
@@ -334,21 +336,23 @@ def run_mesh_process():
             f"output a dedicated block labeled `--- PROMPT FOR [TARGET AGENT] ---` so the Backbone Coordinator routes it automatically."
         )
 
-        copied = copy_to_clipboard(payload)
-        tgt_task["status"] = "STAGED_TO_CLIPBOARD"
+        staged_ok = stage_prompt_to_file(payload)
+        tgt_task["status"] = "STAGED_FOR_DISPATCH"
         tgt_task["staged_at"] = datetime.now().isoformat()
         staged_info = {
             "key": tgt_key,
             "name": tgt_info["name"],
             "url": tgt_info["url"],
-            "copied": copied,
+            "staged_file": str(STAGED_PROMPT_FILE),
+            "payload": payload,
             "instruction": tgt_task.get("instruction")
         }
 
-        print(f"\n--- [Step 4] Staging Actionable Prompt To OS Clipboard ---")
-        print(f"  Target Agent     : {tgt_info['name']}")
-        print(f"  Direct Link      : {tgt_info['url']}")
-        print(f"  Clipboard Staged : {'✔ SUCCESS (Ready for Ctrl+V)' if copied else 'Manual Copy Needed'}")
+        print(f"\n--- [Step 4] Staging Actionable Prompt To Pipeline Mailbox ---", flush=True)
+        print(f"  Target Agent     : {tgt_info['name']}", flush=True)
+        print(f"  Direct Link      : {tgt_info['url']}", flush=True)
+        print(f"  Mailbox Path     : {STAGED_PROMPT_FILE}", flush=True)
+        print(f"  Staging Status   : {'✔ STAGED IN .pipeline/staged_prompt.txt' if staged_ok else 'Failed'}", flush=True)
     else:
         print("\n--- [Step 4] All Current Batch Tasks Completed or Dispatched ---")
         current_batch["status"] = "COMPLETED"

@@ -3,6 +3,11 @@
 <head>
   <!-- Security & Content Protection Headers -->
   <script>
+    function escapeHtml(str) {
+      if (str === null || str === undefined) return "";
+      return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+    }
+
     (function() {
       try {
         var isAuth = localStorage.getItem("clockee_auth_active") === "true";
@@ -24,6 +29,11 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' https: blob: data:; img-src 'self' https: data: blob:; connect-src 'self' https: wss:; font-src 'self' https: data:;" />
   <script src="env.js" onerror="/* env.js optional */"></script>
   <script>
+    function escapeHtml(str) {
+      if (str === null || str === undefined) return "";
+      return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+    }
+
     (function() {
       try {
         const isAuth = localStorage.getItem('clockee_auth_active');
@@ -56,6 +66,11 @@
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
+    function escapeHtml(str) {
+      if (str === null || str === undefined) return "";
+      return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+    }
+
     tailwind.config = {
       darkMode: 'class',
       theme: {
@@ -645,6 +660,11 @@
 
 <script src="clockee_core.js"></script>
 <script>
+    function escapeHtml(str) {
+      if (str === null || str === undefined) return "";
+      return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+    }
+
   let inspectedUserId = null;
 
   function checkAdminPrivileges() {
@@ -741,7 +761,7 @@
     container.innerHTML = users.map(u => {
       let studentState = {};
       try {
-        const raw = localStorage.getItem(`clockee_user_state_${u.id}`);
+        const raw = localStorage.getItem(`clockee_user_state_${escapeHtml(u.id)}`);
         if (raw) studentState = JSON.parse(raw);
       } catch (e) {}
 
@@ -758,7 +778,7 @@
                   <span class="truncate">${u.name}</span>
                   ${u.active ? '<span class="text-[9px] font-mono text-purple-300 font-bold px-1.5 py-0.2 rounded bg-purple-900/60 border border-purple-500/40">Active</span>' : ''}
                 </div>
-                <div class="text-[11px] text-gray-400 truncate">${u.role}</div>
+                <div class="text-[11px] text-gray-400 truncate">${escapeHtml(u.role)}</div>
                 <div class="text-[10px] text-cyan-400 font-mono mt-0.5">${totalQs} Qs Solved &bull; Cloud Record</div>
               </div>
             </div>
@@ -771,7 +791,7 @@
               ${u.active ? `
                 <span class="text-emerald-400 font-bold font-mono text-[11px]">✓ Active Session</span>
               ` : `
-                <button onclick="window.switchUser('${u.id}')" class="px-2.5 py-1 bg-purple-600 hover:bg-purple-500 text-white rounded-lg font-bold text-[11px] transition">
+                <button onclick="window.switchUser('${escapeHtml(u.id)}')" class="px-2.5 py-1 bg-purple-600 hover:bg-purple-500 text-white rounded-lg font-bold text-[11px] transition">
                   Switch &rarr;
                 </button>
               `}
@@ -780,13 +800,13 @@
 
           <!-- Admin Management Row -->
           <div class="grid grid-cols-3 gap-1 pt-2 border-t border-white/5 text-[10px] font-bold">
-            <button onclick="openEditStudentModal('${u.id}')" class="p-1.5 rounded bg-white/5 hover:bg-purple-600/30 text-purple-300 border border-white/5 hover:border-purple-500/30 transition text-center">
+            <button onclick="openEditStudentModal('${escapeHtml(u.id)}')" class="p-1.5 rounded bg-white/5 hover:bg-purple-600/30 text-purple-300 border border-white/5 hover:border-purple-500/30 transition text-center">
               ✏️ Edit
             </button>
-            <button onclick="loadStudentLogs('${u.id}', '${u.name}')" class="p-1.5 rounded bg-white/5 hover:bg-indigo-600/30 text-indigo-300 border border-white/5 hover:border-indigo-500/30 transition text-center">
+            <button onclick="loadStudentLogs('${escapeHtml(u.id)}', '${u.name}')" class="p-1.5 rounded bg-white/5 hover:bg-indigo-600/30 text-indigo-300 border border-white/5 hover:border-indigo-500/30 transition text-center">
               📋 Logs
             </button>
-            <button onclick="deleteStudentAccount('${u.id}', '${u.name}')" class="p-1.5 rounded bg-white/5 hover:bg-red-600/30 text-red-400 border border-white/5 hover:border-red-500/30 transition text-center">
+            <button onclick="deleteStudentAccount('${escapeHtml(u.id)}', '${u.name}')" class="p-1.5 rounded bg-white/5 hover:bg-red-600/30 text-red-400 border border-white/5 hover:border-red-500/30 transition text-center">
               🗑️ Remove
             </button>
           </div>

@@ -80,8 +80,9 @@
       "db_backend": {
         "target_id": "d3700ff3-1bfb-458a-9968-8257ef2ca7e2",
         "target_name": "DB / BACKEND",
-        "status": "PENDING",
-        "instruction": "Graphify indexes SQL schemas and backend endpoints.\n\nReview integrations/graphify/reports/GRAPH_REPORT.md:\n1. Verify that SQLite tables in backend/db.py match frontend localStorage synchronizer keys indexed in graph.json.\n2. Use python integrations/graphify/graph_runner.py query storage: to see what frontend keys sync with backend endpoints."
+        "status": "STAGED_FOR_DISPATCH",
+        "instruction": "Graphify indexes SQL schemas and backend endpoints.\n\nReview integrations/graphify/reports/GRAPH_REPORT.md:\n1. Verify that SQLite tables in backend/db.py match frontend localStorage synchronizer keys indexed in graph.json.\n2. Use python integrations/graphify/graph_runner.py query storage: to see what frontend keys sync with backend endpoints.",
+        "staged_at": "2026-11-16T01:52:09.615566"
       }
     }
   }

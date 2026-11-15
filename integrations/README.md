@@ -59,3 +59,16 @@ This directory contains the 5 packages adapted from the developer showcase (`pet
 * **Audit Command**: `python integrations/hallmark_design/hallmark_cli.py audit [file.html or --all]`
 * **Theme Command**: `python integrations/hallmark_design/hallmark_cli.py themes`
 * **Purpose**: Enforces human-crafted UI design and eliminates AI clichés (purple gradients, single colored words in headings, generic glass cards, dummy forms) with a 3-tier quality gate (Floor, Reflex, Finish) and 50 curated material themes.
+
+---
+
+### 8. Graphify Codebase Knowledge Graph & God-Node Analyzer
+* **Source Showcase**: `waitwhatdidyoudo [DfFUVDVKwF5]`
+* **Upstream**: `Graphify-Labs/graphify` (Apache-2.0 / MIT License)
+* **Directory**: `integrations/graphify/`
+* **Skill Specification**: `integrations/graphify/SKILL.md`
+* **Core Script**: `integrations/graphify/graph_runner.py`
+* **Build Command**: `python integrations/graphify/graph_runner.py build`
+* **Query Command**: `python integrations/graphify/graph_runner.py query <symbol_or_filename>`
+* **Reports Directory**: `integrations/graphify/reports/` (`graph.json`, `GRAPH_REPORT.md`)
+* **Purpose**: Maps cross-file dependencies, script inclusions, and storage keys into a deterministic knowledge graph, detecting architectural "god nodes" (e.g. `env.js`, `clockee_core.js`, `cbt_shared.js`) to prevent cascading breaking changes during refactors.

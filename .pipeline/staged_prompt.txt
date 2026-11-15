@@ -1,11 +1,14 @@
-You are UI / UX.
+You are SIMULATION.
 
 --- TASK ASSIGNMENT ---
-Graphify has mapped all frontend CSS and script links.
+You are SIMULATION.
+Prerequisites Met: Phase 2 UI/UX styling, Hallmark themes, and responsive layout updates are fully completed and committed across all ClockEE frontend templates (sloplint average score 100.0/100).
 
-Review integrations/graphify/reports/GRAPH_REPORT.md:
-1. Note that Tailwind CDN (cdn.tailwindcss.com) is injected into 17 files independently.
-2. Ensure custom utility classes or theme CSS variables added to cbt_shared.css do not collide across modules.
+Your Task:
+1. Run a comprehensive multi-viewport regression test across the 8 canonical viewports ([320px, 375px, 414px, 768px, 1024px, 1280px, 1440px, 1920px]).
+2. Execute `python integrations/hallmark_design/hallmark_cli.py audit --all` to verify zero floor gate failures and zero reflex slop tells.
+3. Validate that the `--kept` contract holds across all interactive timer controls, CBT answer palettes, and modal interactions.
+4. Output your Phase 3 verification report following the Universal System Directive.
 
 --- MESH COORDINATION DIRECTIVE ---
 1. Implement all domain fixes and features cleanly without disturbing sibling modules.

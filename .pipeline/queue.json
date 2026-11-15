@@ -74,7 +74,8 @@
         "target_name": "SIMULATION",
         "target_id": "62adc180-be21-4671-848c-c8df59e2c202",
         "instruction": "You are SIMULATION.\nPrerequisites Met: Phase 2 UI/UX styling, Hallmark themes, and responsive layout updates are fully completed and committed across all ClockEE frontend templates (sloplint average score 100.0/100).\n\nYour Task:\n1. Run a comprehensive multi-viewport regression test across the 8 canonical viewports ([320px, 375px, 414px, 768px, 1024px, 1280px, 1440px, 1920px]).\n2. Execute `python integrations/hallmark_design/hallmark_cli.py audit --all` to verify zero floor gate failures and zero reflex slop tells.\n3. Validate that the `--kept` contract holds across all interactive timer controls, CBT answer palettes, and modal interactions.\n4. Output your Phase 3 verification report following the Universal System Directive.",
-        "status": "QUEUED"
+        "status": "STAGED_FOR_DISPATCH",
+        "staged_at": "2026-11-16T01:37:10.262778"
       },
       "db_backend": {
         "target_id": "d3700ff3-1bfb-458a-9968-8257ef2ca7e2",

@@ -1,6 +1,207 @@
 {
   "version": "1.0.0",
-  "backlog": [],
+  "active_reel": {
+    "id": "reel_001",
+    "url": "https://www.instagram.com/p/DfFUVDVKwF5/",
+    "source_handle": "waitwhatdidyoudo",
+    "name": "Graphify",
+    "upstream": "Graphify-Labs/graphify",
+    "feature": "Codebase Knowledge Graph & God Node Inspector",
+    "status": "QUEUED_PENDING_PIPELINE_CLEARANCE",
+    "added_at": "2026-11-16T00:55:00Z"
+  },
+  "backlog": [
+    {
+      "index": 1,
+      "url": "https://www.instagram.com/p/De63OT8Sqwg/",
+      "status": "PENDING"
+    },
+    {
+      "index": 2,
+      "url": "https://www.instagram.com/p/DfDPuZjE-7Q/",
+      "status": "PENDING"
+    },
+    {
+      "index": 3,
+      "url": "https://www.instagram.com/p/De6ttI-zAba/",
+      "status": "PENDING"
+    },
+    {
+      "index": 4,
+      "url": "https://www.instagram.com/p/DeW0tvNz2uR/",
+      "status": "PENDING"
+    },
+    {
+      "index": 5,
+      "url": "https://www.instagram.com/p/DeUAboaAoPi/",
+      "status": "PENDING"
+    },
+    {
+      "index": 6,
+      "url": "https://www.instagram.com/p/De4jJeINfWc/",
+      "status": "PENDING"
+    },
+    {
+      "index": 7,
+      "url": "https://www.instagram.com/p/DeOdge5FUVx/",
+      "status": "PENDING"
+    },
+    {
+      "index": 8,
+      "url": "https://www.instagram.com/p/Dem1QsuzJ3m/",
+      "status": "PENDING"
+    },
+    {
+      "index": 9,
+      "url": "https://www.instagram.com/p/DfFKtq3S1iV/",
+      "status": "PENDING"
+    },
+    {
+      "index": 10,
+      "url": "https://www.instagram.com/p/DezZ8h7AnWZ/",
+      "status": "PENDING"
+    },
+    {
+      "index": 11,
+      "url": "https://www.instagram.com/p/DeCIBOaSgWj/",
+      "status": "PENDING"
+    },
+    {
+      "index": 12,
+      "url": "https://www.instagram.com/p/DerbBtfzj8p/",
+      "status": "PENDING"
+    },
+    {
+      "index": 13,
+      "url": "https://www.instagram.com/p/DdBSahaKHsY/",
+      "status": "PENDING"
+    },
+    {
+      "index": 14,
+      "url": "https://www.instagram.com/p/De0-L6zAKky/",
+      "status": "PENDING"
+    },
+    {
+      "index": 15,
+      "url": "https://www.instagram.com/p/DebmIDlSiR3/",
+      "status": "PENDING"
+    },
+    {
+      "index": 16,
+      "url": "https://www.instagram.com/p/DfGCFq_KBl7/",
+      "status": "PENDING"
+    },
+    {
+      "index": 17,
+      "url": "https://www.instagram.com/p/DfPoyBxqtej/",
+      "status": "PENDING"
+    },
+    {
+      "index": 18,
+      "url": "https://www.instagram.com/p/DeRiLg-iah2/",
+      "status": "PENDING"
+    },
+    {
+      "index": 19,
+      "url": "https://www.instagram.com/p/DfRBJe5R0jV/",
+      "status": "PENDING"
+    },
+    {
+      "index": 20,
+      "url": "https://www.instagram.com/p/DfPfsMENJyB/",
+      "status": "PENDING"
+    },
+    {
+      "index": 21,
+      "url": "https://www.instagram.com/p/DfNSFM9S38J/",
+      "status": "PENDING"
+    },
+    {
+      "index": 22,
+      "url": "https://www.instagram.com/p/DfIijXSzzaO/",
+      "status": "PENDING"
+    },
+    {
+      "index": 23,
+      "url": "https://www.instagram.com/p/DfW6r1fCMd-/",
+      "status": "PENDING"
+    },
+    {
+      "index": 24,
+      "url": "https://www.instagram.com/p/DfVQs4PDJHY/",
+      "status": "PENDING"
+    },
+    {
+      "index": 25,
+      "url": "https://www.instagram.com/p/DfLnPkKtrkz/",
+      "status": "PENDING"
+    },
+    {
+      "index": 26,
+      "url": "https://www.instagram.com/p/DfWwN89hmY1/",
+      "status": "PENDING"
+    },
+    {
+      "index": 27,
+      "url": "https://www.instagram.com/p/DfUPqjrt-H_/",
+      "status": "PENDING"
+    },
+    {
+      "index": 28,
+      "url": "https://www.instagram.com/p/DfToUOPIba0/",
+      "status": "PENDING"
+    },
+    {
+      "index": 29,
+      "url": "https://www.instagram.com/p/DfY3CZ_BkXd/",
+      "status": "PENDING"
+    },
+    {
+      "index": 30,
+      "url": "https://www.instagram.com/p/DfUe1XXx6Jw/",
+      "status": "PENDING"
+    },
+    {
+      "index": 31,
+      "url": "https://www.instagram.com/p/DfZyG8ZyJwv/",
+      "status": "PENDING"
+    },
+    {
+      "index": 32,
+      "url": "https://www.instagram.com/p/DfWuPg8p5Ho/",
+      "status": "PENDING"
+    },
+    {
+      "index": 33,
+      "url": "https://www.instagram.com/p/DfcssAvBG7L/",
+      "status": "PENDING"
+    },
+    {
+      "index": 34,
+      "url": "https://www.instagram.com/p/Dfgr-20D5Hw/",
+      "status": "PENDING"
+    },
+    {
+      "index": 35,
+      "url": "https://www.instagram.com/p/DfaTZHlh-k0/",
+      "status": "PENDING"
+    },
+    {
+      "index": 36,
+      "url": "https://www.instagram.com/p/Dfj368ttF83/",
+      "status": "PENDING"
+    },
+    {
+      "index": 37,
+      "url": "https://www.instagram.com/p/DdshHpFpqdi/",
+      "status": "PENDING"
+    },
+    {
+      "index": 38,
+      "url": "https://www.instagram.com/p/De9ncU9vZgH/",
+      "status": "PENDING"
+    }
+  ],
   "history": [
     {
       "id": "item_001",
@@ -33,7 +234,7 @@
       "packages": [
         "hallmark_design"
       ],
-      "status": "ACTIVE_IN_PIPELINE",
+      "status": "COMPLETED",
       "active_batch_id": "batch_hallmark_sloplint_001",
       "timestamp": "2026-11-16T00:15:00Z"
     }

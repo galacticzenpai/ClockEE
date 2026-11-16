@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <title>ClockEE - Apple HIG &amp; Mathongo Prototype Cockpit</title>
+
+  <!-- KaTeX for High-APCA Crisp Mathematical Typography -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+
+  <!-- Apple HIG + Mathongo Precision Stylesheet -->
+  <link rel="stylesheet" href="css/apple_mathongo_theme.css" />
+</head>
+<body>
+
+  <!-- ─── 1. Translucent Floating Navigation Shell ─── -->
+  <header class="demo-header-wrapper">
+    <nav class="demo-top-pill" aria-label="Cockpit Navigation">
+      <!-- Brand & Version -->
+      <a href="index.html" class="demo-brand" title="Return to Main Cockpit">
+        <div class="demo-brand-logo">⏱</div>
+        <div>
+          <span class="demo-brand-name">ClockEE</span>
+          <span class="demo-brand-badge">Apple HIG</span>
+        </div>
+      </a>
+
+      <!-- iOS-Style Segmented Subject Control -->
+      <div class="demo-segmented-control" role="tablist" aria-label="Subject Selector">
+        <button type="button" class="demo-segment-btn active" data-subject="Physics" onclick="switchDemoSubject('Physics')">Physics</button>
+        <button type="button" class="demo-segment-btn" data-subject="Chemistry" onclick="switchDemoSubject('Chemistry')">Chemistry</button>
+        <button type="button" class="demo-segment-btn" data-subject="Mathematics" onclick="switchDemoSubject('Mathematics')">Maths</button>
+      </div>
+
+      <!-- Live Stopwatch & Compare Action -->
+      <div class="demo-header-telemetry">
+        <div class="demo-live-stopwatch" title="Question Elapsed Timer">
+          <span class="dot-pulse"></span>
+          <span id="demoTimerDisplay">00:00</span>
+        </div>
+        <button type="button" class="demo-btn demo-btn-secondary" style="min-height: 32px; padding: 4px 10px; font-size: 11px;" onclick="toggleLegacyComparison()">
+          Compare Design ⇄
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ─── 2. Main Question Canvas & Mathongo Pacing Layout ─── -->
+  <main class="demo-app-container">
+
+    <!-- Mathongo Topper Pacing Benchmark Banner -->
+    <section class="demo-pacing-banner" aria-label="Pacing Telemetry">
+      <div class="demo-pacing-stat">
+        <span>Your Time:</span>
+        <strong id="pacingStudentTime">00:00</strong>
+      </div>
+
+      <div class="demo-pacing-gauge-track" title="Pacing Gauge vs Topper Average">
+        <div class="demo-pacing-gauge-fill" id="pacingGaugeFill"></div>
+      </div>
+
+      <div class="demo-pacing-stat">
+        <span>Topper Avg:</span>
+        <strong id="pacingBenchmarkTime">02:15</strong>
+      </div>
+
+      <div class="demo-pacing-badge" id="pacingStatusBadge">
+        <span>⚡</span>
+        <span id="pacingStatusText">Ahead of Topper Pace</span>
+      </div>
+    </section>
+
+    <!-- Question Statement Canvas -->
+    <article class="demo-question-canvas" id="questionCard">
+      <!-- Question Meta Header -->
+      <header class="demo-question-header">
+        <div class="demo-q-meta">
+          <span class="demo-pill-badge" id="qNumberBadge">Question 1 of 5</span>
+          <span class="demo-pill-badge subject-physics" id="qSubjectBadge">Physics</span>
+          <span class="demo-pill-badge" id="qExamYearBadge">JEE Advanced 2024</span>
+          <span class="demo-pill-badge" id="qChapterBadge">Kinematics &amp; Vectors</span>
+        </div>
+        <div class="demo-q-marking" id="qMarkingBadge">+4 / -1 Marks</div>
+      </header>
+
+      <!-- Question Text -->
+      <div class="demo-question-text" id="questionText">
+        <p>Loading authentic JEE Advanced question statement with mathematical typesetting...</p>
+      </div>
+
+      <!-- Tactile MCQ Options Grid -->
+      <div class="demo-options-grid" id="optionsGrid" role="radiogroup" aria-label="Question Options">
+        <!-- Option Tiles Injected Dynamically -->
+      </div>
+
+      <!-- Instant Solution & Explanation Drawer -->
+      <div class="demo-solution-card" id="solutionCard">
+        <div class="demo-solution-header">
+          <div class="demo-solution-title">
+            <span style="color: var(--apple-green);">✓</span>
+            <span>Official Solution &amp; Key Derivation</span>
+          </div>
+          <span class="demo-pill-badge" id="solutionTopicBadge">Concept Insight</span>
+        </div>
+        <div class="demo-solution-body" id="solutionText">
+          Select an answer to reveal the verified step-by-step solution and mathematical derivation.
+        </div>
+      </div>
+    </article>
+
+  </main>
+
+  <!-- ─── 3. Floating Bottom Control Dock ─── -->
+  <div class="demo-bottom-dock-wrapper">
+    <footer class="demo-bottom-dock" aria-label="Exam Action Controls">
+      <div class="demo-dock-group">
+        <button type="button" class="demo-btn demo-btn-secondary" id="btnPrev" onclick="prevDemoQuestion()">
+          ← Prev
+        </button>
+        <button type="button" class="demo-btn demo-btn-secondary" id="btnReview" onclick="toggleReviewQuestion()">
+          <span>🏷</span> Mark for Review
+        </button>
+        <button type="button" class="demo-btn demo-btn-tag" id="btnMistake" onclick="openMistakeModal()">
+          <span>⚠</span> Tag Mistake
+        </button>
+      </div>
+
+      <div class="demo-dock-group">
+        <button type="button" class="demo-btn demo-btn-secondary" id="btnToggleSolution" onclick="toggleSolution()">
+          Solution Insight
+        </button>
+        <button type="button" class="demo-btn demo-btn-primary" id="btnNext" onclick="nextDemoQuestion()">
+          Save &amp; Next →
+        </button>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ─── 4. Mathongo Micro-Taxonomy Error Modal ─── -->
+  <div class="demo-modal-backdrop" id="mistakeModalBackdrop" onclick="closeMistakeModal(event)">
+    <div class="demo-mistake-card" onclick="event.stopPropagation()">
+      <div class="demo-mistake-header">
+        <div class="demo-mistake-title">🏷️ Tag Why You Missed This Question</div>
+        <button type="button" class="demo-mistake-close" onclick="closeMistakeModal()">✕</button>
+      </div>
+      <p style="font-size: 13px; color: var(--apple-text-secondary); margin-bottom: 16px;">
+        Mathongo Micro-Taxonomy: Classify your mistake immediately while fresh in memory to feed your revision cadence.
+      </p>
+
+      <div class="demo-mistake-tags-grid" id="mistakeTagsGrid">
+        <button type="button" class="demo-mistake-tag" data-tag="calculation" onclick="toggleMistakeTag(this, 'Calculation Error')">
+          <span class="tag-icon">🔢</span>
+          <span>Calculation Error</span>
+        </button>
+        <button type="button" class="demo-mistake-tag" data-tag="conceptual" onclick="toggleMistakeTag(this, 'Conceptual Gap')">
+          <span class="tag-icon">🧠</span>
+          <span>Conceptual Gap</span>
+        </button>
+        <button type="button" class="demo-mistake-tag" data-tag="misread" onclick="toggleMistakeTag(this, 'Read Question Wrong')">
+          <span class="tag-icon">👀</span>
+          <span>Read Question Wrong</span>
+        </button>
+        <button type="button" class="demo-mistake-tag" data-tag="formula" onclick="toggleMistakeTag(this, 'Formula Miss')">
+          <span class="tag-icon">📐</span>
+          <span>Formula Miss</span>
+        </button>
+        <button type="button" class="demo-mistake-tag" data-tag="timeout" onclick="toggleMistakeTag(this, 'Timeout Panic')">
+          <span class="tag-icon">⏱️</span>
+          <span>Timeout Panic</span>
+        </button>
+        <button type="button" class="demo-mistake-tag" data-tag="guess" onclick="toggleMistakeTag(this, 'Guesswork / Fluke')">
+          <span class="tag-icon">🎲</span>
+          <span>Guesswork / Fluke</span>
+        </button>
+      </div>
+
+      <div style="display: flex; justify-content: flex-end; gap: 10px;">
+        <button type="button" class="demo-btn demo-btn-secondary" onclick="closeMistakeModal()">Cancel</button>
+        <button type="button" class="demo-btn demo-btn-primary" onclick="saveMistakeTags()">Save Tag to Vault</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── 5. Legacy Comparison Split View Modal ─── -->
+  <div class="demo-legacy-drawer" id="legacyComparisonDrawer">
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; color: #fff;">
+      <div>
+        <h2 style="font-size: 18px; font-weight: 700;">Design Evolution: Legacy ClockEE vs Apple HIG + Mathongo</h2>
+        <p style="font-size: 12px; color: var(--apple-text-secondary);">Direct side-by-side comparison of visual ergonomics, Fitts's Law touch targets, and cognitive chrome reduction.</p>
+      </div>
+      <button type="button" class="demo-btn demo-btn-secondary" onclick="toggleLegacyComparison()">Close Comparison ✕</button>
+    </div>
+
+    <div class="demo-legacy-container">
+      <div class="demo-legacy-pane">
+        <div class="demo-legacy-pane-header">
+          <span>Legacy ClockEE Cockpit (Heavy Chrome &amp; Neon Glow)</span>
+          <span class="demo-pill-badge">Reference</span>
+        </div>
+        <iframe src="cbt_exam.html" class="demo-legacy-iframe" title="Legacy CBT Exam View"></iframe>
+      </div>
+
+      <div class="demo-legacy-pane">
+        <div class="demo-legacy-pane-header">
+          <span style="color: var(--apple-blue);">New Apple HIG + Mathongo Precision Cockpit</span>
+          <span class="demo-pill-badge" style="background: var(--apple-blue-light); color: var(--apple-blue); border-color: rgba(10,132,255,0.3);">New Standard</span>
+        </div>
+        <div style="padding: 24px; color: #fff; overflow-y: auto; flex: 1;">
+          <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 12px;">Key Ergonomic Innovations:</h3>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 13.5px; color: var(--apple-text-secondary);">
+            <li style="display: flex; gap: 10px;">
+              <span style="color: var(--apple-green);">✓</span>
+              <div><strong>Question-First Hero Canvas:</strong> Eliminated distracting chrome panels and sidebars; student focus is 100% on question statement and options.</div>
+            </li>
+            <li style="display: flex; gap: 10px;">
+              <span style="color: var(--apple-green);">✓</span>
+              <div><strong>Apple Translucent Shell:</strong> Floating top pill and bottom dock with authentic <code>blur(25px) saturate(190%)</code> frosted glass.</div>
+            </li>
+            <li style="display: flex; gap: 10px;">
+              <span style="color: var(--apple-green);">✓</span>
+              <div><strong>Mathongo Topper Pacing:</strong> Live telemetry stopwatch comparing student time against topper benchmark time in real time.</div>
+            </li>
+            <li style="display: flex; gap: 10px;">
+              <span style="color: var(--apple-green);">✓</span>
+              <div><strong>Micro-Taxonomy Error Tagging:</strong> 1-click mistake classification directly linked to student error vault.</div>
+            </li>
+            <li style="display: flex; gap: 10px;">
+              <span style="color: var(--apple-green);">✓</span>
+              <div><strong>Fitts's Law Touch Targets:</strong> Every option card and button enforces &ge;44px touch targets with smooth elastic feedback (scale: 0.985).</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Primary Application Script (Provided by Main Feature) -->
+  <script src="js/demo_app_shell.js"></script>
+
+</body>
+</html>

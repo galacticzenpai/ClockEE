@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-11-16T17:49:37",
+  "timestamp": "2026-11-16T19:11:20",
   "surfaces_audited": 24,
   "devices_benchmarked": [
     "iPhone SE (3rd Gen)",
@@ -16,7 +16,7 @@
     {
       "name": "admin.html",
       "viewport_meta": true,
-      "safe_area_compliant": false,
+      "safe_area_compliant": true,
       "font_stack": "Unknown",
       "overflow_traps": [],
       "status": "PASS"
@@ -24,7 +24,7 @@
     {
       "name": "analysis.html",
       "viewport_meta": true,
-      "safe_area_compliant": false,
+      "safe_area_compliant": true,
       "font_stack": "Unknown",
       "overflow_traps": [],
       "status": "PASS"
@@ -32,7 +32,7 @@
     {
       "name": "cbt.html",
       "viewport_meta": true,
-      "safe_area_compliant": false,
+      "safe_area_compliant": true,
       "font_stack": "Unknown",
       "overflow_traps": [],
       "status": "PASS"
@@ -40,7 +40,7 @@
     {
       "name": "cbt_analysis.html",
       "viewport_meta": true,
-      "safe_area_compliant": false,
+      "safe_area_compliant": true,
       "font_stack": "Unknown",
       "overflow_traps": [],
       "status": "PASS"
@@ -56,7 +56,7 @@
     {
       "name": "cbt_exam.html",
       "viewport_meta": true,
-      "safe_area_compliant": false,
+      "safe_area_compliant": true,
       "font_stack": "Unknown",
       "overflow_traps": [],
       "status": "PASS"
@@ -72,7 +72,7 @@
     {
       "name": "cbt_instructions.html",
       "viewport_meta": true,
-      "safe_area_compliant": false,
+      "safe_area_compliant": true,
       "font_stack": "Unknown",
       "overflow_traps": [],
       "status": "PASS"
@@ -104,7 +104,7 @@
     {
       "name": "coaching.html",
       "viewport_meta": true,
-      "safe_area_compliant": false,
+      "safe_area_compliant": true,
       "font_stack": "Unknown",
       "overflow_traps": [],
       "status": "PASS"
@@ -112,7 +112,7 @@
     {
       "name": "hackathon.html",
       "viewport_meta": true,
-      "safe_area_compliant": false,
+      "safe_area_compliant": true,
       "font_stack": "Unknown",
       "overflow_traps": [],
       "status": "PASS"
@@ -120,7 +120,7 @@
     {
       "name": "index.html",
       "viewport_meta": true,
-      "safe_area_compliant": false,
+      "safe_area_compliant": true,
       "font_stack": "Unknown",
       "overflow_traps": [],
       "status": "PASS"
@@ -128,7 +128,7 @@
     {
       "name": "inspiration.html",
       "viewport_meta": true,
-      "safe_area_compliant": false,
+      "safe_area_compliant": true,
       "font_stack": "Unknown",
       "overflow_traps": [],
       "status": "PASS"
@@ -136,7 +136,7 @@
     {
       "name": "login.html",
       "viewport_meta": true,
-      "safe_area_compliant": false,
+      "safe_area_compliant": true,
       "font_stack": "Unknown",
       "overflow_traps": [],
       "status": "PASS"
@@ -144,7 +144,7 @@
     {
       "name": "mini_timer.html",
       "viewport_meta": true,
-      "safe_area_compliant": false,
+      "safe_area_compliant": true,
       "font_stack": "Unknown",
       "overflow_traps": [],
       "status": "PASS"
@@ -152,7 +152,7 @@
     {
       "name": "settings.html",
       "viewport_meta": true,
-      "safe_area_compliant": false,
+      "safe_area_compliant": true,
       "font_stack": "Unknown",
       "overflow_traps": [],
       "status": "PASS"
@@ -168,7 +168,7 @@
     {
       "name": "task.html",
       "viewport_meta": true,
-      "safe_area_compliant": false,
+      "safe_area_compliant": true,
       "font_stack": "Unknown",
       "overflow_traps": [],
       "status": "PASS"
@@ -176,7 +176,7 @@
     {
       "name": "test_centre.html",
       "viewport_meta": true,
-      "safe_area_compliant": false,
+      "safe_area_compliant": true,
       "font_stack": "Unknown",
       "overflow_traps": [],
       "status": "PASS"
@@ -184,7 +184,7 @@
     {
       "name": "timer.html",
       "viewport_meta": true,
-      "safe_area_compliant": false,
+      "safe_area_compliant": true,
       "font_stack": "Unknown",
       "overflow_traps": [],
       "status": "PASS"
@@ -192,7 +192,7 @@
     {
       "name": "today.html",
       "viewport_meta": true,
-      "safe_area_compliant": false,
+      "safe_area_compliant": true,
       "font_stack": "Unknown",
       "overflow_traps": [],
       "status": "PASS"
@@ -200,7 +200,7 @@
     {
       "name": "tracker.html",
       "viewport_meta": true,
-      "safe_area_compliant": false,
+      "safe_area_compliant": true,
       "font_stack": "Unknown",
       "overflow_traps": [],
       "status": "PASS"

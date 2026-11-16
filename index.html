@@ -48,15 +48,15 @@
 
   <style>
     :root {
-      --bg-base: #07080d;
-      --bg-surface: #10121b;
-      --bg-elevated: #161924;
+      --bg-base: #000000;
+      --bg-surface: #1c1c1e;
+      --bg-elevated: #2c2c2e;
       --border-subtle: rgba(255, 255, 255, 0.08);
-      --border-focus: rgba(99, 102, 241, 0.5);
-      --accent: #6366f1;
-      --accent-soft: rgba(99, 102, 241, 0.16);
-      --text-primary: #f3f4f6;
-      --text-secondary: #9ca3af;
+      --border-focus: rgba(10, 132, 255, 0.5);
+      --accent: #0a84ff;
+      --accent-soft: rgba(10, 132, 255, 0.16);
+      --text-primary: #ffffff;
+      --text-secondary: rgba(235, 235, 245, 0.64);
     }
 
     /* Industrial Bauhaus Theme (Hallmark Design System) */
@@ -77,20 +77,24 @@
     body {
       background-color: var(--bg-base);
       color: var(--text-primary);
-      font-family: 'Inter', sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "SF Pro", 'Inter', sans-serif;
       min-height: 100vh;
       overflow-x: hidden;
+      padding-top: env(safe-area-inset-top);
+      padding-bottom: env(safe-area-inset-bottom);
+      padding-left: env(safe-area-inset-left);
+      padding-right: env(safe-area-inset-right);
     }
 
-    .mono { font-family: 'JetBrains Mono', monospace; }
+    .mono { font-family: "SF Mono", "JetBrains Mono", Menlo, monospace; }
 
     .glass-card {
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      background: rgba(16, 18, 27, 0.7);
+      backdrop-filter: blur(25px) saturate(190%);
+      -webkit-backdrop-filter: blur(25px) saturate(190%);
+      background: rgba(28, 28, 30, 0.72);
       border: 1px solid var(--border-subtle);
       border-radius: 16px;
-      transition: all 0.25s ease;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     [data-theme="industrial_bauhaus"] .glass-card,

@@ -239,9 +239,9 @@ body {
   color: #fff;
 }
 .nav-btn.nav-active {
-  background: rgba(0, 240, 255, 0.15);
-  color: #00f0ff;
-  border-color: rgba(0, 240, 255, 0.4);
+  background: rgba(10, 132, 255, 0.15);
+  color: #0a84ff;
+  border-color: rgba(10, 132, 255, 0.4);
   font-weight: 600;
 }
 .nav-caret {
@@ -263,17 +263,17 @@ body {
   left: 0;
   margin-top: 6px;
   min-width: 215px;
-  background: rgba(10, 14, 28, 0.92);
-  border: 1px solid rgba(0, 240, 255, 0.45);
+  background: rgba(28, 28, 30, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 14px;
   padding: 6px;
   display: none !important;
   flex-direction: column;
   gap: 2px;
   z-index: 100;
-  box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.85), 0 0 20px rgba(0, 240, 255, 0.22), inset 0 0 12px rgba(0, 240, 255, 0.05);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.06);
+  backdrop-filter: var(--cbt-glass-blur);
+  -webkit-backdrop-filter: var(--cbt-glass-blur);
 }
 .nav-dropdown:hover .nav-dropdown-menu,
 .nav-dropdown:focus-within .nav-dropdown-menu {
@@ -291,8 +291,8 @@ body {
   gap: 8px;
 }
 .nav-dropdown-item:hover {
-  background: rgba(0, 240, 255, 0.15);
-  color: #00f0ff;
+  background: rgba(10, 132, 255, 0.12);
+  color: #0a84ff;
 }
 
 /* Scrollbars */
@@ -362,20 +362,20 @@ body {
   width: 40px;
   height: 40px;
   border-radius: var(--cbt-radius-md);
-  background: linear-gradient(135deg, rgba(0, 240, 255, 0.16), rgba(99, 102, 241, 0.28));
-  border: 1px solid rgba(0, 240, 255, 0.45);
+  background: rgba(10, 132, 255, 0.12);
+  border: 1px solid rgba(10, 132, 255, 0.35);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 16px rgba(0, 240, 255, 0.35);
-  transition: all 0.25s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.25s var(--cbt-ease-apple);
   flex-shrink: 0;
 }
 
 .cbt-sidebar-brand:hover .cbt-brand-logo {
-  box-shadow: 0 0 25px rgba(0, 240, 255, 0.65);
-  border-color: #00f0ff;
-  transform: scale(1.05);
+  box-shadow: 0 4px 16px rgba(10, 132, 255, 0.3);
+  border-color: #0a84ff;
+  transform: scale(1.03);
 }
 
 .cbt-logo-svg {
@@ -468,7 +468,7 @@ body {
   background: var(--cbt-accent);
   color: #fff;
   font-weight: 600;
-  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35);
+  box-shadow: 0 4px 12px rgba(10, 132, 255, 0.3);
 }
 
 .cbt-nav-icon {
@@ -571,7 +571,7 @@ body {
 .cbt-btn-primary {
   background: var(--cbt-accent);
   color: white;
-  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
+  box-shadow: 0 4px 14px rgba(10, 132, 255, 0.3);
 }
 
 .cbt-btn-primary:hover {
@@ -650,7 +650,7 @@ body {
 .cbt-tab-btn.active {
   background: var(--cbt-accent);
   color: #fff;
-  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
+  box-shadow: 0 2px 8px rgba(10, 132, 255, 0.25);
 }
 
 /* Toast Notifications */
@@ -719,7 +719,7 @@ a:focus-visible,
 input:focus-visible, 
 select:focus-visible, 
 textarea:focus-visible {
-  outline: 2px solid var(--cbt-accent, #6366f1) !important;
+  outline: 2px solid var(--cbt-accent, #0a84ff) !important;
   outline-offset: 2px !important;
 }
 

@@ -1,7 +1,28 @@
 {
-  "catalog_version": "1.0.0",
-  "source": "nutlope/hallmark (Together AI) adapted for ClockEE",
+  "catalog_version": "2.0.0",
+  "source": "Apple Human Interface Guidelines & nutlope/hallmark adapted for ClockEE",
   "themes": [
+    {
+      "id": "apple_dark",
+      "name": "Apple Human Interface True Dark",
+      "category": "Flagship Operating System",
+      "recommended_for": ["index.html", "cbt_home.html", "cbt_exam.html", "today.html", "tracker.html"],
+      "mood": "Sleek, minimalist, distraction-free, Apple SF Pro typography with authentic frosted glass",
+      "fonts": {
+        "heading": "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro', sans-serif",
+        "body": "-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro', sans-serif",
+        "mono": "'SF Mono', 'JetBrains Mono', Menlo, monospace"
+      },
+      "palette": {
+        "bg": "#000000",
+        "surface": "#1c1c1e",
+        "text_primary": "#ffffff",
+        "text_secondary": "rgba(235, 235, 245, 0.64)",
+        "accent": "#0a84ff",
+        "border": "rgba(255, 255, 255, 0.08)"
+      },
+      "rules": "True black #000000, hairline 1px borders, squircle 12px/16px/22px corners, blur(25px) saturate(190%) frosted glass, Apple System Blue #0a84ff."
+    },
     {
       "id": "swiss_editorial",
       "name": "Swiss International Editorial",

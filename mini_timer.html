@@ -39,6 +39,18 @@
       box-shadow: 0 4px 24px rgba(0, 0, 0, 0.9), 0 0 16px rgba(255, 158, 59, 0.08);
     }
   </style>
+
+  <!-- Apple Human Interface Design System & Safe Area Support -->
+  <style>
+    @supports (padding: max(0px)) {
+      body {
+        padding-top: max(0px, env(safe-area-inset-top));
+        padding-bottom: max(0px, env(safe-area-inset-bottom));
+        padding-left: max(0px, env(safe-area-inset-left));
+        padding-right: max(0px, env(safe-area-inset-right));
+      }
+    }
+  </style>
 </head>
 <body class="flex items-center justify-center min-h-screen">
   <div class="glass-box p-5 w-full max-w-sm text-center space-y-4">

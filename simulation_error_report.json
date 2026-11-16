@@ -1,39 +1,82 @@
 {
-  "simulationId": "sim_py_1794826087088",
+  "simulationId": "sim_py_1794832071458",
   "title": "Autonomous Full Mock Simulation",
-  "timestamp": "2026-11-16T16:18:07.088978",
+  "timestamp": "2026-11-16T17:57:51.460321",
   "metrics": {
-    "score": 20,
+    "score": 10,
     "maxScore": 20,
-    "accuracy": 100.0,
+    "accuracy": 60.0,
     "attempted": 5,
     "totalQs": 5,
-    "avgLatencySec": 73,
+    "avgLatencySec": 69,
     "timeTakenMin": 6
   },
-  "errorCount": 0,
-  "mistakes": [],
+  "errorCount": 2,
+  "mistakes": [
+    {
+      "id": "mistake_sim_py_1794832071458_3",
+      "testId": "sim_py_1794832071458",
+      "testTitle": "Autonomous Full Mock Simulation",
+      "qNum": 3,
+      "subject": "Maths",
+      "chapter": "Matrices & Determinants",
+      "topic": "JEE Main",
+      "questionText": "The system of linear equations\n[24 Feb, 2021 (Shift-I)]\n \n 3\n2\n10\nx\ny\nkz\n\u2212\n\u2212\n=\n \n 2\n4\n2\n6\nx\ny\nz\n\u2212\n\u2212\n=\n \n \n2\n5\nx\ny\nz\nm\n+\n\u2212\n=\n \n is inconsistent if",
+      "markedOption": "Option (B)",
+      "correctOption": "Option (A)",
+      "errorCategory": "Calculation Mistake",
+      "reason": "Calculation Mistake",
+      "reasonDetail": "Selected Option (B) instead of (A).",
+      "idealTimeSec": 75,
+      "timeSpentSec": 68,
+      "date": "2026-11-16",
+      "important": true,
+      "bookmarked": true,
+      "status": "unresolved"
+    },
+    {
+      "id": "mistake_sim_py_1794832071458_4",
+      "testId": "sim_py_1794832071458",
+      "testTitle": "Autonomous Full Mock Simulation",
+      "qNum": 4,
+      "subject": "Maths",
+      "chapter": "Complex Numbers",
+      "topic": "JEE Advanced",
+      "questionText": "For complex numbers z1 = x1 + iy1 and z2 = x2 + iy2 we write \n z1 \u2229 z2, if x1 \u2264 x2 and y1 \u2264 y2. Then, for all complex numbers z with \n1 \u2229 z, we have 1\n0\n1\n\u2212\n\u2229\n+\nz\nz\n.\n[IIT-JEE 1981]\nSubjective",
+      "markedOption": "-1.0",
+      "correctOption": "1.0",
+      "errorCategory": "Sign / Inversion Error",
+      "reason": "Sign / Inversion Error",
+      "reasonDetail": "Sign inversion error: entered -1.0 vs expected 1.0. Verify direction vector.",
+      "idealTimeSec": 75,
+      "timeSpentSec": 68,
+      "date": "2026-11-16",
+      "important": true,
+      "bookmarked": true,
+      "status": "unresolved"
+    }
+  ],
   "subjectBreakdown": {
     "Physics": {
       "attempted": 1,
       "correct": 1,
       "wrong": 0,
       "score": 4,
-      "time_sec": 68
+      "time_sec": 54
     },
     "Chemistry": {
       "attempted": 1,
       "correct": 1,
       "wrong": 0,
       "score": 4,
-      "time_sec": 72
+      "time_sec": 85
     },
     "Maths": {
       "attempted": 3,
-      "correct": 3,
-      "wrong": 0,
-      "score": 12,
-      "time_sec": 225
+      "correct": 1,
+      "wrong": 2,
+      "score": 2,
+      "time_sec": 205
     }
   }
 }

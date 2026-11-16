@@ -78,6 +78,18 @@
       word-break: break-word;
     }
   </style>
+
+  <!-- Apple Human Interface Design System & Safe Area Support -->
+  <style>
+    @supports (padding: max(0px)) {
+      body {
+        padding-top: max(0px, env(safe-area-inset-top));
+        padding-bottom: max(0px, env(safe-area-inset-bottom));
+        padding-left: max(0px, env(safe-area-inset-left));
+        padding-right: max(0px, env(safe-area-inset-right));
+      }
+    }
+  </style>
 </head>
 <body class="min-h-screen p-3 sm:p-6 lg:p-8 selection:bg-cyan-500/30 selection:text-cyan-200 overflow-x-hidden max-w-[100vw]">
 

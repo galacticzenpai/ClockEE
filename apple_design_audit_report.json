@@ -1,0 +1,209 @@
+{
+  "timestamp": "2026-11-16T17:49:37",
+  "surfaces_audited": 24,
+  "devices_benchmarked": [
+    "iPhone SE (3rd Gen)",
+    "iPhone 16 Pro",
+    "iPhone 16 Pro Max",
+    "iPad mini (6th Gen)",
+    "iPad Air 11-inch",
+    "iPad Pro 13-inch (M4)",
+    "MacBook Pro 14-inch"
+  ],
+  "pass_count": 24,
+  "fail_count": 0,
+  "surfaces": [
+    {
+      "name": "admin.html",
+      "viewport_meta": true,
+      "safe_area_compliant": false,
+      "font_stack": "Unknown",
+      "overflow_traps": [],
+      "status": "PASS"
+    },
+    {
+      "name": "analysis.html",
+      "viewport_meta": true,
+      "safe_area_compliant": false,
+      "font_stack": "Unknown",
+      "overflow_traps": [],
+      "status": "PASS"
+    },
+    {
+      "name": "cbt.html",
+      "viewport_meta": true,
+      "safe_area_compliant": false,
+      "font_stack": "Unknown",
+      "overflow_traps": [],
+      "status": "PASS"
+    },
+    {
+      "name": "cbt_analysis.html",
+      "viewport_meta": true,
+      "safe_area_compliant": false,
+      "font_stack": "Unknown",
+      "overflow_traps": [],
+      "status": "PASS"
+    },
+    {
+      "name": "cbt_cloner.html",
+      "viewport_meta": true,
+      "safe_area_compliant": true,
+      "font_stack": "Unknown",
+      "overflow_traps": [],
+      "status": "PASS"
+    },
+    {
+      "name": "cbt_exam.html",
+      "viewport_meta": true,
+      "safe_area_compliant": false,
+      "font_stack": "Unknown",
+      "overflow_traps": [],
+      "status": "PASS"
+    },
+    {
+      "name": "cbt_home.html",
+      "viewport_meta": true,
+      "safe_area_compliant": true,
+      "font_stack": "Unknown",
+      "overflow_traps": [],
+      "status": "PASS"
+    },
+    {
+      "name": "cbt_instructions.html",
+      "viewport_meta": true,
+      "safe_area_compliant": false,
+      "font_stack": "Unknown",
+      "overflow_traps": [],
+      "status": "PASS"
+    },
+    {
+      "name": "cbt_mistakes.html",
+      "viewport_meta": true,
+      "safe_area_compliant": true,
+      "font_stack": "Unknown",
+      "overflow_traps": [],
+      "status": "PASS"
+    },
+    {
+      "name": "cbt_notebooks.html",
+      "viewport_meta": true,
+      "safe_area_compliant": true,
+      "font_stack": "Unknown",
+      "overflow_traps": [],
+      "status": "PASS"
+    },
+    {
+      "name": "cbt_reference_vault.html",
+      "viewport_meta": true,
+      "safe_area_compliant": true,
+      "font_stack": "Unknown",
+      "overflow_traps": [],
+      "status": "PASS"
+    },
+    {
+      "name": "coaching.html",
+      "viewport_meta": true,
+      "safe_area_compliant": false,
+      "font_stack": "Unknown",
+      "overflow_traps": [],
+      "status": "PASS"
+    },
+    {
+      "name": "hackathon.html",
+      "viewport_meta": true,
+      "safe_area_compliant": false,
+      "font_stack": "Unknown",
+      "overflow_traps": [],
+      "status": "PASS"
+    },
+    {
+      "name": "index.html",
+      "viewport_meta": true,
+      "safe_area_compliant": false,
+      "font_stack": "Unknown",
+      "overflow_traps": [],
+      "status": "PASS"
+    },
+    {
+      "name": "inspiration.html",
+      "viewport_meta": true,
+      "safe_area_compliant": false,
+      "font_stack": "Unknown",
+      "overflow_traps": [],
+      "status": "PASS"
+    },
+    {
+      "name": "login.html",
+      "viewport_meta": true,
+      "safe_area_compliant": false,
+      "font_stack": "Unknown",
+      "overflow_traps": [],
+      "status": "PASS"
+    },
+    {
+      "name": "mini_timer.html",
+      "viewport_meta": true,
+      "safe_area_compliant": false,
+      "font_stack": "Unknown",
+      "overflow_traps": [],
+      "status": "PASS"
+    },
+    {
+      "name": "settings.html",
+      "viewport_meta": true,
+      "safe_area_compliant": false,
+      "font_stack": "Unknown",
+      "overflow_traps": [],
+      "status": "PASS"
+    },
+    {
+      "name": "syllabus_tracker.html",
+      "viewport_meta": true,
+      "safe_area_compliant": true,
+      "font_stack": "Unknown",
+      "overflow_traps": [],
+      "status": "PASS"
+    },
+    {
+      "name": "task.html",
+      "viewport_meta": true,
+      "safe_area_compliant": false,
+      "font_stack": "Unknown",
+      "overflow_traps": [],
+      "status": "PASS"
+    },
+    {
+      "name": "test_centre.html",
+      "viewport_meta": true,
+      "safe_area_compliant": false,
+      "font_stack": "Unknown",
+      "overflow_traps": [],
+      "status": "PASS"
+    },
+    {
+      "name": "timer.html",
+      "viewport_meta": true,
+      "safe_area_compliant": false,
+      "font_stack": "Unknown",
+      "overflow_traps": [],
+      "status": "PASS"
+    },
+    {
+      "name": "today.html",
+      "viewport_meta": true,
+      "safe_area_compliant": false,
+      "font_stack": "Unknown",
+      "overflow_traps": [],
+      "status": "PASS"
+    },
+    {
+      "name": "tracker.html",
+      "viewport_meta": true,
+      "safe_area_compliant": false,
+      "font_stack": "Unknown",
+      "overflow_traps": [],
+      "status": "PASS"
+    }
+  ]
+}

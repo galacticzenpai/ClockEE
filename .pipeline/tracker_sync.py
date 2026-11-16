@@ -342,9 +342,13 @@ def build_tracker_state():
     try:
         with open(TRACKER_STATE_FILE, "w", encoding="utf-8") as f:
             json.dump(tracker_state, f, indent=2)
-        print("✔ tracker_state.json updated with live conversation progress engine.")
+        # Also write standalone tracker_data.js for CORS-free file:// protocol loading
+        TRACKER_JS_FILE = PIPELINE_DIR / "tracker_data.js"
+        with open(TRACKER_JS_FILE, "w", encoding="utf-8") as jf:
+            jf.write("window.TRACKER_DATA = " + json.dumps(tracker_state, indent=2) + ";\n")
+        print("✔ tracker_state.json & tracker_data.js updated with live conversation progress engine.")
     except Exception as e:
-        print(f"Error saving tracker_state.json: {e}")
+        print(f"Error saving tracker state: {e}")
 
 if __name__ == "__main__":
     build_tracker_state()

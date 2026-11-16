@@ -1,33 +1,28 @@
 {
   "version": "1.0.0",
   "active_reel": {
-    "id": "reel_003",
-    "url": "https://www.instagram.com/p/DfDPuZjE-7Q/",
+    "id": "reel_001",
+    "url": "https://www.instagram.com/p/DfFUVDVKwF5/",
+    "name": "Graphify Codebase Knowledge Graph",
+    "upstream": "Graphify-Labs/graphify",
     "status": "QUEUED_FOR_INGESTION",
-    "added_at": "2026-11-16T11:15:00Z"
+    "added_at": "2026-11-16T11:23:00Z"
   },
-  "completed_reels": [
-    {
-      "id": "reel_001",
-      "url": "https://www.instagram.com/p/DfFUVDVKwF5/",
-      "name": "Graphify",
-      "upstream": "Graphify-Labs/graphify",
-      "status": "COMPLETED",
-      "completed_at": "2026-11-16T03:49:10Z"
-    },
-    {
-      "id": "reel_002",
-      "url": "https://www.instagram.com/p/De63OT8Sqwg/",
-      "name": "LLM-Lint",
-      "upstream": "JadenRazo/llm-lint",
-      "status": "COMPLETED",
-      "completed_at": "2026-11-16T11:14:00Z"
-    }
-  ],
+  "completed_reels": [],
   "backlog": [
     {
+      "index": 2,
+      "id": "reel_002",
+      "url": "https://www.instagram.com/p/De63OT8Sqwg/",
+      "source_handle": "waitwhatdidyoudo",
+      "status": "PENDING"
+    },
+    {
       "index": 3,
-      "url": "https://www.instagram.com/p/De6ttI-zAba/",
+      "id": "reel_003",
+      "url": "https://www.instagram.com/p/DfDPuZjE-7Q/",
+      "status": "PENDING"
+    },
       "status": "PENDING"
     },
     {

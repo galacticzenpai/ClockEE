@@ -367,23 +367,47 @@
       window.scrollTo({ top: 120, behavior: 'smooth' });
     }
 
-    async function fetchState() {
-      try {
-        const dot = document.getElementById('heartbeat-dot');
-        if (dot) dot.classList.add('bg-cyan-400');
-        const res = await fetch('.pipeline/tracker_state.json?t=' + Date.now());
-        if (!res.ok) return;
-        globalData = await res.json();
-        renderCockpit(globalData);
+    function fetchState() {
+      const dot = document.getElementById('heartbeat-dot');
+      if (dot) dot.classList.add('bg-cyan-400');
+
+      // Primary: Dynamic Script Injection (Bypasses file:// CORS restrictions completely)
+      const scriptId = 'dynamic-tracker-script';
+      const oldScript = document.getElementById(scriptId);
+      if (oldScript) oldScript.remove();
+
+      const script = document.createElement('script');
+      script.id = scriptId;
+      script.src = '.pipeline/tracker_data.js?t=' + Date.now();
+      script.onload = () => {
+        if (window.TRACKER_DATA) {
+          globalData = window.TRACKER_DATA;
+          renderCockpit(globalData);
+        }
         if (dot) {
           setTimeout(() => {
             dot.classList.remove('bg-cyan-400');
             dot.classList.add('bg-emerald-400');
           }, 300);
         }
-      } catch (err) {
-        console.warn('Tracker auto-sync error:', err);
-      }
+      };
+      script.onerror = () => {
+        // Fallback: fetch if running under HTTP/HTTPS local server
+        fetch('.pipeline/tracker_state.json?t=' + Date.now())
+          .then(res => res.json())
+          .then(data => {
+            globalData = data;
+            renderCockpit(globalData);
+            if (dot) {
+              setTimeout(() => {
+                dot.classList.remove('bg-cyan-400');
+                dot.classList.add('bg-emerald-400');
+              }, 300);
+            }
+          })
+          .catch(e => console.warn('Tracker auto-sync fallback:', e));
+      };
+      document.head.appendChild(script);
     }
 
     function renderCockpit(data) {

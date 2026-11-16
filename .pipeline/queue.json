@@ -37,9 +37,9 @@
       "url": "https://antigravity.google.com/r/21bf6843-8cfa-4328-afad-58c97e63b317-v2?p=c%2Fe6690e55-bfca-4ce1-af20-843015d7d01b"
     },
     "bug_fixes": {
-      "id": "6b74e384-a9b2-458e-ba34-4798334dd509",
+      "id": "c05ee59e-9749-4bc3-8bea-57ea8b60874c",
       "role": "Bug Fixes & Surgical Patches",
-      "url": "https://antigravity.google.com/r/21bf6843-8cfa-4328-afad-58c97e63b317-v2?p=c%2F6b74e384-a9b2-458e-ba34-4798334dd509"
+      "url": "https://antigravity.google.com/r/21bf6843-8cfa-4328-afad-58c97e63b317-v2?p=c%2Fc05ee59e-9749-4bc3-8bea-57ea8b60874c"
     },
     "planning": {
       "id": "b411e7a0-c268-4614-b3d5-f2b2836f4500",
@@ -76,8 +76,9 @@
       "simulation": {
         "target_id": "62adc180-be21-4671-848c-c8df59e2c202",
         "target_name": "SIMULATION",
-        "status": "PENDING",
-        "instruction": "Dray Quality Gates:\n1. Execute python integrations/dray_cross_model/dray_bridge.py demo to verify link generation exits 0.\n2. Verify that protected files guardrails (cbt_master_bank.js, backend/db.py) are never breached in handoffs.\n3. Run Hallmark sloplint (100/100 score target)."
+        "status": "DISPATCHED_TO_CONVERSATION",
+        "instruction": "Dray Quality Gates:\n1. Execute python integrations/dray_cross_model/dray_bridge.py demo to verify link generation exits 0.\n2. Verify that protected files guardrails (cbt_master_bank.js, backend/db.py) are never breached in handoffs.\n3. Run Hallmark sloplint (100/100 score target).",
+        "staged_at": "2026-11-16T11:29:15.214289"
       },
       "db_backend": {
         "target_id": "d3700ff3-1bfb-458a-9968-8257ef2ca7e2",

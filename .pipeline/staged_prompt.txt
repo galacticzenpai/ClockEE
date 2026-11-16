@@ -1,7 +1,10 @@
-You are SIMULATION.
+You are BUG FIXES.
 
 --- TASK ASSIGNMENT ---
-Awaiting implementation to execute sloplint 100/100 and security gates.
+You are BUG FIXES.
+Prerequisites Met: SIMULATION has completed Phase 3 design certification (23/23 pages scored 100/100 on sloplint.py). Cloudflare security audit report has been compiled and saved.
+
+Please inspect `integrations/cloudflare_security_audit/reports/audit_report_1794804948.json` and perform surgical sanitization on the verified unescaped `innerHTML` dynamic injection sinks across key templates (starting with `admin.html`, `cbt_exam.html`, and `cbt_analysis.html`) using `textContent` or proper entity escaping.
 
 --- MESH COORDINATION DIRECTIVE ---
 1. Implement all domain fixes and features cleanly without disturbing sibling modules.

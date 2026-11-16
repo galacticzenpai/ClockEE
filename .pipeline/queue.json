@@ -97,6 +97,15 @@
         "status": "DISPATCHED",
         "dispatched_at": "2026-11-16T09:55:12.258829",
         "action": "Supabase PostgreSQL redesign, Python server.py JWT auth, Google/GitHub OAuth, and SQLite migration."
+      },
+      "bug_fixes": {
+        "source": "simulation",
+        "target_key": "bug_fixes",
+        "target_name": "BUG FIXES",
+        "target_id": "6b74e384-a9b2-458e-ba34-4798334dd509",
+        "instruction": "You are BUG FIXES.\nPrerequisites Met: SIMULATION has completed Phase 3 design certification (23/23 pages scored 100/100 on sloplint.py). Cloudflare security audit report has been compiled and saved.\n\nPlease inspect `integrations/cloudflare_security_audit/reports/audit_report_1794804948.json` and perform surgical sanitization on the verified unescaped `innerHTML` dynamic injection sinks across key templates (starting with `admin.html`, `cbt_exam.html`, and `cbt_analysis.html`) using `textContent` or proper entity escaping.",
+        "status": "DISPATCHED_TO_CONVERSATION",
+        "staged_at": "2026-11-16T10:26:33.137296"
       }
     }
   }

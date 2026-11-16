@@ -1,0 +1,70 @@
+{
+  "timestamp": "2026-11-16T14:52:42.522974",
+  "task": "RLS Policy Enforcement & Endpoint Audit",
+  "verdict": "PASSED",
+  "rls_audit": {
+    "anon_select_profiles": {
+      "rows_returned": 0,
+      "is_empty": true,
+      "enforced": true
+    },
+    "anon_select_student_states": {
+      "rows_returned": 0,
+      "is_empty": true,
+      "enforced": true
+    },
+    "anon_select_cbt_results": {
+      "rows_returned": 0,
+      "is_empty": true,
+      "enforced": true
+    },
+    "anon_select_study_sessions": {
+      "rows_returned": 0,
+      "is_empty": true,
+      "enforced": true
+    },
+    "anon_insert_profiles": {
+      "blocked": true,
+      "error": "{'message': 'new row violates row-level security policy for table \"profiles\"', 'code': '42501', 'hint': None, 'details': None}"
+    },
+    "anon_insert_student_states": {
+      "blocked": true,
+      "error": "{'message': 'new row violates row-level security policy for table \"student_states\"', 'code': '42501', 'hint': None, 'details': None}"
+    },
+    "anon_insert_cbt_results": {
+      "blocked": true,
+      "error": "{'message': 'new row violates row-level security policy for table \"cbt_results\"', 'code': '42501', 'hint': None, 'details': None}"
+    },
+    "service_role_bypass": {
+      "status": "LEAST_PRIVILEGE_MODE",
+      "verified": true
+    }
+  },
+  "endpoint_audit": {
+    "health": {
+      "status": 200,
+      "latency_ms": 2319.55,
+      "connected": true,
+      "supabase_url": "https://qvrfakbhnsmknukaqmja.supabase.co"
+    },
+    "auth_providers": {
+      "status": 200,
+      "latency_ms": 42.77,
+      "providers_count": 2
+    },
+    "sync_missing_auth": {
+      "status": 401,
+      "rejected_unauthenticated": true
+    },
+    "sync_batch": {
+      "status": 200,
+      "latency_ms": 255.77,
+      "synced_logs": 2,
+      "synced_exams": 1
+    },
+    "state_hydration": {
+      "status": 200,
+      "latency_ms": 222.94
+    }
+  }
+}

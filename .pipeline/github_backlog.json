@@ -1,21 +1,23 @@
 {
   "version": "1.0.0",
   "active_reel": {
-    "id": "reel_001",
-    "url": "https://www.instagram.com/p/DfFUVDVKwF5/",
+    "id": "reel_002",
+    "url": "https://www.instagram.com/p/De63OT8Sqwg/",
     "source_handle": "waitwhatdidyoudo",
-    "name": "Graphify",
-    "upstream": "Graphify-Labs/graphify",
-    "feature": "Codebase Knowledge Graph & God Node Inspector",
-    "status": "QUEUED_PENDING_PIPELINE_CLEARANCE",
-    "added_at": "2026-11-16T00:55:00Z"
+    "status": "QUEUED_FOR_INGESTION",
+    "added_at": "2026-11-16T09:20:00Z"
   },
-  "backlog": [
+  "completed_reels": [
     {
-      "index": 1,
-      "url": "https://www.instagram.com/p/De63OT8Sqwg/",
-      "status": "PENDING"
-    },
+      "id": "reel_001",
+      "url": "https://www.instagram.com/p/DfFUVDVKwF5/",
+      "name": "Graphify",
+      "upstream": "Graphify-Labs/graphify",
+      "status": "COMPLETED",
+      "completed_at": "2026-11-16T03:49:10Z"
+    }
+  ],
+  "backlog": [
     {
       "index": 2,
       "url": "https://www.instagram.com/p/DfDPuZjE-7Q/",

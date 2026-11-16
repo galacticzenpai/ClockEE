@@ -85,3 +85,15 @@ This directory contains the 5 packages adapted from the developer showcase (`pet
 * **Hook Install**: `python integrations/llm_lint/lint_runner.py install-hook`
 * **Reports Directory**: `integrations/llm_lint/reports/`
 * **Purpose**: Scans repository commits, docstrings, and pull requests to detect and clean unwanted AI attribution watermarks (`Co-authored-by: Claude`, `Generated with Claude Code`, prompt leaks) and installs an automatic Git `commit-msg` sanitizer hook.
+
+---
+
+### 10. Dray: Cross-Model Context Handoff Bridge (`/link`)
+* **Source Showcase**: `withdray_ [DfDPuZjE-7Q]`
+* **Upstream**: `monorepo-labs/dray` / `drayhq.com`
+* **Directory**: `integrations/dray_cross_model/`
+* **Skill Specification**: `integrations/dray_cross_model/SKILL.md`
+* **Core Script**: `integrations/dray_cross_model/dray_bridge.py`
+* **Commands**: `python integrations/dray_cross_model/dray_bridge.py demo | link | verify`
+* **Payload File**: `integrations/dray_cross_model/dray_link_payload.md`
+* **Purpose**: Solves AI usage limit cutoffs and session resets by capturing in-flight task progress, active files, and strict protected guardrails into a standardized `/link` handoff payload for the next model to resume without context loss.

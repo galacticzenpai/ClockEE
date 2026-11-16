@@ -52,9 +52,9 @@ CONVERSATION_REGISTRY = {
     },
     "bug_fixes": {
         "name": "BUG FIXES",
-        "id": "6b74e384-a9b2-458e-ba34-4798334dd509",
+        "id": "c05ee59e-9749-4bc3-8bea-57ea8b60874c",
         "role": "Surgical Defect Remediation & Hotfixes",
-        "url": "https://antigravity.google.com/r/21bf6843-8cfa-4328-afad-58c97e63b317-v2?p=c%2F6b74e384-a9b2-458e-ba34-4798334dd509"
+        "url": "https://antigravity.google.com/r/21bf6843-8cfa-4328-afad-58c97e63b317-v2?p=c%2Fc05ee59e-9749-4bc3-8bea-57ea8b60874c"
     },
     "q_a": {
         "name": "Q / A",

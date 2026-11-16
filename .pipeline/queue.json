@@ -53,29 +53,36 @@
     }
   },
   "current_batch": {
-    "batch_id": "batch_reel_001_cycle",
-    "source": "backbone",
-    "reel_url": "https://www.instagram.com/p/DfFUVDVKwF5/",
-    "status": "ACTIVE",
-    "timestamp": "2026-11-16T11:24:00Z",
+    "batch_id": "batch_dray_cross_model_003",
+    "source": "github",
+    "package": "monorepo-labs/dray",
+    "status": "QUEUED",
+    "timestamp": "2026-11-16T11:28:00Z",
     "tasks": {
-      "github": {
-        "target_key": "github",
-        "target_name": "GITHUB",
-        "target_id": "a64c937f-bb58-4071-8eb9-32f5edbb6c2c",
-        "status": "QUEUED",
-        "reel_url": "https://www.instagram.com/p/DfFUVDVKwF5/",
-        "action": "Ingest Reel #1 (Graphify Codebase Knowledge Graph), vendor package, and emit cross-mesh handoff blocks for Main Feature, UI/UX, DB, and Simulation.",
-        "instruction": "Active Reel: Reel #1 (https://www.instagram.com/p/DfFUVDVKwF5/)\nPackage Name: Graphify Codebase Knowledge Graph\nUpstream: Graphify-Labs/graphify\nBacklog: .pipeline/github_backlog.json\n\nPlease execute Reel #1 ingestion:\n1. Verify package vendoring in integrations/graphify/ with 263 entities and 320 edges indexed.\n2. Ensure GRAPH_REPORT.md and graph_runner.py are verified.\n3. Output cross-mesh handoff blocks for Untitled conversation (Main Feature), UI/UX, DB/Backend, and Simulation.\n4. Advance backlog in .pipeline/github_backlog.json and emit PIPELINE QUEUE & HANDOFF REPORT."
-      },
       "untitled_conversation": {
-        "source": "db_backend",
-        "target_key": "untitled_conversation",
-        "target_name": "Untitled conversation (Main Feature)",
         "target_id": "6371cba6-7d2f-4b29-a250-627d88d1b4f1",
-        "instruction": "You are Untitled conversation (Main Feature).\nPrerequisites Met: Supabase schema (backend/supabase_schema.sql), Python Gateway Bearer token middleware, and /api/sync batch offline endpoints completed and verified by DB / BACKEND.\n\nTASK ASSIGNMENT: CLIENT AUTHENTICATION & OFFLINE QUEUE WIRING\n\n1. Available Gateway Endpoints:\n   - GET /api/auth/providers?redirect_to=<url>: Returns OAuth URLs for Google and GitHub.\n   - POST /api/auth/session: Accepts { \"access_token\": \"<supabase_jwt>\" } to establish local session cache.\n   - POST /api/sync: Batch offline sync endpoint accepting:\n     {\n       \"user_id\": \"<uid>\",\n       \"timer_state\": { \"elapsed_seconds\": 1200, \"mode\": \"sprint\", \"is_paused\": false },\n       \"current_mode\": \"mains\" | \"advanced\",\n       \"active_deck\": \"<subject_or_chapter>\",\n       \"state\": { ... },\n       \"queued_logs\": [ { \"id\": \"...\", \"subject\": \"Physics\", \"chapter\": \"...\", \"duration\": 60, \"correct\": true, \"mistake\": \"\", \"score_delta\": 4, \"notes\": \"\" } ],\n       \"queued_exams\": [ { \"id\": \"...\", \"test_id\": \"...\", \"title\": \"...\", \"mode\": \"mains\", \"score\": 80, \"max_score\": 100, \"accuracy\": 80.0, \"time_spent\": 1800, \"responses\": [], \"analytics\": {} } ]\n     }\n   - GET /api/sync?user_id=<uid>: Hydrates localStorage with state and recent logs after offline reconnect.\n\n2. Client-Side Authentication Flow:\n   - Check if window.supabase is configured or if #access_token=... is present in URL hash on OAuth redirect return.\n   - When token is detected, send Bearer token in headers: { \"Authorization\": `Bearer ${token}` } for all API calls.\n   - If offline, queue completed question logs in localStorage under key 'clockee_offline_logs' and exams under 'clockee_offline_exams'.\n   - When navigator.onLine triggers 'online' event, flush queue by dispatching POST /api/sync.",
+        "target_name": "Untitled conversation (Main Feature)",
         "status": "DISPATCHED_TO_CONVERSATION",
-        "staged_at": "2026-11-16T11:24:30.341724"
+        "instruction": "Dray Cross-Model Session Bridge is vendored at integrations/dray_cross_model/.\n\nTask for Main Feature:\n1. Hook dray_bridge.py capture into long-running CBT exam flows and simulation runs so session progress can be frozen into active_session_snapshot.json on demand.\n2. In admin/developer tools, add a /link payload generator button to allow developer handoffs between models without lost context.",
+        "staged_at": "2026-11-16T11:28:42.862653"
+      },
+      "ui_ux": {
+        "target_id": "06a7d47b-b225-40f4-b830-b58baaaf8b3a",
+        "target_name": "UI / UX",
+        "status": "PENDING",
+        "instruction": "Dray Cross-Model UI Task:\n1. Follow Hallmark retro_terminal and technical_slate theme tokens for developer diagnostic /link modals.\n2. Ensure handoff payload cards display clear progress bars (e.g. 50% Step 2/4) with high-contrast text and zero purple radial gradients."
+      },
+      "simulation": {
+        "target_id": "62adc180-be21-4671-848c-c8df59e2c202",
+        "target_name": "SIMULATION",
+        "status": "PENDING",
+        "instruction": "Dray Quality Gates:\n1. Execute python integrations/dray_cross_model/dray_bridge.py demo to verify link generation exits 0.\n2. Verify that protected files guardrails (cbt_master_bank.js, backend/db.py) are never breached in handoffs.\n3. Run Hallmark sloplint (100/100 score target)."
+      },
+      "db_backend": {
+        "target_id": "d3700ff3-1bfb-458a-9968-8257ef2ca7e2",
+        "target_name": "DB / BACKEND",
+        "status": "PENDING",
+        "instruction": "Dray Backend Task:\n1. Ensure session snapshots serialize safely into SQLite agent_memory.db or sessions table if persistence across restarts is requested.\n2. Protect backend schema migrations from unverified agent edits."
       }
     }
   }

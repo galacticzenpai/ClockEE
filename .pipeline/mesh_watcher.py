@@ -47,7 +47,7 @@ WATCHED_CONVERSATIONS = {
         "name": "DB / BACKEND"
     },
     "bug_fixes": {
-        "id": "6b74e384-a9b2-458e-ba34-4798334dd509",
+        "id": "c05ee59e-9749-4bc3-8bea-57ea8b60874c",
         "name": "BUG FIXES"
     },
     "q_a": {

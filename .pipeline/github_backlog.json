@@ -1,30 +1,35 @@
 {
   "version": "1.0.0",
   "active_reel": {
-    "id": "reel_001",
-    "url": "https://www.instagram.com/p/DfFUVDVKwF5/",
-    "name": "Graphify Codebase Knowledge Graph",
-    "upstream": "Graphify-Labs/graphify",
+    "id": "reel_004",
+    "url": "https://www.instagram.com/p/De6ttI-zAba/",
     "status": "QUEUED_FOR_INGESTION",
-    "added_at": "2026-11-16T11:23:00Z"
+    "added_at": "2026-11-16T11:28:00Z"
   },
-  "completed_reels": [],
-  "backlog": [
+  "completed_reels": [
     {
-      "index": 2,
+      "id": "reel_001",
+      "url": "https://www.instagram.com/p/DfFUVDVKwF5/",
+      "name": "Graphify",
+      "upstream": "Graphify-Labs/graphify",
+      "status": "COMPLETED"
+    },
+    {
       "id": "reel_002",
       "url": "https://www.instagram.com/p/De63OT8Sqwg/",
-      "source_handle": "waitwhatdidyoudo",
-      "status": "PENDING"
+      "name": "LLM-Lint",
+      "upstream": "JadenRazo/llm-lint",
+      "status": "COMPLETED"
     },
     {
-      "index": 3,
       "id": "reel_003",
       "url": "https://www.instagram.com/p/DfDPuZjE-7Q/",
-      "status": "PENDING"
-    },
-      "status": "PENDING"
-    },
+      "name": "Dray Cross-Model Bridge",
+      "upstream": "monorepo-labs/dray",
+      "status": "COMPLETED"
+    }
+  ],
+  "backlog": [
     {
       "index": 4,
       "url": "https://www.instagram.com/p/DeW0tvNz2uR/",

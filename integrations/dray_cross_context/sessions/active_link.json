@@ -1,0 +1,31 @@
+{
+  "link_id": "link_1794808717_f7a39c",
+  "timestamp": "2026-11-16 11:28:37",
+  "originating_model": "Claude",
+  "task_description": "Initial mesh test snapshot",
+  "git_state": {
+    "modified_files": [
+      "M .pipeline/github_backlog.json",
+      "M .pipeline/mesh_orchestrator.py",
+      "M .pipeline/mesh_watcher.py",
+      "M .pipeline/queue.json",
+      "M .pipeline/tracker_data.js",
+      "M .pipeline/tracker_state.json",
+      "M .pipeline/tracker_sync.py",
+      "M .pipeline/transmissions.json",
+      "M integrations/README.md",
+      "?? .pipeline/autonomous_mesh_runner.py",
+      "?? integrations/dray_cross_context/",
+      "?? integrations/dray_cross_model/"
+    ],
+    "diff_stat": ".pipeline/github_backlog.json  |  35 +-\n .pipeline/mesh_orchestrator.py |   4 +-\n .pipeline/mesh_watcher.py      |   2 +-\n .pipeline/queue.json           |  46 +--\n .pipeline/tracker_data.js      | 696 +++++++++++++++++++-----------------\n .pipeline/tracker_state.json   | 777 +++++++++++++++++++++++++----------------\n .pipeline/tracker_sync.py      |   4 +-\n .pipeline/transmissions.json   |  70 ++++\n integrations/README.md         |  12 +\n 9 files changed, 994 insertions(+), 652 deletions(-)",
+    "last_commit": "cfde349 Pipeline Mesh Sync: 2026-11-16 11:24:31"
+  },
+  "protected_boundaries": [
+    "Question bank database schemas",
+    "Payment and auth credentials in env.js",
+    "Unrelated frontend files"
+  ],
+  "metadata": {},
+  "status": "READY_FOR_HANDOFF"
+}

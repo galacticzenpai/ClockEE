@@ -1,31 +1,11 @@
 You are Untitled conversation (Main Feature).
 
 --- TASK ASSIGNMENT ---
-You are Untitled conversation (Main Feature).
-Prerequisites Met: Supabase schema (backend/supabase_schema.sql), Python Gateway Bearer token middleware, and /api/sync batch offline endpoints completed and verified by DB / BACKEND.
+Dray Cross-Model Session Bridge is vendored at integrations/dray_cross_model/.
 
-TASK ASSIGNMENT: CLIENT AUTHENTICATION & OFFLINE QUEUE WIRING
-
-1. Available Gateway Endpoints:
-   - GET /api/auth/providers?redirect_to=<url>: Returns OAuth URLs for Google and GitHub.
-   - POST /api/auth/session: Accepts { "access_token": "<supabase_jwt>" } to establish local session cache.
-   - POST /api/sync: Batch offline sync endpoint accepting:
-     {
-       "user_id": "<uid>",
-       "timer_state": { "elapsed_seconds": 1200, "mode": "sprint", "is_paused": false },
-       "current_mode": "mains" | "advanced",
-       "active_deck": "<subject_or_chapter>",
-       "state": { ... },
-       "queued_logs": [ { "id": "...", "subject": "Physics", "chapter": "...", "duration": 60, "correct": true, "mistake": "", "score_delta": 4, "notes": "" } ],
-       "queued_exams": [ { "id": "...", "test_id": "...", "title": "...", "mode": "mains", "score": 80, "max_score": 100, "accuracy": 80.0, "time_spent": 1800, "responses": [], "analytics": {} } ]
-     }
-   - GET /api/sync?user_id=<uid>: Hydrates localStorage with state and recent logs after offline reconnect.
-
-2. Client-Side Authentication Flow:
-   - Check if window.supabase is configured or if #access_token=... is present in URL hash on OAuth redirect return.
-   - When token is detected, send Bearer token in headers: { "Authorization": `Bearer ${token}` } for all API calls.
-   - If offline, queue completed question logs in localStorage under key 'clockee_offline_logs' and exams under 'clockee_offline_exams'.
-   - When navigator.onLine triggers 'online' event, flush queue by dispatching POST /api/sync.
+Task for Main Feature:
+1. Hook dray_bridge.py capture into long-running CBT exam flows and simulation runs so session progress can be frozen into active_session_snapshot.json on demand.
+2. In admin/developer tools, add a /link payload generator button to allow developer handoffs between models without lost context.
 
 --- MESH COORDINATION DIRECTIVE ---
 1. Implement all domain fixes and features cleanly without disturbing sibling modules.

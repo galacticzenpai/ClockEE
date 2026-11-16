@@ -86,8 +86,9 @@
         "target_key": "simulation",
         "target_name": "SIMULATION",
         "target_id": "62adc180-be21-4671-848c-c8df59e2c202",
-        "status": "QUEUED",
-        "action": "Awaiting implementation to execute sloplint 100/100 and security gates."
+        "status": "DISPATCHED_TO_CONVERSATION",
+        "action": "Awaiting implementation to execute sloplint 100/100 and security gates.",
+        "staged_at": "2026-11-16T10:24:33.581600"
       },
       "db_backend": {
         "target_key": "db_backend",

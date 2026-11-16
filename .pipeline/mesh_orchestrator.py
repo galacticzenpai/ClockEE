@@ -448,10 +448,11 @@ def run_mesh_process():
             record_transmission = tracker_sync.record_transmission
 
         if staged_info:
+            instr_snippet = (staged_info.get('instruction') or staged_info.get('payload') or '')[:60]
             record_transmission(
                 source="BACKBONE COORDINATOR",
-                target=staged_info["name"],
-                subject=f"Phase Hand-off: {staged_info.get('instruction', '')[:60]}...",
+                target=staged_info.get("name", "Target"),
+                subject=f"Phase Hand-off: {instr_snippet}...",
                 status="DELIVERED_STAGED"
             )
         build_tracker_state()

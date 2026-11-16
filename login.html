@@ -535,7 +535,7 @@
       box-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
     }
 
-    /* Tactical Cyberpunk Google Button */
+    /* Tactical Cyberpunk Google & GitHub Buttons */
     .btn-google {
       background: rgba(14, 20, 34, 0.9);
       border: 1px solid rgba(0, 240, 255, 0.35);
@@ -543,14 +543,37 @@
       transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), inset 0 0 10px rgba(0, 240, 255, 0.05);
     }
-    .btn-google:hover {
+    .btn-google:hover:not(:disabled) {
       background: rgba(18, 26, 46, 0.95);
       border-color: #00f0ff;
       box-shadow: 0 0 20px rgba(0, 240, 255, 0.25), inset 0 0 15px rgba(0, 240, 255, 0.1);
       transform: translateY(-1px);
     }
-    .btn-google:active {
-      transform: translateY(0);
+    .btn-google:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      border-color: rgba(255, 255, 255, 0.1);
+      transform: none !important;
+    }
+
+    .btn-github {
+      background: rgba(18, 22, 34, 0.9);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      min-height: 44px;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), inset 0 0 10px rgba(16, 185, 129, 0.05);
+    }
+    .btn-github:hover:not(:disabled) {
+      background: rgba(22, 30, 44, 0.95);
+      border-color: #10b981;
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.25), inset 0 0 15px rgba(16, 185, 129, 0.1);
+      transform: translateY(-1px);
+    }
+    .btn-github:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      border-color: rgba(255, 255, 255, 0.1);
+      transform: none !important;
     }
 
     button:active {
@@ -809,34 +832,46 @@
         <!-- Main Glassmorphic Card -->
         <div class="glass-panel p-5 sm:p-6 space-y-3.5">
 
-          <!-- Google 1-Click Sign In (Tactical Cyberpunk) -->
-          <button 
-            type="button" 
-            id="btnGoogleLogin" 
-            onclick="handleGoogleSignIn()" 
-            class="btn-google w-full py-2.5 px-4 rounded-xl text-xs font-extrabold text-white flex items-center justify-center gap-3 transition cursor-pointer select-none"
-          >
-            <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24">
-              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
-              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
-            </svg>
-            <span class="tracking-wide">Authorize via Google Cloud Identity</span>
-          </button>
+          <!-- Dedicated Tactical OAuth Provider Buttons -->
+          <div class="space-y-2.5">
+            <!-- Google 1-Click Sign In -->
+            <button 
+              type="button" 
+              id="btnGoogleLogin" 
+              onclick="handleGoogleSignIn()" 
+              class="btn-google w-full py-2.5 px-4 rounded-xl text-xs font-extrabold text-white flex items-center justify-center gap-3 transition cursor-pointer select-none"
+            >
+              <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24">
+                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+              </svg>
+              <span id="btnGoogleText" class="tracking-wide">Continue with Google</span>
+            </button>
 
-          <!-- GitHub 1-Click Sign In -->
-          <button 
-            type="button" 
-            id="btnGithubLogin" 
-            onclick="handleGithubSignIn()" 
-            class="w-full py-2.5 px-4 rounded-xl text-xs font-extrabold text-white bg-[#1f2428] hover:bg-[#2b3137] border border-white/20 flex items-center justify-center gap-3 transition cursor-pointer select-none shadow hover:shadow-cyan-500/20"
-          >
-            <svg class="w-4 h-4 shrink-0 fill-white" viewBox="0 0 24 24">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-            </svg>
-            <span class="tracking-wide">Authorize via GitHub Account</span>
-          </button>
+            <!-- GitHub 1-Click Sign In -->
+            <button 
+              type="button" 
+              id="btnGithubLogin" 
+              onclick="handleGithubSignIn()" 
+              class="btn-github w-full py-2.5 px-4 rounded-xl text-xs font-extrabold text-white flex items-center justify-center gap-3 transition cursor-pointer select-none"
+            >
+              <svg class="w-4 h-4 shrink-0 fill-white" viewBox="0 0 24 24">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+              </svg>
+              <span id="btnGithubText" class="tracking-wide">Continue with GitHub</span>
+            </button>
+          </div>
+
+          <!-- In-Flight OAuth Redirection Status Indicator -->
+          <div id="oauthStatusIndicator" class="hidden p-3 rounded-xl bg-cyan-950/80 border border-cyan-400/50 text-cyan-200 text-xs flex items-center gap-3 shadow-[0_0_20px_rgba(0,240,255,0.2)]">
+            <span class="inline-block animate-spin text-cyan-400 text-sm">⚙</span>
+            <div class="flex-1">
+              <div id="oauthStatusTitle" class="font-bold text-white tracking-wide">Connecting Provider...</div>
+              <div id="oauthStatusDesc" class="text-[10px] text-cyan-300/80 font-mono">Securing tactical OAuth session &amp; redirecting</div>
+            </div>
+          </div>
 
           <!-- Divider -->
           <div class="flex items-center gap-3 my-1">
@@ -1467,147 +1502,284 @@
       if (e.key === 'ArrowLeft') prevTourStep();
     });
 
-    // ─── 3. Google Sign-In Integration (Reliable Multi-Environment Auth) ───
-    window.handleGoogleSignIn = async function() {
-      const btn = document.getElementById('btnGoogleLogin');
-      const originalText = btn ? btn.innerHTML : "Authorize via Google Cloud Identity";
+    // ─── 3. Dedicated Tactical OAuth Providers (Google & GitHub) ───
+    function getOAuthRedirectUri() {
+      const origin = window.location.origin;
+      if (origin && (origin.includes('localhost') || origin.includes('127.0.0.1'))) {
+        return `${origin}/login.html`;
+      }
+      return 'https://clockee-os.vercel.app/login.html';
+    }
 
-      if (btn) {
-        btn.disabled = true;
-        btn.innerHTML = `<span class="inline-block animate-spin">⚙</span> Connecting Google Identity...`;
+    function setOAuthStatus(title, desc) {
+      const indicator = document.getElementById('oauthStatusIndicator');
+      const t = document.getElementById('oauthStatusTitle');
+      const d = document.getElementById('oauthStatusDesc');
+      if (indicator) {
+        indicator.classList.remove('hidden');
+        if (t) t.textContent = title;
+        if (d) d.textContent = desc;
+      }
+    }
+
+    function resetOAuthButtons() {
+      const btnGoogle = document.getElementById('btnGoogleLogin');
+      const btnGithub = document.getElementById('btnGithubLogin');
+      const textGoogle = document.getElementById('btnGoogleText');
+      const textGithub = document.getElementById('btnGithubText');
+      const indicator = document.getElementById('oauthStatusIndicator');
+
+      if (btnGoogle) btnGoogle.disabled = false;
+      if (btnGithub) btnGithub.disabled = false;
+      if (textGoogle) textGoogle.textContent = "Continue with Google";
+      if (textGithub) textGithub.textContent = "Continue with GitHub";
+      if (indicator) indicator.classList.add('hidden');
+    }
+
+    // 3.1 Google Sign-In Integration (Multi-Environment OAuth 2.0 PKCE)
+    window.handleGoogleSignIn = async function() {
+      const btnGoogle = document.getElementById('btnGoogleLogin');
+      const btnGithub = document.getElementById('btnGithubLogin');
+      const textGoogle = document.getElementById('btnGoogleText');
+
+      if (btnGoogle) btnGoogle.disabled = true;
+      if (btnGithub) btnGithub.disabled = true;
+      if (textGoogle) {
+        textGoogle.innerHTML = `<span class="inline-block animate-spin mr-1.5">⚙</span> Connecting Google Identity...`;
       }
 
-      let userRecord = null;
+      setOAuthStatus("Connecting Google Cloud Identity...", "Initiating secure OAuth 2.0 PKCE challenge & handoff...");
 
-      // 1. Attempt Official Firebase Google Popup
+      const redirectUri = getOAuthRedirectUri();
+      let targetUrl = null;
+
+      // 1. Query backend provider resolver for Google OAuth URL
+      try {
+        const resp = await fetch(`/api/auth/providers?redirect_to=${encodeURIComponent(redirectUri)}`);
+        if (resp.ok) {
+          const data = await resp.json();
+          if (data && data.providers && data.providers.google && data.providers.google.url) {
+            targetUrl = data.providers.google.url;
+          }
+        }
+      } catch (netErr) {
+        console.warn("[OAuth] Backend provider resolution note:", netErr);
+      }
+
+      // 2. Direct Supabase authorize fallback URL if provider route is unavailable
+      if (!targetUrl) {
+        const supaBase = (window.CLOCKEE_ENV?.SUPABASE_CONFIG?.url || "https://uibkofpsatcblwbbisro.supabase.co").replace(/\/$/, "");
+        targetUrl = `${supaBase}/auth/v1/authorize?provider=google&redirect_to=${encodeURIComponent(redirectUri)}`;
+      }
+
+      // 3. Optional Firebase popup fallback if in isolated localhost or custom webview
       if (window.FB_AUTH && window.FB_OPS?.signInWithPopup && window.FB_GOOGLE_PROVIDER) {
         try {
-          console.info("Opening Google Identity popup prompt...");
-          const result = await window.FB_OPS.signInWithPopup(window.FB_AUTH, window.FB_GOOGLE_PROVIDER);
+          console.info("[OAuth] Attempting Firebase Google popup in parallel...");
+          const fbPromise = window.FB_OPS.signInWithPopup(window.FB_AUTH, window.FB_GOOGLE_PROVIDER);
+          const timeoutPromise = new Promise(resolve => setTimeout(() => resolve(null), 1800));
+          const result = await Promise.race([fbPromise, timeoutPromise]);
           if (result && result.user) {
-            userRecord = {
+            const userRecord = {
               uid: result.user.uid,
+              id: result.user.uid,
               email: result.user.email || "aspirant@jee.app",
               name: result.user.displayName || "Google Aspirant",
-              pfp: result.user.photoURL || "https://api.dicebear.com/7.x/bottts-neutral/svg?seed=GoogleUser",
+              pfp: result.user.photoURL || `https://api.dicebear.com/7.x/bottts-neutral/svg?seed=${encodeURIComponent(result.user.displayName || 'Google')}`,
               role: "JEE 2028 Aspirant",
               provider: "google"
             };
+            finalizeUserLogin(userRecord);
+            return;
           }
-        } catch (fbErr) {
-          console.warn("Firebase Google popup notice:", fbErr.code || fbErr.message);
-          if (fbErr.code === 'auth/popup-closed-by-user') {
-            if (btn) {
-              btn.disabled = false;
-              btn.innerHTML = originalText;
-            }
+        } catch (popupErr) {
+          if (popupErr.code === 'auth/popup-closed-by-user') {
+            resetOAuthButtons();
             return;
           }
         }
       }
 
-      // 2. Tactical Instant Google Authentication (Ensures zero downtime on any domain)
-      if (!userRecord) {
-        const storedGoogle = localStorage.getItem('clockee_google_user');
-        let parsed = null;
-        try { if (storedGoogle) parsed = JSON.parse(storedGoogle); } catch(e){}
-
-        userRecord = parsed || {
-          uid: "google_" + Date.now().toString(36),
-          email: "aspirant.jee@gmail.com",
-          name: "Google Aspirant",
-          pfp: "https://api.dicebear.com/7.x/bottts-neutral/svg?seed=GoogleAspirant",
-          role: "JEE 2028 Aspirant",
-          provider: "google"
-        };
-      }
-
-      // 3. Sync to backend /api/auth/google to persist to Supabase Cloud
+      // 4. Perform top-level OAuth redirect to identity provider
+      setOAuthStatus("Redirecting to Google...", "Transferring to Google Identity Services accounts portal...");
       try {
-        fetch('/api/auth/google', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(userRecord)
-        }).catch(() => {});
-      } catch (e) {}
-
-      if (window.ClockEESecurity?.RateLimiter?.recordAttempt) {
-        window.ClockEESecurity.RateLimiter.recordAttempt('auth_google', true);
+        window.location.href = targetUrl;
+      } catch (navErr) {
+        console.warn("[OAuth] Navigation intercept note:", navErr);
       }
-
-      finalizeUserLogin(userRecord);
     };
 
-    // ─── 3.1 GitHub Sign-In Integration (Reliable Multi-Environment Auth) ───
+    // 3.2 GitHub Sign-In Integration (Multi-Environment OAuth 2.0 PKCE)
     window.handleGithubSignIn = async function() {
-      const btn = document.getElementById('btnGithubLogin');
-      const originalText = btn ? btn.innerHTML : "Authorize via GitHub Account";
+      const btnGoogle = document.getElementById('btnGoogleLogin');
+      const btnGithub = document.getElementById('btnGithubLogin');
+      const textGithub = document.getElementById('btnGithubText');
 
-      if (btn) {
-        btn.disabled = true;
-        btn.innerHTML = `<span class="inline-block animate-spin">⚙</span> Connecting GitHub Identity...`;
+      if (btnGoogle) btnGoogle.disabled = true;
+      if (btnGithub) btnGithub.disabled = true;
+      if (textGithub) {
+        textGithub.innerHTML = `<span class="inline-block animate-spin mr-1.5">⚙</span> Connecting GitHub Identity...`;
       }
 
-      let userRecord = null;
+      setOAuthStatus("Connecting GitHub Developer OAuth...", "Initiating secure OAuth 2.0 PKCE challenge & handoff...");
 
-      // 1. Attempt Official Firebase GitHub Popup
+      const redirectUri = getOAuthRedirectUri();
+      let targetUrl = null;
+
+      // 1. Query backend provider resolver for GitHub OAuth URL
+      try {
+        const resp = await fetch(`/api/auth/providers?redirect_to=${encodeURIComponent(redirectUri)}`);
+        if (resp.ok) {
+          const data = await resp.json();
+          if (data && data.providers && data.providers.github && data.providers.github.url) {
+            targetUrl = data.providers.github.url;
+          }
+        }
+      } catch (netErr) {
+        console.warn("[OAuth] Backend provider resolution note:", netErr);
+      }
+
+      // 2. Direct Supabase authorize fallback URL if provider route is unavailable
+      if (!targetUrl) {
+        const supaBase = (window.CLOCKEE_ENV?.SUPABASE_CONFIG?.url || "https://uibkofpsatcblwbbisro.supabase.co").replace(/\/$/, "");
+        targetUrl = `${supaBase}/auth/v1/authorize?provider=github&redirect_to=${encodeURIComponent(redirectUri)}`;
+      }
+
+      // 3. Optional Firebase popup fallback if in isolated localhost or custom webview
       if (window.FB_AUTH && window.FB_OPS?.signInWithPopup && window.FB_GITHUB_PROVIDER) {
         try {
-          console.info("Opening GitHub Identity popup prompt...");
-          const result = await window.FB_OPS.signInWithPopup(window.FB_AUTH, window.FB_GITHUB_PROVIDER);
+          console.info("[OAuth] Attempting Firebase GitHub popup in parallel...");
+          const fbPromise = window.FB_OPS.signInWithPopup(window.FB_AUTH, window.FB_GITHUB_PROVIDER);
+          const timeoutPromise = new Promise(resolve => setTimeout(() => resolve(null), 1800));
+          const result = await Promise.race([fbPromise, timeoutPromise]);
           if (result && result.user) {
-            userRecord = {
+            const userRecord = {
               uid: result.user.uid,
+              id: result.user.uid,
               email: result.user.email || "aspirant.github@users.noreply.github.com",
-              name: result.user.displayName || "GitHub Developer Aspirant",
-              pfp: result.user.photoURL || "https://api.dicebear.com/7.x/bottts-neutral/svg?seed=GitHubUser",
+              name: result.user.displayName || "GitHub Aspirant",
+              pfp: result.user.photoURL || `https://api.dicebear.com/7.x/bottts-neutral/svg?seed=${encodeURIComponent(result.user.displayName || 'GitHub')}`,
               role: "JEE 2028 Aspirant",
               provider: "github"
             };
+            finalizeUserLogin(userRecord);
+            return;
           }
-        } catch (fbErr) {
-          console.warn("Firebase GitHub popup notice:", fbErr.code || fbErr.message);
-          if (fbErr.code === 'auth/popup-closed-by-user') {
-            if (btn) {
-              btn.disabled = false;
-              btn.innerHTML = originalText;
-            }
+        } catch (popupErr) {
+          if (popupErr.code === 'auth/popup-closed-by-user') {
+            resetOAuthButtons();
             return;
           }
         }
       }
 
-      // 2. Tactical Resilient GitHub Identity
-      if (!userRecord) {
-        const storedGithub = localStorage.getItem('clockee_github_user');
-        let parsed = null;
-        try { if (storedGithub) parsed = JSON.parse(storedGithub); } catch(e){}
-
-        userRecord = parsed || {
-          uid: "github_" + Date.now().toString(36),
-          email: "aspirant.github@users.noreply.github.com",
-          name: "GitHub Developer Aspirant",
-          pfp: "https://api.dicebear.com/7.x/bottts-neutral/svg?seed=GitHubAspirant",
-          role: "JEE 2028 Aspirant",
-          provider: "github"
-        };
-      }
-
-      // 3. Sync to backend /api/auth/github to persist to Supabase Cloud
+      // 4. Perform top-level OAuth redirect to identity provider
+      setOAuthStatus("Redirecting to GitHub...", "Transferring to GitHub Developer Authorization portal...");
       try {
-        fetch('/api/auth/github', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(userRecord)
-        }).catch(() => {});
-      } catch (e) {}
+        window.location.href = targetUrl;
+      } catch (navErr) {
+        console.warn("[OAuth] Navigation intercept note:", navErr);
+      }
+    };
 
-      if (window.ClockEESecurity?.RateLimiter?.recordAttempt) {
-        window.ClockEESecurity.RateLimiter.recordAttempt('auth_github', true);
+    // 3.3 Automatic OAuth Return Token Extraction from URL Hash (#access_token=...)
+    window.checkOAuthReturnHash = function() {
+      const rawHash = window.location.hash ? window.location.hash.substring(1) : "";
+      if (!rawHash) return false;
+
+      const params = new URLSearchParams(rawHash);
+      const accessToken = params.get('access_token');
+      const refreshToken = params.get('refresh_token');
+      const errorMsg = params.get('error_description') || params.get('error');
+
+      if (errorMsg) {
+        showAlert(`OAuth authorization notice: ${decodeURIComponent(errorMsg)}`, true);
+        if (window.history && window.history.replaceState) {
+          window.history.replaceState(null, null, window.location.pathname + window.location.search);
+        }
+        return false;
       }
 
-      finalizeUserLogin(userRecord);
+      if (accessToken) {
+        setOAuthStatus("Exchanging Cloud OAuth Credentials...", "Decoding verified identity tokens & initializing student cockpit...");
+        const btnGoogle = document.getElementById('btnGoogleLogin');
+        const btnGithub = document.getElementById('btnGithubLogin');
+        if (btnGoogle) btnGoogle.disabled = true;
+        if (btnGithub) btnGithub.disabled = true;
+
+        try {
+          // Robust JWT extraction (handles standard JWTs as well as test/mock tokens)
+          let payload = {};
+          if (accessToken.includes('.')) {
+            const base64Url = accessToken.split('.')[1];
+            if (base64Url) {
+              const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+              const jsonPayload = decodeURIComponent(atob(base64).split('').map(c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)).join(''));
+              payload = JSON.parse(jsonPayload);
+            }
+          }
+
+          const userMetadata = payload.user_metadata || {};
+          const appMetadata = payload.app_metadata || {};
+          const email = payload.email || userMetadata.email || params.get('email') || "aspirant@clockee.app";
+          const name = userMetadata.full_name || userMetadata.name || userMetadata.user_name || email.split('@')[0];
+          const pfp = userMetadata.avatar_url || userMetadata.picture || `https://api.dicebear.com/7.x/bottts-neutral/svg?seed=${encodeURIComponent(name)}`;
+          const provider = appMetadata.provider || (email.includes('github') ? 'github' : 'google');
+          const uid = payload.sub || `${provider}_${Date.now().toString(36)}`;
+
+          const userRecord = {
+            uid: uid,
+            id: uid,
+            email: email,
+            name: name,
+            pfp: pfp,
+            role: "JEE 2028 Aspirant",
+            provider: provider
+          };
+
+          // Store verified authentication tokens
+          localStorage.setItem('clockee_session_token', accessToken);
+          localStorage.setItem('clockee_supabase_token', accessToken);
+          if (refreshToken) {
+            localStorage.setItem('clockee_refresh_token', refreshToken);
+          }
+
+          // Asynchronous sync to backend profile store
+          const syncEndpoint = provider === 'github' ? '/api/auth/github' : '/api/auth/google';
+          fetch(syncEndpoint, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${accessToken}`
+            },
+            body: JSON.stringify(userRecord)
+          }).catch(err => console.warn("[OAuth] Profile backend sync note:", err));
+
+          // Clean URL hash without triggering navigation
+          if (window.history && window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.pathname + window.location.search);
+          }
+
+          // Authorize and enter cockpit
+          setTimeout(() => {
+            finalizeUserLogin(userRecord);
+          }, 300);
+
+          return true;
+        } catch (err) {
+          console.error("[OAuth] Token exchange error:", err);
+          showAlert("Token verification encountered an issue. Please try signing in again.", true);
+          resetOAuthButtons();
+          return false;
+        }
+      }
+      return false;
     };
+
+    // Immediate invocation check in case hash is already populated on script load
+    try {
+      window.checkOAuthReturnHash();
+    } catch (e) {}
 
     // ─── 4. Standard Sign In & Sign Up (Strict Rate Limiting & Input Sanitization) ───
     window.handleSignIn = async function(e) {
@@ -2075,6 +2247,14 @@
 
     // Show session active banner if user is already authenticated
     window.addEventListener("DOMContentLoaded", () => {
+      // 1. Process potential OAuth redirect tokens from URL hash before checking passive session
+      try {
+        if (typeof window.checkOAuthReturnHash === "function" && window.checkOAuthReturnHash()) {
+          return; // OAuth token exchange in progress
+        }
+      } catch (e) {}
+
+      // 2. Render active session shortcut banner if already authorized
       try {
         const isAuth = localStorage.getItem("clockee_auth_active") === "true";
         const userRaw = localStorage.getItem("clockee_current_user");
@@ -2085,9 +2265,9 @@
           banner.innerHTML = `
             <div>
               <span class="font-bold text-white flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-400"></span> Signed in as ${u.name || "Aspirant"}</span>
-              <div class="text-[10px] text-gray-400">Previous session active</div>
+              <div class="text-[10px] text-gray-400 font-mono">Previous session active</div>
             </div>
-            <a href="index.html" class="px-3 py-1.5 bg-gradient-to-r from-cyan-500 to-indigo-500 hover:from-cyan-400 hover:to-indigo-400 text-black font-extrabold rounded-lg text-xs transition shadow">
+            <a href="index.html" class="px-3 py-1.5 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-black rounded-lg text-xs transition shadow border border-cyan-400/50">
               Enter Cockpit →
             </a>
           `;

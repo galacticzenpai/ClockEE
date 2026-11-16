@@ -1,39 +1,61 @@
 {
-  "simulationId": "sim_py_1794806553004",
+  "simulationId": "sim_py_1794821133673",
   "title": "Autonomous Full Mock Simulation",
-  "timestamp": "2026-11-16T10:52:33.006108",
+  "timestamp": "2026-11-16T14:55:33.673419",
   "metrics": {
-    "score": 16,
+    "score": 15,
     "maxScore": 20,
-    "accuracy": 100.0,
-    "attempted": 4,
+    "accuracy": 80.0,
+    "attempted": 5,
     "totalQs": 5,
-    "avgLatencySec": 85,
-    "timeTakenMin": 6
+    "avgLatencySec": 82,
+    "timeTakenMin": 7
   },
-  "errorCount": 0,
-  "mistakes": [],
+  "errorCount": 1,
+  "mistakes": [
+    {
+      "id": "mistake_sim_py_1794821133673_2",
+      "testId": "sim_py_1794821133673",
+      "testTitle": "Autonomous Full Mock Simulation",
+      "qNum": 2,
+      "subject": "Chemistry",
+      "chapter": "Chemical Equilibrium",
+      "topic": "JEE Main",
+      "questionText": "4.5 moles each of hydrogen and iodine is heated in a sealed \nten litre vessel. At equilibrium, 3 moles of HI were found. The \nequilibrium constant for\n[11 April, 2023 (Shift-II)]\n \n H2(g) + I2(g) \uf083 2HI(g) is \u2026\u2026.",
+      "markedOption": "1.1",
+      "correctOption": "1.0",
+      "errorCategory": "Calculation Mistake",
+      "reason": "Calculation Mistake",
+      "reasonDetail": "Calculated value 1.1 deviates from ground truth 1.0.",
+      "idealTimeSec": 75,
+      "timeSpentSec": 56,
+      "date": "2026-11-16",
+      "important": true,
+      "bookmarked": true,
+      "status": "unresolved"
+    }
+  ],
   "subjectBreakdown": {
     "Physics": {
       "attempted": 1,
       "correct": 1,
       "wrong": 0,
       "score": 4,
-      "time_sec": 86
+      "time_sec": 107
     },
     "Chemistry": {
       "attempted": 1,
-      "correct": 1,
-      "wrong": 0,
-      "score": 4,
-      "time_sec": 60
+      "correct": 0,
+      "wrong": 1,
+      "score": -1,
+      "time_sec": 56
     },
     "Maths": {
-      "attempted": 2,
-      "correct": 2,
+      "attempted": 3,
+      "correct": 3,
       "wrong": 0,
-      "score": 8,
-      "time_sec": 193
+      "score": 12,
+      "time_sec": 248
     }
   }
 }

@@ -10,7 +10,7 @@ CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, CURRENT_DIR)
 
 from db import (
-    get_db, hash_password, DB_PATH,
+    get_db, hash_password, DB_PATH, to_uuid,
     verify_supabase_jwt, get_supabase_client, is_supabase_configured,
     SUPABASE_URL, SUPABASE_ANON_KEY
 )
@@ -292,6 +292,90 @@ class ClockEEBackendRouter:
                     "name": name,
                     "role": role,
                     "pfp": pfp,
+                    "theme_preference": theme_pref,
+                    "aura_mode": aura_mode
+                }
+            })
+
+        # ── 2.0.2 OAUTH SSO DIRECT SYNC (Google & GitHub) ──
+        if path in ('/api/auth/google', '/api/auth/github') and method == 'POST':
+            req = parse_body(handler)
+            provider = 'github' if 'github' in path else 'google'
+            
+            email = req.get('email', '').strip().lower()
+            name = req.get('name') or req.get('displayName') or ('GitHub Aspirant' if provider == 'github' else 'Google Aspirant')
+            user_id = req.get('uid') or req.get('id') or (f"{provider}_" + (email.split('@')[0] if email else secrets.token_hex(6)))
+            pfp = req.get('pfp') or req.get('photoURL') or f"https://api.dicebear.com/7.x/bottts-neutral/svg?seed={urllib.parse.quote(name)}"
+            role = req.get('role', 'JEE 2028 Aspirant')
+
+            if not email and not user_id:
+                return handler.send_json(400, {"error": "Missing user identification (email or uid)"})
+
+            conn = get_db()
+            cur = conn.cursor()
+
+            # Check existing user by email or id
+            cur.execute("SELECT id, name, role, pfp, theme_preference, aura_mode, data_json FROM users WHERE id = ? OR (email = ? AND email != '')", (user_id, email))
+            existing = cur.fetchone()
+
+            if existing:
+                actual_id = existing['id']
+                theme_pref = existing['theme_preference']
+                aura_mode = existing['aura_mode']
+                cur.execute("UPDATE users SET name = COALESCE(?, name), pfp = COALESCE(?, pfp), last_login = CURRENT_TIMESTAMP WHERE id = ?", (name, pfp, actual_id))
+            else:
+                actual_id = user_id
+                theme_pref = 'cyan_indigo'
+                aura_mode = 'fluid'
+                pwd_hash, salt = hash_password(secrets.token_hex(16))
+                initial_state = {
+                    "profile": { "name": name, "subtitle": f"{role} • {provider.title()} Account", "pfp": pfp, "accent": "#00f2fe" },
+                    "examMode": "mains",
+                    "dailyGoals": { "Physics": 30, "Chemistry": 30, "Maths": 30, "hours": 6.0 },
+                    "theme_preference": theme_pref,
+                    "aura_mode": aura_mode,
+                    "stats": { "hoursToday": 0.0, "streakDays": 1, "questionsSolved": { "Physics": 0, "Chemistry": 0, "Maths": 0 } }
+                }
+                cur.execute("""
+                    INSERT INTO users (id, email, name, role, subtitle, pfp, password_hash, salt, is_admin, theme_preference, aura_mode, data_json)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?, ?)
+                """, (actual_id, email or f"{actual_id}@{provider}.sso", name, role, f"{role} • {provider.title()} Account", pfp, pwd_hash, salt, theme_pref, aura_mode, json.dumps(initial_state)))
+                cur.execute("INSERT OR IGNORE INTO student_states (user_id, state_json) VALUES (?, ?)", (actual_id, json.dumps(initial_state)))
+
+            # Issue gateway session token
+            session_token = secrets.token_hex(24)
+            expires_at = (datetime.now() + timedelta(days=30)).isoformat()
+            cur.execute("INSERT OR REPLACE INTO sessions (token, user_id, expires_at) VALUES (?, ?, ?)", (session_token, actual_id, expires_at))
+            conn.commit()
+            conn.close()
+
+            # Supabase Cloud sync if configured
+            if is_supabase_configured():
+                try:
+                    sb = get_supabase_client(use_service_role=True)
+                    if sb:
+                        sb.table("profiles").upsert({
+                            "id": to_uuid(actual_id),
+                            "email": email or f"{actual_id}@{provider}.sso",
+                            "full_name": name,
+                            "avatar_url": pfp,
+                            "role": role,
+                            "last_seen": datetime.now().isoformat()
+                        }).execute()
+                except Exception as sb_e:
+                    print(f"[!] Supabase OAuth user sync notice: {sb_e}")
+
+            return handler.send_json(200, {
+                "success": True,
+                "token": session_token,
+                "user": {
+                    "id": actual_id,
+                    "uid": actual_id,
+                    "email": email,
+                    "name": name,
+                    "role": role,
+                    "pfp": pfp,
+                    "provider": provider,
                     "theme_preference": theme_pref,
                     "aura_mode": aura_mode
                 }
@@ -910,9 +994,10 @@ class ClockEEBackendRouter:
                     try:
                         sb = get_supabase_client(use_service_role=True)
                         if sb:
+                            sb_uid = to_uuid(uid)
                             # Upsert student state to Supabase
                             sb.table("student_states").upsert({
-                                "user_id": uid,
+                                "user_id": sb_uid,
                                 "current_mode": current_mode,
                                 "timer_state": timer_state or {},
                                 "active_deck": active_deck,
@@ -924,7 +1009,7 @@ class ClockEEBackendRouter:
                             for item in queued_logs:
                                 if isinstance(item, dict):
                                     sb.table("study_sessions").insert({
-                                        "user_id": uid,
+                                        "user_id": sb_uid,
                                         "duration_seconds": float(item.get('duration_seconds') or item.get('duration', 60.0)),
                                         "subject": item.get('subject', 'Physics'),
                                         "topic": item.get('topic') or item.get('chapter') or 'General',
@@ -940,7 +1025,7 @@ class ClockEEBackendRouter:
                             for item in queued_exams:
                                 if isinstance(item, dict):
                                     sb.table("cbt_results").insert({
-                                        "user_id": uid,
+                                        "user_id": sb_uid,
                                         "test_id": item.get('test_id', 'test_cbt'),
                                         "title": item.get('title', 'CBT Mock Test'),
                                         "mode": item.get('mode', current_mode),

@@ -248,7 +248,35 @@ def run_tests():
     assert dump_size > 500, f"SQL dump unexpectedly small: {dump_size} bytes"
     print(f"  [✓] SQLite -> Supabase Migration OK: Verified schema mapping and dump generation ({dump_size} bytes)")
 
-    print("\n[🎉] ALL 18 TEST SUITES PASSED FLAWLESSLY!")
+    # 19. Google OAuth Direct Sync Endpoint (/api/auth/google)
+    status, res = req("/api/auth/google", "POST", {
+        "uid": "google_test_user_01",
+        "email": "aspirant.google@jee.app",
+        "name": "Google Aspirant Test",
+        "pfp": "https://api.dicebear.com/7.x/bottts-neutral/svg?seed=GoogleTest",
+        "role": "JEE 2028 Aspirant",
+        "provider": "google"
+    })
+    assert status == 200 and res.get("success") is True
+    assert res.get("user", {}).get("email") == "aspirant.google@jee.app"
+    assert "token" in res
+    print(f"  [✓] /api/auth/google OK: Ingested Google Identity user and issued session token")
+
+    # 20. GitHub OAuth Direct Sync Endpoint (/api/auth/github)
+    status, res = req("/api/auth/github", "POST", {
+        "uid": "github_test_user_01",
+        "email": "aspirant.github@jee.app",
+        "name": "GitHub Aspirant Test",
+        "pfp": "https://api.dicebear.com/7.x/bottts-neutral/svg?seed=GitHubTest",
+        "role": "JEE 2028 Aspirant",
+        "provider": "github"
+    })
+    assert status == 200 and res.get("success") is True
+    assert res.get("user", {}).get("email") == "aspirant.github@jee.app"
+    assert "token" in res
+    print(f"  [✓] /api/auth/github OK: Ingested GitHub Identity user and issued session token")
+
+    print("\n[🎉] ALL 20 TEST SUITES PASSED FLAWLESSLY!")
 
 if __name__ == '__main__':
     import socket

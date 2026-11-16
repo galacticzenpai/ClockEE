@@ -3,10 +3,23 @@ import sqlite3
 import json
 import secrets
 import hashlib
+import uuid
 from datetime import datetime, timedelta
 
 WORKSPACE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DB_PATH = os.path.join(WORKSPACE_DIR, "clockee.db")
+
+def to_uuid(raw_id: str) -> str:
+    """
+    Ensure an identifier is converted to a valid, deterministic UUIDv5 string.
+    If already a valid UUID, returns canonical UUID string.
+    """
+    if not raw_id:
+        return str(uuid.uuid4())
+    try:
+        return str(uuid.UUID(str(raw_id)))
+    except (ValueError, AttributeError):
+        return str(uuid.uuid5(uuid.NAMESPACE_DNS, f"clockee.app.user.{raw_id}"))
 
 # ── Load Environment Configuration (.env) ──
 def load_env():

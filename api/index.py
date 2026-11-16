@@ -161,6 +161,8 @@ class GithubLoginRequest(BaseModel):
     email: Optional[str] = None
     avatar_url: Optional[str] = None
     id: Optional[str] = None
+    uid: Optional[str] = None
+    pfp: Optional[str] = None
 
 class StateUpdateRequest(BaseModel):
     user_id: Optional[str] = None

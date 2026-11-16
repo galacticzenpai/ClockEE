@@ -58,7 +58,7 @@ ALL_CONVERSATIONS = {
     },
     "bug_fixes": {
         "name": "BUG FIXES",
-        "id": "6b74e384-a9b2-458e-ba34-4798334dd509",
+        "id": "c05ee59e-9749-4bc3-8bea-57ea8b60874c",
         "role": "Surgical Defect Remediation & Hotfixes"
     },
     "q_a": {

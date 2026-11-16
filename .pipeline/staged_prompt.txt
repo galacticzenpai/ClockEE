@@ -1,30 +1,7 @@
-You are GITHUB.
+You are Untitled conversation (Main Feature).
 
 --- TASK ASSIGNMENT ---
-Active Reel: Reel #2 (https://www.instagram.com/p/De63OT8Sqwg/)
-Source Handle: @waitwhatdidyoudo
-Backlog Location: .pipeline/github_backlog.json
-Prerequisites Met: Reel #1 (Graphify) vendored in integrations/graphify/ with 263 entities and 320 edges indexed.
-
-1. Package Analysis & Ingestion:
-   - Ingest Reel #2 (https://www.instagram.com/p/De63OT8Sqwg/).
-   - Identify the featured tool/package showcased by @waitwhatdidyoudo.
-   - Vendor the package into integrations/<package_name>/ with:
-     • SKILL.md (specification and commands)
-     • <package_name>_runner.py (local executable CLI/runner)
-     • Verified local execution test
-     • Entry added to integrations/README.md
-
-2. Cross-Mesh Installation & Handoffs ('Install Everywhere Else'):
-   At the end of your turn, output the exact handoff prompt blocks to distribute installation across the mesh:
-   - --- PROMPT FOR Untitled conversation (Main Feature) ---: Instructions to wire the tool's DOM containers, UI hooks, and core state into the frontend templates.
-   - --- PROMPT FOR UI / UX ---: Instructions to style the UI elements with ClockEE Hallmark design tokens and responsive classes.
-   - --- PROMPT FOR DB / BACKEND ---: Instructions for SQLite tables or server endpoints if the tool stores data.
-   - --- PROMPT FOR SIMULATION ---: Instructions to run Hallmark SlopLinter (100/100 floor score) and regression tests.
-
-3. Backlog Advance:
-   - In .pipeline/github_backlog.json, move Reel #2 to completed_reels and set Reel #3 (https://www.instagram.com/p/DfDPuZjE-7Q/) as ctive_reel.
-   - Provide your mandatory ### 🛰️ PIPELINE QUEUE & HANDOFF REPORT.
+Awaiting Phase 1 vendoring from GITHUB to wire DOM & feature hooks.
 
 --- MESH COORDINATION DIRECTIVE ---
 1. Implement all domain fixes and features cleanly without disturbing sibling modules.

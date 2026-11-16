@@ -376,54 +376,88 @@ def run_mesh_process():
         # Phase 1: Foundation (github -> db_backend)
         # Phase 2: Implementation (untitled_conversation -> ui_ux)
         # Phase 3: Verification (simulation -> bug_fixes)
+        # Strict Reel Lifecycle Gate:
+        # GITHUB must wait for Untitled conversation, UI / UX, and SIMULATION to finish
+        # implementing the current reel before GITHUB is allowed to ingest the next reel.
+        has_pending_mesh_work = any(
+            k != "github" and t.get("status") in ["PENDING", "QUEUED", "STAGED_FOR_DISPATCH"]
+            for k, t in tasks.items()
+        )
+        if has_pending_mesh_work:
+            print("  ⏳ Reel Lifecycle Gate: GITHUB holds while other conversations complete implementation.", flush=True)
+            actionable_tasks = [x for x in actionable_tasks if x[0] != "github"]
+
         phase_priority = {
-            "github": 0,
-            "db_backend": 1,
-            "untitled_conversation": 2,
-            "ui_ux": 3,
-            "simulation": 4,
-            "bug_fixes": 5
+            "untitled_conversation": 0,
+            "ui_ux": 1,
+            "simulation": 2,
+            "bug_fixes": 3,
+            "github": 4,
+            "db_backend": 5
         }
         actionable_tasks.sort(key=lambda x: phase_priority.get(x[0], 10))
-        tgt_key, tgt_task = actionable_tasks[0]
-        tgt_info = CONVERSATIONS[tgt_key]
+        if actionable_tasks:
+            tgt_key, tgt_task = actionable_tasks[0]
+            tgt_info = CONVERSATIONS[tgt_key]
 
-        instr = tgt_task.get('instruction') or tgt_task.get('action') or 'Execute domain queue task.'
-        payload = (
-            f"You are {tgt_task.get('target_name', tgt_info['name'])}.\n\n"
-            f"--- TASK ASSIGNMENT ---\n"
-            f"{instr}\n\n"
-            f"--- MESH COORDINATION DIRECTIVE ---\n"
-            f"1. Implement all domain fixes and features cleanly without disturbing sibling modules.\n"
-            f"2. When complete, provide a concise summary of changes.\n"
-            f"3. If your work generates a follow-up requirement for another conversation (e.g. UI/UX styling, DB schema, or Simulation testing), "
-            f"output a dedicated block labeled `--- PROMPT FOR [TARGET AGENT] ---` so the Backbone Coordinator routes it automatically."
-        )
+            instr = tgt_task.get('instruction') or tgt_task.get('action') or 'Execute domain queue task.'
+            payload = (
+                f"You are {tgt_task.get('target_name', tgt_info['name'])}.\n\n"
+                f"--- TASK ASSIGNMENT ---\n"
+                f"{instr}\n\n"
+                f"--- MESH COORDINATION DIRECTIVE ---\n"
+                f"1. Implement all domain fixes and features cleanly without disturbing sibling modules.\n"
+                f"2. When complete, provide a concise summary of changes.\n"
+                f"3. If your work generates a follow-up requirement for another conversation (e.g. UI/UX styling, DB schema, or Simulation testing), "
+                f"output a dedicated block labeled `--- PROMPT FOR [TARGET AGENT] ---` so the Backbone Coordinator routes it automatically."
+            )
 
-        staged_ok = stage_prompt_to_file(payload)
-        tgt_task["status"] = "STAGED_FOR_DISPATCH"
-        tgt_task["staged_at"] = datetime.now().isoformat()
-        staged_info = {
-            "key": tgt_key,
-            "name": tgt_info["name"],
-            "url": tgt_info["url"],
-            "staged_file": str(STAGED_PROMPT_FILE),
-            "payload": payload,
-            "instruction": tgt_task.get("instruction")
-        }
+            staged_ok = stage_prompt_to_file(payload)
+            tgt_task["status"] = "STAGED_FOR_DISPATCH"
+            tgt_task["staged_at"] = datetime.now().isoformat()
+            staged_info = {
+                "key": tgt_key,
+                "name": tgt_info["name"],
+                "url": tgt_info["url"],
+                "staged_file": str(STAGED_PROMPT_FILE),
+                "payload": payload,
+                "instruction": tgt_task.get("instruction")
+            }
 
-        print(f"\n--- [Step 4] Staging Actionable Prompt To Pipeline Mailbox ---", flush=True)
-        print(f"  Target Agent     : {tgt_info['name']}", flush=True)
-        print(f"  Direct Link      : {tgt_info['url']}", flush=True)
-        print(f"  Mailbox Path     : {STAGED_PROMPT_FILE}", flush=True)
-        print(f"  Staging Status   : {'✔ STAGED IN .pipeline/staged_prompt.txt' if staged_ok else 'Failed'}", flush=True)
-    else:
-        print("\n--- [Step 4] All Current Batch Tasks Completed or Dispatched ---", flush=True)
-        current_batch["status"] = "COMPLETED"
-        append_history(current_batch)
-        print("  ✔ Current batch recorded in history.json.", flush=True)
+            print(f"\n--- [Step 4] Staging Actionable Prompt To Pipeline Mailbox ---", flush=True)
+            print(f"  Target Agent     : {tgt_info['name']}", flush=True)
+            print(f"  Direct Link      : {tgt_info['url']}", flush=True)
+            print(f"  Mailbox Path     : {STAGED_PROMPT_FILE}", flush=True)
+            print(f"  Staging Status   : {'✔ STAGED IN .pipeline/staged_prompt.txt' if staged_ok else 'Failed'}", flush=True)
+        else:
+            print("\n--- [Step 4] All Current Batch Tasks Completed or Dispatched ---", flush=True)
+            current_batch["status"] = "COMPLETED"
+            append_history(current_batch)
+            print("  ✔ Current batch recorded in history.json.", flush=True)
 
     save_queue(queue)
+
+    # Sync Live Web Tracker State & Inter-Conversation Transmissions
+    try:
+        try:
+            from .tracker_sync import build_tracker_state, record_transmission
+        except (ImportError, ValueError):
+            sys.path.insert(0, str(PIPELINE_DIR))
+            import tracker_sync
+            build_tracker_state = tracker_sync.build_tracker_state
+            record_transmission = tracker_sync.record_transmission
+
+        if staged_info:
+            record_transmission(
+                source="BACKBONE COORDINATOR",
+                target=staged_info["name"],
+                subject=f"Phase Hand-off: {staged_info.get('instruction', '')[:60]}...",
+                status="DELIVERED_STAGED"
+            )
+        build_tracker_state()
+        print("  ✔ Web tracker dashboard (tracker.html & tracker_state.json) synchronized.", flush=True)
+    except Exception as e:
+        print(f"  • Tracker sync note: {e}", flush=True)
 
     # STEP 5: Safe Git Workspace Snapshot
     print("\n--- [Step 5] Preserving Git Workspace State ---", flush=True)

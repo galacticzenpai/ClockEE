@@ -1,0 +1,127 @@
+{
+  "last_sync": "2026-11-16 10:06:06",
+  "active_reel": {
+    "title": "Reel #1: Graphify Codebase Knowledge Graph",
+    "url": "https://www.instagram.com/p/DfFUVDVKwF5/",
+    "upstream": "Graphify-Labs/graphify",
+    "phase": 2,
+    "phase_badge": "PHASE 2: IMPLEMENTATION ACTIVE",
+    "next_reel": {
+      "url": "https://www.instagram.com/p/De63OT8Sqwg/",
+      "handle": "@waitwhatdidyoudo",
+      "status": "HELD - Waiting for Reel #1 Mesh Implementation"
+    }
+  },
+  "staged_prompt": {
+    "target_name": "Untitled conversation (Main Feature)",
+    "target_key": "untitled_conversation",
+    "url": "https://antigravity.google.com/r/21bf6843-8cfa-4328-afad-58c97e63b317-v2?p=c%2F6371cba6-7d2f-4b29-a250-627d88d1b4f1",
+    "payload": "You are DB / BACKEND (Database Architect & Backend Systems Specialist).\nDirect Conversation Link: https://antigravity.google.com/r/21bf6843-8cfa-4328-afad-58c97e63b317-v2?p=c%2Fd3700ff3-1bfb-458a-9968-8257ef2ca7e2\n\n--- TASK ASSIGNMENT ---\nCLOCKEE SUPABASE BACKEND REDESIGN (HYBRID PYTHON GATEWAY)\nPrerequisites Met: Existing SQLite schema analyzed in backend/db.py and server.py.\n\n1. Architectural Scope & Platform:\n   - Primary Backend & BaaS: Supabase (PostgreSQL + Supabase Auth).\n   - Gateway Pattern: Option B (Hybrid). Python server.py remains the active local/cloud API gateway, verifying incoming Supabase JWT tokens via supabase-py and interacting with Supabase PostgreSQL.\n   - Authentication Providers: Supabase Auth with Google OAuth and GitHub OAuth, plus traditional email/password fallback.\n\n2. Database Schema & RLS in Supabase:\n   - Create SQL schema definitions (`backend/supabase_schema.sql`):\n     \u2022 profiles table (linked to auth.users.id via Foreign Key): id, email, full_name, avatar_url, role ('JEE 2028 Aspirant'), created_at, last_seen.\n     \u2022 student_states table: user_id, current_mode, timer_state, active_deck, updated_at.\n     \u2022 cbt_results table: user_id, test_id, score, accuracy, time_spent, answers_json, completed_at.\n     \u2022 study_sessions table: user_id, duration_seconds, subject, topic, timestamp.\n   - Implement strict PostgreSQL Row-Level Security (RLS) policies on every table:\n     \u2022 Users may SELECT, INSERT, UPDATE only rows where auth.uid() = user_id.\n\n3. Python Gateway Updates (`backend/db.py` & `server.py`):\n   - Add Supabase client initialization via supabase-py using environment variables SUPABASE_URL, SUPABASE_ANON_KEY, and SUPABASE_SERVICE_ROLE_KEY.\n   - Update server.py authentication middleware:\n     \u2022 Intercept Authorization: Bearer <token> headers.\n     \u2022 Verify Supabase JWT tokens and extract authenticated user context.\n   - Build /api/auth/providers endpoint returning configured OAuth redirect URLs for Google and GitHub.\n   - Build /api/sync batch endpoint supporting offline-first sync (accepting queued study logs and timer states from client localStorage).\n\n4. SQLite to Supabase Migration Script:\n   - Create `backend/migrate_sqlite_to_supabase.py`:\n     \u2022 Connects to existing clockee.db.\n     \u2022 Reads all existing user accounts, sessions, and CBT test analytics.\n     \u2022 Safely upserts records into the new Supabase PostgreSQL tables without data loss.\n\n5. Cross-Domain Mesh Handoff Prompts:\n   When complete, output exact handoff prompts:\n   - `--- PROMPT FOR Untitled conversation (Main Feature) ---`: API endpoints, client auth initialization, and offline queue format.\n   - `--- PROMPT FOR UI / UX ---`: Google and GitHub OAuth callback URLs and login.html button requirements.\n   - `--- PROMPT FOR SIMULATION ---`: Verification instructions for RLS policy enforcement.\n"
+  },
+  "conversations": [
+    {
+      "name": "Untitled conversation (Main Feature)",
+      "key": "untitled_conversation",
+      "role": "Core DOM Structure, Navigation & Feature Wiring",
+      "status": "ACTIVE",
+      "is_active": true,
+      "step": 9921,
+      "url": "https://antigravity.google.com/r/21bf6843-8cfa-4328-afad-58c97e63b317-v2?p=c%2F6371cba6-7d2f-4b29-a250-627d88d1b4f1"
+    },
+    {
+      "name": "UI / UX",
+      "key": "ui_ux",
+      "role": "Hallmark Design Tokens, Tactile Cockpit & Responsive CSS",
+      "status": "QUEUED",
+      "is_active": false,
+      "step": 279,
+      "url": "https://antigravity.google.com/r/21bf6843-8cfa-4328-afad-58c97e63b317-v2?p=c%2F06a7d47b-b225-40f4-b830-b58baaaf8b3a"
+    },
+    {
+      "name": "SIMULATION",
+      "key": "simulation",
+      "role": "Automated Quality Gates, SlopLinter 100/100 & Security Audits",
+      "status": "COMPLETED",
+      "is_active": false,
+      "step": 401,
+      "url": "https://antigravity.google.com/r/21bf6843-8cfa-4328-afad-58c97e63b317-v2?p=c%2F62adc180-be21-4671-848c-c8df59e2c202"
+    },
+    {
+      "name": "DB / BACKEND",
+      "key": "db_backend",
+      "role": "SQLite Schemas, server.py Endpoints & Sync Layer",
+      "status": "COMPLETED",
+      "is_active": false,
+      "step": 447,
+      "url": "https://antigravity.google.com/r/21bf6843-8cfa-4328-afad-58c97e63b317-v2?p=c%2Fd3700ff3-1bfb-458a-9968-8257ef2ca7e2"
+    },
+    {
+      "name": "GITHUB",
+      "key": "github",
+      "role": "Package Vendoring & Sequential Reel Ingestion",
+      "status": "WAITING_FOR_MESH",
+      "is_active": false,
+      "step": 957,
+      "url": "https://antigravity.google.com/r/21bf6843-8cfa-4328-afad-58c97e63b317-v2?p=c%2Fa64c937f-bb58-4071-8eb9-32f5edbb6c2c"
+    },
+    {
+      "name": "Q / A",
+      "key": "q_a",
+      "role": "Question Bank Extraction & Analytical Problem Solving",
+      "status": "IDLE",
+      "is_active": false,
+      "step": 450,
+      "url": "https://antigravity.google.com/r/21bf6843-8cfa-4328-afad-58c97e63b317-v2?p=c%2F6029bc76-d833-4ab6-8672-b5f43511cf8f"
+    },
+    {
+      "name": "INSPIRATION",
+      "key": "inspiration",
+      "role": "Mentor Council & Topper Study Ideation",
+      "status": "IDLE",
+      "is_active": false,
+      "step": 115,
+      "url": "https://antigravity.google.com/r/21bf6843-8cfa-4328-afad-58c97e63b317-v2?p=c%2Fe6690e55-bfca-4ce1-af20-843015d7d01b"
+    },
+    {
+      "name": "BUG FIXES",
+      "key": "bug_fixes",
+      "role": "Surgical Defect Remediation & Hotfixes",
+      "status": "IDLE",
+      "is_active": false,
+      "step": 9680,
+      "url": "https://antigravity.google.com/r/21bf6843-8cfa-4328-afad-58c97e63b317-v2?p=c%2F6b74e384-a9b2-458e-ba34-4798334dd509"
+    },
+    {
+      "name": "BACKBONE COORDINATOR",
+      "key": "backbone",
+      "role": "Central Switchboard & Pipeline Orchestrator",
+      "status": "ACTIVE",
+      "is_active": true,
+      "step": 1200,
+      "url": "https://antigravity.google.com/r/21bf6843-8cfa-4328-afad-58c97e63b317-v2?p=c%2Fa80111ec-0657-4748-9e85-d620e8a2a535"
+    }
+  ],
+  "transmissions": [
+    {
+      "timestamp": "2026-11-16 01:00:39",
+      "source": "GITHUB",
+      "target": "Untitled conversation (Main Feature)",
+      "subject": "Reel #1 Graphify AST Knowledge Graph & Architecture God-Node Handoff",
+      "status": "DELIVERED"
+    },
+    {
+      "timestamp": "2026-11-16 08:52:10",
+      "source": "SIMULATION",
+      "target": "UI / UX",
+      "subject": "Hallmark Anti-AI-Slop Linter Audit (100.0/100, 0 floor violations)",
+      "status": "DELIVERED"
+    },
+    {
+      "timestamp": "2026-11-16 09:20:00",
+      "source": "GITHUB",
+      "target": "GITHUB",
+      "subject": "Reel #2 (De63OT8Sqwg) Backlog Ingestion Registered; Awaiting Reel #1 Lifecycle Completion",
+      "status": "QUEUED"
+    }
+  ]
+}

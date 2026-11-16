@@ -627,8 +627,9 @@ Initializing live stream...
             return res.json();
           })
           .then(data => {
-            if (data && (data.active_reel || data.conversations || data.metrics)) {
-              globalData = data;
+            const payload = (data && data.state) ? data.state : data;
+            if (payload && (payload.active_reel || payload.conversations || payload.metrics || payload.transmissions)) {
+              globalData = payload;
               renderCockpit(globalData);
               finishPulse();
               return;
@@ -642,8 +643,25 @@ Initializing live stream...
         return;
       }
 
-      // 2. Local file:/// offline mode fallback using dynamic script tag
-      loadLocalScriptFallback(finishPulse);
+      // 2. Local file:/// mode: Attempt direct remote hydration from https://clockee-os.vercel.app/api/tracker first!
+      fetch('https://clockee-os.vercel.app/api/tracker?t=' + Date.now())
+        .then(res => {
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          return res.json();
+        })
+        .then(data => {
+          if (data && (data.active_reel || data.conversations || data.metrics)) {
+            globalData = data;
+            renderCockpit(globalData);
+            finishPulse();
+            return;
+          }
+          throw new Error('Invalid tracker payload');
+        })
+        .catch(err => {
+          // Fall back to local dynamic script tag (.pipeline/tracker_data.js)
+          loadLocalScriptFallback(finishPulse);
+        });
     }
 
     function loadLocalScriptFallback(finishPulse) {

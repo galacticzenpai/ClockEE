@@ -385,10 +385,27 @@
       CBT_STATE.toast("Mistake removed successfully! 🗑️", "success");
     }
 
-    function launchMistakeDrill() {
+    function launchMistakeDrill(specificTestId) {
+      const state = CBT_STATE.load();
+      const mistakes = state.mistakes || [];
+      let targetTestId = specificTestId;
+      if (!targetTestId) {
+        // Prioritize active subject filter
+        const subMistakes = currentSubFilter === "All" ? mistakes : mistakes.filter(m => m.subject === currentSubFilter);
+        const refMistake = subMistakes[0] || mistakes[0];
+        if (refMistake && refMistake.testId) {
+          targetTestId = refMistake.testId;
+        } else if (currentSubFilter === "Mathematics" || currentSubFilter === "Maths") {
+          targetTestId = "jee_main_pyq_math_vectors";
+        } else if (currentSubFilter === "Chemistry") {
+          targetTestId = "jee_main_pyq_chem_bonding";
+        } else {
+          targetTestId = "jee_main_pyq_phy_kinematics";
+        }
+      }
       CBT_STATE.toast("Launching personalized Mistake Remediation CBT Drill...");
       setTimeout(() => {
-        window.location.href = "cbt_exam.html?testId=jee_main_pyq_phy_kinematics";
+        window.location.href = `cbt_exam.html?testId=${encodeURIComponent(targetTestId)}`;
       }, 500);
     }
   </script>

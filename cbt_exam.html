@@ -928,6 +928,15 @@
         questions = generateFullMock75Questions();
       }
 
+      // Normalize questions to handle empty single options
+      questions.forEach(q => {
+        if (q.type === 'single' && (!q.options || q.options.length === 0)) {
+          q.type = 'numerical';
+          if (q.correctNum === undefined && q.correct !== undefined) q.correctNum = q.correct;
+          if (!q.marking) q.marking = { correct: 4, wrong: 0 };
+        }
+      });
+
       // Active subjects in this specific exam
       const activeSubjects = Array.from(new Set(questions.map(q => q.subject)));
       currentSubject = activeSubjects[0] || 'Chemistry';
@@ -1050,6 +1059,13 @@
       resp.visits = (resp.visits || 0) + 1;
       if (resp.status === 'not_visited') {
         resp.status = 'not_answered';
+      }
+
+      // Render fallback for single choice with empty options
+      if (q.type === 'single' && (!q.options || q.options.length === 0)) {
+        q.type = 'numerical';
+        if (q.correctNum === undefined && q.correct !== undefined) q.correctNum = q.correct;
+        if (!q.marking) q.marking = { correct: 4, wrong: 0 };
       }
 
       // Update Header Meta
@@ -1307,12 +1323,15 @@
             isCorrect = Number(resp.enteredValue) === Number(q.correctNum);
           }
 
+          const posDelta = (q.marking && typeof q.marking.correct === 'number') ? q.marking.correct : 4;
+          const wrongDelta = (q.marking && typeof q.marking.wrong === 'number') ? q.marking.wrong : (q.type === 'numerical' ? 0 : -1);
+
           if (isCorrect) {
             correctCount++;
-            positiveMarks += 4;
-            totalScore += 4;
+            positiveMarks += posDelta;
+            totalScore += posDelta;
             if (subBreakdown[sub]) {
-              subBreakdown[sub].score += 4;
+              subBreakdown[sub].score += posDelta;
               subBreakdown[sub].correct++;
             }
 
@@ -1320,17 +1339,18 @@
             else overtimeCount++;
           } else {
             wrongCount++;
-            negativeMarks += 1;
-            totalScore -= 1;
+            negativeMarks += Math.abs(wrongDelta);
+            totalScore += wrongDelta;
             if (subBreakdown[sub]) {
-              subBreakdown[sub].score -= 1;
+              subBreakdown[sub].score += wrongDelta;
               subBreakdown[sub].wrong++;
             }
 
             if (time <= ideal * 0.6) wastedCount++;
             else overtimeCount++;
 
-            // Create mistake record
+            // Create mistake record with dynamic taxonomy
+            const mistakeReason = q.errorCategory || (time <= ideal * 0.6 ? "Silly Mistake" : (time > ideal * 1.4 ? "Conceptual Trap" : (q.type === 'numerical' ? "Calculation Mistake" : "Concept Confusion")));
             mistakeRecords.push({
               id: `mistake_${testId}_${idx}`,
               testId: testId,
@@ -1341,7 +1361,7 @@
               questionText: q.text,
               markedOption: q.type === 'single' ? `Option (${String.fromCharCode(65 + resp.selectedOption)})` : resp.enteredValue,
               correctOption: q.type === 'single' ? `Option (${String.fromCharCode(65 + q.correct)})` : q.correctNum,
-              reason: "Calculation Mistake",
+              reason: mistakeReason,
               reasonDetail: "Needs review in Mistakes Hub",
               date: new Date().toISOString().slice(0, 10),
               important: true,
@@ -1371,13 +1391,16 @@
           totalAttemptTime += (resp.timeSpent || 0);
         }
 
+        const posDelta = (q.marking && typeof q.marking.correct === 'number') ? q.marking.correct : 4;
+        const wrongDelta = (q.marking && typeof q.marking.wrong === 'number') ? q.marking.wrong : (q.type === 'numerical' ? 0 : -1);
+
         return {
           qNum: idx + 1,
           subject: q.subject,
           timeSec: resp.timeSpent || 0,
           targetLatencySec: q.idealTimeSec || currentTest.targetLatencySec || 75,
           status: !isEval ? 'unattempted' : isCorrect ? 'correct' : 'wrong',
-          scoreDelta: !isEval ? 0 : isCorrect ? 4 : -1
+          scoreDelta: !isEval ? 0 : isCorrect ? posDelta : wrongDelta
         };
       });
 

@@ -15,6 +15,7 @@
       "id": "TASK-CBT-02",
       "target": "bug_fixes",
       "priority": "P0",
+      "status": "COMPLETED",
       "task": "Receive CBT defect report from Simulation. Surgically patch identified bugs in CBT mode (event binding, state resets, index out-of-bounds, negative marking deltas). When hotfixes are applied, automatically notify Simulation for the re-test verification pass."
     },
     {

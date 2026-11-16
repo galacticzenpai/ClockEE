@@ -1,0 +1,24 @@
+{
+  "timestamp": "2026-11-16T16:17:41",
+  "pass1_question_bank": {
+    "status": "PASS",
+    "questionCount": 6326,
+    "bookCatalogCount": 5,
+    "defects": [],
+    "latexWarnings": 0
+  },
+  "pass2_scoring_engine": {
+    "status": "PASS",
+    "defects": []
+  },
+  "pass3_mistake_tagging": {
+    "status": "PASS",
+    "defects": []
+  },
+  "pass4_dom_and_dependencies": {
+    "status": "PASS",
+    "defects": []
+  },
+  "total_defects": 0,
+  "all_defects": []
+}

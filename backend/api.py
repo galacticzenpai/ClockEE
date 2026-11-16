@@ -9,7 +9,11 @@ from datetime import datetime, timedelta
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, CURRENT_DIR)
 
-from db import get_db, hash_password, DB_PATH
+from db import (
+    get_db, hash_password, DB_PATH,
+    verify_supabase_jwt, get_supabase_client, is_supabase_configured,
+    SUPABASE_URL, SUPABASE_ANON_KEY
+)
 from seed import seed_database
 
 def parse_body(handler):
@@ -23,7 +27,11 @@ def parse_body(handler):
     return {}
 
 def get_auth_user_id(handler):
-    # Try Authorization header: Bearer <token>
+    # 0. Check pre-parsed auth_user on handler (populated by server middleware)
+    if hasattr(handler, 'auth_user') and handler.auth_user and handler.auth_user.get('id'):
+        return str(handler.auth_user['id'])
+
+    # 1. Try Authorization header: Bearer <token>
     auth_header = handler.headers.get('Authorization', '')
     token = None
     if auth_header.startswith('Bearer '):
@@ -36,6 +44,12 @@ def get_auth_user_id(handler):
         token = qs['token'][0]
 
     if token:
+        # Check Supabase JWT verification first
+        sb_user = verify_supabase_jwt(token)
+        if sb_user and sb_user.get('id'):
+            return str(sb_user['id'])
+
+        # Fallback to local SQLite session table
         conn = get_db()
         cur = conn.cursor()
         cur.execute("SELECT user_id, expires_at FROM sessions WHERE token = ?", (token,))

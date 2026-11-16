@@ -201,6 +201,18 @@ def stage_prompt_to_file(text):
         print(f"[Orchestrator] Warning: Failed to stage prompt file: {e}", flush=True)
         return False
 
+def dispatch_via_agentapi(recipient_id, content, title="ClockEE Mesh Handoff"):
+    """Natively delivers prompt into the target conversation via agentapi IPC (Option 1)."""
+    import shutil
+    agentapi_cmd = shutil.which("agentapi.bat") or shutil.which("agentapi") or r"C:\Users\Kunal\.gemini\antigravity\bin\agentapi.bat"
+    try:
+        res = subprocess.run([agentapi_cmd, "send-message", f"--title={title}", recipient_id, content], capture_output=True, text=True, timeout=15)
+        if res.returncode == 0:
+            return True, "Delivered"
+        return False, res.stderr or "Exit Code Non-Zero"
+    except Exception as e:
+        return False, str(e)
+
 def discover_handoff_prompts(convo_key, steps):
     """Linear, non-backtracking handoff prompt extractor matching the Universal System Directive."""
     discovered = []
@@ -413,22 +425,37 @@ def run_mesh_process():
             )
 
             staged_ok = stage_prompt_to_file(payload)
-            tgt_task["status"] = "STAGED_FOR_DISPATCH"
+            target_id = tgt_task.get("target_id") or tgt_info.get("id")
+
+            # OPTION 1: Automatic Zero-Touch IPC Dispatch via agentapi
+            dispatched, reason = dispatch_via_agentapi(target_id, payload, title=f"ClockEE Handoff: {tgt_info['name']}")
+            if dispatched:
+                tgt_task["status"] = "DISPATCHED_TO_CONVERSATION"
+                dispatch_badge = "🚀 AUTO-DISPATCHED VIA AGENTAPI (ZERO INTERACTION)"
+                delivery_status = "DELIVERED_AUTO"
+            else:
+                tgt_task["status"] = "STAGED_FOR_DISPATCH"
+                dispatch_badge = f"⚠ Staged in Mailbox (Manual Fallback: {reason})"
+                delivery_status = "STAGED_MANUAL"
+
             tgt_task["staged_at"] = datetime.now().isoformat()
             staged_info = {
                 "key": tgt_key,
                 "name": tgt_info["name"],
+                "target_id": target_id,
                 "url": tgt_info["url"],
                 "staged_file": str(STAGED_PROMPT_FILE),
                 "payload": payload,
-                "instruction": tgt_task.get("instruction")
+                "instruction": tgt_task.get("instruction"),
+                "auto_dispatched": dispatched,
+                "delivery_status": delivery_status
             }
 
-            print(f"\n--- [Step 4] Staging Actionable Prompt To Pipeline Mailbox ---", flush=True)
+            print(f"\n--- [Step 4] Staging & Auto-Dispatching Handoff Prompt ---", flush=True)
             print(f"  Target Agent     : {tgt_info['name']}", flush=True)
+            print(f"  Target ID        : {target_id}", flush=True)
             print(f"  Direct Link      : {tgt_info['url']}", flush=True)
-            print(f"  Mailbox Path     : {STAGED_PROMPT_FILE}", flush=True)
-            print(f"  Staging Status   : {'✔ STAGED IN .pipeline/staged_prompt.txt' if staged_ok else 'Failed'}", flush=True)
+            print(f"  Dispatch Status  : {dispatch_badge}", flush=True)
         else:
             print("\n--- [Step 4] All Current Batch Tasks Completed or Dispatched ---", flush=True)
             current_batch["status"] = "COMPLETED"
@@ -453,7 +480,7 @@ def run_mesh_process():
                 source="BACKBONE COORDINATOR",
                 target=staged_info.get("name", "Target"),
                 subject=f"Phase Hand-off: {instr_snippet}...",
-                status="DELIVERED_STAGED"
+                status=staged_info.get("delivery_status", "DELIVERED_AUTO")
             )
         build_tracker_state()
         print("  ✔ Web tracker dashboard (tracker.html & tracker_state.json) synchronized.", flush=True)

@@ -19,7 +19,7 @@ BACKEND_DIR = os.path.join(WORKSPACE_DIR, "backend")
 if BACKEND_DIR not in sys.path:
     sys.path.insert(0, BACKEND_DIR)
 
-from backend.db import DB_PATH, init_db, get_db
+from backend.db import DB_PATH, init_db, get_db, verify_supabase_jwt, is_supabase_configured, SUPABASE_URL
 from backend.seed import seed_database
 from backend.api import ClockEEBackendRouter
 
@@ -66,7 +66,20 @@ class ClockEEServerHandler(SimpleHTTPRequestHandler):
         self.end_headers()
         return True
 
+    def parse_auth_context(self):
+        """
+        Authentication middleware:
+        Intercept Authorization: Bearer <token> headers and extract authenticated Supabase user context.
+        """
+        self.auth_token = None
+        self.auth_user = None
+        auth_header = self.headers.get('Authorization', '')
+        if auth_header.startswith('Bearer '):
+            self.auth_token = auth_header.split('Bearer ', 1)[1].strip()
+            self.auth_user = verify_supabase_jwt(self.auth_token)
+
     def do_GET(self):
+        self.parse_auth_context()
         # 1. Check if routed by API or Firebase Cloud Sync
         if ClockEEBackendRouter.handle_request(self, 'GET'):
             return
@@ -75,21 +88,25 @@ class ClockEEServerHandler(SimpleHTTPRequestHandler):
         return super().do_GET()
 
     def do_POST(self):
+        self.parse_auth_context()
         if ClockEEBackendRouter.handle_request(self, 'POST'):
             return
         self.send_json(404, {"error": "Endpoint not found", "path": self.path, "method": "POST"})
 
     def do_PUT(self):
+        self.parse_auth_context()
         if ClockEEBackendRouter.handle_request(self, 'PUT'):
             return
         self.send_json(404, {"error": "Endpoint not found", "path": self.path, "method": "PUT"})
 
     def do_PATCH(self):
+        self.parse_auth_context()
         if ClockEEBackendRouter.handle_request(self, 'PATCH'):
             return
         self.send_json(404, {"error": "Endpoint not found", "path": self.path, "method": "PATCH"})
 
     def do_DELETE(self):
+        self.parse_auth_context()
         if ClockEEBackendRouter.handle_request(self, 'DELETE'):
             return
         self.send_json(404, {"error": "Endpoint not found", "path": self.path, "method": "DELETE"})
@@ -113,6 +130,8 @@ def print_banner(port):
     print(f"  📝 CBT Exam Arena:      http://127.0.0.1:{port}/cbt_home.html")
     print(f"  🛡️ Master Admin Panel:  http://127.0.0.1:{port}/admin.html")
     print(f"  💾 SQLite Database:     {DB_PATH}")
+    sb_status = f"Connected ({SUPABASE_URL})" if is_supabase_configured() else "Local Hybrid (SQLite Fallback)"
+    print(f"  ☁️  Supabase BaaS:      {sb_status}")
     print("-" * 68)
     print("  🔑 Pre-Seeded Evaluation Credentials:")
     print("     • Student Alpha:     alpha@clockee.app  /  password123")
@@ -121,6 +140,8 @@ def print_banner(port):
     print("-" * 68)
     print("  🚀 Endpoints Active:")
     print("     • Auth API:          POST /api/signin, POST /api/signup, POST /api/check-email")
+    print("     • Supabase OAuth:    GET /api/auth/providers, POST /api/auth/session")
+    print("     • Batch Offline Sync: POST /api/sync (queued logs, CBT exams, timer)")
     print("     • Cloud Sync API:    GET/PUT /students/<id>/state.json, GET /students.json")
     print("     • Question Bank:     GET /api/questions, GET /api/questions/random (5,775 Qs)")
     print("     • Sprints & Logs:    GET/POST /api/logs")

@@ -8,6 +8,99 @@ from datetime import datetime, timedelta
 WORKSPACE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DB_PATH = os.path.join(WORKSPACE_DIR, "clockee.db")
 
+# ── Load Environment Configuration (.env) ──
+def load_env():
+    env_path = os.path.join(WORKSPACE_DIR, ".env")
+    if os.path.isfile(env_path):
+        try:
+            with open(env_path, "r", encoding="utf-8") as f:
+                for line in f:
+                    line = line.strip()
+                    if line and not line.startswith("#") and "=" in line:
+                        k, v = line.split("=", 1)
+                        k = k.strip()
+                        v = v.strip().strip("'\"")
+                        if k and k not in os.environ:
+                            os.environ[k] = v
+        except Exception as e:
+            print(f"[!] Notice loading .env: {e}")
+
+load_env()
+
+# Supabase BaaS Configuration
+SUPABASE_URL = os.environ.get("SUPABASE_URL", "").strip()
+SUPABASE_ANON_KEY = os.environ.get("SUPABASE_ANON_KEY", "").strip()
+SUPABASE_SERVICE_ROLE_KEY = os.environ.get("SUPABASE_SERVICE_ROLE_KEY", "").strip()
+
+_supabase_client = None
+_supabase_admin_client = None
+
+def is_supabase_configured():
+    return bool(SUPABASE_URL and (SUPABASE_ANON_KEY or SUPABASE_SERVICE_ROLE_KEY))
+
+def get_supabase_client(use_service_role=False):
+    global _supabase_client, _supabase_admin_client
+    if not is_supabase_configured():
+        return None
+
+    try:
+        from supabase import create_client
+        if use_service_role and SUPABASE_SERVICE_ROLE_KEY:
+            if not _supabase_admin_client:
+                _supabase_admin_client = create_client(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY)
+            return _supabase_admin_client
+        else:
+            key = SUPABASE_ANON_KEY or SUPABASE_SERVICE_ROLE_KEY
+            if not _supabase_client:
+                _supabase_client = create_client(SUPABASE_URL, key)
+            return _supabase_client
+    except Exception as e:
+        print(f"[!] Notice initializing Supabase client: {e}")
+        return None
+
+def verify_supabase_jwt(token):
+    """
+    Verify Supabase JWT token and extract user claims.
+    Uses supabase client or pyjwt.
+    """
+    if not token or not isinstance(token, str):
+        return None
+
+    client = get_supabase_client()
+    if client:
+        try:
+            user_resp = client.auth.get_user(token)
+            if user_resp and user_resp.user:
+                u = user_resp.user
+                return {
+                    "id": str(u.id),
+                    "email": u.email,
+                    "role": (u.user_metadata.get("role", "JEE 2028 Aspirant") if hasattr(u, 'user_metadata') and u.user_metadata else "JEE 2028 Aspirant"),
+                    "full_name": (u.user_metadata.get("full_name") or u.user_metadata.get("name") if hasattr(u, 'user_metadata') and u.user_metadata else None),
+                    "metadata": u.user_metadata if hasattr(u, 'user_metadata') else {}
+                }
+        except Exception:
+            pass
+
+    # Fallback to pyjwt payload decode (for local verification without live network hit)
+    try:
+        import jwt
+        payload = jwt.decode(token, options={"verify_signature": False})
+        if payload and "sub" in payload:
+            exp = payload.get("exp")
+            if exp and datetime.fromtimestamp(exp) < datetime.now():
+                return None
+            return {
+                "id": str(payload.get("sub")),
+                "email": payload.get("email"),
+                "role": payload.get("role", "authenticated"),
+                "metadata": payload.get("user_metadata", {})
+            }
+    except Exception:
+        pass
+
+    return None
+
 def get_db():
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row

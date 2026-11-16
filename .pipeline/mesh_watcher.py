@@ -101,12 +101,13 @@ def main():
 
     import mesh_orchestrator
     import tracker_sync
+    import check_floor_prompts
 
-    # Initial tracker sync
+    # Initial floor check and tracker sync
     try:
-        tracker_sync.build_tracker_state()
+        check_floor_prompts.check_and_execute_floor_prompts()
     except Exception as e:
-        log(f"Initial tracker state build: {e}")
+        log(f"Initial floor check & tracker sync: {e}")
 
     last_sync_time = time.time()
 
@@ -128,19 +129,17 @@ def main():
                     last_steps[key] = curr_step
                     step_changed = True
 
-                    # Trigger when a conversation finishes a PLANNER_RESPONSE
+                    # Trigger immediately after any conversation completes a prompt
                     if curr_type == "PLANNER_RESPONSE" and curr_status == "DONE":
                         log(f"⚡ [EVENT DETECTED] {info['name']} completed prompting (Step {curr_step})!")
-                        log(f"  Running mesh_orchestrator to evaluate handoffs and quality gates...")
+                        log(f"  Running check_floor_prompts to evaluate handoffs and quality gates...")
 
-                        # Execute orchestrator cycle immediately
-                        result = mesh_orchestrator.run_mesh_process()
-                        staged = result.get("staged_task")
-                        
-                        if staged and staged.get("auto_dispatched"):
-                            log(f"  🚀 [AUTO-DISPATCHED] Next handoff instantly sent to {staged['name']} via agentapi!")
-                        else:
-                            log(f"  ✔ Orchestrator cycle completed successfully.")
+                        # Execute floor prompt check and dispatch cycle immediately
+                        try:
+                            floor_res = check_floor_prompts.check_and_execute_floor_prompts()
+                            log(f"  ✔ Floor audit finished: {floor_res.get('total_floor_prompts', 0)} floor prompt(s) audited.")
+                        except Exception as floor_err:
+                            log(f"  Warning executing floor check: {floor_err}")
 
             # Sync tracker state on step advancement or periodically every 4 seconds
             if step_changed or (time.time() - last_sync_time > 4.0):

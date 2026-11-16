@@ -2,12 +2,69 @@
 // ClockEE V6 Master Core & API Engine
 // ==========================================================================
 
-// Universal Auth Route Guard (Redirect unauthenticated sessions to login.html)
+// Universal Auth Route Guard & Supabase OAuth Token Handler
+window.handleSupabaseOAuthCallback = function() {
+  try {
+    const hash = window.location.hash;
+    if (hash && (hash.includes("access_token=") || hash.includes("refresh_token="))) {
+      const params = new URLSearchParams(hash.substring(1));
+      const accessToken = params.get("access_token");
+      const refreshToken = params.get("refresh_token");
+      const expiresIn = params.get("expires_in");
+      const tokenType = params.get("token_type") || "bearer";
+
+      if (accessToken) {
+        // Persist session tokens
+        localStorage.setItem("clockee_supabase_token", accessToken);
+        sessionStorage.setItem("clockee_supabase_token", accessToken);
+        if (refreshToken) localStorage.setItem("clockee_supabase_refresh", refreshToken);
+
+        // Decode JWT payload for user info
+        try {
+          const parts = accessToken.split(".");
+          if (parts.length === 3) {
+            const payload = JSON.parse(atob(parts[1].replace(/-/g, "+").replace(/_/g, "/")));
+            const userEmail = payload.email || "student@clockee.app";
+            const userName = payload.user_metadata?.full_name || payload.user_metadata?.name || userEmail.split("@")[0];
+            const userAvatar = payload.user_metadata?.avatar_url || payload.user_metadata?.picture || `https://api.dicebear.com/7.x/bottts-neutral/svg?seed=${encodeURIComponent(userName)}`;
+
+            const userRecord = {
+              id: payload.sub || "user_" + Date.now().toString(36),
+              uid: payload.sub || "user_" + Date.now().toString(36),
+              email: userEmail,
+              name: userName,
+              pfp: userAvatar,
+              role: "JEE 2028 Aspirant",
+              provider: "google",
+              authTime: Date.now()
+            };
+
+            localStorage.setItem("clockee_current_user", JSON.stringify(userRecord));
+            localStorage.setItem("clockee_auth_active", "true");
+          }
+        } catch (jwtErr) {
+          console.warn("Could not decode Supabase JWT payload:", jwtErr);
+        }
+
+        // Clean hash from address bar without reloading
+        if (window.history && window.history.replaceState) {
+          window.history.replaceState(null, document.title, window.location.pathname + window.location.search);
+        }
+      }
+    }
+  } catch (e) {
+    console.error("Supabase OAuth token ingestion error:", e);
+  }
+};
+
 window.checkAuthGuard = function() {
   try {
+    // Ingest OAuth callback tokens if present
+    window.handleSupabaseOAuthCallback();
+
     const path = (window.location.pathname || "").toLowerCase();
-    // Allow public access to login.html and hackathon.html
-    if (path.endsWith("login.html") || path.endsWith("hackathon.html")) {
+    // Allow public access to login.html, hackathon.html, and tracker.html
+    if (path.endsWith("login.html") || path.endsWith("hackathon.html") || path.endsWith("tracker.html")) {
       return;
     }
     const isAuth = localStorage.getItem("clockee_auth_active") === "true";
@@ -412,10 +469,68 @@ window.saveState = function() {
     localStorage.setItem(`clockee_user_state_${activeId}`, JSON.stringify(window.APP_STATE));
     localStorage.setItem("clockee_v5_master_state", JSON.stringify(window.APP_STATE));
     window.dispatchEvent(new CustomEvent("stateChange", { detail: window.APP_STATE }));
+    if (window.syncStudentStateRemote) {
+      window.syncStudentStateRemote();
+    }
   } catch (e) {
     console.error("Failed to save state to localStorage", e);
   }
 };
+
+// ─── Remote State Auto-Sync & Offline Reconnect Engine ─────
+window.syncStudentStateRemote = async function() {
+  try {
+    const isAuth = localStorage.getItem("clockee_auth_active") === "true";
+    const userStr = localStorage.getItem("clockee_current_user");
+    if (!isAuth || !userStr) return;
+    const user = JSON.parse(userStr);
+    const uid = user.id || user.uid;
+    if (!uid || uid.startsWith("guest_") || uid === "user_guest") return;
+
+    const token = localStorage.getItem("clockee_supabase_token") || sessionStorage.getItem("clockee_supabase_token");
+    const headers = { "Content-Type": "application/json" };
+    if (token) headers["Authorization"] = `Bearer ${token}`;
+
+    const appState = window.getState();
+    const payload = {
+      user_id: uid,
+      current_mode: appState.examMode || "mains",
+      daily_goals: appState.dailyGoals || {},
+      stats: {
+        hoursToday: window.getHoursToday ? window.getHoursToday() : 0,
+        streakDays: 1,
+        questionsSolved: window.getQuestionsToday ? window.getQuestionsToday() : {}
+      },
+      state: appState
+    };
+
+    const resp = await fetch("/api/state", {
+      method: "POST",
+      headers: headers,
+      body: JSON.stringify(payload)
+    });
+
+    if (resp.ok) {
+      localStorage.removeItem("clockee_offline_sync_pending");
+    } else {
+      localStorage.setItem("clockee_offline_sync_pending", "true");
+    }
+  } catch (err) {
+    localStorage.setItem("clockee_offline_sync_pending", "true");
+    console.warn("State auto-sync queued for reconnect:", err.message);
+  }
+};
+
+// Auto-sync on network reconnect
+if (typeof window !== "undefined") {
+  window.addEventListener("online", () => {
+    if (localStorage.getItem("clockee_offline_sync_pending") === "true") {
+      window.syncStudentStateRemote();
+    }
+  });
+}
+
+
 
 window.mergeState = function(partial) {
   window.APP_STATE = { ...window.APP_STATE, ...partial };

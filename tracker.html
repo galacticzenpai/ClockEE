@@ -590,6 +590,44 @@ Initializing live stream...
       const dot = document.getElementById('heartbeat-dot');
       if (dot) dot.classList.add('bg-cyan-400');
 
+      // Helper to finish dot animation
+      const finishPulse = () => {
+        if (dot) {
+          setTimeout(() => {
+            dot.classList.remove('bg-cyan-400');
+            dot.classList.add('bg-emerald-400');
+          }, 300);
+        }
+      };
+
+      // 1. Production / HTTP remote hydration via /api/tracker (backed by Supabase public.mesh_tracker_state)
+      if (window.location.protocol === 'http:' || window.location.protocol === 'https:') {
+        fetch('/api/tracker?t=' + Date.now())
+          .then(res => {
+            if (!res.ok) throw new Error('HTTP ' + res.status);
+            return res.json();
+          })
+          .then(data => {
+            if (data && (data.active_reel || data.conversations || data.metrics)) {
+              globalData = data;
+              renderCockpit(globalData);
+              finishPulse();
+              return;
+            }
+            throw new Error('Invalid tracker payload');
+          })
+          .catch(err => {
+            console.warn('Remote /api/tracker fallback to script tag:', err);
+            loadLocalScriptFallback(finishPulse);
+          });
+        return;
+      }
+
+      // 2. Local file:/// offline mode fallback using dynamic script tag
+      loadLocalScriptFallback(finishPulse);
+    }
+
+    function loadLocalScriptFallback(finishPulse) {
       const scriptId = 'dynamic-tracker-script';
       const oldScript = document.getElementById(scriptId);
       if (oldScript) oldScript.remove();
@@ -602,12 +640,7 @@ Initializing live stream...
           globalData = window.TRACKER_DATA;
           renderCockpit(globalData);
         }
-        if (dot) {
-          setTimeout(() => {
-            dot.classList.remove('bg-cyan-400');
-            dot.classList.add('bg-emerald-400');
-          }, 300);
-        }
+        if (finishPulse) finishPulse();
       };
       script.onerror = () => {
         fetch('.pipeline/tracker_state.json?t=' + Date.now())
@@ -615,12 +648,7 @@ Initializing live stream...
           .then(data => {
             globalData = data;
             renderCockpit(globalData);
-            if (dot) {
-              setTimeout(() => {
-                dot.classList.remove('bg-cyan-400');
-                dot.classList.add('bg-emerald-400');
-              }, 300);
-            }
+            if (finishPulse) finishPulse();
           })
           .catch(e => console.warn('Tracker auto-sync fallback:', e));
       };

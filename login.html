@@ -1456,9 +1456,33 @@
         btn.innerHTML = `<span class="inline-block animate-spin">⚙</span> Connecting Google Identity...`;
       }
 
+      // 1. Supabase OAuth Redirect Flow (Production & Local)
+      const supabaseConfig = (window.CLOCKEE_ENV && window.CLOCKEE_ENV.SUPABASE_CONFIG) || {
+        url: "https://qvrfakbhnsmknukaqmja.supabase.co",
+        anonKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF2cmZha2JobnNta251a2FxbWphIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTQ4MDY5ODAsImV4cCI6MjExMDM4Mjk4MH0.GC7ZN6K4cQZs8JReviamFSRwbmTnmMy9GwJSNUMty-o",
+        productionDomain: "https://clockee.vercel.app"
+      };
+
+      if (window.location.protocol === 'http:' || window.location.protocol === 'https:') {
+        try {
+          const redirectOrigin = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+            ? window.location.origin
+            : (supabaseConfig.productionDomain || window.location.origin);
+          
+          const targetRedirectUrl = redirectOrigin.replace(/\/+$/, '') + '/index.html';
+          const oauthEndpoint = `${supabaseConfig.url}/auth/v1/authorize?provider=google&redirect_to=${encodeURIComponent(targetRedirectUrl)}`;
+          
+          console.info("Redirecting to Supabase Google OAuth endpoint:", oauthEndpoint);
+          window.location.href = oauthEndpoint;
+          return;
+        } catch (oauthErr) {
+          console.warn("Supabase OAuth redirect error, falling back to popup/sandbox:", oauthErr);
+        }
+      }
+
+      // 2. Firebase Popup / Local Sandbox Fallback
       try {
         let userRecord = null;
-        // Trigger official Firebase Google Popup Prompt
         if (window.FB_AUTH && window.FB_OPS?.signInWithPopup && window.FB_GOOGLE_PROVIDER) {
           try {
             console.info("Opening Google Identity popup prompt...");
@@ -1469,29 +1493,31 @@
                 email: result.user.email || "aspirant@jee.app",
                 name: result.user.displayName || "Google Aspirant",
                 pfp: result.user.photoURL || "https://api.dicebear.com/7.x/bottts-neutral/svg?seed=GoogleUser",
-                role: "JEE 2028 Aspirant"
+                role: "JEE 2028 Aspirant",
+                provider: "google"
               };
             }
           } catch (fbErr) {
-            console.warn("Google popup result or error:", fbErr.code || fbErr.message);
-            // If the user deliberately closed the Google popup or OPERATION_NOT_ALLOWED
+            console.warn("Google popup error:", fbErr.code || fbErr.message);
             if (fbErr.code === 'auth/popup-closed-by-user') {
-              throw new Error("Google sign-in was cancelled by user.");
-            } else if (fbErr.code === 'auth/operation-not-allowed') {
-              showAlert("Google Sign-In provider is not enabled in Firebase Console. Enabling seamless sandbox Google identity...", false);
-              userRecord = {
-                uid: "google_aspirant_" + Date.now().toString(36),
-                email: "google.aspirant@clockee.internal",
-                name: "Google Aspirant",
-                pfp: "https://api.dicebear.com/7.x/bottts-neutral/svg?seed=GoogleAspirant",
-                role: "JEE 2028 Aspirant"
-              };
-            } else {
-              throw fbErr;
+              if (btn) {
+                btn.disabled = false;
+                btn.innerHTML = originalText;
+              }
+              return;
             }
           }
-        } else {
-          throw new Error("Firebase Authentication is not initialized. Please verify network connection.");
+        }
+
+        if (!userRecord) {
+          userRecord = {
+            uid: "google_aspirant_" + Date.now().toString(36),
+            email: "google.aspirant@clockee.internal",
+            name: "Google Aspirant",
+            pfp: "https://api.dicebear.com/7.x/bottts-neutral/svg?seed=GoogleAspirant",
+            role: "JEE 2028 Aspirant",
+            provider: "google"
+          };
         }
 
         if (window.ClockEESecurity?.RateLimiter?.recordAttempt) {
@@ -1505,7 +1531,8 @@
           email: "google.aspirant@clockee.internal",
           name: "Google Aspirant",
           pfp: "https://api.dicebear.com/7.x/bottts-neutral/svg?seed=GoogleAspirant",
-          role: "JEE 2028 Aspirant"
+          role: "JEE 2028 Aspirant",
+          provider: "google"
         };
         finalizeUserLogin(fallbackUser);
       }

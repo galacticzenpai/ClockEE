@@ -60,34 +60,61 @@
     "timestamp": "2026-11-16T11:28:00Z",
     "tasks": {
       "untitled_conversation": {
-        "target_id": "6371cba6-7d2f-4b29-a250-627d88d1b4f1",
+        "source": "planning",
+        "target_key": "untitled_conversation",
         "target_name": "Untitled conversation (Main Feature)",
+        "target_id": "6371cba6-7d2f-4b29-a250-627d88d1b4f1",
+        "instruction": "Client-Side Production Environment Resolution, Google Auth Integration & Remote Tracker Hydration. Support Google Login via Supabase OAuth with redirect back to https://clockee.vercel.app. Extract access token from URL hash, store in session, and authenticate API requests. Update tracker.html to fetch from /api/tracker so the user can view live agent activities from anywhere. Verify offline queue auto-syncs on reconnect.",
         "status": "DISPATCHED_TO_CONVERSATION",
-        "instruction": "Dray Cross-Model Session Bridge is vendored at integrations/dray_cross_model/.\n\nTask for Main Feature:\n1. Hook dray_bridge.py capture into long-running CBT exam flows and simulation runs so session progress can be frozen into active_session_snapshot.json on demand.\n2. In admin/developer tools, add a /link payload generator button to allow developer handoffs between models without lost context.",
-        "staged_at": "2026-11-16T11:28:42.862653"
+        "staged_at": "2026-11-16T11:51:58.583442"
       },
       "ui_ux": {
-        "target_id": "06a7d47b-b225-40f4-b830-b58baaaf8b3a",
+        "source": "planning",
+        "target_key": "ui_ux",
         "target_name": "UI / UX",
-        "status": "DISPATCHED_TO_CONVERSATION",
-        "instruction": "Dray Cross-Model UI Task:\n1. Follow Hallmark retro_terminal and technical_slate theme tokens for developer diagnostic /link modals.\n2. Ensure handoff payload cards display clear progress bars (e.g. 50% Step 2/4) with high-contrast text and zero purple radial gradients.",
-        "staged_at": "2026-11-16T11:28:59.881442"
+        "target_id": "06a7d47b-b225-40f4-b830-b58baaaf8b3a",
+        "instruction": "Mobile Mission Control Cockpit & Tactical Auth Polish. Optimize tracker.html for mobile smartphone viewports so the user can easily monitor agent activities from anywhere on the go. Polish Google Login buttons and Auth modal to seamlessly fit ClockEE's tactical cyberpunk aesthetic. Add live edge connection status pill to navigation.",
+        "status": "QUEUED"
       },
       "simulation": {
-        "source": "github",
+        "source": "planning",
         "target_key": "simulation",
         "target_name": "SIMULATION",
         "target_id": "62adc180-be21-4671-848c-c8df59e2c202",
-        "instruction": "You are SIMULATION.\nActive Package: Dray Cross-Model Session Bridge\nPrerequisites Met: Package vendored in integrations/dray_cross_model/ with exit code 0 on demo run.\n\nTask for SIMULATION:\n1. Run `python integrations/dray_cross_model/dray_bridge.py verify` in your automated verification passes.\n2. Ensure no agent violates protected file guardrails (`cbt_master_bank.js`, `backend/db.py`).\n3. Re-run Hallmark sloplint to ensure 100/100 visual score across all templates.",
-        "status": "DISPATCHED_TO_CONVERSATION",
-        "staged_at": "2026-11-16T11:29:32.120136"
+        "instruction": "2-Pass Live Browser Deployment Audit. Pass 1: Open live https://clockee.vercel.app in browser; test Google OAuth login, Supabase database queries, CBT exams, and remote tracker. Pass 2: Simulate offline disconnection and verify auto-sync. If any defects occur, compile detailed report and hand off to BUG FIXES.",
+        "status": "QUEUED"
       },
       "db_backend": {
-        "target_id": "d3700ff3-1bfb-458a-9968-8257ef2ca7e2",
+        "source": "planning",
+        "target_key": "db_backend",
         "target_name": "DB / BACKEND",
-        "status": "DISPATCHED_TO_CONVERSATION",
-        "instruction": "Dray Backend Task:\n1. Ensure session snapshots serialize safely into SQLite agent_memory.db or sessions table if persistence across restarts is requested.\n2. Protect backend schema migrations from unverified agent edits.",
-        "staged_at": "2026-11-16T11:29:50.722240"
+        "target_id": "d3700ff3-1bfb-458a-9968-8257ef2ca7e2",
+        "instruction": "Implement Vercel Serverless Python Adapter (api/index.py) connected to Supabase cloud PostgreSQL. Verify that database is connected properly and bypasses local SQLite on Vercel. Implement Google Auth and GitHub OAuth token validation and session caching. Wire /api/tracker to stream live mesh state and provide requirements.txt.",
+        "status": "QUEUED"
+      },
+      "backbone": {
+        "source": "planning",
+        "target_key": "backbone",
+        "target_name": "BACKBONE COORDINATOR",
+        "target_id": "a80111ec-0657-4748-9e85-d620e8a2a535",
+        "instruction": "Daily Roadmap Plan Generated.\nPlan File: .pipeline/daily_plan.json\nPlease inspect .pipeline/daily_plan.json, evaluate pending reels from .pipeline/github_backlog.json, load tasks into the mesh queue, and activate the autonomous execution loop.",
+        "status": "QUEUED"
+      },
+      "github": {
+        "source": "planning",
+        "target_key": "github",
+        "target_name": "GITHUB",
+        "target_id": "a64c937f-bb58-4071-8eb9-32f5edbb6c2c",
+        "instruction": "Configure production vercel.json rewriting /api/(.*) to /api/index.py and /tracker to /tracker.html. Set security headers, CORS, and immutable cache-control for CBT question banks. Configure .vercelignore to exclude local SQLite databases (clockee.db, clockee_auth.db), temp videos, and pipeline internals.",
+        "status": "QUEUED"
+      },
+      "bug_fixes": {
+        "source": "planning",
+        "target_key": "bug_fixes",
+        "target_name": "BUG FIXES",
+        "target_id": "c05ee59e-9749-4bc3-8bea-57ea8b60874c",
+        "instruction": "Surgical Production Remediation. Receive defect report from Simulation, surgically patch any issues in routing, Google Auth redirects, CORS, or database queries, and hand back to Simulation for second verification pass.",
+        "status": "QUEUED"
       }
     }
   },

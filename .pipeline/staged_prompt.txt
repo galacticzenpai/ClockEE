@@ -1,9 +1,7 @@
-You are DB / BACKEND.
+You are Untitled conversation (Main Feature).
 
 --- TASK ASSIGNMENT ---
-Dray Backend Task:
-1. Ensure session snapshots serialize safely into SQLite agent_memory.db or sessions table if persistence across restarts is requested.
-2. Protect backend schema migrations from unverified agent edits.
+Client-Side Production Environment Resolution, Google Auth Integration & Remote Tracker Hydration. Support Google Login via Supabase OAuth with redirect back to https://clockee.vercel.app. Extract access token from URL hash, store in session, and authenticate API requests. Update tracker.html to fetch from /api/tracker so the user can view live agent activities from anywhere. Verify offline queue auto-syncs on reconnect.
 
 --- MESH COORDINATION DIRECTIVE ---
 1. Implement all domain fixes and features cleanly without disturbing sibling modules.

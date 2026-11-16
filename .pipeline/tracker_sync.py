@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-ClockEE Tracker State Synchronizer with Live Progress Engine
-Extracts real-time step numbers, live tool calls, model thoughts, and activity streams
-for all conversations into .pipeline/tracker_state.json for tracker.html.
+ClockEE Tracker State Synchronizer with Live Progress Engine & Full Step Inspector
+Extracts real-time step numbers, live tool calls, model thoughts, full un-truncated message bodies,
+and the complete 39-reel playbook into .pipeline/tracker_state.json and .pipeline/tracker_data.js.
 """
 
 import os
@@ -14,9 +14,11 @@ PIPELINE_DIR = Path(__file__).resolve().parent
 ROOT_DIR = PIPELINE_DIR.parent
 BRAIN_DIR = Path(r"C:\Users\Kunal\.gemini\antigravity\brain")
 TRACKER_STATE_FILE = PIPELINE_DIR / "tracker_state.json"
+TRACKER_JS_FILE = PIPELINE_DIR / "tracker_data.js"
 TRANSMISSIONS_FILE = PIPELINE_DIR / "transmissions.json"
 QUEUE_FILE = PIPELINE_DIR / "queue.json"
 BACKLOG_FILE = PIPELINE_DIR / "github_backlog.json"
+PLAYBOOK_FILE = PIPELINE_DIR / "reel_playbook.json"
 STAGED_PROMPT_FILE = PIPELINE_DIR / "staged_prompt.txt"
 
 CONVERSATION_REGISTRY = {
@@ -86,31 +88,84 @@ def get_transmissions():
     if TRANSMISSIONS_FILE.is_file():
         try:
             with open(TRANSMISSIONS_FILE, "r", encoding="utf-8") as f:
-                return json.load(f)
+                data = json.load(f)
+                return data.get("transmissions", [])[-20:]
         except Exception:
             pass
     return []
 
 def record_transmission(source, target, subject, status="DELIVERED_AUTO"):
-    txs = get_transmissions()
-    if txs and txs[0].get("source") == source and txs[0].get("target") == target and txs[0].get("subject") == subject:
-        return
-    txs.insert(0, {
+    txs = []
+    if TRANSMISSIONS_FILE.is_file():
+        try:
+            with open(TRANSMISSIONS_FILE, "r", encoding="utf-8") as f:
+                txs = json.load(f).get("transmissions", [])
+        except Exception:
+            txs = []
+    
+    new_entry = {
         "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "source": source,
         "target": target,
         "subject": subject,
         "status": status
-    })
+    }
+    txs.append(new_entry)
+    txs = txs[-50:]
     try:
         with open(TRANSMISSIONS_FILE, "w", encoding="utf-8") as f:
-            json.dump(txs[:60], f, indent=2)
-    except Exception as e:
-        print(f"Error saving transmissions: {e}")
+            json.dump({"transmissions": txs}, f, indent=2)
+    except Exception:
+        pass
 
-def extract_live_conversation_progress(cid: str):
-    """Parses transcript to extract real-time execution steps, tool calls, and model outputs."""
-    t_file = BRAIN_DIR / cid / ".system_generated" / "logs" / "transcript.jsonl"
+def extract_step_detail(step):
+    s_idx = step.get("step_index")
+    s_type = step.get("type", "UNKNOWN")
+    s_stat = step.get("status", "DONE")
+    s_src = step.get("source", "UNKNOWN")
+    s_time = step.get("created_at", "")
+
+    raw_content = str(step.get("content") or "")
+    # Clean up single-line preview for compact views
+    one_line = raw_content.replace("\r\n", " ").replace("\n", " ").strip()
+    preview = one_line[:140] if one_line else ""
+
+    # Cap single step raw content to 25,000 chars to avoid memory issues on massive logs
+    full_content = raw_content[:25000] + ("\n... [TRUNCATED - Payload exceeded 25KB]" if len(raw_content) > 25000 else "")
+
+    raw_thinking = str(step.get("thinking") or "")
+    full_thinking = raw_thinking[:15000] + ("\n... [TRUNCATED - Thinking exceeded 15KB]" if len(raw_thinking) > 15000 else "")
+
+    # Parse full tool calls
+    tool_calls = step.get("tool_calls") or []
+    parsed_tools = []
+    for t in tool_calls:
+        t_name = t.get("name", "unknown_tool")
+        t_args = t.get("args") or {}
+        summary = t_args.get("toolSummary") or t_args.get("CommandLine") or t_args.get("Path") or t_name
+        parsed_tools.append({
+            "name": t_name,
+            "summary": str(summary)[:200],
+            "args": t_args
+        })
+
+    return {
+        "step": s_idx,
+        "type": s_type,
+        "status": s_stat,
+        "source": s_src,
+        "timestamp": s_time,
+        "preview": preview or ("(Tool Invocation)" if tool_calls else "Step processed"),
+        "full_content": full_content,
+        "full_thinking": full_thinking,
+        "tool_calls": parsed_tools,
+        "has_thinking": bool(raw_thinking.strip()),
+        "has_content": bool(raw_content.strip()),
+        "has_tools": len(parsed_tools) > 0
+    }
+
+def extract_live_conversation_progress(convo_id):
+    t_file = BRAIN_DIR / convo_id / ".system_generated" / "logs" / "transcript.jsonl"
     if not t_file.is_file():
         return {
             "step": 0,
@@ -120,6 +175,8 @@ def extract_live_conversation_progress(cid: str):
             "tool_name": None,
             "tool_summary": None,
             "content_preview": "",
+            "full_content": "",
+            "full_thinking": "",
             "recent_steps": []
         }
 
@@ -135,11 +192,14 @@ def extract_live_conversation_progress(cid: str):
                 "tool_name": None,
                 "tool_summary": None,
                 "content_preview": "",
+                "full_content": "",
+                "full_thinking": "",
                 "recent_steps": []
             }
 
+        # Read last 40 steps for comprehensive expanded step inspection
         recent_objs = []
-        for l in lines[-12:]:
+        for l in lines[-40:]:
             try:
                 recent_objs.append(json.loads(l))
             except Exception:
@@ -154,7 +214,8 @@ def extract_live_conversation_progress(cid: str):
                 "tool_name": None,
                 "tool_summary": None,
                 "content_preview": "",
-                "thinking_preview": "",
+                "full_content": "",
+                "full_thinking": "",
                 "recent_steps": []
             }
 
@@ -162,8 +223,8 @@ def extract_live_conversation_progress(cid: str):
         st_idx = last_obj.get("step_index", 0)
         st_type = last_obj.get("type", "UNKNOWN")
         st_status = last_obj.get("status", "DONE")
-        st_content = str(last_obj.get("content", "")).replace("\n", " ").strip()
-        st_thinking = str(last_obj.get("thinking", "")).replace("\n", " ").strip()
+        raw_last_content = str(last_obj.get("content") or "")
+        raw_last_thinking = str(last_obj.get("thinking") or "")
         st_time = last_obj.get("created_at", "")
 
         # Detect active tool execution
@@ -186,7 +247,6 @@ def extract_live_conversation_progress(cid: str):
         # Calculate recency / running state
         is_running = (st_status in ["RUNNING", "IN_PROGRESS"]) or (len(tool_calls) > 0 and st_status != "DONE")
 
-        # Determine detailed execution state
         if is_running:
             detailed_status = "EXECUTING_TOOL" if tool_name else "GENERATING"
         elif st_type == "PLANNER_RESPONSE":
@@ -198,44 +258,23 @@ def extract_live_conversation_progress(cid: str):
 
         # Determine last action text
         if tool_name:
-            last_action = f"Executing {tool_name}: {tool_summary[:70]}"
-        elif st_thinking:
-            last_action = f"Thinking: {st_thinking[:70]}..."
+            last_action = f"Executing {tool_name}: {str(tool_summary)[:80]}"
+        elif raw_last_thinking:
+            t_oneline = raw_last_thinking.replace("\n", " ").strip()
+            last_action = f"Thinking: {t_oneline[:80]}..."
         elif st_type == "PLANNER_RESPONSE":
-            last_action = f"Response: {st_content[:70]}..." if len(st_content) > 70 else (st_content or "Planning turn...")
+            c_oneline = raw_last_content.replace("\n", " ").strip()
+            last_action = f"Response: {c_oneline[:80]}..." if len(c_oneline) > 80 else (c_oneline or "Planning turn...")
         elif st_type == "USER_INPUT":
-            last_action = f"Input: {st_content[:70]}..."
+            u_oneline = raw_last_content.replace("\n", " ").strip()
+            last_action = f"Input: {u_oneline[:80]}..."
         elif st_type == "SYSTEM_MESSAGE":
             last_action = "System Message Received"
         else:
-            last_action = f"{st_type}: {st_content[:50]}"
+            last_action = f"{st_type}: {raw_last_content[:50]}"
 
-        # Format recent steps for live terminal inspector
-        recent_steps = []
-        for step in recent_objs:
-            s_idx = step.get("step_index")
-            s_type = step.get("type")
-            s_stat = step.get("status", "DONE")
-            s_cnt = str(step.get("content", "")).replace("\n", " ").strip()
-            s_thk = str(step.get("thinking", "")).replace("\n", " ").strip()
-            s_tools = step.get("tool_calls") or []
-            s_tool_desc = ""
-            s_tool_name = None
-            if s_tools:
-                t = s_tools[0]
-                s_tool_name = t.get("name")
-                t_args = t.get("args") or {}
-                s_tool_desc = f"{s_tool_name}: {t_args.get('toolSummary', t_args.get('CommandLine', t_args.get('Path', '')))}"
-
-            recent_steps.append({
-                "step": s_idx,
-                "type": s_type,
-                "status": s_stat,
-                "tool_name": s_tool_name,
-                "tool": s_tool_desc[:80] if s_tool_desc else None,
-                "thinking": s_thk[:100] if s_thk else None,
-                "preview": s_cnt[:100] if s_cnt else ("(Tool invocation)" if s_tools else "")
-            })
+        # Parse all steps with full expanded fields
+        recent_steps = [extract_step_detail(s) for s in recent_objs]
 
         return {
             "step": st_idx,
@@ -245,8 +284,9 @@ def extract_live_conversation_progress(cid: str):
             "tool_name": tool_name,
             "tool_summary": tool_summary,
             "tool_details": tool_details,
-            "content_preview": st_content[:180],
-            "thinking_preview": st_thinking[:180],
+            "content_preview": raw_last_content.replace("\n", " ").strip()[:200],
+            "full_content": raw_last_content[:30000],
+            "full_thinking": raw_last_thinking[:15000],
             "timestamp": st_time,
             "recent_steps": recent_steps
         }
@@ -259,6 +299,8 @@ def extract_live_conversation_progress(cid: str):
             "tool_name": None,
             "tool_summary": None,
             "content_preview": "",
+            "full_content": "",
+            "full_thinking": "",
             "recent_steps": []
         }
 
@@ -279,6 +321,24 @@ def build_tracker_state():
         except Exception:
             pass
 
+    # Read backlog state dynamically
+    backlog_data = {}
+    if BACKLOG_FILE.is_file():
+        try:
+            with open(BACKLOG_FILE, "r", encoding="utf-8") as bf:
+                backlog_data = json.load(bf)
+        except Exception:
+            pass
+
+    # Read reel playbook
+    playbook_data = {}
+    if PLAYBOOK_FILE.is_file():
+        try:
+            with open(PLAYBOOK_FILE, "r", encoding="utf-8") as pf:
+                playbook_data = json.load(pf)
+        except Exception:
+            pass
+
     # Build dynamic conversation state with real-time live progress
     convos_data = []
     for key, reg in CONVERSATION_REGISTRY.items():
@@ -292,8 +352,8 @@ def build_tracker_state():
             display_status = "ACTIVE"
             is_active = True
         elif key == "github":
-            display_status = "WAITING_ON_MESH"
-            is_active = False
+            display_status = "WAITING_ON_MESH" if not prog["is_running"] else "RUNNING"
+            is_active = prog["is_running"]
         elif key == "simulation":
             display_status = "CERTIFIED_100"
             is_active = False
@@ -315,19 +375,29 @@ def build_tracker_state():
             "live_progress": prog
         })
 
+    # Assemble dynamic active reel
+    active_reel_obj = backlog_data.get("active_reel", {})
+    completed_reels = backlog_data.get("completed_reels", [])
+    pause_active = backlog_data.get("pause_new_reels_on_completion", False)
+
     tracker_state = {
         "last_sync": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "backlog_summary": {
+            "total_reels": backlog_data.get("total_reels", 39),
+            "completed_count": len(completed_reels),
+            "pending_count": len(backlog_data.get("pending_reels", [])),
+            "is_paused": pause_active,
+            "pause_reason": backlog_data.get("pause_reason", "Paused per user directive after Reel #4")
+        },
         "active_reel": {
-            "title": "Reel #1: Graphify Knowledge Graph & DB Sync Gateway",
-            "url": "https://www.instagram.com/p/DfFUVDVKwF5/",
-            "upstream": "Graphify-Labs/graphify",
-            "phase": 2,
-            "phase_badge": "PHASE 2: IMPLEMENTATION ACTIVE",
-            "next_reel": {
-                "url": "https://www.instagram.com/p/De63OT8Sqwg/",
-                "handle": "@waitwhatdidyoudo",
-                "status": "HELD - Waiting for Reel #1 Mesh Implementation"
-            }
+            "id": active_reel_obj.get("id", "reel_005"),
+            "url": active_reel_obj.get("url", "https://www.instagram.com/p/DeW0tvNz2uR/"),
+            "title": f"Reel #{active_reel_obj.get('id', 'reel_005')[-3:]}: SQLite-VSS Local Vector Search",
+            "upstream": "asg017/sqlite-vss",
+            "status": active_reel_obj.get("status", "QUEUED_FOR_INGESTION"),
+            "status_badge": "PAUSED PER USER DIRECTIVE" if pause_active else active_reel_obj.get("status", "QUEUED"),
+            "completed_count": len(completed_reels),
+            "total_count": backlog_data.get("total_reels", 39)
         },
         "staged_prompt": {
             "target_name": "Untitled conversation (Main Feature)",
@@ -336,17 +406,17 @@ def build_tracker_state():
             "payload": staged_payload
         },
         "conversations": convos_data,
-        "transmissions": get_transmissions()
+        "transmissions": get_transmissions(),
+        "reel_playbook": playbook_data
     }
 
     try:
         with open(TRACKER_STATE_FILE, "w", encoding="utf-8") as f:
             json.dump(tracker_state, f, indent=2)
         # Also write standalone tracker_data.js for CORS-free file:// protocol loading
-        TRACKER_JS_FILE = PIPELINE_DIR / "tracker_data.js"
         with open(TRACKER_JS_FILE, "w", encoding="utf-8") as jf:
             jf.write("window.TRACKER_DATA = " + json.dumps(tracker_state, indent=2) + ";\n")
-        print("✔ tracker_state.json & tracker_data.js updated with live conversation progress engine.")
+        print("✔ tracker_state.json & tracker_data.js updated with full expanded step engine and reel playbook.")
     except Exception as e:
         print(f"Error saving tracker state: {e}")
 

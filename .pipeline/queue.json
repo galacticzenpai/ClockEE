@@ -66,13 +66,13 @@
         "dispatched_at": "2026-11-16T09:38:54.577960"
       },
       "untitled_conversation": {
+        "source": "github",
         "target_key": "untitled_conversation",
         "target_name": "Untitled conversation (Main Feature)",
         "target_id": "6371cba6-7d2f-4b29-a250-627d88d1b4f1",
+        "instruction": "You are Untitled conversation (Main Feature).\nActive Package: Graphify Codebase Knowledge Graph\nPrerequisites Met: Package vendored in integrations/graphify/ with 263 entities and 320 edges indexed.\n\nPlease review the architectural dependency report before proceeding with core features:\n1. Review `integrations/graphify/reports/GRAPH_REPORT.md`:\n   - Note our primary architectural chokepoints: `clockee_core.js` (16 dependent templates), `cbt_shared.js` (9 dependent templates), and `env.js` (21 templates).\n2. Query Blast Radius Before Renames:\n   Run `python integrations/graphify/graph_runner.py query <function_or_file>` before altering any shared methods or localStorage keys to see every file that consumes it.\n3. Respect the dependency graph during feature additions so no circular references or dead script tags are introduced.",
         "status": "DISPATCHED_TO_CONVERSATION",
-        "action": "Awaiting Phase 1 vendoring from GITHUB to wire DOM & feature hooks.",
-        "staged_at": "2026-11-16T10:17:06.352197",
-        "instruction": "Active Package: Graphify Codebase Knowledge Graph\nPrerequisites Met: Package vendored in integrations/graphify/ with 263 entities and 320 edges indexed.\n\nPlease review the architectural dependency report before proceeding with core features:\n1. Review integrations/graphify/reports/GRAPH_REPORT.md:\n   - Note our primary architectural chokepoints: clockee_core.js (16 dependent templates), cbt_shared.js (9 dependent templates), and env.js (21 templates).\n2. Query Blast Radius Before Renames:\n   Run python integrations/graphify/graph_runner.py query <function_or_file> before altering any shared methods or localStorage keys to see every file that consumes it.\n3. Respect the dependency graph during feature additions so no circular references or dead script tags are introduced."
+        "staged_at": "2026-11-16T10:51:22.942364"
       },
       "ui_ux": {
         "target_key": "ui_ux",
@@ -83,12 +83,12 @@
         "staged_at": "2026-11-16T10:24:09.233260"
       },
       "simulation": {
+        "source": "untitled_conversation",
         "target_key": "simulation",
         "target_name": "SIMULATION",
         "target_id": "62adc180-be21-4671-848c-c8df59e2c202",
-        "status": "DISPATCHED_TO_CONVERSATION",
-        "action": "Awaiting implementation to execute sloplint 100/100 and security gates.",
-        "staged_at": "2026-11-16T10:24:33.581600"
+        "instruction": "You are SIMULATION.\nPrerequisites Met: Main Feature has completed surgical sanitization of dynamic innerHTML insertion sinks across admin.html, today.html, cbt_exam.html, and cbt_analysis.html.\n\nPlease run the Phase 3 verification suites:\n1. Run `python integrations/cloudflare_security_audit/audit_runner.py` to confirm all candidate sinks are verified or mitigated.\n2. Run `python integrations/hallmark_design/sloplint.py` to ensure zero floor gate failures, mobile responsiveness (<414px), and 100/100 design certification.\n3. Update and report final verification results back to the mesh.",
+        "status": "QUEUED"
       },
       "db_backend": {
         "target_key": "db_backend",

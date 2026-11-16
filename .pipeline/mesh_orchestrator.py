@@ -354,10 +354,19 @@ def run_mesh_process():
             discovered = discover_handoff_prompts(key, steps)
             for d in discovered:
                 tgt = d["target_key"]
-                if tgt not in tasks or tasks[tgt].get("status") in ["COMPLETED", "RESOLVED"]:
+                is_new_prompt = False
+                if tgt not in tasks:
+                    is_new_prompt = True
+                elif tasks[tgt].get("status") in ["COMPLETED", "RESOLVED"]:
+                    is_new_prompt = True
+                elif tasks[tgt].get("instruction") != d["instruction"]:
+                    is_new_prompt = True
+
+                if is_new_prompt:
                     tasks[tgt] = d
+                    tasks[tgt]["status"] = "QUEUED"
                     new_handoffs_found += 1
-                    print(f"    ⭐ [Handoff Detected] {info['name']} emitted prompt for {d['target_name']}", flush=True)
+                    print(f"    ⭐ [Floor Prompt Detected] {info['name']} emitted actionable prompt for {d['target_name']}", flush=True)
 
     if new_handoffs_found > 0:
         print(f"  ✔ Registered {new_handoffs_found} newly discovered handoffs in queue.", flush=True)
@@ -387,10 +396,8 @@ def run_mesh_process():
         audit_passed = False
         print(f"  • Cloudflare Security Audit    : Error: {e}", flush=True)
 
-    if "simulation" in tasks and tasks["simulation"].get("status") in ["PENDING", "GATES_EVALUATED"]:
-        tasks["simulation"]["status"] = "COMPLETED"
-        tasks["simulation"]["completed_at"] = datetime.now().isoformat()
-        print("  ✔ Simulation quality task automatically marked COMPLETED.", flush=True)
+    # Note: If tasks["simulation"] has a specific handoff instruction from another conversation,
+    # preserve it as an actionable QUEUED task so it dispatches to the SIMULATION conversation session.
 
     # STEP 3: Evaluate Task Queue & Anti-Bottleneck Status
     print("\n--- [Step 3] Evaluating Pending Pipeline Tasks ---", flush=True)

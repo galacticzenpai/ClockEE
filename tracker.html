@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ClockEE Live Mesh Cockpit & Conversation Progress Inspector</title>
+  <title>ClockEE Live Mesh Cockpit & Real-Time Conversation Inspector</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,24 +34,28 @@
     }
     .mono { font-family: 'JetBrains Mono', monospace; }
     .glass-panel {
-      background: rgba(13, 17, 26, 0.75);
+      background: rgba(13, 17, 26, 0.85);
       backdrop-filter: blur(20px);
       border: 1px solid rgba(255, 255, 255, 0.08);
     }
     .glass-panel:hover {
-      border-color: rgba(255, 255, 255, 0.14);
+      border-color: rgba(255, 255, 255, 0.15);
     }
     .neon-pulse-emerald {
-      box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+      box-shadow: 0 0 25px rgba(16, 185, 129, 0.35);
       animation: neonPulse 2s infinite ease-in-out;
     }
     .neon-pulse-amber {
-      box-shadow: 0 0 20px rgba(245, 158, 11, 0.35);
+      box-shadow: 0 0 25px rgba(245, 158, 11, 0.4);
+      animation: neonPulse 2s infinite ease-in-out;
+    }
+    .neon-pulse-cyan {
+      box-shadow: 0 0 25px rgba(6, 182, 212, 0.35);
       animation: neonPulse 2s infinite ease-in-out;
     }
     @keyframes neonPulse {
       0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.85; transform: scale(1.01); }
+      50% { opacity: 0.85; transform: scale(1.008); }
     }
     ::-webkit-scrollbar { width: 6px; height: 6px; }
     ::-webkit-scrollbar-track { background: #07090e; }
@@ -59,38 +63,38 @@
     ::-webkit-scrollbar-thumb:hover { background: #334155; }
   </style>
 </head>
-<body class="min-h-screen p-4 sm:p-6 lg:p-8 selection:bg-amber-500/30 selection:text-amber-200">
+<body class="min-h-screen p-4 sm:p-6 lg:p-8 selection:bg-cyan-500/30 selection:text-cyan-200">
 
   <!-- Header -->
   <header class="max-w-7xl mx-auto mb-8 flex flex-col md:flex-row md:items-center justify-between gap-5 border-b border-white/10 pb-6">
     <div>
       <div class="flex items-center gap-3">
-        <div class="relative flex h-3 w-3">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+        <div class="relative flex h-3.5 w-3.5">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-cyan-500"></span>
         </div>
         <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white flex items-center gap-2">
           ClockEE Mesh Cockpit
-          <span class="text-xs px-2.5 py-0.5 rounded-full bg-cyan-950/80 text-cyan-400 border border-cyan-800/60 font-bold tracking-wider mono uppercase">Live Progress v2.5</span>
+          <span class="text-xs px-2.5 py-0.5 rounded-full bg-cyan-950/90 text-cyan-400 border border-cyan-800 font-bold tracking-wider mono uppercase">Live Progress v3.0</span>
         </h1>
       </div>
-      <p class="text-xs sm:text-sm text-slate-400 mt-1">Real-Time Conversation Step Monitor • Tool Call Inspector • Zero Interaction Autonomous Mesh</p>
+      <p class="text-xs sm:text-sm text-slate-400 mt-1">Real-Time Step Inspector • Live Tool Monitoring • Zero-Interaction Multi-Conversation Mesh</p>
     </div>
 
     <!-- Live Sync Indicators & Controls -->
     <div class="flex flex-wrap items-center gap-3">
-      <div class="glass-panel px-3.5 py-2 rounded-xl flex items-center gap-2.5 text-xs mono text-slate-300">
-        <span class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
-        <span class="text-slate-400">LAST SYNC:</span>
+      <div id="heartbeat-badge" class="glass-panel px-3.5 py-2 rounded-xl flex items-center gap-2.5 text-xs mono text-slate-300 transition duration-300">
+        <span id="heartbeat-dot" class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="text-slate-400">SYNC:</span>
         <span id="header-sync-time" class="font-bold text-emerald-400">CONNECTING...</span>
       </div>
 
       <button onclick="toggleSummaryDrawer()" class="px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-extrabold text-xs transition flex items-center gap-2 shadow-lg shadow-amber-500/20 active:scale-95">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-        <span>What Is Happening RN?</span>
+        <span>Ask: What Is Happening?</span>
       </button>
 
-      <button onclick="fetchState()" title="Refresh State" class="p-2 rounded-xl glass-panel hover:bg-white/10 text-slate-400 hover:text-white transition">
+      <button onclick="fetchState()" title="Force Refresh" class="p-2 rounded-xl glass-panel hover:bg-white/10 text-slate-400 hover:text-white transition">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
       </button>
     </div>
@@ -98,95 +102,156 @@
 
   <main class="max-w-7xl mx-auto space-y-8">
 
-    <!-- Mission Briefing Drawer (Toggleable) -->
+    <!-- Interactive Mission Briefing Drawer (Q&A Style: "Allow me to ask what is happening") -->
     <section id="briefing-card" class="glass-panel rounded-2xl p-6 border-amber-500/40 bg-gradient-to-br from-[#0d111a] via-[#121826] to-[#1e1a38]/40 relative overflow-hidden transition-all duration-300">
       <div class="flex items-start justify-between gap-4 mb-4">
         <div class="flex items-center gap-3">
           <div class="h-9 w-9 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
           </div>
           <div>
             <h2 class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
-              Live Mission Briefing: Real-Time Mesh State
+              Mission Briefing & FAQ: What Is Happening Right Now?
               <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 mono font-bold">100% ZERO-INTERACTION</span>
             </h2>
-            <p class="text-xs text-slate-400">Continuous execution via event-driven transcript daemon and native IPC auto-dispatch.</p>
+            <p class="text-xs text-slate-400">Click any inquiry card below to inspect the verified operational mechanics.</p>
           </div>
         </div>
-        <span class="text-xs mono text-amber-400 font-bold bg-amber-950/60 px-3 py-1 rounded-lg border border-amber-500/30">Phase 2 Active</span>
+        <button onclick="toggleSummaryDrawer()" class="text-xs text-slate-400 hover:text-white mono">Close ✕</button>
       </div>
 
+      <!-- Quick Interactive Inquiries -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
-        <div class="bg-black/40 p-4 rounded-xl border border-white/5 space-y-1">
-          <span class="text-[11px] mono font-bold uppercase tracking-wider text-cyan-400">🎯 Active Target & Wiring</span>
-          <p class="text-sm font-semibold text-white">Main Feature (<span id="main-feature-step" class="text-amber-400 mono">Step 9989</span>)</p>
-          <p class="text-xs text-slate-400">Actively executing tools to wire Supabase hybrid auth, offline sync queue, and Graphify AST nodes.</p>
+        <div class="bg-black/50 p-4 rounded-xl border border-white/5 space-y-1.5 hover:border-cyan-500/40 transition">
+          <span class="text-[11px] mono font-bold uppercase tracking-wider text-cyan-400">⚡ What is Main Feature doing?</span>
+          <p class="text-xs text-slate-200 font-semibold">Wiring Supabase Gateway & AST Graph Nodes</p>
+          <p class="text-[11px] text-slate-400 leading-relaxed">Main Feature is at <strong class="text-amber-300 mono" id="briefing-step-main">Step 10023+</strong> implementing offline storage, JWT auth hooks, and Graphify AST nodes in `cbt_analysis.html` and `js/env.js`.</p>
         </div>
 
-        <div class="bg-black/40 p-4 rounded-xl border border-white/5 space-y-1">
-          <span class="text-[11px] mono font-bold uppercase tracking-wider text-amber-400">⏸️ Reel Lifecycle Gate</span>
-          <p class="text-sm font-semibold text-white">GITHUB Waiting for Mesh Verification</p>
-          <p class="text-xs text-slate-400">Reel #1 Graphify vendored. Reel #2 is locked on hold until Phase 3 quality gates certify 100/100.</p>
+        <div class="bg-black/50 p-4 rounded-xl border border-white/5 space-y-1.5 hover:border-amber-500/40 transition">
+          <span class="text-[11px] mono font-bold uppercase tracking-wider text-amber-400">⏸️ Why is GITHUB on hold?</span>
+          <p class="text-xs text-slate-200 font-semibold">Reel Lifecycle Gate Enforced</p>
+          <p class="text-[11px] text-slate-400 leading-relaxed">GITHUB successfully vendored Reel #1. Reel #2 is locked on hold until Main Feature, UI/UX, and SIMULATION certify Reel #1 with a 100/100 score.</p>
         </div>
 
-        <div class="bg-black/40 p-4 rounded-xl border border-white/5 space-y-1">
-          <span class="text-[11px] mono font-bold uppercase tracking-wider text-emerald-400">🛡️ Simulation & Quality Loop</span>
-          <p class="text-sm font-semibold text-white">Score: 100.0/100 (Certified)</p>
-          <p class="text-xs text-slate-400">SlopLinter: 0 floor failures across 23 pages. Strict loop: Simulation ➔ Bug Fixes ➔ Simulation re-audit.</p>
+        <div class="bg-black/50 p-4 rounded-xl border border-white/5 space-y-1.5 hover:border-emerald-500/40 transition">
+          <span class="text-[11px] mono font-bold uppercase tracking-wider text-emerald-400">🛡️ How does Double-Simulation work?</span>
+          <p class="text-xs text-slate-200 font-semibold">Simulation ➔ Fixes ➔ Re-audit Loop</p>
+          <p class="text-[11px] text-slate-400 leading-relaxed">SIMULATION executes first. Any defect triggers BUG FIXES. SIMULATION then conducts a mandatory 2nd pass before the next reel is scheduled.</p>
         </div>
       </div>
     </section>
 
-    <!-- LIVE CONVERSATION EXECUTION CONSOLE (New Feature) -->
-    <section class="glass-panel rounded-2xl p-6 border-cyan-500/30 bg-gradient-to-br from-[#090d16] to-[#0f172a]">
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4 pb-4 border-b border-white/10">
-        <div>
+    <!-- ======================================================== -->
+    <!-- REAL-TIME LIVE CONVERSATION PROGRESS INSPECTOR (FLAGSHIP) -->
+    <!-- ======================================================== -->
+    <section class="glass-panel rounded-2xl p-6 border-cyan-500/30 bg-gradient-to-br from-[#080c15] via-[#0c121e] to-[#0f172a] shadow-2xl relative overflow-hidden">
+      
+      <!-- Top Conversation Switcher Bar (Quick Pill Selector) -->
+      <div class="mb-5 pb-4 border-b border-white/10">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
           <div class="flex items-center gap-2">
             <span class="h-2.5 w-2.5 rounded-full bg-cyan-400 animate-ping"></span>
-            <span class="text-xs font-extrabold uppercase tracking-wider text-cyan-400 mono">LIVE CONVERSATION PROGRESS INSPECTOR</span>
+            <span class="text-xs font-extrabold uppercase tracking-wider text-cyan-400 mono">LIVE CONVERSATION PROGRESS MONITOR</span>
           </div>
-          <h3 id="inspector-title" class="text-lg font-bold text-white mt-1">Inspecting: Untitled conversation (Main Feature)</h3>
-          <p id="inspector-subtitle" class="text-xs text-slate-400 mono mt-0.5">Real-time execution steps, tool invocations & model outputs</p>
+          <div class="text-xs mono text-slate-400 flex items-center gap-2">
+            <span class="text-slate-500">Auto-Polling:</span>
+            <span class="text-emerald-400 font-bold">2.0s</span>
+          </div>
         </div>
 
-        <!-- Conversation Selector Dropdown -->
-        <div class="flex items-center gap-3">
-          <label class="text-xs mono text-slate-400">Select Conversation:</label>
-          <select id="convo-selector" onchange="onSelectConversation()" class="bg-slate-900 border border-white/15 text-xs text-white rounded-xl px-3 py-1.5 mono focus:outline-none focus:border-cyan-500">
-            <!-- Populated dynamically -->
-          </select>
+        <!-- 9 Quick Conversation Switcher Pills -->
+        <div id="quick-convo-pills" class="flex flex-wrap gap-2 pt-1">
+          <!-- Populated dynamically via JS -->
         </div>
       </div>
 
-      <!-- Live Tool Call Banner -->
-      <div id="inspector-tool-banner" class="mb-4 p-3.5 rounded-xl bg-black/50 border border-cyan-500/30 flex items-center justify-between gap-3 text-xs mono">
-        <div class="flex items-center gap-2.5 overflow-hidden">
-          <span class="h-2 w-2 rounded-full bg-cyan-400"></span>
-          <span class="text-slate-400">LAST ACTION:</span>
-          <span id="inspector-last-action" class="font-bold text-white truncate">Initializing live stream...</span>
+      <!-- Focused Conversation Live Status Card -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+        
+        <!-- Left: Conversation Identity & Current Step Gauge -->
+        <div class="bg-black/60 p-5 rounded-2xl border border-white/10 space-y-4 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-2">
+              <span id="detail-convo-status" class="px-2.5 py-0.5 rounded text-[10px] font-extrabold mono bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">EXECUTING</span>
+              <span id="detail-step-badge" class="text-sm mono font-extrabold text-amber-400">Step 10023</span>
+            </div>
+            <h3 id="detail-convo-name" class="text-xl font-extrabold text-white tracking-tight">Untitled conversation (Main Feature)</h3>
+            <p id="detail-convo-role" class="text-xs text-slate-400 mt-1 leading-relaxed">Core DOM Structure, Navigation & Feature Wiring</p>
+          </div>
+
+          <div class="pt-3 border-t border-white/10 flex items-center justify-between">
+            <a id="detail-convo-url" href="#" target="_blank" class="text-xs mono text-cyan-400 hover:text-cyan-300 font-semibold flex items-center gap-1.5 hover:underline">
+              <span>Open in Antigravity</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+            </a>
+            <span id="detail-convo-id" class="text-[10px] mono text-slate-500 truncate max-w-[120px]">6371cba6...</span>
+          </div>
         </div>
-        <span id="inspector-status-badge" class="px-2.5 py-0.5 rounded text-[10px] font-extrabold bg-cyan-500/20 text-cyan-300 shrink-0">ACTIVE</span>
+
+        <!-- Middle & Right: Live Action & Active Tool Visualizer -->
+        <div class="lg:col-span-2 bg-black/60 p-5 rounded-2xl border border-white/10 space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] mono uppercase tracking-wider font-bold text-slate-400 flex items-center gap-2">
+              <span class="h-2 w-2 rounded-full bg-cyan-400 animate-pulse"></span>
+              Current Tool / Terminal Activity
+            </span>
+            <span id="detail-activity-time" class="text-[10px] mono text-slate-500">Live</span>
+          </div>
+
+          <!-- Active Tool Call Visualizer Box -->
+          <div id="tool-visualizer-box" class="p-4 rounded-xl bg-slate-950/80 border border-cyan-500/30 space-y-2 mono text-xs">
+            <div class="flex items-center justify-between gap-3">
+              <div class="flex items-center gap-2 truncate">
+                <span class="text-cyan-400 font-bold">$</span>
+                <span id="active-tool-name" class="font-bold text-white">write_file</span>
+              </div>
+              <span id="active-tool-status" class="text-[10px] px-2 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-800">RUNNING</span>
+            </div>
+            <p id="active-tool-summary" class="text-slate-300 text-xs break-all">d:/Desktop/ClockEE/cbt_analysis.html</p>
+          </div>
+
+          <!-- Live Model Reasoning & Output Preview -->
+          <div class="space-y-1">
+            <span class="text-[11px] mono font-bold text-slate-400 uppercase tracking-wider">Latest Output Preview:</span>
+            <p id="detail-content-preview" class="text-xs text-slate-300 bg-black/40 p-3 rounded-xl border border-white/5 font-mono max-h-20 overflow-y-auto leading-relaxed">
+              Initializing live stream...
+            </p>
+          </div>
+        </div>
+
       </div>
 
-      <!-- Live Step Timeline Stream -->
-      <div class="space-y-2">
-        <span class="text-[11px] mono font-bold text-slate-400 uppercase tracking-wider block">Recent Step Execution Stream (Auto-Refreshing)</span>
-        <div id="inspector-steps-stream" class="space-y-2 max-h-64 overflow-y-auto pr-1">
+      <!-- Live Step Execution Stream (Console Timeline) -->
+      <div class="space-y-3">
+        <div class="flex items-center justify-between">
+          <span class="text-xs mono font-bold text-slate-300 uppercase tracking-wider flex items-center gap-2">
+            <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            Recent Step Execution Timeline (Last 12 Steps)
+          </span>
+          <span class="text-[11px] mono text-slate-500">Auto-Synced Every 2s</span>
+        </div>
+
+        <div id="inspector-steps-stream" class="space-y-2 max-h-72 overflow-y-auto pr-1">
           <!-- Step cards rendered dynamically -->
         </div>
       </div>
+
     </section>
 
-    <!-- 9 Dedicated Conversation Nodes Grid with Embedded Live Action Chips -->
+    <!-- 9 Dedicated Conversation Nodes Grid (All Nodes Overview) -->
     <section>
       <div class="flex items-center justify-between mb-4">
         <div>
-          <h3 class="text-lg font-bold text-white">Mesh Network Directory (Live Progress Chips)</h3>
-          <p class="text-xs text-slate-400">Click any card to inspect its real-time terminal feed above.</p>
+          <h3 class="text-lg font-bold text-white flex items-center gap-2">
+            Mesh Network Directory (All 9 Conversations)
+            <span class="text-xs mono font-normal text-slate-400">• Click any card to inspect live</span>
+          </h3>
+          <p class="text-xs text-slate-400">Strictly dedicated conversation sessions with zero in-session subagents.</p>
         </div>
         <div class="text-xs mono text-emerald-400 flex items-center gap-1.5">
           <span class="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping"></span>
-          <span>Event Daemon Active</span>
+          <span>Mesh Watcher Daemon Active</span>
         </div>
       </div>
 
@@ -256,7 +321,7 @@
             Inter-Conversation Transmission Feed
             <span class="text-[10px] mono px-2 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-800">AGENTAPI IPC</span>
           </h3>
-          <p class="text-xs text-slate-400">Live audit of prompts dispatched across dedicated conversation sessions.</p>
+          <p class="text-xs text-slate-400">Zero interaction prompt dispatches logged in real-time across sessions.</p>
         </div>
       </div>
 
@@ -280,7 +345,7 @@
 
   </main>
 
-  <!-- Interactive JavaScript Controller -->
+  <!-- Interactive JavaScript Engine -->
   <script>
     let globalData = null;
     let selectedConvoKey = "untitled_conversation";
@@ -296,26 +361,26 @@
       }
     }
 
-    function onSelectConversation() {
-      const select = document.getElementById('convo-selector');
-      selectedConvoKey = select.value;
-      renderInspector();
-    }
-
     function selectConvo(key) {
       selectedConvoKey = key;
-      const select = document.getElementById('convo-selector');
-      if (select) select.value = key;
-      renderInspector();
+      renderCockpit(globalData);
       window.scrollTo({ top: 120, behavior: 'smooth' });
     }
 
     async function fetchState() {
       try {
+        const dot = document.getElementById('heartbeat-dot');
+        if (dot) dot.classList.add('bg-cyan-400');
         const res = await fetch('.pipeline/tracker_state.json?t=' + Date.now());
         if (!res.ok) return;
         globalData = await res.json();
         renderCockpit(globalData);
+        if (dot) {
+          setTimeout(() => {
+            dot.classList.remove('bg-cyan-400');
+            dot.classList.add('bg-emerald-400');
+          }, 300);
+        }
       } catch (err) {
         console.warn('Tracker auto-sync error:', err);
       }
@@ -327,14 +392,6 @@
       // Header Time
       if (data.last_sync) {
         document.getElementById('header-sync-time').innerText = data.last_sync;
-      }
-
-      // Populate Dropdown if empty
-      const select = document.getElementById('convo-selector');
-      if (select.children.length === 0 && data.conversations) {
-        select.innerHTML = data.conversations.map(c => `
-          <option value="${c.key}" ${c.key === selectedConvoKey ? 'selected' : ''}>${c.name}</option>
-        `).join('');
       }
 
       // Reel Header
@@ -356,8 +413,90 @@
         </tr>
       `).join('');
 
-      // Conversation Cards with Live Action Sub-Chips
       const convos = data.conversations || [];
+
+      // Render Top Switcher Pills
+      const pillsContainer = document.getElementById('quick-convo-pills');
+      pillsContainer.innerHTML = convos.map(c => {
+        const isSelected = c.key === selectedConvoKey;
+        const prog = c.live_progress || {};
+        const isRunning = prog.is_running;
+        
+        return `
+          <button onclick="selectConvo('${c.key}')" class="px-3 py-1.5 rounded-xl text-xs mono flex items-center gap-2 border transition ${isSelected ? 'bg-cyan-500/20 text-cyan-200 border-cyan-500/80 shadow-md shadow-cyan-500/20 font-bold' : 'bg-black/40 text-slate-300 border-white/5 hover:bg-white/5 hover:border-white/20'}">
+            <span class="h-2 w-2 rounded-full ${isRunning ? 'bg-emerald-400 animate-ping' : (c.is_active ? 'bg-amber-400' : 'bg-slate-500')}"></span>
+            <span>${c.name.split(' (')[0]}</span>
+            <span class="text-[10px] text-slate-400">#${c.step || prog.step}</span>
+          </button>
+        `;
+      }).join('');
+
+      // Render Focused Live Conversation Inspector
+      const target = convos.find(c => c.key === selectedConvoKey) || convos[0];
+      if (target) {
+        const prog = target.live_progress || {};
+        const isRunning = prog.is_running;
+        const toolDetails = prog.tool_details || {};
+
+        document.getElementById('detail-convo-name').innerText = target.name;
+        document.getElementById('detail-convo-role').innerText = target.role;
+        document.getElementById('detail-convo-id').innerText = target.url.split('p=c%2F')[1];
+        document.getElementById('detail-convo-url').href = target.url;
+        document.getElementById('detail-step-badge').innerText = 'Step ' + (target.step || prog.step);
+
+        const statusBadge = document.getElementById('detail-convo-status');
+        if (isRunning) {
+          statusBadge.className = 'px-2.5 py-0.5 rounded text-[10px] font-extrabold mono bg-emerald-500/20 text-emerald-300 border border-emerald-500/30';
+          statusBadge.innerText = 'EXECUTING TOOL';
+        } else {
+          statusBadge.className = 'px-2.5 py-0.5 rounded text-[10px] font-extrabold mono bg-cyan-500/20 text-cyan-300 border border-cyan-500/30';
+          statusBadge.innerText = target.status || 'ACTIVE';
+        }
+
+        // Active Tool Visualizer
+        const toolNameEl = document.getElementById('active-tool-name');
+        const toolSummaryEl = document.getElementById('active-tool-summary');
+        const toolStatusEl = document.getElementById('active-tool-status');
+
+        if (prog.tool_name) {
+          toolNameEl.innerText = prog.tool_name;
+          toolSummaryEl.innerText = toolDetails.path || toolDetails.command || prog.tool_summary || 'Executing operation';
+          toolStatusEl.innerText = isRunning ? 'RUNNING' : 'DONE';
+          toolStatusEl.className = isRunning ? 'text-[10px] px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-800' : 'text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-400';
+        } else {
+          toolNameEl.innerText = 'antigravity_core';
+          toolSummaryEl.innerText = prog.last_action || 'Standby';
+          toolStatusEl.innerText = isRunning ? 'GENERATING' : 'IDLE';
+          toolStatusEl.className = 'text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-400';
+        }
+
+        // Output Preview
+        const previewEl = document.getElementById('detail-content-preview');
+        previewEl.innerText = prog.content_preview || prog.last_action || 'No output stream logged.';
+
+        // Step History Stream
+        const streamEl = document.getElementById('inspector-steps-stream');
+        const steps = prog.recent_steps || [];
+        if (steps.length === 0) {
+          streamEl.innerHTML = `<div class="p-3 rounded-lg bg-black/40 border border-white/5 text-xs text-slate-400 mono">No steps recorded in recent log.</div>`;
+        } else {
+          streamEl.innerHTML = steps.map(s => {
+            const isTool = !!s.tool;
+            return `
+              <div class="p-3 rounded-xl bg-black/50 border border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs mono hover:border-cyan-500/30 transition">
+                <div class="flex items-center gap-2.5 overflow-hidden">
+                  <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-200 font-bold shrink-0">#${s.step}</span>
+                  <span class="text-[10px] font-semibold uppercase px-1.5 py-0.5 rounded ${s.type === 'PLANNER_RESPONSE' ? 'bg-cyan-950 text-cyan-300 border border-cyan-800' : (s.type === 'USER_INPUT' ? 'bg-amber-950 text-amber-300 border border-amber-800' : 'bg-slate-800 text-slate-400')} shrink-0">${s.type}</span>
+                  ${isTool ? `<span class="text-cyan-300 font-bold truncate">$ ${s.tool}</span>` : `<span class="text-slate-300 truncate">${s.preview || 'Operation processed'}</span>`}
+                </div>
+                <span class="text-[10px] text-slate-500 shrink-0 self-end sm:self-auto">${s.status || 'DONE'}</span>
+              </div>
+            `;
+          }).join('');
+        }
+      }
+
+      // Render All 9 Conversation Cards Grid
       const grid = document.getElementById('conversations-grid');
       grid.innerHTML = convos.map(c => {
         const prog = c.live_progress || {};
@@ -365,7 +504,7 @@
         const lastAction = prog.last_action || 'Standby';
         
         if (c.key === 'untitled_conversation') {
-          const stepEl = document.getElementById('main-feature-step');
+          const stepEl = document.getElementById('briefing-step-main');
           if (stepEl) stepEl.innerText = 'Step ' + (c.step || prog.step);
         }
 
@@ -394,46 +533,6 @@
           </div>
         `;
       }).join('');
-
-      renderInspector();
-    }
-
-    function renderInspector() {
-      if (!globalData || !globalData.conversations) return;
-      const target = globalData.conversations.find(c => c.key === selectedConvoKey) || globalData.conversations[0];
-      if (!target) return;
-
-      const prog = target.live_progress || {};
-      document.getElementById('inspector-title').innerText = 'Inspecting: ' + target.name;
-      document.getElementById('inspector-subtitle').innerText = 'Conversation ID: ' + target.url.split('p=c%2F')[1];
-      document.getElementById('inspector-last-action').innerText = prog.last_action || 'Standby';
-
-      const badge = document.getElementById('inspector-status-badge');
-      if (prog.is_running) {
-        badge.className = 'px-2.5 py-0.5 rounded text-[10px] font-extrabold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30';
-        badge.innerText = 'EXECUTING (TOOL)';
-      } else {
-        badge.className = 'px-2.5 py-0.5 rounded text-[10px] font-extrabold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30';
-        badge.innerText = target.status || 'ACTIVE';
-      }
-
-      // Render Step Cards
-      const streamEl = document.getElementById('inspector-steps-stream');
-      const steps = prog.recent_steps || [];
-      if (steps.length === 0) {
-        streamEl.innerHTML = `<div class="p-3 rounded-lg bg-black/40 border border-white/5 text-xs text-slate-400 mono">No active steps logged in recent history.</div>`;
-      } else {
-        streamEl.innerHTML = steps.map(s => `
-          <div class="p-3 rounded-xl bg-black/60 border border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs mono">
-            <div class="flex items-center gap-2.5 overflow-hidden">
-              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-bold shrink-0">Step ${s.step}</span>
-              <span class="text-slate-400 text-[11px] shrink-0 font-semibold uppercase">${s.type}</span>
-              ${s.tool ? `<span class="text-cyan-400 font-bold truncate">${s.tool}</span>` : `<span class="text-slate-300 truncate">${s.preview || 'Executed'}</span>`}
-            </div>
-            <span class="text-[10px] text-slate-500 shrink-0 self-end sm:self-auto">Verified</span>
-          </div>
-        `).join('');
-      }
     }
 
     // Auto-sync polling every 2 seconds

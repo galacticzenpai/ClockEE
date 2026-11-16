@@ -186,8 +186,45 @@ def run_mesh_clearance_loop():
                     with open(backlog_file, "r", encoding="utf-8") as bf:
                         backlog = json.load(bf)
                     active_reel = backlog.get("active_reel", {})
-                    # If active reel is Reel #1 and completed, check if Reel #2 should be scheduled
-                    log(f"  Backlog Active Reel: {active_reel.get('id')} ({active_reel.get('url')}) - Status: {active_reel.get('status')}")
+                    reel_status = active_reel.get("status")
+                    reel_id = active_reel.get("id")
+                    reel_url = active_reel.get("url")
+                    log(f"  Backlog Active Reel: {reel_id} ({reel_url}) - Status: {reel_status}")
+
+                    # Check if pause after reel is active
+                    pause_after = backlog.get("pause_after_reel")
+                    pause_on_completion = backlog.get("pause_new_reels_on_completion", False)
+                    completed_ids = [r.get("id") for r in backlog.get("completed_reels", [])]
+
+                    if pause_on_completion and pause_after in completed_ids:
+                        log(f"  ⏸️ [PAUSE GATE ACTIVE] Reel '{pause_after}' has completed implementation. All new tasks for reel analysis are PAUSED per user directive.")
+                    elif reel_status == "PENDING_INGESTION" and reel_id:
+                        log(f"  🚀 Automatically triggering GITHUB to ingest {reel_id} ({reel_url})...")
+                        github_cid = ALL_CONVERSATIONS["github"]["id"]
+                        reel_prompt = (
+                            f"You are GITHUB.\n\n"
+                            f"--- AUTONOMOUS TASK ASSIGNMENT ---\n"
+                            f"Previous quality gates PASSED (100/100 certified, floor clear).\n"
+                            f"Active Reel: {reel_id} ({reel_url})\n"
+                            f"Backlog Location: .pipeline/github_backlog.json\n\n"
+                            f"Please execute full Reel ingestion for {reel_id}:\n"
+                            f"1. Ingest/vendor the package into integrations/\n"
+                            f"2. Ensure README/SKILL.md and runner are operational with exit code 0.\n"
+                            f"3. Output cross-mesh handoff blocks for Untitled conversation (Main Feature), UI/UX, DB/Backend, and Simulation.\n"
+                            f"4. In .pipeline/github_backlog.json, advance this reel to completed_reels and set next reel as active_reel with status PENDING_INGESTION.\n"
+                            f"5. Conclude with your standard '### 🛰️ PIPELINE QUEUE & HANDOFF REPORT' block."
+                        )
+                        subprocess.Popen(
+                            [AGENTAPI_BIN, "send-message", f"--title=ClockEE {reel_id} Ingestion Order", github_cid, reel_prompt],
+                            stdout=subprocess.DEVNULL,
+                            stderr=subprocess.DEVNULL,
+                            shell=False
+                        )
+                        active_reel["status"] = "IN_PROGRESS"
+                        with open(backlog_file, "w", encoding="utf-8") as bf:
+                            json.dump(backlog, bf, indent=2)
+                        tracker_sync.record_transmission("BACKBONE COORDINATOR", "GITHUB", f"{reel_id} Auto-Ingestion Order", "DELIVERED_AUTO")
+                        log(f"  ✔ Dispatched {reel_id} to GITHUB and updated backlog status to IN_PROGRESS.")
                 except Exception as bfe:
                     log(f"  Backlog check error: {bfe}")
 
@@ -211,9 +248,17 @@ def main():
     ping_all_conversations()
     time.sleep(1)
 
-    # 2. Fire up GitHub to start from reel number one
-    fire_up_github_reel_1()
-    time.sleep(1)
+    # 2. Check if initial reel ingestion is needed
+    backlog_file = PIPELINE_DIR / "github_backlog.json"
+    if backlog_file.is_file():
+        try:
+            with open(backlog_file, "r", encoding="utf-8") as bf:
+                bdata = json.load(bf)
+            if not bdata.get("completed_reels") and bdata.get("active_reel", {}).get("status") == "PENDING_INGESTION":
+                fire_up_github_reel_1()
+                time.sleep(1)
+        except Exception:
+            pass
 
     # 3. Run continuous floor check and 3-pass clearance verification loop
     run_mesh_clearance_loop()

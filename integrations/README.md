@@ -97,3 +97,11 @@ This directory contains the 5 packages adapted from the developer showcase (`pet
 * **Commands**: `python integrations/dray_cross_model/dray_bridge.py demo | link | verify`
 * **Payload File**: `integrations/dray_cross_model/dray_link_payload.md`
 * **Purpose**: Solves AI usage limit cutoffs and session resets by capturing in-flight task progress, active files, and strict protected guardrails into a standardized `/link` handoff payload for the next model to resume without context loss.
+
+### 11. OmniRoute Multi-Provider Token Gateway (integrations/omniroute/)
+- **Origin**: Reel #4 (https://www.instagram.com/p/De6ttI-zAba/ by @tech.oak) / omniroute npm.
+- **Purpose**: Local OpenAI-compatible gateway (http://localhost:20128/v1) unifying free AI inference tiers (Gemini, Groq, Cerebras, OpenRouter, Mistral) with auto-fallback cascades and rate-limit evasion.
+- **Entry Points**:
+  - integrations/omniroute/SKILL.md: Architecture specification and setup instructions.
+  - integrations/omniroute/omniroute_client.py: Python client and failover gateway runner.
+  - integrations/omniroute/providers_config.json: Tier catalog and fallback model chains.

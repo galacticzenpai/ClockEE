@@ -90,5 +90,35 @@
         "staged_at": "2026-11-16T11:29:50.722240"
       }
     }
+  },
+  "active_batch_id": "batch_omniroute_token_gateway_004",
+  "batch_status": "IN_PROGRESS",
+  "source_reel": "https://www.instagram.com/p/De6ttI-zAba/",
+  "package": "omniroute",
+  "tasks": {
+    "github": {
+      "status": "COMPLETED",
+      "summary": "Scaffolded integrations/omniroute with SKILL.md, providers_config.json, and omniroute_client.py failover runner."
+    },
+    "untitled_conversation": {
+      "status": "PENDING",
+      "action": "Optional AI Gateway Switcher",
+      "details": "Allow user or exam assistant in ClockEE to route question explanation and OCR queries through local OmniRoute endpoint (http://localhost:20128/v1)."
+    },
+    "ui_ux": {
+      "status": "PENDING",
+      "action": "AI Provider Status & Latency Badge",
+      "details": "Design a subtle status badge/indicator in settings or developer panel showing active AI fallback tier (Ultra Fast Groq / Cerebras vs Reasoning Gemini)."
+    },
+    "db_backend": {
+      "status": "PENDING",
+      "action": "Token Usage & Cache Persistence",
+      "details": "Optionally log OmniRoute token counts and fallback events into SQLite table ai_inference_logs in server.py."
+    },
+    "simulation": {
+      "status": "ON_HOLD",
+      "action": "Audit & Endpoint Verification",
+      "details": "Run sloplint.py and verify mock inferences with omniroute_client.py when Phase 2 implementation completes."
+    }
   }
 }

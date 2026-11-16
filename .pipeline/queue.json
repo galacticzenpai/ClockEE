@@ -85,8 +85,9 @@
       "db_backend": {
         "target_id": "d3700ff3-1bfb-458a-9968-8257ef2ca7e2",
         "target_name": "DB / BACKEND",
-        "status": "PENDING",
-        "instruction": "Dray Backend Task:\n1. Ensure session snapshots serialize safely into SQLite agent_memory.db or sessions table if persistence across restarts is requested.\n2. Protect backend schema migrations from unverified agent edits."
+        "status": "DISPATCHED_TO_CONVERSATION",
+        "instruction": "Dray Backend Task:\n1. Ensure session snapshots serialize safely into SQLite agent_memory.db or sessions table if persistence across restarts is requested.\n2. Protect backend schema migrations from unverified agent edits.",
+        "staged_at": "2026-11-16T11:29:50.722240"
       }
     }
   }

@@ -74,7 +74,8 @@
         "target_name": "UI / UX",
         "target_id": "06a7d47b-b225-40f4-b830-b58baaaf8b3a",
         "instruction": "Mobile Mission Control Cockpit & Tactical Auth Polish. Optimize tracker.html for mobile smartphone viewports so the user can easily monitor agent activities from anywhere on the go. Polish Google Login buttons and Auth modal to seamlessly fit ClockEE's tactical cyberpunk aesthetic. Add live edge connection status pill to navigation.",
-        "status": "QUEUED"
+        "status": "DISPATCHED_TO_CONVERSATION",
+        "staged_at": "2026-11-16T11:52:08.354230"
       },
       "simulation": {
         "source": "planning",

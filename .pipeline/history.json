@@ -1173,5 +1173,44 @@
         "staged_at": "2026-11-16T01:52:09.615566"
       }
     }
+  },
+  {
+    "batch_id": "batch_graphify_knowledge_graph_001",
+    "source": "github",
+    "package": "Graphify-Labs/graphify",
+    "status": "COMPLETED",
+    "timestamp": "2026-11-16T01:00:00Z",
+    "tasks": {
+      "untitled_conversation": {
+        "target_id": "6371cba6-7d2f-4b29-a250-627d88d1b4f1",
+        "target_name": "Untitled conversation (Main Feature)",
+        "status": "STAGED_FOR_DISPATCH",
+        "instruction": "Graphify Codebase Knowledge Graph has been vendored at integrations/graphify/.\n\nReview integrations/graphify/reports/GRAPH_REPORT.md before making any structural DOM or function renames:\n1. Note the identified God Nodes: clockee_core.js (16 dependent files), cbt_shared.js (9 files), env.js (21 files).\n2. Use python integrations/graphify/graph_runner.py query <symbol_name> before refactoring any shared utility functions or storage keys.",
+        "staged_at": "2026-11-16T01:07:09.076293"
+      },
+      "ui_ux": {
+        "target_id": "06a7d47b-b225-40f4-b830-b58baaaf8b3a",
+        "target_name": "UI / UX",
+        "status": "STAGED_FOR_DISPATCH",
+        "instruction": "Graphify has mapped all frontend CSS and script links.\n\nReview integrations/graphify/reports/GRAPH_REPORT.md:\n1. Note that Tailwind CDN (cdn.tailwindcss.com) is injected into 17 files independently.\n2. Ensure custom utility classes or theme CSS variables added to cbt_shared.css do not collide across modules.",
+        "staged_at": "2026-11-16T01:22:09.884889"
+      },
+      "simulation": {
+        "source": "ui_ux",
+        "target_key": "simulation",
+        "target_name": "SIMULATION",
+        "target_id": "62adc180-be21-4671-848c-c8df59e2c202",
+        "instruction": "You are SIMULATION.\nPrerequisites Met: Phase 2 UI/UX styling, Hallmark themes, and responsive layout updates are fully completed and committed across all ClockEE frontend templates (sloplint average score 100.0/100).\n\nYour Task:\n1. Run a comprehensive multi-viewport regression test across the 8 canonical viewports ([320px, 375px, 414px, 768px, 1024px, 1280px, 1440px, 1920px]).\n2. Execute `python integrations/hallmark_design/hallmark_cli.py audit --all` to verify zero floor gate failures and zero reflex slop tells.\n3. Validate that the `--kept` contract holds across all interactive timer controls, CBT answer palettes, and modal interactions.\n4. Output your Phase 3 verification report following the Universal System Directive.",
+        "status": "STAGED_FOR_DISPATCH",
+        "staged_at": "2026-11-16T01:37:10.262778"
+      },
+      "db_backend": {
+        "target_id": "d3700ff3-1bfb-458a-9968-8257ef2ca7e2",
+        "target_name": "DB / BACKEND",
+        "status": "STAGED_FOR_DISPATCH",
+        "instruction": "Graphify indexes SQL schemas and backend endpoints.\n\nReview integrations/graphify/reports/GRAPH_REPORT.md:\n1. Verify that SQLite tables in backend/db.py match frontend localStorage synchronizer keys indexed in graph.json.\n2. Use python integrations/graphify/graph_runner.py query storage: to see what frontend keys sync with backend endpoints.",
+        "staged_at": "2026-11-16T01:52:09.615566"
+      }
+    }
   }
 ]

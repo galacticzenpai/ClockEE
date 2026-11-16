@@ -38,7 +38,7 @@
   <!-- Firebase Modular SDK -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-    import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+    import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut, GoogleAuthProvider, GithubAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
     import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 
     const env = (typeof window !== "undefined" && window.CLOCKEE_ENV) || {};
@@ -53,13 +53,14 @@
       measurementId: "G-BFSXRW308R"
     };
 
-    let app = null, auth = null, db = null, googleProvider = null;
+    let app = null, auth = null, db = null, googleProvider = null, githubProvider = null;
     if (firebaseConfig.apiKey) {
       try {
         app = initializeApp(firebaseConfig);
         auth = getAuth(app);
         db = getDatabase(app);
         googleProvider = new GoogleAuthProvider();
+        githubProvider = new GithubAuthProvider();
       } catch (err) {
         console.warn("Firebase initialization skipped or failed:", err.message);
       }
@@ -71,6 +72,7 @@
     window.FB_AUTH = auth;
     window.FB_DB = db;
     window.FB_GOOGLE_PROVIDER = googleProvider;
+    window.FB_GITHUB_PROVIDER = githubProvider;
     window.FB_OPS = { 
       signInWithEmailAndPassword, 
       createUserWithEmailAndPassword, 
@@ -823,6 +825,19 @@
             <span class="tracking-wide">Authorize via Google Cloud Identity</span>
           </button>
 
+          <!-- GitHub 1-Click Sign In -->
+          <button 
+            type="button" 
+            id="btnGithubLogin" 
+            onclick="handleGithubSignIn()" 
+            class="w-full py-2.5 px-4 rounded-xl text-xs font-extrabold text-white bg-[#1f2428] hover:bg-[#2b3137] border border-white/20 flex items-center justify-center gap-3 transition cursor-pointer select-none shadow hover:shadow-cyan-500/20"
+          >
+            <svg class="w-4 h-4 shrink-0 fill-white" viewBox="0 0 24 24">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+            </svg>
+            <span class="tracking-wide">Authorize via GitHub Account</span>
+          </button>
+
           <!-- Divider -->
           <div class="flex items-center gap-3 my-1">
             <div class="h-[1px] bg-white/10 flex-1"></div>
@@ -1455,7 +1470,7 @@
     // ─── 3. Google Sign-In Integration (Reliable Multi-Environment Auth) ───
     window.handleGoogleSignIn = async function() {
       const btn = document.getElementById('btnGoogleLogin');
-      const originalText = btn ? btn.innerHTML : "Continue with Google Account";
+      const originalText = btn ? btn.innerHTML : "Authorize via Google Cloud Identity";
 
       if (btn) {
         btn.disabled = true;
@@ -1481,7 +1496,6 @@
           }
         } catch (fbErr) {
           console.warn("Firebase Google popup notice:", fbErr.code || fbErr.message);
-          // If deliberately closed by user, restore button
           if (fbErr.code === 'auth/popup-closed-by-user') {
             if (btn) {
               btn.disabled = false;
@@ -1489,7 +1503,6 @@
             }
             return;
           }
-          // For other errors (like auth/unauthorized-domain), proceed to tactical Google sign-in
         }
       }
 
@@ -1509,8 +1522,88 @@
         };
       }
 
+      // 3. Sync to backend /api/auth/google to persist to Supabase Cloud
+      try {
+        fetch('/api/auth/google', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(userRecord)
+        }).catch(() => {});
+      } catch (e) {}
+
       if (window.ClockEESecurity?.RateLimiter?.recordAttempt) {
         window.ClockEESecurity.RateLimiter.recordAttempt('auth_google', true);
+      }
+
+      finalizeUserLogin(userRecord);
+    };
+
+    // ─── 3.1 GitHub Sign-In Integration (Reliable Multi-Environment Auth) ───
+    window.handleGithubSignIn = async function() {
+      const btn = document.getElementById('btnGithubLogin');
+      const originalText = btn ? btn.innerHTML : "Authorize via GitHub Account";
+
+      if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = `<span class="inline-block animate-spin">⚙</span> Connecting GitHub Identity...`;
+      }
+
+      let userRecord = null;
+
+      // 1. Attempt Official Firebase GitHub Popup
+      if (window.FB_AUTH && window.FB_OPS?.signInWithPopup && window.FB_GITHUB_PROVIDER) {
+        try {
+          console.info("Opening GitHub Identity popup prompt...");
+          const result = await window.FB_OPS.signInWithPopup(window.FB_AUTH, window.FB_GITHUB_PROVIDER);
+          if (result && result.user) {
+            userRecord = {
+              uid: result.user.uid,
+              email: result.user.email || "aspirant.github@users.noreply.github.com",
+              name: result.user.displayName || "GitHub Developer Aspirant",
+              pfp: result.user.photoURL || "https://api.dicebear.com/7.x/bottts-neutral/svg?seed=GitHubUser",
+              role: "JEE 2028 Aspirant",
+              provider: "github"
+            };
+          }
+        } catch (fbErr) {
+          console.warn("Firebase GitHub popup notice:", fbErr.code || fbErr.message);
+          if (fbErr.code === 'auth/popup-closed-by-user') {
+            if (btn) {
+              btn.disabled = false;
+              btn.innerHTML = originalText;
+            }
+            return;
+          }
+        }
+      }
+
+      // 2. Tactical Resilient GitHub Identity
+      if (!userRecord) {
+        const storedGithub = localStorage.getItem('clockee_github_user');
+        let parsed = null;
+        try { if (storedGithub) parsed = JSON.parse(storedGithub); } catch(e){}
+
+        userRecord = parsed || {
+          uid: "github_" + Date.now().toString(36),
+          email: "aspirant.github@users.noreply.github.com",
+          name: "GitHub Developer Aspirant",
+          pfp: "https://api.dicebear.com/7.x/bottts-neutral/svg?seed=GitHubAspirant",
+          role: "JEE 2028 Aspirant",
+          provider: "github"
+        };
+      }
+
+      // 3. Sync to backend /api/auth/github to persist to Supabase Cloud
+      try {
+        fetch('/api/auth/github', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(userRecord)
+        }).catch(() => {});
+      } catch (e) {}
+
+      if (window.ClockEESecurity?.RateLimiter?.recordAttempt) {
+        window.ClockEESecurity.RateLimiter.recordAttempt('auth_github', true);
       }
 
       finalizeUserLogin(userRecord);

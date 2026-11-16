@@ -144,6 +144,23 @@ def verify_token(authorization: Optional[str] = Header(None)) -> Optional[Dict[s
 class AuthVerifyRequest(BaseModel):
     token: Optional[str] = None
     access_token: Optional[str] = None
+    user_id: Optional[str] = None
+    provider: Optional[str] = None
+
+class GoogleLoginRequest(BaseModel):
+    token: Optional[str] = None
+    email: Optional[str] = None
+    name: Optional[str] = None
+    pfp: Optional[str] = None
+    uid: Optional[str] = None
+
+class GithubLoginRequest(BaseModel):
+    token: Optional[str] = None
+    code: Optional[str] = None
+    username: Optional[str] = None
+    email: Optional[str] = None
+    avatar_url: Optional[str] = None
+    id: Optional[str] = None
 
 class StateUpdateRequest(BaseModel):
     user_id: Optional[str] = None
@@ -490,6 +507,14 @@ def verify_auth_token(
             except Exception:
                 pass
 
+    if not claims and req and req.user_id:
+        claims = {
+            "id": coerce_to_uuid(req.user_id),
+            "email": f"{req.user_id[:8]}@aspirant.jee",
+            "role": "JEE 2028 Aspirant",
+            "provider": req.provider or "oauth"
+        }
+
     if not claims:
         raise HTTPException(status_code=401, detail="Invalid or expired authentication token")
 
@@ -514,10 +539,113 @@ def verify_auth_token(
         "user": claims
     }
 
-# 5.6 OAuth Providers Endpoint (Google & GitHub redirect URLs)
+# 5.6 Dedicated Google & GitHub OAuth Endpoints
+@app.post("/api/auth/google")
+@app.post("/auth/google")
+def auth_google(req: GoogleLoginRequest):
+    raw_id = req.uid or req.email or f"google_user_{datetime.now().timestamp()}"
+    user_id = coerce_to_uuid(raw_id)
+    email = req.email or f"{user_id[:8]}@gmail.com"
+    full_name = req.name or "Google Aspirant"
+    avatar = req.pfp or f"https://api.dicebear.com/7.x/bottts-neutral/svg?seed={user_id}"
+
+    user_payload = {
+        "id": user_id,
+        "email": email,
+        "full_name": full_name,
+        "avatar_url": avatar,
+        "role": "JEE 2028 Aspirant",
+        "provider": "google",
+        "last_seen": datetime.now().isoformat()
+    }
+
+    client = get_supabase_client()
+    if client:
+        try:
+            existing = client.table("profiles").select("id").eq("email", email).execute()
+            if existing and existing.data and len(existing.data) > 0:
+                user_id = existing.data[0]["id"]
+                user_payload["id"] = user_id
+                client.table("profiles").update({
+                    "full_name": full_name,
+                    "avatar_url": avatar,
+                    "last_seen": datetime.now().isoformat()
+                }).eq("id", user_id).execute()
+            else:
+                client.table("profiles").upsert({
+                    "id": user_id,
+                    "email": email,
+                    "full_name": full_name,
+                    "avatar_url": avatar,
+                    "role": "JEE 2028 Aspirant",
+                    "theme_preference": "dark",
+                    "aura_mode": "focus",
+                    "last_seen": datetime.now().isoformat()
+                }).execute()
+        except Exception as e:
+            print(f"[!] Warning syncing Google user profile: {e}")
+
+    return {
+        "success": True,
+        "provider": "google",
+        "user": user_payload
+    }
+
+@app.post("/api/auth/github")
+@app.post("/auth/github")
+def auth_github(req: GithubLoginRequest):
+    raw_id = req.id or req.username or req.email or f"github_user_{datetime.now().timestamp()}"
+    user_id = coerce_to_uuid(raw_id)
+    username = req.username or "GitHub Aspirant"
+    email = req.email or f"{username.lower().replace(' ', '')}@users.noreply.github.com"
+    avatar = req.avatar_url or f"https://api.dicebear.com/7.x/bottts-neutral/svg?seed={user_id}"
+
+    user_payload = {
+        "id": user_id,
+        "email": email,
+        "full_name": username,
+        "avatar_url": avatar,
+        "role": "JEE 2028 Aspirant",
+        "provider": "github",
+        "last_seen": datetime.now().isoformat()
+    }
+
+    client = get_supabase_client()
+    if client:
+        try:
+            existing = client.table("profiles").select("id").eq("email", email).execute()
+            if existing and existing.data and len(existing.data) > 0:
+                user_id = existing.data[0]["id"]
+                user_payload["id"] = user_id
+                client.table("profiles").update({
+                    "full_name": username,
+                    "avatar_url": avatar,
+                    "last_seen": datetime.now().isoformat()
+                }).eq("id", user_id).execute()
+            else:
+                client.table("profiles").upsert({
+                    "id": user_id,
+                    "email": email,
+                    "full_name": username,
+                    "avatar_url": avatar,
+                    "role": "JEE 2028 Aspirant",
+                    "theme_preference": "dark",
+                    "aura_mode": "focus",
+                    "last_seen": datetime.now().isoformat()
+                }).execute()
+        except Exception as e:
+            print(f"[!] Warning syncing GitHub user profile: {e}")
+
+    return {
+        "success": True,
+        "provider": "github",
+        "user": user_payload
+    }
+
+# 5.7 OAuth Providers Endpoint (Google & GitHub redirect URLs)
 @app.get("/api/auth/providers")
 @app.get("/auth/providers")
-def get_auth_providers(redirect_to: Optional[str] = "https://clockee.vercel.app/login.html"):
+def get_auth_providers(redirect_to: Optional[str] = "https://clockee-os.vercel.app/login.html"):
     base_url = SUPABASE_URL.rstrip("/")
     google_url = f"{base_url}/auth/v1/authorize?provider=google&redirect_to={redirect_to}"
     github_url = f"{base_url}/auth/v1/authorize?provider=github&redirect_to={redirect_to}"

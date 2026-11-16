@@ -101,7 +101,8 @@
         "target_name": "BACKBONE COORDINATOR",
         "target_id": "a80111ec-0657-4748-9e85-d620e8a2a535",
         "instruction": "Daily Roadmap Plan Generated.\nPlan File: .pipeline/daily_plan.json\nPlease inspect .pipeline/daily_plan.json, evaluate pending reels from .pipeline/github_backlog.json, load tasks into the mesh queue, and activate the autonomous execution loop.",
-        "status": "QUEUED"
+        "status": "DISPATCHED_TO_CONVERSATION",
+        "staged_at": "2026-11-16T11:52:45.546656"
       },
       "github": {
         "source": "planning",

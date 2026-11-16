@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ClockEE Live Mesh Cockpit & Real-Time Conversation Inspector</title>
+  <title>ClockEE Live Mesh Cockpit & Full Step Inspector</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,7 +34,7 @@
     }
     .mono { font-family: 'JetBrains Mono', monospace; }
     .glass-panel {
-      background: rgba(13, 17, 26, 0.85);
+      background: rgba(13, 17, 26, 0.88);
       backdrop-filter: blur(20px);
       border: 1px solid rgba(255, 255, 255, 0.08);
     }
@@ -61,6 +61,10 @@
     ::-webkit-scrollbar-track { background: #07090e; }
     ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
     ::-webkit-scrollbar-thumb:hover { background: #334155; }
+    .pre-wrap-code {
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
   </style>
 </head>
 <body class="min-h-screen p-4 sm:p-6 lg:p-8 selection:bg-cyan-500/30 selection:text-cyan-200">
@@ -75,10 +79,10 @@
         </div>
         <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white flex items-center gap-2">
           ClockEE Mesh Cockpit
-          <span class="text-xs px-2.5 py-0.5 rounded-full bg-cyan-950/90 text-cyan-400 border border-cyan-800 font-bold tracking-wider mono uppercase">Live Progress v3.0</span>
+          <span class="text-xs px-2.5 py-0.5 rounded-full bg-cyan-950/90 text-cyan-400 border border-cyan-800 font-bold tracking-wider mono uppercase">Full Step Inspector v4.0</span>
         </h1>
       </div>
-      <p class="text-xs sm:text-sm text-slate-400 mt-1">Real-Time Step Inspector • Live Tool Monitoring • Zero-Interaction Multi-Conversation Mesh</p>
+      <p class="text-xs sm:text-sm text-slate-400 mt-1">Expanded Step Inspector • Un-truncated Outputs • 39-Reel Playbook & Execution Forecast</p>
     </div>
 
     <!-- Live Sync Indicators & Controls -->
@@ -88,6 +92,11 @@
         <span class="text-slate-400">SYNC:</span>
         <span id="header-sync-time" class="font-bold text-emerald-400">CONNECTING...</span>
       </div>
+
+      <a href="#playbook-section" class="px-3.5 py-2 rounded-xl bg-purple-950/60 hover:bg-purple-900/60 border border-purple-700/60 text-purple-200 font-bold text-xs transition flex items-center gap-1.5 mono">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+        <span>Reel Playbook (39)</span>
+      </a>
 
       <button onclick="toggleSummaryDrawer()" class="px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-extrabold text-xs transition flex items-center gap-2 shadow-lg shadow-amber-500/20 active:scale-95">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
@@ -102,7 +111,7 @@
 
   <main class="max-w-7xl mx-auto space-y-8">
 
-    <!-- Interactive Mission Briefing Drawer (Q&A Style: "Allow me to ask what is happening") -->
+    <!-- Interactive Mission Briefing Drawer -->
     <section id="briefing-card" class="glass-panel rounded-2xl p-6 border-amber-500/40 bg-gradient-to-br from-[#0d111a] via-[#121826] to-[#1e1a38]/40 relative overflow-hidden transition-all duration-300">
       <div class="flex items-start justify-between gap-4 mb-4">
         <div class="flex items-center gap-3">
@@ -112,38 +121,44 @@
           <div>
             <h2 class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
               Mission Briefing & FAQ: What Is Happening Right Now?
-              <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 mono font-bold">100% ZERO-INTERACTION</span>
+              <span class="text-[10px] px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/40 mono font-bold">REEL PROGRESSION PAUSED</span>
             </h2>
-            <p class="text-xs text-slate-400">Click any inquiry card below to inspect the verified operational mechanics.</p>
+            <p class="text-xs text-slate-400">Reels #1–#4 completed. Reel #5 queued and paused per user directive. Full step inspector enabled.</p>
           </div>
         </div>
         <button onclick="toggleSummaryDrawer()" class="text-xs text-slate-400 hover:text-white mono">Close ✕</button>
       </div>
 
       <!-- Quick Interactive Inquiries -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4 pt-2">
         <div class="bg-black/50 p-4 rounded-xl border border-white/5 space-y-1.5 hover:border-cyan-500/40 transition">
-          <span class="text-[11px] mono font-bold uppercase tracking-wider text-cyan-400">⚡ What is Main Feature doing?</span>
-          <p class="text-xs text-slate-200 font-semibold">Wiring Supabase Gateway & AST Graph Nodes</p>
-          <p class="text-[11px] text-slate-400 leading-relaxed">Main Feature is at <strong class="text-amber-300 mono" id="briefing-step-main">Step 10023+</strong> implementing offline storage, JWT auth hooks, and Graphify AST nodes in `cbt_analysis.html` and `js/env.js`.</p>
+          <span class="text-[11px] mono font-bold uppercase tracking-wider text-cyan-400">📦 What was built in Reel #4?</span>
+          <p class="text-xs text-slate-200 font-semibold">OmniRoute AI Token Gateway</p>
+          <p class="text-[11px] text-slate-400 leading-relaxed">Vendored multi-tier rate-limit failover router in `integrations/omniroute/` supporting Anthropic, Gemini, OpenAI, and DeepSeek.</p>
         </div>
 
         <div class="bg-black/50 p-4 rounded-xl border border-white/5 space-y-1.5 hover:border-amber-500/40 transition">
-          <span class="text-[11px] mono font-bold uppercase tracking-wider text-amber-400">⏸️ Why is GITHUB on hold?</span>
-          <p class="text-xs text-slate-200 font-semibold">Reel Lifecycle Gate Enforced</p>
-          <p class="text-[11px] text-slate-400 leading-relaxed">GITHUB successfully vendored Reel #1. Reel #2 is locked on hold until Main Feature, UI/UX, and SIMULATION certify Reel #1 with a 100/100 score.</p>
+          <span class="text-[11px] mono font-bold uppercase tracking-wider text-amber-400">⏸️ Why is Reel Progression Paused?</span>
+          <p class="text-xs text-slate-200 font-semibold">User Directive Enforced</p>
+          <p class="text-[11px] text-slate-400 leading-relaxed">Per user request, reel analysis is held on pause after Reel #4. Reel #5 (`sqlite_vss`) is queued and ready to trigger on command.</p>
         </div>
 
         <div class="bg-black/50 p-4 rounded-xl border border-white/5 space-y-1.5 hover:border-emerald-500/40 transition">
-          <span class="text-[11px] mono font-bold uppercase tracking-wider text-emerald-400">🛡️ How does Double-Simulation work?</span>
-          <p class="text-xs text-slate-200 font-semibold">Simulation ➔ Fixes ➔ Re-audit Loop</p>
-          <p class="text-[11px] text-slate-400 leading-relaxed">SIMULATION executes first. Any defect triggers BUG FIXES. SIMULATION then conducts a mandatory 2nd pass before the next reel is scheduled.</p>
+          <span class="text-[11px] mono font-bold uppercase tracking-wider text-emerald-400">🔍 How to View Full Outputs?</span>
+          <p class="text-xs text-slate-200 font-semibold">Expanded Step Timeline</p>
+          <p class="text-[11px] text-slate-400 leading-relaxed">Click any step in the timeline below to expand its full un-truncated message, tool calls, arguments, and internal thinking.</p>
+        </div>
+
+        <div class="bg-black/50 p-4 rounded-xl border border-white/5 space-y-1.5 hover:border-purple-500/40 transition">
+          <span class="text-[11px] mono font-bold uppercase tracking-wider text-purple-400">📖 Where is the 39-Reel Book?</span>
+          <p class="text-xs text-slate-200 font-semibold">Comprehensive Playbook</p>
+          <p class="text-[11px] text-slate-400 leading-relaxed">Scroll down to the 'ClockEE Reel Playbook' to inspect what each of the 39 reels builds across ClockEE's architecture.</p>
         </div>
       </div>
     </section>
 
     <!-- ======================================================== -->
-    <!-- REAL-TIME LIVE CONVERSATION PROGRESS INSPECTOR (FLAGSHIP) -->
+    <!-- REAL-TIME LIVE CONVERSATION PROGRESS & FULL STEP INSPECTOR -->
     <!-- ======================================================== -->
     <section class="glass-panel rounded-2xl p-6 border-cyan-500/30 bg-gradient-to-br from-[#080c15] via-[#0c121e] to-[#0f172a] shadow-2xl relative overflow-hidden">
       
@@ -152,7 +167,7 @@
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
           <div class="flex items-center gap-2">
             <span class="h-2.5 w-2.5 rounded-full bg-cyan-400 animate-ping"></span>
-            <span class="text-xs font-extrabold uppercase tracking-wider text-cyan-400 mono">LIVE CONVERSATION PROGRESS MONITOR</span>
+            <span class="text-xs font-extrabold uppercase tracking-wider text-cyan-400 mono">SELECT CONVERSATION TO INSPECT FULL OUTPUTS & STEPS</span>
           </div>
           <div class="text-xs mono text-slate-400 flex items-center gap-2">
             <span class="text-slate-500">Auto-Polling:</span>
@@ -160,7 +175,7 @@
           </div>
         </div>
 
-        <!-- 9 Quick Conversation Switcher Pills -->
+        <!-- 10 Quick Conversation Switcher Pills -->
         <div id="quick-convo-pills" class="flex flex-wrap gap-2 pt-1">
           <!-- Populated dynamically via JS -->
         </div>
@@ -174,7 +189,7 @@
           <div>
             <div class="flex items-center justify-between gap-2 mb-2">
               <span id="detail-convo-status" class="px-2.5 py-0.5 rounded text-[10px] font-extrabold mono bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">EXECUTING</span>
-              <span id="detail-step-badge" class="text-sm mono font-extrabold text-amber-400">Step 10023</span>
+              <span id="detail-step-badge" class="text-sm mono font-extrabold text-amber-400">Step 10061</span>
             </div>
             <h3 id="detail-convo-name" class="text-xl font-extrabold text-white tracking-tight">Untitled conversation (Main Feature)</h3>
             <p id="detail-convo-role" class="text-xs text-slate-400 mt-1 leading-relaxed">Core DOM Structure, Navigation & Feature Wiring</p>
@@ -189,7 +204,7 @@
           </div>
         </div>
 
-        <!-- Middle & Right: Live Action & Active Tool Visualizer -->
+        <!-- Middle & Right: Active Tool Visualizer & Full Output Tabs -->
         <div class="lg:col-span-2 bg-black/60 p-5 rounded-2xl border border-white/10 space-y-4">
           <div class="flex items-center justify-between">
             <span class="text-[11px] mono uppercase tracking-wider font-bold text-slate-400 flex items-center gap-2">
@@ -200,7 +215,7 @@
           </div>
 
           <!-- Active Tool Call Visualizer Box -->
-          <div id="tool-visualizer-box" class="p-4 rounded-xl bg-slate-950/80 border border-cyan-500/30 space-y-2 mono text-xs">
+          <div id="tool-visualizer-box" class="p-3.5 rounded-xl bg-slate-950/80 border border-cyan-500/30 space-y-1.5 mono text-xs">
             <div class="flex items-center justify-between gap-3">
               <div class="flex items-center gap-2 truncate">
                 <span class="text-cyan-400 font-bold">$</span>
@@ -211,41 +226,135 @@
             <p id="active-tool-summary" class="text-slate-300 text-xs break-all">d:/Desktop/ClockEE/cbt_analysis.html</p>
           </div>
 
-          <!-- Live Model Reasoning & Output Preview -->
-          <div class="space-y-1">
-            <span class="text-[11px] mono font-bold text-slate-400 uppercase tracking-wider">Latest Output Preview:</span>
-            <p id="detail-content-preview" class="text-xs text-slate-300 bg-black/40 p-3 rounded-xl border border-white/5 font-mono max-h-20 overflow-y-auto leading-relaxed">
-              Initializing live stream...
-            </p>
+          <!-- Full Output / Full Thinking View Tabs -->
+          <div class="space-y-2">
+            <div class="flex items-center justify-between border-b border-white/10 pb-1.5">
+              <div class="flex items-center gap-2 text-xs mono">
+                <button id="tab-btn-content" onclick="switchOutputTab('content')" class="px-2.5 py-1 rounded-lg bg-cyan-500/20 text-cyan-300 font-bold border border-cyan-500/40">Latest Full Output</button>
+                <button id="tab-btn-thinking" onclick="switchOutputTab('thinking')" class="px-2.5 py-1 rounded-lg bg-black/40 text-slate-400 hover:text-white border border-white/5">Internal Thinking</button>
+              </div>
+              <div class="flex items-center gap-2">
+                <button onclick="copyActiveOutput()" class="text-[11px] px-2 py-1 rounded bg-white/5 hover:bg-white/10 text-slate-300 mono flex items-center gap-1 transition">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                  <span id="copy-btn-label">Copy Full</span>
+                </button>
+                <button onclick="toggleOutputBoxExpand()" id="expand-box-btn" class="text-[11px] px-2 py-1 rounded bg-white/5 hover:bg-white/10 text-slate-300 mono transition">
+                  Expand ⤢
+                </button>
+              </div>
+            </div>
+
+            <!-- Full Output Display Box -->
+            <pre id="detail-full-output" class="text-xs text-slate-200 bg-black/60 p-3.5 rounded-xl border border-white/10 font-mono max-h-48 overflow-y-auto leading-relaxed pre-wrap-code select-text">
+Initializing live stream...
+            </pre>
           </div>
         </div>
 
       </div>
 
-      <!-- Live Step Execution Stream (Console Timeline) -->
-      <div class="space-y-3">
-        <div class="flex items-center justify-between">
-          <span class="text-xs mono font-bold text-slate-300 uppercase tracking-wider flex items-center gap-2">
+      <!-- ======================================================== -->
+      <!-- FULL EXPANDABLE STEP HISTORY STREAM WITH UNTRUNCATED OUTPUT -->
+      <!-- ======================================================== -->
+      <div class="space-y-4 pt-2 border-t border-white/10">
+        
+        <!-- Controls Bar for Steps -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-black/40 p-3 rounded-xl border border-white/5">
+          <div class="flex items-center gap-2">
             <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-            Recent Step Execution Timeline (Last 12 Steps)
-          </span>
-          <span class="text-[11px] mono text-slate-500">Auto-Synced Every 2s</span>
+            <span class="text-xs mono font-bold text-slate-200 uppercase tracking-wider">Expanded Step History Stream</span>
+            <span id="step-count-badge" class="text-[11px] mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">0 Steps</span>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-2">
+            <!-- Filter by Type -->
+            <select id="step-type-filter" onchange="renderStepsStream()" class="text-[11px] mono bg-slate-900 border border-white/10 rounded-lg px-2.5 py-1 text-slate-200 focus:outline-none focus:border-cyan-500">
+              <option value="ALL">All Types</option>
+              <option value="TOOLS">Tool Invocations Only</option>
+              <option value="PLANNER">Planner Responses Only</option>
+              <option value="INPUT">User Inputs Only</option>
+              <option value="SYSTEM">System Messages Only</option>
+            </select>
+
+            <!-- Search Filter -->
+            <input id="step-search-input" oninput="renderStepsStream()" type="text" placeholder="Search steps & outputs..." class="text-[11px] mono bg-slate-900 border border-white/10 rounded-lg px-2.5 py-1 text-slate-200 focus:outline-none focus:border-cyan-500 placeholder-slate-500 w-44">
+
+            <!-- Expand / Collapse All -->
+            <button onclick="toggleExpandAllSteps()" id="expand-all-steps-btn" class="text-[11px] mono px-3 py-1 rounded-lg bg-cyan-950/80 hover:bg-cyan-900 border border-cyan-800 text-cyan-300 font-bold transition">
+              Expand All ▼
+            </button>
+          </div>
         </div>
 
-        <div id="inspector-steps-stream" class="space-y-2 max-h-72 overflow-y-auto pr-1">
+        <!-- Scrollable Full Step Stream Container -->
+        <div id="inspector-steps-stream" class="space-y-3 max-h-[600px] overflow-y-auto pr-1">
           <!-- Step cards rendered dynamically -->
         </div>
+
       </div>
 
     </section>
 
-    <!-- 9 Dedicated Conversation Nodes Grid (All Nodes Overview) -->
+    <!-- ======================================================== -->
+    <!-- 📖 CLOCKEE 39-REEL PLAYBOOK & EXECUTION FORECAST (THE BOOK) -->
+    <!-- ======================================================== -->
+    <section id="playbook-section" class="glass-panel rounded-2xl p-6 border-purple-500/30 bg-gradient-to-br from-[#0c0915] via-[#110e20] to-[#18112e] shadow-2xl space-y-6">
+      
+      <!-- Playbook Header & Summary Counters -->
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-white/10 pb-5">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-xl">📖</span>
+            <h2 class="text-xl sm:text-2xl font-extrabold text-white tracking-tight">ClockEE 39-Reel Playbook & Architecture Roadmap</h2>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-400 mt-1">Full architectural ledger of all 39 reels: what is being built, target files, mesh conversation owners, and predicted execution outputs.</p>
+        </div>
+
+        <!-- Metrics Pills -->
+        <div class="flex flex-wrap items-center gap-2 mono text-xs">
+          <div class="px-3 py-1.5 rounded-xl bg-purple-950/80 border border-purple-800 text-purple-300 font-bold">
+            <span>Total: <strong>39 Reels</strong></span>
+          </div>
+          <div class="px-3 py-1.5 rounded-xl bg-emerald-950/80 border border-emerald-800 text-emerald-300 font-bold">
+            <span>Completed: <strong id="playbook-completed-count">4</strong></span>
+          </div>
+          <div class="px-3 py-1.5 rounded-xl bg-amber-950/80 border border-amber-800 text-amber-300 font-bold">
+            <span>Active/Paused: <strong>1</strong></span>
+          </div>
+          <div class="px-3 py-1.5 rounded-xl bg-slate-900 border border-white/10 text-slate-400 font-bold">
+            <span>Roadmap: <strong id="playbook-pending-count">34</strong></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Playbook Filters Bar -->
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 bg-black/40 p-3 rounded-xl border border-white/5">
+        <div class="flex flex-wrap items-center gap-2" id="playbook-status-filters">
+          <button onclick="setPlaybookFilter('ALL')" id="filter-pb-ALL" class="px-3 py-1 rounded-lg text-xs mono font-bold bg-purple-500/20 text-purple-200 border border-purple-500/40">All (39)</button>
+          <button onclick="setPlaybookFilter('COMPLETED')" id="filter-pb-COMPLETED" class="px-3 py-1 rounded-lg text-xs mono text-slate-400 hover:text-white border border-white/5">Completed (4)</button>
+          <button onclick="setPlaybookFilter('ACTIVE')" id="filter-pb-ACTIVE" class="px-3 py-1 rounded-lg text-xs mono text-slate-400 hover:text-white border border-white/5">Active / Paused (1)</button>
+          <button onclick="setPlaybookFilter('SCHEDULED')" id="filter-pb-SCHEDULED" class="px-3 py-1 rounded-lg text-xs mono text-slate-400 hover:text-white border border-white/5">Scheduled Backlog (34)</button>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <input id="playbook-search" oninput="renderPlaybook()" type="text" placeholder="Search by tool, reel ID, or capability..." class="text-xs mono bg-slate-900 border border-white/10 rounded-lg px-3 py-1.5 text-slate-200 focus:outline-none focus:border-purple-500 placeholder-slate-500 w-full sm:w-64">
+        </div>
+      </div>
+
+      <!-- Playbook Cards Grid -->
+      <div id="playbook-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Rendered dynamically via JS -->
+      </div>
+
+    </section>
+
+    <!-- 10 Dedicated Conversation Nodes Grid -->
     <section>
       <div class="flex items-center justify-between mb-4">
         <div>
           <h3 class="text-lg font-bold text-white flex items-center gap-2">
-            Mesh Network Directory (All 9 Conversations)
-            <span class="text-xs mono font-normal text-slate-400">• Click any card to inspect live</span>
+            Mesh Network Directory (All 10 Dedicated Conversations)
+            <span class="text-xs mono font-normal text-slate-400">• Click any card to inspect full steps</span>
           </h3>
           <p class="text-xs text-slate-400">Strictly dedicated conversation sessions with zero in-session subagents.</p>
         </div>
@@ -265,11 +374,11 @@
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5">
         <div>
           <span class="text-xs font-bold uppercase tracking-wider text-amber-400 mono">Sequential Lifecycle Breadcrumbs</span>
-          <h3 id="reel-header-title" class="text-lg font-bold text-white mt-0.5">Reel #1: Graphify Knowledge Graph</h3>
-          <p id="reel-header-url" class="text-xs text-slate-400 mono mt-0.5"><a href="https://www.instagram.com/p/DfFUVDVKwF5/" target="_blank" class="text-cyan-400 hover:underline">https://www.instagram.com/p/DfFUVDVKwF5/</a></p>
+          <h3 id="reel-header-title" class="text-lg font-bold text-white mt-0.5">Reel #5: SQLite-VSS Local Vector Search</h3>
+          <p id="reel-header-url" class="text-xs text-slate-400 mono mt-0.5"><a href="https://www.instagram.com/p/DeW0tvNz2uR/" target="_blank" class="text-cyan-400 hover:underline">https://www.instagram.com/p/DeW0tvNz2uR/</a></p>
         </div>
         <div class="flex items-center gap-2 self-start sm:self-auto">
-          <span class="text-xs mono text-slate-400">Backlog Remaining: <strong class="text-white">37 Reels</strong></span>
+          <span class="text-xs mono text-slate-400">Backlog Remaining: <strong class="text-white">34 Reels</strong></span>
         </div>
       </div>
 
@@ -278,37 +387,37 @@
         <div class="p-3 rounded-xl border border-emerald-500/30 bg-emerald-950/20 text-center">
           <span class="text-[10px] mono font-bold text-emerald-400 block mb-1">01. INGESTION</span>
           <span class="text-xs font-bold text-white block">GITHUB</span>
-          <span class="text-[9px] mono px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold mt-1 inline-block">PASSED</span>
+          <span class="text-[9px] mono px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold mt-1 inline-block">REELS 1-4 COMPLETED</span>
         </div>
         <div class="p-3 rounded-xl border border-emerald-500/30 bg-emerald-950/20 text-center">
           <span class="text-[10px] mono font-bold text-emerald-400 block mb-1">02. DATA SCHEMA</span>
           <span class="text-xs font-bold text-white block">DB / BACKEND</span>
           <span class="text-[9px] mono px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold mt-1 inline-block">VERIFIED</span>
         </div>
-        <div class="p-3 rounded-xl border border-amber-500/50 bg-amber-950/30 text-center neon-pulse-amber">
+        <div class="p-3 rounded-xl border border-amber-500/50 bg-amber-950/30 text-center">
           <span class="text-[10px] mono font-bold text-amber-400 block mb-1">03. CORE WIRING</span>
           <span class="text-xs font-bold text-white block">Main Feature</span>
-          <span class="text-[9px] mono px-1.5 py-0.5 rounded bg-amber-500/30 text-amber-200 font-bold mt-1 inline-block">ACTIVE RN</span>
+          <span class="text-[9px] mono px-1.5 py-0.5 rounded bg-amber-500/30 text-amber-200 font-bold mt-1 inline-block">SYNC WIRING DONE</span>
         </div>
-        <div class="p-3 rounded-xl border border-white/5 bg-white/[0.02] opacity-60 text-center">
-          <span class="text-[10px] mono font-bold text-slate-400 block mb-1">04. STYLING</span>
+        <div class="p-3 rounded-xl border border-emerald-500/30 bg-emerald-950/20 text-center">
+          <span class="text-[10px] mono font-bold text-emerald-400 block mb-1">04. STYLING</span>
           <span class="text-xs font-bold text-white block">UI / UX</span>
-          <span class="text-[9px] mono px-1.5 py-0.5 rounded bg-white/10 text-slate-400 font-bold mt-1 inline-block">QUEUED</span>
+          <span class="text-[9px] mono px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold mt-1 inline-block">HALLMARK STYLED</span>
         </div>
-        <div class="p-3 rounded-xl border border-white/5 bg-white/[0.02] opacity-60 text-center">
-          <span class="text-[10px] mono font-bold text-slate-400 block mb-1">05. SIMULATION #1</span>
+        <div class="p-3 rounded-xl border border-emerald-500/30 bg-emerald-950/20 text-center">
+          <span class="text-[10px] mono font-bold text-emerald-400 block mb-1">05. SIMULATION #1</span>
           <span class="text-xs font-bold text-white block">SIMULATION</span>
-          <span class="text-[9px] mono px-1.5 py-0.5 rounded bg-white/10 text-slate-400 font-bold mt-1 inline-block">QUEUED</span>
+          <span class="text-[9px] mono px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold mt-1 inline-block">100/100 PASSED</span>
         </div>
-        <div class="p-3 rounded-xl border border-white/5 bg-white/[0.02] opacity-60 text-center">
-          <span class="text-[10px] mono font-bold text-slate-400 block mb-1">06. SURGICAL FIX</span>
+        <div class="p-3 rounded-xl border border-emerald-500/30 bg-emerald-950/20 text-center">
+          <span class="text-[10px] mono font-bold text-emerald-400 block mb-1">06. SURGICAL FIX</span>
           <span class="text-xs font-bold text-white block">BUG FIXES</span>
-          <span class="text-[9px] mono px-1.5 py-0.5 rounded bg-white/10 text-slate-400 font-bold mt-1 inline-block">IF NEEDED</span>
+          <span class="text-[9px] mono px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold mt-1 inline-block">CHANNEL OPEN</span>
         </div>
-        <div class="p-3 rounded-xl border border-white/5 bg-white/[0.02] opacity-60 text-center">
-          <span class="text-[10px] mono font-bold text-slate-400 block mb-1">07. CERTIFICATION</span>
-          <span class="text-xs font-bold text-white block">SIMULATION #2</span>
-          <span class="text-[9px] mono px-1.5 py-0.5 rounded bg-white/10 text-slate-400 font-bold mt-1 inline-block">FINAL GATE</span>
+        <div class="p-3 rounded-xl border border-purple-500/50 bg-purple-950/30 text-center neon-pulse-amber">
+          <span class="text-[10px] mono font-bold text-purple-300 block mb-1">07. NEXT REEL GATE</span>
+          <span class="text-xs font-bold text-white block">REEL #5</span>
+          <span class="text-[9px] mono px-1.5 py-0.5 rounded bg-purple-500/30 text-purple-200 font-bold mt-1 inline-block">PAUSED PER USER</span>
         </div>
       </div>
     </section>
@@ -350,6 +459,11 @@
     let globalData = null;
     let selectedConvoKey = "untitled_conversation";
     let isBriefingOpen = true;
+    let activeOutputTab = "content"; // "content" or "thinking"
+    let isOutputBoxExpanded = false;
+    let expandedStepIndices = new Set();
+    let areAllStepsExpanded = false;
+    let playbookFilterStatus = "ALL";
 
     function toggleSummaryDrawer() {
       const card = document.getElementById('briefing-card');
@@ -363,15 +477,119 @@
 
     function selectConvo(key) {
       selectedConvoKey = key;
+      expandedStepIndices.clear();
+      areAllStepsExpanded = false;
       renderCockpit(globalData);
       window.scrollTo({ top: 120, behavior: 'smooth' });
+    }
+
+    function switchOutputTab(tab) {
+      activeOutputTab = tab;
+      const btnC = document.getElementById('tab-btn-content');
+      const btnT = document.getElementById('tab-btn-thinking');
+      if (tab === 'content') {
+        btnC.className = 'px-2.5 py-1 rounded-lg bg-cyan-500/20 text-cyan-300 font-bold border border-cyan-500/40';
+        btnT.className = 'px-2.5 py-1 rounded-lg bg-black/40 text-slate-400 hover:text-white border border-white/5';
+      } else {
+        btnT.className = 'px-2.5 py-1 rounded-lg bg-indigo-500/20 text-indigo-300 font-bold border border-indigo-500/40';
+        btnC.className = 'px-2.5 py-1 rounded-lg bg-black/40 text-slate-400 hover:text-white border border-white/5';
+      }
+      renderFocusedOutput();
+    }
+
+    function toggleOutputBoxExpand() {
+      isOutputBoxExpanded = !isOutputBoxExpanded;
+      const box = document.getElementById('detail-full-output');
+      const btn = document.getElementById('expand-box-btn');
+      if (isOutputBoxExpanded) {
+        box.classList.remove('max-h-48');
+        box.classList.add('max-h-[700px]');
+        btn.innerText = 'Collapse ⤡';
+      } else {
+        box.classList.remove('max-h-[700px]');
+        box.classList.add('max-h-48');
+        btn.innerText = 'Expand ⤢';
+      }
+    }
+
+    function copyActiveOutput() {
+      const box = document.getElementById('detail-full-output');
+      if (box) {
+        navigator.clipboard.writeText(box.innerText).then(() => {
+          const lbl = document.getElementById('copy-btn-label');
+          lbl.innerText = 'Copied!';
+          setTimeout(() => { lbl.innerText = 'Copy Full'; }, 2000);
+        });
+      }
+    }
+
+    function copyStepText(stepIdx) {
+      const el = document.getElementById('step-full-body-' + stepIdx);
+      if (el) {
+        navigator.clipboard.writeText(el.innerText).then(() => {
+          const btn = document.getElementById('copy-step-btn-' + stepIdx);
+          if (btn) {
+            btn.innerText = 'Copied!';
+            setTimeout(() => { btn.innerText = 'Copy'; }, 2000);
+          }
+        });
+      }
+    }
+
+    function toggleStepExpand(stepIdx) {
+      if (expandedStepIndices.has(stepIdx)) {
+        expandedStepIndices.delete(stepIdx);
+      } else {
+        expandedStepIndices.add(stepIdx);
+      }
+      renderStepsStream();
+    }
+
+    function toggleExpandAllSteps() {
+      areAllStepsExpanded = !areAllStepsExpanded;
+      const btn = document.getElementById('expand-all-steps-btn');
+      if (areAllStepsExpanded) {
+        btn.innerText = 'Collapse All ▲';
+        const target = (globalData.conversations || []).find(c => c.key === selectedConvoKey);
+        if (target && target.live_progress) {
+          (target.live_progress.recent_steps || []).forEach(s => expandedStepIndices.add(s.step));
+        }
+      } else {
+        btn.innerText = 'Expand All ▼';
+        expandedStepIndices.clear();
+      }
+      renderStepsStream();
+    }
+
+    function setPlaybookFilter(status) {
+      playbookFilterStatus = status;
+      ['ALL', 'COMPLETED', 'ACTIVE', 'SCHEDULED'].forEach(s => {
+        const btn = document.getElementById('filter-pb-' + s);
+        if (btn) {
+          if (s === status) {
+            btn.className = 'px-3 py-1 rounded-lg text-xs mono font-bold bg-purple-500/20 text-purple-200 border border-purple-500/40';
+          } else {
+            btn.className = 'px-3 py-1 rounded-lg text-xs mono text-slate-400 hover:text-white border border-white/5';
+          }
+        }
+      });
+      renderPlaybook();
+    }
+
+    function escapeHtml(text) {
+      if (!text) return '';
+      return String(text)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
     }
 
     function fetchState() {
       const dot = document.getElementById('heartbeat-dot');
       if (dot) dot.classList.add('bg-cyan-400');
 
-      // Primary: Dynamic Script Injection (Bypasses file:// CORS restrictions completely)
       const scriptId = 'dynamic-tracker-script';
       const oldScript = document.getElementById(scriptId);
       if (oldScript) oldScript.remove();
@@ -392,7 +610,6 @@
         }
       };
       script.onerror = () => {
-        // Fallback: fetch if running under HTTP/HTTPS local server
         fetch('.pipeline/tracker_state.json?t=' + Date.now())
           .then(res => res.json())
           .then(data => {
@@ -410,6 +627,266 @@
       document.head.appendChild(script);
     }
 
+    function renderFocusedOutput() {
+      if (!globalData) return;
+      const convos = globalData.conversations || [];
+      const target = convos.find(c => c.key === selectedConvoKey) || convos[0];
+      if (!target) return;
+      const prog = target.live_progress || {};
+      const box = document.getElementById('detail-full-output');
+      
+      if (activeOutputTab === 'content') {
+        box.innerText = prog.full_content || prog.content_preview || 'No output stream logged for this turn.';
+      } else {
+        box.innerText = prog.full_thinking || 'No internal reasoning or thoughts logged for this step.';
+      }
+    }
+
+    function renderStepsStream() {
+      if (!globalData) return;
+      const convos = globalData.conversations || [];
+      const target = convos.find(c => c.key === selectedConvoKey) || convos[0];
+      if (!target) return;
+
+      const prog = target.live_progress || {};
+      let steps = prog.recent_steps || [];
+
+      // Filter by type
+      const typeFilter = document.getElementById('step-type-filter').value;
+      if (typeFilter === 'TOOLS') {
+        steps = steps.filter(s => s.has_tools);
+      } else if (typeFilter === 'PLANNER') {
+        steps = steps.filter(s => s.type === 'PLANNER_RESPONSE');
+      } else if (typeFilter === 'INPUT') {
+        steps = steps.filter(s => s.type === 'USER_INPUT');
+      } else if (typeFilter === 'SYSTEM') {
+        steps = steps.filter(s => s.type === 'SYSTEM_MESSAGE');
+      }
+
+      // Filter by search query
+      const query = (document.getElementById('step-search-input').value || '').toLowerCase().trim();
+      if (query) {
+        steps = steps.filter(s => {
+          const matchNum = String(s.step).includes(query);
+          const matchPreview = (s.preview || '').toLowerCase().includes(query);
+          const matchContent = (s.full_content || '').toLowerCase().includes(query);
+          const matchThinking = (s.full_thinking || '').toLowerCase().includes(query);
+          const matchTools = (s.tool_calls || []).some(t => 
+            t.name.toLowerCase().includes(query) || (t.summary || '').toLowerCase().includes(query)
+          );
+          return matchNum || matchPreview || matchContent || matchThinking || matchTools;
+        });
+      }
+
+      document.getElementById('step-count-badge').innerText = `${steps.length} Steps`;
+
+      const streamEl = document.getElementById('inspector-steps-stream');
+      if (steps.length === 0) {
+        streamEl.innerHTML = `<div class="p-4 rounded-xl bg-black/40 border border-white/5 text-xs text-slate-400 mono text-center">No steps matching current filters.</div>`;
+        return;
+      }
+
+      streamEl.innerHTML = steps.map(s => {
+        const isExpanded = expandedStepIndices.has(s.step);
+        const hasTools = s.has_tools;
+        const hasContent = s.has_content;
+        const hasThinking = s.has_thinking;
+
+        let typeBadgeColor = 'bg-slate-800 text-slate-400';
+        if (s.type === 'PLANNER_RESPONSE') typeBadgeColor = 'bg-cyan-950 text-cyan-300 border border-cyan-800';
+        else if (s.type === 'USER_INPUT') typeBadgeColor = 'bg-amber-950 text-amber-300 border border-amber-800';
+        else if (s.type === 'SYSTEM_MESSAGE') typeBadgeColor = 'bg-purple-950 text-purple-300 border border-purple-800';
+
+        let statusBadgeColor = 'text-slate-500';
+        if (s.status === 'RUNNING') statusBadgeColor = 'text-emerald-400 font-bold animate-pulse';
+        else if (s.status === 'ERROR') statusBadgeColor = 'text-rose-400 font-bold';
+
+        return `
+          <div class="rounded-xl bg-black/60 border ${isExpanded ? 'border-cyan-500/40 bg-slate-950/90' : 'border-white/5 hover:border-white/20'} transition duration-200 overflow-hidden">
+            
+            <!-- Step Header Bar (Clickable) -->
+            <div onclick="toggleStepExpand(${s.step})" class="p-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 cursor-pointer hover:bg-white/[0.02]">
+              <div class="flex items-center gap-2.5 overflow-hidden">
+                <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-200 mono font-extrabold text-xs shrink-0">#${s.step}</span>
+                <span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded ${typeBadgeColor} shrink-0 mono">${s.type}</span>
+                <span class="text-[10px] text-slate-500 mono shrink-0">${s.source}</span>
+                <span class="text-xs text-slate-300 truncate font-mono">${escapeHtml(s.preview)}</span>
+              </div>
+
+              <div class="flex items-center gap-3 shrink-0 self-end sm:self-auto text-xs mono">
+                <span class="text-[10px] ${statusBadgeColor}">${s.status}</span>
+                <span class="text-[10px] text-slate-500">${s.timestamp ? s.timestamp.split('T')[1]?.replace('Z', '') || '' : ''}</span>
+                <span class="text-slate-400 hover:text-white font-bold">${isExpanded ? '▲' : '▼'}</span>
+              </div>
+            </div>
+
+            <!-- Expanded Body Details -->
+            ${isExpanded ? `
+              <div class="p-4 border-t border-white/10 space-y-4 bg-black/40">
+                
+                <!-- Action Controls inside Card -->
+                <div class="flex items-center justify-between pb-2 border-b border-white/5 text-xs mono">
+                  <span class="text-slate-400 text-[11px]">Full Un-truncated Payload for Step #${s.step}</span>
+                  <button id="copy-step-btn-${s.step}" onclick="copyStepText(${s.step})" class="px-2.5 py-1 rounded bg-white/5 hover:bg-white/10 text-cyan-300 border border-white/10 text-[11px] flex items-center gap-1 transition">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                    <span>Copy</span>
+                  </button>
+                </div>
+
+                <!-- Tool Calls Block (If Present) -->
+                ${hasTools ? `
+                  <div class="space-y-2">
+                    <span class="text-[11px] mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5">
+                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                      Tool Calls (${s.tool_calls.length})
+                    </span>
+                    <div class="space-y-2">
+                      ${s.tool_calls.map(tc => `
+                        <div class="p-3 rounded-lg bg-black/80 border border-amber-500/30 font-mono text-xs space-y-1.5">
+                          <div class="flex items-center justify-between">
+                            <span class="text-amber-300 font-bold">$ ${escapeHtml(tc.name)}</span>
+                            <span class="text-[10px] text-slate-400">${escapeHtml(tc.summary)}</span>
+                          </div>
+                          <pre class="text-[11px] text-slate-300 bg-slate-950 p-2.5 rounded border border-white/5 overflow-x-auto pre-wrap-code">${escapeHtml(JSON.stringify(tc.args, null, 2))}</pre>
+                        </div>
+                      `).join('')}
+                    </div>
+                  </div>
+                ` : ''}
+
+                <!-- Internal Thinking Block (If Present) -->
+                ${hasThinking ? `
+                  <div class="space-y-1.5">
+                    <span class="text-[11px] mono font-bold uppercase tracking-wider text-indigo-400 flex items-center gap-1.5">
+                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                      Model Internal Reasoning / Chain of Thought
+                    </span>
+                    <div class="p-3.5 rounded-lg bg-indigo-950/20 border border-indigo-500/20 text-xs font-mono text-indigo-200 pre-wrap-code leading-relaxed max-h-60 overflow-y-auto">
+                      ${escapeHtml(s.full_thinking)}
+                    </div>
+                  </div>
+                ` : ''}
+
+                <!-- Full Message Content Body -->
+                <div class="space-y-1.5">
+                  <span class="text-[11px] mono font-bold uppercase tracking-wider text-cyan-400 flex items-center gap-1.5">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path></svg>
+                    Full Message Content
+                  </span>
+                  <div id="step-full-body-${s.step}" class="p-3.5 rounded-lg bg-slate-950 border border-white/10 text-xs font-mono text-slate-200 pre-wrap-code leading-relaxed max-h-96 overflow-y-auto select-text">
+                    ${escapeHtml(s.full_content || '(No text content)')}
+                  </div>
+                </div>
+
+              </div>
+            ` : ''}
+
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderPlaybook() {
+      if (!globalData || !globalData.reel_playbook) return;
+      const pb = globalData.reel_playbook;
+      const reels = pb.reels || [];
+
+      // Update counters
+      const compEl = document.getElementById('playbook-completed-count');
+      const pendEl = document.getElementById('playbook-pending-count');
+      if (compEl) compEl.innerText = pb.completed_count || 4;
+      if (pendEl) pendEl.innerText = pb.pending_count || 35;
+
+      // Filter by status
+      let filtered = reels;
+      if (playbookFilterStatus === 'COMPLETED') {
+        filtered = filtered.filter(r => r.status === 'COMPLETED');
+      } else if (playbookFilterStatus === 'ACTIVE') {
+        filtered = filtered.filter(r => r.status !== 'COMPLETED' && r.status !== 'SCHEDULED_IN_BACKLOG');
+      } else if (playbookFilterStatus === 'SCHEDULED') {
+        filtered = filtered.filter(r => r.status === 'SCHEDULED_IN_BACKLOG');
+      }
+
+      // Filter by search query
+      const query = (document.getElementById('playbook-search').value || '').toLowerCase().trim();
+      if (query) {
+        filtered = filtered.filter(r => {
+          return r.id.toLowerCase().includes(query) ||
+                 (r.package_name || '').toLowerCase().includes(query) ||
+                 (r.title || '').toLowerCase().includes(query) ||
+                 (r.domain || '').toLowerCase().includes(query) ||
+                 (r.summary || '').toLowerCase().includes(query) ||
+                 (r.what_is_being_built || '').toLowerCase().includes(query);
+        });
+      }
+
+      const grid = document.getElementById('playbook-grid');
+      if (filtered.length === 0) {
+        grid.innerHTML = `<div class="col-span-full p-8 text-center text-slate-400 mono text-xs bg-black/40 rounded-xl border border-white/5">No reels match the current filter.</div>`;
+        return;
+      }
+
+      grid.innerHTML = filtered.map(r => {
+        let badgeColor = 'bg-slate-800 text-slate-400 border border-white/5';
+        if (r.status === 'COMPLETED') {
+          badgeColor = 'bg-emerald-950 text-emerald-300 border border-emerald-800 font-bold';
+        } else if (r.status_badge && r.status_badge.includes('ACTIVE')) {
+          badgeColor = 'bg-amber-950 text-amber-300 border border-amber-800 font-bold';
+        }
+
+        const meshOwners = r.mesh_owners || {};
+
+        return `
+          <div class="glass-panel p-5 rounded-2xl border ${r.status === 'COMPLETED' ? 'border-emerald-500/30' : (r.status_badge && r.status_badge.includes('ACTIVE') ? 'border-amber-500/40 bg-amber-950/10' : 'border-white/10')} space-y-3.5 hover:border-purple-500/40 transition">
+            
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <div class="flex items-center gap-2 mb-1">
+                  <span class="px-2 py-0.5 rounded text-[10px] mono font-bold bg-purple-950 text-purple-300 border border-purple-800">${r.id.toUpperCase()}</span>
+                  <span class="text-[10px] mono px-2 py-0.5 rounded ${badgeColor}">${r.status_badge || r.status}</span>
+                </div>
+                <h4 class="text-base font-extrabold text-white tracking-tight">${escapeHtml(r.title)}</h4>
+                <span class="text-xs text-purple-400 font-semibold mono">${escapeHtml(r.domain)}</span>
+              </div>
+              <a href="${r.url}" target="_blank" class="p-2 rounded-xl bg-white/5 hover:bg-white/10 text-cyan-400 text-xs mono shrink-0 flex items-center gap-1" title="Open Reel">
+                <span>Reel ↗</span>
+              </a>
+            </div>
+
+            <!-- Summary & What is Being Built -->
+            <div class="space-y-2 text-xs">
+              <p class="text-slate-300 leading-relaxed">${escapeHtml(r.summary)}</p>
+              
+              <div class="p-3 rounded-xl bg-black/50 border border-white/5 space-y-1">
+                <span class="text-[10px] mono uppercase tracking-wider font-bold text-amber-400">🔨 What Is Being Built in ClockEE:</span>
+                <p class="text-slate-200 text-xs">${escapeHtml(r.what_is_being_built)}</p>
+              </div>
+            </div>
+
+            <!-- Mesh Assignments Matrix -->
+            <div class="space-y-1.5 pt-1">
+              <span class="text-[10px] mono uppercase tracking-wider font-bold text-slate-400">🛰️ Mesh Assignments:</span>
+              <div class="grid grid-cols-2 gap-2 text-[11px] mono">
+                ${Object.entries(meshOwners).map(([k, v]) => `
+                  <div class="p-2 rounded-lg bg-black/40 border border-white/5">
+                    <span class="text-cyan-400 font-bold block">${escapeHtml(k)}:</span>
+                    <span class="text-slate-300 block truncate">${escapeHtml(v)}</span>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+
+            <!-- Predicted Execution & Target Files -->
+            <div class="pt-2 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-[11px] mono text-slate-400">
+              <span>Output: <strong class="text-slate-200">${escapeHtml(r.predicted_output?.split(' ')[0] || 'Asset')}</strong></span>
+              <span class="text-[10px] text-slate-500 truncate max-w-[200px]">${(r.target_files || []).join(', ')}</span>
+            </div>
+
+          </div>
+        `;
+      }).join('');
+    }
+
     function renderCockpit(data) {
       if (!data) return;
 
@@ -421,7 +898,7 @@
       // Reel Header
       if (data.active_reel) {
         document.getElementById('reel-header-title').innerText = data.active_reel.title || 'Reel Pipeline Active';
-        document.getElementById('reel-header-url').innerHTML = `<a href="${data.active_reel.url}" target="_blank" class="text-cyan-400 hover:underline">${data.active_reel.url}</a> (${data.active_reel.upstream || 'Local'})`;
+        document.getElementById('reel-header-url').innerHTML = `<a href="${data.active_reel.url}" target="_blank" class="text-cyan-400 hover:underline">${data.active_reel.url}</a> (${data.active_reel.status_badge || 'Queued'})`;
       }
 
       // Transmissions Feed
@@ -439,7 +916,7 @@
 
       const convos = data.conversations || [];
 
-      // Render Top Switcher Pills
+      // Render Top Switcher Pills (All 10 conversations)
       const pillsContainer = document.getElementById('quick-convo-pills');
       pillsContainer.innerHTML = convos.map(c => {
         const isSelected = c.key === selectedConvoKey;
@@ -494,46 +971,22 @@
           toolStatusEl.className = 'text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-400';
         }
 
-        // Output Preview
-        const previewEl = document.getElementById('detail-content-preview');
-        previewEl.innerText = prog.content_preview || prog.last_action || 'No output stream logged.';
+        // Render full top output
+        renderFocusedOutput();
 
-        // Step History Stream
-        const streamEl = document.getElementById('inspector-steps-stream');
-        const steps = prog.recent_steps || [];
-        if (steps.length === 0) {
-          streamEl.innerHTML = `<div class="p-3 rounded-lg bg-black/40 border border-white/5 text-xs text-slate-400 mono">No steps recorded in recent log.</div>`;
-        } else {
-          streamEl.innerHTML = steps.map(s => {
-            const isTool = !!s.tool;
-            return `
-              <div class="p-3 rounded-xl bg-black/50 border border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs mono hover:border-cyan-500/30 transition">
-                <div class="flex items-center gap-2.5 overflow-hidden">
-                  <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-200 font-bold shrink-0">#${s.step}</span>
-                  <span class="text-[10px] font-semibold uppercase px-1.5 py-0.5 rounded ${s.type === 'PLANNER_RESPONSE' ? 'bg-cyan-950 text-cyan-300 border border-cyan-800' : (s.type === 'USER_INPUT' ? 'bg-amber-950 text-amber-300 border border-amber-800' : 'bg-slate-800 text-slate-400')} shrink-0">${s.type}</span>
-                  ${isTool ? `<span class="text-cyan-300 font-bold truncate">$ ${s.tool}</span>` : `<span class="text-slate-300 truncate">${s.preview || 'Operation processed'}</span>`}
-                </div>
-                <span class="text-[10px] text-slate-500 shrink-0 self-end sm:self-auto">${s.status || 'DONE'}</span>
-              </div>
-            `;
-          }).join('');
-        }
+        // Render full step history stream
+        renderStepsStream();
       }
 
-      // Render All 9 Conversation Cards Grid
+      // Render All 10 Conversation Cards Grid
       const grid = document.getElementById('conversations-grid');
       grid.innerHTML = convos.map(c => {
         const prog = c.live_progress || {};
         const isRunning = prog.is_running;
         const lastAction = prog.last_action || 'Standby';
-        
-        if (c.key === 'untitled_conversation') {
-          const stepEl = document.getElementById('briefing-step-main');
-          if (stepEl) stepEl.innerText = 'Step ' + (c.step || prog.step);
-        }
 
         return `
-          <div onclick="selectConvo('${c.key}')" class="glass-panel p-4 rounded-xl border ${c.key === selectedConvoKey ? 'border-cyan-500/70 bg-cyan-950/20' : (c.is_active ? 'border-amber-500/40 bg-amber-950/10' : 'border-white/5')} cursor-pointer transition hover:scale-[1.01]">
+          <div onclick="selectConvo('${c.key}')" class="glass-panel p-4 rounded-xl border ${c.key === selectedConvoKey ? 'border-cyan-500/70 bg-cyan-950/20 shadow-lg shadow-cyan-500/10' : (c.is_active ? 'border-amber-500/40 bg-amber-950/10' : 'border-white/5')} cursor-pointer transition hover:scale-[1.01]">
             <div class="flex items-center justify-between mb-2">
               <span class="text-xs font-bold text-white flex items-center gap-1.5">
                 <span class="h-2 w-2 rounded-full ${isRunning ? 'bg-emerald-400 animate-ping' : (c.is_active ? 'bg-amber-400' : 'bg-slate-500')}"></span>
@@ -547,16 +1000,19 @@
             <!-- Live Action Sub-Chip -->
             <div class="mt-2 mb-2 p-2 rounded-lg bg-black/40 border border-white/5 text-[11px] mono">
               <span class="text-slate-400 block text-[9px] uppercase tracking-wider font-bold">Latest Action:</span>
-              <span class="text-slate-200 block truncate font-medium">${lastAction}</span>
+              <span class="text-slate-200 block truncate font-medium">${escapeHtml(lastAction)}</span>
             </div>
 
             <div class="pt-2 border-t border-white/5 flex items-center justify-between text-[11px] mono text-slate-400">
               <span>Step: <strong class="text-white">${c.step || prog.step}</strong></span>
-              <span class="text-cyan-400 hover:text-cyan-300 font-semibold flex items-center gap-1">Inspect Live ↗</span>
+              <span class="text-cyan-400 hover:text-cyan-300 font-semibold flex items-center gap-1">Inspect Full Steps ↗</span>
             </div>
           </div>
         `;
       }).join('');
+
+      // Render Reel Playbook
+      renderPlaybook();
     }
 
     // Auto-sync polling every 2 seconds

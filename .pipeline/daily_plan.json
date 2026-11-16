@@ -18,13 +18,15 @@
       "id": "TASK-01",
       "target": "db_backend",
       "priority": "P1",
+      "status": "COMPLETED",
       "task": "Implement Vercel Serverless Python Adapter (api/index.py) connected to Supabase cloud PostgreSQL. Verify that database is connected properly and bypasses local SQLite on Vercel. Implement Google Auth and GitHub OAuth token validation and session caching. Wire /api/tracker to stream live mesh state and provide requirements.txt."
     },
     {
       "id": "TASK-02",
       "target": "github",
       "priority": "P1",
-      "task": "Configure production vercel.json rewriting /api/(.*) to /api/index.py and /tracker to /tracker.html. Set security headers, CORS, and immutable cache-control for CBT question banks. Configure .vercelignore to exclude local SQLite databases (clockee.db, clockee_auth.db), temp videos, and pipeline internals."
+      "task": "Configure production vercel.json rewriting /api/(.*) to /api/index.py and /tracker to /tracker.html. Set security headers, CORS, and immutable cache-control for CBT question banks. Configure .vercelignore to exclude local SQLite databases (clockee.db, clockee_auth.db), temp videos, and pipeline internals.",
+      "status": "COMPLETED"
     },
     {
       "id": "TASK-03",

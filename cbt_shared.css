@@ -34,6 +34,15 @@
   --cbt-radius-full: 9999px;
   --cbt-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --cbt-font-mono: 'JetBrains Mono', monospace;
+
+  /* Hallmark Reel #19: Fluid Mathematical & Display Typography Scale */
+  --cbt-fluid-font-size-display: clamp(1.750rem, 1.393rem + 1.79vw, 3.000rem);
+  --cbt-fluid-font-size-h1: clamp(1.375rem, 1.161rem + 1.07vw, 2.125rem);
+  --cbt-fluid-font-size-h2: clamp(1.125rem, 0.982rem + 0.71vw, 1.625rem);
+  --cbt-fluid-font-size-h3: clamp(1.000rem, 0.929rem + 0.36vw, 1.250rem);
+  --cbt-fluid-font-size-body: clamp(0.875rem, 0.839rem + 0.18vw, 1.000rem);
+  --cbt-fluid-font-size-mono-formula: clamp(0.812rem, 0.741rem + 0.36vw, 1.062rem);
+  --cbt-fluid-font-size-caption: clamp(0.688rem, 0.652rem + 0.18vw, 0.812rem);
 }
 
 /* ──────────────────────────────────────────────────────────────────────────

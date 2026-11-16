@@ -475,8 +475,8 @@
       },
       "predicted_execution": "Phase 1: Clamp calculation -> Phase 2: CSS application -> Phase 3: Multi-viewport audit.",
       "predicted_output": "Crisp, readable exam typography that automatically scales smoothly to any screen size.",
-      "status": "QUEUED_FOR_INGESTION",
-      "status_badge": "ACTIVE IN QUEUE"
+      "status": "COMPLETED",
+      "status_badge": "PASSED & INTEGRATED"
     },
     {
       "id": "reel_020",
@@ -497,8 +497,8 @@
       },
       "predicted_execution": "Phase 1: APCA rule setup -> Phase 2: DOM color scan -> Phase 3: Legibility certification.",
       "predicted_output": "Eye-friendly, high-contrast dark theme designed specifically for marathon study sessions.",
-      "status": "SCHEDULED_IN_BACKLOG",
-      "status_badge": "QUEUED IN ROADMAP"
+      "status": "COMPLETED",
+      "status_badge": "PASSED & INTEGRATED"
     },
     {
       "id": "reel_021",
@@ -521,8 +521,8 @@
       },
       "predicted_execution": "Phase 1: Event recorder -> Phase 2: Playback scrubber -> Phase 3: Storage compression test.",
       "predicted_output": "Complete visual playback of test attempts showing hesitation, backtracks, and time management habits.",
-      "status": "SCHEDULED_IN_BACKLOG",
-      "status_badge": "QUEUED IN ROADMAP"
+      "status": "COMPLETED",
+      "status_badge": "PASSED & INTEGRATED"
     },
     {
       "id": "reel_022",
@@ -545,8 +545,8 @@
       },
       "predicted_execution": "Phase 1: Dwell time timer -> Phase 2: Heatmap matrix -> Phase 3: Anomaly detection test.",
       "predicted_output": "Visual cognitive load heatmap revealing hidden time-sink questions and careless fast mistakes.",
-      "status": "SCHEDULED_IN_BACKLOG",
-      "status_badge": "QUEUED IN ROADMAP"
+      "status": "COMPLETED",
+      "status_badge": "PASSED & INTEGRATED"
     },
     {
       "id": "reel_023",
@@ -569,8 +569,8 @@
       },
       "predicted_execution": "Phase 1: Probability model -> Phase 2: Threshold calibration -> Phase 3: Score adjustment audit.",
       "predicted_output": "Honest score adjustment helping students understand their real skill level without illusion of luck.",
-      "status": "SCHEDULED_IN_BACKLOG",
-      "status_badge": "QUEUED IN ROADMAP"
+      "status": "COMPLETED",
+      "status_badge": "PASSED & INTEGRATED"
     },
     {
       "id": "reel_024",
@@ -593,8 +593,8 @@
       },
       "predicted_execution": "Phase 1: Telemetry worker -> Phase 2: HUD overlay -> Phase 3: Memory footprint benchmark.",
       "predicted_output": "Built-in telemetry HUD allowing instant verification of app state, memory usage, and background sync.",
-      "status": "SCHEDULED_IN_BACKLOG",
-      "status_badge": "QUEUED IN ROADMAP"
+      "status": "QUEUED_FOR_INGESTION",
+      "status_badge": "ACTIVE IN QUEUE"
     },
     {
       "id": "reel_025",

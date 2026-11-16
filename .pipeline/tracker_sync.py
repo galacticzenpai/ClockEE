@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-ClockEE Tracker State Synchronizer (Dynamic Step & Handoff Reader)
-Aggregates real-time transcript states, queue.json, backlog, and transmissions
-into .pipeline/tracker_state.json for tracker.html.
+ClockEE Tracker State Synchronizer with Live Progress Engine
+Extracts real-time step numbers, live tool calls, model thoughts, and activity streams
+for all conversations into .pipeline/tracker_state.json for tracker.html.
 """
 
 import os
 import json
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 PIPELINE_DIR = Path(__file__).resolve().parent
@@ -87,7 +87,6 @@ def get_transmissions():
 
 def record_transmission(source, target, subject, status="DELIVERED_AUTO"):
     txs = get_transmissions()
-    # Avoid duplicate sequential entries
     if txs and txs[0].get("source") == source and txs[0].get("target") == target and txs[0].get("subject") == subject:
         return
     txs.insert(0, {
@@ -103,19 +102,129 @@ def record_transmission(source, target, subject, status="DELIVERED_AUTO"):
     except Exception as e:
         print(f"Error saving transmissions: {e}")
 
-def get_live_step(cid):
+def extract_live_conversation_progress(cid: str):
+    """Parses transcript to extract real-time execution steps, tool calls, and model outputs."""
     t_file = BRAIN_DIR / cid / ".system_generated" / "logs" / "transcript.jsonl"
     if not t_file.is_file():
-        return 0, "OFFLINE"
+        return {
+            "step": 0,
+            "status": "OFFLINE",
+            "is_running": False,
+            "last_action": "No transcript available",
+            "tool_name": None,
+            "tool_summary": None,
+            "content_preview": "",
+            "recent_steps": []
+        }
+
     try:
         with open(t_file, "r", encoding="utf-8", errors="ignore") as f:
             lines = [l.strip() for l in f if l.strip().startswith("{")]
         if not lines:
-            return 0, "EMPTY"
-        last_obj = json.loads(lines[-1])
-        return last_obj.get("step_index", 0), last_obj.get("status", "DONE")
-    except Exception:
-        return 0, "UNKNOWN"
+            return {
+                "step": 0,
+                "status": "EMPTY",
+                "is_running": False,
+                "last_action": "Initialized empty session",
+                "tool_name": None,
+                "tool_summary": None,
+                "content_preview": "",
+                "recent_steps": []
+            }
+
+        recent_objs = []
+        for l in lines[-6:]:
+            try:
+                recent_objs.append(json.loads(l))
+            except Exception:
+                pass
+
+        if not recent_objs:
+            return {
+                "step": 0,
+                "status": "UNKNOWN",
+                "is_running": False,
+                "last_action": "Idle",
+                "tool_name": None,
+                "tool_summary": None,
+                "content_preview": "",
+                "recent_steps": []
+            }
+
+        last_obj = recent_objs[-1]
+        st_idx = last_obj.get("step_index", 0)
+        st_type = last_obj.get("type", "UNKNOWN")
+        st_status = last_obj.get("status", "DONE")
+        st_content = str(last_obj.get("content", "")).replace("\n", " ").strip()
+        st_time = last_obj.get("created_at", "")
+
+        # Detect active tool execution
+        tool_name = None
+        tool_summary = None
+        tool_calls = last_obj.get("tool_calls") or []
+        if tool_calls:
+            first_tool = tool_calls[0]
+            tool_name = first_tool.get("name")
+            args = first_tool.get("args") or {}
+            tool_summary = args.get("toolSummary") or args.get("CommandLine") or args.get("Path") or tool_name
+
+        # Calculate recency / running state
+        is_running = (st_status in ["RUNNING", "IN_PROGRESS"]) or (len(tool_calls) > 0 and st_status != "DONE")
+
+        # Determine last action text
+        if tool_name:
+            last_action = f"Running {tool_name}: {tool_summary[:60]}"
+        elif st_type == "PLANNER_RESPONSE":
+            last_action = f"Response: {st_content[:65]}..." if len(st_content) > 65 else (st_content or "Planning turn...")
+        elif st_type == "USER_INPUT":
+            last_action = "Received User/IPC Input"
+        elif st_type == "SYSTEM_MESSAGE":
+            last_action = "Processing System Signal"
+        else:
+            last_action = f"{st_type}: {st_content[:50]}"
+
+        # Format recent steps for live terminal inspector
+        recent_steps = []
+        for step in recent_objs:
+            s_idx = step.get("step_index")
+            s_type = step.get("type")
+            s_cnt = str(step.get("content", "")).replace("\n", " ").strip()[:90]
+            s_tools = step.get("tool_calls") or []
+            s_tool_desc = ""
+            if s_tools:
+                t = s_tools[0]
+                t_args = t.get("args") or {}
+                s_tool_desc = f"Tool: {t.get('name')} ({t_args.get('toolSummary', t_args.get('CommandLine', ''))[:40]})"
+
+            recent_steps.append({
+                "step": s_idx,
+                "type": s_type,
+                "tool": s_tool_desc,
+                "preview": s_cnt
+            })
+
+        return {
+            "step": st_idx,
+            "status": "RUNNING" if is_running else "IDLE",
+            "is_running": is_running,
+            "last_action": last_action,
+            "tool_name": tool_name,
+            "tool_summary": tool_summary,
+            "content_preview": st_content[:120],
+            "timestamp": st_time,
+            "recent_steps": recent_steps
+        }
+    except Exception as e:
+        return {
+            "step": 0,
+            "status": f"ERROR: {e}",
+            "is_running": False,
+            "last_action": "Error reading transcript",
+            "tool_name": None,
+            "tool_summary": None,
+            "content_preview": "",
+            "recent_steps": []
+        }
 
 def build_tracker_state():
     queue = {}
@@ -134,39 +243,40 @@ def build_tracker_state():
         except Exception:
             pass
 
-    # Build dynamic conversation state
+    # Build dynamic conversation state with real-time live progress
     convos_data = []
     for key, reg in CONVERSATION_REGISTRY.items():
-        step_idx, status_text = get_live_step(reg["id"])
+        prog = extract_live_conversation_progress(reg["id"])
         
-        # State determination
-        if key == "untitled_conversation":
-            c_status = "ACTIVE"
+        # State tag determination
+        if prog["is_running"]:
+            display_status = "RUNNING"
+            is_active = True
+        elif key == "untitled_conversation":
+            display_status = "ACTIVE"
             is_active = True
         elif key == "github":
-            c_status = "WAITING_ON_MESH"
-            is_active = False
-        elif key == "db_backend":
-            c_status = "HANDOFF_EMITTED"
+            display_status = "WAITING_ON_MESH"
             is_active = False
         elif key == "simulation":
-            c_status = "CERTIFIED_100"
+            display_status = "CERTIFIED_100"
             is_active = False
         elif key == "backbone":
-            c_status = "DAEMON_ACTIVE"
+            display_status = "DAEMON_ACTIVE"
             is_active = True
         else:
-            c_status = "STANDBY"
+            display_status = "STANDBY"
             is_active = False
 
         convos_data.append({
             "key": key,
             "name": reg["name"],
             "role": reg["role"],
-            "status": c_status,
+            "status": display_status,
             "is_active": is_active,
-            "step": step_idx,
-            "url": reg["url"]
+            "step": prog["step"],
+            "url": reg["url"],
+            "live_progress": prog
         })
 
     tracker_state = {
@@ -196,7 +306,7 @@ def build_tracker_state():
     try:
         with open(TRACKER_STATE_FILE, "w", encoding="utf-8") as f:
             json.dump(tracker_state, f, indent=2)
-        print("✔ tracker_state.json updated dynamically with true step indices.")
+        print("✔ tracker_state.json updated with live conversation progress engine.")
     except Exception as e:
         print(f"Error saving tracker_state.json: {e}")
 

@@ -1,246 +1,208 @@
 {
-  "version": "1.0.0",
-  "active_reel": {
-    "id": "reel_004",
-    "url": "https://www.instagram.com/p/De6ttI-zAba/",
-    "status": "QUEUED_FOR_INGESTION",
-    "added_at": "2026-11-16T11:28:00Z"
-  },
+  "total_reels": 39,
   "completed_reels": [
     {
       "id": "reel_001",
       "url": "https://www.instagram.com/p/DfFUVDVKwF5/",
-      "name": "Graphify",
-      "upstream": "Graphify-Labs/graphify",
-      "status": "COMPLETED"
+      "package_name": "graphify",
+      "status": "COMPLETED",
+      "summary": "Graphify Codebase Knowledge Graph"
     },
     {
       "id": "reel_002",
       "url": "https://www.instagram.com/p/De63OT8Sqwg/",
-      "name": "LLM-Lint",
-      "upstream": "JadenRazo/llm-lint",
-      "status": "COMPLETED"
+      "package_name": "llm_lint",
+      "status": "COMPLETED",
+      "summary": "LLM-Lint Prompt & Token Hygiene Linter"
     },
     {
       "id": "reel_003",
       "url": "https://www.instagram.com/p/DfDPuZjE-7Q/",
-      "name": "Dray Cross-Model Bridge",
-      "upstream": "monorepo-labs/dray",
-      "status": "COMPLETED"
+      "package_name": "dray_cross_context",
+      "status": "COMPLETED",
+      "summary": "Dray Cross-Model Context Bridge & /link Protocol"
     }
   ],
-  "backlog": [
+  "active_reel": {
+    "id": "reel_004",
+    "url": "https://www.instagram.com/p/De6ttI-zAba/",
+    "status": "PENDING_INGESTION"
+  },
+  "pending_reels": [
     {
-      "index": 4,
+      "id": "reel_005",
       "url": "https://www.instagram.com/p/DeW0tvNz2uR/",
-      "status": "PENDING"
+      "status": "QUEUED"
     },
     {
-      "index": 5,
+      "id": "reel_006",
       "url": "https://www.instagram.com/p/DeUAboaAoPi/",
-      "status": "PENDING"
+      "status": "QUEUED"
     },
     {
-      "index": 6,
+      "id": "reel_007",
       "url": "https://www.instagram.com/p/De4jJeINfWc/",
-      "status": "PENDING"
+      "status": "QUEUED"
     },
     {
-      "index": 7,
+      "id": "reel_008",
       "url": "https://www.instagram.com/p/DeOdge5FUVx/",
-      "status": "PENDING"
+      "status": "QUEUED"
     },
     {
-      "index": 8,
+      "id": "reel_009",
       "url": "https://www.instagram.com/p/Dem1QsuzJ3m/",
-      "status": "PENDING"
+      "status": "QUEUED"
     },
     {
-      "index": 9,
+      "id": "reel_010",
       "url": "https://www.instagram.com/p/DfFKtq3S1iV/",
-      "status": "PENDING"
+      "status": "QUEUED"
     },
     {
-      "index": 10,
+      "id": "reel_011",
       "url": "https://www.instagram.com/p/DezZ8h7AnWZ/",
-      "status": "PENDING"
+      "status": "QUEUED"
     },
     {
-      "index": 11,
+      "id": "reel_012",
       "url": "https://www.instagram.com/p/DeCIBOaSgWj/",
-      "status": "PENDING"
+      "status": "QUEUED"
     },
     {
-      "index": 12,
+      "id": "reel_013",
       "url": "https://www.instagram.com/p/DerbBtfzj8p/",
-      "status": "PENDING"
+      "status": "QUEUED"
     },
     {
-      "index": 13,
+      "id": "reel_014",
       "url": "https://www.instagram.com/p/DdBSahaKHsY/",
-      "status": "PENDING"
+      "status": "QUEUED"
     },
     {
-      "index": 14,
+      "id": "reel_015",
       "url": "https://www.instagram.com/p/De0-L6zAKky/",
-      "status": "PENDING"
+      "status": "QUEUED"
     },
     {
-      "index": 15,
+      "id": "reel_016",
       "url": "https://www.instagram.com/p/DebmIDlSiR3/",
-      "status": "PENDING"
+      "status": "QUEUED"
     },
     {
-      "index": 16,
+      "id": "reel_017",
       "url": "https://www.instagram.com/p/DfGCFq_KBl7/",
-      "status": "PENDING"
+      "status": "QUEUED"
     },
     {
-      "index": 17,
+      "id": "reel_018",
       "url": "https://www.instagram.com/p/DfPoyBxqtej/",
-      "status": "PENDING"
+      "status": "QUEUED"
     },
     {
-      "index": 18,
+      "id": "reel_019",
       "url": "https://www.instagram.com/p/DeRiLg-iah2/",
-      "status": "PENDING"
+      "status": "QUEUED"
     },
     {
-      "index": 19,
+      "id": "reel_020",
       "url": "https://www.instagram.com/p/DfRBJe5R0jV/",
-      "status": "PENDING"
+      "status": "QUEUED"
     },
     {
-      "index": 20,
+      "id": "reel_021",
       "url": "https://www.instagram.com/p/DfPfsMENJyB/",
-      "status": "PENDING"
+      "status": "QUEUED"
     },
     {
-      "index": 21,
+      "id": "reel_022",
       "url": "https://www.instagram.com/p/DfNSFM9S38J/",
-      "status": "PENDING"
+      "status": "QUEUED"
     },
     {
-      "index": 22,
+      "id": "reel_023",
       "url": "https://www.instagram.com/p/DfIijXSzzaO/",
-      "status": "PENDING"
+      "status": "QUEUED"
     },
     {
-      "index": 23,
+      "id": "reel_024",
       "url": "https://www.instagram.com/p/DfW6r1fCMd-/",
-      "status": "PENDING"
+      "status": "QUEUED"
     },
     {
-      "index": 24,
+      "id": "reel_025",
       "url": "https://www.instagram.com/p/DfVQs4PDJHY/",
-      "status": "PENDING"
+      "status": "QUEUED"
     },
     {
-      "index": 25,
+      "id": "reel_026",
       "url": "https://www.instagram.com/p/DfLnPkKtrkz/",
-      "status": "PENDING"
+      "status": "QUEUED"
     },
     {
-      "index": 26,
+      "id": "reel_027",
       "url": "https://www.instagram.com/p/DfWwN89hmY1/",
-      "status": "PENDING"
+      "status": "QUEUED"
     },
     {
-      "index": 27,
+      "id": "reel_028",
       "url": "https://www.instagram.com/p/DfUPqjrt-H_/",
-      "status": "PENDING"
+      "status": "QUEUED"
     },
     {
-      "index": 28,
+      "id": "reel_029",
       "url": "https://www.instagram.com/p/DfToUOPIba0/",
-      "status": "PENDING"
+      "status": "QUEUED"
     },
     {
-      "index": 29,
+      "id": "reel_030",
       "url": "https://www.instagram.com/p/DfY3CZ_BkXd/",
-      "status": "PENDING"
+      "status": "QUEUED"
     },
     {
-      "index": 30,
+      "id": "reel_031",
       "url": "https://www.instagram.com/p/DfUe1XXx6Jw/",
-      "status": "PENDING"
+      "status": "QUEUED"
     },
     {
-      "index": 31,
+      "id": "reel_032",
       "url": "https://www.instagram.com/p/DfZyG8ZyJwv/",
-      "status": "PENDING"
+      "status": "QUEUED"
     },
     {
-      "index": 32,
+      "id": "reel_033",
       "url": "https://www.instagram.com/p/DfWuPg8p5Ho/",
-      "status": "PENDING"
+      "status": "QUEUED"
     },
     {
-      "index": 33,
+      "id": "reel_034",
       "url": "https://www.instagram.com/p/DfcssAvBG7L/",
-      "status": "PENDING"
+      "status": "QUEUED"
     },
     {
-      "index": 34,
+      "id": "reel_035",
       "url": "https://www.instagram.com/p/Dfgr-20D5Hw/",
-      "status": "PENDING"
+      "status": "QUEUED"
     },
     {
-      "index": 35,
+      "id": "reel_036",
       "url": "https://www.instagram.com/p/DfaTZHlh-k0/",
-      "status": "PENDING"
+      "status": "QUEUED"
     },
     {
-      "index": 36,
+      "id": "reel_037",
       "url": "https://www.instagram.com/p/Dfj368ttF83/",
-      "status": "PENDING"
+      "status": "QUEUED"
     },
     {
-      "index": 37,
+      "id": "reel_038",
       "url": "https://www.instagram.com/p/DdshHpFpqdi/",
-      "status": "PENDING"
+      "status": "QUEUED"
     },
     {
-      "index": 38,
+      "id": "reel_039",
       "url": "https://www.instagram.com/p/De9ncU9vZgH/",
-      "status": "PENDING"
-    }
-  ],
-  "history": [
-    {
-      "id": "item_001",
-      "url": "https://www.instagram.com/p/DeZzNXlTELF/",
-      "source_handle": "petergriffin.ai",
-      "packages": [
-        "litellm_router",
-        "strix_security_scanner",
-        "agent_memory_vault",
-        "agent_reach",
-        "mcp_recommender"
-      ],
-      "status": "COMPLETED",
-      "completed_at": "2026-11-15T23:30:00Z"
-    },
-    {
-      "id": "item_002",
-      "url": "https://www.instagram.com/p/De9bqWtoARc/",
-      "source_handle": "waitwhatdidyoudo",
-      "packages": [
-        "cloudflare_security_audit"
-      ],
-      "status": "COMPLETED",
-      "completed_at": "2026-11-15T23:40:00Z"
-    },
-    {
-      "id": "item_003",
-      "url": "https://www.instagram.com/p/DfCznzwKh4k/",
-      "source_handle": "waitwhatdidyoudo",
-      "packages": [
-        "hallmark_design"
-      ],
-      "status": "COMPLETED",
-      "active_batch_id": "batch_hallmark_sloplint_001",
-      "timestamp": "2026-11-16T00:15:00Z"
+      "status": "QUEUED"
     }
   ]
 }

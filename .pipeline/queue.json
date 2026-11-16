@@ -74,11 +74,13 @@
         "staged_at": "2026-11-16T11:28:59.881442"
       },
       "simulation": {
-        "target_id": "62adc180-be21-4671-848c-c8df59e2c202",
+        "source": "github",
+        "target_key": "simulation",
         "target_name": "SIMULATION",
+        "target_id": "62adc180-be21-4671-848c-c8df59e2c202",
+        "instruction": "You are SIMULATION.\nActive Package: Dray Cross-Model Session Bridge\nPrerequisites Met: Package vendored in integrations/dray_cross_model/ with exit code 0 on demo run.\n\nTask for SIMULATION:\n1. Run `python integrations/dray_cross_model/dray_bridge.py verify` in your automated verification passes.\n2. Ensure no agent violates protected file guardrails (`cbt_master_bank.js`, `backend/db.py`).\n3. Re-run Hallmark sloplint to ensure 100/100 visual score across all templates.",
         "status": "DISPATCHED_TO_CONVERSATION",
-        "instruction": "Dray Quality Gates:\n1. Execute python integrations/dray_cross_model/dray_bridge.py demo to verify link generation exits 0.\n2. Verify that protected files guardrails (cbt_master_bank.js, backend/db.py) are never breached in handoffs.\n3. Run Hallmark sloplint (100/100 score target).",
-        "staged_at": "2026-11-16T11:29:15.214289"
+        "staged_at": "2026-11-16T11:29:32.120136"
       },
       "db_backend": {
         "target_id": "d3700ff3-1bfb-458a-9968-8257ef2ca7e2",

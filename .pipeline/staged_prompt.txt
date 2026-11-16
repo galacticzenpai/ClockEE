@@ -1,10 +1,14 @@
 You are SIMULATION.
 
 --- TASK ASSIGNMENT ---
-Dray Quality Gates:
-1. Execute python integrations/dray_cross_model/dray_bridge.py demo to verify link generation exits 0.
-2. Verify that protected files guardrails (cbt_master_bank.js, backend/db.py) are never breached in handoffs.
-3. Run Hallmark sloplint (100/100 score target).
+You are SIMULATION.
+Active Package: Dray Cross-Model Session Bridge
+Prerequisites Met: Package vendored in integrations/dray_cross_model/ with exit code 0 on demo run.
+
+Task for SIMULATION:
+1. Run `python integrations/dray_cross_model/dray_bridge.py verify` in your automated verification passes.
+2. Ensure no agent violates protected file guardrails (`cbt_master_bank.js`, `backend/db.py`).
+3. Re-run Hallmark sloplint to ensure 100/100 visual score across all templates.
 
 --- MESH COORDINATION DIRECTIVE ---
 1. Implement all domain fixes and features cleanly without disturbing sibling modules.

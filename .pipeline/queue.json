@@ -61,7 +61,7 @@
         "target_id": "6371cba6-7d2f-4b29-a250-627d88d1b4f1",
         "instruction": "You are Untitled conversation (Main Feature).\nActive Package: Graphify Codebase Knowledge Graph\nPrerequisites Met: Package vendored in integrations/graphify/ with 263 entities and 320 edges indexed.\n\nPlease review the architectural dependency report before proceeding with core features:\n1. Review `integrations/graphify/reports/GRAPH_REPORT.md`:\n   - Note our primary architectural chokepoints: `clockee_core.js` (16 dependent templates), `cbt_shared.js` (9 dependent templates), and `env.js` (21 templates).\n2. Query Blast Radius Before Renames:\n   Run `python integrations/graphify/graph_runner.py query <function_or_file>` before altering any shared methods or localStorage keys to see every file that consumes it.\n3. Respect the dependency graph during feature additions so no circular references or dead script tags are introduced.",
         "status": "STAGED_FOR_DISPATCH",
-        "staged_at": "2026-11-16T08:55:39.365289"
+        "staged_at": "2026-11-16T09:19:30.630248"
       },
       "ui_ux": {
         "source": "simulation",

@@ -66,13 +66,13 @@
         "dispatched_at": "2026-11-16T09:38:54.577960"
       },
       "untitled_conversation": {
-        "source": "github",
+        "source": "db_backend",
         "target_key": "untitled_conversation",
         "target_name": "Untitled conversation (Main Feature)",
         "target_id": "6371cba6-7d2f-4b29-a250-627d88d1b4f1",
-        "instruction": "You are Untitled conversation (Main Feature).\nActive Package: Graphify Codebase Knowledge Graph\nPrerequisites Met: Package vendored in integrations/graphify/ with 263 entities and 320 edges indexed.\n\nPlease review the architectural dependency report before proceeding with core features:\n1. Review `integrations/graphify/reports/GRAPH_REPORT.md`:\n   - Note our primary architectural chokepoints: `clockee_core.js` (16 dependent templates), `cbt_shared.js` (9 dependent templates), and `env.js` (21 templates).\n2. Query Blast Radius Before Renames:\n   Run `python integrations/graphify/graph_runner.py query <function_or_file>` before altering any shared methods or localStorage keys to see every file that consumes it.\n3. Respect the dependency graph during feature additions so no circular references or dead script tags are introduced.",
+        "instruction": "You are Untitled conversation (Main Feature).\nPrerequisites Met: Supabase schema (backend/supabase_schema.sql), Python Gateway Bearer token middleware, and /api/sync batch offline endpoints completed and verified by DB / BACKEND.\n\nTASK ASSIGNMENT: CLIENT AUTHENTICATION & OFFLINE QUEUE WIRING\n\n1. Available Gateway Endpoints:\n   - GET /api/auth/providers?redirect_to=<url>: Returns OAuth URLs for Google and GitHub.\n   - POST /api/auth/session: Accepts { \"access_token\": \"<supabase_jwt>\" } to establish local session cache.\n   - POST /api/sync: Batch offline sync endpoint accepting:\n     {\n       \"user_id\": \"<uid>\",\n       \"timer_state\": { \"elapsed_seconds\": 1200, \"mode\": \"sprint\", \"is_paused\": false },\n       \"current_mode\": \"mains\" | \"advanced\",\n       \"active_deck\": \"<subject_or_chapter>\",\n       \"state\": { ... },\n       \"queued_logs\": [ { \"id\": \"...\", \"subject\": \"Physics\", \"chapter\": \"...\", \"duration\": 60, \"correct\": true, \"mistake\": \"\", \"score_delta\": 4, \"notes\": \"\" } ],\n       \"queued_exams\": [ { \"id\": \"...\", \"test_id\": \"...\", \"title\": \"...\", \"mode\": \"mains\", \"score\": 80, \"max_score\": 100, \"accuracy\": 80.0, \"time_spent\": 1800, \"responses\": [], \"analytics\": {} } ]\n     }\n   - GET /api/sync?user_id=<uid>: Hydrates localStorage with state and recent logs after offline reconnect.\n\n2. Client-Side Authentication Flow:\n   - Check if window.supabase is configured or if #access_token=... is present in URL hash on OAuth redirect return.\n   - When token is detected, send Bearer token in headers: { \"Authorization\": `Bearer ${token}` } for all API calls.\n   - If offline, queue completed question logs in localStorage under key 'clockee_offline_logs' and exams under 'clockee_offline_exams'.\n   - When navigator.onLine triggers 'online' event, flush queue by dispatching POST /api/sync.",
         "status": "DISPATCHED_TO_CONVERSATION",
-        "staged_at": "2026-11-16T10:51:22.942364"
+        "staged_at": "2026-11-16T11:09:39.172255"
       },
       "ui_ux": {
         "target_key": "ui_ux",

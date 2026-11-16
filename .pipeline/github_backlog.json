@@ -246,57 +246,71 @@
       "title": "Runtime Client-Side State Mutation & Corruption Interceptor",
       "status": "COMPLETED",
       "summary": "ES6 Proxy state invariant validator intercepting illegal out-of-bounds CBT mutations"
-    }
-  ],
-  "active_reel": {
-    "id": "reel_029",
-    "url": "https://www.instagram.com/p/DfToUOPIba0/",
-    "package_name": "deadlock_resolver",
-    "upstream": "sqlite/deadlock-preventer",
-    "title": "Concurrent SQLite Multi-Process Transaction Arbiter",
-    "status": "QUEUED_FOR_INGESTION"
-  },
-  "pending_reels": [
-    {
-      "id": "reel_030",
-      "url": "https://www.instagram.com/p/DfY3CZ_BkXd/",
-      "status": "QUEUED"
     },
     {
       "id": "reel_029",
       "url": "https://www.instagram.com/p/DfToUOPIba0/",
-      "status": "QUEUED"
+      "package_name": "deadlock_resolver",
+      "upstream": "sqlite/deadlock-preventer",
+      "title": "Concurrent SQLite Multi-Process Transaction Arbiter",
+      "status": "COMPLETED",
+      "summary": "WAL-mode connection pool with busy-timeout handlers and backoff retries"
     },
     {
       "id": "reel_030",
       "url": "https://www.instagram.com/p/DfY3CZ_BkXd/",
-      "status": "QUEUED"
+      "package_name": "agentapi_rpc",
+      "upstream": "agentapi/rpc-mesh",
+      "title": "Sub-5ms Non-Blocking Inter-Conversation RPC Dispatcher",
+      "status": "COMPLETED",
+      "summary": "Non-blocking Popen agentapi client enabling sub-5ms inter-conversation prompt handoffs"
     },
     {
       "id": "reel_031",
       "url": "https://www.instagram.com/p/DfUe1XXx6Jw/",
-      "status": "QUEUED"
+      "package_name": "sloplint_ci",
+      "upstream": "sloplint/github-action",
+      "title": "Automated GitHub Actions SlopLinter 100/100 Quality Gate",
+      "status": "COMPLETED",
+      "summary": "Continuous Integration GitHub Action workflow running SlopLinter 100/100 visual certification"
     },
     {
       "id": "reel_032",
       "url": "https://www.instagram.com/p/DfZyG8ZyJwv/",
-      "status": "QUEUED"
+      "package_name": "patch_audit",
+      "upstream": "git-diff/ast-validator",
+      "title": "AST-Aware Git Commit Diff Inspector for Hallucinated Files",
+      "status": "COMPLETED",
+      "summary": "Staged diff inspector protecting cbt_master_bank.js and database files from accidental deletion"
     },
     {
       "id": "reel_033",
       "url": "https://www.instagram.com/p/DfWuPg8p5Ho/",
-      "status": "QUEUED"
+      "package_name": "mesh_switchboard",
+      "upstream": "clockee/mesh-switchboard",
+      "title": "Centralized IPC Message Routing & Handoff Priority Queue",
+      "status": "COMPLETED",
+      "summary": "Master mesh switchboard in .pipeline/mesh_orchestrator.py routing tasks across 10 conversations"
     },
     {
       "id": "reel_034",
       "url": "https://www.instagram.com/p/DfcssAvBG7L/",
-      "status": "QUEUED"
-    },
-    {
-      "id": "reel_035",
-      "url": "https://www.instagram.com/p/Dfgr-20D5Hw/",
-      "status": "QUEUED"
-    },
+      "package_name": "dynamic_script_bus",
+      "upstream": "cors-free/script-bus",
+      "title": "CORS-Immune Local-First Dynamic JavaScript Bus",
+      "status": "COMPLETED",
+      "summary": "Dynamic script tag injection bus bypassing browser CORS on local file:/// URLs completely"
+    }
+  ],
+  "active_reel": {
+    "id": "reel_035",
+    "url": "https://www.instagram.com/p/Dfgr-20D5Hw/",
+    "package_name": "cockpit_hud_overlay",
+    "upstream": "clockee/cockpit-hud",
+    "title": "Integrated Floating Cockpit HUD Overlay for ClockEE",
+    "status": "QUEUED_FOR_INGESTION"
+  },
+  "pending_reels": [
     {
       "id": "reel_036",
       "url": "https://www.instagram.com/p/DfaTZHlh-k0/",

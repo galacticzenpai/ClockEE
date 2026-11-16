@@ -133,7 +133,7 @@ def extract_live_conversation_progress(cid: str):
             }
 
         recent_objs = []
-        for l in lines[-6:]:
+        for l in lines[-12:]:
             try:
                 recent_objs.append(json.loads(l))
             except Exception:
@@ -148,6 +148,7 @@ def extract_live_conversation_progress(cid: str):
                 "tool_name": None,
                 "tool_summary": None,
                 "content_preview": "",
+                "thinking_preview": "",
                 "recent_steps": []
             }
 
@@ -156,30 +157,50 @@ def extract_live_conversation_progress(cid: str):
         st_type = last_obj.get("type", "UNKNOWN")
         st_status = last_obj.get("status", "DONE")
         st_content = str(last_obj.get("content", "")).replace("\n", " ").strip()
+        st_thinking = str(last_obj.get("thinking", "")).replace("\n", " ").strip()
         st_time = last_obj.get("created_at", "")
 
         # Detect active tool execution
         tool_name = None
         tool_summary = None
+        tool_details = None
         tool_calls = last_obj.get("tool_calls") or []
         if tool_calls:
             first_tool = tool_calls[0]
             tool_name = first_tool.get("name")
             args = first_tool.get("args") or {}
             tool_summary = args.get("toolSummary") or args.get("CommandLine") or args.get("Path") or tool_name
+            tool_details = {
+                "name": tool_name,
+                "summary": tool_summary,
+                "path": args.get("Path"),
+                "command": args.get("CommandLine")
+            }
 
         # Calculate recency / running state
         is_running = (st_status in ["RUNNING", "IN_PROGRESS"]) or (len(tool_calls) > 0 and st_status != "DONE")
 
+        # Determine detailed execution state
+        if is_running:
+            detailed_status = "EXECUTING_TOOL" if tool_name else "GENERATING"
+        elif st_type == "PLANNER_RESPONSE":
+            detailed_status = "RESPONSE_READY"
+        elif st_type == "USER_INPUT":
+            detailed_status = "INPUT_RECEIVED"
+        else:
+            detailed_status = "IDLE"
+
         # Determine last action text
         if tool_name:
-            last_action = f"Running {tool_name}: {tool_summary[:60]}"
+            last_action = f"Executing {tool_name}: {tool_summary[:70]}"
+        elif st_thinking:
+            last_action = f"Thinking: {st_thinking[:70]}..."
         elif st_type == "PLANNER_RESPONSE":
-            last_action = f"Response: {st_content[:65]}..." if len(st_content) > 65 else (st_content or "Planning turn...")
+            last_action = f"Response: {st_content[:70]}..." if len(st_content) > 70 else (st_content or "Planning turn...")
         elif st_type == "USER_INPUT":
-            last_action = "Received User/IPC Input"
+            last_action = f"Input: {st_content[:70]}..."
         elif st_type == "SYSTEM_MESSAGE":
-            last_action = "Processing System Signal"
+            last_action = "System Message Received"
         else:
             last_action = f"{st_type}: {st_content[:50]}"
 
@@ -188,29 +209,38 @@ def extract_live_conversation_progress(cid: str):
         for step in recent_objs:
             s_idx = step.get("step_index")
             s_type = step.get("type")
-            s_cnt = str(step.get("content", "")).replace("\n", " ").strip()[:90]
+            s_stat = step.get("status", "DONE")
+            s_cnt = str(step.get("content", "")).replace("\n", " ").strip()
+            s_thk = str(step.get("thinking", "")).replace("\n", " ").strip()
             s_tools = step.get("tool_calls") or []
             s_tool_desc = ""
+            s_tool_name = None
             if s_tools:
                 t = s_tools[0]
+                s_tool_name = t.get("name")
                 t_args = t.get("args") or {}
-                s_tool_desc = f"Tool: {t.get('name')} ({t_args.get('toolSummary', t_args.get('CommandLine', ''))[:40]})"
+                s_tool_desc = f"{s_tool_name}: {t_args.get('toolSummary', t_args.get('CommandLine', t_args.get('Path', '')))}"
 
             recent_steps.append({
                 "step": s_idx,
                 "type": s_type,
-                "tool": s_tool_desc,
-                "preview": s_cnt
+                "status": s_stat,
+                "tool_name": s_tool_name,
+                "tool": s_tool_desc[:80] if s_tool_desc else None,
+                "thinking": s_thk[:100] if s_thk else None,
+                "preview": s_cnt[:100] if s_cnt else ("(Tool invocation)" if s_tools else "")
             })
 
         return {
             "step": st_idx,
-            "status": "RUNNING" if is_running else "IDLE",
+            "status": detailed_status,
             "is_running": is_running,
             "last_action": last_action,
             "tool_name": tool_name,
             "tool_summary": tool_summary,
-            "content_preview": st_content[:120],
+            "tool_details": tool_details,
+            "content_preview": st_content[:180],
+            "thinking_preview": st_thinking[:180],
             "timestamp": st_time,
             "recent_steps": recent_steps
         }

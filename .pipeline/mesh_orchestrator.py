@@ -300,9 +300,6 @@ def discover_handoff_prompts(convo_key, steps):
                 else:
                     print(f"  ℹ Mesh Gate Enforced: {reason} (from {convo_key})", flush=True)
     return discovered
-                    "status": "QUEUED"
-                })
-    return discovered
 
 def run_mesh_process():
     print("=================================================================", flush=True)

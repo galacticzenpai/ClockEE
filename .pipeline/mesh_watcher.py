@@ -100,9 +100,19 @@ def main():
             last_steps[key] = 0
 
     import mesh_orchestrator
+    import tracker_sync
+
+    # Initial tracker sync
+    try:
+        tracker_sync.build_tracker_state()
+    except Exception as e:
+        log(f"Initial tracker state build: {e}")
+
+    last_sync_time = time.time()
 
     while True:
         try:
+            step_changed = False
             for key, info in WATCHED_CONVERSATIONS.items():
                 t_path = BRAIN_DIR / info["id"] / ".system_generated" / "logs" / "transcript.jsonl"
                 step_data = get_last_step(t_path)
@@ -113,10 +123,12 @@ def main():
                 curr_type = step_data.get("type", "")
                 curr_status = step_data.get("status", "")
 
-                # Trigger when a conversation finishes a PLANNER_RESPONSE
+                # Detect any step advancement
                 if curr_step > last_steps.get(key, 0):
                     last_steps[key] = curr_step
+                    step_changed = True
 
+                    # Trigger when a conversation finishes a PLANNER_RESPONSE
                     if curr_type == "PLANNER_RESPONSE" and curr_status == "DONE":
                         log(f"⚡ [EVENT DETECTED] {info['name']} completed prompting (Step {curr_step})!")
                         log(f"  Running mesh_orchestrator to evaluate handoffs and quality gates...")
@@ -129,6 +141,14 @@ def main():
                             log(f"  🚀 [AUTO-DISPATCHED] Next handoff instantly sent to {staged['name']} via agentapi!")
                         else:
                             log(f"  ✔ Orchestrator cycle completed successfully.")
+
+            # Sync tracker state on step advancement or periodically every 4 seconds
+            if step_changed or (time.time() - last_sync_time > 4.0):
+                try:
+                    tracker_sync.build_tracker_state()
+                    last_sync_time = time.time()
+                except Exception as sync_err:
+                    log(f"Tracker state sync error: {sync_err}")
 
             time.sleep(2)
         except KeyboardInterrupt:

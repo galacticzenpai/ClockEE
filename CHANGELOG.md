@@ -4,6 +4,21 @@ All notable changes to the ClockEE ecosystem will be documented in this file.
 
 ---
 
+## [Release 2.10.0] - 2026-11-16: Concurrency, RPC Switchboard & CI Wave (Reels #29 - #34)
+
+### 📦 Vendored Integrations (87% Backlog Milestone - 34 of 39 Reels Completed):
+- **Reel #29: Concurrent SQLite Deadlock Arbiter (integrations/deadlock_resolver/)**: WAL-mode connection pool with busy-timeout handlers, backoff retries, and multi-process lock arbitration.
+- **Reel #30: Non-Blocking AgentAPI RPC Dispatcher (integrations/agentapi_rpc/)**: Sub-5ms inter-conversation prompt handoffs and non-blocking task delivery via subprocess client.
+- **Reel #31: SlopLinter GitHub Actions CI (integrations/sloplint_ci/)**: Automated CI workflow (.github/workflows/sloplint.yml) certifying 100/100 Hallmark anti-slop compliance.
+- **Reel #32: AST-Aware Git Patch Auditor (integrations/patch_audit/)**: Staged commit diff validator shielding cbt_master_bank.js and databases from accidental deletion or truncation.
+- **Reel #33: Master Mesh Switchboard (integrations/mesh_switchboard/)**: Centralized IPC routing orchestrator in .pipeline/mesh_orchestrator.py coordinating autonomous tasks across 10 agent domains.
+- **Reel #34: CORS-Immune Dynamic Script Bus (integrations/script_bus/)**: Local-first script injection bus bypassing browser CORS on file protocols completely.
+
+### 🌐 Live Production Promotion:
+- Deployed live to Vercel: https://clockee-os.vercel.app (dpl_xfQqGCtxsYLTbkm9zhHfQDxDyfCT, commit 06bf2e5).
+
+---
+
 ## [Release 2.9.0] - 2026-11-16: Diagnostics, Predictive Matrix & Self-Healing Wave (Reels #24 - #28)
 
 ### 📦 Vendored Integrations (72% Backlog Milestone - 28 of 39 Reels Completed):

@@ -1,103 +1,39 @@
 {
-  "simulationId": "sim_py_1794823467943",
+  "simulationId": "sim_py_1794824382034",
   "title": "Autonomous Full Mock Simulation",
-  "timestamp": "2026-11-16T15:34:27.944133",
+  "timestamp": "2026-11-16T15:49:42.035087",
   "metrics": {
-    "score": 1,
-    "maxScore": 20,
-    "accuracy": 25.0,
-    "attempted": 4,
-    "totalQs": 5,
-    "avgLatencySec": 73,
-    "timeTakenMin": 5
+    "score": 12,
+    "maxScore": 12,
+    "accuracy": 100.0,
+    "attempted": 3,
+    "totalQs": 3,
+    "avgLatencySec": 85,
+    "timeTakenMin": 4
   },
-  "errorCount": 3,
-  "mistakes": [
-    {
-      "id": "mistake_sim_py_1794823467943_1",
-      "testId": "sim_py_1794823467943",
-      "testTitle": "Autonomous Full Mock Simulation",
-      "qNum": 1,
-      "subject": "Physics",
-      "chapter": "Waves Motion",
-      "topic": "JEE Main",
-      "questionText": "A wave disturbance in a medium is described by y(x, t) = 0.02 cos \n50\n2\nt\n\u03c0\n\uf8eb\n\uf8f6\n\u03c0 +\n\uf8ec\n\uf8f7\n\uf8ed\n\uf8f8 cos(10px), where x and y are in meter and t is in second.\n\n(IIT-JEE 1995)",
-      "markedOption": "Option (A)",
-      "correctOption": "Option (D)",
-      "errorCategory": "Calculation Mistake",
-      "reason": "Calculation Mistake",
-      "reasonDetail": "Selected Option (A) instead of (D).",
-      "idealTimeSec": 75,
-      "timeSpentSec": 57,
-      "date": "2026-11-16",
-      "important": true,
-      "bookmarked": true,
-      "status": "unresolved"
-    },
-    {
-      "id": "mistake_sim_py_1794823467943_2",
-      "testId": "sim_py_1794823467943",
-      "testTitle": "Autonomous Full Mock Simulation",
-      "qNum": 2,
-      "subject": "Chemistry",
-      "chapter": "Hydrocarbon",
-      "topic": "IIT JEE 2006",
-      "questionText": "What are N and M?\n\nCH3\nCH3\nH3C\nCl , hv\n2\nN (isomeric products)\nfractional distillation\nM (isomeric products)",
-      "markedOption": "Option (A)",
-      "correctOption": "Option (D)",
-      "errorCategory": "Concept Gap",
-      "reason": "Concept Gap",
-      "reasonDetail": "Selected Option (A) instead of (D).",
-      "idealTimeSec": 75,
-      "timeSpentSec": 76,
-      "date": "2026-11-16",
-      "important": true,
-      "bookmarked": true,
-      "status": "unresolved"
-    },
-    {
-      "id": "mistake_sim_py_1794823467943_5",
-      "testId": "sim_py_1794823467943",
-      "testTitle": "Autonomous Full Mock Simulation",
-      "qNum": 5,
-      "subject": "Maths",
-      "chapter": "Probability",
-      "topic": "JEE Main",
-      "questionText": "If E and F are independent events such that 0 < P(E) < 1 and \n0 < P(F) < 1, then\n[IIT-JEE 1989]",
-      "markedOption": "-19.0",
-      "correctOption": "19.0",
-      "errorCategory": "Sign / Inversion Error",
-      "reason": "Sign / Inversion Error",
-      "reasonDetail": "Sign inversion error: entered -19.0 vs expected 19.0. Verify direction vector.",
-      "idealTimeSec": 75,
-      "timeSpentSec": 53,
-      "date": "2026-11-16",
-      "important": true,
-      "bookmarked": true,
-      "status": "unresolved"
-    }
-  ],
+  "errorCount": 0,
+  "mistakes": [],
   "subjectBreakdown": {
     "Physics": {
       "attempted": 1,
-      "correct": 0,
-      "wrong": 1,
-      "score": -1,
-      "time_sec": 57
+      "correct": 1,
+      "wrong": 0,
+      "score": 4,
+      "time_sec": 104
     },
     "Chemistry": {
       "attempted": 1,
-      "correct": 0,
-      "wrong": 1,
-      "score": -1,
-      "time_sec": 76
+      "correct": 1,
+      "wrong": 0,
+      "score": 4,
+      "time_sec": 101
     },
     "Maths": {
-      "attempted": 2,
+      "attempted": 1,
       "correct": 1,
-      "wrong": 1,
-      "score": 3,
-      "time_sec": 159
+      "wrong": 0,
+      "score": 4,
+      "time_sec": 51
     }
   }
 }

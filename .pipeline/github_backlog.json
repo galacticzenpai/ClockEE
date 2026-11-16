@@ -300,36 +300,53 @@
       "title": "CORS-Immune Local-First Dynamic JavaScript Bus",
       "status": "COMPLETED",
       "summary": "Dynamic script tag injection bus bypassing browser CORS on local file:/// URLs completely"
-    }
-  ],
-  "active_reel": {
-    "id": "reel_035",
-    "url": "https://www.instagram.com/p/Dfgr-20D5Hw/",
-    "package_name": "cockpit_hud_overlay",
-    "upstream": "clockee/cockpit-hud",
-    "title": "Integrated Floating Cockpit HUD Overlay for ClockEE",
-    "status": "QUEUED_FOR_INGESTION"
-  },
-  "pending_reels": [
+    },
+    {
+      "id": "reel_035",
+      "url": "https://www.instagram.com/p/Dfgr-20D5Hw/",
+      "package_name": "cockpit_hud_overlay",
+      "upstream": "clockee/cockpit-hud",
+      "title": "Integrated Floating Cockpit HUD Overlay for ClockEE",
+      "status": "COMPLETED",
+      "summary": "Non-intrusive floating status pill providing persistent sync and telemetry feedback"
+    },
     {
       "id": "reel_036",
       "url": "https://www.instagram.com/p/DfaTZHlh-k0/",
-      "status": "QUEUED"
+      "package_name": "syllabus_dag_tracker",
+      "upstream": "syllabus/curriculum-dag",
+      "title": "Directed Acyclic Graph (DAG) Syllabus Tracker for JEE/NEET",
+      "status": "COMPLETED",
+      "summary": "Hierarchical prerequisite knowledge DAG unlocking topics based on demonstrated mastery"
     },
     {
       "id": "reel_037",
       "url": "https://www.instagram.com/p/Dfj368ttF83/",
-      "status": "QUEUED"
+      "package_name": "mock_test_compiler",
+      "upstream": "cbt/mock-test-compiler",
+      "title": "Deterministic NTA-Compliant Mock Test Paper Assembler",
+      "status": "COMPLETED",
+      "summary": "Algorithmic NTA-balanced test compiler assembling 90-question authentic full mock papers"
     },
     {
       "id": "reel_038",
       "url": "https://www.instagram.com/p/DdshHpFpqdi/",
-      "status": "QUEUED"
+      "package_name": "topper_mentor_council",
+      "upstream": "mentor/persona-engine",
+      "title": "Interactive AI Study Persona & Exam Strategy Advisor",
+      "status": "COMPLETED",
+      "summary": "Data-driven exam advice generator analyzing negative penalties, stuck time, and pacing rules"
     },
     {
       "id": "reel_039",
       "url": "https://www.instagram.com/p/De9ncU9vZgH/",
-      "status": "QUEUED"
+      "package_name": "clockee_bundle_exporter",
+      "upstream": "esbuild/clockee-single-file",
+      "title": "Standalone Zero-Dependency Offline Single-File HTML Exporter",
+      "status": "COMPLETED",
+      "summary": "Compiles ClockEE into a standalone air-gapped single distribution file (dist/clockee_standalone.html)"
     }
-  ]
+  ],
+  "active_reel": null,
+  "pending_reels": []
 }

@@ -110,6 +110,13 @@ CONVERSATIONS = {
         "url": "https://antigravity.google.com/r/21bf6843-8cfa-4328-afad-58c97e63b317-v2?p=c%2F6b74e384-a9b2-458e-ba34-4798334dd509",
         "keywords": ["bug", "fix", "error", "exception", "alert", "syntax", "crash", "hotfix", "regression"]
     },
+    "planning": {
+        "id": "planning_conversation",
+        "name": "PLANNING & ROADMAP ARCHITECT",
+        "role": "Sprint Planner, Roadmap Strategist & Prompt Engineer",
+        "url": "",
+        "keywords": ["planning", "plan", "roadmap", "prompt", "architect", "strategy", "sprint"]
+    },
     "backbone": {
         "id": "a80111ec-0657-4748-9e85-d620e8a2a535",
         "name": "BACKBONE COORDINATOR",
@@ -180,9 +187,13 @@ def get_transcript_tail(cid, max_bytes=65536, n=3):
 
 def classify_text_domain(text):
     text_lower = text.lower()
+    if "backbone" in text_lower or "coordinator" in text_lower:
+        return "backbone"
+    if "planning" in text_lower or "roadmap" in text_lower:
+        return "planning"
     scores = {}
     for key, info in CONVERSATIONS.items():
-        if key == "backbone":
+        if key in ["backbone", "planning"]:
             continue
         score = sum(1 for kw in info["keywords"] if kw in text_lower)
         scores[key] = score
@@ -325,6 +336,50 @@ def run_mesh_process():
         queue["current_batch"] = current_batch
 
     tasks = current_batch.setdefault("tasks", {})
+
+    # STEP 0: Check for Inbound Daily Plan from Planning Architect (.pipeline/daily_plan.json)
+    daily_plan_file = PIPELINE_DIR / "daily_plan.json"
+    if daily_plan_file.is_file():
+        try:
+            with open(daily_plan_file, "r", encoding="utf-8") as f:
+                plan_data = json.load(f)
+            if plan_data.get("status") in ["PENDING", "NEW"]:
+                print("--- [Step 0] Ingesting Roadmap Plan from PLANNING Architect ---", flush=True)
+                plan_title = plan_data.get("title", "Daily Roadmap Sprint")
+                print(f"  📋 Plan Title: {plan_title}", flush=True)
+                plan_tasks = plan_data.get("tasks", [])
+                for pt in plan_tasks:
+                    tgt = pt.get("target") or pt.get("target_key")
+                    tgt = classify_text_domain(tgt) if tgt else "untitled_conversation"
+                    instr = pt.get("instruction") or pt.get("task")
+                    if tgt in CONVERSATIONS and instr:
+                        tasks[tgt] = {
+                            "source": "planning",
+                            "target_key": tgt,
+                            "target_name": CONVERSATIONS[tgt]["name"],
+                            "target_id": CONVERSATIONS[tgt]["id"],
+                            "instruction": instr,
+                            "status": "QUEUED"
+                        }
+                        print(f"  ✔ Queued task for {CONVERSATIONS[tgt]['name']} from Plan", flush=True)
+
+                # Check if plan requested checking pending reels
+                if plan_data.get("check_pending_reels", True):
+                    backlog_file = PIPELINE_DIR / "github_backlog.json"
+                    if backlog_file.is_file():
+                        with open(backlog_file, "r", encoding="utf-8") as bf:
+                            backlog = json.load(bf)
+                        active_reel = backlog.get("active_reel")
+                        if active_reel and active_reel.get("status") in ["QUEUED_FOR_INGESTION", "PENDING"]:
+                            print(f"  🎥 Pending Reel Detected: {active_reel.get('id')} ({active_reel.get('url')})", flush=True)
+
+                plan_data["status"] = "INGESTED"
+                plan_data["ingested_at"] = datetime.now().isoformat()
+                with open(daily_plan_file, "w", encoding="utf-8") as f:
+                    json.dump(plan_data, f, indent=2)
+                print("  ✔ Daily Plan ingested and execution loop activated.\n", flush=True)
+        except Exception as pe:
+            print(f"  Warning reading daily plan: {pe}", flush=True)
 
     # STEP 1: Scan Transcripts & Auto-Discover Handoffs
     print("--- [Step 1] Real-Time Multi-Conversation Status & Handoff Discovery ---", flush=True)

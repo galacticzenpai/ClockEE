@@ -113,6 +113,19 @@ def main():
 
     while True:
         try:
+            # Check for inbound daily plan from Planning Architect
+            daily_plan_file = PIPELINE_DIR / "daily_plan.json"
+            if daily_plan_file.is_file():
+                try:
+                    with open(daily_plan_file, "r", encoding="utf-8") as dpf:
+                        dp = json.load(dpf)
+                    if dp.get("status") in ["PENDING", "NEW"]:
+                        log("⚡ [PLAN DETECTED] Planning Architect submitted a new daily plan!")
+                        log("  Triggering mesh_orchestrator to ingest plan and start the loop...")
+                        mesh_orchestrator.run_mesh_process()
+                except Exception:
+                    pass
+
             step_changed = False
             for key, info in WATCHED_CONVERSATIONS.items():
                 t_path = BRAIN_DIR / info["id"] / ".system_generated" / "logs" / "transcript.jsonl"

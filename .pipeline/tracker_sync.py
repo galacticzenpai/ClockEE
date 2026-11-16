@@ -68,6 +68,12 @@ CONVERSATION_REGISTRY = {
         "role": "Mentor Council & Topper Study Ideation",
         "url": "https://antigravity.google.com/r/21bf6843-8cfa-4328-afad-58c97e63b317-v2?p=c%2Fe6690e55-bfca-4ce1-af20-843015d7d01b"
     },
+    "planning": {
+        "name": "PLANNING & ROADMAP ARCHITECT",
+        "id": "planning_conversation",
+        "role": "Sprint Planner, Roadmap Strategist & Prompt Engineer",
+        "url": "#"
+    },
     "backbone": {
         "name": "BACKBONE COORDINATOR",
         "id": "a80111ec-0657-4748-9e85-d620e8a2a535",

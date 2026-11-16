@@ -181,6 +181,122 @@ class ClockEEBackendRouter:
             })
 
         # ── 2. AUTHENTICATION & SESSIONS ──
+        # 2.0 Supabase OAuth Providers (Google & GitHub)
+        if path == '/api/auth/providers' and method == 'GET':
+            host = handler.headers.get('Host', '127.0.0.1:8000')
+            proto = 'https' if handler.headers.get('X-Forwarded-Proto') == 'https' else 'http'
+            default_origin = f"{proto}://{host}"
+            redirect_to = qs.get('redirect_to', [f"{default_origin}/login.html"])[0]
+
+            configured = is_supabase_configured()
+            base_url = SUPABASE_URL.rstrip('/') if SUPABASE_URL else 'https://your-project.supabase.co'
+
+            # Standard Supabase OAuth endpoint URL formatting
+            google_url = f"{base_url}/auth/v1/authorize?provider=google&redirect_to={urllib.parse.quote(redirect_to)}"
+            github_url = f"{base_url}/auth/v1/authorize?provider=github&redirect_to={urllib.parse.quote(redirect_to)}"
+
+            # If Supabase client is initialized, attempt SDK-generated OAuth URLs with PKCE
+            client = get_supabase_client()
+            if client:
+                try:
+                    g_res = client.auth.sign_in_with_oauth({'provider': 'google', 'options': {'redirect_to': redirect_to}})
+                    if hasattr(g_res, 'url') and g_res.url:
+                        google_url = g_res.url
+                except Exception:
+                    pass
+                try:
+                    gh_res = client.auth.sign_in_with_oauth({'provider': 'github', 'options': {'redirect_to': redirect_to}})
+                    if hasattr(gh_res, 'url') and gh_res.url:
+                        github_url = gh_res.url
+                except Exception:
+                    pass
+
+            return handler.send_json(200, {
+                "supabase_configured": configured,
+                "supabase_url": SUPABASE_URL,
+                "redirect_to": redirect_to,
+                "providers": {
+                    "google": {
+                        "id": "google",
+                        "name": "Google",
+                        "url": google_url
+                    },
+                    "github": {
+                        "id": "github",
+                        "name": "GitHub",
+                        "url": github_url
+                    }
+                }
+            })
+
+        # 2.0.1 Supabase Session Sync & Verification
+        if path == '/api/auth/session' and method == 'POST':
+            req = parse_body(handler)
+            token = req.get('access_token') or req.get('token')
+            if not token:
+                auth_header = handler.headers.get('Authorization', '')
+                if auth_header.startswith('Bearer '):
+                    token = auth_header.split('Bearer ', 1)[1].strip()
+
+            if not token:
+                return handler.send_json(400, {"error": "Access token is required"})
+
+            sb_user = verify_supabase_jwt(token)
+            if not sb_user or not sb_user.get('id'):
+                return handler.send_json(401, {"error": "Invalid or expired Supabase token"})
+
+            user_id = str(sb_user['id'])
+            email = sb_user.get('email') or f"{user_id}@supabase.auth"
+            name = sb_user.get('full_name') or email.split('@')[0]
+            role = sb_user.get('role', 'JEE 2028 Aspirant')
+            pfp = f"https://api.dicebear.com/7.x/bottts-neutral/svg?seed={urllib.parse.quote(name)}"
+
+            conn = get_db()
+            cur = conn.cursor()
+            cur.execute("SELECT id, theme_preference, aura_mode FROM users WHERE id = ?", (user_id,))
+            existing = cur.fetchone()
+
+            theme_pref = existing['theme_preference'] if existing else 'cyan_indigo'
+            aura_mode = existing['aura_mode'] if existing else 'fluid'
+
+            if not existing:
+                pwd_hash, salt = hash_password(secrets.token_hex(16))
+                initial_state = {
+                    "profile": { "name": name, "subtitle": f"{role} • Cloud Account", "pfp": pfp },
+                    "examMode": "mains",
+                    "dailyGoals": { "Physics": 30, "Chemistry": 30, "Maths": 30, "hours": 6.0 },
+                    "theme_preference": theme_pref,
+                    "aura_mode": aura_mode,
+                    "stats": { "hoursToday": 0.0, "streakDays": 1, "questionsSolved": { "Physics": 0, "Chemistry": 0, "Maths": 0 } }
+                }
+                cur.execute("""
+                    INSERT INTO users (id, email, name, role, subtitle, pfp, password_hash, salt, is_admin, theme_preference, aura_mode, data_json)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, 0, ?, ?, ?)
+                """, (user_id, email, name, role, f"{role} • Cloud Account", pfp, pwd_hash, salt, theme_pref, aura_mode, json.dumps(initial_state)))
+                cur.execute("INSERT OR IGNORE INTO student_states (user_id, state_json) VALUES (?, ?)", (user_id, json.dumps(initial_state)))
+
+            # Issue gateway session token
+            session_token = secrets.token_hex(24)
+            expires_at = (datetime.now() + timedelta(days=30)).isoformat()
+            cur.execute("INSERT OR REPLACE INTO sessions (token, user_id, expires_at) VALUES (?, ?, ?)", (session_token, user_id, expires_at))
+            conn.commit()
+            conn.close()
+
+            return handler.send_json(200, {
+                "success": True,
+                "token": session_token,
+                "user": {
+                    "id": user_id,
+                    "uid": user_id,
+                    "email": email,
+                    "name": name,
+                    "role": role,
+                    "pfp": pfp,
+                    "theme_preference": theme_pref,
+                    "aura_mode": aura_mode
+                }
+            })
+
         if path == '/api/check-email' and method == 'POST':
             req = parse_body(handler)
             email = req.get('email', '').strip().lower()
@@ -357,6 +473,27 @@ class ClockEEBackendRouter:
             conn.close()
 
             if not user_row:
+                # If authenticated via Supabase JWT claims directly
+                auth_hdr = handler.headers.get('Authorization', '')
+                tkn = auth_hdr.split('Bearer ', 1)[-1].strip() if auth_hdr.startswith('Bearer ') else None
+                sb_claims = getattr(handler, 'auth_user', None) or (verify_supabase_jwt(tkn) if tkn else None)
+                if sb_claims:
+                    u_email = sb_claims.get("email", "")
+                    u_name = sb_claims.get("full_name") or (u_email.split("@")[0] if u_email else "JEE Aspirant")
+                    u_role = sb_claims.get("role", "JEE 2028 Aspirant")
+                    user_data = {
+                        "id": sb_claims.get("id", uid),
+                        "email": u_email,
+                        "name": u_name,
+                        "role": u_role,
+                        "subtitle": f"{u_role} • Cloud Account",
+                        "pfp": f"https://api.dicebear.com/7.x/bottts-neutral/svg?seed={urllib.parse.quote(u_email or uid)}",
+                        "is_admin": False
+                    }
+                    return handler.send_json(200, {
+                        "user": user_data,
+                        "state": json.loads(state_row['state_json']) if state_row else {}
+                    })
                 return handler.send_json(404, {"error": "User profile not found"})
 
             return handler.send_json(200, {

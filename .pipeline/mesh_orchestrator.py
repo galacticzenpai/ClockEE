@@ -202,14 +202,18 @@ def stage_prompt_to_file(text):
         return False
 
 def dispatch_via_agentapi(recipient_id, content, title="ClockEE Mesh Handoff"):
-    """Natively delivers prompt into the target conversation via agentapi IPC (Option 1)."""
+    """Natively delivers prompt into the target conversation via agentapi IPC asynchronously."""
     import shutil
     agentapi_cmd = shutil.which("agentapi.bat") or shutil.which("agentapi") or r"C:\Users\Kunal\.gemini\antigravity\bin\agentapi.bat"
     try:
-        res = subprocess.run([agentapi_cmd, "send-message", f"--title={title}", recipient_id, content], capture_output=True, text=True, timeout=15)
-        if res.returncode == 0:
-            return True, "Delivered"
-        return False, res.stderr or "Exit Code Non-Zero"
+        # Non-blocking async spawn so large conversation transcripts do not freeze the orchestrator
+        proc = subprocess.Popen(
+            [agentapi_cmd, "send-message", f"--title={title}", recipient_id, content],
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+            shell=False
+        )
+        return True, "Dispatched (Async PID: " + str(proc.pid) + ")"
     except Exception as e:
         return False, str(e)
 

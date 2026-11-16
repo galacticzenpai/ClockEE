@@ -1,7 +1,15 @@
 You are Untitled conversation (Main Feature).
 
 --- TASK ASSIGNMENT ---
-Awaiting Phase 1 vendoring from GITHUB to wire DOM & feature hooks.
+Active Package: Graphify Codebase Knowledge Graph
+Prerequisites Met: Package vendored in integrations/graphify/ with 263 entities and 320 edges indexed.
+
+Please review the architectural dependency report before proceeding with core features:
+1. Review integrations/graphify/reports/GRAPH_REPORT.md:
+   - Note our primary architectural chokepoints: clockee_core.js (16 dependent templates), cbt_shared.js (9 dependent templates), and env.js (21 templates).
+2. Query Blast Radius Before Renames:
+   Run python integrations/graphify/graph_runner.py query <function_or_file> before altering any shared methods or localStorage keys to see every file that consumes it.
+3. Respect the dependency graph during feature additions so no circular references or dead script tags are introduced.
 
 --- MESH COORDINATION DIRECTIVE ---
 1. Implement all domain fixes and features cleanly without disturbing sibling modules.

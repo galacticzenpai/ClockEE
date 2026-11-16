@@ -92,7 +92,8 @@
         "target_name": "DB / BACKEND",
         "target_id": "d3700ff3-1bfb-458a-9968-8257ef2ca7e2",
         "instruction": "Implement Vercel Serverless Python Adapter (api/index.py) connected to Supabase cloud PostgreSQL. Verify that database is connected properly and bypasses local SQLite on Vercel. Implement Google Auth and GitHub OAuth token validation and session caching. Wire /api/tracker to stream live mesh state and provide requirements.txt.",
-        "status": "QUEUED"
+        "status": "DISPATCHED_TO_CONVERSATION",
+        "staged_at": "2026-11-16T11:52:36.069441"
       },
       "backbone": {
         "source": "planning",

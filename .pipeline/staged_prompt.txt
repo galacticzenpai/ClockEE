@@ -1,7 +1,7 @@
-You are BUG FIXES.
+You are DB / BACKEND.
 
 --- TASK ASSIGNMENT ---
-Surgical Production Remediation. Receive defect report from Simulation, surgically patch any issues in routing, Google Auth redirects, CORS, or database queries, and hand back to Simulation for second verification pass.
+Implement Vercel Serverless Python Adapter (api/index.py) connected to Supabase cloud PostgreSQL. Verify that database is connected properly and bypasses local SQLite on Vercel. Implement Google Auth and GitHub OAuth token validation and session caching. Wire /api/tracker to stream live mesh state and provide requirements.txt.
 
 --- MESH COORDINATION DIRECTIVE ---
 1. Implement all domain fixes and features cleanly without disturbing sibling modules.

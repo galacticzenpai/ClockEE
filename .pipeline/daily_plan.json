@@ -1,40 +1,31 @@
 {
-  "plan_id": "plan_20261116_193600",
-  "title": "Autonomous Execution: Apple HIG + Mathongo (Marks App) Prototype Sandbox (demo_cockpit.html)",
-  "timestamp": "2026-11-16T19:36:00+05:30",
+  "plan_id": "plan_20261116_200000",
+  "title": "ClockEE Grand Clean-Slate Reset & 100% Knowledge Preservation Directive",
+  "timestamp": "2026-11-16T20:00:00+05:30",
   "status": "DISPATCHED_TO_BACKBONE",
-  "check_pending_reels": false,
-  "sandbox_mode": true,
-  "safety_rule": "STRICTLY ADDITIVE. ZERO MODIFICATIONS TO EXISTING CORE FILES (index.html, timer.html, cbt_exam.html, etc.).",
-  "documentation": {
-    "design_foundations": "C:/Users/Kunal/.gemini/antigravity/brain/b411e7a0-c268-4614-b3d5-f2b2836f4500/clockee_design_language_and_ux_foundations.md",
-    "reel_compendium": "C:/Users/Kunal/.gemini/antigravity/brain/b411e7a0-c268-4614-b3d5-f2b2836f4500/clockee_39_reels_master_compendium.md",
-    "mathongo_benchmark": "C:/Users/Kunal/.gemini/antigravity/brain/b411e7a0-c268-4614-b3d5-f2b2836f4500/demo_replica_and_mathongo_benchmark_plan.md"
-  },
+  "action": "CLEAN_SLATE_RESTART_WITH_KNOWLEDGE_PRESERVED",
+  "new_nodes": [
+    {
+      "name": "deploy",
+      "role": "Production Deployment & Vercel Edge Release Commander",
+      "target_domain": "https://clockee.vercel.app"
+    }
+  ],
+  "manifesto_file": "C:/Users/Kunal/.gemini/antigravity/brain/b411e7a0-c268-4614-b3d5-f2b2836f4500/clockee_grand_reset_and_knowledge_preservation_manifesto.md",
+  "preservation_rules": [
+    "Retain all 39 reel learnings, tools, and upstream integrations.",
+    "Retain Apple Human Interface Guidelines + Mathongo (Marks App) design language.",
+    "Retain APCA contrast, 100ms Doherty threshold, and 44pt touch hitbox standards.",
+    "Retain Supabase schema, CRDT sync knowledge, and IRT 3PL mathematical models.",
+    "Retain CBT Exam Mode authentic layout specifications (cbt_exam.html) as sacred.",
+    "Archive legacy code before clean slate build."
+  ],
   "tasks": [
     {
-      "id": "TASK-DEMO-UIUX",
-      "target": "ui_ux",
+      "id": "RESET-BROADCAST",
+      "target": "backbone",
       "priority": "P0",
-      "task": "Create demo_cockpit.html and css/apple_mathongo_theme.css. Implement Apple HIG aesthetics fused with Mathongo (Marks App) layout: translucent floating app shell navigation pill, high-contrast APCA question canvas, iOS-style segmented subject pills (Physics/Chemistry/Math), tactile MCQ option cards with selection glow, and mistake taxonomy modal. DO NOT touch any existing production files."
-    },
-    {
-      "id": "TASK-DEMO-FEATURE",
-      "target": "untitled_conversation",
-      "priority": "P0",
-      "task": "Create js/demo_app_shell.js for demo_cockpit.html. Load 5 authentic sample questions from cbt_question_bank.json, wire interactive option selection, integrate Mathongo-style live pacing benchmark timer (Student time vs Topper benchmark), mistake tagging taxonomy (Calculation, Concept, Silly, Timeout), and add a 'Compare with Legacy Design' split view toggle. DO NOT touch any existing production files."
-    },
-    {
-      "id": "TASK-DEMO-VERIFY",
-      "target": "simulation",
-      "priority": "P1",
-      "task": "Simulate and audit demo_cockpit.html. Verify APCA contrast (>=70), 44pt mobile tap targets, KaTeX formula rendering, and verify via AST/Git diff that zero existing core files (index.html, timer.html, cbt_exam.html, server.py) were modified."
-    },
-    {
-      "id": "TASK-DEMO-REMEDIATION",
-      "target": "bug_fixes",
-      "priority": "P2",
-      "task": "Standby for surgical defect remediation on demo_cockpit.html if Simulation detects layout, contrast, or script execution errors."
+      "task": "Broadcast the Grand Reset & Knowledge Preservation Directive to all 10 worker conversations. Register DEPLOY node in queue.json. Set mesh into Clean-Slate Architecture mode."
     }
   ]
 }

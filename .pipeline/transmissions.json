@@ -188,6 +188,20 @@
       "target": "Untitled conversation (Main Feature)",
       "subject": "Auto-Handoff: You are UNTITLED CONVERSATION (MAIN FEATURE).\nPrer...",
       "status": "DELIVERED_AUTO"
+    },
+    {
+      "timestamp": "2026-11-16 19:44:28",
+      "source": "BUG FIXES",
+      "target": "SIMULATION",
+      "subject": "Auto-Handoff: You are SIMULATION.\nPrerequisites Met: TASK-DEMO-R...",
+      "status": "DELIVERED_AUTO"
+    },
+    {
+      "timestamp": "2026-11-16 19:44:36",
+      "source": "Untitled conversation (Main Feature)",
+      "target": "SIMULATION",
+      "subject": "Auto-Handoff: You are SIMULATION.\nPrerequisites Met: \n- TASK-DEM...",
+      "status": "DELIVERED_AUTO"
     }
   ]
 }

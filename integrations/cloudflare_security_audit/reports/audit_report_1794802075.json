@@ -1,0 +1,208 @@
+{
+  "skill": "cloudflare/security-audit-skill",
+  "timestamp": "2026-11-16 09:37:55",
+  "reconnaissance": {
+    "root": "D:\\Desktop\\ClockEE",
+    "html_entrypoints": [
+      "admin.html",
+      "analysis.html",
+      "cbt.html",
+      "cbt_analysis.html",
+      "cbt_cloner.html",
+      "cbt_exam.html",
+      "cbt_home.html",
+      "cbt_instructions.html",
+      "cbt_mistakes.html",
+      "cbt_notebooks.html",
+      "cbt_reference_vault.html",
+      "coaching.html",
+      "hackathon.html",
+      "index.html",
+      "inspiration.html",
+      "login.html",
+      "mini_timer.html",
+      "settings.html",
+      "task.html",
+      "test_centre.html",
+      "timer.html",
+      "today.html"
+    ],
+    "js_modules": [
+      "cbt_master_bank.js",
+      "cbt_shared.js",
+      "clockee_core.js",
+      "env.example.js",
+      "env.js"
+    ],
+    "endpoints": [],
+    "auth_surfaces": []
+  },
+  "metrics": {
+    "total_candidates_flagged": 175,
+    "adversarially_disproved_false_positives": 0,
+    "actionable_verified_vulnerabilities": 175
+  },
+  "verified_vulnerabilities": [
+    {
+      "cwe": "CWE-79",
+      "title": "DOM-Based Cross-Site Scripting (XSS)",
+      "severity": "HIGH",
+      "file": "admin.html",
+      "line": 698,
+      "code": "actions.innerHTML = `<span class=\"text-[10px] font-mono px-2.5 py-1 rounded-full bg-emerald-950 text-emerald-300 border "
+    },
+    {
+      "cwe": "CWE-79",
+      "title": "DOM-Based Cross-Site Scripting (XSS)",
+      "severity": "HIGH",
+      "file": "admin.html",
+      "line": 703,
+      "code": "actions.innerHTML = `"
+    },
+    {
+      "cwe": "CWE-79",
+      "title": "DOM-Based Cross-Site Scripting (XSS)",
+      "severity": "HIGH",
+      "file": "admin.html",
+      "line": 761,
+      "code": "container.innerHTML = users.map(u => {"
+    },
+    {
+      "cwe": "CWE-79",
+      "title": "DOM-Based Cross-Site Scripting (XSS)",
+      "severity": "HIGH",
+      "file": "admin.html",
+      "line": 823,
+      "code": "btn.innerHTML = `<span>\u23f3</span> <span>Fetching Firebase...</span>`;"
+    },
+    {
+      "cwe": "CWE-79",
+      "title": "DOM-Based Cross-Site Scripting (XSS)",
+      "severity": "HIGH",
+      "file": "admin.html",
+      "line": 835,
+      "code": "btn.innerHTML = originalText;"
+    },
+    {
+      "cwe": "CWE-79",
+      "title": "DOM-Based Cross-Site Scripting (XSS)",
+      "severity": "HIGH",
+      "file": "admin.html",
+      "line": 869,
+      "code": "btn.innerHTML = originalText;"
+    },
+    {
+      "cwe": "CWE-79",
+      "title": "DOM-Based Cross-Site Scripting (XSS)",
+      "severity": "HIGH",
+      "file": "admin.html",
+      "line": 1023,
+      "code": "tbody.innerHTML = '<tr><td colspan=\"7\" class=\"p-6 text-center text-gray-500 italic\">No matching logs found in active dat"
+    },
+    {
+      "cwe": "CWE-79",
+      "title": "DOM-Based Cross-Site Scripting (XSS)",
+      "severity": "HIGH",
+      "file": "admin.html",
+      "line": 1027,
+      "code": "tbody.innerHTML = filtered.slice().reverse().map((l, idx) => `"
+    },
+    {
+      "cwe": "CWE-79",
+      "title": "DOM-Based Cross-Site Scripting (XSS)",
+      "severity": "HIGH",
+      "file": "cbt_analysis.html",
+      "line": 655,
+      "code": "container.innerHTML = subjects.map(sub => {"
+    },
+    {
+      "cwe": "CWE-79",
+      "title": "DOM-Based Cross-Site Scripting (XSS)",
+      "severity": "HIGH",
+      "file": "cbt_analysis.html",
+      "line": 681,
+      "code": "container.innerHTML = '<p class=\"text-xs text-gray-500 italic py-2\">No learnings recorded yet. Add your takeaways below!"
+    },
+    {
+      "cwe": "CWE-79",
+      "title": "DOM-Based Cross-Site Scripting (XSS)",
+      "severity": "HIGH",
+      "file": "cbt_analysis.html",
+      "line": 685,
+      "code": "container.innerHTML = learnings.map((item, idx) => `"
+    },
+    {
+      "cwe": "CWE-79",
+      "title": "DOM-Based Cross-Site Scripting (XSS)",
+      "severity": "HIGH",
+      "file": "cbt_analysis.html",
+      "line": 784,
+      "code": "tbody.innerHTML = subjects.map(sub => {"
+    },
+    {
+      "cwe": "CWE-79",
+      "title": "DOM-Based Cross-Site Scripting (XSS)",
+      "severity": "HIGH",
+      "file": "cbt_analysis.html",
+      "line": 827,
+      "code": "container.innerHTML = '<p class=\"text-xs text-gray-500 italic py-6 text-center w-full\">Question latency telemetry availa"
+    },
+    {
+      "cwe": "CWE-79",
+      "title": "DOM-Based Cross-Site Scripting (XSS)",
+      "severity": "HIGH",
+      "file": "cbt_analysis.html",
+      "line": 831,
+      "code": "container.innerHTML = ql.map(q => {"
+    },
+    {
+      "cwe": "CWE-79",
+      "title": "DOM-Based Cross-Site Scripting (XSS)",
+      "severity": "HIGH",
+      "file": "cbt_analysis.html",
+      "line": 859,
+      "code": "container.innerHTML = cohorts.map(c => `"
+    },
+    {
+      "cwe": "CWE-79",
+      "title": "DOM-Based Cross-Site Scripting (XSS)",
+      "severity": "HIGH",
+      "file": "cbt_analysis.html",
+      "line": 933,
+      "code": "tbody.innerHTML = '<tr><td colspan=\"7\" class=\"p-6 text-center text-gray-500 italic\">No per-question telemetry available "
+    },
+    {
+      "cwe": "CWE-79",
+      "title": "DOM-Based Cross-Site Scripting (XSS)",
+      "severity": "HIGH",
+      "file": "cbt_analysis.html",
+      "line": 943,
+      "code": "tbody.innerHTML = filtered.map(q => {"
+    },
+    {
+      "cwe": "CWE-79",
+      "title": "DOM-Based Cross-Site Scripting (XSS)",
+      "severity": "HIGH",
+      "file": "cbt_analysis.html",
+      "line": 1033,
+      "code": "document.getElementById('modal-sol-body').innerHTML = `"
+    },
+    {
+      "cwe": "CWE-79",
+      "title": "DOM-Based Cross-Site Scripting (XSS)",
+      "severity": "HIGH",
+      "file": "cbt_cloner.html",
+      "line": 271,
+      "code": "el.innerHTML = el.innerHTML.replace(/\\$([^\\$]+)\\$/g, (m, tex) => {"
+    },
+    {
+      "cwe": "CWE-79",
+      "title": "DOM-Based Cross-Site Scripting (XSS)",
+      "severity": "HIGH",
+      "file": "cbt_cloner.html",
+      "line": 404,
+      "code": "btn.innerHTML = `<span class=\"animate-spin inline-block\">\u23f3</span> Synthesizing Variations...`;"
+    }
+  ],
+  "disproved_summary": []
+}

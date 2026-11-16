@@ -1,39 +1,39 @@
 {
-  "timestamp": "2026-11-16T14:31:59.727175",
+  "timestamp": "2026-11-16T14:36:04.788733",
   "local_gateway": {
     "status": "SUCCESS",
     "results": {
       "providers": {
         "status": 200,
-        "latency_ms": 2028.73,
+        "latency_ms": 4768.36,
         "providers": {
           "google": {
             "id": "google",
             "name": "Google",
-            "url": "https://qvrfakbhnsmknukaqmja.supabase.co/auth/v1/authorize?redirect_to=https%3A%2F%2Fclockee-os.vercel.app%2Flogin.html&code_challenge=e49TTCmw3N5SLCgkkgcA_xA6KxOrVTJV8UejXRgmQTU&code_challenge_method=s256&provider=google"
+            "url": "https://qvrfakbhnsmknukaqmja.supabase.co/auth/v1/authorize?redirect_to=https%3A%2F%2Fclockee-os.vercel.app%2Flogin.html&code_challenge=1RXAjAj7kSADwq4MdDhng2WFde5GnZoMMOhFmLBkcX0&code_challenge_method=s256&provider=google"
           },
           "github": {
             "id": "github",
             "name": "GitHub",
-            "url": "https://qvrfakbhnsmknukaqmja.supabase.co/auth/v1/authorize?redirect_to=https%3A%2F%2Fclockee-os.vercel.app%2Flogin.html&code_challenge=K4wMPsht6zaczrFp1HqcZUQ9ZJe5_swnNe2FtlzZFXw&code_challenge_method=s256&provider=github"
+            "url": "https://qvrfakbhnsmknukaqmja.supabase.co/auth/v1/authorize?redirect_to=https%3A%2F%2Fclockee-os.vercel.app%2Flogin.html&code_challenge=fkNeJXTnzixMvpWrqMnTUa_RnMn2Ijxht7xfzl643Ww&code_challenge_method=s256&provider=github"
           }
         }
       },
       "google_login": {
         "status": 200,
-        "latency_ms": 1101.31,
-        "user_id": "6ef6f37d-897a-5fca-94da-846e88d0b3b7",
+        "latency_ms": 2612.63,
+        "user_id": "d226996f-9bae-5fff-8003-138ba3e94891",
         "success": true
       },
       "github_login": {
         "status": 200,
-        "latency_ms": 126.49,
+        "latency_ms": 265.13,
         "user_id": "b644c157-d244-504c-8379-682b33dd1b41",
         "success": true
       },
       "session_heartbeat": {
         "status": 200,
-        "latency_ms": 75.21
+        "latency_ms": 149.54
       }
     }
   },
@@ -42,13 +42,13 @@
     "results": {
       "login_page": {
         "status": 200,
-        "latency_ms": 607.49,
+        "latency_ms": 597.17,
         "has_google_auth_ui": true,
         "has_github_auth_ui": true
       },
       "live_providers": {
         "status": 200,
-        "latency_ms": 2117.2,
+        "latency_ms": 1122.24,
         "data": {
           "supabase_configured": true,
           "supabase_url": "https://qvrfakbhnsmknukaqmja.supabase.co",
@@ -57,36 +57,36 @@
             "google": {
               "id": "google",
               "name": "Google",
-              "url": "https://qvrfakbhnsmknukaqmja.supabase.co/auth/v1/authorize?redirect_to=https%3A%2F%2Fclockee-os.vercel.app%2Flogin.html&code_challenge=oGfnR36DBl6bzXcVj-vPhJlkqn2YEq5KdOZTrYaFQ5c&code_challenge_method=s256&provider=google"
+              "url": "https://qvrfakbhnsmknukaqmja.supabase.co/auth/v1/authorize?redirect_to=https%3A%2F%2Fclockee-os.vercel.app%2Flogin.html&code_challenge=oFqUsvWIXII1M3N2sy3xYhkx_XartuZ4PZpwAmzioUE&code_challenge_method=s256&provider=google"
             },
             "github": {
               "id": "github",
               "name": "GitHub",
-              "url": "https://qvrfakbhnsmknukaqmja.supabase.co/auth/v1/authorize?redirect_to=https%3A%2F%2Fclockee-os.vercel.app%2Flogin.html&code_challenge=lcUoLmGl8Xk_5C351ZnNV_tlwww5oQUhIappH_QMhOM&code_challenge_method=s256&provider=github"
+              "url": "https://qvrfakbhnsmknukaqmja.supabase.co/auth/v1/authorize?redirect_to=https%3A%2F%2Fclockee-os.vercel.app%2Flogin.html&code_challenge=wNQhA_cFdR9EPkgUZhw9ZfWhutE3mz2WoxbNXq6ZftA&code_challenge_method=s256&provider=github"
             }
           }
         }
       },
       "live_google_login": {
         "status": 200,
-        "latency_ms": 2012.54,
+        "latency_ms": 1989.21,
         "body": {
           "success": true,
           "provider": "google",
           "user": {
-            "id": "cd2325ec-7322-56e8-82cd-3a85df4eadc1",
-            "email": "aspirant_live_goog_1794819715@jee.app",
+            "id": "6837519d-deba-5659-9909-c22e8f4b0064",
+            "email": "aspirant_live_goog_1794819961@jee.app",
             "full_name": "Live Vercel Google Aspirant",
-            "avatar_url": "https://api.dicebear.com/7.x/bottts-neutral/svg?seed=live_goog_1794819715",
+            "avatar_url": "https://api.dicebear.com/7.x/bottts-neutral/svg?seed=live_goog_1794819961",
             "role": "JEE 2028 Aspirant",
             "provider": "google",
-            "last_seen": "2026-11-16T09:01:56.548527"
+            "last_seen": "2026-11-16T09:06:01.742879"
           }
         }
       },
       "live_github_login": {
         "status": 200,
-        "latency_ms": 1738.6,
+        "latency_ms": 1615.19,
         "body": {
           "success": true,
           "provider": "github",
@@ -94,10 +94,10 @@
             "id": "f470a5c1-765a-5768-8f77-caf97eea1dde",
             "email": "aspirant.github@users.noreply.github.com",
             "full_name": "live_github_aspirant",
-            "avatar_url": "https://api.dicebear.com/7.x/bottts-neutral/svg?seed=live_gh_1794819717",
+            "avatar_url": "https://api.dicebear.com/7.x/bottts-neutral/svg?seed=live_gh_1794819963",
             "role": "JEE 2028 Aspirant",
             "provider": "github",
-            "last_seen": "2026-11-16T09:01:58.545645"
+            "last_seen": "2026-11-16T09:06:03.482493"
           }
         }
       }

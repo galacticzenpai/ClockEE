@@ -31,15 +31,27 @@
       background-color: #07090e;
       color: #e2e8f0;
       overflow-x: hidden;
+      max-width: 100vw;
     }
     .mono { font-family: 'JetBrains Mono', monospace; }
     .glass-panel {
-      background: rgba(13, 17, 26, 0.88);
-      backdrop-filter: blur(20px);
+      background: rgba(13, 17, 26, 0.92);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
       border: 1px solid rgba(255, 255, 255, 0.08);
     }
     .glass-panel:hover {
       border-color: rgba(255, 255, 255, 0.15);
+    }
+    @media (max-width: 640px) {
+      button, 
+      input, 
+      select, 
+      .nav-btn,
+      .touch-target {
+        min-height: 44px;
+        touch-action: manipulation;
+      }
     }
     .neon-pulse-emerald {
       box-shadow: 0 0 25px rgba(16, 185, 129, 0.35);
@@ -67,43 +79,50 @@
     }
   </style>
 </head>
-<body class="min-h-screen p-4 sm:p-6 lg:p-8 selection:bg-cyan-500/30 selection:text-cyan-200">
+<body class="min-h-screen p-3 sm:p-6 lg:p-8 selection:bg-cyan-500/30 selection:text-cyan-200 overflow-x-hidden max-w-[100vw]">
 
   <!-- Header -->
-  <header class="max-w-7xl mx-auto mb-8 flex flex-col md:flex-row md:items-center justify-between gap-5 border-b border-white/10 pb-6">
+  <header class="max-w-7xl mx-auto mb-6 sm:mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4 sm:gap-5 border-b border-white/10 pb-5 sm:pb-6">
     <div>
       <div class="flex items-center gap-3">
         <div class="relative flex h-3.5 w-3.5">
           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
           <span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-cyan-500"></span>
         </div>
-        <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white flex items-center gap-2">
-          ClockEE Mesh Cockpit
-          <span class="text-xs px-2.5 py-0.5 rounded-full bg-cyan-950/90 text-cyan-400 border border-cyan-800 font-bold tracking-wider mono uppercase">Full Step Inspector v4.0</span>
+        <h1 class="text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight text-white flex flex-wrap items-center gap-2">
+          <span>ClockEE Mesh Cockpit</span>
+          <span class="text-[10px] sm:text-xs px-2.5 py-0.5 rounded-full bg-cyan-950/90 text-cyan-400 border border-cyan-800 font-bold tracking-wider mono uppercase">Full Step Inspector v4.0</span>
         </h1>
       </div>
       <p class="text-xs sm:text-sm text-slate-400 mt-1">Expanded Step Inspector • Un-truncated Outputs • 39-Reel Playbook & Execution Forecast</p>
     </div>
 
     <!-- Live Sync Indicators & Controls -->
-    <div class="flex flex-wrap items-center gap-3">
-      <div id="heartbeat-badge" class="glass-panel px-3.5 py-2 rounded-xl flex items-center gap-2.5 text-xs mono text-slate-300 transition duration-300">
+    <div class="flex flex-wrap items-center gap-2 sm:gap-3">
+      <!-- Live Edge Connection Status Pill -->
+      <div id="edge-connection-pill" class="glass-panel px-3 py-1.5 rounded-xl flex items-center gap-2 text-xs mono text-cyan-300 border border-cyan-500/30 shadow-[0_0_15px_rgba(6,182,212,0.15)]">
+        <span class="h-2 w-2 rounded-full bg-cyan-400 animate-pulse"></span>
+        <span class="text-slate-400 hidden xs:inline">EDGE:</span>
+        <span class="font-bold text-cyan-400">VERCEL • SUPABASE LIVE</span>
+      </div>
+
+      <div id="heartbeat-badge" class="glass-panel px-3 py-1.5 rounded-xl flex items-center gap-2 text-xs mono text-slate-300 transition duration-300">
         <span id="heartbeat-dot" class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
         <span class="text-slate-400">SYNC:</span>
         <span id="header-sync-time" class="font-bold text-emerald-400">CONNECTING...</span>
       </div>
 
-      <a href="#playbook-section" class="px-3.5 py-2 rounded-xl bg-purple-950/60 hover:bg-purple-900/60 border border-purple-700/60 text-purple-200 font-bold text-xs transition flex items-center gap-1.5 mono">
+      <a href="#playbook-section" class="min-h-[44px] px-3.5 py-2 rounded-xl bg-purple-950/60 hover:bg-purple-900/60 border border-purple-700/60 text-purple-200 font-bold text-xs transition flex items-center gap-1.5 mono">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
         <span>Reel Playbook (39)</span>
       </a>
 
-      <button onclick="toggleSummaryDrawer()" class="px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-extrabold text-xs transition flex items-center gap-2 shadow-lg shadow-amber-500/20 active:scale-95">
+      <button onclick="toggleSummaryDrawer()" class="min-h-[44px] px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-xs transition flex items-center gap-2 shadow-lg shadow-amber-500/20 active:scale-95 border border-amber-400/50">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
         <span>Ask: What Is Happening?</span>
       </button>
 
-      <button onclick="fetchState()" title="Force Refresh" class="p-2 rounded-xl glass-panel hover:bg-white/10 text-slate-400 hover:text-white transition">
+      <button onclick="fetchState()" title="Force Refresh" class="min-h-[44px] min-w-[44px] p-2.5 rounded-xl glass-panel hover:bg-white/10 text-slate-400 hover:text-white transition flex items-center justify-center">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
       </button>
     </div>
@@ -266,9 +285,9 @@ Initializing live stream...
             <span id="step-count-badge" class="text-[11px] mono px-2 py-0.5 rounded bg-slate-800 text-slate-300">0 Steps</span>
           </div>
 
-          <div class="flex flex-wrap items-center gap-2">
+          <div class="flex flex-wrap items-center gap-2 w-full sm:w-auto">
             <!-- Filter by Type -->
-            <select id="step-type-filter" onchange="renderStepsStream()" class="text-[11px] mono bg-slate-900 border border-white/10 rounded-lg px-2.5 py-1 text-slate-200 focus:outline-none focus:border-cyan-500">
+            <select id="step-type-filter" onchange="renderStepsStream()" class="min-h-[44px] text-xs mono bg-slate-900 border border-white/10 rounded-xl px-3 py-2 text-slate-200 focus:outline-none focus:border-cyan-500 flex-1 sm:flex-none">
               <option value="ALL">All Types</option>
               <option value="TOOLS">Tool Invocations Only</option>
               <option value="PLANNER">Planner Responses Only</option>
@@ -277,10 +296,10 @@ Initializing live stream...
             </select>
 
             <!-- Search Filter -->
-            <input id="step-search-input" oninput="renderStepsStream()" type="text" placeholder="Search steps & outputs..." class="text-[11px] mono bg-slate-900 border border-white/10 rounded-lg px-2.5 py-1 text-slate-200 focus:outline-none focus:border-cyan-500 placeholder-slate-500 w-44">
+            <input id="step-search-input" oninput="renderStepsStream()" type="text" placeholder="Search steps & outputs..." class="min-h-[44px] text-xs mono bg-slate-900 border border-white/10 rounded-xl px-3 py-2 text-slate-200 focus:outline-none focus:border-cyan-500 placeholder-slate-500 flex-1 sm:w-48">
 
             <!-- Expand / Collapse All -->
-            <button onclick="toggleExpandAllSteps()" id="expand-all-steps-btn" class="text-[11px] mono px-3 py-1 rounded-lg bg-cyan-950/80 hover:bg-cyan-900 border border-cyan-800 text-cyan-300 font-bold transition">
+            <button onclick="toggleExpandAllSteps()" id="expand-all-steps-btn" class="min-h-[44px] text-xs mono px-3.5 py-2 rounded-xl bg-cyan-950/80 hover:bg-cyan-900 border border-cyan-800 text-cyan-300 font-bold transition flex items-center justify-center">
               Expand All ▼
             </button>
           </div>
@@ -330,14 +349,14 @@ Initializing live stream...
       <!-- Playbook Filters Bar -->
       <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 bg-black/40 p-3 rounded-xl border border-white/5">
         <div class="flex flex-wrap items-center gap-2" id="playbook-status-filters">
-          <button onclick="setPlaybookFilter('ALL')" id="filter-pb-ALL" class="px-3 py-1 rounded-lg text-xs mono font-bold bg-purple-500/20 text-purple-200 border border-purple-500/40">All (39)</button>
-          <button onclick="setPlaybookFilter('COMPLETED')" id="filter-pb-COMPLETED" class="px-3 py-1 rounded-lg text-xs mono text-slate-400 hover:text-white border border-white/5">Completed (4)</button>
-          <button onclick="setPlaybookFilter('ACTIVE')" id="filter-pb-ACTIVE" class="px-3 py-1 rounded-lg text-xs mono text-slate-400 hover:text-white border border-white/5">Active / Paused (1)</button>
-          <button onclick="setPlaybookFilter('SCHEDULED')" id="filter-pb-SCHEDULED" class="px-3 py-1 rounded-lg text-xs mono text-slate-400 hover:text-white border border-white/5">Scheduled Backlog (34)</button>
+          <button onclick="setPlaybookFilter('ALL')" id="filter-pb-ALL" class="min-h-[44px] px-3.5 py-1.5 rounded-xl text-xs mono font-bold bg-purple-500/20 text-purple-200 border border-purple-500/40">All (39)</button>
+          <button onclick="setPlaybookFilter('COMPLETED')" id="filter-pb-COMPLETED" class="min-h-[44px] px-3.5 py-1.5 rounded-xl text-xs mono text-slate-400 hover:text-white border border-white/5">Completed (4)</button>
+          <button onclick="setPlaybookFilter('ACTIVE')" id="filter-pb-ACTIVE" class="min-h-[44px] px-3.5 py-1.5 rounded-xl text-xs mono text-slate-400 hover:text-white border border-white/5">Active / Paused (1)</button>
+          <button onclick="setPlaybookFilter('SCHEDULED')" id="filter-pb-SCHEDULED" class="min-h-[44px] px-3.5 py-1.5 rounded-xl text-xs mono text-slate-400 hover:text-white border border-white/5">Scheduled Backlog (34)</button>
         </div>
 
-        <div class="flex items-center gap-2">
-          <input id="playbook-search" oninput="renderPlaybook()" type="text" placeholder="Search by tool, reel ID, or capability..." class="text-xs mono bg-slate-900 border border-white/10 rounded-lg px-3 py-1.5 text-slate-200 focus:outline-none focus:border-purple-500 placeholder-slate-500 w-full sm:w-64">
+        <div class="flex items-center gap-2 w-full sm:w-auto">
+          <input id="playbook-search" oninput="renderPlaybook()" type="text" placeholder="Search by tool, reel ID, or capability..." class="min-h-[44px] text-xs mono bg-slate-900 border border-white/10 rounded-xl px-3 py-1.5 text-slate-200 focus:outline-none focus:border-purple-500 placeholder-slate-500 w-full sm:w-64">
         </div>
       </div>
 

@@ -361,13 +361,19 @@
       </a>
     </nav>
 
-    <!-- Right Actions: Split Screen + Avatar Ring -->
-    <div class="nav-right flex items-center gap-3">
-      <button id="btnNavTourCockpit" class="px-2.5 py-1 rounded-full bg-gradient-to-r from-indigo-500/30 to-cyan-500/30 border border-cyan-400/50 text-cyan-300 hover:from-indigo-500/50 hover:to-cyan-500/50 text-xs font-black shadow-lg shadow-cyan-500/20 flex items-center gap-1.5 transition cursor-pointer" onclick="window.showCockpitTourMenu()" title="Open Interactive Cockpit Tour Menu">
+    <!-- Right Actions: Edge Status + Split Screen + Avatar Ring -->
+    <div class="nav-right flex items-center gap-2 sm:gap-3">
+      <!-- Live Edge Connection Status Pill -->
+      <a href="tracker.html" id="edge-connection-pill" class="hidden md:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-950/60 border border-emerald-500/40 text-[11px] font-mono font-bold text-emerald-400 shadow-[0_0_12px_rgba(16,185,129,0.2)] hover:border-emerald-400 transition" title="Connected to Vercel Edge & Supabase Cloud Mesh">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span>EDGE LIVE</span>
+      </a>
+
+      <button id="btnNavTourCockpit" class="px-2.5 py-1 rounded-full bg-cyan-950/80 border border-cyan-400/50 text-cyan-300 hover:bg-cyan-900 text-xs font-black shadow-lg shadow-cyan-500/20 flex items-center gap-1.5 transition cursor-pointer" onclick="window.showCockpitTourMenu()" title="Open Interactive Cockpit Tour Menu">
         <span class="animate-pulse">🚀</span>
         <span>Tour</span>
       </button>
-      <button class="nav-icon-btn hover:border-cyan-400 hover:text-cyan-300" title="Toggle Split-Screen Quick Panel" onclick="toggleSplitScreen()">⊟</button>
+      <button class="nav-icon-btn hover:border-cyan-400 hover:text-cyan-300 min-h-[36px] min-w-[36px]" title="Toggle Split-Screen Quick Panel" onclick="toggleSplitScreen()">⊟</button>
       <a href="settings.html" class="relative p-[2px] rounded-full hud-ring shadow-[0_0_15px_rgba(99,102,241,0.4)] cursor-pointer inline-block" title="Commander Profile & Settings">
         <img
           class="w-8 h-8 rounded-full bg-[#070913] object-cover block cursor-pointer border border-white/20"
@@ -1275,7 +1281,7 @@
 
       modal = document.createElement('div');
       modal.id = 'main-control-sim-modal';
-      modal.className = 'fixed inset-0 z-[300] bg-black/85 backdrop-blur-md flex items-center justify-center p-4';
+      modal.className = 'fixed inset-0 z-[300] bg-[#07080e]/90 backdrop-blur-2xl flex items-center justify-center p-4';
       modal.innerHTML = `
         <div class="glass-card max-w-lg w-full p-6 border border-cyan-500/40 bg-[#0d1124] shadow-2xl space-y-5">
           <div class="flex items-center justify-between pb-3 border-b border-white/10">

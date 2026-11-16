@@ -145,54 +145,111 @@ def scan_transcript_for_handoffs(convo_key, convo_info):
         content = obj.get("content") or ""
         step_idx = obj.get("step_index", 0)
 
-        if not content or "--- PROMPT FOR " not in content:
+        if not content:
             continue
 
-        parts = content.split("--- PROMPT FOR ")
-        for part in parts[1:]:
-            lines_part = part.splitlines()
-            if not lines_part:
-                continue
-            first_line = lines_part[0].strip()
-            target_str = first_line.rstrip("-").strip()
+        # Format A: "--- PROMPT FOR [Target] ---"
+        if "--- PROMPT FOR " in content:
+            parts = content.split("--- PROMPT FOR ")
+            for part in parts[1:]:
+                lines_part = part.splitlines()
+                if not lines_part:
+                    continue
+                first_line = lines_part[0].strip()
+                target_str = first_line.rstrip("-").strip()
 
-            tgt_key, tgt_info = resolve_target_conversation(target_str)
-            if not tgt_info:
-                continue
+                tgt_key, tgt_info = resolve_target_conversation(target_str)
+                if not tgt_info or tgt_key == convo_key:
+                    continue
 
-            # Don't dispatch to self
-            if tgt_key == convo_key:
-                continue
+                body_lines = lines_part[1:]
+                clean_lines = []
+                for bl in body_lines:
+                    if "--- PROMPT FOR " in bl or bl.strip().startswith("```handoff") or bl.strip() == "```":
+                        if bl.strip() == "```":
+                            continue
+                        if "--- PROMPT FOR " in bl:
+                            break
+                    clean_lines.append(bl)
 
-            # Extract instruction body
-            body_lines = lines_part[1:]
-            clean_lines = []
-            for bl in body_lines:
-                if "--- PROMPT FOR " in bl or bl.strip().startswith("```handoff") or bl.strip() == "```":
-                    if bl.strip() == "```":
-                        continue
-                    if "--- PROMPT FOR " in bl:
-                        break
-                clean_lines.append(bl)
+                instruction = "\n".join(clean_lines).strip()
+                if not instruction or len(instruction) < 15:
+                    continue
 
-            instruction = "\n".join(clean_lines).strip()
-            if not instruction or len(instruction) < 15:
-                continue
+                h_payload = f"{convo_key}->{tgt_key}:{instruction[:120]}:{step_idx}"
+                h_digest = hashlib.sha256(h_payload.encode("utf-8")).hexdigest()
 
-            # Generate unique hash for deduplication
-            h_payload = f"{convo_key}->{tgt_key}:{instruction[:120]}:{step_idx}"
-            h_digest = hashlib.sha256(h_payload.encode("utf-8")).hexdigest()
+                handoffs.append({
+                    "source_key": convo_key,
+                    "source_name": convo_info["name"],
+                    "target_key": tgt_key,
+                    "target_name": tgt_info["name"],
+                    "target_id": tgt_info["id"],
+                    "instruction": instruction,
+                    "step_index": step_idx,
+                    "hash": h_digest
+                })
 
-            handoffs.append({
-                "source_key": convo_key,
-                "source_name": convo_info["name"],
-                "target_key": tgt_key,
-                "target_name": tgt_info["name"],
-                "target_id": tgt_info["id"],
-                "instruction": instruction,
-                "step_index": step_idx,
-                "hash": h_digest
-            })
+        # Format B: "Next Queued Agent: [Target]" and "QUEUE DISPATCH REQUIRED"
+        elif "Next Queued Agent" in content or "QUEUE DISPATCH REQUIRED" in content:
+            tgt_str = ""
+            for line in content.splitlines():
+                line_clean = line.replace("*", "").replace(">", "").strip()
+                if "Next Queued Agent:" in line_clean:
+                    tgt_str = line_clean.split("Next Queued Agent:", 1)[1].strip()
+                    break
+
+            if tgt_str:
+                tgt_key, tgt_info = resolve_target_conversation(tgt_str)
+                if tgt_info and tgt_key != convo_key:
+                    # Detect target task (e.g. TASK-03)
+                    import re
+                    task_id = ""
+                    for line in content.splitlines():
+                        m = re.search(r"TASK-\d+", line)
+                        if m:
+                            task_id = m.group(0)
+                            break
+
+                    instruction = ""
+                    if task_id and DAILY_PLAN_FILE.is_file():
+                        try:
+                            with open(DAILY_PLAN_FILE, "r", encoding="utf-8") as dpf:
+                                dp = json.load(dpf)
+                            for t in dp.get("tasks", []):
+                                if t.get("id") == task_id:
+                                    instruction = (
+                                        f"You are {tgt_info['name']}.\n\n"
+                                        f"--- TASK ASSIGNMENT: {task_id} ---\n"
+                                        f"Plan ID: {dp.get('plan_id')}\n"
+                                        f"Task Description: {t.get('task')}\n\n"
+                                        f"Please execute and complete {task_id}, mark as COMPLETED in .pipeline/daily_plan.json, "
+                                        f"and output your standard PIPELINE QUEUE & HANDOFF REPORT."
+                                    )
+                                    break
+                        except Exception:
+                            pass
+
+                    if not instruction:
+                        instruction = (
+                            f"You are {tgt_info['name']}.\n"
+                            f"Handoff dispatch received from {convo_info['name']}:\n\n"
+                            f"{content[-600:]}"
+                        )
+
+                    h_payload = f"{convo_key}->{tgt_key}:{task_id or 'queued'}:{step_idx}"
+                    h_digest = hashlib.sha256(h_payload.encode("utf-8")).hexdigest()
+
+                    handoffs.append({
+                        "source_key": convo_key,
+                        "source_name": convo_info["name"],
+                        "target_key": tgt_key,
+                        "target_name": tgt_info["name"],
+                        "target_id": tgt_info["id"],
+                        "instruction": instruction,
+                        "step_index": step_idx,
+                        "hash": h_digest
+                    })
 
     return handoffs
 

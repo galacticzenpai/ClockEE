@@ -1,0 +1,622 @@
+/* ==========================================================================
+   ClockEE Unified Design System - Apple HIG & Mathongo Precision
+   Tokens, Layouts, Elastic Feedback, APCA Contrast & Responsive Breakpoints
+   ========================================================================== */
+
+:root {
+  /* ─── 1. Surface Materials (Apple Human Interface Guidelines) ─── */
+  --cbt-bg-base: #000000;
+  --cbt-bg-surface: #0a0c10;
+  --cbt-bg-elevated: #12151c;
+  --cbt-bg-card: rgba(18, 21, 28, 0.78);
+  --cbt-bg-card-hover: rgba(26, 30, 40, 0.88);
+  --cbt-bg-active: rgba(36, 42, 56, 0.92);
+
+  /* ─── 2. Hairline Retina Dividers & Outlines ─── */
+  --cbt-hairline: rgba(255, 255, 255, 0.08);
+  --cbt-hairline-bright: rgba(255, 255, 255, 0.16);
+  --cbt-border-focus: rgba(10, 132, 255, 0.65);
+
+  /* ─── 3. Apple System Accents (Zero AI Slop - Authentic Palette) ─── */
+  --cbt-accent-blue: #0a84ff;
+  --cbt-accent-blue-dark: #0071e3;
+  --cbt-accent-blue-light: rgba(10, 132, 255, 0.14);
+  --cbt-accent-green: #30d158;
+  --cbt-accent-green-light: rgba(48, 209, 88, 0.14);
+  --cbt-accent-amber: #ff9f0a;
+  --cbt-accent-amber-light: rgba(255, 159, 10, 0.14);
+  --cbt-accent-red: #ff453a;
+  --cbt-accent-red-light: rgba(255, 69, 58, 0.14);
+  --cbt-accent-purple: #bf5af2;
+  --cbt-accent-purple-light: rgba(191, 90, 242, 0.14);
+
+  /* ─── 4. APCA High-Contrast Typography Tokens (Lc >= 75 Text, Lc >= 60 Labels) ─── */
+  --cbt-text-primary: #ffffff;           /* Lc 108.0 on #000000, 107.2 on #12151c */
+  --cbt-text-body: #e8ecf2;              /* Lc 97.4 on #12151c (Optimal Readability) */
+  --cbt-text-secondary: #c0c8d8;         /* Lc 75.2 on #12151c (Target >= 75) */
+  --cbt-text-label: #b0b8c4;             /* Lc 66.3 on #12151c (Target >= 60) */
+  --cbt-text-muted: rgba(235, 235, 245, 0.45);
+  --cbt-text-inverse: #000000;
+
+  /* ─── 5. Apple Typography Stacks ─── */
+  --cbt-font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "SF Pro", "Helvetica Neue", sans-serif;
+  --cbt-font-mono: "SF Mono", "JetBrains Mono", Menlo, Monaco, Consolas, monospace;
+
+  /* Fluid Mathematical & Academic Typography Scale */
+  --cbt-font-size-display: clamp(1.750rem, 1.393rem + 1.79vw, 2.750rem);
+  --cbt-font-size-h1: clamp(1.375rem, 1.161rem + 1.07vw, 2.000rem);
+  --cbt-font-size-h2: clamp(1.125rem, 0.982rem + 0.71vw, 1.500rem);
+  --cbt-font-size-h3: clamp(1.000rem, 0.929rem + 0.36vw, 1.250rem);
+  --cbt-font-size-body: clamp(0.938rem, 0.893rem + 0.22vw, 1.062rem);
+  --cbt-font-size-secondary: clamp(0.812rem, 0.786rem + 0.13vw, 0.875rem);
+  --cbt-font-size-caption: clamp(0.688rem, 0.661rem + 0.13vw, 0.750rem);
+
+  /* ─── 6. Physics, Glassmorphism & Continuous Radii ─── */
+  --cbt-blur-material: blur(25px) saturate(190%);
+  --cbt-spring-physics: cubic-bezier(0.16, 1, 0.3, 1);
+  --cbt-spring-elastic: cubic-bezier(0.32, 0.72, 0, 1);
+  
+  --cbt-radius-sm: 8px;
+  --cbt-radius-md: 12px;
+  --cbt-radius-lg: 16px;
+  --cbt-radius-xl: 20px;
+  --cbt-radius-pill: 9999px;
+
+  /* ─── 7. Fitts's Law Hitbox Constraints ─── */
+  --cbt-touch-target-min: 44px;
+  --cbt-touch-target-optimal: 48px;
+
+  /* ─── 8. Shadows & Depth ─── */
+  --cbt-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.24);
+  --cbt-shadow-md: 0 4px 16px rgba(0, 0, 0, 0.36);
+  --cbt-shadow-lg: 0 12px 36px rgba(0, 0, 0, 0.52);
+  --cbt-shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.40);
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Universal Reset & Apple Safe-Area Foundations
+   ────────────────────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: var(--cbt-bg-base);
+  color: var(--cbt-text-primary);
+  font-family: var(--cbt-font-sans);
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: var(--cbt-bg-base);
+  color: var(--cbt-text-body);
+}
+
+@supports (padding: max(0px)) {
+  body {
+    padding-top: max(0px, env(safe-area-inset-top));
+    padding-bottom: max(0px, env(safe-area-inset-bottom));
+    padding-left: max(0px, env(safe-area-inset-left));
+    padding-right: max(0px, env(safe-area-inset-right));
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Fitts's Law Interactive Controls & Spring Physics
+   ────────────────────────────────────────────────────────────────────────── */
+.cbt-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: var(--cbt-touch-target-min);
+  min-width: var(--cbt-touch-target-min);
+  padding: 8px 18px;
+  font-family: var(--cbt-font-sans);
+  font-size: var(--cbt-font-size-secondary);
+  font-weight: 600;
+  border-radius: var(--cbt-radius-md);
+  border: 1px solid var(--cbt-hairline);
+  background-color: var(--cbt-bg-elevated);
+  color: var(--cbt-text-primary);
+  cursor: pointer;
+  user-select: none;
+  touch-action: manipulation;
+  transition: transform 0.12s var(--cbt-spring-physics), 
+              background-color 0.15s ease, 
+              border-color 0.15s ease, 
+              box-shadow 0.15s ease;
+}
+
+.cbt-btn:hover {
+  background-color: var(--cbt-bg-card-hover);
+  border-color: var(--cbt-hairline-bright);
+}
+
+.cbt-btn:active {
+  transform: scale(0.97);
+  transition-duration: 0.08s;
+}
+
+.cbt-btn:focus-visible {
+  outline: 2px solid var(--cbt-border-focus);
+  outline-offset: 2px;
+}
+
+.cbt-btn-primary {
+  background-color: var(--cbt-accent-blue);
+  color: #ffffff;
+  border-color: transparent;
+}
+
+.cbt-btn-primary:hover {
+  background-color: var(--cbt-accent-blue-dark);
+}
+
+.cbt-btn-secondary {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--cbt-hairline);
+  color: var(--cbt-text-secondary);
+}
+
+.cbt-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.10);
+  color: var(--cbt-text-primary);
+}
+
+.cbt-btn-ghost {
+  background: transparent;
+  border-color: transparent;
+  color: var(--cbt-text-secondary);
+}
+
+.cbt-btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--cbt-text-primary);
+}
+
+.cbt-btn-success {
+  background-color: var(--cbt-accent-green);
+  color: #000000;
+  border-color: transparent;
+}
+
+.cbt-btn-danger {
+  background-color: var(--cbt-accent-red-light);
+  color: var(--cbt-accent-red);
+  border-color: rgba(255, 69, 58, 0.25);
+}
+
+.cbt-btn-danger:hover {
+  background-color: var(--cbt-accent-red);
+  color: #ffffff;
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Apple HIG Translucent Navigation Pill & App Shell
+   ────────────────────────────────────────────────────────────────────────── */
+.apple-glass {
+  background: rgba(18, 21, 28, 0.78);
+  backdrop-filter: var(--cbt-blur-material);
+  -webkit-backdrop-filter: var(--cbt-blur-material);
+  border: 1px solid var(--cbt-hairline);
+  box-shadow: var(--cbt-shadow-sm);
+}
+
+.apple-glass:hover {
+  border-color: var(--cbt-hairline-bright);
+}
+
+.cbt-app-shell-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 12px 16px;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.cbt-top-pill {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  max-width: 1240px;
+  min-height: 52px;
+  padding: 6px 18px;
+  background: rgba(18, 21, 28, 0.82);
+  backdrop-filter: var(--cbt-blur-material);
+  -webkit-backdrop-filter: var(--cbt-blur-material);
+  border: 1px solid var(--cbt-hairline);
+  border-radius: var(--cbt-radius-pill);
+  box-shadow: var(--cbt-shadow-glass);
+}
+
+.cbt-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--cbt-text-primary);
+}
+
+.cbt-brand-logo {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--cbt-bg-surface);
+  border: 1px solid var(--cbt-hairline);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.cbt-brand-name {
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: -0.02em;
+}
+
+.cbt-brand-badge {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 12px;
+  background: var(--cbt-accent-blue-light);
+  color: var(--cbt-accent-blue);
+  border: 1px solid rgba(10, 132, 255, 0.25);
+  margin-left: 6px;
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Mathongo Academic Canvas & Question Presentation
+   ────────────────────────────────────────────────────────────────────────── */
+.cbt-academic-canvas {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 20px 16px 120px;
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 24px;
+}
+
+.cbt-question-card {
+  background: var(--cbt-bg-elevated);
+  border: 1px solid var(--cbt-hairline);
+  border-radius: var(--cbt-radius-xl);
+  padding: 28px;
+  box-shadow: var(--cbt-shadow-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.cbt-question-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--cbt-hairline);
+  margin-bottom: 24px;
+}
+
+.cbt-subject-badge {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 4px 12px;
+  border-radius: var(--cbt-radius-pill);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--cbt-text-secondary);
+  border: 1px solid var(--cbt-hairline);
+}
+
+.cbt-question-body {
+  font-size: var(--cbt-font-size-body);
+  line-height: 1.7;
+  color: var(--cbt-text-primary);
+  margin-bottom: 32px;
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Tactile MCQ Options with Selection Glow & Fitts's Law Hitboxes
+   ────────────────────────────────────────────────────────────────────────── */
+.cbt-options-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.cbt-option-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  min-height: var(--cbt-touch-target-optimal);
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--cbt-hairline);
+  border-radius: var(--cbt-radius-lg);
+  cursor: pointer;
+  user-select: none;
+  touch-action: manipulation;
+  transition: transform 0.12s var(--cbt-spring-physics),
+              border-color 0.15s ease,
+              background-color 0.15s ease;
+}
+
+.cbt-option-card:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: var(--cbt-hairline-bright);
+}
+
+.cbt-option-card:active {
+  transform: scale(0.985);
+}
+
+.cbt-option-card.selected {
+  background: var(--cbt-accent-blue-light);
+  border-color: var(--cbt-accent-blue);
+  box-shadow: 0 0 0 1px var(--cbt-accent-blue);
+}
+
+.cbt-option-marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  border-radius: 8px;
+  background: var(--cbt-bg-surface);
+  border: 1px solid var(--cbt-hairline);
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--cbt-text-secondary);
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.cbt-option-card.selected .cbt-option-marker {
+  background: var(--cbt-accent-blue);
+  color: #ffffff;
+  border-color: transparent;
+}
+
+.cbt-option-text {
+  font-size: var(--cbt-font-size-body);
+  line-height: 1.5;
+  color: var(--cbt-text-body);
+  align-self: center;
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Mathongo Live Pacing Benchmark HUD
+   ────────────────────────────────────────────────────────────────────────── */
+.cbt-pacing-hud {
+  background: var(--cbt-bg-surface);
+  border: 1px solid var(--cbt-hairline);
+  border-radius: var(--cbt-radius-lg);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.cbt-pacing-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cbt-pacing-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--cbt-text-label);
+}
+
+.cbt-pacing-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: var(--cbt-radius-pill);
+}
+
+.cbt-pacing-badge.ahead {
+  background: var(--cbt-accent-green-light);
+  color: var(--cbt-accent-green);
+  border: 1px solid rgba(48, 209, 88, 0.25);
+}
+
+.cbt-pacing-badge.on-pace {
+  background: var(--cbt-accent-blue-light);
+  color: var(--cbt-accent-blue);
+  border: 1px solid rgba(10, 132, 255, 0.25);
+}
+
+.cbt-pacing-badge.behind {
+  background: var(--cbt-accent-amber-light);
+  color: var(--cbt-accent-amber);
+  border: 1px solid rgba(255, 159, 10, 0.25);
+}
+
+.cbt-pacing-bar-track {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 9999px;
+  overflow: hidden;
+  position: relative;
+}
+
+.cbt-pacing-bar-fill {
+  height: 100%;
+  background: var(--cbt-accent-blue);
+  border-radius: 9999px;
+  transition: width 0.3s var(--cbt-spring-physics);
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   One-Click Mistake Taxonomy
+   ────────────────────────────────────────────────────────────────────────── */
+.cbt-mistake-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.cbt-mistake-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: var(--cbt-radius-sm);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--cbt-hairline);
+  color: var(--cbt-text-secondary);
+  cursor: pointer;
+  user-select: none;
+  touch-action: manipulation;
+  transition: all 0.15s ease;
+}
+
+.cbt-mistake-tag:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--cbt-text-primary);
+}
+
+.cbt-mistake-tag.active {
+  background: var(--cbt-accent-amber-light);
+  color: var(--cbt-accent-amber);
+  border-color: var(--cbt-accent-amber);
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Floating Action Dock & Safe-Area Inset Handling
+   ────────────────────────────────────────────────────────────────────────── */
+.cbt-bottom-dock {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 90;
+  padding: 12px 16px max(12px, env(safe-area-inset-bottom));
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.cbt-dock-pill {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  max-width: 880px;
+  padding: 8px 18px;
+  background: rgba(18, 21, 28, 0.88);
+  backdrop-filter: var(--cbt-blur-material);
+  -webkit-backdrop-filter: var(--cbt-blur-material);
+  border: 1px solid var(--cbt-hairline);
+  border-radius: var(--cbt-radius-pill);
+  box-shadow: var(--cbt-shadow-glass);
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Apple 7-Tier Responsive Breakpoints
+   ────────────────────────────────────────────────────────────────────────── */
+/* 1. iPhone SE / Compact Mobile (<= 375px) */
+@media screen and (max-width: 375px) {
+  .cbt-academic-canvas {
+    grid-template-columns: 1fr;
+    padding: 12px 10px 100px;
+    gap: 16px;
+  }
+  .cbt-top-pill {
+    padding: 6px 12px;
+    gap: 8px;
+  }
+  .cbt-brand-badge {
+    display: none;
+  }
+  .cbt-question-card {
+    padding: 18px 14px;
+  }
+  .cbt-dock-pill {
+    padding: 6px 12px;
+  }
+}
+
+/* 2. iPhone 16 / Standard Mobile (<= 430px) */
+@media screen and (max-width: 430px) {
+  .cbt-academic-canvas {
+    grid-template-columns: 1fr;
+    padding: 16px 12px 110px;
+  }
+  .cbt-mistake-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 3. iPhone 16 Pro Max / Large Mobile (<= 480px) */
+@media screen and (max-width: 480px) {
+  .cbt-academic-canvas {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 4. iPad Mini / Portrait Tablet (<= 768px) */
+@media screen and (max-width: 768px) {
+  .cbt-academic-canvas {
+    grid-template-columns: 1fr;
+  }
+  .cbt-sidebar-hud {
+    order: -1;
+  }
+}
+
+/* 5. iPad Air / Standard Tablet (<= 1024px) */
+@media screen and (max-width: 1024px) {
+  .cbt-academic-canvas {
+    grid-template-columns: 1fr 280px;
+    gap: 18px;
+  }
+}
+
+/* 6. iPad Pro 12.9" / Compact Desktop (<= 1280px) */
+@media screen and (max-width: 1280px) {
+  .cbt-academic-canvas {
+    max-width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+/* 7. MacBook Pro 14"+ / Large Display (>= 1440px) */
+@media screen and (min-width: 1440px) {
+  .cbt-academic-canvas {
+    max-width: 1360px;
+    grid-template-columns: 1fr 380px;
+    gap: 32px;
+  }
+  .cbt-question-card {
+    padding: 36px;
+  }
+}

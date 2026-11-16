@@ -1,0 +1,19 @@
+{
+  "timestamp": "2026-11-16 20:10:36",
+  "skill": "nutlope/hallmark (Together AI) Design & Slop Linter",
+  "metrics": {
+    "pages_scanned": 1,
+    "floor_gate_failures": 0,
+    "reflex_slop_cliches": 0,
+    "average_design_score": 100.0
+  },
+  "reports": [
+    {
+      "file": "demo_cockpit.html",
+      "floor_violations": [],
+      "reflex_violations": [],
+      "finish_advisories": [],
+      "score": 100
+    }
+  ]
+}

@@ -3,6 +3,8 @@
    Sleek, distraction-free, academic precision with Apple Human Interface standards
    ========================================================================== */
 
+@import url("clockee_design_system.css");
+
 :root {
   /* Surface Materials */
   --apple-bg-base: #000000;

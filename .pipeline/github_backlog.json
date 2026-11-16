@@ -201,35 +201,65 @@
       "title": "Blind Guess & Statistical Fluke Detection Engine",
       "status": "COMPLETED",
       "summary": "Statistical fluke analyzer in 3.47µs distinguishing true mastery from blind rapid guesses"
-    }
-  ],
-  "active_reel": {
-    "id": "reel_024",
-    "url": "https://www.instagram.com/p/DfW6r1fCMd-/",
-    "package_name": "network_telemetry",
-    "upstream": "local-telemetry/p2p",
-    "title": "Zero-Network Offline Heartbeat & Sync Diagnostics Console",
-    "status": "QUEUED_FOR_INGESTION"
-  },
-  "pending_reels": [
+    },
+    {
+      "id": "reel_024",
+      "url": "https://www.instagram.com/p/DfW6r1fCMd-/",
+      "package_name": "network_telemetry",
+      "upstream": "local-telemetry/p2p",
+      "title": "Zero-Network Offline Heartbeat & Sync Diagnostics Console",
+      "status": "COMPLETED",
+      "summary": "Retro terminal telemetry HUD toggled via Ctrl+Shift+D with background Web Worker sampling"
+    },
     {
       "id": "reel_025",
       "url": "https://www.instagram.com/p/DfVQs4PDJHY/",
-      "status": "QUEUED"
+      "package_name": "accuracy_matrix",
+      "upstream": "stats/matrix-breakdown",
+      "title": "Subject-Wise Topic Breakdown & Rank Predictor Matrix",
+      "status": "COMPLETED",
+      "summary": "NTA historical percentile interpolator in 51.6µs with Canvas mastery radar chart"
     },
     {
       "id": "reel_026",
       "url": "https://www.instagram.com/p/DfLnPkKtrkz/",
-      "status": "QUEUED"
+      "package_name": "export_pdf_scorecard",
+      "upstream": "jspdf/report-card",
+      "title": "Hallmark-Styled Printable Student Performance Scorecard",
+      "status": "COMPLETED",
+      "summary": "A4 print-ready official report card generator with candidate statistics and subject tables"
     },
     {
       "id": "reel_027",
       "url": "https://www.instagram.com/p/DfWwN89hmY1/",
-      "status": "QUEUED"
+      "package_name": "auto_repair_dom",
+      "upstream": "agent-dom/self-healing",
+      "title": "Self-Healing DOM Selector & Missing Attribute Guardrail",
+      "status": "COMPLETED",
+      "summary": "Defensive MutationObserver runtime protector preventing unhandled exceptions and DOM freezes"
     },
     {
       "id": "reel_028",
       "url": "https://www.instagram.com/p/DfUPqjrt-H_/",
+      "package_name": "state_validator",
+      "upstream": "zod-lite/state-guard",
+      "title": "Runtime Client-Side State Mutation & Corruption Interceptor",
+      "status": "COMPLETED",
+      "summary": "ES6 Proxy state invariant validator intercepting illegal out-of-bounds CBT mutations"
+    }
+  ],
+  "active_reel": {
+    "id": "reel_029",
+    "url": "https://www.instagram.com/p/DfToUOPIba0/",
+    "package_name": "deadlock_resolver",
+    "upstream": "sqlite/deadlock-preventer",
+    "title": "Concurrent SQLite Multi-Process Transaction Arbiter",
+    "status": "QUEUED_FOR_INGESTION"
+  },
+  "pending_reels": [
+    {
+      "id": "reel_030",
+      "url": "https://www.instagram.com/p/DfY3CZ_BkXd/",
       "status": "QUEUED"
     },
     {

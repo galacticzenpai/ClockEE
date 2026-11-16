@@ -53,51 +53,36 @@
     }
   },
   "current_batch": {
-    "batch_id": "plan_20261116_155800",
+    "batch_id": "plan_20261116_193500",
     "source": "planning",
-    "title": "CBT Multi-Pass Simulation, Surgical Bug Fix Loop, GitHub Track #2 & Q/A Ingestion",
+    "title": "Apple HIG + Mathongo (Marks App) Demo Replica Sandbox (demo_cockpit.html)",
     "status": "IN_PROGRESS",
-    "timestamp": "2026-11-16T15:58:00+05:30",
+    "timestamp": "2026-11-16T19:35:00+05:30",
+    "sandbox_mode": true,
+    "safety_rule": "STRICTLY ADDITIVE. ZERO MODIFICATIONS TO EXISTING CORE FILES (index.html, timer.html, cbt_exam.html, etc.).",
     "tasks": {
-      "simulation": {
-        "id": "TASK-CBT-01",
-        "target_key": "simulation",
-        "target_id": "62adc180-be21-4671-848c-c8df59e2c202",
+      "ui_ux": {
+        "id": "TASK-DEMO-UIUX",
+        "target_key": "ui_ux",
+        "target_id": "06a7d47b-b225-40f4-b830-b58baaaf8b3a",
         "priority": "P0",
-        "instruction": "Execute 2-3 thorough simulation passes on CBT Mode across cbt_exam.html, cbt_mistakes.html, cbt_notebooks.html, and cbt_master_bank.js. Verify question rendering, LaTeX formatting, timer accuracy, option selection persistence, score/accuracy computation, mistake tagging, and offline caching. Emit structured defect report directly to BUG FIXES.",
+        "instruction": "Build demo_cockpit.html and css/apple_mathongo_theme.css. Implement Apple HIG aesthetics fused with Mathongo (Marks App) layout: translucent floating app shell navigation pill, high-contrast APCA question canvas, iOS-style segmented subject pills (Physics/Chemistry/Math), tactile MCQ option cards with selection glow, and mistake taxonomy modal. STRICT SAFETY RULE: DO NOT touch any existing production files.",
         "status": "QUEUED"
-      },
-      "bug_fixes": {
-        "id": "TASK-CBT-02",
-        "target_key": "bug_fixes",
-        "target_id": "c05ee59e-9749-4bc3-8bea-57ea8b60874c",
-        "priority": "P0",
-        "instruction": "Receive CBT defect report from Simulation. Surgically patch identified bugs in CBT mode (event binding, state resets, index out-of-bounds, negative marking deltas). When hotfixes are applied, automatically notify Simulation for the re-test verification pass.",
-        "status": "QUEUED"
-      },
-      "github": {
-        "id": "TASK-GH-01",
-        "target_key": "github",
-        "target_id": "a64c937f-bb58-4071-8eb9-32f5edbb6c2c",
-        "priority": "P1",
-        "instruction": "Maintain Track #2: Continue package vendoring, evaluate pending reels from .pipeline/github_backlog.json into integrations/, and ensure production Vercel deployment assets (vercel.json, .vercelignore) stay synchronized without disruption.",
-        "status": "COMPLETED",
-        "result": "All 39 reels completed, deployment assets validated."
       },
       "untitled_conversation": {
-        "id": "TASK-QA-01",
+        "id": "TASK-DEMO-FEATURE",
         "target_key": "untitled_conversation",
         "target_id": "6371cba6-7d2f-4b29-a250-627d88d1b4f1",
-        "priority": "P1",
-        "instruction": "Command the Q / A agent (6029bc76-d833-4ab6-8672-b5f43511cf8f) to extract fresh question banks from library books, ingest and format the extracted Q&A questions, and wire them cleanly into cbt_master_bank.js and cbt_question_bank.json.",
+        "priority": "P0",
+        "instruction": "Build js/demo_app_shell.js for demo_cockpit.html. Load 5 authentic sample questions from cbt_question_bank.json, wire interactive option selection, integrate Mathongo-style live pacing benchmark timer (Student time vs Topper benchmark), mistake tagging taxonomy (Calculation, Concept, Silly, Timeout), and add a 'Compare with Legacy Design' split view toggle. STRICT SAFETY RULE: DO NOT touch any existing production files.",
         "status": "QUEUED"
       },
-      "simulation_verify": {
-        "id": "TASK-SIM-VERIFY",
+      "simulation": {
+        "id": "TASK-DEMO-VERIFY",
         "target_key": "simulation",
         "target_id": "62adc180-be21-4671-848c-c8df59e2c202",
-        "priority": "P2",
-        "instruction": "Second Verification Pass: Re-run full CBT simulation against the remediated codebase with newly imported Q&A to certify 100/100 Anti-AI-Slop and zero functional defects.",
+        "priority": "P1",
+        "instruction": "Simulate and audit demo_cockpit.html. Verify APCA contrast (>=70), 44pt mobile tap targets, KaTeX formula rendering, and verify via AST/Git diff that zero existing core files (index.html, timer.html, cbt_exam.html, server.py) were modified.",
         "status": "QUEUED"
       }
     }

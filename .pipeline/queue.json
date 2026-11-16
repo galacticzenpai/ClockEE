@@ -59,9 +59,10 @@
         "target_name": "GITHUB",
         "target_id": "a64c937f-bb58-4071-8eb9-32f5edbb6c2c",
         "status": "STAGED_FOR_DISPATCH",
-        "staged_at": "2026-11-16T09:27:04.105009",
+        "staged_at": "2026-11-16T09:28:15.775145",
         "reel_url": "https://www.instagram.com/p/De63OT8Sqwg/",
-        "action": "Ingest Reel #2, vendor tool into integrations/<tool>/, and generate mesh handoff prompts for Untitled conversation, UI/UX, DB/Backend, and Simulation."
+        "action": "Ingest Reel #2, vendor tool into integrations/<tool>/, and generate mesh handoff prompts for Untitled conversation, UI/UX, DB/Backend, and Simulation.",
+        "instruction": "Active Reel: Reel #2 (https://www.instagram.com/p/De63OT8Sqwg/)\nSource Handle: @waitwhatdidyoudo\nBacklog Location: .pipeline/github_backlog.json\nPrerequisites Met: Reel #1 (Graphify) vendored in integrations/graphify/ with 263 entities and 320 edges indexed.\n\n1. Package Analysis & Ingestion:\n   - Ingest Reel #2 (https://www.instagram.com/p/De63OT8Sqwg/).\n   - Identify the featured tool/package showcased by @waitwhatdidyoudo.\n   - Vendor the package into integrations/<package_name>/ with:\n     \u2022 SKILL.md (specification and commands)\n     \u2022 <package_name>_runner.py (local executable CLI/runner)\n     \u2022 Verified local execution test\n     \u2022 Entry added to integrations/README.md\n\n2. Cross-Mesh Installation & Handoffs ('Install Everywhere Else'):\n   At the end of your turn, output the exact handoff prompt blocks to distribute installation across the mesh:\n   - --- PROMPT FOR Untitled conversation (Main Feature) ---: Instructions to wire the tool's DOM containers, UI hooks, and core state into the frontend templates.\n   - --- PROMPT FOR UI / UX ---: Instructions to style the UI elements with ClockEE Hallmark design tokens and responsive classes.\n   - --- PROMPT FOR DB / BACKEND ---: Instructions for SQLite tables or server endpoints if the tool stores data.\n   - --- PROMPT FOR SIMULATION ---: Instructions to run Hallmark SlopLinter (100/100 floor score) and regression tests.\n\n3. Backlog Advance:\n   - In .pipeline/github_backlog.json, move Reel #2 to completed_reels and set Reel #3 (https://www.instagram.com/p/DfDPuZjE-7Q/) as \u0007ctive_reel.\n   - Provide your mandatory ### \ud83d\udef0\ufe0f PIPELINE QUEUE & HANDOFF REPORT."
       },
       "untitled_conversation": {
         "target_key": "untitled_conversation",

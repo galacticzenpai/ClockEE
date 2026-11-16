@@ -364,16 +364,35 @@ def run_mesh_process():
 
     # STEP 4: Stage Actionable Prompt to Pipeline File
     staged_info = None
-    if pending:
-        # Priority: Untitled conversation (Main Feature) -> UI / UX -> others
-        pending.sort(key=lambda x: 0 if x[0] == "untitled_conversation" else (1 if x[0] == "ui_ux" else 2))
-        tgt_key, tgt_task = pending[0]
+    # Check pending or already staged tasks
+    actionable_tasks = []
+    for k, t in tasks.items():
+        st = t.get("status", "QUEUED")
+        if st in ["PENDING", "QUEUED", "STAGED_FOR_DISPATCH"]:
+            actionable_tasks.append((k, t))
+
+    if actionable_tasks:
+        # Priority follows Universal System Directive phases:
+        # Phase 1: Foundation (github -> db_backend)
+        # Phase 2: Implementation (untitled_conversation -> ui_ux)
+        # Phase 3: Verification (simulation -> bug_fixes)
+        phase_priority = {
+            "github": 0,
+            "db_backend": 1,
+            "untitled_conversation": 2,
+            "ui_ux": 3,
+            "simulation": 4,
+            "bug_fixes": 5
+        }
+        actionable_tasks.sort(key=lambda x: phase_priority.get(x[0], 10))
+        tgt_key, tgt_task = actionable_tasks[0]
         tgt_info = CONVERSATIONS[tgt_key]
 
+        instr = tgt_task.get('instruction') or tgt_task.get('action') or 'Execute domain queue task.'
         payload = (
             f"You are {tgt_task.get('target_name', tgt_info['name'])}.\n\n"
             f"--- TASK ASSIGNMENT ---\n"
-            f"{tgt_task.get('instruction')}\n\n"
+            f"{instr}\n\n"
             f"--- MESH COORDINATION DIRECTIVE ---\n"
             f"1. Implement all domain fixes and features cleanly without disturbing sibling modules.\n"
             f"2. When complete, provide a concise summary of changes.\n"

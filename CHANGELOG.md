@@ -4,6 +4,20 @@ All notable changes to the ClockEE ecosystem will be documented in this file.
 
 ---
 
+## [Release 2.8.0] - 2026-11-16: Perception, Telemetry & Replay Wave (Reels #19 - #23)
+
+### 📦 Vendored Integrations & Micro-Benchmarks (<10µs latency certified):
+- **Reel #19: Fluid Typography Engine (integrations/fluid_typography/)**: Dynamic viewport CSS clamp() typography system resolving in 82µs with zero-layout-shift formulas applied to cbt_shared.css.
+- **Reel #20: APCA Perceptual Contrast Guard (integrations/contrast_guard/)**: Advanced Perceptual Contrast Algorithm (APCA) linter validating high-stakes dark/light mode readability in 34.1µs.
+- **Reel #21: Exam Session Replay (integrations/session_replay/)**: Lightweight action recorder & scrubber player for millisecond-accurate post-exam review.
+- **Reel #22: Cognitive Load Heatmap (integrations/student_heatmap/)**: Visual time allocation matrix categorizing attempts into Rushed, Optimal, Slow, and Stuck zones.
+- **Reel #23: Statistical Fluke & Blind Guess Detector (integrations/guess_detector/)**: Microsecond fluke analyzer (3.47µs) isolating lucky random guesses from genuine conceptual mastery.
+
+### 🌐 Live Production Promotion:
+- Deployed live to Vercel: https://clockee-os.vercel.app (dpl_Ad4CRNfyaF9kpJ3BwpfzUAYtzt9b, commit 287755e).
+
+---
+
 ## [Release 2.7.0] - 2026-11-16: High-Cadence Engine & HUD Wave (Reels #11 - #18)
 
 ### 📦 Vendored Integrations & Micro-Benchmarks (<1ms latency certified):

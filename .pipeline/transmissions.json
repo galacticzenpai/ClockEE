@@ -1,5 +1,12 @@
 [
   {
+    "timestamp": "2026-11-16 11:52:17",
+    "source": "BACKBONE COORDINATOR",
+    "target": "SIMULATION",
+    "subject": "Phase Hand-off: 2-Pass Live Browser Deployment Audit. Pass 1: Open live http...",
+    "status": "DELIVERED_AUTO"
+  },
+  {
     "timestamp": "2026-11-16 11:52:08",
     "source": "BACKBONE COORDINATOR",
     "target": "UI / UX",
@@ -411,12 +418,5 @@
     "target": "Untitled conversation (Main Feature)",
     "subject": "Phase Hand-off: You are Untitled conversation (Main Feature).\n\n--- TASK ASSI...",
     "status": "DELIVERED_STAGED"
-  },
-  {
-    "timestamp": "2026-11-16 01:00:39",
-    "source": "GITHUB",
-    "target": "Untitled conversation (Main Feature)",
-    "subject": "Reel #1 Graphify AST Knowledge Graph & Architecture God-Node Handoff",
-    "status": "DELIVERED"
   }
 ]

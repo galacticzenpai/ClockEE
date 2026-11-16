@@ -83,7 +83,8 @@
         "target_name": "SIMULATION",
         "target_id": "62adc180-be21-4671-848c-c8df59e2c202",
         "instruction": "2-Pass Live Browser Deployment Audit. Pass 1: Open live https://clockee.vercel.app in browser; test Google OAuth login, Supabase database queries, CBT exams, and remote tracker. Pass 2: Simulate offline disconnection and verify auto-sync. If any defects occur, compile detailed report and hand off to BUG FIXES.",
-        "status": "QUEUED"
+        "status": "DISPATCHED_TO_CONVERSATION",
+        "staged_at": "2026-11-16T11:52:17.631126"
       },
       "db_backend": {
         "source": "planning",

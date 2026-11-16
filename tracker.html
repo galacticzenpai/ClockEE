@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ClockEE Mesh Cockpit & Live Pipeline Tracker</title>
+  <title>ClockEE Live Mesh Cockpit & Conversation Progress Inspector</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,26 +34,25 @@
     }
     .mono { font-family: 'JetBrains Mono', monospace; }
     .glass-panel {
-      background: rgba(13, 17, 26, 0.7);
+      background: rgba(13, 17, 26, 0.75);
       backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.08);
     }
     .glass-panel:hover {
-      border-color: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.14);
     }
     .neon-pulse-emerald {
-      box-shadow: 0 0 20px rgba(16, 185, 129, 0.25);
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
       animation: neonPulse 2s infinite ease-in-out;
     }
     .neon-pulse-amber {
-      box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+      box-shadow: 0 0 20px rgba(245, 158, 11, 0.35);
       animation: neonPulse 2s infinite ease-in-out;
     }
     @keyframes neonPulse {
       0%, 100% { opacity: 1; transform: scale(1); }
       50% { opacity: 0.85; transform: scale(1.01); }
     }
-    /* Custom Scrollbar */
     ::-webkit-scrollbar { width: 6px; height: 6px; }
     ::-webkit-scrollbar-track { background: #07090e; }
     ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
@@ -62,7 +61,7 @@
 </head>
 <body class="min-h-screen p-4 sm:p-6 lg:p-8 selection:bg-amber-500/30 selection:text-amber-200">
 
-  <!-- Top Cockpit Header -->
+  <!-- Header -->
   <header class="max-w-7xl mx-auto mb-8 flex flex-col md:flex-row md:items-center justify-between gap-5 border-b border-white/10 pb-6">
     <div>
       <div class="flex items-center gap-3">
@@ -72,13 +71,13 @@
         </div>
         <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white flex items-center gap-2">
           ClockEE Mesh Cockpit
-          <span class="text-xs px-2.5 py-0.5 rounded-full bg-cyan-950/80 text-cyan-400 border border-cyan-800/60 font-bold tracking-wider mono uppercase">Live 2.0</span>
+          <span class="text-xs px-2.5 py-0.5 rounded-full bg-cyan-950/80 text-cyan-400 border border-cyan-800/60 font-bold tracking-wider mono uppercase">Live Progress v2.5</span>
         </h1>
       </div>
-      <p class="text-xs sm:text-sm text-slate-400 mt-1">Autonomous Multi-Conversation Switchboard • Native IPC Auto-Dispatch • Zero Interaction Loop</p>
+      <p class="text-xs sm:text-sm text-slate-400 mt-1">Real-Time Conversation Step Monitor • Tool Call Inspector • Zero Interaction Autonomous Mesh</p>
     </div>
 
-    <!-- Live Sync & Interactive Query Controls -->
+    <!-- Live Sync Indicators & Controls -->
     <div class="flex flex-wrap items-center gap-3">
       <div class="glass-panel px-3.5 py-2 rounded-xl flex items-center gap-2.5 text-xs mono text-slate-300">
         <span class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -86,22 +85,20 @@
         <span id="header-sync-time" class="font-bold text-emerald-400">CONNECTING...</span>
       </div>
 
-      <!-- ASK WHAT IS HAPPENING BUTTON -->
       <button onclick="toggleSummaryDrawer()" class="px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-extrabold text-xs transition flex items-center gap-2 shadow-lg shadow-amber-500/20 active:scale-95">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
         <span>What Is Happening RN?</span>
       </button>
 
-      <button onclick="forceRefresh()" title="Refresh State" class="p-2 rounded-xl glass-panel hover:bg-white/10 text-slate-400 hover:text-white transition">
+      <button onclick="fetchState()" title="Refresh State" class="p-2 rounded-xl glass-panel hover:bg-white/10 text-slate-400 hover:text-white transition">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
       </button>
     </div>
   </header>
 
-  <!-- Main Container -->
   <main class="max-w-7xl mx-auto space-y-8">
 
-    <!-- Interactive Live Briefing Card (What is happening) -->
+    <!-- Mission Briefing Drawer (Toggleable) -->
     <section id="briefing-card" class="glass-panel rounded-2xl p-6 border-amber-500/40 bg-gradient-to-br from-[#0d111a] via-[#121826] to-[#1e1a38]/40 relative overflow-hidden transition-all duration-300">
       <div class="flex items-start justify-between gap-4 mb-4">
         <div class="flex items-center gap-3">
@@ -113,30 +110,88 @@
               Live Mission Briefing: Real-Time Mesh State
               <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 mono font-bold">100% ZERO-INTERACTION</span>
             </h2>
-            <p class="text-xs text-slate-400">Dynamic executive status computed across all 9 conversations and active backlog.</p>
+            <p class="text-xs text-slate-400">Continuous execution via event-driven transcript daemon and native IPC auto-dispatch.</p>
           </div>
         </div>
-        <span class="text-xs mono text-amber-400 font-bold bg-amber-950/60 px-3 py-1 rounded-lg border border-amber-500/30">Phase 2: Active</span>
+        <span class="text-xs mono text-amber-400 font-bold bg-amber-950/60 px-3 py-1 rounded-lg border border-amber-500/30">Phase 2 Active</span>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
         <div class="bg-black/40 p-4 rounded-xl border border-white/5 space-y-1">
-          <span class="text-[11px] mono font-bold uppercase tracking-wider text-cyan-400">🎯 Active Target & Handoff</span>
-          <p id="brief-active-target" class="text-sm font-semibold text-white">Main Feature & DB Integration</p>
-          <p id="brief-active-desc" class="text-xs text-slate-400">Wiring Supabase hybrid gateway, offline sync queue, and Graphify god-node architecture.</p>
+          <span class="text-[11px] mono font-bold uppercase tracking-wider text-cyan-400">🎯 Active Target & Wiring</span>
+          <p class="text-sm font-semibold text-white">Main Feature (<span id="main-feature-step" class="text-amber-400 mono">Step 9989</span>)</p>
+          <p class="text-xs text-slate-400">Actively executing tools to wire Supabase hybrid auth, offline sync queue, and Graphify AST nodes.</p>
         </div>
 
         <div class="bg-black/40 p-4 rounded-xl border border-white/5 space-y-1">
           <span class="text-[11px] mono font-bold uppercase tracking-wider text-amber-400">⏸️ Reel Lifecycle Gate</span>
-          <p id="brief-reel-gate" class="text-sm font-semibold text-white">GITHUB Waiting for Mesh Verification</p>
-          <p id="brief-reel-desc" class="text-xs text-slate-400">Reel #1 Graphify vendored. Reel #2 is locked on hold until Phase 3 quality gates certify 100/100.</p>
+          <p class="text-sm font-semibold text-white">GITHUB Waiting for Mesh Verification</p>
+          <p class="text-xs text-slate-400">Reel #1 Graphify vendored. Reel #2 is locked on hold until Phase 3 quality gates certify 100/100.</p>
         </div>
 
         <div class="bg-black/40 p-4 rounded-xl border border-white/5 space-y-1">
           <span class="text-[11px] mono font-bold uppercase tracking-wider text-emerald-400">🛡️ Simulation & Quality Loop</span>
-          <p id="brief-quality-status" class="text-sm font-semibold text-white">Score: 100.0/100 (Certified)</p>
-          <p id="brief-quality-desc" class="text-xs text-slate-400">SlopLinter: 0 floor failures across 23 pages. Strict loop: Simulation ➔ Bug Fixes ➔ Simulation re-audit.</p>
+          <p class="text-sm font-semibold text-white">Score: 100.0/100 (Certified)</p>
+          <p class="text-xs text-slate-400">SlopLinter: 0 floor failures across 23 pages. Strict loop: Simulation ➔ Bug Fixes ➔ Simulation re-audit.</p>
         </div>
+      </div>
+    </section>
+
+    <!-- LIVE CONVERSATION EXECUTION CONSOLE (New Feature) -->
+    <section class="glass-panel rounded-2xl p-6 border-cyan-500/30 bg-gradient-to-br from-[#090d16] to-[#0f172a]">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4 pb-4 border-b border-white/10">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="h-2.5 w-2.5 rounded-full bg-cyan-400 animate-ping"></span>
+            <span class="text-xs font-extrabold uppercase tracking-wider text-cyan-400 mono">LIVE CONVERSATION PROGRESS INSPECTOR</span>
+          </div>
+          <h3 id="inspector-title" class="text-lg font-bold text-white mt-1">Inspecting: Untitled conversation (Main Feature)</h3>
+          <p id="inspector-subtitle" class="text-xs text-slate-400 mono mt-0.5">Real-time execution steps, tool invocations & model outputs</p>
+        </div>
+
+        <!-- Conversation Selector Dropdown -->
+        <div class="flex items-center gap-3">
+          <label class="text-xs mono text-slate-400">Select Conversation:</label>
+          <select id="convo-selector" onchange="onSelectConversation()" class="bg-slate-900 border border-white/15 text-xs text-white rounded-xl px-3 py-1.5 mono focus:outline-none focus:border-cyan-500">
+            <!-- Populated dynamically -->
+          </select>
+        </div>
+      </div>
+
+      <!-- Live Tool Call Banner -->
+      <div id="inspector-tool-banner" class="mb-4 p-3.5 rounded-xl bg-black/50 border border-cyan-500/30 flex items-center justify-between gap-3 text-xs mono">
+        <div class="flex items-center gap-2.5 overflow-hidden">
+          <span class="h-2 w-2 rounded-full bg-cyan-400"></span>
+          <span class="text-slate-400">LAST ACTION:</span>
+          <span id="inspector-last-action" class="font-bold text-white truncate">Initializing live stream...</span>
+        </div>
+        <span id="inspector-status-badge" class="px-2.5 py-0.5 rounded text-[10px] font-extrabold bg-cyan-500/20 text-cyan-300 shrink-0">ACTIVE</span>
+      </div>
+
+      <!-- Live Step Timeline Stream -->
+      <div class="space-y-2">
+        <span class="text-[11px] mono font-bold text-slate-400 uppercase tracking-wider block">Recent Step Execution Stream (Auto-Refreshing)</span>
+        <div id="inspector-steps-stream" class="space-y-2 max-h-64 overflow-y-auto pr-1">
+          <!-- Step cards rendered dynamically -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 9 Dedicated Conversation Nodes Grid with Embedded Live Action Chips -->
+    <section>
+      <div class="flex items-center justify-between mb-4">
+        <div>
+          <h3 class="text-lg font-bold text-white">Mesh Network Directory (Live Progress Chips)</h3>
+          <p class="text-xs text-slate-400">Click any card to inspect its real-time terminal feed above.</p>
+        </div>
+        <div class="text-xs mono text-emerald-400 flex items-center gap-1.5">
+          <span class="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+          <span>Event Daemon Active</span>
+        </div>
+      </div>
+
+      <div id="conversations-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <!-- Dynamically rendered -->
       </div>
     </section>
 
@@ -155,49 +210,36 @@
 
       <!-- 7-Stage Pipeline Visualizer -->
       <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2.5">
-        <!-- Stage 1 -->
         <div class="p-3 rounded-xl border border-emerald-500/30 bg-emerald-950/20 text-center">
           <span class="text-[10px] mono font-bold text-emerald-400 block mb-1">01. INGESTION</span>
           <span class="text-xs font-bold text-white block">GITHUB</span>
           <span class="text-[9px] mono px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold mt-1 inline-block">PASSED</span>
         </div>
-
-        <!-- Stage 2 -->
         <div class="p-3 rounded-xl border border-emerald-500/30 bg-emerald-950/20 text-center">
           <span class="text-[10px] mono font-bold text-emerald-400 block mb-1">02. DATA SCHEMA</span>
           <span class="text-xs font-bold text-white block">DB / BACKEND</span>
           <span class="text-[9px] mono px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold mt-1 inline-block">VERIFIED</span>
         </div>
-
-        <!-- Stage 3 (ACTIVE) -->
         <div class="p-3 rounded-xl border border-amber-500/50 bg-amber-950/30 text-center neon-pulse-amber">
           <span class="text-[10px] mono font-bold text-amber-400 block mb-1">03. CORE WIRING</span>
           <span class="text-xs font-bold text-white block">Main Feature</span>
           <span class="text-[9px] mono px-1.5 py-0.5 rounded bg-amber-500/30 text-amber-200 font-bold mt-1 inline-block">ACTIVE RN</span>
         </div>
-
-        <!-- Stage 4 -->
         <div class="p-3 rounded-xl border border-white/5 bg-white/[0.02] opacity-60 text-center">
           <span class="text-[10px] mono font-bold text-slate-400 block mb-1">04. STYLING</span>
           <span class="text-xs font-bold text-white block">UI / UX</span>
           <span class="text-[9px] mono px-1.5 py-0.5 rounded bg-white/10 text-slate-400 font-bold mt-1 inline-block">QUEUED</span>
         </div>
-
-        <!-- Stage 5 -->
         <div class="p-3 rounded-xl border border-white/5 bg-white/[0.02] opacity-60 text-center">
           <span class="text-[10px] mono font-bold text-slate-400 block mb-1">05. SIMULATION #1</span>
           <span class="text-xs font-bold text-white block">SIMULATION</span>
           <span class="text-[9px] mono px-1.5 py-0.5 rounded bg-white/10 text-slate-400 font-bold mt-1 inline-block">QUEUED</span>
         </div>
-
-        <!-- Stage 6 -->
         <div class="p-3 rounded-xl border border-white/5 bg-white/[0.02] opacity-60 text-center">
           <span class="text-[10px] mono font-bold text-slate-400 block mb-1">06. SURGICAL FIX</span>
           <span class="text-xs font-bold text-white block">BUG FIXES</span>
           <span class="text-[9px] mono px-1.5 py-0.5 rounded bg-white/10 text-slate-400 font-bold mt-1 inline-block">IF NEEDED</span>
         </div>
-
-        <!-- Stage 7 -->
         <div class="p-3 rounded-xl border border-white/5 bg-white/[0.02] opacity-60 text-center">
           <span class="text-[10px] mono font-bold text-slate-400 block mb-1">07. CERTIFICATION</span>
           <span class="text-xs font-bold text-white block">SIMULATION #2</span>
@@ -216,10 +258,6 @@
           </h3>
           <p class="text-xs text-slate-400">Live audit of prompts dispatched across dedicated conversation sessions.</p>
         </div>
-        <span class="text-xs mono text-emerald-400 flex items-center gap-1.5">
-          <span class="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping"></span>
-          Event Watcher Active
-        </span>
       </div>
 
       <div class="overflow-x-auto">
@@ -240,46 +278,12 @@
       </div>
     </section>
 
-    <!-- 9 Dedicated Conversation Nodes Grid -->
-    <section>
-      <div class="flex items-center justify-between mb-4">
-        <div>
-          <h3 class="text-lg font-bold text-white">Mesh Network Directory (9 Dedicated Conversations)</h3>
-          <p class="text-xs text-slate-400">Strictly dedicated Antigravity tabs • Zero subagents allowed.</p>
-        </div>
-      </div>
-
-      <div id="conversations-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        <!-- Dynamically populated -->
-      </div>
-    </section>
-
-    <!-- Staged Prompt Mailbox Card -->
-    <section class="glass-panel rounded-2xl p-6 border-cyan-500/30 bg-gradient-to-br from-[#07090e] to-[#0f172a]">
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
-        <div>
-          <div class="flex items-center gap-2">
-            <span class="px-2.5 py-0.5 rounded bg-cyan-500/20 text-cyan-300 font-bold text-xs mono">MAILBOX STAGED PROMPT</span>
-            <span id="staged-badge" class="px-2.5 py-0.5 rounded bg-amber-500/20 text-amber-300 font-bold text-xs mono">ACTIVE</span>
-          </div>
-          <h4 class="text-base font-bold text-white mt-1">Payload Staged in <code class="text-xs text-slate-300 mono">.pipeline/staged_prompt.txt</code></h4>
-        </div>
-        <div class="flex items-center gap-2">
-          <button onclick="copyStagedPrompt()" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/15 text-white font-bold text-xs transition flex items-center gap-1.5 border border-white/10">
-            <span id="copy-btn-text">Copy Payload</span>
-          </button>
-          <a id="staged-convo-btn" href="#" target="_blank" class="px-4 py-2 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs transition flex items-center gap-1.5 shadow-lg shadow-cyan-500/20">
-            <span>Open Target Tab ↗</span>
-          </a>
-        </div>
-      </div>
-      <pre id="staged-prompt-display" class="mono text-xs text-slate-300 bg-black/60 p-4 rounded-xl border border-white/5 overflow-x-auto max-h-48 leading-relaxed">Loading staged prompt...</pre>
-    </section>
-
   </main>
 
   <!-- Interactive JavaScript Controller -->
   <script>
+    let globalData = null;
+    let selectedConvoKey = "untitled_conversation";
     let isBriefingOpen = true;
 
     function toggleSummaryDrawer() {
@@ -292,14 +296,28 @@
       }
     }
 
+    function onSelectConversation() {
+      const select = document.getElementById('convo-selector');
+      selectedConvoKey = select.value;
+      renderInspector();
+    }
+
+    function selectConvo(key) {
+      selectedConvoKey = key;
+      const select = document.getElementById('convo-selector');
+      if (select) select.value = key;
+      renderInspector();
+      window.scrollTo({ top: 120, behavior: 'smooth' });
+    }
+
     async function fetchState() {
       try {
         const res = await fetch('.pipeline/tracker_state.json?t=' + Date.now());
         if (!res.ok) return;
-        const data = await res.json();
-        renderCockpit(data);
+        globalData = await res.json();
+        renderCockpit(globalData);
       } catch (err) {
-        console.warn('Tracker auto-sync:', err);
+        console.warn('Tracker auto-sync error:', err);
       }
     }
 
@@ -311,22 +329,21 @@
         document.getElementById('header-sync-time').innerText = data.last_sync;
       }
 
-      // Reel Info
+      // Populate Dropdown if empty
+      const select = document.getElementById('convo-selector');
+      if (select.children.length === 0 && data.conversations) {
+        select.innerHTML = data.conversations.map(c => `
+          <option value="${c.key}" ${c.key === selectedConvoKey ? 'selected' : ''}>${c.name}</option>
+        `).join('');
+      }
+
+      // Reel Header
       if (data.active_reel) {
         document.getElementById('reel-header-title').innerText = data.active_reel.title || 'Reel Pipeline Active';
         document.getElementById('reel-header-url').innerHTML = `<a href="${data.active_reel.url}" target="_blank" class="text-cyan-400 hover:underline">${data.active_reel.url}</a> (${data.active_reel.upstream || 'Local'})`;
       }
 
-      // Staged Prompt
-      if (data.staged_prompt) {
-        document.getElementById('staged-prompt-display').innerText = data.staged_prompt.payload || 'No prompt staged.';
-        document.getElementById('staged-badge').innerText = 'FOR: ' + (data.staged_prompt.target_name || 'Target');
-        if (data.staged_prompt.url) {
-          document.getElementById('staged-convo-btn').href = data.staged_prompt.url;
-        }
-      }
-
-      // Transmissions
+      // Transmissions Feed
       const txs = data.transmissions || [];
       const tbody = document.getElementById('transmissions-tbody');
       tbody.innerHTML = txs.map(t => `
@@ -339,40 +356,89 @@
         </tr>
       `).join('');
 
-      // Conversations Directory
+      // Conversation Cards with Live Action Sub-Chips
       const convos = data.conversations || [];
       const grid = document.getElementById('conversations-grid');
-      grid.innerHTML = convos.map(c => `
-        <div class="glass-panel p-4 rounded-xl border ${c.is_active ? 'border-amber-500/40 bg-amber-950/10' : 'border-white/5'}">
-          <div class="flex items-center justify-between mb-2">
-            <span class="text-xs font-bold text-white">${c.name}</span>
-            <span class="text-[10px] mono px-2 py-0.5 rounded ${c.status === 'ACTIVE' ? 'bg-amber-500/20 text-amber-300 font-bold' : (c.status === 'COMPLETED' ? 'bg-emerald-500/20 text-emerald-300' : 'bg-slate-800 text-slate-400')} font-semibold">${c.status}</span>
+      grid.innerHTML = convos.map(c => {
+        const prog = c.live_progress || {};
+        const isRunning = prog.is_running;
+        const lastAction = prog.last_action || 'Standby';
+        
+        if (c.key === 'untitled_conversation') {
+          const stepEl = document.getElementById('main-feature-step');
+          if (stepEl) stepEl.innerText = 'Step ' + (c.step || prog.step);
+        }
+
+        return `
+          <div onclick="selectConvo('${c.key}')" class="glass-panel p-4 rounded-xl border ${c.key === selectedConvoKey ? 'border-cyan-500/70 bg-cyan-950/20' : (c.is_active ? 'border-amber-500/40 bg-amber-950/10' : 'border-white/5')} cursor-pointer transition hover:scale-[1.01]">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-bold text-white flex items-center gap-1.5">
+                <span class="h-2 w-2 rounded-full ${isRunning ? 'bg-emerald-400 animate-ping' : (c.is_active ? 'bg-amber-400' : 'bg-slate-500')}"></span>
+                ${c.name}
+              </span>
+              <span class="text-[10px] mono px-2 py-0.5 rounded ${isRunning ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30' : (c.status === 'ACTIVE' ? 'bg-amber-500/20 text-amber-300 font-bold' : 'bg-slate-800 text-slate-400')} font-semibold">
+                ${isRunning ? 'RUNNING' : c.status}
+              </span>
+            </div>
+
+            <!-- Live Action Sub-Chip -->
+            <div class="mt-2 mb-2 p-2 rounded-lg bg-black/40 border border-white/5 text-[11px] mono">
+              <span class="text-slate-400 block text-[9px] uppercase tracking-wider font-bold">Latest Action:</span>
+              <span class="text-slate-200 block truncate font-medium">${lastAction}</span>
+            </div>
+
+            <div class="pt-2 border-t border-white/5 flex items-center justify-between text-[11px] mono text-slate-400">
+              <span>Step: <strong class="text-white">${c.step || prog.step}</strong></span>
+              <span class="text-cyan-400 hover:text-cyan-300 font-semibold flex items-center gap-1">Inspect Live ↗</span>
+            </div>
           </div>
-          <p class="text-xs text-slate-400 min-h-[32px]">${c.role}</p>
-          <div class="mt-3 pt-2.5 border-t border-white/5 flex items-center justify-between text-[11px] mono">
-            <span class="text-slate-500">Step: ${c.step || 'Idle'}</span>
-            <a href="${c.url}" target="_blank" class="text-cyan-400 hover:text-cyan-300 transition font-semibold flex items-center gap-1">Open Tab ↗</a>
+        `;
+      }).join('');
+
+      renderInspector();
+    }
+
+    function renderInspector() {
+      if (!globalData || !globalData.conversations) return;
+      const target = globalData.conversations.find(c => c.key === selectedConvoKey) || globalData.conversations[0];
+      if (!target) return;
+
+      const prog = target.live_progress || {};
+      document.getElementById('inspector-title').innerText = 'Inspecting: ' + target.name;
+      document.getElementById('inspector-subtitle').innerText = 'Conversation ID: ' + target.url.split('p=c%2F')[1];
+      document.getElementById('inspector-last-action').innerText = prog.last_action || 'Standby';
+
+      const badge = document.getElementById('inspector-status-badge');
+      if (prog.is_running) {
+        badge.className = 'px-2.5 py-0.5 rounded text-[10px] font-extrabold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30';
+        badge.innerText = 'EXECUTING (TOOL)';
+      } else {
+        badge.className = 'px-2.5 py-0.5 rounded text-[10px] font-extrabold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30';
+        badge.innerText = target.status || 'ACTIVE';
+      }
+
+      // Render Step Cards
+      const streamEl = document.getElementById('inspector-steps-stream');
+      const steps = prog.recent_steps || [];
+      if (steps.length === 0) {
+        streamEl.innerHTML = `<div class="p-3 rounded-lg bg-black/40 border border-white/5 text-xs text-slate-400 mono">No active steps logged in recent history.</div>`;
+      } else {
+        streamEl.innerHTML = steps.map(s => `
+          <div class="p-3 rounded-xl bg-black/60 border border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs mono">
+            <div class="flex items-center gap-2.5 overflow-hidden">
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-bold shrink-0">Step ${s.step}</span>
+              <span class="text-slate-400 text-[11px] shrink-0 font-semibold uppercase">${s.type}</span>
+              ${s.tool ? `<span class="text-cyan-400 font-bold truncate">${s.tool}</span>` : `<span class="text-slate-300 truncate">${s.preview || 'Executed'}</span>`}
+            </div>
+            <span class="text-[10px] text-slate-500 shrink-0 self-end sm:self-auto">Verified</span>
           </div>
-        </div>
-      `).join('');
+        `).join('');
+      }
     }
 
-    function copyStagedPrompt() {
-      const text = document.getElementById('staged-prompt-display').innerText;
-      navigator.clipboard.writeText(text).then(() => {
-        const btn = document.getElementById('copy-btn-text');
-        btn.innerText = 'Copied!';
-        setTimeout(() => { btn.innerText = 'Copy Payload'; }, 2000);
-      });
-    }
-
-    function forceRefresh() {
-      fetchState();
-    }
-
-    // Auto-polling every 2.5 seconds
+    // Auto-sync polling every 2 seconds
     fetchState();
-    setInterval(fetchState, 2500);
+    setInterval(fetchState, 2000);
   </script>
 </body>
 </html>

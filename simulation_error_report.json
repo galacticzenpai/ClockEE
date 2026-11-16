@@ -1,34 +1,55 @@
 {
-  "simulationId": "sim_py_1794768574396",
+  "simulationId": "sim_py_1794804962329",
   "title": "Autonomous Full Mock Simulation",
-  "timestamp": "2026-11-16T00:19:34.398268",
+  "timestamp": "2026-11-16T10:26:02.329694",
   "metrics": {
-    "score": 15,
+    "score": 6,
     "maxScore": 20,
-    "accuracy": 80.0,
-    "attempted": 5,
+    "accuracy": 50.0,
+    "attempted": 4,
     "totalQs": 5,
-    "avgLatencySec": 80,
-    "timeTakenMin": 7
+    "avgLatencySec": 95,
+    "timeTakenMin": 6
   },
-  "errorCount": 1,
+  "errorCount": 2,
   "mistakes": [
     {
-      "id": "mistake_sim_py_1794768574396_1",
-      "testId": "sim_py_1794768574396",
+      "id": "mistake_sim_py_1794804962329_2",
+      "testId": "sim_py_1794804962329",
       "testTitle": "Autonomous Full Mock Simulation",
-      "qNum": 1,
-      "subject": "Physics",
-      "chapter": "Mechanical Properties of Solids",
+      "qNum": 2,
+      "subject": "Chemistry",
+      "chapter": "Atomic Structure",
       "topic": "JEE Main",
-      "questionText": "A metal block of mass m is suspended from a rigid support through \na metal wire of diameter 14 mm. The tensile stress developed in the \nwire under equilibrium state is 7 \u00d7 105 Nm\u20132. The value of mass m \nis __________ kg.\n \n (Take, g = 9.8 ms\u20132 and \n22\n7\n\u03c0 =\n)\n[6 April, 2023 (Shift-II)]",
-      "markedOption": "10.0",
-      "correctOption": "11.0",
+      "questionText": "Given below are two statements:\n \n Statement-I: Rutherford\u2019s gold foil experiment cannot explain the \nline spectrum of hydrogen atom.\n \n Statement-II: Bohr\u2019s model of hydrogen atom contradicts \nHeisenberg\u2019s uncertainty principle.\n \n In the light of the above statements, choose the most appropriate \nanswer from the options given below: [27 July, 2021 (Shift-I)]",
+      "markedOption": "Option (D)",
+      "correctOption": "Option (C)",
+      "errorCategory": "Concept Gap",
+      "reason": "Concept Gap",
+      "reasonDetail": "Spent 102s struggling with formula derivation. Theory revision required.",
+      "idealTimeSec": 75,
+      "timeSpentSec": 102,
+      "date": "2026-11-16",
+      "important": true,
+      "bookmarked": true,
+      "status": "unresolved"
+    },
+    {
+      "id": "mistake_sim_py_1794804962329_3",
+      "testId": "sim_py_1794804962329",
+      "testTitle": "Autonomous Full Mock Simulation",
+      "qNum": 3,
+      "subject": "Maths",
+      "chapter": "Binomial Theorem",
+      "topic": "JEE Main",
+      "questionText": "If ar is the coefficient of x10 \u2013 r in the Binomial expansion of (1 + x)10, \nthen \n2\n10\n3\n1\n1\nr\nr\nr\na\nr\na\n=\n\u2212\n\uf8eb\n\uf8f6\n\u2211\n\uf8ec\n\uf8f7\n\uf8ed\n\uf8f8\n is equal to\n\n[25 Jan, 2023 (Shift-I)]",
+      "markedOption": "Option (C)",
+      "correctOption": "Option (B)",
       "errorCategory": "Calculation Mistake",
       "reason": "Calculation Mistake",
-      "reasonDetail": "Calculated value 10.0 deviates from ground truth 11.0.",
+      "reasonDetail": "Selected Option (C) instead of (B).",
       "idealTimeSec": 75,
-      "timeSpentSec": 73,
+      "timeSpentSec": 84,
       "date": "2026-11-16",
       "important": true,
       "bookmarked": true,
@@ -37,25 +58,25 @@
   ],
   "subjectBreakdown": {
     "Physics": {
+      "attempted": 0,
+      "correct": 0,
+      "wrong": 0,
+      "score": 0,
+      "time_sec": 32
+    },
+    "Chemistry": {
       "attempted": 1,
       "correct": 0,
       "wrong": 1,
       "score": -1,
-      "time_sec": 73
-    },
-    "Chemistry": {
-      "attempted": 1,
-      "correct": 1,
-      "wrong": 0,
-      "score": 4,
-      "time_sec": 72
+      "time_sec": 102
     },
     "Maths": {
       "attempted": 3,
-      "correct": 3,
-      "wrong": 0,
-      "score": 12,
-      "time_sec": 255
+      "correct": 2,
+      "wrong": 1,
+      "score": 7,
+      "time_sec": 245
     }
   }
 }

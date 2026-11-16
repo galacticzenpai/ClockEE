@@ -1,0 +1,563 @@
+/* ==========================================================================
+   ClockEE - Apple HIG + Mathongo (Marks App) Design System
+   Sleek, distraction-free, academic precision with Apple Human Interface standards
+   ========================================================================== */
+
+:root {
+  /* Surface Materials */
+  --apple-bg-base: #000000;
+  --apple-bg-surface: #0a0c10;
+  --apple-bg-elevated: #12151c;
+  --apple-bg-card: rgba(18, 21, 28, 0.78);
+  --apple-bg-card-hover: rgba(26, 30, 40, 0.88);
+  
+  /* Hairline Retina Dividers */
+  --apple-hairline: rgba(255, 255, 255, 0.08);
+  --apple-hairline-bright: rgba(255, 255, 255, 0.16);
+  --apple-hairline-focus: rgba(10, 132, 255, 0.65);
+  
+  /* Apple HIG System Accents */
+  --apple-blue: #0a84ff;
+  --apple-blue-dark: #0071e3;
+  --apple-blue-light: rgba(10, 132, 255, 0.14);
+  --apple-green: #30d158;
+  --apple-green-light: rgba(48, 209, 88, 0.14);
+  --apple-amber: #ff9f0a;
+  --apple-amber-light: rgba(255, 159, 10, 0.14);
+  --apple-red: #ff453a;
+  --apple-red-light: rgba(255, 69, 58, 0.14);
+  --apple-purple: #bf5af2;
+  
+  /* High-APCA Accessible Typography */
+  --apple-text-primary: #ffffff;
+  --apple-text-secondary: rgba(235, 235, 245, 0.68);
+  --apple-text-muted: rgba(235, 235, 245, 0.42);
+  
+  /* Font Stacks */
+  --apple-font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "SF Pro", "Helvetica Neue", sans-serif;
+  --apple-font-mono: "SF Mono", "JetBrains Mono", Menlo, Monaco, Consolas, monospace;
+  
+  /* Physics & Motion */
+  --apple-blur: blur(25px) saturate(190%);
+  --apple-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --apple-ease: cubic-bezier(0.25, 1, 0.5, 1);
+  
+  /* Squircles */
+  --apple-radius-sm: 8px;
+  --apple-radius-md: 12px;
+  --apple-radius-lg: 16px;
+  --apple-radius-xl: 20px;
+  --apple-radius-pill: 9999px;
+}
+
+/* Global Reset & Base */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  background-color: var(--apple-bg-base);
+  color: var(--apple-text-primary);
+  font-family: var(--apple-font-sans);
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+}
+
+/* Apple Safe Area Insets */
+@supports (padding: max(0px)) {
+  body {
+    padding-top: max(0px, env(safe-area-inset-top));
+    padding-bottom: max(0px, env(safe-area-inset-bottom));
+    padding-left: max(0px, env(safe-area-inset-left));
+    padding-right: max(0px, env(safe-area-inset-right));
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   1. Floating Translucent Navigation Shell (.demo-top-pill)
+   ────────────────────────────────────────────────────────────────────────── */
+.demo-header-wrapper {
+  position: sticky;
+  top: 12px;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  padding: 0 16px;
+  width: 100%;
+}
+
+.demo-top-pill {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  max-width: 980px;
+  background: rgba(18, 21, 28, 0.82);
+  border: 1px solid var(--apple-hairline-bright);
+  border-radius: var(--apple-radius-pill);
+  padding: 6px 14px;
+  backdrop-filter: var(--apple-blur);
+  -webkit-backdrop-filter: var(--apple-blur);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.2s var(--apple-spring);
+}
+
+.demo-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--apple-text-primary);
+}
+
+.demo-brand-logo {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--apple-radius-sm);
+  background: var(--apple-blue-light);
+  border: 1px solid rgba(10, 132, 255, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--apple-blue);
+  font-weight: 800;
+  font-size: 13px;
+}
+
+.demo-brand-name {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.demo-brand-badge {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: var(--apple-radius-pill);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--apple-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Header Telemetry Timer & Tools */
+.demo-header-telemetry {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.demo-live-stopwatch {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--apple-font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--apple-text-primary);
+  background: rgba(255, 255, 255, 0.06);
+  padding: 4px 10px;
+  border-radius: var(--apple-radius-pill);
+  border: 1px solid var(--apple-hairline);
+}
+
+.demo-live-stopwatch .dot-pulse {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--apple-green);
+  box-shadow: 0 0 6px var(--apple-green);
+  animation: pulseDot 2s infinite ease-in-out;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   2. Main Layout Container (.demo-app-container)
+   ────────────────────────────────────────────────────────────────────────── */
+.demo-app-container {
+  width: 100%;
+  max-width: 980px;
+  margin: 20px auto 100px auto;
+  padding: 0 16px;
+}
+
+/* Mathongo Pacing Benchmark Banner */
+.demo-pacing-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  background: rgba(18, 21, 28, 0.65);
+  border: 1px solid var(--apple-hairline);
+  border-radius: var(--apple-radius-lg);
+  padding: 10px 16px;
+  margin-bottom: 16px;
+  backdrop-filter: var(--apple-blur);
+  -webkit-backdrop-filter: var(--apple-blur);
+}
+
+.demo-pacing-stat {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--apple-text-secondary);
+}
+
+.demo-pacing-stat strong {
+  font-family: var(--apple-font-mono);
+  font-variant-numeric: tabular-nums;
+  color: var(--apple-text-primary);
+  font-weight: 700;
+}
+
+.demo-pacing-gauge-track {
+  flex: 1;
+  max-width: 220px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--apple-radius-pill);
+  overflow: hidden;
+  position: relative;
+}
+
+.demo-pacing-gauge-fill {
+  height: 100%;
+  width: 50%;
+  background: var(--apple-green);
+  border-radius: var(--apple-radius-pill);
+  transition: width 0.3s var(--apple-spring);
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   3. Question Statement Canvas (#demo-question-canvas, #demo-question-body)
+   ────────────────────────────────────────────────────────────────────────── */
+.demo-question-canvas {
+  background: var(--apple-bg-card);
+  border: 1px solid var(--apple-hairline);
+  border-radius: var(--apple-radius-xl);
+  padding: 26px 30px;
+  margin-bottom: 20px;
+  backdrop-filter: var(--apple-blur);
+  -webkit-backdrop-filter: var(--apple-blur);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+}
+
+.demo-question-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--apple-hairline);
+  margin-bottom: 20px;
+}
+
+.demo-q-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.demo-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: var(--apple-radius-pill);
+  font-size: 11px;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--apple-hairline);
+  color: var(--apple-text-secondary);
+}
+
+.demo-pill-badge.subject-pill {
+  background: var(--apple-blue-light);
+  color: var(--apple-blue);
+  border-color: rgba(10, 132, 255, 0.25);
+}
+
+.demo-q-marking {
+  font-family: var(--apple-font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--apple-green);
+  background: rgba(48, 209, 88, 0.1);
+  padding: 3px 8px;
+  border-radius: var(--apple-radius-sm);
+  border: 1px solid rgba(48, 209, 88, 0.25);
+}
+
+/* Question Statement Text */
+#demo-question-body {
+  font-size: 16px;
+  line-height: 1.68;
+  color: var(--apple-text-primary);
+  margin-bottom: 24px;
+  letter-spacing: -0.012em;
+}
+
+#demo-question-body p {
+  margin-bottom: 12px;
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   4. Tactile MCQ Option Cards (#demo-options-container)
+   ────────────────────────────────────────────────────────────────────────── */
+#demo-options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+#demo-options-container button {
+  min-height: 48px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition: all 0.16s var(--apple-spring);
+}
+
+#demo-options-container button:active {
+  transform: scale(0.985);
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   5. Mathongo Mistake Taxonomy Audit Bar (#demo-mistake-taxonomy)
+   ────────────────────────────────────────────────────────────────────────── */
+#demo-mistake-taxonomy {
+  padding-top: 16px;
+  border-top: 1px solid var(--apple-hairline);
+  margin-top: 20px;
+}
+
+#demo-mistake-taxonomy button {
+  touch-action: manipulation;
+  transition: all 0.15s var(--apple-spring);
+}
+
+#demo-mistake-taxonomy button:active {
+  transform: scale(0.98);
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   6. Palette Grid & Question Jumpers (#demo-palette-grid)
+   ────────────────────────────────────────────────────────────────────────── */
+.demo-palette-card {
+  background: var(--apple-bg-card);
+  border: 1px solid var(--apple-hairline);
+  border-radius: var(--apple-radius-lg);
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  backdrop-filter: var(--apple-blur);
+  -webkit-backdrop-filter: var(--apple-blur);
+}
+
+.demo-palette-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--apple-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+#demo-palette-grid {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+#demo-palette-grid button {
+  touch-action: manipulation;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.15s var(--apple-spring);
+}
+
+#demo-palette-grid button:active {
+  transform: scale(0.96);
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   7. Bottom Control Dock (.demo-bottom-dock)
+   ────────────────────────────────────────────────────────────────────────── */
+.demo-bottom-dock-wrapper {
+  position: fixed;
+  bottom: 16px;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  padding: 0 16px;
+  pointer-events: none;
+}
+
+.demo-bottom-dock {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  max-width: 980px;
+  background: rgba(18, 21, 28, 0.88);
+  border: 1px solid var(--apple-hairline-bright);
+  border-radius: var(--apple-radius-pill);
+  padding: 8px 16px;
+  backdrop-filter: var(--apple-blur);
+  -webkit-backdrop-filter: var(--apple-blur);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.demo-dock-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Apple HIG Control Buttons */
+.demo-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 8px 18px;
+  border-radius: var(--apple-radius-pill);
+  font-family: var(--apple-font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.16s var(--apple-spring);
+  text-decoration: none;
+  user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+}
+
+.demo-btn:active:not(:disabled) {
+  transform: scale(0.985);
+}
+
+.demo-btn-primary {
+  background: var(--apple-blue);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 2px 8px rgba(10, 132, 255, 0.35);
+}
+
+.demo-btn-primary:hover:not(:disabled) {
+  background: var(--apple-blue-dark);
+  box-shadow: 0 4px 14px rgba(10, 132, 255, 0.5);
+}
+
+.demo-btn-secondary {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--apple-hairline);
+  color: var(--apple-text-primary);
+}
+
+.demo-btn-secondary:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--apple-hairline-bright);
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   8. Legacy Split View Frame (#demo-legacy-split-frame)
+   ────────────────────────────────────────────────────────────────────────── */
+#demo-legacy-split-frame {
+  margin-top: 24px;
+  background: #0a0c10;
+  border: 1px solid var(--apple-hairline-bright);
+  border-radius: var(--apple-radius-xl);
+  overflow: hidden;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.7);
+}
+
+.demo-split-header {
+  padding: 12px 18px;
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid var(--apple-hairline);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--apple-text-primary);
+}
+
+.demo-split-iframe {
+  width: 100%;
+  height: 520px;
+  border: none;
+  background: #000000;
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   9. Apple 7-Tier Responsive Breakpoints
+   ────────────────────────────────────────────────────────────────────────── */
+@media screen and (max-width: 480px) {
+  .demo-top-pill {
+    padding: 6px 10px;
+  }
+  .demo-brand-name {
+    display: none;
+  }
+  .demo-question-canvas {
+    padding: 18px 16px;
+    border-radius: var(--apple-radius-lg);
+  }
+  #demo-question-body {
+    font-size: 15px;
+  }
+  .demo-pacing-gauge-track {
+    display: none;
+  }
+  .demo-bottom-dock {
+    padding: 6px 12px;
+  }
+  .demo-btn {
+    min-height: 44px;
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 820px) {
+  .demo-question-canvas {
+    padding: 22px 24px;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .demo-app-container {
+    max-width: 1040px;
+  }
+  .demo-top-pill,
+  .demo-bottom-dock {
+    max-width: 1040px;
+  }
+}

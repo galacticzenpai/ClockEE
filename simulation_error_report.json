@@ -1,82 +1,39 @@
 {
-  "simulationId": "sim_py_1794804962329",
+  "simulationId": "sim_py_1794806553004",
   "title": "Autonomous Full Mock Simulation",
-  "timestamp": "2026-11-16T10:26:02.329694",
+  "timestamp": "2026-11-16T10:52:33.006108",
   "metrics": {
-    "score": 6,
+    "score": 16,
     "maxScore": 20,
-    "accuracy": 50.0,
+    "accuracy": 100.0,
     "attempted": 4,
     "totalQs": 5,
-    "avgLatencySec": 95,
+    "avgLatencySec": 85,
     "timeTakenMin": 6
   },
-  "errorCount": 2,
-  "mistakes": [
-    {
-      "id": "mistake_sim_py_1794804962329_2",
-      "testId": "sim_py_1794804962329",
-      "testTitle": "Autonomous Full Mock Simulation",
-      "qNum": 2,
-      "subject": "Chemistry",
-      "chapter": "Atomic Structure",
-      "topic": "JEE Main",
-      "questionText": "Given below are two statements:\n \n Statement-I: Rutherford\u2019s gold foil experiment cannot explain the \nline spectrum of hydrogen atom.\n \n Statement-II: Bohr\u2019s model of hydrogen atom contradicts \nHeisenberg\u2019s uncertainty principle.\n \n In the light of the above statements, choose the most appropriate \nanswer from the options given below: [27 July, 2021 (Shift-I)]",
-      "markedOption": "Option (D)",
-      "correctOption": "Option (C)",
-      "errorCategory": "Concept Gap",
-      "reason": "Concept Gap",
-      "reasonDetail": "Spent 102s struggling with formula derivation. Theory revision required.",
-      "idealTimeSec": 75,
-      "timeSpentSec": 102,
-      "date": "2026-11-16",
-      "important": true,
-      "bookmarked": true,
-      "status": "unresolved"
-    },
-    {
-      "id": "mistake_sim_py_1794804962329_3",
-      "testId": "sim_py_1794804962329",
-      "testTitle": "Autonomous Full Mock Simulation",
-      "qNum": 3,
-      "subject": "Maths",
-      "chapter": "Binomial Theorem",
-      "topic": "JEE Main",
-      "questionText": "If ar is the coefficient of x10 \u2013 r in the Binomial expansion of (1 + x)10, \nthen \n2\n10\n3\n1\n1\nr\nr\nr\na\nr\na\n=\n\u2212\n\uf8eb\n\uf8f6\n\u2211\n\uf8ec\n\uf8f7\n\uf8ed\n\uf8f8\n is equal to\n\n[25 Jan, 2023 (Shift-I)]",
-      "markedOption": "Option (C)",
-      "correctOption": "Option (B)",
-      "errorCategory": "Calculation Mistake",
-      "reason": "Calculation Mistake",
-      "reasonDetail": "Selected Option (C) instead of (B).",
-      "idealTimeSec": 75,
-      "timeSpentSec": 84,
-      "date": "2026-11-16",
-      "important": true,
-      "bookmarked": true,
-      "status": "unresolved"
-    }
-  ],
+  "errorCount": 0,
+  "mistakes": [],
   "subjectBreakdown": {
     "Physics": {
-      "attempted": 0,
-      "correct": 0,
+      "attempted": 1,
+      "correct": 1,
       "wrong": 0,
-      "score": 0,
-      "time_sec": 32
+      "score": 4,
+      "time_sec": 86
     },
     "Chemistry": {
       "attempted": 1,
-      "correct": 0,
-      "wrong": 1,
-      "score": -1,
-      "time_sec": 102
+      "correct": 1,
+      "wrong": 0,
+      "score": 4,
+      "time_sec": 60
     },
     "Maths": {
-      "attempted": 3,
+      "attempted": 2,
       "correct": 2,
-      "wrong": 1,
-      "score": 7,
-      "time_sec": 245
+      "wrong": 0,
+      "score": 8,
+      "time_sec": 193
     }
   }
 }

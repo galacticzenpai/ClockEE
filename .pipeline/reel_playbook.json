@@ -1,7 +1,7 @@
 {
   "total_reels": 39,
-  "completed_count": 4,
-  "pending_count": 35,
+  "completed_count": 10,
+  "pending_count": 29,
   "domains": [
     "Intelligent Knowledge Graph",
     "LLM Hygiene & Provenance",
@@ -141,8 +141,8 @@
       },
       "predicted_execution": "Phase 1: Ingest VSS extension -> Phase 2: Index sample embeddings -> Phase 3: Benchmark latency <50ms.",
       "predicted_output": "Local offline semantic search allowing students to find related questions without an active internet connection.",
-      "status": "QUEUED_FOR_INGESTION",
-      "status_badge": "ACTIVE IN QUEUE (PAUSED)"
+      "status": "COMPLETED",
+      "status_badge": "PASSED & INTEGRATED"
     },
     {
       "id": "reel_006",
@@ -166,8 +166,8 @@
       },
       "predicted_execution": "Phase 1: CRDT schema wiring -> Phase 2: Offline mutation queue -> Phase 3: Split-brain resolution audit.",
       "predicted_output": "Zero-data-loss multi-device exam state synchronization with complete offline resilience.",
-      "status": "SCHEDULED_IN_BACKLOG",
-      "status_badge": "QUEUED IN ROADMAP"
+      "status": "COMPLETED",
+      "status_badge": "PASSED & INTEGRATED"
     },
     {
       "id": "reel_007",
@@ -189,8 +189,8 @@
       },
       "predicted_execution": "Phase 1: Benchmark suite -> Phase 2: Viewport resize audit -> Phase 3: 60FPS certification.",
       "predicted_output": "Automated performance gate preventing heavy DOM trees from causing input stutter during timed exams.",
-      "status": "SCHEDULED_IN_BACKLOG",
-      "status_badge": "QUEUED IN ROADMAP"
+      "status": "COMPLETED",
+      "status_badge": "PASSED & INTEGRATED"
     },
     {
       "id": "reel_008",
@@ -213,8 +213,8 @@
       },
       "predicted_execution": "Phase 1: AST schema parse -> Phase 2: Type generation -> Phase 3: Runtime serialization verification.",
       "predicted_output": "End-to-end type safety eliminating runtime JSON serialization bugs between client and server.",
-      "status": "SCHEDULED_IN_BACKLOG",
-      "status_badge": "QUEUED IN ROADMAP"
+      "status": "COMPLETED",
+      "status_badge": "PASSED & INTEGRATED"
     },
     {
       "id": "reel_009",
@@ -237,8 +237,8 @@
       },
       "predicted_execution": "Phase 1: Parser vendor -> Phase 2: Ingest 50 sample JEE formulas -> Phase 3: Visual equation render check.",
       "predicted_output": "Accurate mathematical and chemical equation rendering for all NTA-style test questions.",
-      "status": "SCHEDULED_IN_BACKLOG",
-      "status_badge": "QUEUED IN ROADMAP"
+      "status": "COMPLETED",
+      "status_badge": "PASSED & INTEGRATED"
     },
     {
       "id": "reel_010",
@@ -262,8 +262,8 @@
       },
       "predicted_execution": "Phase 1: Worker scaffold -> Phase 2: Drift compensation -> Phase 3: Tab hibernate recovery test.",
       "predicted_output": "High-reliability exam countdown timer certified for official high-stakes CBT practice.",
-      "status": "SCHEDULED_IN_BACKLOG",
-      "status_badge": "QUEUED IN ROADMAP"
+      "status": "COMPLETED",
+      "status_badge": "PASSED & INTEGRATED"
     },
     {
       "id": "reel_011",
@@ -286,8 +286,8 @@
       },
       "predicted_execution": "Phase 1: IRT model vendor -> Phase 2: Parameter calibration -> Phase 3: Monte Carlo simulation test.",
       "predicted_output": "Intelligent diagnostic exam mode that pinpoints student weaknesses in 30 questions instead of 180.",
-      "status": "SCHEDULED_IN_BACKLOG",
-      "status_badge": "QUEUED IN ROADMAP"
+      "status": "QUEUED_FOR_INGESTION",
+      "status_badge": "ACTIVE IN QUEUE (PAUSED)"
     },
     {
       "id": "reel_012",

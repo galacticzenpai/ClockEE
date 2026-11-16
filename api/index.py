@@ -164,6 +164,11 @@ class GithubLoginRequest(BaseModel):
     uid: Optional[str] = None
     pfp: Optional[str] = None
 
+class VSSSearchRequest(BaseModel):
+    query: str
+    subject: Optional[str] = None
+    top_k: Optional[int] = 5
+
 class StateUpdateRequest(BaseModel):
     user_id: Optional[str] = None
     current_mode: Optional[str] = "mains"
@@ -766,3 +771,24 @@ def batch_offline_sync(
         "exams_synced": synced_exams_count,
         "timestamp": datetime.now().isoformat()
     }
+
+# ── 5.8 REEL #5: SQLite-VSS Local Vector Similarity Search ──
+@app.post("/api/vss/search")
+@app.post("/vss/search")
+def vss_vector_search(req: VSSSearchRequest):
+    try:
+        from integrations.sqlite_vss.vss_indexer import LocalVectorSearchEngine
+        engine = LocalVectorSearchEngine()
+        results = engine.search_similar(req.query, subject=req.subject, top_k=req.top_k or 5)
+        return {
+            "success": True,
+            "query": req.query,
+            "subject": req.subject,
+            "results": results
+        }
+    except Exception as e:
+        return {
+            "success": False,
+            "error": str(e),
+            "results": []
+        }

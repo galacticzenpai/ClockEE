@@ -1,0 +1,49 @@
+{
+  "timestamp": "2026-11-16T15:07:39.974465",
+  "average_score": 97.6,
+  "pages_audited": 5,
+  "pages_passed": 5,
+  "details": {
+    "index.html": {
+      "file": "index.html",
+      "score": 94,
+      "estimated_dom_nodes": 528,
+      "findings": [
+        "Found 3 non-deferred script(s) in head: ['https://cdn.jsdelivr.net/npm/chart.js', 'https://cdn.jsdelivr.net/npm/marked/marked.min.js', 'https://html2canvas.hertzen.com/dist/html2canvas.min.js']"
+      ],
+      "passed": true
+    },
+    "login.html": {
+      "file": "login.html",
+      "score": 98,
+      "estimated_dom_nodes": 334,
+      "findings": [
+        "Found 1 non-deferred script(s) in head: ['clockee_core.js']"
+      ],
+      "passed": true
+    },
+    "tracker.html": {
+      "file": "tracker.html",
+      "score": 100,
+      "estimated_dom_nodes": 320,
+      "findings": [],
+      "passed": true
+    },
+    "cbt_exam.html": {
+      "file": "cbt_exam.html",
+      "score": 100,
+      "estimated_dom_nodes": 149,
+      "findings": [],
+      "passed": true
+    },
+    "cbt_analysis.html": {
+      "file": "cbt_analysis.html",
+      "score": 96,
+      "estimated_dom_nodes": 306,
+      "findings": [
+        "Found 2 non-deferred script(s) in head: ['https://cdn.jsdelivr.net/npm/chart.js', 'https://html2canvas.hertzen.com/dist/html2canvas.min.js']"
+      ],
+      "passed": true
+    }
+  }
+}

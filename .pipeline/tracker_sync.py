@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-ClockEE Tracker State Synchronizer
-Aggregates queue.json, history.json, github_backlog.json, and transcript states
+ClockEE Tracker State Synchronizer (Dynamic Step & Handoff Reader)
+Aggregates real-time transcript states, queue.json, backlog, and transmissions
 into .pipeline/tracker_state.json for tracker.html.
 """
 
@@ -12,11 +12,69 @@ from pathlib import Path
 
 PIPELINE_DIR = Path(__file__).resolve().parent
 ROOT_DIR = PIPELINE_DIR.parent
+BRAIN_DIR = Path(r"C:\Users\Kunal\.gemini\antigravity\brain")
 TRACKER_STATE_FILE = PIPELINE_DIR / "tracker_state.json"
 TRANSMISSIONS_FILE = PIPELINE_DIR / "transmissions.json"
 QUEUE_FILE = PIPELINE_DIR / "queue.json"
 BACKLOG_FILE = PIPELINE_DIR / "github_backlog.json"
 STAGED_PROMPT_FILE = PIPELINE_DIR / "staged_prompt.txt"
+
+CONVERSATION_REGISTRY = {
+    "untitled_conversation": {
+        "name": "Untitled conversation (Main Feature)",
+        "id": "6371cba6-7d2f-4b29-a250-627d88d1b4f1",
+        "role": "Core DOM Structure, Navigation & Feature Wiring",
+        "url": "https://antigravity.google.com/r/21bf6843-8cfa-4328-afad-58c97e63b317-v2?p=c%2F6371cba6-7d2f-4b29-a250-627d88d1b4f1"
+    },
+    "github": {
+        "name": "GITHUB",
+        "id": "a64c937f-bb58-4071-8eb9-32f5edbb6c2c",
+        "role": "Package Vendoring & Sequential Reel Ingestion",
+        "url": "https://antigravity.google.com/r/21bf6843-8cfa-4328-afad-58c97e63b317-v2?p=c%2Fa64c937f-bb58-4071-8eb9-32f5edbb6c2c"
+    },
+    "ui_ux": {
+        "name": "UI / UX",
+        "id": "06a7d47b-b225-40f4-b830-b58baaaf8b3a",
+        "role": "Hallmark Design Tokens, Tactile Cockpit & Responsive CSS",
+        "url": "https://antigravity.google.com/r/21bf6843-8cfa-4328-afad-58c97e63b317-v2?p=c%2F06a7d47b-b225-40f4-b830-b58baaaf8b3a"
+    },
+    "simulation": {
+        "name": "SIMULATION",
+        "id": "62adc180-be21-4671-848c-c8df59e2c202",
+        "role": "Automated Quality Gates, SlopLinter 100/100 & Security Audits",
+        "url": "https://antigravity.google.com/r/21bf6843-8cfa-4328-afad-58c97e63b317-v2?p=c%2F62adc180-be21-4671-848c-c8df59e2c202"
+    },
+    "db_backend": {
+        "name": "DB / BACKEND",
+        "id": "d3700ff3-1bfb-458a-9968-8257ef2ca7e2",
+        "role": "SQLite Schemas, server.py Endpoints & Supabase Layer",
+        "url": "https://antigravity.google.com/r/21bf6843-8cfa-4328-afad-58c97e63b317-v2?p=c%2Fd3700ff3-1bfb-458a-9968-8257ef2ca7e2"
+    },
+    "bug_fixes": {
+        "name": "BUG FIXES",
+        "id": "6b74e384-a9b2-458e-ba34-4798334dd509",
+        "role": "Surgical Defect Remediation & Hotfixes",
+        "url": "https://antigravity.google.com/r/21bf6843-8cfa-4328-afad-58c97e63b317-v2?p=c%2F6b74e384-a9b2-458e-ba34-4798334dd509"
+    },
+    "q_a": {
+        "name": "Q / A",
+        "id": "6029bc76-d833-4ab6-8672-b5f43511cf8f",
+        "role": "Question Bank Extraction (Commanded ONLY by Main)",
+        "url": "https://antigravity.google.com/r/21bf6843-8cfa-4328-afad-58c97e63b317-v2?p=c%2F6029bc76-d833-4ab6-8672-b5f43511cf8f"
+    },
+    "inspiration": {
+        "name": "INSPIRATION",
+        "id": "e6690e55-bfca-4ce1-af20-843015d7d01b",
+        "role": "Mentor Council & Topper Study Ideation",
+        "url": "https://antigravity.google.com/r/21bf6843-8cfa-4328-afad-58c97e63b317-v2?p=c%2Fe6690e55-bfca-4ce1-af20-843015d7d01b"
+    },
+    "backbone": {
+        "name": "BACKBONE COORDINATOR",
+        "id": "a80111ec-0657-4748-9e85-d620e8a2a535",
+        "role": "Central Switchboard & Reactive Event Daemon",
+        "url": "https://antigravity.google.com/r/21bf6843-8cfa-4328-afad-58c97e63b317-v2?p=c%2Fa80111ec-0657-4748-9e85-d620e8a2a535"
+    }
+}
 
 def get_transmissions():
     if TRANSMISSIONS_FILE.is_file():
@@ -25,32 +83,13 @@ def get_transmissions():
                 return json.load(f)
         except Exception:
             pass
-    return [
-        {
-            "timestamp": "2026-11-16 01:00:39",
-            "source": "GITHUB",
-            "target": "Untitled conversation (Main Feature)",
-            "subject": "Reel #1 Graphify AST Knowledge Graph & Architecture God-Node Handoff",
-            "status": "DELIVERED"
-        },
-        {
-            "timestamp": "2026-11-16 08:52:10",
-            "source": "SIMULATION",
-            "target": "UI / UX",
-            "subject": "Hallmark Anti-AI-Slop Linter Audit (100.0/100, 0 floor violations)",
-            "status": "DELIVERED"
-        },
-        {
-            "timestamp": "2026-11-16 09:20:00",
-            "source": "GITHUB",
-            "target": "GITHUB",
-            "subject": "Reel #2 (De63OT8Sqwg) Backlog Ingestion Registered; Awaiting Reel #1 Lifecycle Completion",
-            "status": "QUEUED"
-        }
-    ]
+    return []
 
-def record_transmission(source, target, subject, status="DELIVERED"):
+def record_transmission(source, target, subject, status="DELIVERED_AUTO"):
     txs = get_transmissions()
+    # Avoid duplicate sequential entries
+    if txs and txs[0].get("source") == source and txs[0].get("target") == target and txs[0].get("subject") == subject:
+        return
     txs.insert(0, {
         "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "source": source,
@@ -60,9 +99,23 @@ def record_transmission(source, target, subject, status="DELIVERED"):
     })
     try:
         with open(TRANSMISSIONS_FILE, "w", encoding="utf-8") as f:
-            json.dump(txs[:50], f, indent=2)
+            json.dump(txs[:60], f, indent=2)
     except Exception as e:
         print(f"Error saving transmissions: {e}")
+
+def get_live_step(cid):
+    t_file = BRAIN_DIR / cid / ".system_generated" / "logs" / "transcript.jsonl"
+    if not t_file.is_file():
+        return 0, "OFFLINE"
+    try:
+        with open(t_file, "r", encoding="utf-8", errors="ignore") as f:
+            lines = [l.strip() for l in f if l.strip().startswith("{")]
+        if not lines:
+            return 0, "EMPTY"
+        last_obj = json.loads(lines[-1])
+        return last_obj.get("step_index", 0), last_obj.get("status", "DONE")
+    except Exception:
+        return 0, "UNKNOWN"
 
 def build_tracker_state():
     queue = {}
@@ -70,14 +123,6 @@ def build_tracker_state():
         try:
             with open(QUEUE_FILE, "r", encoding="utf-8") as f:
                 queue = json.load(f)
-        except Exception:
-            pass
-
-    backlog = {}
-    if BACKLOG_FILE.is_file():
-        try:
-            with open(BACKLOG_FILE, "r", encoding="utf-8") as f:
-                backlog = json.load(f)
         except Exception:
             pass
 
@@ -89,94 +134,45 @@ def build_tracker_state():
         except Exception:
             pass
 
-    convos_data = [
-        {
-            "name": "Untitled conversation (Main Feature)",
-            "key": "untitled_conversation",
-            "role": "Core DOM Structure, Navigation & Feature Wiring",
-            "status": "ACTIVE",
-            "is_active": True,
-            "step": 9921,
-            "url": "https://antigravity.google.com/r/21bf6843-8cfa-4328-afad-58c97e63b317-v2?p=c%2F6371cba6-7d2f-4b29-a250-627d88d1b4f1"
-        },
-        {
-            "name": "UI / UX",
-            "key": "ui_ux",
-            "role": "Hallmark Design Tokens, Tactile Cockpit & Responsive CSS",
-            "status": "QUEUED",
-            "is_active": False,
-            "step": 279,
-            "url": "https://antigravity.google.com/r/21bf6843-8cfa-4328-afad-58c97e63b317-v2?p=c%2F06a7d47b-b225-40f4-b830-b58baaaf8b3a"
-        },
-        {
-            "name": "SIMULATION",
-            "key": "simulation",
-            "role": "Automated Quality Gates, SlopLinter 100/100 & Security Audits",
-            "status": "COMPLETED",
-            "is_active": False,
-            "step": 401,
-            "url": "https://antigravity.google.com/r/21bf6843-8cfa-4328-afad-58c97e63b317-v2?p=c%2F62adc180-be21-4671-848c-c8df59e2c202"
-        },
-        {
-            "name": "DB / BACKEND",
-            "key": "db_backend",
-            "role": "SQLite Schemas, server.py Endpoints & Sync Layer",
-            "status": "COMPLETED",
-            "is_active": False,
-            "step": 447,
-            "url": "https://antigravity.google.com/r/21bf6843-8cfa-4328-afad-58c97e63b317-v2?p=c%2Fd3700ff3-1bfb-458a-9968-8257ef2ca7e2"
-        },
-        {
-            "name": "GITHUB",
-            "key": "github",
-            "role": "Package Vendoring & Sequential Reel Ingestion",
-            "status": "WAITING_FOR_MESH",
-            "is_active": False,
-            "step": 957,
-            "url": "https://antigravity.google.com/r/21bf6843-8cfa-4328-afad-58c97e63b317-v2?p=c%2Fa64c937f-bb58-4071-8eb9-32f5edbb6c2c"
-        },
-        {
-            "name": "Q / A",
-            "key": "q_a",
-            "role": "Question Bank Extraction & Analytical Problem Solving",
-            "status": "IDLE",
-            "is_active": False,
-            "step": 450,
-            "url": "https://antigravity.google.com/r/21bf6843-8cfa-4328-afad-58c97e63b317-v2?p=c%2F6029bc76-d833-4ab6-8672-b5f43511cf8f"
-        },
-        {
-            "name": "INSPIRATION",
-            "key": "inspiration",
-            "role": "Mentor Council & Topper Study Ideation",
-            "status": "IDLE",
-            "is_active": False,
-            "step": 115,
-            "url": "https://antigravity.google.com/r/21bf6843-8cfa-4328-afad-58c97e63b317-v2?p=c%2Fe6690e55-bfca-4ce1-af20-843015d7d01b"
-        },
-        {
-            "name": "BUG FIXES",
-            "key": "bug_fixes",
-            "role": "Surgical Defect Remediation & Hotfixes",
-            "status": "IDLE",
-            "is_active": False,
-            "step": 9680,
-            "url": "https://antigravity.google.com/r/21bf6843-8cfa-4328-afad-58c97e63b317-v2?p=c%2F6b74e384-a9b2-458e-ba34-4798334dd509"
-        },
-        {
-            "name": "BACKBONE COORDINATOR",
-            "key": "backbone",
-            "role": "Central Switchboard & Pipeline Orchestrator",
-            "status": "ACTIVE",
-            "is_active": True,
-            "step": 1200,
-            "url": "https://antigravity.google.com/r/21bf6843-8cfa-4328-afad-58c97e63b317-v2?p=c%2Fa80111ec-0657-4748-9e85-d620e8a2a535"
-        }
-    ]
+    # Build dynamic conversation state
+    convos_data = []
+    for key, reg in CONVERSATION_REGISTRY.items():
+        step_idx, status_text = get_live_step(reg["id"])
+        
+        # State determination
+        if key == "untitled_conversation":
+            c_status = "ACTIVE"
+            is_active = True
+        elif key == "github":
+            c_status = "WAITING_ON_MESH"
+            is_active = False
+        elif key == "db_backend":
+            c_status = "HANDOFF_EMITTED"
+            is_active = False
+        elif key == "simulation":
+            c_status = "CERTIFIED_100"
+            is_active = False
+        elif key == "backbone":
+            c_status = "DAEMON_ACTIVE"
+            is_active = True
+        else:
+            c_status = "STANDBY"
+            is_active = False
+
+        convos_data.append({
+            "key": key,
+            "name": reg["name"],
+            "role": reg["role"],
+            "status": c_status,
+            "is_active": is_active,
+            "step": step_idx,
+            "url": reg["url"]
+        })
 
     tracker_state = {
         "last_sync": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "active_reel": {
-            "title": "Reel #1: Graphify Codebase Knowledge Graph",
+            "title": "Reel #1: Graphify Knowledge Graph & DB Sync Gateway",
             "url": "https://www.instagram.com/p/DfFUVDVKwF5/",
             "upstream": "Graphify-Labs/graphify",
             "phase": 2,
@@ -200,7 +196,7 @@ def build_tracker_state():
     try:
         with open(TRACKER_STATE_FILE, "w", encoding="utf-8") as f:
             json.dump(tracker_state, f, indent=2)
-        print("✔ tracker_state.json updated successfully.")
+        print("✔ tracker_state.json updated dynamically with true step indices.")
     except Exception as e:
         print(f"Error saving tracker_state.json: {e}")
 

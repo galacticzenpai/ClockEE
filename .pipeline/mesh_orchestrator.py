@@ -217,6 +217,18 @@ def dispatch_via_agentapi(recipient_id, content, title="ClockEE Mesh Handoff"):
     except Exception as e:
         return False, str(e)
 
+def is_valid_handoff(source_key, target_key, instruction):
+    """Enforces strict mesh topology rules."""
+    # RULE 1: Q/A will ONLY take commands from Main Feature (untitled_conversation), and ONLY to retrieve scanned questions.
+    if target_key == "q_a":
+        if source_key != "untitled_conversation":
+            return False, "Q/A only takes commands from Untitled conversation (Main Feature)"
+        keywords = ["scan", "question", "retriev", "bank", "mcq", "exam", "paper", "syllabus"]
+        if not any(w in instruction.lower() for w in keywords):
+            return False, "Q/A only accepts tasks for retrieving scanned questions"
+
+    return True, "Valid"
+
 def discover_handoff_prompts(convo_key, steps):
     """Linear, non-backtracking handoff prompt extractor matching the Universal System Directive."""
     discovered = []
@@ -237,14 +249,18 @@ def discover_handoff_prompts(convo_key, steps):
                 if target_key and accumulated:
                     instruction = "\n".join(accumulated).strip().strip("`")
                     if len(instruction) > 10:
-                        discovered.append({
-                            "source": convo_key,
-                            "target_key": target_key,
-                            "target_name": CONVERSATIONS[target_key]["name"],
-                            "target_id": CONVERSATIONS[target_key]["id"],
-                            "instruction": instruction,
-                            "status": "QUEUED"
-                        })
+                        valid, reason = is_valid_handoff(convo_key, target_key, instruction)
+                        if valid:
+                            discovered.append({
+                                "source": convo_key,
+                                "target_key": target_key,
+                                "target_name": CONVERSATIONS[target_key]["name"],
+                                "target_id": CONVERSATIONS[target_key]["id"],
+                                "instruction": instruction,
+                                "status": "QUEUED"
+                            })
+                        else:
+                            print(f"  ℹ Mesh Gate Enforced: {reason} (from {convo_key})", flush=True)
                 target_str = m.group(1).strip("-*:# ")
                 target_key = classify_text_domain(target_str)
                 accumulated = []
@@ -252,14 +268,18 @@ def discover_handoff_prompts(convo_key, steps):
                 if (trimmed == "```" or trimmed.startswith("---")) and len(accumulated) > 0:
                     instruction = "\n".join(accumulated).strip().strip("`")
                     if len(instruction) > 10:
-                        discovered.append({
-                            "source": convo_key,
-                            "target_key": target_key,
-                            "target_name": CONVERSATIONS[target_key]["name"],
-                            "target_id": CONVERSATIONS[target_key]["id"],
-                            "instruction": instruction,
-                            "status": "QUEUED"
-                        })
+                        valid, reason = is_valid_handoff(convo_key, target_key, instruction)
+                        if valid:
+                            discovered.append({
+                                "source": convo_key,
+                                "target_key": target_key,
+                                "target_name": CONVERSATIONS[target_key]["name"],
+                                "target_id": CONVERSATIONS[target_key]["id"],
+                                "instruction": instruction,
+                                "status": "QUEUED"
+                            })
+                        else:
+                            print(f"  ℹ Mesh Gate Enforced: {reason} (from {convo_key})", flush=True)
                     target_key = None
                     accumulated = []
                 else:
@@ -267,12 +287,19 @@ def discover_handoff_prompts(convo_key, steps):
         if target_key and accumulated:
             instruction = "\n".join(accumulated).strip().strip("`")
             if len(instruction) > 10:
-                discovered.append({
-                    "source": convo_key,
-                    "target_key": target_key,
-                    "target_name": CONVERSATIONS[target_key]["name"],
-                    "target_id": CONVERSATIONS[target_key]["id"],
-                    "instruction": instruction,
+                valid, reason = is_valid_handoff(convo_key, target_key, instruction)
+                if valid:
+                    discovered.append({
+                        "source": convo_key,
+                        "target_key": target_key,
+                        "target_name": CONVERSATIONS[target_key]["name"],
+                        "target_id": CONVERSATIONS[target_key]["id"],
+                        "instruction": instruction,
+                        "status": "QUEUED"
+                    })
+                else:
+                    print(f"  ℹ Mesh Gate Enforced: {reason} (from {convo_key})", flush=True)
+    return discovered
                     "status": "QUEUED"
                 })
     return discovered

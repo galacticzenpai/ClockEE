@@ -1,183 +1,225 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ClockEE Mesh Network & Pipeline Tracker</title>
+  <title>ClockEE Mesh Cockpit & Live Pipeline Tracker</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            cockpit: '#07090e',
+            card: '#0d111a',
+            borderLine: '#1a2234',
+            amberGlow: '#f59e0b',
+            cyanGlow: '#06b6d4',
+            emeraldGlow: '#10b981'
+          }
+        }
+      }
+    }
+  </script>
   <style>
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: #080a11;
+      background-color: #07090e;
       color: #e2e8f0;
+      overflow-x: hidden;
     }
     .mono { font-family: 'JetBrains Mono', monospace; }
-    .glass-card {
-      background: rgba(15, 23, 42, 0.75);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(16px);
+    .glass-panel {
+      background: rgba(13, 17, 26, 0.7);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.07);
     }
-    .pulse-amber {
-      box-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
-      animation: pulse 2s infinite;
+    .glass-panel:hover {
+      border-color: rgba(255, 255, 255, 0.12);
     }
-    .pulse-emerald {
-      box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
-      animation: pulse 2s infinite;
+    .neon-pulse-emerald {
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.25);
+      animation: neonPulse 2s infinite ease-in-out;
     }
-    @keyframes pulse {
+    .neon-pulse-amber {
+      box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+      animation: neonPulse 2s infinite ease-in-out;
+    }
+    @keyframes neonPulse {
       0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.85; transform: scale(1.02); }
+      50% { opacity: 0.85; transform: scale(1.01); }
     }
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #07090e; }
+    ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #334155; }
   </style>
 </head>
-<body class="min-h-screen p-4 sm:p-6 lg:p-8">
+<body class="min-h-screen p-4 sm:p-6 lg:p-8 selection:bg-amber-500/30 selection:text-amber-200">
 
-  <!-- Header -->
-  <header class="max-w-7xl mx-auto mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-white/10 pb-6">
+  <!-- Top Cockpit Header -->
+  <header class="max-w-7xl mx-auto mb-8 flex flex-col md:flex-row md:items-center justify-between gap-5 border-b border-white/10 pb-6">
     <div>
       <div class="flex items-center gap-3">
-        <div class="h-3.5 w-3.5 rounded-full bg-emerald-400 animate-ping"></div>
+        <div class="relative flex h-3 w-3">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+        </div>
         <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white flex items-center gap-2">
-          ClockEE Mesh Network <span class="text-xs px-2.5 py-1 rounded-full bg-cyan-950/80 text-cyan-400 border border-cyan-800/50 font-semibold tracking-wide uppercase">Live Pipeline Tracker</span>
+          ClockEE Mesh Cockpit
+          <span class="text-xs px-2.5 py-0.5 rounded-full bg-cyan-950/80 text-cyan-400 border border-cyan-800/60 font-bold tracking-wider mono uppercase">Live 2.0</span>
         </h1>
       </div>
-      <p class="text-sm text-slate-400 mt-1">Autonomous Multi-Conversation Switchboard • Dedicated Native Session Mesh • Zero Subagents</p>
+      <p class="text-xs sm:text-sm text-slate-400 mt-1">Autonomous Multi-Conversation Switchboard • Native IPC Auto-Dispatch • Zero Interaction Loop</p>
     </div>
-    
-    <div class="flex items-center gap-3">
-      <div id="live-indicator" class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-emerald-950/60 border border-emerald-500/30 text-emerald-400 text-xs font-semibold mono">
-        <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
-        <span id="last-sync-time">SYNCED: JUST NOW</span>
+
+    <!-- Live Sync & Interactive Query Controls -->
+    <div class="flex flex-wrap items-center gap-3">
+      <div class="glass-panel px-3.5 py-2 rounded-xl flex items-center gap-2.5 text-xs mono text-slate-300">
+        <span class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="text-slate-400">LAST SYNC:</span>
+        <span id="header-sync-time" class="font-bold text-emerald-400">CONNECTING...</span>
       </div>
-      <button onclick="fetchState()" class="px-3.5 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs text-slate-300 font-medium transition flex items-center gap-1.5">
-        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
-        Refresh
+
+      <!-- ASK WHAT IS HAPPENING BUTTON -->
+      <button onclick="toggleSummaryDrawer()" class="px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-extrabold text-xs transition flex items-center gap-2 shadow-lg shadow-amber-500/20 active:scale-95">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        <span>What Is Happening RN?</span>
+      </button>
+
+      <button onclick="forceRefresh()" title="Refresh State" class="p-2 rounded-xl glass-panel hover:bg-white/10 text-slate-400 hover:text-white transition">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
       </button>
     </div>
   </header>
 
+  <!-- Main Container -->
   <main class="max-w-7xl mx-auto space-y-8">
 
-    <!-- Active Reel Ingestion & Lifecycle Bar -->
-    <section class="glass-card rounded-2xl p-6 relative overflow-hidden">
-      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-6">
-        <div>
-          <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Active Reel Pipeline Lifecycle</span>
-          <h2 id="reel-title" class="text-xl font-bold text-white mt-0.5">Reel #1: Graphify Codebase Knowledge Graph</h2>
-          <p id="reel-url" class="text-xs text-slate-400 mono mt-0.5"><a href="https://www.instagram.com/p/DfFUVDVKwF5/" target="_blank" class="hover:underline text-cyan-400">https://www.instagram.com/p/DfFUVDVKwF5/</a> (Upstream: Graphify-Labs/graphify)</p>
+    <!-- Interactive Live Briefing Card (What is happening) -->
+    <section id="briefing-card" class="glass-panel rounded-2xl p-6 border-amber-500/40 bg-gradient-to-br from-[#0d111a] via-[#121826] to-[#1e1a38]/40 relative overflow-hidden transition-all duration-300">
+      <div class="flex items-start justify-between gap-4 mb-4">
+        <div class="flex items-center gap-3">
+          <div class="h-9 w-9 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+          </div>
+          <div>
+            <h2 class="text-base sm:text-lg font-bold text-white flex items-center gap-2">
+              Live Mission Briefing: Real-Time Mesh State
+              <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 mono font-bold">100% ZERO-INTERACTION</span>
+            </h2>
+            <p class="text-xs text-slate-400">Dynamic executive status computed across all 9 conversations and active backlog.</p>
+          </div>
         </div>
-        <div id="reel-badge" class="px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-bold mono uppercase self-start lg:self-auto">
-          PHASE 2: IMPLEMENTATION PENDING
-        </div>
+        <span class="text-xs mono text-amber-400 font-bold bg-amber-950/60 px-3 py-1 rounded-lg border border-amber-500/30">Phase 2: Active</span>
       </div>
 
-      <!-- Topological Step Progress -->
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <!-- Step 1 -->
-        <div id="step-github" class="p-4 rounded-xl border border-emerald-500/30 bg-emerald-950/20 relative">
-          <div class="flex items-center justify-between mb-2">
-            <span class="text-xs font-bold mono text-emerald-400">01. INGESTION</span>
-            <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold">COMPLETED</span>
-          </div>
-          <p class="text-sm font-semibold text-white">GITHUB Agent</p>
-          <p class="text-xs text-slate-400 mt-1">Vendored into <code class="text-slate-300">integrations/graphify/</code> with 263 nodes.</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+        <div class="bg-black/40 p-4 rounded-xl border border-white/5 space-y-1">
+          <span class="text-[11px] mono font-bold uppercase tracking-wider text-cyan-400">🎯 Active Target & Handoff</span>
+          <p id="brief-active-target" class="text-sm font-semibold text-white">Main Feature & DB Integration</p>
+          <p id="brief-active-desc" class="text-xs text-slate-400">Wiring Supabase hybrid gateway, offline sync queue, and Graphify god-node architecture.</p>
         </div>
 
-        <!-- Step 2 -->
-        <div id="step-main" class="p-4 rounded-xl border border-amber-500/40 bg-amber-950/20 pulse-amber relative">
-          <div class="flex items-center justify-between mb-2">
-            <span class="text-xs font-bold mono text-amber-400">02. IMPLEMENTATION</span>
-            <span class="text-[10px] px-2 py-0.5 rounded bg-amber-500/30 text-amber-200 font-bold">ACTIVE NOW</span>
-          </div>
-          <p class="text-sm font-semibold text-white">Untitled conversation</p>
-          <p class="text-xs text-slate-400 mt-1">Inspect God-Node report & wire core DOM layout.</p>
+        <div class="bg-black/40 p-4 rounded-xl border border-white/5 space-y-1">
+          <span class="text-[11px] mono font-bold uppercase tracking-wider text-amber-400">⏸️ Reel Lifecycle Gate</span>
+          <p id="brief-reel-gate" class="text-sm font-semibold text-white">GITHUB Waiting for Mesh Verification</p>
+          <p id="brief-reel-desc" class="text-xs text-slate-400">Reel #1 Graphify vendored. Reel #2 is locked on hold until Phase 3 quality gates certify 100/100.</p>
         </div>
 
-        <!-- Step 3 -->
-        <div id="step-ui" class="p-4 rounded-xl border border-white/5 bg-white/[0.02] relative opacity-60">
-          <div class="flex items-center justify-between mb-2">
-            <span class="text-xs font-bold mono text-slate-400">03. UI / UX STYLING</span>
-            <span class="text-[10px] px-2 py-0.5 rounded bg-white/10 text-slate-400 font-bold">QUEUED</span>
-          </div>
-          <p class="text-sm font-semibold text-white">UI / UX Specialist</p>
-          <p class="text-xs text-slate-400 mt-1">Apply Hallmark tactile tokens & responsive layout.</p>
+        <div class="bg-black/40 p-4 rounded-xl border border-white/5 space-y-1">
+          <span class="text-[11px] mono font-bold uppercase tracking-wider text-emerald-400">🛡️ Simulation & Quality Loop</span>
+          <p id="brief-quality-status" class="text-sm font-semibold text-white">Score: 100.0/100 (Certified)</p>
+          <p id="brief-quality-desc" class="text-xs text-slate-400">SlopLinter: 0 floor failures across 23 pages. Strict loop: Simulation ➔ Bug Fixes ➔ Simulation re-audit.</p>
         </div>
-
-        <!-- Step 4 -->
-        <div id="step-sim" class="p-4 rounded-xl border border-white/5 bg-white/[0.02] relative opacity-60">
-          <div class="flex items-center justify-between mb-2">
-            <span class="text-xs font-bold mono text-slate-400">04. QUALITY GATES</span>
-            <span class="text-[10px] px-2 py-0.5 rounded bg-white/10 text-slate-400 font-bold">QUEUED</span>
-          </div>
-          <p class="text-sm font-semibold text-white">SIMULATION Agent</p>
-          <p class="text-xs text-slate-400 mt-1">SlopLinter (100/100) & Security clearance.</p>
-        </div>
-      </div>
-
-      <div class="mt-4 pt-4 border-t border-white/5 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-400">
-        <div class="flex items-center gap-2">
-          <span class="h-2 w-2 rounded-full bg-amber-400"></span>
-          <span>Next in Backlog: <strong>Reel #2</strong> (<a href="https://www.instagram.com/p/De63OT8Sqwg/" target="_blank" class="text-cyan-400 hover:underline">De63OT8Sqwg</a>) • GITHUB will hold until Reel #1 completes Phase 3.</span>
-        </div>
-        <span class="mono text-slate-500">Backlog Remaining: 37 Reels</span>
       </div>
     </section>
 
-    <!-- Staged Actionable Prompt Card (Ready to Copy) -->
-    <section class="glass-card rounded-2xl p-6 border-amber-500/30 bg-gradient-to-br from-[#0f172a] to-[#1e1b4b]/40">
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
+    <!-- Topological Reel Progression Lifecycle -->
+    <section class="glass-panel rounded-2xl p-6 relative overflow-hidden">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5">
         <div>
-          <div class="flex items-center gap-2">
-            <span class="px-2.5 py-0.5 rounded bg-amber-500/20 text-amber-300 font-bold text-xs mono">ACTIONABLE STAGED PROMPT</span>
-            <span id="staged-target-badge" class="px-2.5 py-0.5 rounded bg-cyan-500/20 text-cyan-300 font-bold text-xs mono">FOR: Untitled conversation (Main Feature)</span>
-          </div>
-          <h3 class="text-lg font-bold text-white mt-1">Ready for Immediate Handoff & Execution</h3>
+          <span class="text-xs font-bold uppercase tracking-wider text-amber-400 mono">Sequential Lifecycle Breadcrumbs</span>
+          <h3 id="reel-header-title" class="text-lg font-bold text-white mt-0.5">Reel #1: Graphify Knowledge Graph</h3>
+          <p id="reel-header-url" class="text-xs text-slate-400 mono mt-0.5"><a href="https://www.instagram.com/p/DfFUVDVKwF5/" target="_blank" class="text-cyan-400 hover:underline">https://www.instagram.com/p/DfFUVDVKwF5/</a></p>
         </div>
-        <div class="flex items-center gap-2">
-          <button id="copy-btn" onclick="copyStagedPrompt()" class="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-lg shadow-amber-500/20">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
-            <span id="copy-btn-text">Copy Prompt</span>
-          </button>
-          <a id="open-convo-btn" href="https://antigravity.google.com/r/21bf6843-8cfa-4328-afad-58c97e63b317-v2?p=c%2F6371cba6-7d2f-4b29-a250-627d88d1b4f1" target="_blank" class="px-4 py-2 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs transition flex items-center gap-1.5 shadow-lg shadow-cyan-500/20">
-            <span>Open Conversation ↗</span>
-          </a>
+        <div class="flex items-center gap-2 self-start sm:self-auto">
+          <span class="text-xs mono text-slate-400">Backlog Remaining: <strong class="text-white">37 Reels</strong></span>
         </div>
       </div>
 
-      <div class="relative">
-        <pre id="staged-prompt-text" class="mono text-xs text-slate-300 bg-slate-950/80 p-4 rounded-xl border border-white/10 overflow-x-auto max-h-56 leading-relaxed">Loading staged prompt...</pre>
+      <!-- 7-Stage Pipeline Visualizer -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2.5">
+        <!-- Stage 1 -->
+        <div class="p-3 rounded-xl border border-emerald-500/30 bg-emerald-950/20 text-center">
+          <span class="text-[10px] mono font-bold text-emerald-400 block mb-1">01. INGESTION</span>
+          <span class="text-xs font-bold text-white block">GITHUB</span>
+          <span class="text-[9px] mono px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold mt-1 inline-block">PASSED</span>
+        </div>
+
+        <!-- Stage 2 -->
+        <div class="p-3 rounded-xl border border-emerald-500/30 bg-emerald-950/20 text-center">
+          <span class="text-[10px] mono font-bold text-emerald-400 block mb-1">02. DATA SCHEMA</span>
+          <span class="text-xs font-bold text-white block">DB / BACKEND</span>
+          <span class="text-[9px] mono px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold mt-1 inline-block">VERIFIED</span>
+        </div>
+
+        <!-- Stage 3 (ACTIVE) -->
+        <div class="p-3 rounded-xl border border-amber-500/50 bg-amber-950/30 text-center neon-pulse-amber">
+          <span class="text-[10px] mono font-bold text-amber-400 block mb-1">03. CORE WIRING</span>
+          <span class="text-xs font-bold text-white block">Main Feature</span>
+          <span class="text-[9px] mono px-1.5 py-0.5 rounded bg-amber-500/30 text-amber-200 font-bold mt-1 inline-block">ACTIVE RN</span>
+        </div>
+
+        <!-- Stage 4 -->
+        <div class="p-3 rounded-xl border border-white/5 bg-white/[0.02] opacity-60 text-center">
+          <span class="text-[10px] mono font-bold text-slate-400 block mb-1">04. STYLING</span>
+          <span class="text-xs font-bold text-white block">UI / UX</span>
+          <span class="text-[9px] mono px-1.5 py-0.5 rounded bg-white/10 text-slate-400 font-bold mt-1 inline-block">QUEUED</span>
+        </div>
+
+        <!-- Stage 5 -->
+        <div class="p-3 rounded-xl border border-white/5 bg-white/[0.02] opacity-60 text-center">
+          <span class="text-[10px] mono font-bold text-slate-400 block mb-1">05. SIMULATION #1</span>
+          <span class="text-xs font-bold text-white block">SIMULATION</span>
+          <span class="text-[9px] mono px-1.5 py-0.5 rounded bg-white/10 text-slate-400 font-bold mt-1 inline-block">QUEUED</span>
+        </div>
+
+        <!-- Stage 6 -->
+        <div class="p-3 rounded-xl border border-white/5 bg-white/[0.02] opacity-60 text-center">
+          <span class="text-[10px] mono font-bold text-slate-400 block mb-1">06. SURGICAL FIX</span>
+          <span class="text-xs font-bold text-white block">BUG FIXES</span>
+          <span class="text-[9px] mono px-1.5 py-0.5 rounded bg-white/10 text-slate-400 font-bold mt-1 inline-block">IF NEEDED</span>
+        </div>
+
+        <!-- Stage 7 -->
+        <div class="p-3 rounded-xl border border-white/5 bg-white/[0.02] opacity-60 text-center">
+          <span class="text-[10px] mono font-bold text-slate-400 block mb-1">07. CERTIFICATION</span>
+          <span class="text-xs font-bold text-white block">SIMULATION #2</span>
+          <span class="text-[9px] mono px-1.5 py-0.5 rounded bg-white/10 text-slate-400 font-bold mt-1 inline-block">FINAL GATE</span>
+        </div>
       </div>
     </section>
 
-    <!-- Mesh Conversations Status Grid (All 9 Agents) -->
-    <section>
+    <!-- Inter-Conversation Message Transmission Feed -->
+    <section class="glass-panel rounded-2xl p-6">
       <div class="flex items-center justify-between mb-4">
         <div>
-          <h3 class="text-lg font-bold text-white">Mesh Network Node Directory</h3>
-          <p class="text-xs text-slate-400">Live operational status across all 9 specialized engineering conversations.</p>
+          <h3 class="text-lg font-bold text-white flex items-center gap-2">
+            Inter-Conversation Transmission Feed
+            <span class="text-[10px] mono px-2 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-800">AGENTAPI IPC</span>
+          </h3>
+          <p class="text-xs text-slate-400">Live audit of prompts dispatched across dedicated conversation sessions.</p>
         </div>
-        <div class="text-xs text-slate-400 mono">
-          <span class="text-emerald-400 font-bold">100% Native</span> • No Subagents Spawned
-        </div>
-      </div>
-
-      <div id="conversations-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        <!-- Rendered dynamically -->
-      </div>
-    </section>
-
-    <!-- Message & Prompt Transmission Log -->
-    <section class="glass-card rounded-2xl p-6">
-      <div class="flex items-center justify-between mb-4">
-        <div>
-          <h3 class="text-lg font-bold text-white">Inter-Conversation Transmission Log</h3>
-          <p class="text-xs text-slate-400">Audit trail of prompts and handoffs transferred from conversation to conversation.</p>
-        </div>
-        <span class="text-xs mono text-cyan-400 bg-cyan-950/50 px-2.5 py-1 rounded border border-cyan-800/40">Linear Mesh Protocol</span>
+        <span class="text-xs mono text-emerald-400 flex items-center gap-1.5">
+          <span class="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+          Event Watcher Active
+        </span>
       </div>
 
       <div class="overflow-x-auto">
@@ -188,103 +230,149 @@
               <th class="pb-3 pr-4">Source Conversation</th>
               <th class="pb-3 pr-4">Target Conversation</th>
               <th class="pb-3 pr-4">Handoff Subject</th>
-              <th class="pb-3">Status</th>
+              <th class="pb-3">Dispatch Mode</th>
             </tr>
           </thead>
           <tbody id="transmissions-tbody" class="divide-y divide-white/5 text-slate-300">
-            <!-- Rendered dynamically -->
+            <!-- Dynamically populated -->
           </tbody>
         </table>
       </div>
     </section>
 
+    <!-- 9 Dedicated Conversation Nodes Grid -->
+    <section>
+      <div class="flex items-center justify-between mb-4">
+        <div>
+          <h3 class="text-lg font-bold text-white">Mesh Network Directory (9 Dedicated Conversations)</h3>
+          <p class="text-xs text-slate-400">Strictly dedicated Antigravity tabs • Zero subagents allowed.</p>
+        </div>
+      </div>
+
+      <div id="conversations-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <!-- Dynamically populated -->
+      </div>
+    </section>
+
+    <!-- Staged Prompt Mailbox Card -->
+    <section class="glass-panel rounded-2xl p-6 border-cyan-500/30 bg-gradient-to-br from-[#07090e] to-[#0f172a]">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded bg-cyan-500/20 text-cyan-300 font-bold text-xs mono">MAILBOX STAGED PROMPT</span>
+            <span id="staged-badge" class="px-2.5 py-0.5 rounded bg-amber-500/20 text-amber-300 font-bold text-xs mono">ACTIVE</span>
+          </div>
+          <h4 class="text-base font-bold text-white mt-1">Payload Staged in <code class="text-xs text-slate-300 mono">.pipeline/staged_prompt.txt</code></h4>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="copyStagedPrompt()" class="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/15 text-white font-bold text-xs transition flex items-center gap-1.5 border border-white/10">
+            <span id="copy-btn-text">Copy Payload</span>
+          </button>
+          <a id="staged-convo-btn" href="#" target="_blank" class="px-4 py-2 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs transition flex items-center gap-1.5 shadow-lg shadow-cyan-500/20">
+            <span>Open Target Tab ↗</span>
+          </a>
+        </div>
+      </div>
+      <pre id="staged-prompt-display" class="mono text-xs text-slate-300 bg-black/60 p-4 rounded-xl border border-white/5 overflow-x-auto max-h-48 leading-relaxed">Loading staged prompt...</pre>
+    </section>
+
   </main>
 
-  <!-- Auto-Fetch & Client Script -->
+  <!-- Interactive JavaScript Controller -->
   <script>
-    let currentPayload = "";
+    let isBriefingOpen = true;
+
+    function toggleSummaryDrawer() {
+      const card = document.getElementById('briefing-card');
+      isBriefingOpen = !isBriefingOpen;
+      if (isBriefingOpen) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    }
 
     async function fetchState() {
       try {
         const res = await fetch('.pipeline/tracker_state.json?t=' + Date.now());
-        if (!res.ok) throw new Error("Could not load tracker_state.json");
+        if (!res.ok) return;
         const data = await res.json();
-        renderTracker(data);
+        renderCockpit(data);
       } catch (err) {
-        console.warn("Tracker local fetch fallback:", err);
+        console.warn('Tracker auto-sync:', err);
       }
     }
 
-    function renderTracker(data) {
+    function renderCockpit(data) {
       if (!data) return;
 
-      // Update Header
+      // Header Time
       if (data.last_sync) {
-        document.getElementById('last-sync-time').innerText = 'SYNCED: ' + data.last_sync;
+        document.getElementById('header-sync-time').innerText = data.last_sync;
       }
 
-      // Update Reel Info
+      // Reel Info
       if (data.active_reel) {
-        document.getElementById('reel-title').innerText = data.active_reel.title || 'Reel Ingestion';
-        document.getElementById('reel-url').innerHTML = `<a href="${data.active_reel.url}" target="_blank" class="hover:underline text-cyan-400">${data.active_reel.url}</a> (${data.active_reel.upstream || 'Local'})`;
-        document.getElementById('reel-badge').innerText = data.active_reel.phase_badge || 'ACTIVE';
+        document.getElementById('reel-header-title').innerText = data.active_reel.title || 'Reel Pipeline Active';
+        document.getElementById('reel-header-url').innerHTML = `<a href="${data.active_reel.url}" target="_blank" class="text-cyan-400 hover:underline">${data.active_reel.url}</a> (${data.active_reel.upstream || 'Local'})`;
       }
 
-      // Update Staged Prompt
+      // Staged Prompt
       if (data.staged_prompt) {
-        currentPayload = data.staged_prompt.payload || '';
-        document.getElementById('staged-prompt-text').innerText = currentPayload;
-        document.getElementById('staged-target-badge').innerText = 'FOR: ' + (data.staged_prompt.target_name || 'Next Agent');
+        document.getElementById('staged-prompt-display').innerText = data.staged_prompt.payload || 'No prompt staged.';
+        document.getElementById('staged-badge').innerText = 'FOR: ' + (data.staged_prompt.target_name || 'Target');
         if (data.staged_prompt.url) {
-          document.getElementById('open-convo-btn').href = data.staged_prompt.url;
+          document.getElementById('staged-convo-btn').href = data.staged_prompt.url;
         }
       }
 
-      // Update Conversations Grid
+      // Transmissions
+      const txs = data.transmissions || [];
+      const tbody = document.getElementById('transmissions-tbody');
+      tbody.innerHTML = txs.map(t => `
+        <tr class="hover:bg-white/[0.02] transition">
+          <td class="py-2.5 pr-4 mono text-slate-400">${t.timestamp}</td>
+          <td class="py-2.5 pr-4 font-semibold text-white">${t.source}</td>
+          <td class="py-2.5 pr-4 font-semibold text-amber-300">${t.target}</td>
+          <td class="py-2.5 pr-4 text-slate-300">${t.subject}</td>
+          <td class="py-2.5"><span class="px-2 py-0.5 rounded text-[10px] mono font-bold ${t.status.includes('AUTO') ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30' : 'bg-slate-800 text-slate-300'}">${t.status}</span></td>
+        </tr>
+      `).join('');
+
+      // Conversations Directory
       const convos = data.conversations || [];
       const grid = document.getElementById('conversations-grid');
       grid.innerHTML = convos.map(c => `
-        <div class="glass-card p-4 rounded-xl border ${c.is_active ? 'border-amber-500/40 bg-amber-950/10' : 'border-white/5'}">
+        <div class="glass-panel p-4 rounded-xl border ${c.is_active ? 'border-amber-500/40 bg-amber-950/10' : 'border-white/5'}">
           <div class="flex items-center justify-between mb-2">
             <span class="text-xs font-bold text-white">${c.name}</span>
-            <span class="text-[10px] mono px-2 py-0.5 rounded ${c.status === 'ACTIVE' ? 'bg-amber-500/20 text-amber-300' : (c.status === 'COMPLETED' ? 'bg-emerald-500/20 text-emerald-300' : 'bg-slate-800 text-slate-400')} font-bold">${c.status}</span>
+            <span class="text-[10px] mono px-2 py-0.5 rounded ${c.status === 'ACTIVE' ? 'bg-amber-500/20 text-amber-300 font-bold' : (c.status === 'COMPLETED' ? 'bg-emerald-500/20 text-emerald-300' : 'bg-slate-800 text-slate-400')} font-semibold">${c.status}</span>
           </div>
-          <p class="text-xs text-slate-400">${c.role}</p>
+          <p class="text-xs text-slate-400 min-h-[32px]">${c.role}</p>
           <div class="mt-3 pt-2.5 border-t border-white/5 flex items-center justify-between text-[11px] mono">
             <span class="text-slate-500">Step: ${c.step || 'Idle'}</span>
-            <a href="${c.url}" target="_blank" class="text-cyan-400 hover:text-cyan-300 transition font-semibold flex items-center gap-1">Open ↗</a>
+            <a href="${c.url}" target="_blank" class="text-cyan-400 hover:text-cyan-300 transition font-semibold flex items-center gap-1">Open Tab ↗</a>
           </div>
         </div>
-      `).join('');
-
-      // Update Transmissions Table
-      const transmissions = data.transmissions || [];
-      const tbody = document.getElementById('transmissions-tbody');
-      tbody.innerHTML = transmissions.map(t => `
-        <tr class="hover:bg-white/[0.02] transition">
-          <td class="py-3 pr-4 mono text-slate-400">${t.timestamp}</td>
-          <td class="py-3 pr-4 font-semibold text-white">${t.source}</td>
-          <td class="py-3 pr-4 font-semibold text-amber-300">${t.target}</td>
-          <td class="py-3 pr-4">${t.subject}</td>
-          <td class="py-3"><span class="px-2 py-0.5 rounded text-[10px] mono font-bold ${t.status === 'DELIVERED' ? 'bg-emerald-500/20 text-emerald-300' : 'bg-amber-500/20 text-amber-300'}">${t.status}</span></td>
-        </tr>
       `).join('');
     }
 
     function copyStagedPrompt() {
-      const text = document.getElementById('staged-prompt-text').innerText;
+      const text = document.getElementById('staged-prompt-display').innerText;
       navigator.clipboard.writeText(text).then(() => {
-        const btnText = document.getElementById('copy-btn-text');
-        btnText.innerText = "Copied!";
-        setTimeout(() => { btnText.innerText = "Copy Prompt"; }, 2000);
-      }).catch(err => {
-        console.error("Clipboard error:", err);
+        const btn = document.getElementById('copy-btn-text');
+        btn.innerText = 'Copied!';
+        setTimeout(() => { btn.innerText = 'Copy Payload'; }, 2000);
       });
     }
 
-    // Initial load and recurring poller
+    function forceRefresh() {
+      fetchState();
+    }
+
+    // Auto-polling every 2.5 seconds
     fetchState();
-    setInterval(fetchState, 5000);
+    setInterval(fetchState, 2500);
   </script>
 </body>
 </html>

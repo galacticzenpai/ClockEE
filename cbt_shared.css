@@ -1,41 +1,45 @@
 /* ==========================================================================
-   ClockEE CBT Platform - Shared Obsidian & Cyber Glass Design System
-   Matches Quizrr / MathonGo Dark Theme with Obsidian Black & Violet Accents
+   ClockEE Platform - Apple Human Interface Design System
+   Sleek, minimalist, professional dark materials with SF Pro typography
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Cinzel:wght@600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Space+Mono:wght@400;700&family=VT323&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
-
 :root {
-  --cbt-bg-base: #07080d;
-  --cbt-bg-surface: #0f121d;
-  --cbt-bg-elevated: #161a29;
-  --cbt-bg-card: rgba(22, 26, 41, 0.7);
+  --cbt-bg-base: #000000;
+  --cbt-bg-surface: #1c1c1e;
+  --cbt-bg-elevated: #2c2c2e;
+  --cbt-bg-card: rgba(28, 28, 30, 0.72);
   --cbt-border-subtle: rgba(255, 255, 255, 0.08);
-  --cbt-border-medium: rgba(255, 255, 255, 0.15);
-  --cbt-border-focus: rgba(99, 102, 241, 0.5);
-  --cbt-accent: #6366f1;
-  --cbt-accent-dark: #4338ca;
-  --cbt-accent-light: rgba(99, 102, 241, 0.15);
-  --cbt-accent-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
-  --cbt-success: #10b981;
-  --cbt-success-light: rgba(16, 185, 129, 0.15);
-  --cbt-warning: #f59e0b;
-  --cbt-warning-light: rgba(245, 158, 11, 0.15);
-  --cbt-danger: #ef4444;
-  --cbt-danger-light: rgba(239, 68, 68, 0.15);
-  --cbt-purple: #8b5cf6;
-  --cbt-text-primary: #f8fafc;
-  --cbt-text-secondary: #94a3b8;
-  --cbt-text-muted: #64748b;
+  --cbt-border-medium: rgba(255, 255, 255, 0.16);
+  --cbt-border-focus: rgba(10, 132, 255, 0.65);
+  --cbt-accent: #0a84ff;
+  --cbt-accent-dark: #0066cc;
+  --cbt-accent-light: rgba(10, 132, 255, 0.12);
+  --cbt-accent-gradient: linear-gradient(180deg, #0a84ff 0%, #0066cc 100%);
+  --cbt-success: #30d158;
+  --cbt-success-light: rgba(48, 209, 88, 0.15);
+  --cbt-warning: #ff9f0a;
+  --cbt-warning-light: rgba(255, 159, 10, 0.15);
+  --cbt-danger: #ff453a;
+  --cbt-danger-light: rgba(255, 69, 58, 0.15);
+  --cbt-purple: #bf5af2;
+  --cbt-text-primary: #ffffff;
+  --cbt-text-secondary: rgba(235, 235, 245, 0.64);
+  --cbt-text-muted: rgba(235, 235, 245, 0.38);
   --cbt-sidebar-width: 260px;
   --cbt-radius-sm: 8px;
   --cbt-radius-md: 12px;
   --cbt-radius-lg: 16px;
+  --cbt-radius-xl: 22px;
   --cbt-radius-full: 9999px;
-  --cbt-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --cbt-font-mono: 'JetBrains Mono', monospace;
+  --cbt-font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "SF Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --cbt-font-mono: "SF Mono", "JetBrains Mono", Menlo, Monaco, Consolas, monospace;
+  --cbt-ease-apple: cubic-bezier(0.16, 1, 0.3, 1);
+  --cbt-glass-blur: blur(25px) saturate(190%);
+  --cbt-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+  --cbt-shadow-md: 0 4px 16px rgba(0, 0, 0, 0.3);
+  --cbt-shadow-lg: 0 12px 36px rgba(0, 0, 0, 0.45);
 
-  /* Hallmark Reel #19: Fluid Mathematical & Display Typography Scale */
+  /* Fluid Mathematical & Display Typography Scale */
   --cbt-fluid-font-size-display: clamp(1.750rem, 1.393rem + 1.79vw, 3.000rem);
   --cbt-fluid-font-size-h1: clamp(1.375rem, 1.161rem + 1.07vw, 2.125rem);
   --cbt-fluid-font-size-h2: clamp(1.125rem, 0.982rem + 0.71vw, 1.625rem);
@@ -794,16 +798,16 @@ button:disabled,
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
-  background: rgba(14, 18, 32, 0.75);
-  border: 1px solid rgba(0, 240, 255, 0.25);
+  background: rgba(28, 28, 30, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 9999px;
-  padding: 6px 10px;
+  padding: 5px 8px;
   margin: 14px auto 22px auto;
   max-width: 1280px;
   width: 100%;
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), inset 0 0 12px rgba(0, 240, 255, 0.05);
+  backdrop-filter: blur(25px) saturate(190%);
+  -webkit-backdrop-filter: blur(25px) saturate(190%);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
   box-sizing: border-box;
 }
 .cbt-subnav-ribbon::-webkit-scrollbar {
@@ -816,8 +820,8 @@ button:disabled,
   padding: 6px 14px;
   border-radius: 9999px;
   font-size: 0.8125rem;
-  font-weight: 600;
-  color: #94a3b8;
+  font-weight: 500;
+  color: rgba(235, 235, 245, 0.6);
   text-decoration: none;
   white-space: nowrap;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
@@ -826,19 +830,128 @@ button:disabled,
   flex-shrink: 0;
 }
 .cbt-subnav-pill:hover {
-  background: rgba(0, 240, 255, 0.12);
-  color: #00f0ff;
-  border-color: rgba(0, 240, 255, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.12);
 }
 .cbt-subnav-pill.active {
-  background: rgba(0, 240, 255, 0.2);
-  border-color: #00f0ff;
-  color: #00f0ff;
-  box-shadow: 0 0 14px rgba(0, 240, 255, 0.35);
-  font-weight: 700;
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  font-weight: 600;
 }
 .cbt-subnav-pill svg {
   width: 15px;
   height: 15px;
   flex-shrink: 0;
 }
+
+/* ==========================================================================
+   Apple Human Interface Adaptive Responsive Architecture
+   Full multi-breakpoint optimization: Mobile, Fold, Tablet, iPad Pro, Desktop
+   ========================================================================== */
+
+/* Universal Apple Tap Targets & Elastic Interactions */
+button, .cbt-btn, a.cbt-btn, .cbt-subnav-pill, .cbt-option {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+button:active, .cbt-btn:active, .cbt-card:active {
+  transform: scale(0.985);
+  transition: transform 0.12s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 1. Mobile Compact (iPhone SE, 13/14/15/16 Pro, Galaxy S24) - max 480px */
+@media screen and (max-width: 480px) {
+  :root {
+    --cbt-sidebar-width: 100%;
+  }
+  body {
+    font-size: 14px;
+    letter-spacing: -0.005em;
+  }
+  .cbt-main-content {
+    padding: 12px 14px calc(76px + env(safe-area-inset-bottom)) 14px !important;
+  }
+  .cbt-subnav-ribbon {
+    margin: 8px auto 14px auto;
+    padding: 4px 6px;
+    border-radius: 16px;
+  }
+  .cbt-subnav-pill {
+    padding: 5px 10px;
+    font-size: 0.75rem;
+  }
+  .cbt-growth-metrics {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+  }
+  .cbt-stat-card {
+    padding: 12px !important;
+    border-radius: 12px !important;
+  }
+  .cbt-stat-value {
+    font-size: 1.25rem !important;
+  }
+  .cbt-stat-label {
+    font-size: 0.6875rem !important;
+  }
+  .cbt-exam-grid, .cbt-tests-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+  .cbt-modal-container {
+    width: 95vw !important;
+    margin: 10px auto !important;
+    padding: 16px !important;
+    border-radius: 16px !important;
+  }
+}
+
+/* 2. Tablet Portrait & Foldable Viewports (481px - 768px) */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .cbt-main-content {
+    padding: 16px 20px 80px 20px !important;
+  }
+  .cbt-growth-metrics {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+  .cbt-tests-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+}
+
+/* 3. Tablet Landscape / iPad Pro (769px - 1024px) */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .cbt-main-content {
+    padding: 20px 24px 80px 24px !important;
+  }
+  .cbt-growth-metrics {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 14px !important;
+  }
+  .cbt-tests-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+  }
+}
+
+/* 4. High-Res Studio Displays (1025px+) */
+@media screen and (min-width: 1025px) {
+  .cbt-main-content {
+    max-width: 1360px !important;
+    padding: 24px 32px 80px 32px !important;
+  }
+  .cbt-growth-metrics {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 16px !important;
+  }
+  .cbt-tests-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 18px !important;
+  }
+}
+

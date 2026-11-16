@@ -549,11 +549,26 @@ class ClockEEBackendRouter:
                 if not row:
                     cur.execute("SELECT data_json FROM users WHERE id = ?", (user_id,))
                     row = cur.fetchone()
+
+                cur.execute("SELECT name, role, subtitle, pfp, theme_preference, aura_mode FROM users WHERE id = ?", (user_id,))
+                u_row = cur.fetchone()
                 conn.close()
 
                 if row and (row['state_json'] if 'state_json' in row.keys() else row['data_json']):
                     raw = row['state_json'] if 'state_json' in row.keys() else row['data_json']
-                    return handler.send_json(200, json.loads(raw or '{}'))
+                    state_obj = json.loads(raw or '{}')
+                    if u_row:
+                        if 'profile' not in state_obj or not isinstance(state_obj.get('profile'), dict):
+                            state_obj['profile'] = {}
+                        if not state_obj['profile'].get('name'):
+                            state_obj['profile']['name'] = u_row['name']
+                        if not state_obj['profile'].get('subtitle'):
+                            state_obj['profile']['subtitle'] = u_row['subtitle']
+                        if not state_obj['profile'].get('pfp'):
+                            state_obj['profile']['pfp'] = u_row['pfp']
+                        if not state_obj['profile'].get('role'):
+                            state_obj['profile']['role'] = u_row['role']
+                    return handler.send_json(200, state_obj)
                 return handler.send_json(404, {"error": "Student state not found"})
 
             elif method in ('PUT', 'POST'):
@@ -713,7 +728,7 @@ class ClockEEBackendRouter:
                 cur = conn.cursor()
 
                 # Find user and merge with existing state so existing profile/goals/stats are never lost
-                cur.execute("SELECT id, data_json FROM users WHERE email = ?", (email,))
+                cur.execute("SELECT id, name, role, subtitle, pfp, data_json FROM users WHERE email = ?", (email,))
                 row = cur.fetchone()
                 if row:
                     user_id = row['id']
@@ -725,6 +740,13 @@ class ClockEEBackendRouter:
                         existing_state = {}
 
                     if isinstance(existing_state, dict):
+                        if 'profile' not in existing_state or not existing_state.get('profile', {}).get('name'):
+                            existing_state['profile'] = {
+                                "name": row['name'],
+                                "subtitle": row['subtitle'],
+                                "pfp": row['pfp'],
+                                "role": row['role']
+                            }
                         existing_state.update(user_data)
                         if 'settings' in user_data and isinstance(user_data['settings'], dict):
                             existing_settings = existing_state.get('settings', {})
@@ -786,6 +808,187 @@ class ClockEEBackendRouter:
                         "data": data_obj
                     })
                 return handler.send_json(404, {"error": "User not found"})
+
+        # ── 3.6 BATCH OFFLINE-FIRST SYNCHRONIZATION (/api/sync & /api/batch-sync) ──
+        # Accepts queued study logs, CBT results, and timer states from client localStorage
+        if path in ('/api/sync', '/api/batch-sync'):
+            if method == 'POST':
+                req = parse_body(handler)
+                uid = get_auth_user_id(handler) or req.get('user_id') or 'user_alpha'
+                
+                timer_state = req.get('timer_state')
+                current_mode = req.get('current_mode') or 'mains'
+                active_deck = req.get('active_deck', '')
+                state_snapshot = req.get('state')
+                queued_logs = req.get('queued_logs') or req.get('logs') or []
+                queued_exams = req.get('queued_exams') or req.get('exams') or []
+
+                conn = get_db()
+                cur = conn.cursor()
+
+                # 1. Update / Merge student_states snapshot in SQLite
+                cur.execute("SELECT state_json FROM student_states WHERE user_id = ?", (uid,))
+                s_row = cur.fetchone()
+                try:
+                    existing_state = json.loads(s_row['state_json']) if s_row and s_row['state_json'] else {}
+                except Exception:
+                    existing_state = {}
+
+                if isinstance(state_snapshot, dict):
+                    existing_state.update(state_snapshot)
+                if isinstance(timer_state, dict):
+                    if not isinstance(existing_state.get('timer_state'), dict):
+                        existing_state['timer_state'] = {}
+                    existing_state['timer_state'].update(timer_state)
+                if current_mode:
+                    existing_state['examMode'] = current_mode
+                if active_deck:
+                    existing_state['activeDeck'] = active_deck
+
+                updated_state_str = json.dumps(existing_state)
+                cur.execute("""
+                    INSERT INTO student_states (user_id, state_json, updated_at)
+                    VALUES (?, ?, CURRENT_TIMESTAMP)
+                    ON CONFLICT(user_id) DO UPDATE SET state_json = excluded.state_json, updated_at = CURRENT_TIMESTAMP
+                """, (uid, updated_state_str))
+
+                # 2. Ingest queued study logs
+                synced_logs_count = 0
+                for item in queued_logs:
+                    if isinstance(item, dict):
+                        lid = item.get('id') or f"log_{secrets.token_hex(6)}"
+                        sub = item.get('subject', 'Physics')
+                        chap = item.get('chapter') or item.get('topic') or 'General'
+                        qnum = int(item.get('question_num') or item.get('qNum', 1))
+                        dur = float(item.get('duration_seconds') or item.get('duration', 60.0))
+                        correct = 1 if item.get('is_correct', item.get('correct', True)) else 0
+                        mistake = item.get('mistake_tag') or item.get('mistake', '')
+                        score_delta = int(item.get('score_delta') or (4 if correct else -1))
+                        notes = item.get('notes', '')
+
+                        cur.execute("""
+                            INSERT OR REPLACE INTO question_logs (
+                                id, user_id, subject, chapter, question_num, duration_seconds,
+                                is_correct, mistake_tag, score_delta, notes
+                            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                        """, (lid, uid, sub, chap, qnum, dur, correct, mistake, score_delta, notes))
+                        synced_logs_count += 1
+
+                # 3. Ingest queued CBT exams
+                synced_exams_count = 0
+                for item in queued_exams:
+                    if isinstance(item, dict):
+                        eid = item.get('id') or f"exam_{secrets.token_hex(6)}"
+                        tid = item.get('test_id') or f"test_{secrets.token_hex(4)}"
+                        title = item.get('title', 'CBT Mock Test')
+                        mode = item.get('mode', current_mode)
+                        sub = item.get('subject', 'Full')
+                        chap = item.get('chapter', '')
+                        tot_q = int(item.get('total_questions', 25))
+                        time_s = int(item.get('time_spent') or item.get('time_spent_seconds', 0))
+                        score = int(item.get('score', 0))
+                        max_s = int(item.get('max_score', 100))
+                        acc = float(item.get('accuracy', 0.0))
+                        resp_json = json.dumps(item.get('answers_json') or item.get('responses', []))
+                        ana_json = json.dumps(item.get('analytics_json') or item.get('analytics', {}))
+
+                        cur.execute("""
+                            INSERT OR REPLACE INTO cbt_exams (
+                                id, user_id, test_id, title, mode, subject, chapter,
+                                total_questions, time_spent_seconds, score, max_score,
+                                accuracy, status, responses_json, analytics_json, completed_at
+                            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'completed', ?, ?, CURRENT_TIMESTAMP)
+                        """, (eid, uid, tid, title, mode, sub, chap, tot_q, time_s, score, max_s, acc, resp_json, ana_json))
+                        synced_exams_count += 1
+
+                conn.commit()
+                conn.close()
+
+                # 4. Optional Supabase Cloud Replication (if configured)
+                sb_synced = False
+                if is_supabase_configured():
+                    try:
+                        sb = get_supabase_client(use_service_role=True)
+                        if sb:
+                            # Upsert student state to Supabase
+                            sb.table("student_states").upsert({
+                                "user_id": uid,
+                                "current_mode": current_mode,
+                                "timer_state": timer_state or {},
+                                "active_deck": active_deck,
+                                "state_payload": existing_state,
+                                "updated_at": datetime.now().isoformat()
+                            }).execute()
+
+                            # Upsert study sessions
+                            for item in queued_logs:
+                                if isinstance(item, dict):
+                                    sb.table("study_sessions").insert({
+                                        "user_id": uid,
+                                        "duration_seconds": float(item.get('duration_seconds') or item.get('duration', 60.0)),
+                                        "subject": item.get('subject', 'Physics'),
+                                        "topic": item.get('topic') or item.get('chapter') or 'General',
+                                        "chapter": item.get('chapter', ''),
+                                        "question_num": int(item.get('question_num') or item.get('qNum', 1)),
+                                        "is_correct": bool(item.get('is_correct', item.get('correct', True))),
+                                        "mistake_tag": item.get('mistake_tag') or item.get('mistake', ''),
+                                        "score_delta": int(item.get('score_delta') or 4),
+                                        "notes": item.get('notes', '')
+                                    }).execute()
+
+                            # Upsert CBT results
+                            for item in queued_exams:
+                                if isinstance(item, dict):
+                                    sb.table("cbt_results").insert({
+                                        "user_id": uid,
+                                        "test_id": item.get('test_id', 'test_cbt'),
+                                        "title": item.get('title', 'CBT Mock Test'),
+                                        "mode": item.get('mode', current_mode),
+                                        "subject": item.get('subject', 'Full'),
+                                        "chapter": item.get('chapter', ''),
+                                        "total_questions": int(item.get('total_questions', 25)),
+                                        "score": int(item.get('score', 0)),
+                                        "max_score": int(item.get('max_score', 100)),
+                                        "accuracy": float(item.get('accuracy', 0.0)),
+                                        "time_spent": int(item.get('time_spent') or item.get('time_spent_seconds', 0)),
+                                        "answers_json": item.get('answers_json') or item.get('responses', []),
+                                        "analytics_json": item.get('analytics_json') or item.get('analytics', {})
+                                    }).execute()
+
+                            sb_synced = True
+                    except Exception as sb_err:
+                        print(f"[!] Supabase batch sync notice: {sb_err}")
+
+                return handler.send_json(200, {
+                    "success": True,
+                    "user_id": uid,
+                    "synced_logs": synced_logs_count,
+                    "synced_exams": synced_exams_count,
+                    "state_synced": True,
+                    "supabase_synced": sb_synced,
+                    "timestamp": datetime.now().isoformat()
+                })
+
+            elif method == 'GET':
+                uid = get_auth_user_id(handler) or qs.get('user_id', ['user_alpha'])[0]
+                conn = get_db()
+                cur = conn.cursor()
+                cur.execute("SELECT state_json, updated_at FROM student_states WHERE user_id = ?", (uid,))
+                s_row = cur.fetchone()
+                cur.execute("SELECT * FROM question_logs WHERE user_id = ? ORDER BY created_at DESC LIMIT 30", (uid,))
+                logs = [dict(r) for r in cur.fetchall()]
+                cur.execute("SELECT * FROM cbt_exams WHERE user_id = ? ORDER BY created_at DESC LIMIT 10", (uid,))
+                exams = [dict(r) for r in cur.fetchall()]
+                conn.close()
+
+                state_obj = json.loads(s_row['state_json']) if s_row and s_row['state_json'] else {}
+                return handler.send_json(200, {
+                    "user_id": uid,
+                    "state": state_obj,
+                    "recent_logs": logs,
+                    "recent_exams": exams,
+                    "last_synced": s_row['updated_at'] if s_row else None
+                })
 
         # ── 4. MASTER QUESTION BANK API (5,775 JEE PYQs) ──
 

@@ -78,8 +78,9 @@
         "target_key": "ui_ux",
         "target_name": "UI / UX",
         "target_id": "06a7d47b-b225-40f4-b830-b58baaaf8b3a",
-        "status": "QUEUED",
-        "action": "Awaiting feature wiring to apply Hallmark tactile styling and responsive classes."
+        "status": "DISPATCHED_TO_CONVERSATION",
+        "action": "Awaiting feature wiring to apply Hallmark tactile styling and responsive classes.",
+        "staged_at": "2026-11-16T10:24:09.233260"
       },
       "simulation": {
         "target_key": "simulation",

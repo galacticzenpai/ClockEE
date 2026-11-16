@@ -69,8 +69,9 @@
       "ui_ux": {
         "target_id": "06a7d47b-b225-40f4-b830-b58baaaf8b3a",
         "target_name": "UI / UX",
-        "status": "PENDING",
-        "instruction": "Dray Cross-Model UI Task:\n1. Follow Hallmark retro_terminal and technical_slate theme tokens for developer diagnostic /link modals.\n2. Ensure handoff payload cards display clear progress bars (e.g. 50% Step 2/4) with high-contrast text and zero purple radial gradients."
+        "status": "DISPATCHED_TO_CONVERSATION",
+        "instruction": "Dray Cross-Model UI Task:\n1. Follow Hallmark retro_terminal and technical_slate theme tokens for developer diagnostic /link modals.\n2. Ensure handoff payload cards display clear progress bars (e.g. 50% Step 2/4) with high-contrast text and zero purple radial gradients.",
+        "staged_at": "2026-11-16T11:28:59.881442"
       },
       "simulation": {
         "target_id": "62adc180-be21-4671-848c-c8df59e2c202",

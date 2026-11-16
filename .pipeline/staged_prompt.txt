@@ -1,11 +1,9 @@
-You are Untitled conversation (Main Feature).
+You are UI / UX.
 
 --- TASK ASSIGNMENT ---
-Dray Cross-Model Session Bridge is vendored at integrations/dray_cross_model/.
-
-Task for Main Feature:
-1. Hook dray_bridge.py capture into long-running CBT exam flows and simulation runs so session progress can be frozen into active_session_snapshot.json on demand.
-2. In admin/developer tools, add a /link payload generator button to allow developer handoffs between models without lost context.
+Dray Cross-Model UI Task:
+1. Follow Hallmark retro_terminal and technical_slate theme tokens for developer diagnostic /link modals.
+2. Ensure handoff payload cards display clear progress bars (e.g. 50% Step 2/4) with high-contrast text and zero purple radial gradients.
 
 --- MESH COORDINATION DIRECTIVE ---
 1. Implement all domain fixes and features cleanly without disturbing sibling modules.

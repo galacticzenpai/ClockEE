@@ -30,16 +30,16 @@ class CognitiveTimeHeatmap {
       card.style.cssText = `
         padding: 8px 4px;
         border-radius: 6px;
-        background: \${pace.bg};
-        border: 1px solid \${pace.border};
+        background: ${pace.bg};
+        border: 1px solid ${pace.border};
         text-align: center;
         cursor: pointer;
         transition: transform 0.15s ease;
       `;
-      card.title = `Q#\${idx + 1}: \${q.spentSec || 0}s (Ideal: \${q.idealSec || 120}s) - \${pace.label}`;
+      card.title = `Q#${idx + 1}: ${q.spentSec || 0}s (Ideal: ${q.idealSec || 120}s) - ${pace.label}`;
       card.innerHTML = `
-        <div style="font-size: 11px; color: #94a3b8;">Q\${idx + 1}</div>
-        <div style="font-size: 13px; font-weight: 700; color: \${pace.color};">\${q.spentSec || 0}s</div>
+        <div style="font-size: 11px; color: #94a3b8;">Q${idx + 1}</div>
+        <div style="font-size: 13px; font-weight: 700; color: ${pace.color};">${q.spentSec || 0}s</div>
       `;
       card.onmouseenter = () => card.style.transform = 'translateY(-2px)';
       card.onmouseleave = () => card.style.transform = 'translateY(0)';

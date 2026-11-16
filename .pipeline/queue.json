@@ -53,104 +53,52 @@
     }
   },
   "current_batch": {
-    "batch_id": "batch_dray_cross_model_003",
-    "source": "github",
-    "package": "monorepo-labs/dray",
-    "status": "QUEUED",
-    "timestamp": "2026-11-16T11:28:00Z",
+    "batch_id": "plan_20261116_155800",
+    "source": "planning",
+    "title": "CBT Multi-Pass Simulation, Surgical Bug Fix Loop, GitHub Track #2 & Q/A Ingestion",
+    "status": "IN_PROGRESS",
+    "timestamp": "2026-11-16T15:58:00+05:30",
     "tasks": {
-      "untitled_conversation": {
-        "source": "planning",
-        "target_key": "untitled_conversation",
-        "target_name": "Untitled conversation (Main Feature)",
-        "target_id": "6371cba6-7d2f-4b29-a250-627d88d1b4f1",
-        "instruction": "Client-Side Production Environment Resolution, Google Auth Integration & Remote Tracker Hydration. Support Google Login via Supabase OAuth with redirect back to https://clockee.vercel.app. Extract access token from URL hash, store in session, and authenticate API requests. Update tracker.html to fetch from /api/tracker so the user can view live agent activities from anywhere. Verify offline queue auto-syncs on reconnect.",
-        "status": "DISPATCHED_TO_CONVERSATION",
-        "staged_at": "2026-11-16T11:51:58.583442"
-      },
-      "ui_ux": {
-        "source": "planning",
-        "target_key": "ui_ux",
-        "target_name": "UI / UX",
-        "target_id": "06a7d47b-b225-40f4-b830-b58baaaf8b3a",
-        "instruction": "Mobile Mission Control Cockpit & Tactical Auth Polish. Optimize tracker.html for mobile smartphone viewports so the user can easily monitor agent activities from anywhere on the go. Polish Google Login buttons and Auth modal to seamlessly fit ClockEE's tactical cyberpunk aesthetic. Add live edge connection status pill to navigation.",
-        "status": "DISPATCHED_TO_CONVERSATION",
-        "staged_at": "2026-11-16T11:52:08.354230"
-      },
       "simulation": {
-        "source": "planning",
+        "id": "TASK-CBT-01",
         "target_key": "simulation",
-        "target_name": "SIMULATION",
         "target_id": "62adc180-be21-4671-848c-c8df59e2c202",
-        "instruction": "2-Pass Live Browser Deployment Audit. Pass 1: Open live https://clockee.vercel.app in browser; test Google OAuth login, Supabase database queries, CBT exams, and remote tracker. Pass 2: Simulate offline disconnection and verify auto-sync. If any defects occur, compile detailed report and hand off to BUG FIXES.",
-        "status": "DISPATCHED_TO_CONVERSATION",
-        "staged_at": "2026-11-16T11:52:17.631126"
-      },
-      "db_backend": {
-        "source": "planning",
-        "target_key": "db_backend",
-        "target_name": "DB / BACKEND",
-        "target_id": "d3700ff3-1bfb-458a-9968-8257ef2ca7e2",
-        "instruction": "Implement Vercel Serverless Python Adapter (api/index.py) connected to Supabase cloud PostgreSQL. Verify that database is connected properly and bypasses local SQLite on Vercel. Implement Google Auth and GitHub OAuth token validation and session caching. Wire /api/tracker to stream live mesh state and provide requirements.txt.",
-        "status": "DISPATCHED_TO_CONVERSATION",
-        "staged_at": "2026-11-16T11:52:36.069441"
-      },
-      "backbone": {
-        "source": "planning",
-        "target_key": "backbone",
-        "target_name": "BACKBONE COORDINATOR",
-        "target_id": "a80111ec-0657-4748-9e85-d620e8a2a535",
-        "instruction": "Daily Roadmap Plan Generated.\nPlan File: .pipeline/daily_plan.json\nPlease inspect .pipeline/daily_plan.json, evaluate pending reels from .pipeline/github_backlog.json, load tasks into the mesh queue, and activate the autonomous execution loop.",
-        "status": "DISPATCHED_TO_CONVERSATION",
-        "staged_at": "2026-11-16T11:52:45.546656"
-      },
-      "github": {
-        "source": "planning",
-        "target_key": "github",
-        "target_name": "GITHUB",
-        "target_id": "a64c937f-bb58-4071-8eb9-32f5edbb6c2c",
-        "instruction": "Configure production vercel.json rewriting /api/(.*) to /api/index.py and /tracker to /tracker.html. Set security headers, CORS, and immutable cache-control for CBT question banks. Configure .vercelignore to exclude local SQLite databases (clockee.db, clockee_auth.db), temp videos, and pipeline internals.",
+        "priority": "P0",
+        "instruction": "Execute 2-3 thorough simulation passes on CBT Mode across cbt_exam.html, cbt_mistakes.html, cbt_notebooks.html, and cbt_master_bank.js. Verify question rendering, LaTeX formatting, timer accuracy, option selection persistence, score/accuracy computation, mistake tagging, and offline caching. Emit structured defect report directly to BUG FIXES.",
         "status": "QUEUED"
       },
       "bug_fixes": {
-        "source": "planning",
+        "id": "TASK-CBT-02",
         "target_key": "bug_fixes",
-        "target_name": "BUG FIXES",
         "target_id": "c05ee59e-9749-4bc3-8bea-57ea8b60874c",
-        "instruction": "Surgical Production Remediation. Receive defect report from Simulation, surgically patch any issues in routing, Google Auth redirects, CORS, or database queries, and hand back to Simulation for second verification pass.",
-        "status": "DISPATCHED_TO_CONVERSATION",
-        "staged_at": "2026-11-16T11:52:26.795054"
+        "priority": "P0",
+        "instruction": "Receive CBT defect report from Simulation. Surgically patch identified bugs in CBT mode (event binding, state resets, index out-of-bounds, negative marking deltas). When hotfixes are applied, automatically notify Simulation for the re-test verification pass.",
+        "status": "QUEUED"
+      },
+      "github": {
+        "id": "TASK-GH-01",
+        "target_key": "github",
+        "target_id": "a64c937f-bb58-4071-8eb9-32f5edbb6c2c",
+        "priority": "P1",
+        "instruction": "Maintain Track #2: Continue package vendoring, evaluate pending reels from .pipeline/github_backlog.json into integrations/, and ensure production Vercel deployment assets (vercel.json, .vercelignore) stay synchronized without disruption.",
+        "status": "QUEUED"
+      },
+      "untitled_conversation": {
+        "id": "TASK-QA-01",
+        "target_key": "untitled_conversation",
+        "target_id": "6371cba6-7d2f-4b29-a250-627d88d1b4f1",
+        "priority": "P1",
+        "instruction": "Command the Q / A agent (6029bc76-d833-4ab6-8672-b5f43511cf8f) to extract fresh question banks from library books, ingest and format the extracted Q&A questions, and wire them cleanly into cbt_master_bank.js and cbt_question_bank.json.",
+        "status": "QUEUED"
+      },
+      "simulation_verify": {
+        "id": "TASK-SIM-VERIFY",
+        "target_key": "simulation",
+        "target_id": "62adc180-be21-4671-848c-c8df59e2c202",
+        "priority": "P2",
+        "instruction": "Second Verification Pass: Re-run full CBT simulation against the remediated codebase with newly imported Q&A to certify 100/100 Anti-AI-Slop and zero functional defects.",
+        "status": "QUEUED"
       }
-    }
-  },
-  "active_batch_id": "batch_omniroute_token_gateway_004",
-  "batch_status": "IN_PROGRESS",
-  "source_reel": "https://www.instagram.com/p/De6ttI-zAba/",
-  "package": "omniroute",
-  "tasks": {
-    "github": {
-      "status": "COMPLETED",
-      "summary": "Scaffolded integrations/omniroute with SKILL.md, providers_config.json, and omniroute_client.py failover runner."
-    },
-    "untitled_conversation": {
-      "status": "PENDING",
-      "action": "Optional AI Gateway Switcher",
-      "details": "Allow user or exam assistant in ClockEE to route question explanation and OCR queries through local OmniRoute endpoint (http://localhost:20128/v1)."
-    },
-    "ui_ux": {
-      "status": "PENDING",
-      "action": "AI Provider Status & Latency Badge",
-      "details": "Design a subtle status badge/indicator in settings or developer panel showing active AI fallback tier (Ultra Fast Groq / Cerebras vs Reasoning Gemini)."
-    },
-    "db_backend": {
-      "status": "PENDING",
-      "action": "Token Usage & Cache Persistence",
-      "details": "Optionally log OmniRoute token counts and fallback events into SQLite table ai_inference_logs in server.py."
-    },
-    "simulation": {
-      "status": "ON_HOLD",
-      "action": "Audit & Endpoint Verification",
-      "details": "Run sloplint.py and verify mock inferences with omniroute_client.py when Phase 2 implementation completes."
     }
   }
 }

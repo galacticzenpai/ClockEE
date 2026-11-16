@@ -23,7 +23,7 @@ class SyllabusDAGRenderer {
       const title = document.createElement('h3');
       title.textContent = sub;
       title.style.cssText = 'font-size: 14px; font-weight: 700; color: #f59e0b; font-family: "JetBrains Mono", monospace; text-transform: uppercase; margin-bottom: 14px; display:flex; align-items:center; gap:8px;';
-      title.innerHTML = `<span style="width:8px; height:8px; border-radius:50%; background:#f59e0b;"></span> \${sub} Mastery Tree`;
+      title.innerHTML = `<span style="width:8px; height:8px; border-radius:50%; background:#f59e0b;"></span> ${sub} Mastery Tree`;
       section.appendChild(title);
 
       const grid = document.createElement('div');
@@ -38,21 +38,26 @@ class SyllabusDAGRenderer {
         card.style.cssText = `
           padding: 12px 14px;
           border-radius: 8px;
-          border: 1px solid \${isCompleted ? 'rgba(16, 185, 129, 0.4)' : (prereqsMet ? 'rgba(56, 189, 248, 0.4)' : 'rgba(255, 255, 255, 0.05)')};
-          background: \${isCompleted ? 'rgba(16, 185, 129, 0.08)' : (prereqsMet ? 'rgba(56, 189, 248, 0.08)' : 'rgba(255, 255, 255, 0.02)')};
-          color: \${prereqsMet || isCompleted ? '#f8fafc' : '#64748b'};
+          border: 1px solid ${isCompleted ? 'rgba(16, 185, 129, 0.4)' : (prereqsMet ? 'rgba(56, 189, 248, 0.4)' : 'rgba(255, 255, 255, 0.05)')};
+          background: ${isCompleted ? 'rgba(16, 185, 129, 0.08)' : (prereqsMet ? 'rgba(56, 189, 248, 0.08)' : 'rgba(255, 255, 255, 0.02)')};
+          color: ${prereqsMet || isCompleted ? '#f8fafc' : '#64748b'};
           font-family: 'Inter', sans-serif;
           font-size: 12px;
-          cursor: \${prereqsMet ? 'pointer' : 'not-allowed'};
+          cursor: ${prereqsMet ? 'pointer' : 'not-allowed'};
           transition: transform 0.15s ease;
         `;
+        const prereqsHtml = node.prereqs.length > 0
+          ? `<div style="font-size:10px; color:#94a3b8; margin-top:4px;">Requires: ${node.prereqs.join(', ')}</div>`
+          : '';
+        const badgeColor = isCompleted ? '#10b981' : (prereqsMet ? '#38bdf8' : '#64748b');
+
         card.innerHTML = `
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
-            <span style="font-family:'JetBrains Mono', monospace; font-size:10px; color:\${isCompleted ? '#10b981' : (prereqsMet ? '#38bdf8' : '#64748b')}; font-weight:700;">\${status}</span>
-            <span style="font-size:10px; color:#64748b;">Tier \${node.level}</span>
+            <span style="font-family:'JetBrains Mono', monospace; font-size:10px; color:${badgeColor}; font-weight:700;">${status}</span>
+            <span style="font-size:10px; color:#64748b;">Tier ${node.level}</span>
           </div>
-          <div style="font-weight:600; font-size:13px;">\${node.name}</div>
-          \${node.prereqs.length > 0 ? `<div style="font-size:10px; color:#94a3b8; margin-top:4px;">Requires: \${node.prereqs.join(', ')}</div>` : ''}
+          <div style="font-weight:600; font-size:13px;">${node.name}</div>
+          ${prereqsHtml}
         `;
         grid.appendChild(card);
       });

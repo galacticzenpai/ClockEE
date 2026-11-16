@@ -104,9 +104,9 @@ class DiagnosticsConsole {
     const statsDiv = this.container.querySelector('#clockee-diag-stats');
     if (statsDiv) {
       statsDiv.innerHTML = `
-        <div style="display:flex; justify-content:space-between;"><span>Network Link:</span><span style="color:\${this.stats.online ? '#10b981' : '#ef4444'}; font-weight:700;">\${this.stats.online ? 'ONLINE' : 'OFFLINE (CRDT Cache)'}</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>JS Heap Memory:</span><span style="color:#38bdf8;">\${this.stats.memoryHeapUsedMB || 'N/A'} MB</span></div>
-        <div style="display:flex; justify-content:space-between;"><span>Client Uptime:</span><span style="color:#f59e0b;">\${this.stats.uptimeSec}s</span></div>
+        <div style="display:flex; justify-content:space-between;"><span>Network Link:</span><span style="color:${this.stats.online ? '#10b981' : '#ef4444'}; font-weight:700;">${this.stats.online ? 'ONLINE' : 'OFFLINE (CRDT Cache)'}</span></div>
+        <div style="display:flex; justify-content:space-between;"><span>JS Heap Memory:</span><span style="color:#38bdf8;">${this.stats.memoryHeapUsedMB || 'N/A'} MB</span></div>
+        <div style="display:flex; justify-content:space-between;"><span>Client Uptime:</span><span style="color:#f59e0b;">${this.stats.uptimeSec}s</span></div>
         <div style="display:flex; justify-content:space-between;"><span>IndexedDB Health:</span><span style="color:#10b981;">ACTIVE (0ms lag)</span></div>
       `;
     }

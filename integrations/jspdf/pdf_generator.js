@@ -40,16 +40,16 @@ class ScorecardPDFGenerator {
         <div class="header">
           <div>
             <div class="title">ClockEE CBT Official Scorecard</div>
-            <div style="color:#6b7280; font-size:11px; margin-top:3px;">Candidate: \${d.candidateName || 'Student'} | Exam: \${d.examName || 'JEE Advanced Full Mock'}</div>
+            <div style="color:#6b7280; font-size:11px; margin-top:3px;">Candidate: ${d.candidateName || 'Student'} | Exam: ${d.examName || 'JEE Advanced Full Mock'}</div>
           </div>
-          <div style="text-align:right; font-size:10px; color:#6b7280;">Date: \${new Date().toLocaleDateString()}</div>
+          <div style="text-align:right; font-size:10px; color:#6b7280;">Date: ${new Date().toLocaleDateString()}</div>
         </div>
 
         <div class="grid">
-          <div class="stat-box"><div class="stat-val">\${d.score || 0} / \${d.maxScore || 300}</div><div class="stat-lbl">Final Score</div></div>
-          <div class="stat-box"><div class="stat-val">\${d.percentile || 99.0}%</div><div class="stat-lbl">Estimated Percentile</div></div>
-          <div class="stat-box"><div class="stat-val">\${d.airRange || '500 - 1500'}</div><div class="stat-lbl">Projected AIR</div></div>
-          <div class="stat-box"><div class="stat-val">\${d.accuracy || 85}%</div><div class="stat-lbl">Accuracy</div></div>
+          <div class="stat-box"><div class="stat-val">${d.score || 0} / ${d.maxScore || 300}</div><div class="stat-lbl">Final Score</div></div>
+          <div class="stat-box"><div class="stat-val">${d.percentile || 99.0}%</div><div class="stat-lbl">Estimated Percentile</div></div>
+          <div class="stat-box"><div class="stat-val">${d.airRange || '500 - 1500'}</div><div class="stat-lbl">Projected AIR</div></div>
+          <div class="stat-box"><div class="stat-val">${d.accuracy || 85}%</div><div class="stat-lbl">Accuracy</div></div>
         </div>
 
         <h3 style="font-size:13px; margin-bottom:6px;">Subject-Wise Performance Breakdown</h3>

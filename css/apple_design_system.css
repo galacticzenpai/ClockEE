@@ -1,0 +1,460 @@
+/* ==========================================================================
+   ClockEE - Master Apple HIG & Apple Intelligence Design System
+   Sleek, Minimalist, Precision Cupertino Dark Materials with Fluid Micro-Physics
+   Zero AI Slop: No Garish Gradients, No Neon Fuzzy Glows, High APCA Contrast
+   ========================================================================== */
+
+:root {
+  /* ─── 1. Apple True Dark & Slate Surface Materials ─── */
+  --bg-base: #000000;
+  --bg-surface: #0a0c10;
+  --bg-elevated: #12151c;
+  --bg-card: rgba(18, 21, 28, 0.78);
+  --bg-card-hover: rgba(26, 30, 40, 0.88);
+  --bg-card-active: rgba(36, 42, 56, 0.94);
+  --bg-glass: rgba(18, 21, 28, 0.76);
+  --bg-glass-heavy: rgba(14, 16, 22, 0.88);
+
+  /* ─── 2. Retina Hairline Dividers & Outlines ─── */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(255, 255, 255, 0.14);
+  --border-bright: rgba(255, 255, 255, 0.22);
+  --border-focus: rgba(10, 132, 255, 0.65);
+
+  /* ─── 3. Authentic Apple HIG System Palette ─── */
+  --accent: #0a84ff;                    /* Apple System Blue */
+  --accent-hover: #0071e3;              /* Apple Dark Blue */
+  --accent-soft: rgba(10, 132, 255, 0.14);
+  --accent-light: rgba(10, 132, 255, 0.14);
+  --accent-glow: rgba(10, 132, 255, 0.28);
+  
+  --apple-blue: #0a84ff;
+  --apple-blue-dark: #0071e3;
+  --apple-green: #30d158;               /* Apple System Green */
+  --apple-green-soft: rgba(48, 209, 88, 0.14);
+  --apple-amber: #ff9f0a;               /* Apple System Amber */
+  --apple-amber-soft: rgba(255, 159, 10, 0.14);
+  --apple-red: #ff453a;                 /* Apple System Red */
+  --apple-red-soft: rgba(255, 69, 58, 0.14);
+  --apple-purple: #bf5af2;              /* Apple System Purple */
+  --apple-purple-soft: rgba(191, 90, 242, 0.14);
+  --apple-teal: #64d2ff;                /* Apple System Teal */
+  --apple-indigo: #5e5ce6;              /* Apple System Indigo */
+
+  /* ─── 4. Apple Intelligence (Siri / AI) Chromatic Aura ─── */
+  /* Refined, luminous edge refraction - NEVER garish purple blobs */
+  --ai-aura-cyan: rgba(100, 210, 255, 0.40);
+  --ai-aura-blue: rgba(10, 132, 255, 0.45);
+  --ai-aura-purple: rgba(191, 90, 242, 0.38);
+  --ai-aura-amber: rgba(255, 159, 10, 0.30);
+  --ai-aura-green: rgba(48, 209, 88, 0.32);
+
+  --aura-color-1: rgba(10, 132, 255, 0.16);
+  --aura-color-2: rgba(48, 209, 88, 0.12);
+  --aura-color-3: rgba(191, 90, 242, 0.12);
+
+  /* ─── 5. Accessible APCA High-Contrast Typography ─── */
+  --text-primary: #ffffff;              /* Lc 108.0 on #000000, 107.2 on #12151c */
+  --text-body: #e8ecf2;                 /* Lc 95.7 on #12151c (Optimal Readability) */
+  --text-secondary: #c0c8d8;            /* Lc 75.2 on #12151c (Target >= 75) */
+  --text-label: #b0b8c4;                /* Lc 66.3 on #12151c (Target >= 60) */
+  --text-muted: rgba(235, 235, 245, 0.45);
+  --text-tertiary: rgba(235, 235, 245, 0.32);
+
+  /* ─── 6. Font Stacks ─── */
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "SF Pro", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "SF Mono", "JetBrains Mono", Menlo, Monaco, Consolas, monospace;
+
+  /* ─── 7. Apple Squircles & Curvature ─── */
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  --radius-pill: 9999px;
+
+  /* ─── 8. Physics & Materials ─── */
+  --blur-glass: blur(25px) saturate(190%);
+  --spring-apple: cubic-bezier(0.16, 1, 0.3, 1);
+  --spring-elastic: cubic-bezier(0.32, 0.72, 0, 1);
+
+  /* ─── 9. Fitts's Law Touch Hitboxes ─── */
+  --touch-target-min: 44px;
+  --touch-target-optimal: 48px;
+
+  /* ─── 10. Depth & Elevation ─── */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.28);
+  --shadow-md: 0 4px 18px rgba(0, 0, 0, 0.38);
+  --shadow-lg: 0 12px 38px rgba(0, 0, 0, 0.54);
+  --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.44);
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Universal Base & Apple Safe-Area Foundations
+   ────────────────────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: var(--bg-base);
+  color: var(--text-body);
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+@supports (padding: max(0px)) {
+  body {
+    padding-top: max(0px, env(safe-area-inset-top));
+    padding-bottom: max(0px, env(safe-area-inset-bottom));
+    padding-left: max(0px, env(safe-area-inset-left));
+    padding-right: max(0px, env(safe-area-inset-right));
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Apple Fluid Glassmorphism & Surface Materials
+   ────────────────────────────────────────────────────────────────────────── */
+.glass-card,
+.apple-glass,
+.card-glass,
+.surface-card {
+  background: var(--bg-card);
+  backdrop-filter: var(--blur-glass);
+  -webkit-backdrop-filter: var(--blur-glass);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  transition: transform 0.2s var(--spring-apple),
+              border-color 0.2s ease,
+              background-color 0.2s ease,
+              box-shadow 0.2s ease;
+}
+
+.glass-card:hover,
+.apple-glass:hover,
+.card-glass:hover,
+.surface-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-medium);
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Apple Intelligence (Siri AI) Dynamic Edge Aura
+   Iridescent Chromatic Refraction along Hairlines - ZERO AI SLOP
+   ────────────────────────────────────────────────────────────────────────── */
+@keyframes apple-ai-aura-rotate {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+@keyframes apple-ai-pulse {
+  0%, 100% { opacity: 0.65; transform: scale(1); }
+  50% { opacity: 0.95; transform: scale(1.015); }
+}
+
+.apple-intelligence-aura {
+  position: relative;
+  border-radius: var(--radius-xl);
+  background: var(--bg-elevated);
+}
+
+.apple-intelligence-aura::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(10, 132, 255, 0.45) 0%,
+    rgba(191, 90, 242, 0.40) 35%,
+    rgba(255, 159, 10, 0.30) 70%,
+    rgba(48, 209, 88, 0.35) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  opacity: 0.8;
+}
+
+.apple-intelligence-aura:hover::before {
+  opacity: 1;
+}
+
+.apple-ai-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 34px;
+  padding: 4px 14px;
+  border-radius: var(--radius-pill);
+  background: rgba(18, 21, 28, 0.85);
+  backdrop-filter: var(--blur-glass);
+  -webkit-backdrop-filter: var(--blur-glass);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text-primary);
+  font-size: 12px;
+  font-weight: 600;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+.apple-ai-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0a84ff, #bf5af2);
+  box-shadow: 0 0 6px rgba(10, 132, 255, 0.7);
+  animation: apple-ai-pulse 2.2s infinite ease-in-out;
+}
+
+.apple-ai-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  background: rgba(10, 132, 255, 0.12);
+  color: var(--apple-blue);
+  border: 1px solid rgba(10, 132, 255, 0.28);
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Fitts's Law Interactive Controls & Spring Micro-Physics
+   Min 44x44px Hitboxes, Continuous Squircles, Tactile Feedback
+   ────────────────────────────────────────────────────────────────────────── */
+button,
+.nav-btn,
+.cbt-btn,
+.btn,
+.action-btn,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  min-height: var(--touch-target-min);
+  min-width: var(--touch-target-min);
+  padding: 8px 18px;
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  user-select: none;
+  touch-action: manipulation;
+  cursor: pointer;
+  transition: transform 0.12s var(--spring-apple),
+              background-color 0.15s ease,
+              border-color 0.15s ease,
+              box-shadow 0.15s ease,
+              color 0.15s ease;
+}
+
+button:active,
+.nav-btn:active,
+.cbt-btn:active,
+.btn:active,
+.action-btn:active {
+  transform: scale(0.97);
+  transition-duration: 0.08s;
+}
+
+button:focus-visible,
+.nav-btn:focus-visible,
+.cbt-btn:focus-visible,
+.btn:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+}
+
+/* Primary Button (Apple System Blue) */
+.btn-primary,
+.cbt-btn-primary,
+button.btn-primary {
+  background-color: var(--accent);
+  color: #ffffff;
+  border: 1px solid transparent;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.btn-primary:hover,
+.cbt-btn-primary:hover,
+button.btn-primary:hover {
+  background-color: var(--accent-hover);
+}
+
+/* Secondary Button (Translucent Slate Material) */
+.btn-secondary,
+.cbt-btn-secondary,
+button.btn-secondary {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+}
+
+.btn-secondary:hover,
+.cbt-btn-secondary:hover,
+button.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.10);
+  color: var(--text-primary);
+  border-color: var(--border-medium);
+}
+
+/* Nav Button States */
+.nav-btn {
+  border-radius: var(--radius-pill);
+  padding: 6px 14px;
+  color: var(--text-secondary);
+  background: transparent;
+  border: 1px solid transparent;
+  text-decoration: none;
+}
+
+.nav-btn:hover {
+  background: var(--accent-soft);
+  color: var(--text-primary);
+}
+
+.nav-btn.nav-active,
+.nav-btn.active {
+  background: var(--accent);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 2px 8px rgba(10, 132, 255, 0.35); /* Crisp Apple Shadow, No Purple Neon */
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Form Controls (Inputs, Selects, Radios)
+   ────────────────────────────────────────────────────────────────────────── */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="search"],
+select,
+textarea {
+  min-height: var(--touch-target-min);
+  padding: 10px 14px;
+  background: rgba(18, 21, 28, 0.85);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+  outline: none;
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Apple Floating Shell Navigation Pill
+   ────────────────────────────────────────────────────────────────────────── */
+.top-shell-pill,
+.floating-nav-pill,
+.demo-top-pill,
+.cbt-top-pill {
+  min-height: 52px;
+  padding: 6px 18px;
+  border-radius: var(--radius-pill);
+  background: rgba(18, 21, 28, 0.85);
+  backdrop-filter: var(--blur-glass);
+  -webkit-backdrop-filter: var(--blur-glass);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-glass);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Apple-Style Custom Minimalist Scrollbars
+   ────────────────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: var(--radius-pill);
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Apple 7-Tier Responsive Breakpoints
+   ────────────────────────────────────────────────────────────────────────── */
+@media screen and (max-width: 375px) {
+  /* iPhone SE */
+  .top-shell-pill,
+  .floating-nav-pill,
+  .demo-top-pill,
+  .cbt-top-pill {
+    padding: 6px 12px;
+    gap: 8px;
+  }
+  button, .nav-btn, .cbt-btn {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  /* iPhone 16 */
+  .responsive-grid-auto {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* iPad Mini / Mobile View */
+  .hide-on-mobile {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  /* MacBook Pro 14"+ Studio Display */
+  .container-wide {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+}

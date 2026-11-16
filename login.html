@@ -88,10 +88,12 @@
 
   <style>
     :root {
-      --bg-base: #07080d;
-      --bg-surface: #0f121d;
+      --bg-base: #000000;
+      --bg-surface: #0a0c10;
+      --bg-elevated: #12151c;
       --border-subtle: rgba(255, 255, 255, 0.08);
-      --accent: #6366f1;
+      --border-focus: rgba(10, 132, 255, 0.65);
+      --accent: #0a84ff;
     }
 
     html, body {
@@ -171,9 +173,9 @@
     }
     .easter-egg-badge:hover {
       transform: scale(1.22) rotate(8deg);
-      border-color: #6366f1;
-      background: rgba(99, 102, 241, 0.2);
-      box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+      border-color: #0a84ff;
+      background: rgba(10, 132, 255, 0.16);
+      box-shadow: 0 4px 14px rgba(10, 132, 255, 0.35);
     }
     .easter-egg-badge:active {
       transform: scale(0.95);
@@ -499,9 +501,9 @@
       outline: none;
     }
     .form-input:focus {
-      border-color: #6366f1;
-      box-shadow: 0 0 16px rgba(99, 102, 241, 0.35);
-      background: rgba(11, 15, 28, 0.95);
+      border-color: #0a84ff;
+      box-shadow: 0 0 0 1px #0a84ff;
+      background: rgba(18, 21, 28, 0.95);
     }
 
     /* Password Checklist Pills */
@@ -612,6 +614,8 @@
       }
     }
   </style>
+  <!-- Master Apple HIG & Apple Intelligence Design System -->
+  <link rel="stylesheet" href="css/apple_design_system.css" />
 </head>
 <body class="p-3 sm:p-6 flex items-center justify-center min-h-screen relative">
 

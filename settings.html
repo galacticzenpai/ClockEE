@@ -35,15 +35,15 @@
 
   <style>
     :root {
-      --bg-base: #07080d;
-      --bg-surface: #10121b;
-      --bg-elevated: #161924;
+      --bg-base: #000000;
+      --bg-surface: #0a0c10;
+      --bg-elevated: #12151c;
       --border-subtle: rgba(255, 255, 255, 0.08);
-      --border-focus: rgba(99, 102, 241, 0.5);
-      --accent: #6366f1;
-      --accent-soft: rgba(99, 102, 241, 0.16);
-      --text-primary: #f3f4f6;
-      --text-secondary: #9ca3af;
+      --border-focus: rgba(10, 132, 255, 0.65);
+      --accent: #0a84ff;
+      --accent-soft: rgba(10, 132, 255, 0.14);
+      --text-primary: #ffffff;
+      --text-secondary: #c0c8d8;
     }
 
     body {
@@ -84,7 +84,7 @@
     .nav-btn.nav-active {
       background: var(--accent);
       color: #ffffff;
-      box-shadow: 0 0 15px rgba(99, 102, 241, 0.5);
+      box-shadow: 0 2px 10px rgba(10, 132, 255, 0.35);
     }
 
     .nav-dropdown {
@@ -115,7 +115,7 @@
       flex-direction: column;
       gap: 2px;
       z-index: 100;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.85), 0 0 15px rgba(99,102,241,0.2);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.85), 0 0 0 1px rgba(255, 255, 255, 0.08);
       backdrop-filter: blur(32px) saturate(220%);
       -webkit-backdrop-filter: blur(32px) saturate(220%);
     }
@@ -174,7 +174,7 @@
       gap: 6px;
       overflow-x: auto;
       scrollbar-width: none;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 15px rgba(0, 240, 255, 0.15);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.08);
     }
     .settings-nav-bar::-webkit-scrollbar { display: none; }
 
@@ -272,6 +272,8 @@
       }
     }
   </style>
+  <!-- Master Apple HIG & Apple Intelligence Design System -->
+  <link rel="stylesheet" href="css/apple_design_system.css" />
 </head>
 <body class="relative bg-[#07080e] text-[#f8fafc]">
 

@@ -116,7 +116,8 @@
         "target_name": "BUG FIXES",
         "target_id": "c05ee59e-9749-4bc3-8bea-57ea8b60874c",
         "instruction": "Surgical Production Remediation. Receive defect report from Simulation, surgically patch any issues in routing, Google Auth redirects, CORS, or database queries, and hand back to Simulation for second verification pass.",
-        "status": "QUEUED"
+        "status": "DISPATCHED_TO_CONVERSATION",
+        "staged_at": "2026-11-16T11:52:26.795054"
       }
     }
   },

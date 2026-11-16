@@ -1,7 +1,7 @@
-You are SIMULATION.
+You are BUG FIXES.
 
 --- TASK ASSIGNMENT ---
-2-Pass Live Browser Deployment Audit. Pass 1: Open live https://clockee.vercel.app in browser; test Google OAuth login, Supabase database queries, CBT exams, and remote tracker. Pass 2: Simulate offline disconnection and verify auto-sync. If any defects occur, compile detailed report and hand off to BUG FIXES.
+Surgical Production Remediation. Receive defect report from Simulation, surgically patch any issues in routing, Google Auth redirects, CORS, or database queries, and hand back to Simulation for second verification pass.
 
 --- MESH COORDINATION DIRECTIVE ---
 1. Implement all domain fixes and features cleanly without disturbing sibling modules.

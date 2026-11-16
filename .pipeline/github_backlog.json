@@ -84,57 +84,89 @@
       "title": "High-Precision Cadence & Exam Fatigue Timer Engine",
       "status": "COMPLETED",
       "summary": "Crash-resilient Web Worker countdown timer with anchor recovery"
-    }
-  ],
-  "active_reel": {
-    "id": "reel_011",
-    "url": "https://www.instagram.com/p/DezZ8h7AnWZ/",
-    "package_name": "irt_adaptive_sequencer",
-    "upstream": "cat-engine/irt-py",
-    "title": "Item Response Theory (IRT) Dynamic Question Difficulty Sequencer",
-    "status": "QUEUED_FOR_INGESTION"
-  },
-  "pending_reels": [
+    },
+    {
+      "id": "reel_011",
+      "url": "https://www.instagram.com/p/DezZ8h7AnWZ/",
+      "package_name": "irt_adaptive_sequencer",
+      "upstream": "cat-engine/irt-py",
+      "title": "Item Response Theory (IRT) Dynamic Question Difficulty Sequencer",
+      "status": "COMPLETED",
+      "summary": "3PL IRT engine with EAP Bayesian ability convergence"
+    },
     {
       "id": "reel_012",
       "url": "https://www.instagram.com/p/DeCIBOaSgWj/",
-      "status": "QUEUED"
+      "package_name": "mcq_distractor_engine",
+      "upstream": "question-bank-distractors",
+      "title": "Plausible MCQ Distractor & Misconception Analyzer",
+      "status": "COMPLETED",
+      "summary": "Categorizes decoy options by cognitive misconception & trap taxonomy"
     },
     {
       "id": "reel_013",
       "url": "https://www.instagram.com/p/DerbBtfzj8p/",
-      "status": "QUEUED"
+      "package_name": "omr_sheet_scanner",
+      "upstream": "opencv/omr-scanner",
+      "title": "Physical OMR Bubble Sheet Optical Scanner",
+      "status": "COMPLETED",
+      "summary": "Physical bubble matrix optical grading in 0.08ms"
     },
     {
       "id": "reel_014",
       "url": "https://www.instagram.com/p/DdBSahaKHsY/",
-      "status": "QUEUED"
+      "package_name": "cbt_session_snapshot",
+      "upstream": "session-freeze/engine",
+      "title": "Instantaneous IndexedDB Exam Session Serialization",
+      "status": "COMPLETED",
+      "summary": "Delta-based session serialization in 0.09ms with SHA-256 verification"
     },
     {
       "id": "reel_015",
       "url": "https://www.instagram.com/p/De0-L6zAKky/",
-      "status": "QUEUED"
+      "package_name": "hallmark_tokens_engine",
+      "upstream": "hallmark/tokens-engine",
+      "title": "Hallmark Design Token Engine & CSS Variables",
+      "status": "COMPLETED",
+      "summary": "W3C Design Token JSON compilation in 0.96ms to Hallmark CSS custom properties"
     },
     {
       "id": "reel_016",
       "url": "https://www.instagram.com/p/DebmIDlSiR3/",
-      "status": "QUEUED"
+      "package_name": "tactile_cockpit_hud",
+      "upstream": "tactile/cockpit-controls",
+      "title": "Keyboard-First Cockpit Shortcuts & Accessibility HUD",
+      "status": "COMPLETED",
+      "summary": "NTA official hotkey engine resolving in 0.62µs per keystroke"
     },
     {
       "id": "reel_017",
       "url": "https://www.instagram.com/p/DfGCFq_KBl7/",
-      "status": "QUEUED"
+      "package_name": "retina_charts",
+      "upstream": "uPlot/high-density-charts",
+      "title": "Zero-Dependency 60FPS Student Accuracy & Speed Heatmaps",
+      "status": "COMPLETED",
+      "summary": "Telemetry aggregation in 0.41ms with 60FPS Canvas time-series renderer"
     },
     {
       "id": "reel_018",
       "url": "https://www.instagram.com/p/DfPoyBxqtej/",
-      "status": "QUEUED"
-    },
-    {
-      "id": "reel_019",
-      "url": "https://www.instagram.com/p/DeRiLg-iah2/",
-      "status": "QUEUED"
-    },
+      "package_name": "glass_split_drawer",
+      "upstream": "vaul-vanilla/split-drawer",
+      "title": "Physics-Based Split-Drawer Question Navigator & Bookmark Tray",
+      "status": "COMPLETED",
+      "summary": "Collapsible 180-question palette drawer with 56.9µs state calculation"
+    }
+  ],
+  "active_reel": {
+    "id": "reel_019",
+    "url": "https://www.instagram.com/p/DeRiLg-iah2/",
+    "package_name": "fluid_typography",
+    "upstream": "tailwind-clamp/typography",
+    "title": "Dynamic Viewport Fluid Math & Reading Typography System",
+    "status": "QUEUED_FOR_INGESTION"
+  },
+  "pending_reels": [
     {
       "id": "reel_020",
       "url": "https://www.instagram.com/p/DfRBJe5R0jV/",

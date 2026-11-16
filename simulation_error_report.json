@@ -1,34 +1,55 @@
 {
-  "simulationId": "sim_py_1794821133673",
+  "simulationId": "sim_py_1794822321858",
   "title": "Autonomous Full Mock Simulation",
-  "timestamp": "2026-11-16T14:55:33.673419",
+  "timestamp": "2026-11-16T15:15:21.859537",
   "metrics": {
-    "score": 15,
+    "score": 10,
     "maxScore": 20,
-    "accuracy": 80.0,
+    "accuracy": 60.0,
     "attempted": 5,
     "totalQs": 5,
-    "avgLatencySec": 82,
+    "avgLatencySec": 78,
     "timeTakenMin": 7
   },
-  "errorCount": 1,
+  "errorCount": 2,
   "mistakes": [
     {
-      "id": "mistake_sim_py_1794821133673_2",
-      "testId": "sim_py_1794821133673",
+      "id": "mistake_sim_py_1794822321858_3",
+      "testId": "sim_py_1794822321858",
       "testTitle": "Autonomous Full Mock Simulation",
-      "qNum": 2,
-      "subject": "Chemistry",
-      "chapter": "Chemical Equilibrium",
+      "qNum": 3,
+      "subject": "Maths",
+      "chapter": "Binomial Theorem",
       "topic": "JEE Main",
-      "questionText": "4.5 moles each of hydrogen and iodine is heated in a sealed \nten litre vessel. At equilibrium, 3 moles of HI were found. The \nequilibrium constant for\n[11 April, 2023 (Shift-II)]\n \n H2(g) + I2(g) \uf083 2HI(g) is \u2026\u2026.",
-      "markedOption": "1.1",
-      "correctOption": "1.0",
+      "questionText": "If 1P1 + 2. 2P2 + 3. 3P3 + ..... + 15. 15P15= qPr \u2013\u2009s, 0 \u2264 s \u2264 1, then q+sCr\u2013s \nis equal to\n[26 Aug, 2021 (Shift-I)]",
+      "markedOption": "135.1",
+      "correctOption": "136.0",
       "errorCategory": "Calculation Mistake",
       "reason": "Calculation Mistake",
-      "reasonDetail": "Calculated value 1.1 deviates from ground truth 1.0.",
+      "reasonDetail": "Calculated value 135.1 deviates from ground truth 136.0.",
       "idealTimeSec": 75,
-      "timeSpentSec": 56,
+      "timeSpentSec": 66,
+      "date": "2026-11-16",
+      "important": true,
+      "bookmarked": true,
+      "status": "unresolved"
+    },
+    {
+      "id": "mistake_sim_py_1794822321858_5",
+      "testId": "sim_py_1794822321858",
+      "testTitle": "Autonomous Full Mock Simulation",
+      "qNum": 5,
+      "subject": "Maths",
+      "chapter": "Matrices & Determinants",
+      "topic": "JEE Main",
+      "questionText": "If \n1\n0\n0\n0\n1\n1\n0\n\u20132\n4\nA\n\uf8ee\n\uf8f9\n\uf8ef\n\uf8fa\n= \uf8ef\n\uf8fa\n\uf8ef\n\uf8fa\n\uf8f0\n\uf8fb\n, 6A\u20131 = A2 + cA + dI then (c, d) is equal to\n\n[IIT-JEE 2005]",
+      "markedOption": "Option (D)",
+      "correctOption": "Option (A)",
+      "errorCategory": "Calculation Mistake",
+      "reason": "Calculation Mistake",
+      "reasonDetail": "Selected Option (D) instead of (A).",
+      "idealTimeSec": 75,
+      "timeSpentSec": 78,
       "date": "2026-11-16",
       "important": true,
       "bookmarked": true,
@@ -41,21 +62,21 @@
       "correct": 1,
       "wrong": 0,
       "score": 4,
-      "time_sec": 107
+      "time_sec": 91
     },
     "Chemistry": {
       "attempted": 1,
-      "correct": 0,
-      "wrong": 1,
-      "score": -1,
-      "time_sec": 56
+      "correct": 1,
+      "wrong": 0,
+      "score": 4,
+      "time_sec": 84
     },
     "Maths": {
       "attempted": 3,
-      "correct": 3,
-      "wrong": 0,
-      "score": 12,
-      "time_sec": 248
+      "correct": 1,
+      "wrong": 2,
+      "score": 2,
+      "time_sec": 217
     }
   }
 }

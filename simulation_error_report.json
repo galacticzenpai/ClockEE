@@ -1,39 +1,61 @@
 {
-  "simulationId": "sim_py_1794824382034",
+  "simulationId": "sim_py_1794824891513",
   "title": "Autonomous Full Mock Simulation",
-  "timestamp": "2026-11-16T15:49:42.035087",
+  "timestamp": "2026-11-16T15:58:11.515359",
   "metrics": {
-    "score": 12,
-    "maxScore": 12,
-    "accuracy": 100.0,
-    "attempted": 3,
-    "totalQs": 3,
-    "avgLatencySec": 85,
-    "timeTakenMin": 4
+    "score": 15,
+    "maxScore": 20,
+    "accuracy": 80.0,
+    "attempted": 5,
+    "totalQs": 5,
+    "avgLatencySec": 60,
+    "timeTakenMin": 5
   },
-  "errorCount": 0,
-  "mistakes": [],
+  "errorCount": 1,
+  "mistakes": [
+    {
+      "id": "mistake_sim_py_1794824891513_3",
+      "testId": "sim_py_1794824891513",
+      "testTitle": "Autonomous Full Mock Simulation",
+      "qNum": 3,
+      "subject": "Maths",
+      "chapter": "Quadratic Equations",
+      "topic": "JEE Main",
+      "questionText": "The number of real solutions of the equation x |x + 5| + 2|x + 7| \u2013 2 = 0 \nis ___________..\n\n[05 April, 2024 (Shift-II)]",
+      "markedOption": "-3.0",
+      "correctOption": "3.0",
+      "errorCategory": "Sign / Inversion Error",
+      "reason": "Sign / Inversion Error",
+      "reasonDetail": "Sign inversion error: entered -3.0 vs expected 3.0. Verify direction vector.",
+      "idealTimeSec": 75,
+      "timeSpentSec": 54,
+      "date": "2026-11-16",
+      "important": true,
+      "bookmarked": true,
+      "status": "unresolved"
+    }
+  ],
   "subjectBreakdown": {
     "Physics": {
       "attempted": 1,
       "correct": 1,
       "wrong": 0,
       "score": 4,
-      "time_sec": 104
+      "time_sec": 67
     },
     "Chemistry": {
       "attempted": 1,
       "correct": 1,
       "wrong": 0,
       "score": 4,
-      "time_sec": 101
+      "time_sec": 62
     },
     "Maths": {
-      "attempted": 1,
-      "correct": 1,
-      "wrong": 0,
-      "score": 4,
-      "time_sec": 51
+      "attempted": 3,
+      "correct": 2,
+      "wrong": 1,
+      "score": 7,
+      "time_sec": 171
     }
   }
 }

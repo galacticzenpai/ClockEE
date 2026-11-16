@@ -1,11 +1,10 @@
 {
   "version": "1.0.0",
   "active_reel": {
-    "id": "reel_002",
-    "url": "https://www.instagram.com/p/De63OT8Sqwg/",
-    "source_handle": "waitwhatdidyoudo",
+    "id": "reel_003",
+    "url": "https://www.instagram.com/p/DfDPuZjE-7Q/",
     "status": "QUEUED_FOR_INGESTION",
-    "added_at": "2026-11-16T09:20:00Z"
+    "added_at": "2026-11-16T11:15:00Z"
   },
   "completed_reels": [
     {
@@ -15,14 +14,17 @@
       "upstream": "Graphify-Labs/graphify",
       "status": "COMPLETED",
       "completed_at": "2026-11-16T03:49:10Z"
+    },
+    {
+      "id": "reel_002",
+      "url": "https://www.instagram.com/p/De63OT8Sqwg/",
+      "name": "LLM-Lint",
+      "upstream": "JadenRazo/llm-lint",
+      "status": "COMPLETED",
+      "completed_at": "2026-11-16T11:14:00Z"
     }
   ],
   "backlog": [
-    {
-      "index": 2,
-      "url": "https://www.instagram.com/p/DfDPuZjE-7Q/",
-      "status": "PENDING"
-    },
     {
       "index": 3,
       "url": "https://www.instagram.com/p/De6ttI-zAba/",

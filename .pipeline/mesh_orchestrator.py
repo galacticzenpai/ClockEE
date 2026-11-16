@@ -111,10 +111,10 @@ CONVERSATIONS = {
         "keywords": ["bug", "fix", "error", "exception", "alert", "syntax", "crash", "hotfix", "regression"]
     },
     "planning": {
-        "id": "planning_conversation",
+        "id": "b411e7a0-c268-4614-b3d5-f2b2836f4500",
         "name": "PLANNING & ROADMAP ARCHITECT",
         "role": "Sprint Planner, Roadmap Strategist & Prompt Engineer",
-        "url": "",
+        "url": "https://antigravity.google.com/r/21bf6843-8cfa-4328-afad-58c97e63b317-v2?p=c%2Fb411e7a0-c268-4614-b3d5-f2b2836f4500",
         "keywords": ["planning", "plan", "roadmap", "prompt", "architect", "strategy", "sprint"]
     },
     "backbone": {

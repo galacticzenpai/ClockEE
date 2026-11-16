@@ -57,6 +57,10 @@ WATCHED_CONVERSATIONS = {
     "inspiration": {
         "id": "e6690e55-bfca-4ce1-af20-843015d7d01b",
         "name": "INSPIRATION"
+    },
+    "planning": {
+        "id": "b411e7a0-c268-4614-b3d5-f2b2836f4500",
+        "name": "PLANNING & ROADMAP ARCHITECT"
     }
 }
 

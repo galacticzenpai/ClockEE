@@ -48,23 +48,12 @@
     }
   },
   "current_batch": {
-    "batch_id": "batch_reel_002_ingestion",
-    "source": "backbone",
-    "reel_url": "https://www.instagram.com/p/De63OT8Sqwg/",
-    "status": "ACTIVE",
-    "timestamp": "2026-11-16T09:27:04.105009",
+    "batch_id": "batch_llm_lint_sanitizer_002",
+    "source": "github",
+    "package": "JadenRazo/llm-lint",
+    "status": "QUEUED",
+    "timestamp": "2026-11-16T11:15:00Z",
     "tasks": {
-      "github": {
-        "target_key": "github",
-        "target_name": "GITHUB",
-        "target_id": "a64c937f-bb58-4071-8eb9-32f5edbb6c2c",
-        "status": "DISPATCHED_TO_CONVERSATION",
-        "staged_at": "2026-11-16T09:37:55.784564",
-        "reel_url": "https://www.instagram.com/p/De63OT8Sqwg/",
-        "action": "Ingest Reel #2, vendor tool into integrations/<tool>/, and generate mesh handoff prompts for Untitled conversation, UI/UX, DB/Backend, and Simulation.",
-        "instruction": "Active Reel: Reel #2 (https://www.instagram.com/p/De63OT8Sqwg/)\nSource Handle: @waitwhatdidyoudo\nBacklog Location: .pipeline/github_backlog.json\nPrerequisites Met: Reel #1 (Graphify) vendored in integrations/graphify/ with 263 entities and 320 edges indexed.\n\n1. Package Analysis & Ingestion:\n   - Ingest Reel #2 (https://www.instagram.com/p/De63OT8Sqwg/).\n   - Identify the featured tool/package showcased by @waitwhatdidyoudo.\n   - Vendor the package into integrations/<package_name>/ with:\n     \u2022 SKILL.md (specification and commands)\n     \u2022 <package_name>_runner.py (local executable CLI/runner)\n     \u2022 Verified local execution test\n     \u2022 Entry added to integrations/README.md\n\n2. Cross-Mesh Installation & Handoffs ('Install Everywhere Else'):\n   At the end of your turn, output the exact handoff prompt blocks to distribute installation across the mesh:\n   - --- PROMPT FOR Untitled conversation (Main Feature) ---: Instructions to wire the tool's DOM containers, UI hooks, and core state into the frontend templates.\n   - --- PROMPT FOR UI / UX ---: Instructions to style the UI elements with ClockEE Hallmark design tokens and responsive classes.\n   - --- PROMPT FOR DB / BACKEND ---: Instructions for SQLite tables or server endpoints if the tool stores data.\n   - --- PROMPT FOR SIMULATION ---: Instructions to run Hallmark SlopLinter (100/100 floor score) and regression tests.\n\n3. Backlog Advance:\n   - In .pipeline/github_backlog.json, move Reel #2 to completed_reels and set Reel #3 (https://www.instagram.com/p/DfDPuZjE-7Q/) as \u0007ctive_reel.\n   - Provide your mandatory ### \ud83d\udef0\ufe0f PIPELINE QUEUE & HANDOFF REPORT.",
-        "dispatched_at": "2026-11-16T09:38:54.577960"
-      },
       "untitled_conversation": {
         "source": "db_backend",
         "target_key": "untitled_conversation",
@@ -72,41 +61,25 @@
         "target_id": "6371cba6-7d2f-4b29-a250-627d88d1b4f1",
         "instruction": "You are Untitled conversation (Main Feature).\nPrerequisites Met: Supabase schema (backend/supabase_schema.sql), Python Gateway Bearer token middleware, and /api/sync batch offline endpoints completed and verified by DB / BACKEND.\n\nTASK ASSIGNMENT: CLIENT AUTHENTICATION & OFFLINE QUEUE WIRING\n\n1. Available Gateway Endpoints:\n   - GET /api/auth/providers?redirect_to=<url>: Returns OAuth URLs for Google and GitHub.\n   - POST /api/auth/session: Accepts { \"access_token\": \"<supabase_jwt>\" } to establish local session cache.\n   - POST /api/sync: Batch offline sync endpoint accepting:\n     {\n       \"user_id\": \"<uid>\",\n       \"timer_state\": { \"elapsed_seconds\": 1200, \"mode\": \"sprint\", \"is_paused\": false },\n       \"current_mode\": \"mains\" | \"advanced\",\n       \"active_deck\": \"<subject_or_chapter>\",\n       \"state\": { ... },\n       \"queued_logs\": [ { \"id\": \"...\", \"subject\": \"Physics\", \"chapter\": \"...\", \"duration\": 60, \"correct\": true, \"mistake\": \"\", \"score_delta\": 4, \"notes\": \"\" } ],\n       \"queued_exams\": [ { \"id\": \"...\", \"test_id\": \"...\", \"title\": \"...\", \"mode\": \"mains\", \"score\": 80, \"max_score\": 100, \"accuracy\": 80.0, \"time_spent\": 1800, \"responses\": [], \"analytics\": {} } ]\n     }\n   - GET /api/sync?user_id=<uid>: Hydrates localStorage with state and recent logs after offline reconnect.\n\n2. Client-Side Authentication Flow:\n   - Check if window.supabase is configured or if #access_token=... is present in URL hash on OAuth redirect return.\n   - When token is detected, send Bearer token in headers: { \"Authorization\": `Bearer ${token}` } for all API calls.\n   - If offline, queue completed question logs in localStorage under key 'clockee_offline_logs' and exams under 'clockee_offline_exams'.\n   - When navigator.onLine triggers 'online' event, flush queue by dispatching POST /api/sync.",
         "status": "DISPATCHED_TO_CONVERSATION",
-        "staged_at": "2026-11-16T11:09:39.172255"
+        "staged_at": "2026-11-16T11:14:20.674191"
       },
       "ui_ux": {
-        "target_key": "ui_ux",
-        "target_name": "UI / UX",
         "target_id": "06a7d47b-b225-40f4-b830-b58baaaf8b3a",
-        "status": "DISPATCHED_TO_CONVERSATION",
-        "action": "Awaiting feature wiring to apply Hallmark tactile styling and responsive classes.",
-        "staged_at": "2026-11-16T10:24:09.233260"
+        "target_name": "UI / UX",
+        "status": "PENDING",
+        "instruction": "LLM-Lint integration:\n1. Maintain ClockEE Hallmark design tokens (technical_slate, warm_notebook, retro_terminal) across all admin inspection panels.\n2. Ensure UI reports for repo provenance status display clean badge indicators."
       },
       "simulation": {
-        "source": "untitled_conversation",
-        "target_key": "simulation",
-        "target_name": "SIMULATION",
         "target_id": "62adc180-be21-4671-848c-c8df59e2c202",
-        "instruction": "You are SIMULATION.\nPrerequisites Met: Main Feature has completed surgical sanitization of dynamic innerHTML insertion sinks across admin.html, today.html, cbt_exam.html, and cbt_analysis.html.\n\nPlease run the Phase 3 verification suites:\n1. Run `python integrations/cloudflare_security_audit/audit_runner.py` to confirm all candidate sinks are verified or mitigated.\n2. Run `python integrations/hallmark_design/sloplint.py` to ensure zero floor gate failures, mobile responsiveness (<414px), and 100/100 design certification.\n3. Update and report final verification results back to the mesh.",
-        "status": "DISPATCHED_TO_CONVERSATION",
-        "staged_at": "2026-11-16T10:51:37.207125"
+        "target_name": "SIMULATION",
+        "status": "PENDING",
+        "instruction": "LLM-Lint Quality Gates:\n1. Run python integrations/llm_lint/lint_runner.py scan to verify zero LLM001-LLM004 violations (100% clean repository score).\n2. Run Hallmark sloplint and Cloudflare security audit regression passes."
       },
       "db_backend": {
-        "target_key": "db_backend",
-        "target_name": "DB / BACKEND",
         "target_id": "d3700ff3-1bfb-458a-9968-8257ef2ca7e2",
-        "status": "DISPATCHED",
-        "dispatched_at": "2026-11-16T09:55:12.258829",
-        "action": "Supabase PostgreSQL redesign, Python server.py JWT auth, Google/GitHub OAuth, and SQLite migration."
-      },
-      "bug_fixes": {
-        "source": "simulation",
-        "target_key": "bug_fixes",
-        "target_name": "BUG FIXES",
-        "target_id": "6b74e384-a9b2-458e-ba34-4798334dd509",
-        "instruction": "You are BUG FIXES.\nPrerequisites Met: SIMULATION has completed Phase 3 design certification (23/23 pages scored 100/100 on sloplint.py). Cloudflare security audit report has been compiled and saved.\n\nPlease inspect `integrations/cloudflare_security_audit/reports/audit_report_1794804948.json` and perform surgical sanitization on the verified unescaped `innerHTML` dynamic injection sinks across key templates (starting with `admin.html`, `cbt_exam.html`, and `cbt_analysis.html`) using `textContent` or proper entity escaping.",
-        "status": "DISPATCHED_TO_CONVERSATION",
-        "staged_at": "2026-11-16T10:26:33.137296"
+        "target_name": "DB / BACKEND",
+        "status": "PENDING",
+        "instruction": "LLM-Lint integration:\n1. Verify backend/ endpoints and SQLite migrations do not contain auto-generated prompt comments or Co-Authored-By headers.\n2. Confirm git hook in .git/hooks/commit-msg executes cleanly across backend commits."
       }
     }
   }

@@ -72,3 +72,16 @@ This directory contains the 5 packages adapted from the developer showcase (`pet
 * **Query Command**: `python integrations/graphify/graph_runner.py query <symbol_or_filename>`
 * **Reports Directory**: `integrations/graphify/reports/` (`graph.json`, `GRAPH_REPORT.md`)
 * **Purpose**: Maps cross-file dependencies, script inclusions, and storage keys into a deterministic knowledge graph, detecting architectural "god nodes" (e.g. `env.js`, `clockee_core.js`, `cbt_shared.js`) to prevent cascading breaking changes during refactors.
+
+---
+
+### 9. LLM-Lint: AI Provenance & Attribution Sanitizer
+* **Source Showcase**: `agentpoly [De63OT8Sqwg]`
+* **Upstream**: `JadenRazo/llm-lint` (MIT License)
+* **Directory**: `integrations/llm_lint/`
+* **Skill Specification**: `integrations/llm_lint/SKILL.md`
+* **Core Script**: `integrations/llm_lint/lint_runner.py`
+* **Scan Command**: `python integrations/llm_lint/lint_runner.py scan`
+* **Hook Install**: `python integrations/llm_lint/lint_runner.py install-hook`
+* **Reports Directory**: `integrations/llm_lint/reports/`
+* **Purpose**: Scans repository commits, docstrings, and pull requests to detect and clean unwanted AI attribution watermarks (`Co-authored-by: Claude`, `Generated with Claude Code`, prompt leaks) and installs an automatic Git `commit-msg` sanitizer hook.

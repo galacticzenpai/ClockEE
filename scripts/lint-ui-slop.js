@@ -305,7 +305,7 @@ function checkTimerTabularNums(filePath, cleanContent) {
     let match;
     while ((match = timerElemRegex.exec(cleanContent)) !== null) {
       const tagStr = match[0];
-      const hasTabularClass = /tabular-nums|font-tabular|jee-timer/i.test(tagStr);
+      const hasTabularClass = /tabular-nums|tabular|font-tabular|jee-timer/i.test(tagStr);
       const hasTabularStyle = /tabular-nums/i.test(tagStr);
 
       if (!hasTabularClass && !hasTabularStyle) {

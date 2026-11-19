@@ -1,5 +1,19 @@
-.git
+# Dependencies
 node_modules/
+
+# Environment
 .env*
+
+# Vercel
 .vercel/
+
+# Logs & OS
 *.log
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class

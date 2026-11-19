@@ -1,12 +1,22 @@
 {
   "version": 2,
-  "name": "jee-mesh-tracker",
+  "name": "clockee-os-2",
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/", "destination": "/live_tracker.html" },
-    { "source": "/tracker", "destination": "/live_tracker.html" },
-    { "source": "/cockpit", "destination": "/live_tracker.html" },
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/timer", "destination": "/timer.html" },
+    { "source": "/today", "destination": "/today.html" },
+    { "source": "/tasks", "destination": "/task.html" },
+    { "source": "/task", "destination": "/task.html" },
+    { "source": "/coaching", "destination": "/coaching.html" },
+    { "source": "/cbt", "destination": "/cbt_home.html" },
+    { "source": "/cbt/exam", "destination": "/cbt_exam.html" },
+    { "source": "/mistakes", "destination": "/cbt_mistakes.html" },
+    { "source": "/notebooks", "destination": "/cbt_notebooks.html" },
     { "source": "/syllabus", "destination": "/tracker.html" },
+    { "source": "/tracker", "destination": "/live_tracker.html" },
+    { "source": "/mesh", "destination": "/live_tracker.html" },
+    { "source": "/cockpit", "destination": "/live_tracker.html" },
     { "source": "/api/tracker", "destination": "/mesh/mesh_tracker_state.json" }
   ],
   "headers": [

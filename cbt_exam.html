@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JEE (Main) 2026 - Computer Based Test (CBT) Simulation</title>
+  <link rel="stylesheet" href="styles/tokens.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- KaTeX for Scientific & Mathematical Typography -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+
+  <style>
+    :root {
+      --surface-0: #090d16;
+      --surface-1: #111726;
+      --surface-2: #1a2236;
+      --surface-inset: #060910;
+      --border-subtle: 1px solid rgba(255, 255, 255, 0.08);
+      --border-strong: 1px solid rgba(255, 255, 255, 0.16);
+      --border-focus: 2px solid #38bdf8;
+    }
+
+    body {
+      background-color: var(--surface-0);
+      color: #f8fafc;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      user-select: none;
+    }
+
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    .tabular { font-variant-numeric: tabular-nums; }
+
+    .panel {
+      background-color: var(--surface-1);
+      border: var(--border-subtle);
+    }
+    .panel-inset {
+      background-color: var(--surface-inset);
+      border: var(--border-subtle);
+    }
+
+    /* Option selection radio card styling */
+    .option-card {
+      background-color: var(--surface-inset);
+      border: var(--border-subtle);
+      transition: border-color 0.1s ease, background-color 0.1s ease;
+    }
+    .option-card:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    .option-card.selected {
+      border-color: #38bdf8 !important;
+      background-color: rgba(56, 189, 248, 0.08) !important;
+    }
+
+    /* Active Question Palette Highlight */
+    .nta-badge.current-question,
+    .palette-btn.current-active {
+      outline: 2px solid #38bdf8 !important;
+      outline-offset: 2px;
+      transform: scale(1.08);
+    }
+
+    /* State aliases for UI/UX Craftsman spec parity */
+    .state-not-visited { background-color: var(--nta-not-visited-bg); color: var(--nta-not-visited-text); border: 1px solid var(--nta-not-visited-border); border-radius: 4px; }
+    .state-not-answered { background-color: var(--nta-not-answered-bg); color: var(--nta-not-answered-text); border: 1px solid var(--nta-not-answered-border); border-radius: 4px; clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 50% 100%, 0% 75%); }
+    .state-answered { background-color: var(--nta-answered-bg); color: var(--nta-answered-text); border: 1px solid var(--nta-answered-border); border-radius: 4px; clip-path: polygon(0% 25%, 50% 0%, 100% 25%, 100% 100%, 0% 100%); }
+    .state-marked-review { background-color: var(--nta-marked-review-bg); color: var(--nta-marked-review-text); border: 1px solid var(--nta-marked-review-border); border-radius: 50%; }
+    .state-answered-marked { background-color: var(--nta-answered-marked-bg); color: var(--nta-answered-marked-text); border: 1px solid var(--nta-answered-marked-border); border-radius: 50%; position: relative; }
+    .state-answered-marked::after { content: ""; position: absolute; bottom: 2px; right: 2px; width: 10px; height: 10px; background-color: var(--nta-answered-marked-indicator); border-radius: 50%; border: 1.5px solid var(--surface-1); }
+
+    /* Virtual Keypad Button */
+    .keypad-btn, .numkey-btn {
+      min-height: 44px;
+      min-width: 44px;
+      background-color: var(--surface-2);
+      border: var(--border-subtle);
+      color: #f8fafc;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 600;
+      font-size: 14px;
+      border-radius: 8px;
+      transition: background-color 0.1s ease, transform 0.05s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .keypad-btn:hover, .numkey-btn:hover {
+      background-color: #24304d;
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    .keypad-btn:active, .numkey-btn:active {
+      transform: scale(0.96);
+    }
+
+    /* Modal Backdrop */
+    .modal-backdrop {
+      background-color: rgba(6, 9, 16, 0.85);
+      backdrop-filter: blur(4px);
+    }
+
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: var(--surface-0); }
+    ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #334155; }
+  </style>
+</head>
+<body class="flex flex-col h-screen overflow-hidden">
+
+  <!-- NTA CBT Top Header Bar -->
+  <header class="bg-[#111726] border-b border-slate-800 px-4 py-2.5 flex items-center justify-between shrink-0">
+    <div class="flex items-center gap-3">
+      <div class="w-8 h-8 rounded-lg bg-sky-500/20 border border-sky-500/30 flex items-center justify-center font-bold text-sky-400 mono text-sm">
+        NTA
+      </div>
+      <div>
+        <h1 class="text-sm md:text-base font-extrabold text-white tracking-tight">JEE (Main) 2026 : Computer Based Test Mock Simulation</h1>
+        <div class="text-[11px] text-slate-400">Official 3-Hour Regulatory Format &bull; 90 Questions &bull; Maximum Marks: 300</div>
+      </div>
+    </div>
+
+    <!-- Candidate Info & Jitter-Free Countdown Clock -->
+    <div class="flex items-center gap-4">
+        <!-- Remaining Time Block -->
+        <div class="flex items-center gap-2.5 px-3.5 py-1.5 rounded-xl bg-slate-950/80 border border-slate-800">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          <div class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider mono">Time Left:</div>
+          <div id="cbt-timer" data-alias="exam-timer" class="text-lg md:text-xl font-black text-cyan-400 mono tabular tracking-tight">
+            03:00:00
+          </div>
+        </div>
+
+      <!-- Candidate Profile Pill -->
+      <div class="hidden md:flex items-center gap-2.5 px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-800">
+        <div class="w-7 h-7 rounded-full bg-slate-700 border border-slate-600 flex items-center justify-center font-bold text-xs text-slate-200 mono">
+          KN
+        </div>
+        <div class="text-left text-xs leading-tight">
+          <div class="font-bold text-slate-200">Kunal</div>
+          <div class="text-[10px] text-slate-400 mono">Roll: 2601048921</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Subject & Section Navigation Ribbon -->
+  <div class="bg-[#0e1422] border-b border-slate-800 px-4 py-2 flex flex-wrap items-center justify-between gap-3 shrink-0">
+    <!-- Subject Tabs -->
+    <div class="flex items-center gap-1.5" id="subject-tabs-container">
+      <button onclick="switchSubject('Physics')" id="tab-sub-Physics" class="px-4 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-2 bg-sky-500/20 text-sky-300 border border-sky-400">
+        <span>Physics</span>
+        <span class="text-[10px] text-slate-400 mono tabular" id="badge-count-Physics">(0/25)</span>
+      </button>
+      <button onclick="switchSubject('Chemistry')" id="tab-sub-Chemistry" class="px-4 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-2 bg-slate-900 text-slate-400 hover:text-slate-200 border border-slate-800">
+        <span>Chemistry</span>
+        <span class="text-[10px] text-slate-400 mono tabular" id="badge-count-Chemistry">(0/25)</span>
+      </button>
+      <button onclick="switchSubject('Mathematics')" id="tab-sub-Mathematics" class="px-4 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-2 bg-slate-900 text-slate-400 hover:text-slate-200 border border-slate-800">
+        <span>Mathematics</span>
+        <span class="text-[10px] text-slate-400 mono tabular" id="badge-count-Mathematics">(0/25)</span>
+      </button>
+    </div>
+
+    <!-- Section A & B Switcher & Marks Indicator -->
+    <div class="flex items-center gap-3 text-xs">
+      <div class="flex items-center gap-1 bg-slate-950 p-1 rounded-lg border border-slate-800">
+        <button onclick="switchSection('A')" id="btn-sec-A" class="px-3 py-1 rounded text-xs font-bold bg-slate-800 text-white transition">
+          Section A (MCQ)
+        </button>
+        <button onclick="switchSection('B')" id="btn-sec-B" class="px-3 py-1 rounded text-xs font-bold text-slate-400 hover:text-white transition">
+          Section B (Numerical)
+        </button>
+      </div>
+
+      <div class="hidden sm:flex items-center gap-2 px-3 py-1 rounded-lg panel text-[11px] mono">
+        <span class="text-emerald-400 font-bold tabular" id="marking-scheme-correct">+4</span>
+        <span class="text-slate-500">/</span>
+        <span class="text-rose-400 font-bold tabular" id="marking-scheme-incorrect">-1</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Exam Content Area (Split Pane) -->
+  <main class="flex-1 flex flex-col lg:flex-row overflow-hidden">
+    
+    <!-- Left Pane: Question Viewer & Input Controller -->
+    <section class="flex-1 flex flex-col justify-between overflow-y-auto p-4 md:p-6 border-b lg:border-b-0 lg:border-r border-slate-800 bg-[#090d16]">
+      <div>
+        <!-- Question Meta Bar -->
+        <div class="flex items-center justify-between pb-3 border-b border-slate-800 text-xs">
+          <div class="flex items-center gap-2">
+            <span class="text-sm font-bold text-white mono tabular" id="current-q-title">Question 1</span>
+            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-800 text-cyan-400 mono uppercase" id="current-q-type-badge">Single Choice</span>
+            <span class="text-slate-500">&bull;</span>
+            <span class="text-slate-400" id="current-q-subject">Physics</span>
+          </div>
+
+          <div class="text-[11px] text-slate-400">
+            Language: <span class="text-slate-200 font-semibold">English</span>
+          </div>
+        </div>
+
+        <!-- Section B Warning Notice -->
+        <div id="sec-b-notice" class="hidden mt-3 p-2.5 rounded-lg bg-amber-500/10 border border-amber-500/20 text-xs text-amber-300 flex items-center justify-between">
+          <span><strong>Section B Instruction:</strong> Answer any <strong>5</strong> out of 10 questions. Numerical value must be entered using the Virtual Keypad.</span>
+          <span class="font-bold mono tabular px-2 py-0.5 rounded bg-amber-500/20" id="sec-b-attempts-badge">0 / 5 Attempted</span>
+        </div>
+
+        <!-- Question Formulation Container -->
+        <div class="mt-4 p-4 rounded-xl panel-inset text-sm md:text-base leading-relaxed text-slate-100" id="question-text-container">
+          Loading question text and mathematical formulas...
+        </div>
+
+        <!-- Section A: 4 Radio MCQ Options -->
+        <div id="section-a-options-container" class="mt-5 space-y-3">
+          <!-- Dynamically populated -->
+        </div>
+
+        <!-- Section B: Numerical Input & Virtual Keypad -->
+        <div id="section-b-input-container" class="hidden mt-6 space-y-4 max-w-md">
+          <div>
+            <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mono mb-1.5">
+              Enter Numerical Answer:
+            </label>
+            <div class="relative">
+              <input 
+                type="text" 
+                id="numerical-answer-display" 
+                readonly 
+                placeholder="Click keypad below to enter value..." 
+                class="w-full bg-slate-950 border-2 border-slate-700 rounded-xl px-4 py-3 text-lg font-bold text-cyan-300 mono tabular tracking-wide focus:border-sky-400 transition"
+              >
+            </div>
+          </div>
+
+          <!-- Virtual Numeric Keypad -->
+          <div class="panel p-3.5 rounded-xl border border-slate-800">
+            <div class="text-[11px] font-bold text-slate-400 mono uppercase mb-2">Virtual On-Screen Numeric Keypad</div>
+            <div class="grid grid-cols-4 gap-2">
+              <button onclick="pressKey('7')" class="keypad-btn">7</button>
+              <button onclick="pressKey('8')" class="keypad-btn">8</button>
+              <button onclick="pressKey('9')" class="keypad-btn">9</button>
+              <button onclick="pressKey('BACKSPACE')" class="keypad-btn text-rose-400">⌫ Del</button>
+
+              <button onclick="pressKey('4')" class="keypad-btn">4</button>
+              <button onclick="pressKey('5')" class="keypad-btn">5</button>
+              <button onclick="pressKey('6')" class="keypad-btn">6</button>
+              <button onclick="pressKey('CLEAR')" class="keypad-btn text-amber-400">Clear</button>
+
+              <button onclick="pressKey('1')" class="keypad-btn">1</button>
+              <button onclick="pressKey('2')" class="keypad-btn">2</button>
+              <button onclick="pressKey('3')" class="keypad-btn">3</button>
+              <button onclick="pressKey('-')" class="keypad-btn text-cyan-400">&minus; / +</button>
+
+              <button onclick="pressKey('0')" class="keypad-btn col-span-2">0</button>
+              <button onclick="pressKey('.')" class="keypad-btn text-cyan-400">.</button>
+              <div class="keypad-btn bg-transparent border-transparent"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Action Toolbar (Authentic NTA Layout) -->
+      <div class="pt-6 mt-6 border-t border-slate-800 flex flex-wrap items-center justify-between gap-3">
+        <!-- Left Action Group -->
+        <div class="flex flex-wrap items-center gap-2">
+          <button onclick="handleSaveAndNext()" class="px-4 py-2.5 rounded-xl text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white shadow-sm transition">
+            Save & Next
+          </button>
+          <button onclick="handleSaveAndMarkReview()" class="px-3.5 py-2.5 rounded-xl text-xs font-bold bg-purple-600 hover:bg-purple-500 text-white transition">
+            Save & Mark for Review
+          </button>
+          <button onclick="handleClearResponse()" class="px-3.5 py-2.5 rounded-xl text-xs font-bold bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition">
+            Clear Response
+          </button>
+          <button onclick="handleMarkReviewAndNext()" class="px-3.5 py-2.5 rounded-xl text-xs font-bold bg-slate-900 hover:bg-slate-800 text-purple-300 border border-purple-500/40 transition">
+            Mark for Review & Next
+          </button>
+        </div>
+
+        <!-- Right Navigation Group -->
+        <div class="flex items-center gap-2">
+          <button onclick="handlePrevious()" class="px-3.5 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300 border border-slate-700 transition">
+            &laquo; Previous
+          </button>
+          <button onclick="handleNext()" class="px-3.5 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300 border border-slate-700 transition">
+            Next &raquo;
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Right Drawer: Regulatory 5-State Question Palette & Legend -->
+    <aside class="w-full lg:w-96 bg-[#111726] p-4 flex flex-col justify-between overflow-y-auto shrink-0 border-l border-slate-800">
+      <div class="space-y-4">
+        
+        <!-- Legend of Question States -->
+        <div class="panel-inset p-3 rounded-xl border border-slate-800 text-[11px] space-y-2">
+          <div class="text-[10px] font-bold uppercase tracking-wider text-slate-400 mono mb-1">Question Status Legend</div>
+          
+          <div class="grid grid-cols-2 gap-2">
+            <div class="flex items-center gap-2">
+              <span class="nta-badge nta-badge-answered text-[10px] tabular" id="legend-count-answered">0</span>
+              <span class="text-slate-300">Answered</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="nta-badge nta-badge-not-answered text-[10px] tabular" id="legend-count-not-answered">0</span>
+              <span class="text-slate-300">Not Answered</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="nta-badge nta-badge-not-visited text-[10px] tabular" id="legend-count-not-visited">0</span>
+              <span class="text-slate-300">Not Visited</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="nta-badge nta-badge-marked-review text-[10px] tabular" id="legend-count-marked">0</span>
+              <span class="text-slate-300">Marked for Review</span>
+            </div>
+          </div>
+          
+          <div class="flex items-center gap-2 pt-1 border-t border-slate-800/80">
+            <span class="nta-badge nta-badge-answered-marked text-[10px] tabular" id="legend-count-answered-marked">0</span>
+            <span class="text-[10px] text-slate-300 leading-tight">Answered & Marked for Review (will be evaluated)</span>
+          </div>
+        </div>
+
+        <!-- Active Subject Question Grid Header -->
+        <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+          <h2 class="text-xs font-bold uppercase tracking-wider text-slate-300 mono" id="palette-subject-header">
+            Physics Questions (1 - 30)
+          </h2>
+          <span class="text-[10px] text-cyan-400 mono" id="palette-sec-filter-label">All Sections</span>
+        </div>
+
+        <!-- 30-Question Palette Matrix -->
+        <div class="grid grid-cols-5 gap-2.5 max-h-[380px] overflow-y-auto p-1" id="question-palette-grid">
+          <!-- Populated dynamically -->
+        </div>
+
+      </div>
+
+      <!-- Submit Exam Button -->
+      <div class="pt-4 mt-4 border-t border-slate-800">
+        <button onclick="openSubmitModal()" class="w-full py-3 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-extrabold text-xs uppercase tracking-wider mono transition shadow-sm">
+          Submit Final Examination
+        </button>
+      </div>
+    </aside>
+
+  </main>
+
+  <!-- NTA Submission Confirmation Modal -->
+  <div id="submit-confirm-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop">
+    <div class="bg-[#111726] border border-slate-700 rounded-2xl max-w-xl w-full p-6 shadow-2xl space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <h3 class="text-base font-bold text-white">Examination Summary & Confirmation</h3>
+        <button onclick="closeSubmitModal()" class="text-slate-400 hover:text-white text-sm">✕</button>
+      </div>
+
+      <p class="text-xs text-slate-300">
+        Please review your question attempt statistics before confirming submission. Once submitted, you cannot resume or alter your responses.
+      </p>
+
+      <!-- Summary Breakdown Table -->
+      <div class="overflow-x-auto rounded-xl border border-slate-800 panel-inset">
+        <table class="w-full text-xs text-left">
+          <thead class="bg-slate-900/80 text-[10px] text-slate-400 mono uppercase border-b border-slate-800">
+            <tr>
+              <th class="p-2.5">Subject</th>
+              <th class="p-2.5 text-center">Answered</th>
+              <th class="p-2.5 text-center">Not Answered</th>
+              <th class="p-2.5 text-center">Marked Review</th>
+              <th class="p-2.5 text-center">Ans & Marked</th>
+              <th class="p-2.5 text-center">Not Visited</th>
+            </tr>
+          </thead>
+          <tbody id="summary-table-body" class="divide-y divide-slate-800/80 text-slate-200 tabular">
+            <!-- Populated dynamically -->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="flex items-center justify-end gap-3 pt-3 border-t border-slate-800">
+        <button onclick="closeSubmitModal()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300 transition">
+          Return to Exam
+        </button>
+        <button onclick="confirmSubmitExam()" class="px-5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-xs font-bold text-white transition">
+          Confirm & Finalize Submission
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scorecard Result Modal -->
+  <div id="scorecard-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop">
+    <div class="bg-[#111726] border border-cyan-500/40 rounded-2xl max-w-lg w-full p-6 shadow-2xl space-y-5">
+      <div class="text-center">
+        <div class="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto text-xl font-bold mono mb-2">
+          ✓
+        </div>
+        <h3 class="text-lg font-bold text-white">Examination Submitted Successfully</h3>
+        <p class="text-xs text-slate-400 mt-1">Official NTA CBT Scorecard Calculation (+4 / -1 Scheme)</p>
+      </div>
+
+      <div class="panel-inset p-4 rounded-xl text-center border border-slate-800 space-y-1">
+        <div class="text-xs font-bold text-slate-400 uppercase mono">Total Score</div>
+        <div class="text-3xl font-black text-cyan-400 mono tabular" id="scorecard-total">0 / 300</div>
+        <div class="text-[11px] text-slate-400 mt-1" id="scorecard-percentile">Accuracy: 0%</div>
+      </div>
+
+      <div class="grid grid-cols-3 gap-2 text-center text-xs">
+        <div class="panel p-3 rounded-lg">
+          <div class="text-[10px] text-slate-400 font-bold mono">Physics</div>
+          <div class="text-base font-bold text-sky-400 mono mt-1 tabular" id="scorecard-phy">0</div>
+        </div>
+        <div class="panel p-3 rounded-lg">
+          <div class="text-[10px] text-slate-400 font-bold mono">Chemistry</div>
+          <div class="text-base font-bold text-emerald-400 mono mt-1 tabular" id="scorecard-chem">0</div>
+        </div>
+        <div class="panel p-3 rounded-lg">
+          <div class="text-[10px] text-slate-400 font-bold mono">Mathematics</div>
+          <div class="text-base font-bold text-amber-400 mono mt-1 tabular" id="scorecard-math">0</div>
+        </div>
+      </div>
+
+      <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs">
+        <button onclick="window.location.reload()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 transition">
+          Restart Simulation
+        </button>
+        <a href="live_tracker.html" class="px-4 py-2 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-bold transition">
+          Go to Mesh Cockpit
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Client-side Scripts -->
+  <script src="scripts/db.js"></script>
+  <script src="scripts/cbt-engine.js"></script>
+  <script>
+    let activeQuestion = null;
+    let activeResponse = null;
+
+    window.addEventListener('DOMContentLoaded', async () => {
+      await CBTEngine.init({
+        onQuestionChange: renderQuestion,
+        onPaletteUpdate: renderPalette,
+        onTimerTick: renderTimer,
+        onWarning: (msg) => alert(msg),
+        onSubmitComplete: renderScorecard
+      });
+    });
+
+    function renderTimer(timerData) {
+      const el1 = document.getElementById('cbt-timer');
+      const el2 = document.getElementById('exam-timer');
+      if (el1) el1.innerText = timerData.formattedTime;
+      if (el2) el2.innerText = timerData.formattedTime;
+    }
+
+    function renderQuestion(data) {
+      activeQuestion = data.question;
+      activeResponse = data.response;
+      if (!activeQuestion) return;
+
+      // Meta Titles
+      document.getElementById('current-q-title').innerText = `Question ${activeQuestion.localNumber}`;
+      document.getElementById('current-q-subject').innerText = `${activeQuestion.subject} - Section ${activeQuestion.section}`;
+      document.getElementById('current-q-type-badge').innerText = activeQuestion.type === 'MCQ' ? 'Single Choice (MCQ)' : 'Numerical Value';
+      
+      // Marking Scheme Pill
+      const correctEl = document.getElementById('marking-scheme-correct');
+      const incorrectEl = document.getElementById('marking-scheme-incorrect');
+      if (activeQuestion.section === 'A') {
+        correctEl.innerText = '+4';
+        incorrectEl.innerText = '-1';
+      } else {
+        correctEl.innerText = '+4';
+        incorrectEl.innerText = '0'; // Section B zero negative marking
+      }
+
+      // Section B warning & attempts badge
+      const secBNotice = document.getElementById('sec-b-notice');
+      const secBAttempts = document.getElementById('sec-b-attempts-badge');
+      if (activeQuestion.section === 'B') {
+        secBNotice.classList.remove('hidden');
+        secBAttempts.innerText = `${data.secBAttempts} / 5 Attempted`;
+      } else {
+        secBNotice.classList.add('hidden');
+      }
+
+      // Question Text with KaTeX Rendering
+      const textContainer = document.getElementById('question-text-container');
+      textContainer.innerHTML = activeQuestion.text;
+      renderMathInElement(textContainer, {
+        delimiters: [
+          { left: '$$', right: '$$', display: true },
+          { left: '$', right: '$', display: false }
+        ],
+        throwOnError: false
+      });
+
+      // Section A vs Section B View Toggling
+      const secAContainer = document.getElementById('section-a-options-container');
+      const secBContainer = document.getElementById('section-b-input-container');
+
+      if (activeQuestion.type === 'MCQ') {
+        secAContainer.classList.remove('hidden');
+        secBContainer.classList.add('hidden');
+
+        secAContainer.innerHTML = (activeQuestion.options || []).map(opt => {
+          const isSelected = activeResponse && activeResponse.selectedOption === opt.id;
+          return `
+            <div onclick="selectMCQOption('${opt.id}')" class="option-card p-3.5 rounded-xl cursor-pointer flex items-center gap-3 ${isSelected ? 'selected' : ''}">
+              <div class="w-6 h-6 rounded-full border ${isSelected ? 'border-sky-400 bg-sky-500/20 text-sky-300 font-bold' : 'border-slate-700 text-slate-400'} flex items-center justify-center text-xs mono">
+                ${opt.id}
+              </div>
+              <div class="text-xs md:text-sm text-slate-200 math-opt flex-1">
+                ${opt.text}
+              </div>
+            </div>
+          `;
+        }).join('');
+
+        renderMathInElement(secAContainer, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false }
+          ],
+          throwOnError: false
+        });
+
+      } else {
+        secAContainer.classList.add('hidden');
+        secBContainer.classList.remove('hidden');
+
+        const inputDisplay = document.getElementById('numerical-answer-display');
+        inputDisplay.value = activeResponse ? (activeResponse.numericalValue || '') : '';
+      }
+
+      // Update Section Tabs Indicator
+      document.getElementById('btn-sec-A').className = activeQuestion.section === 'A'
+        ? 'px-3 py-1 rounded text-xs font-bold bg-slate-800 text-white transition'
+        : 'px-3 py-1 rounded text-xs font-bold text-slate-400 hover:text-white transition';
+
+      document.getElementById('btn-sec-B').className = activeQuestion.section === 'B'
+        ? 'px-3 py-1 rounded text-xs font-bold bg-slate-800 text-white transition'
+        : 'px-3 py-1 rounded text-xs font-bold text-slate-400 hover:text-white transition';
+    }
+
+    function renderPalette(paletteData) {
+      const summary = paletteData.overallSummary;
+      
+      // Dual-id updates for legend counts
+      const counts = [
+        [['legend-count-answered', 'cnt-answered'], summary.answered],
+        [['legend-count-not-answered', 'cnt-not-answered'], summary.notAnswered],
+        [['legend-count-not-visited', 'cnt-not-visited'], summary.notVisited],
+        [['legend-count-marked', 'cnt-marked-review'], summary.markedReview],
+        [['legend-count-answered-marked', 'cnt-ans-marked'], summary.answeredMarked]
+      ];
+      counts.forEach(([ids, val]) => {
+        ids.forEach(id => {
+          const el = document.getElementById(id);
+          if (el) el.innerText = val;
+        });
+      });
+
+      // Update Subject Count Badges
+      CBTEngine.SUBJECTS.forEach(sub => {
+        const subSum = CBTEngine.getPaletteSummary(sub);
+        const attempted = subSum.answered + subSum.answeredMarked;
+        const el = document.getElementById(`badge-count-${sub}`);
+        if (el) el.innerText = `(${attempted}/25)`;
+      });
+
+      // Update Active Subject Header
+      document.getElementById('palette-subject-header').innerText = `${paletteData.currentSubject} Questions`;
+
+      // Filter questions for active subject
+      const grid = document.getElementById('question-palette-grid') || document.getElementById('palette-grid');
+      const subjectQuestions = paletteData.questions.filter(q => q.subject === paletteData.currentSubject);
+
+      grid.innerHTML = subjectQuestions.map(q => {
+        const resp = paletteData.responses[q.id];
+        const state = resp ? resp.state : 'NOT_VISITED';
+        const isCurrent = paletteData.questions[paletteData.currentIndex].id === q.id;
+
+        let badgeClass = 'nta-badge-not-visited state-not-visited';
+        if (state === 'ANSWERED') badgeClass = 'nta-badge-answered state-answered';
+        else if (state === 'NOT_ANSWERED') badgeClass = 'nta-badge-not-answered state-not-answered';
+        else if (state === 'MARKED_REVIEW') badgeClass = 'nta-badge-marked-review state-marked-review';
+        else if (state === 'ANSWERED_MARKED') badgeClass = 'nta-badge-answered-marked state-answered-marked';
+
+        const globalIdx = paletteData.questions.findIndex(item => item.id === q.id);
+
+        return `
+          <button 
+            onclick="CBTEngine.goToQuestion(${globalIdx})" 
+            title="Question ${q.localNumber} (Section ${q.section})" 
+            class="nta-badge palette-btn ${badgeClass} ${isCurrent ? 'current-question current-active' : ''}"
+          >
+            ${q.localNumber}
+          </button>
+        `;
+      }).join('');
+    }
+
+    function selectMCQOption(optId) {
+      CBTEngine.selectOption(optId);
+    }
+
+    function pressKey(key) {
+      CBTEngine.inputKey(key);
+    }
+
+    function pressNumKey(key) {
+      pressKey(key);
+    }
+
+    function handleSaveAndNext() {
+      CBTEngine.saveAndNext();
+    }
+
+    function handleSaveAndMarkReview() {
+      CBTEngine.saveAndMarkForReview();
+    }
+
+    function handleMarkReviewAndNext() {
+      CBTEngine.markForReviewAndNext();
+    }
+
+    function handleClearResponse() {
+      CBTEngine.clearResponse();
+    }
+
+    function handlePrevious() {
+      CBTEngine.goToPreviousQuestion();
+    }
+
+    function handleNext() {
+      CBTEngine.advanceToNextQuestion();
+    }
+
+    function navigateQuestion(dir) {
+      if (dir > 0) handleNext();
+      else handlePrevious();
+    }
+
+    function switchSubject(sub) {
+      CBTEngine.selectSubject(sub);
+      CBTEngine.SUBJECTS.forEach(s => {
+        const btn = document.getElementById(`tab-sub-${s}`);
+        if (btn) {
+          btn.className = s === sub
+            ? 'px-4 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-2 bg-sky-500/20 text-sky-300 border border-sky-400'
+            : 'px-4 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-2 bg-slate-900 text-slate-400 hover:text-slate-200 border border-slate-800';
+        }
+      });
+    }
+
+    function switchSection(sec) {
+      CBTEngine.selectSection(sec);
+    }
+
+    // Modal Handlers
+    function openSubmitModal() {
+      const tbody = document.getElementById('summary-table-body');
+      tbody.innerHTML = CBTEngine.SUBJECTS.map(sub => {
+        const s = CBTEngine.getPaletteSummary(sub);
+        return `
+          <tr>
+            <td class="p-2.5 font-bold text-white">${sub}</td>
+            <td class="p-2.5 text-center text-emerald-400 font-bold">${s.answered}</td>
+            <td class="p-2.5 text-center text-rose-400 font-bold">${s.notAnswered}</td>
+            <td class="p-2.5 text-center text-purple-400 font-bold">${s.markedReview}</td>
+            <td class="p-2.5 text-center text-purple-300 font-bold">${s.answeredMarked}</td>
+            <td class="p-2.5 text-center text-slate-400">${s.notVisited}</td>
+          </tr>
+        `;
+      }).join('');
+
+      document.getElementById('submit-confirm-modal').classList.remove('hidden');
+    }
+
+    function closeSubmitModal() {
+      document.getElementById('submit-confirm-modal').classList.add('hidden');
+    }
+
+    function confirmSubmitExam() {
+      closeSubmitModal();
+      CBTEngine.submitExam(false);
+    }
+
+    function renderScorecard(result) {
+      document.getElementById('scorecard-total').innerText = `${result.totalScore} / ${result.maxScore}`;
+      const attempted = result.totalCorrect + result.totalIncorrect;
+      const acc = attempted > 0 ? Math.round((result.totalCorrect / attempted) * 100) : 0;
+      document.getElementById('scorecard-percentile').innerText = `Attempted: ${attempted} | Correct: ${result.totalCorrect} | Accuracy: ${acc}%`;
+
+      document.getElementById('scorecard-phy').innerText = result.physicsScore;
+      document.getElementById('scorecard-chem').innerText = result.chemScore;
+      document.getElementById('scorecard-math').innerText = result.mathScore;
+
+      document.getElementById('scorecard-modal').classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>

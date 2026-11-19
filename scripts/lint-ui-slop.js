@@ -276,7 +276,7 @@ function checkTimerTabularNums(filePath, cleanContent) {
 
   // In CSS files: check selectors that style timers or countdowns
   if (['.css', '.scss', '.less'].includes(ext)) {
-    const timerBlockRegex = /([^{}]*(?:timer|countdown|clock)[^{}]*)\{([^}]+)\}/gi;
+    const timerBlockRegex = /([^{}]*(?:timer|countdown|clock(?!ee))[^{}]*)\{([^}]+)\}/gi;
     let match;
     while ((match = timerBlockRegex.exec(cleanContent)) !== null) {
       const selector = match[1].trim();
@@ -301,7 +301,7 @@ function checkTimerTabularNums(filePath, cleanContent) {
 
   // In HTML / JSX / TSX / Vue / Svelte: check elements with timer / countdown in class or id
   if (['.html', '.htm', '.jsx', '.tsx', '.vue', '.svelte'].includes(ext)) {
-    const timerElemRegex = /<([a-zA-Z0-9_-]+)[^>]*(?:class(?:Name)?=["'][^"']*(?:timer|countdown|clock)[^"']*["']|id=["'][^"']*(?:timer|countdown|clock)[^"']*["'])[^>]*>/gi;
+    const timerElemRegex = /<([a-zA-Z0-9_-]+)[^>]*(?:class(?:Name)?=["'][^"']*(?:timer|countdown|clock(?!ee))[^"']*["']|id=["'][^"']*(?:timer|countdown|clock(?!ee))[^"']*["'])[^>]*>/gi;
     let match;
     while ((match = timerElemRegex.exec(cleanContent)) !== null) {
       const tagStr = match[0];

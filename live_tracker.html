@@ -93,7 +93,9 @@
     ::-webkit-scrollbar-thumb:hover { background: #334155; }
   </style>
 </head>
-<body class="p-4 md:p-8">
+<body data-page="live" class="min-h-screen flex flex-col">
+  <div id="clockee-nav"></div>
+  <div class="p-4 md:p-8 flex-1">
 
   <!-- Header & Telemetry Bar -->
   <header class="max-w-7xl mx-auto mb-6 border-b border-slate-800 pb-5">
@@ -781,5 +783,7 @@
     fetchState();
     setInterval(fetchState, 3500);
   </script>
+  </div>
+  <script src="components/navbar.js"></script>
 </body>
 </html>

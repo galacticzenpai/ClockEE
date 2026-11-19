@@ -52,7 +52,9 @@
     ::-webkit-scrollbar-thumb:hover { background: #334155; }
   </style>
 </head>
-<body class="p-4 md:p-8">
+<body data-page="tracker" class="min-h-screen flex flex-col">
+  <div id="clockee-nav"></div>
+  <div class="p-4 md:p-8 flex-1">
 
   <!-- Top Instrument Header -->
   <header class="max-w-7xl mx-auto mb-8 border-b border-slate-800 pb-6">
@@ -496,5 +498,7 @@
 
     init();
   </script>
+  </div>
+  <script src="components/navbar.js"></script>
 </body>
 </html>

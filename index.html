@@ -2,13 +2,395 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=live_tracker.html">
-  <title>Chitti 2.0 // Live Mesh Cockpit</title>
-  <script>
-    window.location.replace("live_tracker.html");
-  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClockEE OS 2.0 // The JEE Cockpit</title>
+  <link rel="stylesheet" href="styles/tokens.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --surface-0: #090d16;
+      --surface-1: #111726;
+      --surface-2: #1a2236;
+      --surface-inset: #060910;
+      --border-subtle: 1px solid rgba(255, 255, 255, 0.08);
+      --border-strong: 1px solid rgba(255, 255, 255, 0.16);
+      --border-focus: 2px solid #38bdf8;
+      --text-high-contrast: #f8fafc;
+      --text-muted-readable: #94a3b8;
+    }
+
+    body {
+      background-color: var(--surface-0);
+      color: var(--text-high-contrast);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .mono { font-family: 'JetBrains Mono', 'Roboto Mono', monospace; }
+
+    .tabular {
+      font-variant-numeric: tabular-nums;
+      -moz-font-feature-settings: "tnum";
+      -webkit-font-feature-settings: "tnum";
+      font-feature-settings: "tnum";
+    }
+
+    .panel {
+      background-color: var(--surface-1);
+      border: var(--border-subtle);
+      transition: border-color 0.15s ease, background-color 0.15s ease;
+    }
+
+    .panel:hover {
+      border-color: rgba(255, 255, 255, 0.16);
+    }
+
+    .panel-inset {
+      background-color: var(--surface-inset);
+      border: var(--border-subtle);
+    }
+
+    .touch-target {
+      min-height: 44px;
+      min-width: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    button:focus-visible, a:focus-visible {
+      outline: 2px solid #38bdf8 !important;
+      outline-offset: 2px;
+    }
+
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: var(--surface-0); }
+    ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #334155; }
+  </style>
 </head>
-<body style="background:#090d16; color:#94a3b8; font-family:sans-serif; display:flex; align-items:center; justify-content:center; height:100vh; margin:0;">
-  <p>Connecting to <a href="live_tracker.html" style="color:#38bdf8; text-decoration:none;">Chitti 2.0 Live Cockpit</a>...</p>
+<body data-page="hud" class="min-h-screen flex flex-col">
+
+  <!-- Unified Navigation Bar Component -->
+  <div id="clockee-nav" class="tabular-nums"></div>
+
+  <!-- Main Cockpit Workspace -->
+  <main class="max-w-7xl mx-auto px-4 py-6 md:py-8 flex-1 w-full space-y-8">
+    
+    <!-- Hero Header Strip -->
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-b border-slate-800 pb-6">
+      <div>
+        <div class="flex items-center gap-2.5">
+          <span class="inline-block w-2.5 h-2.5 rounded-sm bg-sky-400"></span>
+          <span class="text-xs font-bold tracking-widest text-sky-400 uppercase mono">CLOCKEE OS 2.0 // MASTER COCKPIT</span>
+        </div>
+        <h1 class="text-2xl md:text-3xl font-extrabold text-white tracking-tight mt-1">High-Precision JEE Study Control Center</h1>
+        <p class="text-sm text-slate-400 mt-1">Cognitive Ergonomics, Zero Slop, NTA Test Parity & Offline-First Intelligence</p>
+      </div>
+
+      <!-- Quick Action Chamber Launch -->
+      <div class="flex items-center gap-3">
+        <a href="timer.html" class="touch-target px-4 py-2 rounded-xl bg-sky-600 hover:bg-sky-500 text-xs font-bold text-white transition shadow-sm">
+          ▶ Enter Sprint Chamber
+        </a>
+        <a href="cbt_exam.html" class="touch-target px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-xs font-bold text-white transition shadow-sm">
+          ⚡ Launch CBT Mock
+        </a>
+      </div>
+    </div>
+
+    <!-- Top Instrumentation Matrix: 4 High-Precision Instruments -->
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      
+      <!-- Instrument 1: JEE Main Countdown Clock -->
+      <div class="panel p-5 rounded-2xl flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between text-xs text-slate-400 mono font-semibold">
+            <span>JEE MAIN 2027</span>
+            <span class="px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20 text-[10px]">SESSION 1</span>
+          </div>
+          <div class="mt-3 text-2xl md:text-3xl font-black text-white mono tabular-nums tabular" id="hud-jee-days">
+            ---d --h
+          </div>
+          <div class="text-xs text-slate-400 mt-1 mono tabular-nums tabular" id="hud-jee-secs">
+            Target: Jan 24, 2027 • 09:00 IST
+          </div>
+        </div>
+        <div class="mt-4 pt-3 border-t border-slate-800 text-[11px] text-slate-400 flex items-center justify-between">
+          <span>Session 2: Apr 2027</span>
+          <span class="text-sky-400 font-semibold">Adv: May 2027</span>
+        </div>
+      </div>
+
+      <!-- Instrument 2: Daily Focus Dial -->
+      <div class="panel p-5 rounded-2xl flex items-center justify-between">
+        <div>
+          <div class="text-xs text-slate-400 mono font-semibold">DAILY FOCUS GOAL</div>
+          <div class="mt-2 text-2xl md:text-3xl font-black text-white mono tabular-nums tabular" id="hud-focus-hours">
+            6.5 <span class="text-sm font-semibold text-slate-400">/ 8.0h</span>
+          </div>
+          <div class="text-xs text-emerald-400 mt-1 font-medium">81% Goal Completed</div>
+        </div>
+        <!-- Crisp SVG Progress Meter -->
+        <div class="relative w-16 h-16 flex-shrink-0">
+          <svg class="w-16 h-16 transform -rotate-90" viewBox="0 0 36 36">
+            <path class="text-slate-800" stroke-width="3.5" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+            <path class="text-sky-400" stroke-width="3.5" stroke-dasharray="81, 100" stroke-linecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+          </svg>
+          <span class="absolute inset-0 flex items-center justify-center text-xs font-bold text-white mono tabular">81%</span>
+        </div>
+      </div>
+
+      <!-- Instrument 3: Focus Chamber Physical State -->
+      <div class="panel p-5 rounded-2xl flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between text-xs text-slate-400 mono font-semibold">
+            <span>CHAMBER PROTOCOL</span>
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+          </div>
+          <div class="mt-3 text-lg font-bold text-white flex items-center gap-2">
+            <span class="px-2.5 py-1 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 text-xs font-black mono uppercase">STANDBY</span>
+          </div>
+          <p class="text-xs text-slate-400 mt-2">Next block: 50m Deep Block (Physics - Rotational Dynamics)</p>
+        </div>
+        <div class="mt-3 pt-3 border-t border-slate-800 text-[11px] text-slate-400 flex items-center justify-between">
+          <span>Web Worker: Ready</span>
+          <span class="text-purple-300 font-semibold">40Hz Binaural</span>
+        </div>
+      </div>
+
+      <!-- Instrument 4: 75-Chapter Syllabus Velocity -->
+      <div class="panel p-5 rounded-2xl flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between text-xs text-slate-400 mono font-semibold">
+            <span>75-CHAPTER SYLLABUS</span>
+            <span class="text-sky-400 font-bold tabular">56%</span>
+          </div>
+          <div class="mt-3 text-2xl md:text-3xl font-black text-white mono tabular-nums tabular">
+            42 <span class="text-sm font-semibold text-slate-400">/ 75 Mastered</span>
+          </div>
+          <!-- Tri-Color Progress Bar (Physics, Chemistry, Maths) -->
+          <div class="w-full bg-slate-800 h-2.5 rounded-full mt-3 overflow-hidden flex">
+            <div style="width: 20%" class="bg-sky-400" title="Physics: 15/25"></div>
+            <div style="width: 19%" class="bg-emerald-400" title="Chemistry: 14/25"></div>
+            <div style="width: 17%" class="bg-amber-400" title="Maths: 13/25"></div>
+          </div>
+        </div>
+        <div class="mt-3 pt-3 border-t border-slate-800 text-[11px] text-slate-400 flex items-center justify-between mono">
+          <span class="text-sky-400">P: 15</span>
+          <span class="text-emerald-400">C: 14</span>
+          <span class="text-amber-400">M: 13</span>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Core 8-Module Launchpad Grid -->
+    <section class="space-y-4">
+      <div class="flex items-center justify-between">
+        <div>
+          <h2 class="text-base font-bold text-white tracking-tight">ClockEE 2.0 Core Modules</h2>
+          <p class="text-xs text-slate-400 mt-0.5">Direct 1-click execution across the master JEE architecture</p>
+        </div>
+        <span class="text-xs text-slate-400 mono">8 Systems Operational</span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        
+        <!-- Module 1: CBT Examination Suite -->
+        <a href="cbt_home.html" class="panel p-5 rounded-2xl no-underline group block flex flex-col justify-between min-h-[170px]">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-emerald-400 mono uppercase">Module 06-07</span>
+              <span class="w-6 h-6 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xs mono">CBT</span>
+            </div>
+            <h3 class="text-base font-bold text-white group-hover:text-emerald-400 transition mt-2">NTA CBT Exam Suite</h3>
+            <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+              Authentic 3-hour NTA test simulator with 5-state palette machine, KaTeX equations, and Section B numeric keypad.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400 mono">
+            <span>75 Questions</span>
+            <span class="text-emerald-400 font-bold group-hover:translate-x-0.5 transition">Enter Test →</span>
+          </div>
+        </a>
+
+        <!-- Module 2: Sprint Focus Chamber -->
+        <a href="timer.html" class="panel p-5 rounded-2xl no-underline group block flex flex-col justify-between min-h-[170px]">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-sky-400 mono uppercase">Module 02</span>
+              <span class="w-6 h-6 rounded-lg bg-sky-500/10 text-sky-400 flex items-center justify-center text-xs mono">⏱</span>
+            </div>
+            <h3 class="text-base font-bold text-white group-hover:text-sky-400 transition mt-2">Sprint Focus Chamber</h3>
+            <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+              Zero-drift Web Worker countdown clock (25m/50m/90m), chapter context tagging, and synthesized 40Hz audio.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400 mono">
+            <span>Deep Study</span>
+            <span class="text-sky-400 font-bold group-hover:translate-x-0.5 transition">Start Block →</span>
+          </div>
+        </a>
+
+        <!-- Module 3: 75-Chapter Syllabus Matrix -->
+        <a href="tracker.html" class="panel p-5 rounded-2xl no-underline group block flex flex-col justify-between min-h-[170px]">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-purple-400 mono uppercase">Module 10</span>
+              <span class="w-6 h-6 rounded-lg bg-purple-500/10 text-purple-400 flex items-center justify-center text-xs mono">§</span>
+            </div>
+            <h3 class="text-base font-bold text-white group-hover:text-purple-400 transition mt-2">75-Chapter Matrix</h3>
+            <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+              Complete JEE syllabus roadmap with question weightage, revision intervals, and formula mastery checklists.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400 mono">
+            <span>42/75 Mastered</span>
+            <span class="text-purple-400 font-bold group-hover:translate-x-0.5 transition">View Matrix →</span>
+          </div>
+        </a>
+
+        <!-- Module 4: Mistake Autopsy & SRS Vault -->
+        <a href="cbt_mistakes.html" class="panel p-5 rounded-2xl no-underline group block flex flex-col justify-between min-h-[170px]">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-rose-400 mono uppercase">Module 09</span>
+              <span class="w-6 h-6 rounded-lg bg-rose-500/10 text-rose-400 flex items-center justify-center text-xs mono">⚠</span>
+            </div>
+            <h3 class="text-base font-bold text-white group-hover:text-rose-400 transition mt-2">Mistake Autopsy & SRS</h3>
+            <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+              E1-E4 error classification taxonomy with 4-tier Leitner spaced repetition deck and blind re-solve engine.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400 mono">
+            <span class="text-rose-400 font-bold">18 Due Today</span>
+            <span class="text-rose-400 font-bold group-hover:translate-x-0.5 transition">Review Mistakes →</span>
+          </div>
+        </a>
+
+        <!-- Module 5: Kanban Task & DPP Hub -->
+        <a href="task.html" class="panel p-5 rounded-2xl no-underline group block flex flex-col justify-between min-h-[170px]">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-amber-400 mono uppercase">Module 04</span>
+              <span class="w-6 h-6 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center text-xs mono">▦</span>
+            </div>
+            <h3 class="text-base font-bold text-white group-hover:text-amber-400 transition mt-2">Tasks & DPP Hub</h3>
+            <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+              4-column execution board: Backlog, Today's Target, In Solving, and Mastered with Vim keyboard navigation.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400 mono">
+            <span>12 Pending</span>
+            <span class="text-amber-400 font-bold group-hover:translate-x-0.5 transition">Open Board →</span>
+          </div>
+        </a>
+
+        <!-- Module 6: Coaching Intelligence Matrix -->
+        <a href="coaching.html" class="panel p-5 rounded-2xl no-underline group block flex flex-col justify-between min-h-[170px]">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-cyan-400 mono uppercase">Module 05</span>
+              <span class="w-6 h-6 rounded-lg bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xs mono">📊</span>
+            </div>
+            <h3 class="text-base font-bold text-white group-hover:text-cyan-400 transition mt-2">Coaching Matrix</h3>
+            <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+              Test series score tracker (Allen/FIITJEE), dynamic quartile distribution curve, and PCM balance triangle.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400 mono">
+            <span>Top 2.5% Tile</span>
+            <span class="text-cyan-400 font-bold group-hover:translate-x-0.5 transition">Analytics →</span>
+          </div>
+        </a>
+
+        <!-- Module 7: Daily Practice Ledger -->
+        <a href="today.html" class="panel p-5 rounded-2xl no-underline group block flex flex-col justify-between min-h-[170px]">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-emerald-400 mono uppercase">Module 03</span>
+              <span class="w-6 h-6 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xs mono">✓</span>
+            </div>
+            <h3 class="text-base font-bold text-white group-hover:text-emerald-400 transition mt-2">Daily Practice Ledger</h3>
+            <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+              Sanitized practice stream, rapid question increment dock, and chronological study event log.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400 mono">
+            <span>42 Qs Solved</span>
+            <span class="text-emerald-400 font-bold group-hover:translate-x-0.5 transition">Open Ledger →</span>
+          </div>
+        </a>
+
+        <!-- Module 8: Formula & PDF Vault -->
+        <a href="cbt_notebooks.html" class="panel p-5 rounded-2xl no-underline group block flex flex-col justify-between min-h-[170px]">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-purple-400 mono uppercase">Module 12</span>
+              <span class="w-6 h-6 rounded-lg bg-purple-500/10 text-purple-400 flex items-center justify-center text-xs mono">∑</span>
+            </div>
+            <h3 class="text-base font-bold text-white group-hover:text-purple-400 transition mt-2">Formula & PDF Vault</h3>
+            <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+              Instant-search KaTeX mathematical equation sheets, ray diagrams, and organic chemistry mechanisms.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400 mono">
+            <span>High-Yield Sheets</span>
+            <span class="text-purple-400 font-bold group-hover:translate-x-0.5 transition">Browse Vault →</span>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- Bottom Telemetry & Storage Beacon Strip -->
+    <footer class="panel p-5 rounded-2xl flex flex-col md:flex-row md:items-center justify-between text-xs text-slate-400 gap-4">
+      <div class="flex items-center gap-3">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+        <span class="text-slate-300 font-medium">IndexedDB Storage (<strong class="text-white mono">clockee_db v2</strong>): Active & Synchronized</span>
+      </div>
+
+      <div class="flex items-center gap-4 mono text-[11px]">
+        <span>Companion Daemon: <strong class="text-emerald-400">127.0.0.1:8765</strong></span>
+        <span>•</span>
+        <span>Mesh Node: <strong class="text-sky-400">UI/UX Craftsman</strong></span>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- Reusable Navigation Script -->
+  <script src="components/navbar.js"></script>
+
+  <!-- HUD Telemetry Controller -->
+  <script>
+    function updateHUDCountdowns() {
+      const targetDate = new Date('2027-01-24T09:00:00+05:30').getTime();
+      const now = Date.now();
+      const diff = targetDate - now;
+
+      if (diff > 0) {
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const mins = Math.floor((diff / (1000 * 60)) % 60);
+        const secs = Math.floor((diff / 1000) % 60);
+
+        const daysEl = document.getElementById('hud-jee-days');
+        const secsEl = document.getElementById('hud-jee-secs');
+
+        if (daysEl) daysEl.innerText = `${days}d ${hours}h ${mins}m`;
+        if (secsEl) secsEl.innerText = `${secs}s remaining until Session 1`;
+      }
+    }
+
+    updateHUDCountdowns();
+    setInterval(updateHUDCountdowns, 1000);
+  </script>
 </body>
 </html>

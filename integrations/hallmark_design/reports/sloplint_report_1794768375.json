@@ -1,0 +1,250 @@
+{
+  "timestamp": "2026-11-16 00:16:15",
+  "skill": "nutlope/hallmark (Together AI) Design & Slop Linter",
+  "metrics": {
+    "pages_scanned": 22,
+    "floor_gate_failures": 8,
+    "reflex_slop_cliches": 3,
+    "average_design_score": 89.5
+  },
+  "reports": [
+    {
+      "file": "admin.html",
+      "floor_violations": [],
+      "reflex_violations": [],
+      "finish_advisories": [],
+      "score": 100
+    },
+    {
+      "file": "analysis.html",
+      "floor_violations": [
+        {
+          "gate": "FLOOR",
+          "code": "MISSING_VIEWPORT_META",
+          "message": "Missing responsive <meta name='viewport' content='width=device-width, initial-scale=1.0'>",
+          "line": 1
+        }
+      ],
+      "reflex_violations": [],
+      "finish_advisories": [],
+      "score": 75
+    },
+    {
+      "file": "cbt.html",
+      "floor_violations": [
+        {
+          "gate": "FLOOR",
+          "code": "MISSING_VIEWPORT_META",
+          "message": "Missing responsive <meta name='viewport' content='width=device-width, initial-scale=1.0'>",
+          "line": 1
+        }
+      ],
+      "reflex_violations": [],
+      "finish_advisories": [],
+      "score": 75
+    },
+    {
+      "file": "cbt_analysis.html",
+      "floor_violations": [],
+      "reflex_violations": [],
+      "finish_advisories": [],
+      "score": 100
+    },
+    {
+      "file": "cbt_cloner.html",
+      "floor_violations": [],
+      "reflex_violations": [],
+      "finish_advisories": [],
+      "score": 100
+    },
+    {
+      "file": "cbt_exam.html",
+      "floor_violations": [],
+      "reflex_violations": [],
+      "finish_advisories": [],
+      "score": 100
+    },
+    {
+      "file": "cbt_home.html",
+      "floor_violations": [],
+      "reflex_violations": [],
+      "finish_advisories": [],
+      "score": 100
+    },
+    {
+      "file": "cbt_instructions.html",
+      "floor_violations": [],
+      "reflex_violations": [],
+      "finish_advisories": [],
+      "score": 100
+    },
+    {
+      "file": "cbt_mistakes.html",
+      "floor_violations": [],
+      "reflex_violations": [],
+      "finish_advisories": [],
+      "score": 100
+    },
+    {
+      "file": "cbt_notebooks.html",
+      "floor_violations": [],
+      "reflex_violations": [],
+      "finish_advisories": [],
+      "score": 100
+    },
+    {
+      "file": "cbt_reference_vault.html",
+      "floor_violations": [],
+      "reflex_violations": [],
+      "finish_advisories": [],
+      "score": 100
+    },
+    {
+      "file": "coaching.html",
+      "floor_violations": [
+        {
+          "gate": "FLOOR",
+          "code": "FIXED_MOBILE_OVERFLOW",
+          "message": "Hardcoded wide pixel width (w-[...px]) causes mobile viewport overflow. Use max-w or flex/grid.",
+          "line": 798,
+          "snippet": "<div id=\"split-drawer\" class=\"fixed top-0 right-0 h-full w-[420px] max-w-[95vw] bg-[#0c0e17]/98 bord"
+        }
+      ],
+      "reflex_violations": [],
+      "finish_advisories": [],
+      "score": 75
+    },
+    {
+      "file": "hackathon.html",
+      "floor_violations": [],
+      "reflex_violations": [],
+      "finish_advisories": [],
+      "score": 100
+    },
+    {
+      "file": "index.html",
+      "floor_violations": [
+        {
+          "gate": "FLOOR",
+          "code": "FIXED_MOBILE_OVERFLOW",
+          "message": "Hardcoded wide pixel width (w-[...px]) causes mobile viewport overflow. Use max-w or flex/grid.",
+          "line": 663,
+          "snippet": "<div id=\"split-drawer\" class=\"fixed top-0 right-0 h-full w-[420px] max-w-[95vw] bg-[#0c0e17]/98 bord"
+        }
+      ],
+      "reflex_violations": [],
+      "finish_advisories": [],
+      "score": 75
+    },
+    {
+      "file": "inspiration.html",
+      "floor_violations": [],
+      "reflex_violations": [],
+      "finish_advisories": [],
+      "score": 100
+    },
+    {
+      "file": "login.html",
+      "floor_violations": [],
+      "reflex_violations": [
+        {
+          "gate": "REFLEX",
+          "code": "PURPLE_GRADIENT_CLICHE",
+          "message": "Generic AI purple/indigo radial gradient background detected. Choose a distinct material theme.",
+          "line": 880,
+          "snippet": "<button type=\"submit\" id=\"btnSubmitSignIn\" class=\"w-full py-2.5 rounded-xl bg-gradient-to-r from-ind"
+        },
+        {
+          "gate": "REFLEX",
+          "code": "PURPLE_GRADIENT_CLICHE",
+          "message": "Generic AI purple/indigo radial gradient background detected. Choose a distinct material theme.",
+          "line": 2045,
+          "snippet": "<div id=\"tourProgressBar\" class=\"h-full bg-gradient-to-r from-indigo-500 to-cyan-400 transition-all "
+        },
+        {
+          "gate": "REFLEX",
+          "code": "PURPLE_GRADIENT_CLICHE",
+          "message": "Generic AI purple/indigo radial gradient background detected. Choose a distinct material theme.",
+          "line": 2057,
+          "snippet": "<button type=\"button\" id=\"btnTourNext\" onclick=\"nextTourStep()\" class=\"px-4 py-1.5 rounded-xl bg-gra"
+        }
+      ],
+      "finish_advisories": [],
+      "score": 70
+    },
+    {
+      "file": "mini_timer.html",
+      "floor_violations": [],
+      "reflex_violations": [],
+      "finish_advisories": [],
+      "score": 100
+    },
+    {
+      "file": "settings.html",
+      "floor_violations": [],
+      "reflex_violations": [],
+      "finish_advisories": [],
+      "score": 100
+    },
+    {
+      "file": "task.html",
+      "floor_violations": [
+        {
+          "gate": "FLOOR",
+          "code": "FIXED_MOBILE_OVERFLOW",
+          "message": "Hardcoded wide pixel width (w-[...px]) causes mobile viewport overflow. Use max-w or flex/grid.",
+          "line": 615,
+          "snippet": "<div id=\"split-drawer\" class=\"fixed top-0 right-0 h-full w-[420px] max-w-[95vw] bg-[#0c0e17]/98 bord"
+        }
+      ],
+      "reflex_violations": [],
+      "finish_advisories": [],
+      "score": 75
+    },
+    {
+      "file": "test_centre.html",
+      "floor_violations": [
+        {
+          "gate": "FLOOR",
+          "code": "FIXED_MOBILE_OVERFLOW",
+          "message": "Hardcoded wide pixel width (w-[...px]) causes mobile viewport overflow. Use max-w or flex/grid.",
+          "line": 353,
+          "snippet": "<div id=\"split-drawer\" class=\"fixed top-0 right-0 h-full w-[420px] max-w-[95vw] bg-[#0c0e17]/98 bord"
+        }
+      ],
+      "reflex_violations": [],
+      "finish_advisories": [],
+      "score": 75
+    },
+    {
+      "file": "timer.html",
+      "floor_violations": [
+        {
+          "gate": "FLOOR",
+          "code": "FIXED_MOBILE_OVERFLOW",
+          "message": "Hardcoded wide pixel width (w-[...px]) causes mobile viewport overflow. Use max-w or flex/grid.",
+          "line": 946,
+          "snippet": "<div id=\"split-drawer\" class=\"fixed top-0 right-0 h-full w-[420px] max-w-[95vw] bg-[#0c0e17]/98 bord"
+        }
+      ],
+      "reflex_violations": [],
+      "finish_advisories": [],
+      "score": 75
+    },
+    {
+      "file": "today.html",
+      "floor_violations": [
+        {
+          "gate": "FLOOR",
+          "code": "FIXED_MOBILE_OVERFLOW",
+          "message": "Hardcoded wide pixel width (w-[...px]) causes mobile viewport overflow. Use max-w or flex/grid.",
+          "line": 431,
+          "snippet": "<div id=\"split-drawer\" class=\"fixed top-0 right-0 h-full w-[420px] max-w-[95vw] bg-[#0c0e17]/98 bord"
+        }
+      ],
+      "reflex_violations": [],
+      "finish_advisories": [],
+      "score": 75
+    }
+  ]
+}

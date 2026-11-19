@@ -1,0 +1,70 @@
+{
+  "pipeline_version": "2.0.0",
+  "active_conversations": {
+    "untitled_conversation": {
+      "id": "6371cba6-7d2f-4b29-a250-627d88d1b4f1",
+      "role": "Main Feature Implementor (Untitled conversation)",
+      "url": "https://antigravity.google.com/r/21bf6843-8cfa-4328-afad-58c97e63b317-v2?p=c%2F6371cba6-7d2f-4b29-a250-627d88d1b4f1"
+    },
+    "ui_ux": {
+      "id": "06a7d47b-b225-40f4-b830-b58baaaf8b3a",
+      "role": "UI / UX & Design Language",
+      "url": "https://antigravity.google.com/r/21bf6843-8cfa-4328-afad-58c97e63b317-v2?p=c%2F06a7d47b-b225-40f4-b830-b58baaaf8b3a"
+    },
+    "simulation": {
+      "id": "62adc180-be21-4671-848c-c8df59e2c202",
+      "role": "Simulation & Automated Quality Gates",
+      "url": "https://antigravity.google.com/r/21bf6843-8cfa-4328-afad-58c97e63b317-v2?p=c%2F62adc180-be21-4671-848c-c8df59e2c202"
+    },
+    "db_backend": {
+      "id": "d3700ff3-1bfb-458a-9968-8257ef2ca7e2",
+      "role": "DB / Backend & SQLite Server",
+      "url": "https://antigravity.google.com/r/21bf6843-8cfa-4328-afad-58c97e63b317-v2?p=c%2Fd3700ff3-1bfb-458a-9968-8257ef2ca7e2"
+    },
+    "github": {
+      "id": "a64c937f-bb58-4071-8eb9-32f5edbb6c2c",
+      "role": "GitHub Packages & Integrations",
+      "url": "https://antigravity.google.com/r/21bf6843-8cfa-4328-afad-58c97e63b317-v2?p=c%2Fa64c937f-bb58-4071-8eb9-32f5edbb6c2c"
+    },
+    "q_a": {
+      "id": "6029bc76-d833-4ab6-8672-b5f43511cf8f",
+      "role": "Q/A & Book Question Extraction",
+      "url": "https://antigravity.google.com/r/21bf6843-8cfa-4328-afad-58c97e63b317-v2?p=c%2F6029bc76-d833-4ab6-8672-b5f43511cf8f"
+    },
+    "inspiration": {
+      "id": "e6690e55-bfca-4ce1-af20-843015d7d01b",
+      "role": "Inspiration & Topper Ideation",
+      "url": "https://antigravity.google.com/r/21bf6843-8cfa-4328-afad-58c97e63b317-v2?p=c%2Fe6690e55-bfca-4ce1-af20-843015d7d01b"
+    },
+    "bug_fixes": {
+      "id": "c05ee59e-9749-4bc3-8bea-57ea8b60874c",
+      "role": "Bug Fixes & Surgical Patches",
+      "url": "https://antigravity.google.com/r/21bf6843-8cfa-4328-afad-58c97e63b317-v2?p=c%2Fc05ee59e-9749-4bc3-8bea-57ea8b60874c"
+    },
+    "planning": {
+      "id": "b411e7a0-c268-4614-b3d5-f2b2836f4500",
+      "role": "Chief Planning & Roadmap Architect",
+      "url": "https://antigravity.google.com/r/21bf6843-8cfa-4328-afad-58c97e63b317-v2?p=c%2Fb411e7a0-c268-4614-b3d5-f2b2836f4500"
+    },
+    "backbone": {
+      "id": "a80111ec-0657-4748-9e85-d620e8a2a535",
+      "role": "Backbone Coordinator (This Orchestrator)",
+      "url": "https://antigravity.google.com/r/21bf6843-8cfa-4328-afad-58c97e63b317-v2?p=c%2Fa80111ec-0657-4748-9e85-d620e8a2a535"
+    },
+    "deploy": {
+      "id": "deploy_commander_v2",
+      "role": "Production Deployment & Vercel Release Commander",
+      "target": "vercel_production",
+      "status": "READY"
+    }
+  },
+  "current_batch": {
+    "batch_id": "batch_grand_reset_clean_slate_001",
+    "source": "planning",
+    "title": "ClockEE Grand Reset: Clean-Slate Architecture with 100% Knowledge Preservation",
+    "status": "RESET_INITIALIZED",
+    "timestamp": "2026-11-16T20:00:00+05:30",
+    "mandate": "Wipe technical debt; 100% preservation of all 39 reels, research, and design tokens.",
+    "nodes_active": 11
+  }
+}

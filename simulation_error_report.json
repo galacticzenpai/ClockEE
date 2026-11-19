@@ -1,0 +1,61 @@
+{
+  "simulationId": "sim_py_1794838364551",
+  "title": "Autonomous Full Mock Simulation",
+  "timestamp": "2026-11-16T19:42:44.551055",
+  "metrics": {
+    "score": 15,
+    "maxScore": 20,
+    "accuracy": 80.0,
+    "attempted": 5,
+    "totalQs": 5,
+    "avgLatencySec": 81,
+    "timeTakenMin": 7
+  },
+  "errorCount": 1,
+  "mistakes": [
+    {
+      "id": "mistake_sim_py_1794838364551_5",
+      "testId": "sim_py_1794838364551",
+      "testTitle": "Autonomous Full Mock Simulation",
+      "qNum": 5,
+      "subject": "Maths",
+      "chapter": "Permutation and combinations",
+      "topic": "JEE Main",
+      "questionText": "Let n be a non-negative integer. Then the number of divisors of the \nform \"4n + 1\"of the number (10)10.(11)11.(13)13 is equal to_______\n\n[27 July, 2023 (Shift-II)]",
+      "markedOption": "-924.0",
+      "correctOption": "924.0",
+      "errorCategory": "Sign / Inversion Error",
+      "reason": "Sign / Inversion Error",
+      "reasonDetail": "Sign inversion error: entered -924.0 vs expected 924.0. Verify direction vector.",
+      "idealTimeSec": 75,
+      "timeSpentSec": 100,
+      "date": "2026-11-16",
+      "important": true,
+      "bookmarked": true,
+      "status": "unresolved"
+    }
+  ],
+  "subjectBreakdown": {
+    "Physics": {
+      "attempted": 1,
+      "correct": 1,
+      "wrong": 0,
+      "score": 4,
+      "time_sec": 63
+    },
+    "Chemistry": {
+      "attempted": 1,
+      "correct": 1,
+      "wrong": 0,
+      "score": 4,
+      "time_sec": 84
+    },
+    "Maths": {
+      "attempted": 3,
+      "correct": 2,
+      "wrong": 1,
+      "score": 7,
+      "time_sec": 257
+    }
+  }
+}

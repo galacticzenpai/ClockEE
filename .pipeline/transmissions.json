@@ -1,0 +1,263 @@
+{
+  "transmissions": [
+    {
+      "timestamp": "2026-11-16 14:45:43",
+      "source": "DB / BACKEND",
+      "target": "BACKBONE COORDINATOR",
+      "subject": "Auto-Handoff: 25:   },\n26:   \"conversations\": [\n27:     {\n28:   ...",
+      "status": "DELIVERED_AUTO"
+    },
+    {
+      "timestamp": "2026-11-16 14:46:24",
+      "source": "DB / BACKEND",
+      "target": "UI / UX",
+      "subject": "Auto-Handoff: You are UI / UX.\nPrerequisites Met: DB / BACKEND h...",
+      "status": "DELIVERED_AUTO"
+    },
+    {
+      "timestamp": "2026-11-16 14:46:26",
+      "source": "DB / BACKEND",
+      "target": "SIMULATION",
+      "subject": "Auto-Handoff: You are SIMULATION.\nPrerequisites Met: Supabase sc...",
+      "status": "DELIVERED_AUTO"
+    },
+    {
+      "timestamp": "2026-11-16 14:49:09",
+      "source": "SIMULATION",
+      "target": "DB / BACKEND",
+      "subject": "Auto-Handoff: You are DB / BACKEND.\nPrerequisites Met: SIMULATIO...",
+      "status": "DELIVERED_AUTO"
+    },
+    {
+      "timestamp": "2026-11-16 14:55:02",
+      "source": "DB / BACKEND",
+      "target": "SIMULATION",
+      "subject": "Auto-Handoff: You are SIMULATION.\nPrerequisites Met: DB / BACKEN...",
+      "status": "DELIVERED_AUTO"
+    },
+    {
+      "timestamp": "2026-11-16 14:55:44",
+      "source": "UI / UX",
+      "target": "SIMULATION",
+      "subject": "Auto-Handoff: You are SIMULATION.\nPrerequisites Met:\n1. DB / BAC...",
+      "status": "DELIVERED_AUTO"
+    },
+    {
+      "timestamp": "2026-11-16 15:13:42",
+      "source": "SIMULATION",
+      "target": "BACKBONE COORDINATOR",
+      "subject": "Auto-Handoff: 25:   },\n26:   \"conversations\": [\n27:     {\n28:   ...",
+      "status": "DELIVERED_AUTO"
+    },
+    {
+      "timestamp": "2026-11-16 15:26:43",
+      "source": "SIMULATION",
+      "target": "BACKBONE COORDINATOR",
+      "subject": "Auto-Handoff: 25:   },\n26:   \"conversations\": [\n27:     {\n28:   ...",
+      "status": "DELIVERED_AUTO"
+    },
+    {
+      "timestamp": "2026-11-16 15:33:12",
+      "source": "SIMULATION",
+      "target": "BACKBONE COORDINATOR",
+      "subject": "Auto-Handoff: 25:   },\n26:   \"conversations\": [\n27:     {\n28:   ...",
+      "status": "DELIVERED_AUTO"
+    },
+    {
+      "timestamp": "2026-11-16 15:35:23",
+      "source": "SIMULATION",
+      "target": "BACKBONE COORDINATOR",
+      "subject": "Auto-Handoff: 25:   },\n26:   \"conversations\": [\n27:     {\n28:   ...",
+      "status": "DELIVERED_AUTO"
+    },
+    {
+      "timestamp": "2026-11-16 15:58:10",
+      "source": "PLANNING & ROADMAP ARCHITECT",
+      "target": "BACKBONE COORDINATOR",
+      "subject": "Auto-Handoff: Daily Roadmap Plan Generated.\nPlan File: .pipeline...",
+      "status": "DELIVERED_AUTO"
+    },
+    {
+      "timestamp": "2026-11-16 15:58:43",
+      "source": "SIMULATION",
+      "target": "BUG FIXES",
+      "subject": "Auto-Handoff: You are BUG FIXES.\nPrerequisites Met: SIMULATION a...",
+      "status": "DELIVERED_AUTO"
+    },
+    {
+      "timestamp": "2026-11-16 16:00:01",
+      "source": "BUG FIXES",
+      "target": "SIMULATION",
+      "subject": "Auto-Handoff: You are SIMULATION.\nPrerequisites Met: Template li...",
+      "status": "DELIVERED_AUTO"
+    },
+    {
+      "timestamp": "2026-11-16 16:02:51",
+      "source": "Untitled conversation (Main Feature)",
+      "target": "BACKBONE COORDINATOR",
+      "subject": "Auto-Handoff: }\n\nLast progress: 4s ago...",
+      "status": "DELIVERED_AUTO"
+    },
+    {
+      "timestamp": "2026-11-16 16:02:52",
+      "source": "Untitled conversation (Main Feature)",
+      "target": "BACKBONE COORDINATOR",
+      "subject": "Auto-Handoff: }\n\nLog: file:///C:/Users/Kunal/.gemini/antigravity...",
+      "status": "DELIVERED_AUTO"
+    },
+    {
+      "timestamp": "2026-11-16 16:03:24",
+      "source": "Untitled conversation (Main Feature)",
+      "target": "Q / A",
+      "subject": "Auto-Handoff: You are Q / A (6029bc76-d833-4ab6-8672-b5f43511cf8...",
+      "status": "DELIVERED_AUTO"
+    },
+    {
+      "timestamp": "2026-11-16 16:09:55",
+      "source": "SIMULATION",
+      "target": "BUG FIXES",
+      "subject": "Auto-Handoff: You are BUG FIXES.\nPrerequisites Met: SIMULATION a...",
+      "status": "DELIVERED_AUTO"
+    },
+    {
+      "timestamp": "2026-11-16 16:17:11",
+      "source": "BUG FIXES",
+      "target": "SIMULATION",
+      "subject": "Auto-Handoff: You are SIMULATION.\nPrerequisites Met: TASK-CBT-02...",
+      "status": "DELIVERED_AUTO"
+    },
+    {
+      "timestamp": "2026-11-16 17:55:45",
+      "source": "UI / UX",
+      "target": "SIMULATION",
+      "subject": "Auto-Handoff: You are SIMULATION.\nPrerequisites Met:\n1. UI / UX ...",
+      "status": "DELIVERED_AUTO"
+    },
+    {
+      "timestamp": "2026-11-16 19:05:28",
+      "source": "SIMULATION",
+      "target": "UI / UX",
+      "subject": "Auto-Handoff: You are UI / UX.\nPrerequisites Met: SIMULATION has...",
+      "status": "DELIVERED_AUTO"
+    },
+    {
+      "timestamp": "2026-11-16 19:08:12",
+      "source": "UI / UX",
+      "target": "Untitled conversation (Main Feature)",
+      "subject": "Auto-Handoff: You are Untitled conversation (Main Feature).\nPrer...",
+      "status": "DELIVERED_AUTO"
+    },
+    {
+      "timestamp": "2026-11-16 19:10:50",
+      "source": "Untitled conversation (Main Feature)",
+      "target": "SIMULATION",
+      "subject": "Auto-Handoff: You are SIMULATION.\nPrerequisites Met: Main Featur...",
+      "status": "DELIVERED_AUTO"
+    },
+    {
+      "timestamp": "2026-11-16 19:35:01",
+      "source": "PLANNING & ROADMAP ARCHITECT",
+      "target": "BACKBONE COORDINATOR",
+      "subject": "Auto-Handoff: Daily Roadmap Plan Generated.\nPlan File: .pipeline...",
+      "status": "DELIVERED_AUTO"
+    },
+    {
+      "timestamp": "2026-11-16 19:36:22",
+      "source": "PLANNING & ROADMAP ARCHITECT",
+      "target": "BACKBONE COORDINATOR",
+      "subject": "Auto-Handoff: Daily Roadmap Plan Generated.\nPlan File: .pipeline...",
+      "status": "DELIVERED_AUTO"
+    },
+    {
+      "timestamp": "2026-11-16 19:39:24",
+      "source": "Untitled conversation (Main Feature)",
+      "target": "SIMULATION",
+      "subject": "Auto-Handoff: You are SIMULATION.\nPrerequisites Met: Main Featur...",
+      "status": "DELIVERED_AUTO"
+    },
+    {
+      "timestamp": "2026-11-16 19:43:20",
+      "source": "SIMULATION",
+      "target": "BUG FIXES",
+      "subject": "Auto-Handoff: You are BUG FIXES.\nPrerequisites Met: SIMULATION v...",
+      "status": "DELIVERED_AUTO"
+    },
+    {
+      "timestamp": "2026-11-16 19:43:39",
+      "source": "UI / UX",
+      "target": "Untitled conversation (Main Feature)",
+      "subject": "Auto-Handoff: You are UNTITLED CONVERSATION (MAIN FEATURE).\nPrer...",
+      "status": "DELIVERED_AUTO"
+    },
+    {
+      "timestamp": "2026-11-16 19:44:28",
+      "source": "BUG FIXES",
+      "target": "SIMULATION",
+      "subject": "Auto-Handoff: You are SIMULATION.\nPrerequisites Met: TASK-DEMO-R...",
+      "status": "DELIVERED_AUTO"
+    },
+    {
+      "timestamp": "2026-11-16 19:44:36",
+      "source": "Untitled conversation (Main Feature)",
+      "target": "SIMULATION",
+      "subject": "Auto-Handoff: You are SIMULATION.\nPrerequisites Met: \n- TASK-DEM...",
+      "status": "DELIVERED_AUTO"
+    },
+    {
+      "timestamp": "2026-11-16 20:01:16",
+      "source": "PLANNING & ROADMAP ARCHITECT",
+      "target": "BACKBONE COORDINATOR",
+      "subject": "Auto-Handoff: Grand Clean-Slate Reset & Knowledge Preservation D...",
+      "status": "DELIVERED_AUTO"
+    },
+    {
+      "timestamp": "2026-11-16 20:03:44",
+      "source": "SIMULATION",
+      "target": "BACKBONE COORDINATOR",
+      "subject": "Auto-Handoff: You are the BACKBONE COORDINATOR (a80111ec-0657-47...",
+      "status": "DELIVERED_AUTO"
+    },
+    {
+      "timestamp": "2026-11-16 20:05:47",
+      "source": "UI / UX",
+      "target": "Untitled conversation (Main Feature)",
+      "subject": "Auto-Handoff: 17:     end\n18:     \n19:     subgraph S2[\"Step 2: ...",
+      "status": "DELIVERED_AUTO"
+    },
+    {
+      "timestamp": "2026-11-16 20:05:51",
+      "source": "UI / UX",
+      "target": "BACKBONE COORDINATOR",
+      "subject": "Auto-Handoff: (no newline at end of file)...",
+      "status": "DELIVERED_AUTO"
+    },
+    {
+      "timestamp": "2026-11-16 20:13:11",
+      "source": "UI / UX",
+      "target": "SIMULATION",
+      "subject": "Auto-Handoff: You are SIMULATION (62adc180-be21-4671-848c-c8df59...",
+      "status": "DELIVERED_AUTO"
+    },
+    {
+      "timestamp": "2026-11-16 20:15:43",
+      "source": "SIMULATION",
+      "target": "BACKBONE COORDINATOR",
+      "subject": "Auto-Handoff: You are the BACKBONE COORDINATOR (a80111ec-0657-47...",
+      "status": "DELIVERED_AUTO"
+    },
+    {
+      "timestamp": "2026-11-16 21:37:12",
+      "source": "UI / UX",
+      "target": "SIMULATION",
+      "subject": "Auto-Handoff: You are SIMULATION (62adc180-be21-4671-848c-c8df59...",
+      "status": "DELIVERED_AUTO"
+    },
+    {
+      "timestamp": "2026-11-16 21:37:14",
+      "source": "PLANNING & ROADMAP ARCHITECT",
+      "target": "BUG FIXES",
+      "subject": "Auto-Handoff: \u2502   in under 3 sec    \u2502   [TARGET] ---`   \u2502   sub-...",
+      "status": "DELIVERED_AUTO"
+    }
+  ]
+}

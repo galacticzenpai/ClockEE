@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <!-- Security & Content Protection Headers -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' https: blob: data:; img-src 'self' https: data: blob:; connect-src 'self' https: wss:; font-src 'self' https: data:;" />
+  <script src="env.js" onerror="/* env.js optional */"></script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ClockEE - Second-Screen Floating Mini Timer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Space+Mono:wght@400;700&family=VT323&display=swap" rel="stylesheet" />
+  <style>
+    /* Retro Terminal Theme (Hallmark Design System) */
+    :root {
+      --term-bg: #0c0a06;
+      --term-surface: #18140c;
+      --term-border: #3b2f1e;
+      --term-text: #ffb454;
+      --term-muted: #c68a3e;
+      --term-accent: #ff9e3b;
+    }
+    body {
+      background: var(--term-bg);
+      color: var(--term-text);
+      font-family: 'Space Mono', 'JetBrains Mono', monospace;
+      user-select: none;
+      overflow: hidden;
+      margin: 0;
+      padding: 16px;
+    }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    .glass-box {
+      background: var(--term-surface);
+      border: 1px solid var(--term-border);
+      border-radius: 4px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.9), 0 0 16px rgba(255, 158, 59, 0.08);
+    }
+  </style>
+
+  <!-- Apple Human Interface Design System & Safe Area Support -->
+  <style>
+    @supports (padding: max(0px)) {
+      body {
+        padding-top: max(0px, env(safe-area-inset-top));
+        padding-bottom: max(0px, env(safe-area-inset-bottom));
+        padding-left: max(0px, env(safe-area-inset-left));
+        padding-right: max(0px, env(safe-area-inset-right));
+      }
+    }
+  </style>
+  <!-- Master Apple HIG & Apple Intelligence Design System -->
+  <link rel="stylesheet" href="css/apple_design_system.css" />
+</head>
+<body class="flex items-center justify-center min-h-screen">
+  <div class="glass-box p-5 w-full max-w-sm text-center space-y-4">
+    <!-- Header -->
+    <div class="flex items-center justify-between border-b border-[#3b2f1e] pb-2">
+      <div class="flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-[#ff9e3b] animate-ping"></span>
+        <span class="text-xs font-bold font-mono tracking-tight text-[#ffb454]">ClockEE CRT Console</span>
+      </div>
+      <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-[#241e12] text-[#ff9e3b] border border-[#3b2f1e] font-bold" id="mode-badge">Countdown</span>
+    </div>
+
+    <!-- Active Topic -->
+    <div class="truncate text-xs text-[#c68a3e] font-mono font-semibold" id="topic-label">
+      Physics • Deep Focus Block
+    </div>
+
+    <!-- Big Digital Display -->
+    <div class="py-2">
+      <div class="text-5xl font-extrabold font-mono text-[#ffb454] tracking-wider drop-shadow-[0_0_15px_rgba(255,180,84,0.4)]" id="mini-timer-display">
+        02:00:00
+      </div>
+    </div>
+
+    <!-- Controls Row -->
+    <div class="flex items-center justify-center gap-2 pt-1">
+      <button onclick="toggleTimer()" id="btn-mini-play" class="flex-1 py-2 rounded bg-[#ff9e3b] hover:bg-[#ffa94d] text-[#0c0a06] text-xs font-bold font-mono transition shadow-lg shadow-[#ff9e3b]/20">
+        ▶ Start
+      </button>
+      <button onclick="resetTimer()" class="py-2 px-3 rounded bg-[#241e12] hover:bg-[#342b1a] text-[#c68a3e] border border-[#3b2f1e] text-xs font-mono font-semibold transition">
+        ↺ Reset
+      </button>
+    </div>
+
+    <!-- Quick Time Adjusters -->
+    <div class="grid grid-cols-4 gap-1.5 pt-2 border-t border-[#3b2f1e] text-[10px] font-mono">
+      <button onclick="adjustTime(300)" class="py-1 rounded bg-[#1f1a10] hover:bg-[#2c2417] text-[#ffb454] border border-[#3b2f1e]">+5m</button>
+      <button onclick="adjustTime(900)" class="py-1 rounded bg-[#1f1a10] hover:bg-[#2c2417] text-[#ffb454] border border-[#3b2f1e]">+15m</button>
+      <button onclick="adjustTime(1800)" class="py-1 rounded bg-[#1f1a10] hover:bg-[#2c2417] text-[#ffb454] border border-[#3b2f1e]">+30m</button>
+      <button onclick="adjustTime(-300)" class="py-1 rounded bg-[#1f1a10] hover:bg-[#2c2417] text-[#ff9e3b] border border-[#3b2f1e]">-5m</button>
+    </div>
+  </div>
+
+  <script>
+    let remainingSecs = 120 * 60;
+    let initialSecs = 120 * 60;
+    let isRunning = false;
+    let intervalId = null;
+
+    function renderDisplay() {
+      const h = Math.floor(remainingSecs / 3600);
+      const m = Math.floor((remainingSecs % 3600) / 60);
+      const s = remainingSecs % 60;
+      document.getElementById('mini-timer-display').textContent = 
+        `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+    }
+
+    function toggleTimer() {
+      isRunning = !isRunning;
+      const btn = document.getElementById('btn-mini-play');
+      if (isRunning) {
+        btn.textContent = '⏸ Pause';
+        btn.className = 'flex-1 py-2 rounded-xl bg-amber-600 hover:bg-amber-500 text-white text-xs font-bold transition shadow-lg';
+        intervalId = setInterval(() => {
+          if (remainingSecs > 0) {
+            remainingSecs--;
+            renderDisplay();
+          } else {
+            clearInterval(intervalId);
+            isRunning = false;
+            btn.textContent = '▶ Start';
+            alert('ClockEE Focus Block Complete!');
+          }
+        }, 1000);
+      } else {
+        clearInterval(intervalId);
+        btn.textContent = '▶ Resume';
+        btn.className = 'flex-1 py-2 rounded-xl bg-gradient-to-r from-cyan-600 to-indigo-600 text-white text-xs font-bold transition shadow-lg';
+      }
+    }
+
+    function resetTimer() {
+      clearInterval(intervalId);
+      isRunning = false;
+      remainingSecs = initialSecs;
+      document.getElementById('btn-mini-play').textContent = '▶ Start';
+      document.getElementById('btn-mini-play').className = 'flex-1 py-2 rounded-xl bg-gradient-to-r from-cyan-600 to-indigo-600 text-white text-xs font-bold transition shadow-lg';
+      renderDisplay();
+    }
+
+    function adjustTime(deltaSecs) {
+      remainingSecs = Math.max(0, remainingSecs + deltaSecs);
+      initialSecs = remainingSecs;
+      renderDisplay();
+    }
+
+    // Sync from parent window if opened as popup
+    try {
+      if (window.opener && window.opener._lectureTimerTotalSecs) {
+        remainingSecs = window.opener._lectureTimerRemaining || window.opener._lectureTimerTotalSecs;
+        initialSecs = window.opener._lectureTimerTotalSecs;
+      }
+    } catch(e) {}
+
+    renderDisplay();
+  </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+{
+  "version": "1.0.0",
+  "default_port": 20128,
+  "default_endpoint": "http://localhost:20128/v1",
+  "cascade_strategy": "priority_fallback",
+  "routing_pools": {
+    "ultra_fast_free": {
+      "description": "Sub-second inference using Groq, Cerebras, and SambaNova free tiers",
+      "models": [
+        {"provider": "groq", "model": "llama-3.3-70b-versatile", "tps": 300, "priority": 1},
+        {"provider": "cerebras", "model": "llama-3.3-70b", "tps": 450, "priority": 2},
+        {"provider": "sambanova", "model": "Meta-Llama-3.1-70B-Instruct", "tps": 220, "priority": 3}
+      ]
+    },
+    "reasoning_free": {
+      "description": "High-intelligence reasoning models for question analysis & OCR",
+      "models": [
+        {"provider": "gemini", "model": "gemini-2.5-flash", "priority": 1},
+        {"provider": "openrouter", "model": "deepseek/deepseek-r1:free", "priority": 2},
+        {"provider": "github_models", "model": "gpt-4o-mini", "priority": 3}
+      ]
+    },
+    "code_generation": {
+      "description": "Specialized coding tier for autonomous agent tasks",
+      "models": [
+        {"provider": "deepseek", "model": "deepseek-coder", "priority": 1},
+        {"provider": "qwen", "model": "qwen2.5-coder-32b-instruct", "priority": 2}
+      ]
+    }
+  },
+  "health_check_interval_seconds": 60,
+  "retry_policy": {
+    "max_retries": 3,
+    "backoff_factor": 1.5,
+    "status_codes_to_retry": [429, 500, 502, 503, 504]
+  }
+}

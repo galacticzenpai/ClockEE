@@ -1,0 +1,1085 @@
+/* ==========================================================================
+   ClockEE Platform - Apple Human Interface Design System
+   Sleek, minimalist, professional dark materials with SF Pro typography
+   ========================================================================== */
+
+:root {
+  --cbt-bg-base: #000000;
+  --cbt-bg-surface: #0a0c10;
+  --cbt-bg-elevated: #12151c;
+  --cbt-bg-card: rgba(18, 21, 28, 0.76);
+  --cbt-border-subtle: rgba(255, 255, 255, 0.08);
+  --cbt-border-medium: rgba(255, 255, 255, 0.16);
+  --cbt-border-focus: rgba(10, 132, 255, 0.65);
+  --cbt-accent: #0a84ff;
+  --cbt-accent-dark: #0071e3;
+  --cbt-accent-light: rgba(10, 132, 255, 0.12);
+  --cbt-accent-gradient: linear-gradient(180deg, #0a84ff 0%, #0071e3 100%);
+  --cbt-success: #30d158;
+  --cbt-success-light: rgba(48, 209, 88, 0.15);
+  --cbt-warning: #ff9f0a;
+  --cbt-warning-light: rgba(255, 159, 10, 0.15);
+  --cbt-danger: #ff453a;
+  --cbt-danger-light: rgba(255, 69, 58, 0.15);
+  --cbt-purple: #bf5af2;
+  --cbt-text-primary: #ffffff;
+  --cbt-text-secondary: rgba(235, 235, 245, 0.64);
+  --cbt-text-muted: rgba(235, 235, 245, 0.38);
+  --cbt-sidebar-width: 260px;
+  --cbt-radius-sm: 8px;
+  --cbt-radius-md: 12px;
+  --cbt-radius-lg: 16px;
+  --cbt-radius-xl: 22px;
+  --cbt-radius-full: 9999px;
+  --cbt-font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "SF Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --cbt-font-mono: "SF Mono", "JetBrains Mono", Menlo, Monaco, Consolas, monospace;
+  --cbt-ease-apple: cubic-bezier(0.16, 1, 0.3, 1);
+  --cbt-glass-blur: blur(25px) saturate(190%);
+  --cbt-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+  --cbt-shadow-md: 0 4px 16px rgba(0, 0, 0, 0.3);
+  --cbt-shadow-lg: 0 12px 36px rgba(0, 0, 0, 0.45);
+
+  /* Fluid Mathematical & Display Typography Scale */
+  --cbt-fluid-font-size-display: clamp(1.750rem, 1.393rem + 1.79vw, 3.000rem);
+  --cbt-fluid-font-size-h1: clamp(1.375rem, 1.161rem + 1.07vw, 2.125rem);
+  --cbt-fluid-font-size-h2: clamp(1.125rem, 0.982rem + 0.71vw, 1.625rem);
+  --cbt-fluid-font-size-h3: clamp(1.000rem, 0.929rem + 0.36vw, 1.250rem);
+  --cbt-fluid-font-size-body: clamp(0.875rem, 0.839rem + 0.18vw, 1.000rem);
+  --cbt-fluid-font-size-mono-formula: clamp(0.812rem, 0.741rem + 0.36vw, 1.062rem);
+  --cbt-fluid-font-size-caption: clamp(0.688rem, 0.652rem + 0.18vw, 0.812rem);
+}
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Hallmark Design System Material Themes (nutlope/hallmark)
+   ────────────────────────────────────────────────────────────────────────── */
+
+/* 1. Technical Slate & Blueprint (for cbt_exam.html, admin.html) */
+[data-theme="technical_slate"],
+body[data-page-theme="technical_slate"],
+.theme-technical-slate {
+  --cbt-bg-base: #0a0c10;
+  --cbt-bg-surface: #12151c;
+  --cbt-bg-elevated: #161b24;
+  --cbt-bg-card: #12151c;
+  --cbt-border-subtle: #30363d;
+  --cbt-border-medium: #484f58;
+  --cbt-border-focus: #388bfd;
+  --cbt-accent: #388bfd;
+  --cbt-accent-dark: #1f6feb;
+  --cbt-accent-light: rgba(56, 139, 253, 0.12);
+  --cbt-accent-gradient: linear-gradient(135deg, #388bfd 0%, #1f6feb 100%);
+  --cbt-text-primary: #f0f3f6;
+  --cbt-text-secondary: #8b949e;
+  --cbt-text-muted: #6e7681;
+  --cbt-font-sans: 'Inter', -apple-system, sans-serif;
+  --cbt-font-mono: 'JetBrains Mono', monospace;
+  --cbt-radius-sm: 4px;
+  --cbt-radius-md: 6px;
+  --cbt-radius-lg: 8px;
+}
+
+/* 2. Warm Paper & Archival Ink (for cbt_mistakes.html, cbt_notebooks.html) */
+[data-theme="warm_notebook"],
+body[data-page-theme="warm_notebook"],
+.theme-warm-notebook {
+  --cbt-bg-base: #f5f0eb;
+  --cbt-bg-surface: #fbf8f5;
+  --cbt-bg-elevated: #ede6dc;
+  --cbt-bg-card: #fbf8f5;
+  --cbt-border-subtle: #dfd7ce;
+  --cbt-border-medium: #c8beaf;
+  --cbt-border-focus: #8c4a2f;
+  --cbt-accent: #8c4a2f;
+  --cbt-accent-dark: #6e3620;
+  --cbt-accent-light: rgba(140, 74, 47, 0.12);
+  --cbt-accent-gradient: linear-gradient(135deg, #8c4a2f 0%, #b25d38 100%);
+  --cbt-text-primary: #2b2622;
+  --cbt-text-secondary: #6e665f;
+  --cbt-text-muted: #9c9288;
+  --cbt-font-sans: 'Lora', 'Merriweather', Georgia, serif;
+  --cbt-font-mono: 'Courier Prime', 'JetBrains Mono', monospace;
+  --cbt-font-heading: 'Cinzel', 'Playfair Display', serif;
+  --cbt-radius-sm: 4px;
+  --cbt-radius-md: 8px;
+  --cbt-radius-lg: 12px;
+}
+
+[data-theme="warm_notebook"] body,
+body[data-page-theme="warm_notebook"] {
+  background-color: #f5f0eb;
+  color: #2b2622;
+  font-family: var(--cbt-font-sans);
+}
+[data-theme="warm_notebook"] .cbt-navbar,
+body[data-page-theme="warm_notebook"] .cbt-navbar {
+  background: #fbf8f5;
+  border-bottom: 1px solid #dfd7ce;
+}
+[data-theme="warm_notebook"] .cbt-nav-title,
+body[data-page-theme="warm_notebook"] .cbt-nav-title {
+  color: #2b2622;
+  font-family: var(--cbt-font-heading);
+}
+[data-theme="warm_notebook"] .cbt-subnav-ribbon,
+body[data-page-theme="warm_notebook"] .cbt-subnav-ribbon {
+  background: #ede6dc;
+  border-color: #dfd7ce;
+  box-shadow: 0 2px 10px rgba(43, 38, 34, 0.06);
+}
+[data-theme="warm_notebook"] .cbt-subnav-pill,
+body[data-page-theme="warm_notebook"] .cbt-subnav-pill {
+  color: #6e665f;
+}
+[data-theme="warm_notebook"] .cbt-subnav-pill.active,
+body[data-page-theme="warm_notebook"] .cbt-subnav-pill.active {
+  background: #fbf8f5;
+  color: #8c4a2f;
+  border-color: #8c4a2f;
+  box-shadow: 0 1px 4px rgba(140, 74, 47, 0.15);
+}
+[data-theme="warm_notebook"] .cbt-mistake-card,
+[data-theme="warm_notebook"] .cbt-nb-card,
+body[data-page-theme="warm_notebook"] .cbt-mistake-card,
+body[data-page-theme="warm_notebook"] .cbt-nb-card {
+  background: #fbf8f5;
+  border-color: #dfd7ce;
+  box-shadow: 0 1px 3px rgba(43, 38, 34, 0.05);
+}
+[data-theme="warm_notebook"] .cbt-card-title,
+[data-theme="warm_notebook"] .cbt-nb-card-title,
+body[data-page-theme="warm_notebook"] .cbt-card-title,
+body[data-page-theme="warm_notebook"] .cbt-nb-card-title {
+  color: #2b2622;
+}
+
+/* 3. Retro Terminal (for timer.html, mini_timer.html) */
+[data-theme="retro_terminal"],
+body[data-page-theme="retro_terminal"],
+.theme-retro-terminal {
+  --cbt-bg-base: #0c0a06;
+  --cbt-bg-surface: #18140c;
+  --cbt-bg-elevated: #241e12;
+  --cbt-bg-card: #18140c;
+  --cbt-border-subtle: #3b2f1e;
+  --cbt-border-medium: #59462c;
+  --cbt-border-focus: #ff9e3b;
+  --cbt-accent: #ff9e3b;
+  --cbt-accent-dark: #d9771e;
+  --cbt-accent-light: rgba(255, 158, 59, 0.15);
+  --cbt-accent-gradient: linear-gradient(135deg, #ff9e3b 0%, #ffb454 100%);
+  --cbt-text-primary: #ffb454;
+  --cbt-text-secondary: #c68a3e;
+  --cbt-text-muted: #8c632e;
+  --cbt-font-sans: 'Space Mono', 'JetBrains Mono', monospace;
+  --cbt-font-mono: 'VT323', 'Space Mono', monospace;
+  --cbt-radius-sm: 2px;
+  --cbt-radius-md: 4px;
+  --cbt-radius-lg: 4px;
+}
+
+/* 4. Industrial Bauhaus (for index.html, today.html) */
+[data-theme="industrial_bauhaus"],
+body[data-page-theme="industrial_bauhaus"],
+.theme-industrial-bauhaus {
+  --cbt-bg-base: #ecebe4;
+  --cbt-bg-surface: #ffffff;
+  --cbt-bg-elevated: #e2e0d7;
+  --cbt-bg-card: #ffffff;
+  --cbt-border-subtle: #1a1a1a;
+  --cbt-border-medium: #1a1a1a;
+  --cbt-border-focus: #0047bb;
+  --cbt-accent: #0047bb;
+  --cbt-accent-dark: #003080;
+  --cbt-accent-light: rgba(0, 71, 187, 0.12);
+  --cbt-accent-gradient: linear-gradient(135deg, #0047bb 0%, #002b70 100%);
+  --cbt-text-primary: #0f0f0f;
+  --cbt-text-secondary: #4a4a4a;
+  --cbt-text-muted: #737373;
+  --cbt-font-sans: 'Plus Jakarta Sans', sans-serif;
+  --cbt-font-mono: 'Space Mono', monospace;
+  --cbt-radius-sm: 0px;
+  --cbt-radius-md: 2px;
+  --cbt-radius-lg: 4px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--cbt-bg-base);
+  color: var(--cbt-text-primary);
+  font-family: var(--cbt-font-sans);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Universal Cockpit Suite Top Navbar Dropdowns & Buttons */
+.nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 10px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #94a3b8;
+  text-decoration: none;
+  transition: all 0.15s ease;
+  border: 1px solid transparent;
+}
+.nav-btn:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+}
+.nav-btn.nav-active {
+  background: rgba(10, 132, 255, 0.15);
+  color: #0a84ff;
+  border-color: rgba(10, 132, 255, 0.4);
+  font-weight: 600;
+}
+.nav-caret {
+  font-size: 8px;
+  opacity: 0.6;
+  margin-left: 2px;
+  transition: transform 0.2s ease;
+}
+.nav-dropdown {
+  position: relative;
+  display: inline-block;
+}
+.nav-dropdown:hover .nav-caret {
+  transform: rotate(180deg);
+}
+.nav-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 6px;
+  min-width: 215px;
+  background: rgba(28, 28, 30, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  padding: 6px;
+  display: none !important;
+  flex-direction: column;
+  gap: 2px;
+  z-index: 100;
+  box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.06);
+  backdrop-filter: var(--cbt-glass-blur);
+  -webkit-backdrop-filter: var(--cbt-glass-blur);
+}
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu {
+  display: flex !important;
+}
+.nav-dropdown-item {
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  color: #9ca3af;
+  text-decoration: none;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nav-dropdown-item:hover {
+  background: rgba(10, 132, 255, 0.12);
+  color: #0a84ff;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--cbt-bg-base);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Glass Card & Surfaces */
+.cbt-glass {
+  background: var(--cbt-bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--cbt-border-subtle);
+  border-radius: var(--cbt-radius-lg);
+}
+
+.cbt-card {
+  background: var(--cbt-bg-surface);
+  border: 1px solid var(--cbt-border-subtle);
+  border-radius: var(--cbt-radius-md);
+  padding: 20px;
+  transition: all 0.2s ease;
+}
+
+.cbt-card:hover {
+  border-color: var(--cbt-border-medium);
+}
+
+/* Sidebar Styling (Quizrr Style) */
+.cbt-sidebar {
+  width: var(--cbt-sidebar-width);
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: var(--cbt-bg-surface);
+  border-right: 1px solid var(--cbt-border-subtle);
+  display: flex;
+  flex-direction: column;
+  z-index: 50;
+  padding: 20px 16px;
+  overflow-y: auto;
+}
+
+.cbt-sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 8px 20px 8px;
+  border-bottom: 1px solid var(--cbt-border-subtle);
+  margin-bottom: 16px;
+  text-decoration: none;
+}
+
+.cbt-brand-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--cbt-radius-md);
+  background: rgba(10, 132, 255, 0.12);
+  border: 1px solid rgba(10, 132, 255, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.25s var(--cbt-ease-apple);
+  flex-shrink: 0;
+}
+
+.cbt-sidebar-brand:hover .cbt-brand-logo {
+  box-shadow: 0 4px 16px rgba(10, 132, 255, 0.3);
+  border-color: #0a84ff;
+  transform: scale(1.03);
+}
+
+.cbt-logo-svg {
+  width: 24px;
+  height: 24px;
+  animation: cbtSpinSlow 12s linear infinite;
+}
+
+@keyframes cbtSpinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.cbt-brand-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.5px;
+}
+
+.cbt-brand-sub {
+  font-size: 11px;
+  color: var(--cbt-text-muted);
+  font-weight: 500;
+}
+
+/* Test Series Dropdown Switcher */
+.cbt-series-switcher {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--cbt-border-subtle);
+  border-radius: var(--cbt-radius-md);
+  padding: 10px 12px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cbt-series-switcher:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: var(--cbt-border-medium);
+}
+
+.cbt-series-badge {
+  font-size: 10px;
+  text-transform: uppercase;
+  color: var(--cbt-accent);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.cbt-series-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--cbt-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Nav Links */
+.cbt-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.cbt-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: var(--cbt-radius-md);
+  color: var(--cbt-text-secondary);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.cbt-nav-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--cbt-text-primary);
+}
+
+.cbt-nav-item.active {
+  background: var(--cbt-accent);
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(10, 132, 255, 0.3);
+}
+
+.cbt-nav-icon {
+  font-size: 18px;
+  width: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cbt-nav-badge {
+  margin-left: auto;
+  font-size: 11px;
+  padding: 2px 7px;
+  border-radius: var(--cbt-radius-full);
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--cbt-text-muted);
+}
+
+.cbt-nav-item.active .cbt-nav-badge {
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
+/* Sidebar Footer */
+.cbt-sidebar-footer {
+  padding-top: 16px;
+  border-top: 1px solid var(--cbt-border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cbt-btn-back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 9px 12px;
+  border-radius: var(--cbt-radius-md);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--cbt-border-subtle);
+  color: var(--cbt-text-secondary);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.cbt-btn-back:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--cbt-text-primary);
+  border-color: var(--cbt-border-medium);
+}
+
+/* Main Content Area */
+.cbt-main-content {
+  margin-left: var(--cbt-sidebar-width);
+  flex: 1;
+  min-height: 100vh;
+  padding: 32px 40px;
+  max-width: 1440px;
+}
+
+@media (max-width: 1024px) {
+  .cbt-sidebar {
+    width: 72px;
+    padding: 16px 8px;
+  }
+  .cbt-sidebar-brand span,
+  .cbt-brand-sub,
+  .cbt-series-switcher,
+  .cbt-nav-item span:not(.cbt-nav-icon),
+  .cbt-nav-badge,
+  .cbt-btn-back span:not(.cbt-nav-icon) {
+    display: none;
+  }
+  .cbt-main-content {
+    margin-left: 72px;
+    padding: 20px;
+  }
+}
+
+/* ==========================================================================
+   Apple Human Interface Button Architecture (Fitts's Law Certified)
+   ========================================================================== */
+.cbt-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 9px 16px;
+  border-radius: var(--cbt-radius-md);
+  font-family: var(--cbt-font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.16s var(--cbt-ease-apple);
+  text-decoration: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  white-space: nowrap;
+}
+
+.cbt-btn:active:not(:disabled) {
+  transform: scale(0.985);
+}
+
+.cbt-btn:disabled,
+.cbt-btn.disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Primary Button (Apple System Blue) */
+.cbt-btn-primary {
+  background: var(--cbt-accent);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.28), 0 0 0 1px rgba(10, 132, 255, 0.2);
+}
+
+.cbt-btn-primary:hover:not(:disabled) {
+  background: var(--cbt-accent-dark);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 2px 8px rgba(10, 132, 255, 0.35);
+}
+
+.cbt-btn-primary:active:not(:disabled) {
+  background: #0062c4;
+}
+
+/* Secondary / Outline Button (Frosted Slate) */
+.cbt-btn-secondary,
+.cbt-btn-outline {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--cbt-border-medium);
+  color: var(--cbt-text-primary);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.cbt-btn-secondary:hover:not(:disabled),
+.cbt-btn-outline:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.10);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+
+.cbt-btn-secondary:active:not(:disabled),
+.cbt-btn-outline:active:not(:disabled) {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Ghost Button (Clean Minimal) */
+.cbt-btn-ghost {
+  background: transparent;
+  border-color: transparent;
+  color: var(--cbt-text-secondary);
+}
+
+.cbt-btn-ghost:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+  border-color: var(--cbt-border-subtle);
+}
+
+/* Danger Button (Apple System Red) */
+.cbt-btn-danger {
+  background: var(--cbt-danger);
+  color: #ffffff;
+  border-color: rgba(255, 69, 58, 0.4);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.28);
+}
+
+.cbt-btn-danger:hover:not(:disabled) {
+  background: #e0382e;
+  box-shadow: 0 2px 8px rgba(255, 69, 58, 0.35);
+}
+
+/* Success Button (Apple System Green) */
+.cbt-btn-success {
+  background: var(--cbt-success);
+  color: #ffffff;
+  border-color: rgba(48, 209, 88, 0.4);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.28);
+}
+
+.cbt-btn-success:hover:not(:disabled) {
+  background: #28b84d;
+  box-shadow: 0 2px 8px rgba(48, 209, 88, 0.35);
+}
+
+/* Monospace numerals inside buttons and cards */
+.cbt-btn .cbt-mono,
+.cbt-btn span[data-timer],
+.cbt-stat-value,
+.cbt-telemetry-num {
+  font-family: var(--cbt-font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+/* Badges */
+.cbt-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border-radius: var(--cbt-radius-full);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.cbt-tag-physics { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
+.cbt-tag-chemistry { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+.cbt-tag-maths { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+
+/* Typography */
+.cbt-mono { font-family: var(--cbt-font-mono); }
+.cbt-title-lg { font-size: 28px; font-weight: 800; letter-spacing: -0.5px; }
+.cbt-title-md { font-size: 20px; font-weight: 700; letter-spacing: -0.3px; }
+.cbt-subtext { color: var(--cbt-text-secondary); font-size: 14px; }
+
+/* Filter Tabs & Switchers */
+.cbt-tabs-pill {
+  display: inline-flex;
+  background: var(--cbt-bg-surface);
+  border: 1px solid var(--cbt-border-subtle);
+  border-radius: var(--cbt-radius-full);
+  padding: 4px;
+  gap: 4px;
+}
+
+.cbt-tab-btn {
+  padding: 7px 18px;
+  border-radius: var(--cbt-radius-full);
+  font-size: 13px;
+  font-weight: 600;
+  background: transparent;
+  color: var(--cbt-text-secondary);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cbt-tab-btn:hover {
+  color: var(--cbt-text-primary);
+}
+
+.cbt-tab-btn.active {
+  background: var(--cbt-accent);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(10, 132, 255, 0.25);
+}
+
+/* Toast Notifications */
+.cbt-toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cbt-toast {
+  background: var(--cbt-bg-elevated);
+  border: 1px solid var(--cbt-border-medium);
+  padding: 12px 18px;
+  border-radius: var(--cbt-radius-md);
+  color: #fff;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  animation: slideInRight 0.25s ease;
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* ==========================================================================
+   Phase 1 Micro-UI, GPU Transitions & Mobile Touch Guardrails
+   ========================================================================== */
+
+/* GPU-Accelerated Page & Card Entrance Transitions */
+.cbt-main-content, .cbt-card, .glass-card, [id^="pane-"] {
+  animation: smoothFadeUp 180ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  will-change: opacity, transform;
+}
+
+@keyframes smoothFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Micro-Interaction & Active Feedback */
+button:active, 
+.cbt-btn:active, 
+.cbt-tab-btn:active, 
+.nav-btn:active, 
+a.cbt-btn:active {
+  transform: scale(0.98) !important;
+}
+
+/* Accessible Focus-Visible Outlines */
+button:focus-visible, 
+a:focus-visible, 
+input:focus-visible, 
+select:focus-visible, 
+textarea:focus-visible {
+  outline: 2px solid var(--cbt-accent, #0a84ff) !important;
+  outline-offset: 2px !important;
+}
+
+/* Mobile Touch Target Guardrails (Fitts's Law Minimum 44x44px) */
+@media (max-width: 768px) {
+  button, 
+  .cbt-btn, 
+  a.cbt-btn,
+  .nav-btn, 
+  .cbt-tab-btn,
+  .cbt-subnav-pill,
+  .btn-google,
+  .btn-github,
+  .cbt-option {
+    min-height: 44px !important;
+    touch-action: manipulation;
+  }
+}
+
+/* Mobile Viewport & Zero Horizontal Overflow Rules */
+html, body {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+}
+
+@media (max-width: 840px) {
+  .cbt-sidebar {
+    display: none !important;
+  }
+  .cbt-main-content {
+    margin-left: 0 !important;
+    padding: 14px 16px calc(76px + env(safe-area-inset-bottom)) 16px !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+  }
+  .cbt-growth-metrics {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+  .cbt-tests-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .cbt-generator-banner {
+    padding: 16px !important;
+  }
+}
+
+/* Disabled & In-flight Network States */
+button:disabled, 
+.cbt-btn:disabled, 
+.btn-disabled {
+  opacity: 0.5 !important;
+  pointer-events: none !important;
+  cursor: not-allowed !important;
+}
+
+
+
+/* Unified CBT Sub-Navigation Ribbon (Replaces fixed 260px sidebar) */
+.cbt-sidebar {
+  display: none !important;
+}
+
+.cbt-main-content {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  flex: 1;
+  min-height: calc(100vh - 64px);
+  padding: 16px 20px calc(76px + env(safe-area-inset-bottom)) 20px !important;
+  max-width: 1280px !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  box-sizing: border-box !important;
+}
+
+.cbt-subnav-ribbon {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  background: rgba(28, 28, 30, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  padding: 5px 8px;
+  margin: 14px auto 22px auto;
+  max-width: 1280px;
+  width: 100%;
+  backdrop-filter: blur(25px) saturate(190%);
+  -webkit-backdrop-filter: blur(25px) saturate(190%);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+  box-sizing: border-box;
+}
+.cbt-subnav-ribbon::-webkit-scrollbar {
+  display: none;
+}
+.cbt-subnav-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: rgba(235, 235, 245, 0.6);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  background: transparent;
+  border: 1px solid transparent;
+  flex-shrink: 0;
+}
+.cbt-subnav-pill:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.12);
+}
+.cbt-subnav-pill.active {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  font-weight: 600;
+}
+.cbt-subnav-pill svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   Apple Human Interface Adaptive Responsive Architecture (7 Canonical Tiers)
+   Tier 1: iPhone SE (375px)
+   Tier 2: iPhone 16 (390px)
+   Tier 3: iPhone 16 Pro Max (430px)
+   Tier 4: iPad Mini (768px)
+   Tier 5: iPad Air (820px)
+   Tier 6: iPad Pro 12.9" (1024px)
+   Tier 7: MacBook Pro 14" / Studio Display (1440px+)
+   ========================================================================== */
+
+/* Universal Apple Tap Targets & Elastic Touch Feedback (Fitts's Law) */
+button, .cbt-btn, a.cbt-btn, .cbt-subnav-pill, .cbt-option {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+button:active:not(:disabled), 
+.cbt-btn:active:not(:disabled), 
+.cbt-card:active {
+  transform: scale(0.985);
+  transition: transform 0.12s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Tier 1: iPhone SE & Ultra-Compact Mobile (< 380px) */
+@media screen and (max-width: 380px) {
+  :root {
+    --cbt-sidebar-width: 100%;
+  }
+  body {
+    font-size: 13.5px;
+    letter-spacing: -0.01em;
+  }
+  .cbt-main-content {
+    padding: 10px 12px calc(76px + env(safe-area-inset-bottom)) 12px !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+  }
+  .cbt-subnav-ribbon {
+    margin: 6px auto 12px auto !important;
+    padding: 3px 5px !important;
+  }
+  .cbt-subnav-pill {
+    padding: 4px 8px !important;
+    font-size: 0.72rem !important;
+  }
+  .cbt-growth-metrics {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+  .cbt-exam-grid, .cbt-tests-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+}
+
+/* Tier 2 & 3: iPhone 16 Standard & Pro Max (381px - 480px) */
+@media screen and (min-width: 381px) and (max-width: 480px) {
+  :root {
+    --cbt-sidebar-width: 100%;
+  }
+  body {
+    font-size: 14px;
+    letter-spacing: -0.005em;
+  }
+  .cbt-main-content {
+    padding: 12px 14px calc(76px + env(safe-area-inset-bottom)) 14px !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+  }
+  .cbt-subnav-ribbon {
+    margin: 8px auto 14px auto !important;
+    padding: 4px 6px !important;
+    border-radius: 16px !important;
+  }
+  .cbt-subnav-pill {
+    padding: 5px 10px !important;
+    font-size: 0.75rem !important;
+  }
+  .cbt-growth-metrics {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+  }
+  .cbt-stat-card {
+    padding: 12px !important;
+    border-radius: 12px !important;
+  }
+  .cbt-stat-value {
+    font-size: 1.25rem !important;
+  }
+  .cbt-stat-label {
+    font-size: 0.6875rem !important;
+  }
+  .cbt-exam-grid, .cbt-tests-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+  .cbt-modal-container {
+    width: 95vw !important;
+    margin: 10px auto !important;
+    padding: 16px !important;
+    border-radius: 16px !important;
+  }
+}
+
+/* Tier 4 & 5: iPad Mini & iPad Air (481px - 820px) */
+@media screen and (min-width: 481px) and (max-width: 820px) {
+  .cbt-main-content {
+    padding: 16px 20px calc(80px + env(safe-area-inset-bottom)) 20px !important;
+  }
+  .cbt-growth-metrics {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+  .cbt-tests-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+}
+
+/* Tier 6: iPad Pro 12.9" & Landscape Tablets (821px - 1024px) */
+@media screen and (min-width: 821px) and (max-width: 1024px) {
+  .cbt-main-content {
+    padding: 20px 24px calc(80px + env(safe-area-inset-bottom)) 24px !important;
+  }
+  .cbt-growth-metrics {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 14px !important;
+  }
+  .cbt-tests-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+  }
+}
+
+/* Tier 7: MacBook Pro 14" & Studio Displays (1025px+) */
+@media screen and (min-width: 1025px) {
+  .cbt-main-content {
+    max-width: 1440px !important;
+    padding: 24px 32px 80px 32px !important;
+  }
+  .cbt-growth-metrics {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 16px !important;
+  }
+  .cbt-tests-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 18px !important;
+  }
+}
+

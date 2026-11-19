@@ -1,0 +1,153 @@
+{
+  "catalog_version": "2.0.0",
+  "source": "Apple Human Interface Guidelines & nutlope/hallmark adapted for ClockEE",
+  "themes": [
+    {
+      "id": "apple_dark",
+      "name": "Apple Human Interface True Dark",
+      "category": "Flagship Operating System",
+      "recommended_for": ["index.html", "cbt_home.html", "cbt_exam.html", "today.html", "tracker.html"],
+      "mood": "Sleek, minimalist, distraction-free, Apple SF Pro typography with authentic frosted glass",
+      "fonts": {
+        "heading": "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro', sans-serif",
+        "body": "-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro', sans-serif",
+        "mono": "'SF Mono', 'JetBrains Mono', Menlo, monospace"
+      },
+      "palette": {
+        "bg": "#000000",
+        "surface": "#1c1c1e",
+        "text_primary": "#ffffff",
+        "text_secondary": "rgba(235, 235, 245, 0.64)",
+        "accent": "#0a84ff",
+        "border": "rgba(255, 255, 255, 0.08)"
+      },
+      "rules": "True black #000000, hairline 1px borders, squircle 12px/16px/22px corners, blur(25px) saturate(190%) frosted glass, Apple System Blue #0a84ff."
+    },
+    {
+      "id": "swiss_editorial",
+      "name": "Swiss International Editorial",
+      "category": "Editorial & Print",
+      "recommended_for": ["cbt_instructions.html", "coaching.html", "analysis.html"],
+      "mood": "Precise, confident, high-information density, newspaper authority",
+      "fonts": {
+        "heading": "'Neue Haas Grotesk', 'Inter', -apple-system, sans-serif",
+        "body": "'Newsreader', 'Georgia', serif",
+        "mono": "'JetBrains Mono', monospace"
+      },
+      "palette": {
+        "bg": "#f9f8f6",
+        "surface": "#ffffff",
+        "text_primary": "#141413",
+        "text_secondary": "#57564f",
+        "accent": "#d9381e",
+        "border": "#e5e3dc"
+      },
+      "rules": "Visible 1px grid rules, bold black section dividers, strict asymmetric columns, zero background blur."
+    },
+    {
+      "id": "technical_slate",
+      "name": "Technical Slate & Blueprint",
+      "category": "Developer & Workbench",
+      "recommended_for": ["cbt_exam.html", "cbt_cloner.html", "admin.html"],
+      "mood": "Calm, distraction-free, terminal precision, test-centre reliability",
+      "fonts": {
+        "heading": "'Geist', 'Inter', sans-serif",
+        "body": "'Geist', 'Inter', sans-serif",
+        "mono": "'Geist Mono', 'Fira Code', monospace"
+      },
+      "palette": {
+        "bg": "#0a0c10",
+        "surface": "#12151c",
+        "text_primary": "#f0f3f6",
+        "text_secondary": "#8b949e",
+        "accent": "#388bfd",
+        "border": "#30363d"
+      },
+      "rules": "Crisp 1px borders, subtle tabbed navigation, monospace telemetry status indicators, zero purple glow."
+    },
+    {
+      "id": "warm_notebook",
+      "name": "Warm Paper & Archival Ink",
+      "category": "Study & Reflection",
+      "recommended_for": ["cbt_mistakes.html", "cbt_notebooks.html", "cbt_reference_vault.html"],
+      "mood": "Tactile, scholarly, enduring, calming for high-stress preparation",
+      "fonts": {
+        "heading": "'Cinzel', 'Playfair Display', serif",
+        "body": "'Lora', 'Merriweather', serif",
+        "mono": "'Courier Prime', monospace"
+      },
+      "palette": {
+        "bg": "#f5f0eb",
+        "surface": "#fbf8f5",
+        "text_primary": "#2b2622",
+        "text_secondary": "#6e665f",
+        "accent": "#8c4a2f",
+        "border": "#dfd7ce"
+      },
+      "rules": "Subtle paper grain, warm amber highlights, lined margin gutters, bookbinder aesthetic."
+    },
+    {
+      "id": "retro_terminal",
+      "name": "Amber CRT Command Console",
+      "category": "Terminal & Monospace",
+      "recommended_for": ["mini_timer.html", "timer.html", "task.html"],
+      "mood": "High focus, sensory deprivation, arcade discipline, hacker productivity",
+      "fonts": {
+        "heading": "'VT323', 'Space Mono', monospace",
+        "body": "'JetBrains Mono', 'IBM Plex Mono', monospace",
+        "mono": "'JetBrains Mono', monospace"
+      },
+      "palette": {
+        "bg": "#0c0a06",
+        "surface": "#18140c",
+        "text_primary": "#ffb454",
+        "text_secondary": "#c68a3e",
+        "accent": "#ff9e3b",
+        "border": "#3b2f1e"
+      },
+      "rules": "High contrast phosphor glow, scanline borders, zero rounded pill badges, pure grid layout."
+    },
+    {
+      "id": "industrial_bauhaus",
+      "name": "Bauhaus Geometric & Functional",
+      "category": "Brutalist & Geometry",
+      "recommended_for": ["today.html", "hackathon.html", "index.html"],
+      "mood": "Bold, functionalist, architectural, energetic",
+      "fonts": {
+        "heading": "'Cabinet Grotesk', 'Syne', sans-serif",
+        "body": "'Plus Jakarta Sans', sans-serif",
+        "mono": "'Space Mono', monospace"
+      },
+      "palette": {
+        "bg": "#ecebe4",
+        "surface": "#ffffff",
+        "text_primary": "#0f0f0f",
+        "text_secondary": "#4a4a4a",
+        "accent": "#0047bb",
+        "border": "#1a1a1a"
+      },
+      "rules": "Heavy 2px black borders, hard offset box-shadows (4px 4px 0px #000), bold primary color accents, geometric shapes."
+    },
+    {
+      "id": "deep_tokyo_night",
+      "name": "Tokyo Midnight Minimalist",
+      "category": "Night Mode & Focus",
+      "recommended_for": ["test_centre.html", "settings.html"],
+      "mood": "Atmospheric, serene, deep contrast without muddy gradients",
+      "fonts": {
+        "heading": "'Inter Display', sans-serif",
+        "body": "'Inter', sans-serif",
+        "mono": "'Fira Code', monospace"
+      },
+      "palette": {
+        "bg": "#05070e",
+        "surface": "#0c101c",
+        "text_primary": "#e6edf3",
+        "text_secondary": "#7d8590",
+        "accent": "#00f0ff",
+        "border": "#1c2538"
+      },
+      "rules": "Cyan/ice-blue micro-accents, deep true black backgrounds, crisp divider lines, no glass cards."
+    }
+  ]
+}

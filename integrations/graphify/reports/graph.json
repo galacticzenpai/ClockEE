@@ -1,0 +1,3650 @@
+{
+  "version": "1.0.0",
+  "timestamp": "2026-11-16 00:59:18",
+  "generator": "Graphify Knowledge Graph (Graphify-Labs/graphify)",
+  "metrics": {
+    "total_nodes": 263,
+    "total_edges": 320,
+    "god_nodes_detected": 8
+  },
+  "god_nodes": [
+    {
+      "id": "env.js",
+      "inbound_dependents": 21,
+      "type": "SCRIPT_MODULE",
+      "file": "env.js"
+    },
+    {
+      "id": "cdn.tailwindcss.com",
+      "inbound_dependents": 17,
+      "type": "SCRIPT_MODULE",
+      "file": "cdn.tailwindcss.com"
+    },
+    {
+      "id": "clockee_core.js",
+      "inbound_dependents": 16,
+      "type": "SCRIPT_MODULE",
+      "file": "clockee_core.js"
+    },
+    {
+      "id": "chart.js",
+      "inbound_dependents": 9,
+      "type": "SCRIPT_MODULE",
+      "file": "chart.js"
+    },
+    {
+      "id": "cbt_shared.js",
+      "inbound_dependents": 9,
+      "type": "SCRIPT_MODULE",
+      "file": "cbt_shared.js"
+    },
+    {
+      "id": "html2canvas.min.js",
+      "inbound_dependents": 6,
+      "type": "SCRIPT_MODULE",
+      "file": "html2canvas.min.js"
+    },
+    {
+      "id": "katex.min.js",
+      "inbound_dependents": 4,
+      "type": "SCRIPT_MODULE",
+      "file": "katex.min.js"
+    },
+    {
+      "id": "marked.min.js",
+      "inbound_dependents": 4,
+      "type": "SCRIPT_MODULE",
+      "file": "marked.min.js"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "admin.html",
+      "type": "HTML_ENTRYPOINT",
+      "file": "admin.html",
+      "meta": {}
+    },
+    {
+      "id": "env.js",
+      "type": "SCRIPT_MODULE",
+      "file": "env.js",
+      "meta": {}
+    },
+    {
+      "id": "cdn.tailwindcss.com",
+      "type": "SCRIPT_MODULE",
+      "file": "cdn.tailwindcss.com",
+      "meta": {}
+    },
+    {
+      "id": "chart.js",
+      "type": "SCRIPT_MODULE",
+      "file": "chart.js",
+      "meta": {}
+    },
+    {
+      "id": "clockee_core.js",
+      "type": "SCRIPT_MODULE",
+      "file": "clockee_core.js",
+      "meta": {}
+    },
+    {
+      "id": "storage:clockee_admin_authorized",
+      "type": "STORAGE_KEY",
+      "file": "admin.html",
+      "meta": {
+        "key": "clockee_admin_authorized"
+      }
+    },
+    {
+      "id": "storage:clockee_current_user",
+      "type": "STORAGE_KEY",
+      "file": "admin.html",
+      "meta": {
+        "key": "clockee_current_user"
+      }
+    },
+    {
+      "id": "storage:clockee_multi_users",
+      "type": "STORAGE_KEY",
+      "file": "admin.html",
+      "meta": {
+        "key": "clockee_multi_users"
+      }
+    },
+    {
+      "id": "storage:clockee_auth_active",
+      "type": "STORAGE_KEY",
+      "file": "admin.html",
+      "meta": {
+        "key": "clockee_auth_active"
+      }
+    },
+    {
+      "id": "analysis.html",
+      "type": "HTML_ENTRYPOINT",
+      "file": "analysis.html",
+      "meta": {}
+    },
+    {
+      "id": "cbt.html",
+      "type": "HTML_ENTRYPOINT",
+      "file": "cbt.html",
+      "meta": {}
+    },
+    {
+      "id": "cbt_analysis.html",
+      "type": "HTML_ENTRYPOINT",
+      "file": "cbt_analysis.html",
+      "meta": {}
+    },
+    {
+      "id": "katex.min.js",
+      "type": "SCRIPT_MODULE",
+      "file": "katex.min.js",
+      "meta": {}
+    },
+    {
+      "id": "html2canvas.min.js",
+      "type": "SCRIPT_MODULE",
+      "file": "html2canvas.min.js",
+      "meta": {}
+    },
+    {
+      "id": "cbt_shared.js",
+      "type": "SCRIPT_MODULE",
+      "file": "cbt_shared.js",
+      "meta": {}
+    },
+    {
+      "id": "katex.min.css",
+      "type": "STYLESHEET",
+      "file": "katex.min.css",
+      "meta": {}
+    },
+    {
+      "id": "cbt_cloner.html",
+      "type": "HTML_ENTRYPOINT",
+      "file": "cbt_cloner.html",
+      "meta": {}
+    },
+    {
+      "id": "cbt_shared.css",
+      "type": "STYLESHEET",
+      "file": "cbt_shared.css",
+      "meta": {}
+    },
+    {
+      "id": "cbt_exam.html",
+      "type": "HTML_ENTRYPOINT",
+      "file": "cbt_exam.html",
+      "meta": {}
+    },
+    {
+      "id": "cbt_master_bank.js",
+      "type": "SCRIPT_MODULE",
+      "file": "cbt_master_bank.js",
+      "meta": {}
+    },
+    {
+      "id": "cbt_home.html",
+      "type": "HTML_ENTRYPOINT",
+      "file": "cbt_home.html",
+      "meta": {}
+    },
+    {
+      "id": "cbt_instructions.html",
+      "type": "HTML_ENTRYPOINT",
+      "file": "cbt_instructions.html",
+      "meta": {}
+    },
+    {
+      "id": "cbt_mistakes.html",
+      "type": "HTML_ENTRYPOINT",
+      "file": "cbt_mistakes.html",
+      "meta": {}
+    },
+    {
+      "id": "storage:clockee_v5_master_state",
+      "type": "STORAGE_KEY",
+      "file": "cbt_mistakes.html",
+      "meta": {
+        "key": "clockee_v5_master_state"
+      }
+    },
+    {
+      "id": "cbt_notebooks.html",
+      "type": "HTML_ENTRYPOINT",
+      "file": "cbt_notebooks.html",
+      "meta": {}
+    },
+    {
+      "id": "cbt_reference_vault.html",
+      "type": "HTML_ENTRYPOINT",
+      "file": "cbt_reference_vault.html",
+      "meta": {}
+    },
+    {
+      "id": "pdf.min.js",
+      "type": "SCRIPT_MODULE",
+      "file": "pdf.min.js",
+      "meta": {}
+    },
+    {
+      "id": "coaching.html",
+      "type": "HTML_ENTRYPOINT",
+      "file": "coaching.html",
+      "meta": {}
+    },
+    {
+      "id": "marked.min.js",
+      "type": "SCRIPT_MODULE",
+      "file": "marked.min.js",
+      "meta": {}
+    },
+    {
+      "id": "tesseract.min.js",
+      "type": "SCRIPT_MODULE",
+      "file": "tesseract.min.js",
+      "meta": {}
+    },
+    {
+      "id": "storage:clockee_custom_syllabus_v2",
+      "type": "STORAGE_KEY",
+      "file": "coaching.html",
+      "meta": {
+        "key": "clockee_custom_syllabus_v2"
+      }
+    },
+    {
+      "id": "storage:clockee_syllabus_order_v1",
+      "type": "STORAGE_KEY",
+      "file": "coaching.html",
+      "meta": {
+        "key": "clockee_syllabus_order_v1"
+      }
+    },
+    {
+      "id": "storage:clockee_cbt_master_v3",
+      "type": "STORAGE_KEY",
+      "file": "coaching.html",
+      "meta": {
+        "key": "clockee_cbt_master_v3"
+      }
+    },
+    {
+      "id": "hackathon.html",
+      "type": "HTML_ENTRYPOINT",
+      "file": "hackathon.html",
+      "meta": {}
+    },
+    {
+      "id": "index.html",
+      "type": "HTML_ENTRYPOINT",
+      "file": "index.html",
+      "meta": {}
+    },
+    {
+      "id": "inspiration.html",
+      "type": "HTML_ENTRYPOINT",
+      "file": "inspiration.html",
+      "meta": {}
+    },
+    {
+      "id": "storage:clockee_manifesto",
+      "type": "STORAGE_KEY",
+      "file": "inspiration.html",
+      "meta": {
+        "key": "clockee_manifesto"
+      }
+    },
+    {
+      "id": "storage:clockee_inspiration_pins",
+      "type": "STORAGE_KEY",
+      "file": "inspiration.html",
+      "meta": {
+        "key": "clockee_inspiration_pins"
+      }
+    },
+    {
+      "id": "login.html",
+      "type": "HTML_ENTRYPOINT",
+      "file": "login.html",
+      "meta": {}
+    },
+    {
+      "id": "storage:clockee_session_token",
+      "type": "STORAGE_KEY",
+      "file": "login.html",
+      "meta": {
+        "key": "clockee_session_token"
+      }
+    },
+    {
+      "id": "storage:clockee_first_signin",
+      "type": "STORAGE_KEY",
+      "file": "login.html",
+      "meta": {
+        "key": "clockee_first_signin"
+      }
+    },
+    {
+      "id": "mini_timer.html",
+      "type": "HTML_ENTRYPOINT",
+      "file": "mini_timer.html",
+      "meta": {}
+    },
+    {
+      "id": "settings.html",
+      "type": "HTML_ENTRYPOINT",
+      "file": "settings.html",
+      "meta": {}
+    },
+    {
+      "id": "task.html",
+      "type": "HTML_ENTRYPOINT",
+      "file": "task.html",
+      "meta": {}
+    },
+    {
+      "id": "test_centre.html",
+      "type": "HTML_ENTRYPOINT",
+      "file": "test_centre.html",
+      "meta": {}
+    },
+    {
+      "id": "timer.html",
+      "type": "HTML_ENTRYPOINT",
+      "file": "timer.html",
+      "meta": {}
+    },
+    {
+      "id": "today.html",
+      "type": "HTML_ENTRYPOINT",
+      "file": "today.html",
+      "meta": {}
+    },
+    {
+      "id": "cbt_master_bank.js::whose",
+      "type": "FUNCTION",
+      "file": "cbt_master_bank.js",
+      "meta": {
+        "name": "whose"
+      }
+    },
+    {
+      "id": "cbt_master_bank.js::assumes",
+      "type": "FUNCTION",
+      "file": "cbt_master_bank.js",
+      "meta": {
+        "name": "assumes"
+      }
+    },
+    {
+      "id": "cbt_master_bank.js::sin",
+      "type": "FUNCTION",
+      "file": "cbt_master_bank.js",
+      "meta": {
+        "name": "sin"
+      }
+    },
+    {
+      "id": "cbt_master_bank.js::defined",
+      "type": "FUNCTION",
+      "file": "cbt_master_bank.js",
+      "meta": {
+        "name": "defined"
+      }
+    },
+    {
+      "id": "cbt_master_bank.js::satisfying",
+      "type": "FUNCTION",
+      "file": "cbt_master_bank.js",
+      "meta": {
+        "name": "satisfying"
+      }
+    },
+    {
+      "id": "cbt_master_bank.js::from",
+      "type": "FUNCTION",
+      "file": "cbt_master_bank.js",
+      "meta": {
+        "name": "from"
+      }
+    },
+    {
+      "id": "cbt_master_bank.js::independently",
+      "type": "FUNCTION",
+      "file": "cbt_master_bank.js",
+      "meta": {
+        "name": "independently"
+      }
+    },
+    {
+      "id": "cbt_master_bank.js::loga",
+      "type": "FUNCTION",
+      "file": "cbt_master_bank.js",
+      "meta": {
+        "name": "loga"
+      }
+    },
+    {
+      "id": "global:CBT_MASTER_QUESTION_BANK",
+      "type": "GLOBAL_API",
+      "file": "cbt_master_bank.js",
+      "meta": {
+        "prop": "CBT_MASTER_QUESTION_BANK"
+      }
+    },
+    {
+      "id": "global:CBT_BOOK_LOG",
+      "type": "GLOBAL_API",
+      "file": "cbt_master_bank.js",
+      "meta": {
+        "prop": "CBT_BOOK_LOG"
+      }
+    },
+    {
+      "id": "cbt_shared.js::checkCBTAuth",
+      "type": "FUNCTION",
+      "file": "cbt_shared.js",
+      "meta": {
+        "name": "checkCBTAuth"
+      }
+    },
+    {
+      "id": "cbt_shared.js::getActiveUserId",
+      "type": "FUNCTION",
+      "file": "cbt_shared.js",
+      "meta": {
+        "name": "getActiveUserId"
+      }
+    },
+    {
+      "id": "cbt_shared.js::getCbtStorageKey",
+      "type": "FUNCTION",
+      "file": "cbt_shared.js",
+      "meta": {
+        "name": "getCbtStorageKey"
+      }
+    },
+    {
+      "id": "cbt_shared.js::loadCBTState",
+      "type": "FUNCTION",
+      "file": "cbt_shared.js",
+      "meta": {
+        "name": "loadCBTState"
+      }
+    },
+    {
+      "id": "cbt_shared.js::saveCBTState",
+      "type": "FUNCTION",
+      "file": "cbt_shared.js",
+      "meta": {
+        "name": "saveCBTState"
+      }
+    },
+    {
+      "id": "cbt_shared.js::getRealSessionAttemptData",
+      "type": "FUNCTION",
+      "file": "cbt_shared.js",
+      "meta": {
+        "name": "getRealSessionAttemptData"
+      }
+    },
+    {
+      "id": "cbt_shared.js::getInitialMistakes",
+      "type": "FUNCTION",
+      "file": "cbt_shared.js",
+      "meta": {
+        "name": "getInitialMistakes"
+      }
+    },
+    {
+      "id": "cbt_shared.js::getRealQuestionsFromBank",
+      "type": "FUNCTION",
+      "file": "cbt_shared.js",
+      "meta": {
+        "name": "getRealQuestionsFromBank"
+      }
+    },
+    {
+      "id": "cbt_shared.js::generateAdaptiveTest",
+      "type": "FUNCTION",
+      "file": "cbt_shared.js",
+      "meta": {
+        "name": "generateAdaptiveTest"
+      }
+    },
+    {
+      "id": "cbt_shared.js::checkSimulationErrors",
+      "type": "FUNCTION",
+      "file": "cbt_shared.js",
+      "meta": {
+        "name": "checkSimulationErrors"
+      }
+    },
+    {
+      "id": "cbt_shared.js::sendToMainControl",
+      "type": "FUNCTION",
+      "file": "cbt_shared.js",
+      "meta": {
+        "name": "sendToMainControl"
+      }
+    },
+    {
+      "id": "cbt_shared.js::runSimulationBenchmark",
+      "type": "FUNCTION",
+      "file": "cbt_shared.js",
+      "meta": {
+        "name": "runSimulationBenchmark"
+      }
+    },
+    {
+      "id": "cbt_shared.js::syncWithClockEE",
+      "type": "FUNCTION",
+      "file": "cbt_shared.js",
+      "meta": {
+        "name": "syncWithClockEE"
+      }
+    },
+    {
+      "id": "cbt_shared.js::renderCBTSidebar",
+      "type": "FUNCTION",
+      "file": "cbt_shared.js",
+      "meta": {
+        "name": "renderCBTSidebar"
+      }
+    },
+    {
+      "id": "cbt_shared.js::cbtToast",
+      "type": "FUNCTION",
+      "file": "cbt_shared.js",
+      "meta": {
+        "name": "cbtToast"
+      }
+    },
+    {
+      "id": "cbt_shared.js::switchSeriesModal",
+      "type": "FUNCTION",
+      "file": "cbt_shared.js",
+      "meta": {
+        "name": "switchSeriesModal"
+      }
+    },
+    {
+      "id": "global:CBT_STATE",
+      "type": "GLOBAL_API",
+      "file": "cbt_shared.js",
+      "meta": {
+        "prop": "CBT_STATE"
+      }
+    },
+    {
+      "id": "global:APP_STATE",
+      "type": "GLOBAL_API",
+      "file": "cbt_shared.js",
+      "meta": {
+        "prop": "APP_STATE"
+      }
+    },
+    {
+      "id": "global:sendToMainControl",
+      "type": "GLOBAL_API",
+      "file": "cbt_shared.js",
+      "meta": {
+        "prop": "sendToMainControl"
+      }
+    },
+    {
+      "id": "global:fetchRealQuestionsFromBackend",
+      "type": "GLOBAL_API",
+      "file": "cbt_shared.js",
+      "meta": {
+        "prop": "fetchRealQuestionsFromBackend"
+      }
+    },
+    {
+      "id": "global:checkSimulationErrors",
+      "type": "GLOBAL_API",
+      "file": "cbt_shared.js",
+      "meta": {
+        "prop": "checkSimulationErrors"
+      }
+    },
+    {
+      "id": "global:runSimulationBenchmark",
+      "type": "GLOBAL_API",
+      "file": "cbt_shared.js",
+      "meta": {
+        "prop": "runSimulationBenchmark"
+      }
+    },
+    {
+      "id": "clockee_core.js::hasPrototypePollution",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "hasPrototypePollution"
+      }
+    },
+    {
+      "id": "clockee_core.js::renderCropCanvas",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "renderCropCanvas"
+      }
+    },
+    {
+      "id": "clockee_core.js::getStorageKey",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "getStorageKey"
+      }
+    },
+    {
+      "id": "clockee_core.js::getInitialSession",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "getInitialSession"
+      }
+    },
+    {
+      "id": "clockee_core.js::loadSession",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "loadSession"
+      }
+    },
+    {
+      "id": "clockee_core.js::saveSession",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "saveSession"
+      }
+    },
+    {
+      "id": "clockee_core.js::broadcast",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "broadcast"
+      }
+    },
+    {
+      "id": "clockee_core.js::handleIncomingBroadcast",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "handleIncomingBroadcast"
+      }
+    },
+    {
+      "id": "clockee_core.js::getConnectedTabCount",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "getConnectedTabCount"
+      }
+    },
+    {
+      "id": "clockee_core.js::updatePresenceUI",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "updatePresenceUI"
+      }
+    },
+    {
+      "id": "clockee_core.js::notifyChannelActivity",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "notifyChannelActivity"
+      }
+    },
+    {
+      "id": "clockee_core.js::renderMarkdownAndMath",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "renderMarkdownAndMath"
+      }
+    },
+    {
+      "id": "clockee_core.js::fallbackFormat",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "fallbackFormat"
+      }
+    },
+    {
+      "id": "clockee_core.js::queryOfflineMentor",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "queryOfflineMentor"
+      }
+    },
+    {
+      "id": "clockee_core.js::complexity",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "complexity"
+      }
+    },
+    {
+      "id": "clockee_core.js::queryGeminiAPI",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "queryGeminiAPI"
+      }
+    },
+    {
+      "id": "clockee_core.js::mountUI",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "mountUI"
+      }
+    },
+    {
+      "id": "clockee_core.js::renderMessages",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "renderMessages"
+      }
+    },
+    {
+      "id": "clockee_core.js::renderThinkingIndicators",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "renderThinkingIndicators"
+      }
+    },
+    {
+      "id": "clockee_core.js::renderThinkingIndicatorsForContainer",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "renderThinkingIndicatorsForContainer"
+      }
+    },
+    {
+      "id": "clockee_core.js::scrollMessagesToBottom",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "scrollMessagesToBottom"
+      }
+    },
+    {
+      "id": "clockee_core.js::sendUserMessage",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "sendUserMessage"
+      }
+    },
+    {
+      "id": "clockee_core.js::switchChannel",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "switchChannel"
+      }
+    },
+    {
+      "id": "clockee_core.js::toggleSimultaneousMode",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "toggleSimultaneousMode"
+      }
+    },
+    {
+      "id": "clockee_core.js::clearCurrentChannel",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "clearCurrentChannel"
+      }
+    },
+    {
+      "id": "clockee_core.js::exportChat",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "exportChat"
+      }
+    },
+    {
+      "id": "clockee_core.js::insertPrompt",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "insertPrompt"
+      }
+    },
+    {
+      "id": "clockee_core.js::copyCodeSnippet",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "copyCodeSnippet"
+      }
+    },
+    {
+      "id": "clockee_core.js::copyBubble",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "copyBubble"
+      }
+    },
+    {
+      "id": "clockee_core.js::ensureFloatingLauncher",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "ensureFloatingLauncher"
+      }
+    },
+    {
+      "id": "clockee_core.js::toggleChatView",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "toggleChatView"
+      }
+    },
+    {
+      "id": "clockee_core.js::init",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "init"
+      }
+    },
+    {
+      "id": "clockee_core.js::ensureAuraDOM",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "ensureAuraDOM"
+      }
+    },
+    {
+      "id": "clockee_core.js::renderPopoverContent",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "renderPopoverContent"
+      }
+    },
+    {
+      "id": "clockee_core.js::injectResponsiveClamp",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "injectResponsiveClamp"
+      }
+    },
+    {
+      "id": "clockee_core.js::injectGlassStyles",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "injectGlassStyles"
+      }
+    },
+    {
+      "id": "clockee_core.js::injectCommandPalette",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "injectCommandPalette"
+      }
+    },
+    {
+      "id": "clockee_core.js::renderCommandList",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "renderCommandList"
+      }
+    },
+    {
+      "id": "clockee_core.js::initClockEEMobileNavSuite",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "initClockEEMobileNavSuite"
+      }
+    },
+    {
+      "id": "clockee_core.js::ensureMobileNavigationDOM",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "ensureMobileNavigationDOM"
+      }
+    },
+    {
+      "id": "clockee_core.js::initClockEETourEngine",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "initClockEETourEngine"
+      }
+    },
+    {
+      "id": "clockee_core.js::getTourAudioCtx",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "getTourAudioCtx"
+      }
+    },
+    {
+      "id": "clockee_core.js::playTourChime",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "playTourChime"
+      }
+    },
+    {
+      "id": "clockee_core.js::playExcitedSuccessChime",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "playExcitedSuccessChime"
+      }
+    },
+    {
+      "id": "clockee_core.js::typewriteText",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "typewriteText"
+      }
+    },
+    {
+      "id": "clockee_core.js::getClockEEMascotSvg",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "getClockEEMascotSvg"
+      }
+    },
+    {
+      "id": "clockee_core.js::createCyberSparkleBurst",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "createCyberSparkleBurst"
+      }
+    },
+    {
+      "id": "clockee_core.js::ensureTourDOMElements",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "ensureTourDOMElements"
+      }
+    },
+    {
+      "id": "clockee_core.js::getMasterPageTourConfig",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "getMasterPageTourConfig"
+      }
+    },
+    {
+      "id": "clockee_core.js::positionSpotlightAndCard",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "positionSpotlightAndCard"
+      }
+    },
+    {
+      "id": "clockee_core.js::renderTourStep",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "renderTourStep"
+      }
+    },
+    {
+      "id": "clockee_core.js::try",
+      "type": "FUNCTION",
+      "file": "clockee_core.js",
+      "meta": {
+        "name": "try"
+      }
+    },
+    {
+      "id": "global:applyAuraSettings",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "applyAuraSettings"
+      }
+    },
+    {
+      "id": "global:switchTimerMode",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "switchTimerMode"
+      }
+    },
+    {
+      "id": "global:applyAllSettingsGlobally",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "applyAllSettingsGlobally"
+      }
+    },
+    {
+      "id": "global:prevCockpitTourStep",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "prevCockpitTourStep"
+      }
+    },
+    {
+      "id": "global:selectLectureSubject",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "selectLectureSubject"
+      }
+    },
+    {
+      "id": "global:closeCockpitTour",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "closeCockpitTour"
+      }
+    },
+    {
+      "id": "global:resetMonthlyHeatmap",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "resetMonthlyHeatmap"
+      }
+    },
+    {
+      "id": "global:initMonthlyHeatmapHover",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "initMonthlyHeatmapHover"
+      }
+    },
+    {
+      "id": "global:togglePdfMaximize",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "togglePdfMaximize"
+      }
+    },
+    {
+      "id": "global:ClockEESecurity",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "ClockEESecurity"
+      }
+    },
+    {
+      "id": "global:showTourInterruptionPrompt",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "showTourInterruptionPrompt"
+      }
+    },
+    {
+      "id": "global:getTodayStr",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "getTodayStr"
+      }
+    },
+    {
+      "id": "global:openGeneratorModal",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "openGeneratorModal"
+      }
+    },
+    {
+      "id": "global:resetToFreshSlot",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "resetToFreshSlot"
+      }
+    },
+    {
+      "id": "global:applyGlassSettings",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "applyGlassSettings"
+      }
+    },
+    {
+      "id": "global:getTotalStats",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "getTotalStats"
+      }
+    },
+    {
+      "id": "global:initSidebar",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "initSidebar"
+      }
+    },
+    {
+      "id": "global:renderTodaysTasks",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "renderTodaysTasks"
+      }
+    },
+    {
+      "id": "global:pushToCloud",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "pushToCloud"
+      }
+    },
+    {
+      "id": "global:onmouseup",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "onmouseup"
+      }
+    },
+    {
+      "id": "global:renderMonthlyHeatmap",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "renderMonthlyHeatmap"
+      }
+    },
+    {
+      "id": "global:applyCroppedAvatar",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "applyCroppedAvatar"
+      }
+    },
+    {
+      "id": "global:handleUserLogout",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "handleUserLogout"
+      }
+    },
+    {
+      "id": "global:openCommandPalette",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "openCommandPalette"
+      }
+    },
+    {
+      "id": "global:mergeState",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "mergeState"
+      }
+    },
+    {
+      "id": "global:_sidebarChartInstance",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "_sidebarChartInstance"
+      }
+    },
+    {
+      "id": "global:playTactileFeedback",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "playTactileFeedback"
+      }
+    },
+    {
+      "id": "global:renderSidebarMiniChart",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "renderSidebarMiniChart"
+      }
+    },
+    {
+      "id": "global:inspectMonthlyDay",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "inspectMonthlyDay"
+      }
+    },
+    {
+      "id": "global:switchDrawerTab",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "switchDrawerTab"
+      }
+    },
+    {
+      "id": "global:initGlobalProfileMenu",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "initGlobalProfileMenu"
+      }
+    },
+    {
+      "id": "global:togglePauseDrill",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "togglePauseDrill"
+      }
+    },
+    {
+      "id": "global:enforceRolePermissions",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "enforceRolePermissions"
+      }
+    },
+    {
+      "id": "global:applyAccentColor",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "applyAccentColor"
+      }
+    },
+    {
+      "id": "global:ensureFloatingTimerHUD",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "ensureFloatingTimerHUD"
+      }
+    },
+    {
+      "id": "global:_hudTimerInterval",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "_hudTimerInterval"
+      }
+    },
+    {
+      "id": "global:insertNoteTimestamp",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "insertNoteTimestamp"
+      }
+    },
+    {
+      "id": "global:_cropperState",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "_cropperState"
+      }
+    },
+    {
+      "id": "global:toggleHudTimerPause",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "toggleHudTimerPause"
+      }
+    },
+    {
+      "id": "global:monthlyCalendarState",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "monthlyCalendarState"
+      }
+    },
+    {
+      "id": "global:getActiveUserName",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "getActiveUserName"
+      }
+    },
+    {
+      "id": "global:_activeMusicStation",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "_activeMusicStation"
+      }
+    },
+    {
+      "id": "global:nextCockpitTourStep",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "nextCockpitTourStep"
+      }
+    },
+    {
+      "id": "global:getHoursToday",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "getHoursToday"
+      }
+    },
+    {
+      "id": "global:getCloudBaseUrl",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "getCloudBaseUrl"
+      }
+    },
+    {
+      "id": "global:syncTickTickTasks",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "syncTickTickTasks"
+      }
+    },
+    {
+      "id": "global:showToast",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "showToast"
+      }
+    },
+    {
+      "id": "global:triggerMascotExcited",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "triggerMascotExcited"
+      }
+    },
+    {
+      "id": "global:startCockpitGuidedTour",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "startCockpitGuidedTour"
+      }
+    },
+    {
+      "id": "global:renderLecturesDrawer",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "renderLecturesDrawer"
+      }
+    },
+    {
+      "id": "global:executeCommandByIdx",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "executeCommandByIdx"
+      }
+    },
+    {
+      "id": "global:_sidebarPcmChartInstance",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "_sidebarPcmChartInstance"
+      }
+    },
+    {
+      "id": "global:saveState",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "saveState"
+      }
+    },
+    {
+      "id": "global:_lectureCurrentSub",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "_lectureCurrentSub"
+      }
+    },
+    {
+      "id": "global:renderPdfsDrawer",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "renderPdfsDrawer"
+      }
+    },
+    {
+      "id": "global:toggleSplitScreen",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "toggleSplitScreen"
+      }
+    },
+    {
+      "id": "global:playMusicStation",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "playMusicStation"
+      }
+    },
+    {
+      "id": "global:sendAIDoubtMessage",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "sendAIDoubtMessage"
+      }
+    },
+    {
+      "id": "global:setLectureCategory",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "setLectureCategory"
+      }
+    },
+    {
+      "id": "global:renderMusicCorner",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "renderMusicCorner"
+      }
+    },
+    {
+      "id": "global:_toastTimeout",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "_toastTimeout"
+      }
+    },
+    {
+      "id": "global:toggleLectureTimer",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "toggleLectureTimer"
+      }
+    },
+    {
+      "id": "global:runCurrentTourAction",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "runCurrentTourAction"
+      }
+    },
+    {
+      "id": "global:openPhotoCropperModal",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "openPhotoCropperModal"
+      }
+    },
+    {
+      "id": "global:onmousemove",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "onmousemove"
+      }
+    },
+    {
+      "id": "global:handleAvatarUpload",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "handleAvatarUpload"
+      }
+    },
+    {
+      "id": "global:showCockpitTourMenu",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "showCockpitTourMenu"
+      }
+    },
+    {
+      "id": "global:exportTickTickSyncPayload",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "exportTickTickSyncPayload"
+      }
+    },
+    {
+      "id": "global:pullFromCloud",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "pullFromCloud"
+      }
+    },
+    {
+      "id": "global:saveLiveNotes",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "saveLiveNotes"
+      }
+    },
+    {
+      "id": "global:renderClockEESidebar",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "renderClockEESidebar"
+      }
+    },
+    {
+      "id": "global:setLectureSubjectFilter",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "setLectureSubjectFilter"
+      }
+    },
+    {
+      "id": "global:closeMobileDrawer",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "closeMobileDrawer"
+      }
+    },
+    {
+      "id": "global:closePdfReaderModal",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "closePdfReaderModal"
+      }
+    },
+    {
+      "id": "global:playCyberTick",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "playCyberTick"
+      }
+    },
+    {
+      "id": "global:_activeDrawerTab",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "_activeDrawerTab"
+      }
+    },
+    {
+      "id": "global:openPdfReaderModal",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "openPdfReaderModal"
+      }
+    },
+    {
+      "id": "global:changeMonthlyHeatmap",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "changeMonthlyHeatmap"
+      }
+    },
+    {
+      "id": "global:ClockEEChatNetwork",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "ClockEEChatNetwork"
+      }
+    },
+    {
+      "id": "global:createUserProfile",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "createUserProfile"
+      }
+    },
+    {
+      "id": "global:openMobileDrawer",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "openMobileDrawer"
+      }
+    },
+    {
+      "id": "global:renderSidebarPcmChart",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "renderSidebarPcmChart"
+      }
+    },
+    {
+      "id": "global:switchUser",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "switchUser"
+      }
+    },
+    {
+      "id": "global:restoreMainTimerFromHud",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "restoreMainTimerFromHud"
+      }
+    },
+    {
+      "id": "global:minimizeCockpitTour",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "minimizeCockpitTour"
+      }
+    },
+    {
+      "id": "global:expandCockpitTour",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "expandCockpitTour"
+      }
+    },
+    {
+      "id": "global:logQuickQuestions",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "logQuickQuestions"
+      }
+    },
+    {
+      "id": "global:checkAuthGuard",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "checkAuthGuard"
+      }
+    },
+    {
+      "id": "global:minimizeTimerToFloatingHUD",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "minimizeTimerToFloatingHUD"
+      }
+    },
+    {
+      "id": "global:launchLectureInFocusBlock",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "launchLectureInFocusBlock"
+      }
+    },
+    {
+      "id": "global:getQuestionsToday",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "getQuestionsToday"
+      }
+    },
+    {
+      "id": "global:_lectureCurrentCategory",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "_lectureCurrentCategory"
+      }
+    },
+    {
+      "id": "global:getUsersList",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "getUsersList"
+      }
+    },
+    {
+      "id": "global:toggleCommandPalette",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "toggleCommandPalette"
+      }
+    },
+    {
+      "id": "global:renderKanban",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "renderKanban"
+      }
+    },
+    {
+      "id": "global:getActiveUserId",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "getActiveUserId"
+      }
+    },
+    {
+      "id": "global:getState",
+      "type": "GLOBAL_API",
+      "file": "clockee_core.js",
+      "meta": {
+        "prop": "getState"
+      }
+    },
+    {
+      "id": "env.example.js",
+      "type": "JS_MODULE",
+      "file": "env.example.js",
+      "meta": {}
+    },
+    {
+      "id": "global:CLOCKEE_ENV",
+      "type": "GLOBAL_API",
+      "file": "env.example.js",
+      "meta": {
+        "prop": "CLOCKEE_ENV"
+      }
+    },
+    {
+      "id": "auto_sync.py",
+      "type": "PYTHON_MODULE",
+      "file": "auto_sync.py",
+      "meta": {}
+    },
+    {
+      "id": "extract_all_library_questions.py",
+      "type": "PYTHON_MODULE",
+      "file": "extract_all_library_questions.py",
+      "meta": {}
+    },
+    {
+      "id": "fetch_video.py",
+      "type": "PYTHON_MODULE",
+      "file": "fetch_video.py",
+      "meta": {}
+    },
+    {
+      "id": "server.py",
+      "type": "PYTHON_MODULE",
+      "file": "server.py",
+      "meta": {}
+    },
+    {
+      "id": "simulate_and_check_errors.py",
+      "type": "PYTHON_MODULE",
+      "file": "simulate_and_check_errors.py",
+      "meta": {}
+    },
+    {
+      "id": "table:tasks",
+      "type": "DB_TABLE",
+      "file": "simulate_and_check_errors.py",
+      "meta": {
+        "table": "tasks"
+      }
+    },
+    {
+      "id": "table:cbt_exams",
+      "type": "DB_TABLE",
+      "file": "simulate_and_check_errors.py",
+      "meta": {
+        "table": "cbt_exams"
+      }
+    },
+    {
+      "id": "test_backend.py",
+      "type": "PYTHON_MODULE",
+      "file": "test_backend.py",
+      "meta": {}
+    },
+    {
+      "id": ".pipeline\\mesh_orchestrator.py",
+      "type": "PYTHON_MODULE",
+      "file": ".pipeline\\mesh_orchestrator.py",
+      "meta": {}
+    },
+    {
+      "id": ".pipeline\\pipeline_engine.py",
+      "type": "PYTHON_MODULE",
+      "file": ".pipeline\\pipeline_engine.py",
+      "meta": {}
+    },
+    {
+      "id": ".pipeline\\prompt_interrogator.py",
+      "type": "PYTHON_MODULE",
+      "file": ".pipeline\\prompt_interrogator.py",
+      "meta": {}
+    },
+    {
+      "id": ".pipeline\\test_inprocess.py",
+      "type": "PYTHON_MODULE",
+      "file": ".pipeline\\test_inprocess.py",
+      "meta": {}
+    },
+    {
+      "id": ".pipeline\\test_scan.py",
+      "type": "PYTHON_MODULE",
+      "file": ".pipeline\\test_scan.py",
+      "meta": {}
+    },
+    {
+      "id": "backend\\api.py",
+      "type": "PYTHON_MODULE",
+      "file": "backend\\api.py",
+      "meta": {}
+    },
+    {
+      "id": "backend\\db.py",
+      "type": "PYTHON_MODULE",
+      "file": "backend\\db.py",
+      "meta": {}
+    },
+    {
+      "id": "table:sessions",
+      "type": "DB_TABLE",
+      "file": "backend\\db.py",
+      "meta": {
+        "table": "sessions"
+      }
+    },
+    {
+      "id": "table:questions",
+      "type": "DB_TABLE",
+      "file": "backend\\db.py",
+      "meta": {
+        "table": "questions"
+      }
+    },
+    {
+      "id": "table:student_states",
+      "type": "DB_TABLE",
+      "file": "backend\\db.py",
+      "meta": {
+        "table": "student_states"
+      }
+    },
+    {
+      "id": "table:users",
+      "type": "DB_TABLE",
+      "file": "backend\\db.py",
+      "meta": {
+        "table": "users"
+      }
+    },
+    {
+      "id": "table:cbt_active_sessions",
+      "type": "DB_TABLE",
+      "file": "backend\\db.py",
+      "meta": {
+        "table": "cbt_active_sessions"
+      }
+    },
+    {
+      "id": "table:question_logs",
+      "type": "DB_TABLE",
+      "file": "backend\\db.py",
+      "meta": {
+        "table": "question_logs"
+      }
+    },
+    {
+      "id": "table:coaching_syllabus",
+      "type": "DB_TABLE",
+      "file": "backend\\db.py",
+      "meta": {
+        "table": "coaching_syllabus"
+      }
+    },
+    {
+      "id": "backend\\seed.py",
+      "type": "PYTHON_MODULE",
+      "file": "backend\\seed.py",
+      "meta": {}
+    },
+    {
+      "id": "integrations\\agent_memory\\memory_vault.py",
+      "type": "PYTHON_MODULE",
+      "file": "integrations\\agent_memory\\memory_vault.py",
+      "meta": {}
+    },
+    {
+      "id": "table:memory_nodes",
+      "type": "DB_TABLE",
+      "file": "integrations\\agent_memory\\memory_vault.py",
+      "meta": {
+        "table": "memory_nodes"
+      }
+    },
+    {
+      "id": "integrations\\agent_reach\\reach.py",
+      "type": "PYTHON_MODULE",
+      "file": "integrations\\agent_reach\\reach.py",
+      "meta": {}
+    },
+    {
+      "id": "integrations\\cloudflare_security_audit\\audit_runner.py",
+      "type": "PYTHON_MODULE",
+      "file": "integrations\\cloudflare_security_audit\\audit_runner.py",
+      "meta": {}
+    },
+    {
+      "id": "integrations\\codebase_scanner\\mcp_recommender.py",
+      "type": "PYTHON_MODULE",
+      "file": "integrations\\codebase_scanner\\mcp_recommender.py",
+      "meta": {}
+    },
+    {
+      "id": "integrations\\graphify\\graph_runner.py",
+      "type": "PYTHON_MODULE",
+      "file": "integrations\\graphify\\graph_runner.py",
+      "meta": {}
+    },
+    {
+      "id": "integrations\\hallmark_design\\hallmark_cli.py",
+      "type": "PYTHON_MODULE",
+      "file": "integrations\\hallmark_design\\hallmark_cli.py",
+      "meta": {}
+    },
+    {
+      "id": "integrations\\hallmark_design\\sloplint.py",
+      "type": "PYTHON_MODULE",
+      "file": "integrations\\hallmark_design\\sloplint.py",
+      "meta": {}
+    },
+    {
+      "id": "integrations\\llm_router\\router.py",
+      "type": "PYTHON_MODULE",
+      "file": "integrations\\llm_router\\router.py",
+      "meta": {}
+    },
+    {
+      "id": "integrations\\security_scanner\\strix_scanner.py",
+      "type": "PYTHON_MODULE",
+      "file": "integrations\\security_scanner\\strix_scanner.py",
+      "meta": {}
+    }
+  ],
+  "edges": [
+    {
+      "source": "admin.html",
+      "target": "env.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "admin.html",
+      "target": "cdn.tailwindcss.com",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "admin.html",
+      "target": "chart.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "admin.html",
+      "target": "clockee_core.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "admin.html",
+      "target": "storage:clockee_admin_authorized",
+      "relation": "READS_WRITES_KEY"
+    },
+    {
+      "source": "admin.html",
+      "target": "storage:clockee_current_user",
+      "relation": "READS_WRITES_KEY"
+    },
+    {
+      "source": "admin.html",
+      "target": "storage:clockee_multi_users",
+      "relation": "READS_WRITES_KEY"
+    },
+    {
+      "source": "admin.html",
+      "target": "storage:clockee_auth_active",
+      "relation": "READS_WRITES_KEY"
+    },
+    {
+      "source": "analysis.html",
+      "target": "env.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "cbt_analysis.html",
+      "target": "env.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "cbt_analysis.html",
+      "target": "katex.min.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "cbt_analysis.html",
+      "target": "cdn.tailwindcss.com",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "cbt_analysis.html",
+      "target": "chart.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "cbt_analysis.html",
+      "target": "html2canvas.min.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "cbt_analysis.html",
+      "target": "cbt_shared.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "cbt_analysis.html",
+      "target": "katex.min.css",
+      "relation": "INCLUDES_STYLE"
+    },
+    {
+      "source": "cbt_cloner.html",
+      "target": "env.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "cbt_cloner.html",
+      "target": "katex.min.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "cbt_cloner.html",
+      "target": "cdn.tailwindcss.com",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "cbt_cloner.html",
+      "target": "cbt_shared.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "cbt_cloner.html",
+      "target": "clockee_core.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "cbt_cloner.html",
+      "target": "cbt_shared.css",
+      "relation": "INCLUDES_STYLE"
+    },
+    {
+      "source": "cbt_cloner.html",
+      "target": "katex.min.css",
+      "relation": "INCLUDES_STYLE"
+    },
+    {
+      "source": "cbt_exam.html",
+      "target": "env.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "cbt_exam.html",
+      "target": "katex.min.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "cbt_exam.html",
+      "target": "cbt_master_bank.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "cbt_exam.html",
+      "target": "cbt_shared.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "cbt_exam.html",
+      "target": "katex.min.css",
+      "relation": "INCLUDES_STYLE"
+    },
+    {
+      "source": "cbt_home.html",
+      "target": "env.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "cbt_home.html",
+      "target": "clockee_core.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "cbt_home.html",
+      "target": "cdn.tailwindcss.com",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "cbt_home.html",
+      "target": "cbt_master_bank.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "cbt_home.html",
+      "target": "cbt_shared.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "cbt_home.html",
+      "target": "cbt_shared.css",
+      "relation": "INCLUDES_STYLE"
+    },
+    {
+      "source": "cbt_instructions.html",
+      "target": "env.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "cbt_instructions.html",
+      "target": "cbt_shared.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "cbt_mistakes.html",
+      "target": "env.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "cbt_mistakes.html",
+      "target": "katex.min.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "cbt_mistakes.html",
+      "target": "cdn.tailwindcss.com",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "cbt_mistakes.html",
+      "target": "cbt_shared.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "cbt_mistakes.html",
+      "target": "clockee_core.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "cbt_mistakes.html",
+      "target": "cbt_shared.css",
+      "relation": "INCLUDES_STYLE"
+    },
+    {
+      "source": "cbt_mistakes.html",
+      "target": "katex.min.css",
+      "relation": "INCLUDES_STYLE"
+    },
+    {
+      "source": "cbt_mistakes.html",
+      "target": "storage:clockee_v5_master_state",
+      "relation": "READS_WRITES_KEY"
+    },
+    {
+      "source": "cbt_notebooks.html",
+      "target": "env.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "cbt_notebooks.html",
+      "target": "cdn.tailwindcss.com",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "cbt_notebooks.html",
+      "target": "cbt_shared.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "cbt_notebooks.html",
+      "target": "clockee_core.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "cbt_notebooks.html",
+      "target": "cbt_shared.css",
+      "relation": "INCLUDES_STYLE"
+    },
+    {
+      "source": "cbt_reference_vault.html",
+      "target": "env.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "cbt_reference_vault.html",
+      "target": "pdf.min.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "cbt_reference_vault.html",
+      "target": "cdn.tailwindcss.com",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "cbt_reference_vault.html",
+      "target": "cbt_shared.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "cbt_reference_vault.html",
+      "target": "clockee_core.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "cbt_reference_vault.html",
+      "target": "cbt_shared.css",
+      "relation": "INCLUDES_STYLE"
+    },
+    {
+      "source": "coaching.html",
+      "target": "env.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "coaching.html",
+      "target": "cdn.tailwindcss.com",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "coaching.html",
+      "target": "chart.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "coaching.html",
+      "target": "marked.min.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "coaching.html",
+      "target": "tesseract.min.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "coaching.html",
+      "target": "html2canvas.min.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "coaching.html",
+      "target": "clockee_core.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "coaching.html",
+      "target": "storage:clockee_custom_syllabus_v2",
+      "relation": "READS_WRITES_KEY"
+    },
+    {
+      "source": "coaching.html",
+      "target": "storage:clockee_syllabus_order_v1",
+      "relation": "READS_WRITES_KEY"
+    },
+    {
+      "source": "coaching.html",
+      "target": "storage:clockee_cbt_master_v3",
+      "relation": "READS_WRITES_KEY"
+    },
+    {
+      "source": "hackathon.html",
+      "target": "env.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "hackathon.html",
+      "target": "clockee_core.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "index.html",
+      "target": "env.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "index.html",
+      "target": "cdn.tailwindcss.com",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "index.html",
+      "target": "chart.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "index.html",
+      "target": "marked.min.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "index.html",
+      "target": "html2canvas.min.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "index.html",
+      "target": "cbt_master_bank.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "index.html",
+      "target": "cbt_shared.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "index.html",
+      "target": "clockee_core.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "index.html",
+      "target": "storage:clockee_current_user",
+      "relation": "READS_WRITES_KEY"
+    },
+    {
+      "source": "index.html",
+      "target": "storage:clockee_auth_active",
+      "relation": "READS_WRITES_KEY"
+    },
+    {
+      "source": "inspiration.html",
+      "target": "env.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "inspiration.html",
+      "target": "cdn.tailwindcss.com",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "inspiration.html",
+      "target": "html2canvas.min.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "inspiration.html",
+      "target": "clockee_core.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "inspiration.html",
+      "target": "storage:clockee_manifesto",
+      "relation": "READS_WRITES_KEY"
+    },
+    {
+      "source": "inspiration.html",
+      "target": "storage:clockee_inspiration_pins",
+      "relation": "READS_WRITES_KEY"
+    },
+    {
+      "source": "login.html",
+      "target": "env.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "login.html",
+      "target": "clockee_core.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "login.html",
+      "target": "cdn.tailwindcss.com",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "login.html",
+      "target": "storage:clockee_current_user",
+      "relation": "READS_WRITES_KEY"
+    },
+    {
+      "source": "login.html",
+      "target": "storage:clockee_auth_active",
+      "relation": "READS_WRITES_KEY"
+    },
+    {
+      "source": "login.html",
+      "target": "storage:clockee_session_token",
+      "relation": "READS_WRITES_KEY"
+    },
+    {
+      "source": "login.html",
+      "target": "storage:clockee_multi_users",
+      "relation": "READS_WRITES_KEY"
+    },
+    {
+      "source": "login.html",
+      "target": "storage:clockee_v5_master_state",
+      "relation": "READS_WRITES_KEY"
+    },
+    {
+      "source": "login.html",
+      "target": "storage:clockee_first_signin",
+      "relation": "READS_WRITES_KEY"
+    },
+    {
+      "source": "mini_timer.html",
+      "target": "env.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "mini_timer.html",
+      "target": "cdn.tailwindcss.com",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "settings.html",
+      "target": "env.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "settings.html",
+      "target": "cdn.tailwindcss.com",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "settings.html",
+      "target": "chart.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "settings.html",
+      "target": "clockee_core.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "settings.html",
+      "target": "storage:clockee_current_user",
+      "relation": "READS_WRITES_KEY"
+    },
+    {
+      "source": "task.html",
+      "target": "env.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "task.html",
+      "target": "cdn.tailwindcss.com",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "task.html",
+      "target": "chart.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "task.html",
+      "target": "clockee_core.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "test_centre.html",
+      "target": "env.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "test_centre.html",
+      "target": "cdn.tailwindcss.com",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "test_centre.html",
+      "target": "chart.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "test_centre.html",
+      "target": "marked.min.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "test_centre.html",
+      "target": "html2canvas.min.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "test_centre.html",
+      "target": "clockee_core.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "timer.html",
+      "target": "env.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "timer.html",
+      "target": "cdn.tailwindcss.com",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "timer.html",
+      "target": "chart.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "timer.html",
+      "target": "clockee_core.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "timer.html",
+      "target": "storage:clockee_custom_syllabus_v2",
+      "relation": "READS_WRITES_KEY"
+    },
+    {
+      "source": "today.html",
+      "target": "env.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "today.html",
+      "target": "cdn.tailwindcss.com",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "today.html",
+      "target": "chart.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "today.html",
+      "target": "marked.min.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "today.html",
+      "target": "tesseract.min.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "today.html",
+      "target": "html2canvas.min.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "today.html",
+      "target": "clockee_core.js",
+      "relation": "INCLUDES_SCRIPT"
+    },
+    {
+      "source": "cbt_master_bank.js",
+      "target": "cbt_master_bank.js::whose",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "cbt_master_bank.js",
+      "target": "cbt_master_bank.js::assumes",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "cbt_master_bank.js",
+      "target": "cbt_master_bank.js::sin",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "cbt_master_bank.js",
+      "target": "cbt_master_bank.js::defined",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "cbt_master_bank.js",
+      "target": "cbt_master_bank.js::defined",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "cbt_master_bank.js",
+      "target": "cbt_master_bank.js::defined",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "cbt_master_bank.js",
+      "target": "cbt_master_bank.js::satisfying",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "cbt_master_bank.js",
+      "target": "cbt_master_bank.js::from",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "cbt_master_bank.js",
+      "target": "cbt_master_bank.js::independently",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "cbt_master_bank.js",
+      "target": "cbt_master_bank.js::loga",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "cbt_master_bank.js",
+      "target": "cbt_master_bank.js::sin",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "cbt_master_bank.js",
+      "target": "global:CBT_MASTER_QUESTION_BANK",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "cbt_master_bank.js",
+      "target": "global:CBT_BOOK_LOG",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "cbt_shared.js",
+      "target": "cbt_shared.js::checkCBTAuth",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "cbt_shared.js",
+      "target": "cbt_shared.js::getActiveUserId",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "cbt_shared.js",
+      "target": "cbt_shared.js::getCbtStorageKey",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "cbt_shared.js",
+      "target": "cbt_shared.js::loadCBTState",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "cbt_shared.js",
+      "target": "cbt_shared.js::saveCBTState",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "cbt_shared.js",
+      "target": "cbt_shared.js::getRealSessionAttemptData",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "cbt_shared.js",
+      "target": "cbt_shared.js::getInitialMistakes",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "cbt_shared.js",
+      "target": "cbt_shared.js::getRealQuestionsFromBank",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "cbt_shared.js",
+      "target": "cbt_shared.js::generateAdaptiveTest",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "cbt_shared.js",
+      "target": "cbt_shared.js::checkSimulationErrors",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "cbt_shared.js",
+      "target": "cbt_shared.js::sendToMainControl",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "cbt_shared.js",
+      "target": "cbt_shared.js::runSimulationBenchmark",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "cbt_shared.js",
+      "target": "cbt_shared.js::syncWithClockEE",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "cbt_shared.js",
+      "target": "cbt_shared.js::renderCBTSidebar",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "cbt_shared.js",
+      "target": "cbt_shared.js::cbtToast",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "cbt_shared.js",
+      "target": "cbt_shared.js::switchSeriesModal",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "cbt_shared.js",
+      "target": "global:CBT_STATE",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "cbt_shared.js",
+      "target": "global:APP_STATE",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "cbt_shared.js",
+      "target": "global:sendToMainControl",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "cbt_shared.js",
+      "target": "global:fetchRealQuestionsFromBackend",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "cbt_shared.js",
+      "target": "global:checkSimulationErrors",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "cbt_shared.js",
+      "target": "global:runSimulationBenchmark",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::hasPrototypePollution",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::renderCropCanvas",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::getStorageKey",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::getInitialSession",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::loadSession",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::saveSession",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::broadcast",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::handleIncomingBroadcast",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::getConnectedTabCount",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::updatePresenceUI",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::notifyChannelActivity",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::renderMarkdownAndMath",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::fallbackFormat",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::queryOfflineMentor",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::complexity",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::queryGeminiAPI",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::mountUI",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::renderMessages",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::renderThinkingIndicators",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::renderThinkingIndicatorsForContainer",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::scrollMessagesToBottom",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::sendUserMessage",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::switchChannel",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::toggleSimultaneousMode",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::clearCurrentChannel",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::exportChat",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::insertPrompt",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::copyCodeSnippet",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::copyBubble",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::ensureFloatingLauncher",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::toggleChatView",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::init",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::ensureAuraDOM",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::renderPopoverContent",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::injectResponsiveClamp",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::injectGlassStyles",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::injectCommandPalette",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::renderCommandList",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::initClockEEMobileNavSuite",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::ensureMobileNavigationDOM",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::initClockEETourEngine",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::getTourAudioCtx",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::playTourChime",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::playExcitedSuccessChime",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::typewriteText",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::getClockEEMascotSvg",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::createCyberSparkleBurst",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::ensureTourDOMElements",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::getMasterPageTourConfig",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::positionSpotlightAndCard",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::renderTourStep",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "clockee_core.js::try",
+      "relation": "DEFINES_FUNCTION"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:applyAuraSettings",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:switchTimerMode",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:applyAllSettingsGlobally",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:prevCockpitTourStep",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:selectLectureSubject",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:closeCockpitTour",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:resetMonthlyHeatmap",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:initMonthlyHeatmapHover",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:togglePdfMaximize",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:ClockEESecurity",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:showTourInterruptionPrompt",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:getTodayStr",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:openGeneratorModal",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:resetToFreshSlot",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:applyGlassSettings",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:getTotalStats",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:initSidebar",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:renderTodaysTasks",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:pushToCloud",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:APP_STATE",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:onmouseup",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:renderMonthlyHeatmap",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:applyCroppedAvatar",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:handleUserLogout",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:openCommandPalette",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:mergeState",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:_sidebarChartInstance",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:playTactileFeedback",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:renderSidebarMiniChart",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:inspectMonthlyDay",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:switchDrawerTab",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:initGlobalProfileMenu",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:togglePauseDrill",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:enforceRolePermissions",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:applyAccentColor",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:ensureFloatingTimerHUD",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:_hudTimerInterval",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:insertNoteTimestamp",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:_cropperState",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:toggleHudTimerPause",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:monthlyCalendarState",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:getActiveUserName",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:_activeMusicStation",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:nextCockpitTourStep",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:getHoursToday",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:getCloudBaseUrl",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:syncTickTickTasks",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:showToast",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:triggerMascotExcited",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:startCockpitGuidedTour",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:renderLecturesDrawer",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:executeCommandByIdx",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:_sidebarPcmChartInstance",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:saveState",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:_lectureCurrentSub",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:renderPdfsDrawer",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:toggleSplitScreen",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:playMusicStation",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:sendAIDoubtMessage",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:setLectureCategory",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:renderMusicCorner",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:_toastTimeout",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:toggleLectureTimer",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:runCurrentTourAction",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:openPhotoCropperModal",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:onmousemove",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:handleAvatarUpload",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:showCockpitTourMenu",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:exportTickTickSyncPayload",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:pullFromCloud",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:saveLiveNotes",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:renderClockEESidebar",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:setLectureSubjectFilter",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:closeMobileDrawer",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:closePdfReaderModal",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:playCyberTick",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:_activeDrawerTab",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:openPdfReaderModal",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:changeMonthlyHeatmap",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:ClockEEChatNetwork",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:createUserProfile",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:openMobileDrawer",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:renderSidebarPcmChart",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:switchUser",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:restoreMainTimerFromHud",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:minimizeCockpitTour",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:expandCockpitTour",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:logQuickQuestions",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:checkAuthGuard",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:minimizeTimerToFloatingHUD",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:launchLectureInFocusBlock",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:getQuestionsToday",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:_lectureCurrentCategory",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:getUsersList",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:toggleCommandPalette",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:renderKanban",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:getActiveUserId",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "clockee_core.js",
+      "target": "global:getState",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "env.example.js",
+      "target": "global:CLOCKEE_ENV",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "env.js",
+      "target": "global:CLOCKEE_ENV",
+      "relation": "EXPOSES_GLOBAL"
+    },
+    {
+      "source": "simulate_and_check_errors.py",
+      "target": "table:tasks",
+      "relation": "DEFINES_SCHEMA"
+    },
+    {
+      "source": "simulate_and_check_errors.py",
+      "target": "table:cbt_exams",
+      "relation": "DEFINES_SCHEMA"
+    },
+    {
+      "source": "backend\\db.py",
+      "target": "table:sessions",
+      "relation": "DEFINES_SCHEMA"
+    },
+    {
+      "source": "backend\\db.py",
+      "target": "table:questions",
+      "relation": "DEFINES_SCHEMA"
+    },
+    {
+      "source": "backend\\db.py",
+      "target": "table:tasks",
+      "relation": "DEFINES_SCHEMA"
+    },
+    {
+      "source": "backend\\db.py",
+      "target": "table:student_states",
+      "relation": "DEFINES_SCHEMA"
+    },
+    {
+      "source": "backend\\db.py",
+      "target": "table:users",
+      "relation": "DEFINES_SCHEMA"
+    },
+    {
+      "source": "backend\\db.py",
+      "target": "table:cbt_exams",
+      "relation": "DEFINES_SCHEMA"
+    },
+    {
+      "source": "backend\\db.py",
+      "target": "table:cbt_active_sessions",
+      "relation": "DEFINES_SCHEMA"
+    },
+    {
+      "source": "backend\\db.py",
+      "target": "table:question_logs",
+      "relation": "DEFINES_SCHEMA"
+    },
+    {
+      "source": "backend\\db.py",
+      "target": "table:coaching_syllabus",
+      "relation": "DEFINES_SCHEMA"
+    },
+    {
+      "source": "integrations\\agent_memory\\memory_vault.py",
+      "target": "table:memory_nodes",
+      "relation": "DEFINES_SCHEMA"
+    }
+  ]
+}

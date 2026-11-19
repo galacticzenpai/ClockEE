@@ -1,0 +1,48 @@
+# Git & version control
+.git
+.github
+.gitignore
+
+# Pipeline internals & agent artifacts
+.pipeline
+simulation_error_report.json
+planning_agent_prompt.md
+GITHUB_SYNC_GUIDE.md
+
+# Local SQLite databases & lockfiles
+clockee.db
+clockee_auth.db
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+
+# Temporary recordings, media, & browser profiles
+temp_media
+screenshots
+chrome_profile_capture
+tmp_chrome
+*.mp4
+*.m4a
+*.webm
+*.avi
+*.mov
+
+# Python bytecode & virtual environments
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.venv
+venv
+env
+
+# Local binary tooling
+.git_bin
+.node_bin
+
+# Local environment secrets & batch scripts
+.env
+.env.local
+*.bat

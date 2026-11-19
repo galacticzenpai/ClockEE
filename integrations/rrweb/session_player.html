@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClockEE CBT - Exam Session Action Replay</title>
+  <link rel="stylesheet" href="../../cbt_shared.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { background-color: #07090e; color: #f8fafc; font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+<body class="p-6 max-w-4xl mx-auto">
+  <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
+    <div>
+      <h1 class="text-xl font-bold text-amber-500 font-mono flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse"></span>
+        Exam Session Action Replay Player
+      </h1>
+      <p class="text-xs text-slate-400 mt-1">Review student deliberation, hesitations, and timeline step-by-step</p>
+    </div>
+    <span class="px-2.5 py-1 text-xs rounded border border-white/10 bg-slate-900 text-slate-300 font-mono" id="session-badge">SESSION: JEE_ADV_MOCK_1</span>
+  </div>
+
+  <div class="bg-slate-900/60 border border-white/10 rounded-xl p-5 mb-6">
+    <div class="flex items-center justify-between mb-4">
+      <div class="flex items-center gap-3">
+        <button id="btn-play" class="px-4 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-600 text-black font-semibold text-xs font-mono transition">PLAY</button>
+        <button id="btn-reset" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-mono transition">RESET</button>
+      </div>
+      <div class="font-mono text-xs text-slate-300" id="time-display">00:00 / 03:45</div>
+    </div>
+    <input type="range" id="replay-scrubber" min="0" max="100" value="0" class="w-full accent-amber-500 cursor-pointer">
+  </div>
+
+  <div class="bg-slate-900/60 border border-white/10 rounded-xl p-5">
+    <h3 class="text-xs font-mono uppercase tracking-wider text-slate-400 mb-3">Action Event Stream</h3>
+    <div id="events-log" class="space-y-2 font-mono text-xs max-h-80 overflow-y-auto">
+      <div class="text-slate-500 italic">No events loaded or playback not started.</div>
+    </div>
+  </div>
+
+  <script>
+    const sampleEvents = [
+      { t: 0, type: 'SESSION_START' },
+      { t: 1200, type: 'NAVIGATE_QUESTION', q: 1 },
+      { t: 15400, type: 'SELECT_OPTION', q: 1, opt: 2 },
+      { t: 24500, type: 'SAVE_NEXT', q: 1 },
+      { t: 25000, type: 'NAVIGATE_QUESTION', q: 2 },
+      { t: 45000, type: 'MARK_REVIEW', q: 2 },
+      { t: 46000, type: 'NAVIGATE_QUESTION', q: 3 }
+    ];
+
+    const logDiv = document.getElementById('events-log');
+    logDiv.innerHTML = sampleEvents.map(e => `
+      <div class="p-2 rounded bg-black/40 border border-white/5 flex justify-between items-center">
+        <span class="text-amber-400 font-bold">\${e.type}</span>
+        <span class="text-slate-400">\${e.q ? 'Question #' + e.q : ''} \${e.opt ? '(Opt ' + e.opt + ')' : ''}</span>
+        <span class="text-slate-500">\${(e.t / 1000).toFixed(1)}s</span>
+      </div>
+    `).join('');
+  </script>
+</body>
+</html>

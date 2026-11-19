@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Security & Content Protection Headers -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' https: blob: data:; img-src 'self' https: data: blob:; connect-src 'self' https: wss:; font-src 'self' https: data:;" />
+  <script src="env.js" onerror="/* env.js optional */"></script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClockEE • Official Hackathon Showcase & Project Portal</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23050814' stroke='%2300f2fe' stroke-width='4'/><circle cx='50' cy='50' r='4' fill='%2300f2fe'/><line x1='50' y1='50' x2='50' y2='20' stroke='%2300f2fe' stroke-width='4' stroke-linecap='round'/><line x1='50' y1='50' x2='72' y2='50' stroke='%234facfe' stroke-width='3' stroke-linecap='round'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="clockee_core.js"></script>
+
+  <style>
+    :root {
+      --cyber-cyan: #00f2fe;
+      --cyber-blue: #4facfe;
+      --cyber-purple: #7928ca;
+      --cyber-pink: #ff0080;
+      --cyber-amber: #f59e0b;
+      --cyber-emerald: #10b981;
+      --bg-dark: #070913;
+      --card-bg: rgba(13, 18, 36, 0.72);
+      --card-border: rgba(0, 242, 254, 0.18);
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    body {
+      background: var(--bg-dark);
+      color: #e2e8f0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Ambient Dynamic Background */
+    .hackathon-bg-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .hackathon-shell {
+      position: relative;
+      z-index: 1;
+      max-width: 1380px;
+      margin: 0 auto;
+      padding: 24px 20px 80px 20px;
+    }
+
+    /* Glass Header Nav */
+    .hackathon-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 24px;
+      background: rgba(10, 14, 28, 0.78);
+      backdrop-filter: blur(28px) saturate(200%);
+      -webkit-backdrop-filter: blur(28px) saturate(200%);
+      border: 1px solid rgba(0, 242, 254, 0.22);
+      border-radius: 20px;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+
+    .brand-logo-disc {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(0, 242, 254, 0.15), rgba(79, 172, 254, 0.25));
+      border: 1.5px solid var(--cyber-cyan);
+      box-shadow: 0 0 18px rgba(0, 242, 254, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: pulseBrandGlow 3s infinite ease-in-out;
+    }
+
+    @keyframes pulseBrandGlow {
+      0%, 100% { box-shadow: 0 0 16px rgba(0, 242, 254, 0.3); }
+      50% { box-shadow: 0 0 26px rgba(0, 242, 254, 0.6); }
+    }
+
+    .brand-title {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand-title span.grad {
+      background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .badge-hackathon-pill {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 3px 10px;
+      background: linear-gradient(90deg, rgba(255, 0, 128, 0.2), rgba(121, 40, 202, 0.25));
+      border: 1px solid rgba(255, 0, 128, 0.4);
+      color: #ff5eb3;
+      border-radius: 999px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .nav-btn {
+      padding: 9px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #e2e8f0;
+    }
+    .nav-btn-secondary:hover {
+      background: rgba(0, 242, 254, 0.12);
+      border-color: var(--cyber-cyan);
+      color: #fff;
+      transform: translateY(-1px);
+    }
+
+    .nav-btn-primary {
+      background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+      border: none;
+      color: #050814;
+      font-weight: 700;
+      box-shadow: 0 4px 18px rgba(0, 242, 254, 0.35);
+      cursor: pointer;
+    }
+    .nav-btn-primary:hover {
+      box-shadow: 0 6px 24px rgba(0, 242, 254, 0.55);
+      transform: translateY(-2px);
+    }
+
+    /* Hero Banner */
+    .hero-banner {
+      position: relative;
+      background: linear-gradient(135deg, rgba(13, 20, 44, 0.85) 0%, rgba(20, 12, 38, 0.75) 100%);
+      border: 1px solid rgba(0, 242, 254, 0.25);
+      border-radius: 28px;
+      padding: 52px 40px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(28px);
+      text-align: center;
+      margin-bottom: 36px;
+      overflow: hidden;
+    }
+
+    .hero-trophy-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: rgba(245, 158, 11, 0.12);
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      color: #fbbf24;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-size: clamp(32px, 5.2vw, 52px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -1.2px;
+      color: #fff;
+      margin: 0 auto 18px auto;
+      max-width: 960px;
+    }
+
+    .hero-title .glow-cyan {
+      background: linear-gradient(135deg, #00f2fe 0%, #4facfe 70%, #90b4ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 40px rgba(0, 242, 254, 0.3);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(15px, 2vw, 18px);
+      color: #94a3b8;
+      max-width: 840px;
+      margin: 0 auto 32px auto;
+      line-height: 1.6;
+    }
+
+    .hero-cta-grid {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+
+    .btn-launch-live {
+      padding: 13px 26px;
+      font-size: 14px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+      color: #050814;
+      border: none;
+      border-radius: 14px;
+      text-decoration: none;
+      box-shadow: 0 8px 30px rgba(0, 242, 254, 0.4);
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      transition: all 0.25s ease;
+    }
+    .btn-launch-live:hover {
+      box-shadow: 0 10px 40px rgba(0, 242, 254, 0.65);
+      transform: translateY(-2px);
+    }
+
+    .btn-open-modal {
+      padding: 13px 24px;
+      font-size: 14px;
+      font-weight: 700;
+      background: rgba(255, 0, 128, 0.15);
+      color: #ff77b8;
+      border: 1px solid rgba(255, 0, 128, 0.45);
+      border-radius: 14px;
+      text-decoration: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      transition: all 0.25s ease;
+    }
+    .btn-open-modal:hover {
+      background: rgba(255, 0, 128, 0.25);
+      border-color: #ff0080;
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .btn-github-pill {
+      padding: 13px 22px;
+      font-size: 14px;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.06);
+      color: #f1f5f9;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 14px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.25s ease;
+    }
+    .btn-github-pill:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.3);
+      color: #fff;
+    }
+
+    /* ─── 50% PROGRESS BAR & ROADMAP ─── */
+    .roadmap-section {
+      background: linear-gradient(135deg, rgba(13, 20, 44, 0.88) 0%, rgba(18, 14, 38, 0.78) 100%);
+      border: 1px solid rgba(0, 242, 254, 0.3);
+      border-radius: 26px;
+      padding: 38px 34px;
+      margin-bottom: 44px;
+      box-shadow: 0 16px 50px rgba(0, 0, 0, 0.4);
+      position: relative;
+    }
+
+    .roadmap-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+
+    .roadmap-head h2 {
+      font-size: 24px;
+      font-weight: 800;
+      color: #fff;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .badge-percent-pill {
+      font-size: 12px;
+      font-weight: 800;
+      font-family: 'JetBrains Mono', monospace;
+      padding: 5px 14px;
+      background: linear-gradient(90deg, #00f2fe, #4facfe);
+      color: #050814;
+      border-radius: 999px;
+      box-shadow: 0 0 16px rgba(0, 242, 254, 0.4);
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 22px;
+      background: rgba(0, 0, 0, 0.55);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 999px;
+      overflow: hidden;
+      position: relative;
+      margin: 16px 0 24px 0;
+      box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.7);
+    }
+
+    .progress-fill-50 {
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(90deg, #00f2fe 0%, #4facfe 50%, #7928ca 100%);
+      border-radius: 999px;
+      position: relative;
+      box-shadow: 0 0 20px rgba(0, 242, 254, 0.7);
+    }
+
+    .progress-marker-text {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 800;
+      color: #050814;
+      letter-spacing: 0.5px;
+    }
+
+    .roadmap-cols {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+    }
+
+    .roadmap-card {
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      padding: 24px;
+    }
+
+    .roadmap-card.done-card {
+      border-color: rgba(16, 185, 129, 0.35);
+      background: rgba(6, 36, 26, 0.25);
+    }
+
+    .roadmap-card.pending-card {
+      border-color: rgba(245, 158, 11, 0.35);
+      background: rgba(42, 26, 8, 0.25);
+    }
+
+    .roadmap-col-title {
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .roadmap-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      space-y: 10px;
+    }
+
+    .roadmap-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+      color: #cbd5e1;
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+
+    .roadmap-item b {
+      color: #fff;
+    }
+
+    /* ─── VISUAL SHOWCASE WITH SCREENSHOTS & IDEA EXPLANATIONS ─── */
+    .section-head {
+      margin: 50px 0 28px 0;
+      text-align: center;
+    }
+    .section-head .tag {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--cyber-cyan);
+      margin-bottom: 8px;
+      display: block;
+    }
+    .section-head h2 {
+      font-size: 32px;
+      font-weight: 800;
+      color: #fff;
+      margin: 0;
+      letter-spacing: -0.6px;
+    }
+
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 36px;
+      margin-bottom: 48px;
+    }
+
+    .showcase-card {
+      background: rgba(13, 18, 36, 0.75);
+      border: 1px solid rgba(0, 242, 254, 0.22);
+      border-radius: 24px;
+      overflow: hidden;
+      backdrop-filter: blur(24px);
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    @media (max-width: 960px) {
+      .showcase-card {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .showcase-card:hover {
+      border-color: rgba(0, 242, 254, 0.5);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55), 0 0 35px rgba(0, 242, 254, 0.15);
+      transform: translateY(-3px);
+    }
+
+    .showcase-img-wrap {
+      position: relative;
+      background: #050814;
+      border-right: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      min-height: 280px;
+    }
+
+    .showcase-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      transition: transform 0.4s ease;
+    }
+
+    .showcase-card:hover .showcase-img-wrap img {
+      transform: scale(1.02);
+    }
+
+    .showcase-body {
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .showcase-badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--cyber-cyan);
+      margin-bottom: 10px;
+    }
+
+    .showcase-title {
+      font-size: 21px;
+      font-weight: 800;
+      color: #fff;
+      margin: 0 0 14px 0;
+      letter-spacing: -0.4px;
+    }
+
+    .idea-block {
+      margin-bottom: 14px;
+    }
+    .idea-label {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #fbbf24;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .idea-text {
+      font-size: 13.5px;
+      color: #94a3b8;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .feat-chips-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 14px;
+    }
+
+    .feat-chip {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 9px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 6px;
+      color: #cbd5e1;
+    }
+
+    /* Judge Panel */
+    .judge-panel {
+      background: linear-gradient(135deg, rgba(16, 24, 48, 0.85) 0%, rgba(13, 20, 38, 0.75) 100%);
+      border: 1px solid rgba(0, 242, 254, 0.3);
+      border-radius: 24px;
+      padding: 36px 32px;
+      margin-bottom: 40px;
+      box-shadow: 0 16px 50px rgba(0, 0, 0, 0.4);
+    }
+
+    .judge-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .cred-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .cred-card {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 16px 18px;
+    }
+    .cred-role {
+      font-size: 11px;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--cyber-cyan);
+      margin-bottom: 6px;
+    }
+    .cred-val {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      color: #fff;
+      margin: 4px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .copy-chip {
+      background: rgba(0, 242, 254, 0.15);
+      border: 1px solid rgba(0, 242, 254, 0.3);
+      color: #00f2fe;
+      border-radius: 6px;
+      padding: 2px 8px;
+      font-size: 11px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .copy-chip:hover {
+      background: var(--cyber-cyan);
+      color: #050814;
+    }
+
+    /* Modal */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(4, 7, 18, 0.85);
+      backdrop-filter: blur(20px);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-backdrop.active {
+      display: flex;
+    }
+
+    .modal-box {
+      background: #0b0f22;
+      border: 1px solid rgba(0, 242, 254, 0.35);
+      border-radius: 24px;
+      max-width: 720px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 36px 32px;
+      position: relative;
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.7);
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.08);
+      border: none;
+      color: #94a3b8;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+    .modal-close-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+    }
+
+    .form-group-copy {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-bottom: 14px;
+    }
+    .form-group-copy label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--cyber-cyan);
+      display: block;
+      margin-bottom: 4px;
+    }
+    .form-group-copy .val {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      color: #e2e8f0;
+      word-break: break-all;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+
+    .hackathon-footer {
+      text-align: center;
+      padding-top: 36px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 13px;
+      color: #64748b;
+    }
+  </style>
+
+  <!-- Apple Human Interface Design System & Safe Area Support -->
+  <style>
+    @supports (padding: max(0px)) {
+      body {
+        padding-top: max(0px, env(safe-area-inset-top));
+        padding-bottom: max(0px, env(safe-area-inset-bottom));
+        padding-left: max(0px, env(safe-area-inset-left));
+        padding-right: max(0px, env(safe-area-inset-right));
+      }
+    }
+  </style>
+  <!-- Master Apple HIG & Apple Intelligence Design System -->
+  <link rel="stylesheet" href="css/apple_design_system.css" />
+</head>
+<body>
+
+  <!-- Ambient Dynamic Starfield Canvas -->
+  <canvas id="hackathonCanvas" class="hackathon-bg-canvas"></canvas>
+
+  <div class="hackathon-shell">
+
+    <!-- Top Universal Navigation -->
+    <header class="hackathon-nav">
+      <a href="index.html" class="brand-group">
+        <div class="brand-logo-disc">
+          <svg width="24" height="24" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="45" fill="none" stroke="#00f2fe" stroke-width="6"/>
+            <circle cx="50" cy="50" r="5" fill="#00f2fe"/>
+            <line x1="50" y1="50" x2="50" y2="24" stroke="#00f2fe" stroke-width="6" stroke-linecap="round"/>
+            <line x1="50" y1="50" x2="72" y2="50" stroke="#4facfe" stroke-width="5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <div class="brand-title">Clock<span class="grad">EE</span> <span class="badge-hackathon-pill">Hackathon Showcase</span></div>
+        </div>
+      </a>
+
+      <div class="nav-actions">
+        <a href="https://galacticzenpai.github.io/ClockEE/" target="_blank" class="nav-btn nav-btn-secondary">
+          <span>🌐 Live Web App</span>
+        </a>
+        <a href="https://github.com/galacticzenpai/ClockEE" target="_blank" class="nav-btn nav-btn-secondary">
+          <span>🐙 GitHub Repository</span>
+        </a>
+        <button onclick="openHackathonModal()" class="nav-btn nav-btn-primary">
+          <span>📋 Hackathon Entry Details</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Hero Showcase Banner -->
+    <section class="hero-banner">
+      <div class="hero-trophy-badge">
+        🏆 OFFICIAL HACKATHON ENTRY • EDTECH & COGNITIVE PRODUCTIVITY TRACK
+      </div>
+
+      <h1 class="hero-title">
+        Autonomous JEE Tactical Cockpit & <span class="glow-cyan">Cognitive CBT Engine</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        ClockEE is the world's first drift-free, multi-user study operating system featuring a whimsical biometric cyber mascot, sub-second latency autopsies, authentic NTA JEE CBT testing simulation, and cloud student synchronization.
+      </p>
+
+      <div class="hero-cta-grid">
+        <a href="login.html" class="btn-launch-live">
+          <span>⚡ Enter Cockpit (Login Portal)</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="https://galacticzenpai.github.io/ClockEE/" target="_blank" class="btn-github-pill">
+          <span>🌐 Launch GitHub Pages</span>
+        </a>
+        <button onclick="openHackathonModal()" class="btn-open-modal">
+          <span>📋 View Submission Packet</span>
+        </button>
+        <a href="https://github.com/galacticzenpai/ClockEE" target="_blank" class="btn-github-pill">
+          <span>⭐ Star on GitHub</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ─── 50% PROGRESS BAR & ROADMAP ─── -->
+    <section class="roadmap-section">
+      <div class="roadmap-head">
+        <div>
+          <h2>🚀 Project Development Roadmap & Progress</h2>
+          <p style="color: #94a3b8; font-size: 14px; margin: 4px 0 0 0;">Phase 1 architecture fully delivered; Phase 2 advanced cognitive pipeline actively underway.</p>
+        </div>
+        <div class="badge-percent-pill">50% COMPLETED</div>
+      </div>
+
+      <!-- Glowing 50% Progress Track -->
+      <div class="progress-track">
+        <div class="progress-fill-50">
+          <span class="progress-marker-text">50% MILESTONE</span>
+        </div>
+      </div>
+
+      <div class="roadmap-cols">
+        <!-- Col 1: Completed -->
+        <div class="roadmap-card done-card">
+          <div class="roadmap-col-title" style="color: #34d399;">
+            <span>✓</span> <span>PHASE 1 DELIVERED (50% ACHIEVED)</span>
+          </div>
+          <div class="roadmap-list">
+            <div class="roadmap-item">
+              <span>⏱️</span>
+              <div><b>Drift-Free Sub-Second Tactical Clock:</b> Millisecond timestamp deltas preventing background tab drift.</div>
+            </div>
+            <div class="roadmap-item">
+              <span>🐻</span>
+              <div><b>Whimsical Biometric Mascot:</b> Procedural cursor eye tracking, blush reactions, and password eye-shielding paws.</div>
+            </div>
+            <div class="roadmap-item">
+              <span>🧪</span>
+              <div><b>Authentic NTA CBT Simulator:</b> Crash-proof state recovery on refresh, real LaTeX formulas, and question palettes.</div>
+            </div>
+            <div class="roadmap-item">
+              <span>☁️</span>
+              <div><b>Strict Multi-User Cloud Isolation:</b> Profile switching (Alpha, Beta, Guest) with Firebase Realtime DB bridge.</div>
+            </div>
+            <div class="roadmap-item">
+              <span>📚</span>
+              <div><b>PCM Milestone Coverage Matrix:</b> Previous mastered, active in-progress, and queued next chapters with cyber check chimes.</div>
+            </div>
+            <div class="roadmap-item">
+              <span>🎨</span>
+              <div><b>8 Dynamic Nebula Aura Themes:</b> Real-time reactive CSS variable engine with 1-click master accent palette injection.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Col 2: Remaining -->
+        <div class="roadmap-card pending-card">
+          <div class="roadmap-col-title" style="color: #fbbf24;">
+            <span>🚧</span> <span>PHASE 2 IN DEVELOPMENT (50% REMAINING)</span>
+          </div>
+          <div class="roadmap-list">
+            <div class="roadmap-item">
+              <span>📋</span>
+              <div>
+                <b>1. Task Flow System:</b> Algorithmic task queue converting CBT test error autopsies and coaching syllabus gaps into prioritized daily tasks, complete with drag-and-drop Kanban matrix, sub-tasks, and automated rollover.
+              </div>
+            </div>
+            <div class="roadmap-item">
+              <span>🤖</span>
+              <div>
+                <b>2. Adaptive AI Question Generation:</b> Fine-tuned algorithmic generator synthesizing tailored JEE Mains and Advanced numerical problems, multi-correct challenges, and step-by-step LaTeX formula derivations adapting to aspirant difficulty.
+              </div>
+            </div>
+            <div class="roadmap-item">
+              <span>🎨</span>
+              <div>
+                <b>3. Retheming & Visual Studio:</b> Comprehensive user customization studio for backdrop blur intensity, glassmorphic refraction, custom color wheel gradients, and Web Audio synthesizer mechanical clicker sound packs.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── VISUAL SHOWCASE WITH SCREENSHOTS & IDEA EXPLANATIONS ─── -->
+    <div class="section-head">
+      <span class="tag">VISUAL SYSTEM TOUR & INNOVATIONS</span>
+      <h2>Core Ideas Explained with Screenshots</h2>
+    </div>
+
+    <div class="showcase-grid">
+
+      <!-- 1. Whimsical Mascot Auth -->
+      <div class="showcase-card">
+        <div class="showcase-img-wrap">
+          <img src="screenshots/01_login_mascot.png" alt="Whimsical Mascot Authentication" onerror="this.onerror=null; this.src='https://placehold.co/800x500/0a0e1c/00f2fe?text=Whimsical+Mascot+Authentication+Portal';">
+        </div>
+        <div class="showcase-body">
+          <div>
+            <div class="showcase-badge-pill"><span>🐻</span> BIOMETRIC INTERACTION</div>
+            <h3 class="showcase-title">Whimsical Cyber-Bear Authentication Portal</h3>
+            
+            <div class="idea-block">
+              <span class="idea-label">The Core Idea</span>
+              <p class="idea-text">Replace cold, mechanical authentication with an engaging, anxiety-relieving cyber mascot. The bear tracks the user's cursor with glowing pupils, blushes pink upon clicking its squishy nose, and physically raises its robotic paws to cover its eyes whenever the user enters their password!</p>
+            </div>
+
+            <div class="idea-block">
+              <span class="idea-label">Why It Solves Aspirant Burnout</span>
+              <p class="idea-text">High-stakes exam preparation induces severe cognitive stress. Gentle, playful micro-interactions combined with a 5-tier password strength meter and science formula easter eggs foster an uplifting daily ritual before diving into intensive study sprints.</p>
+            </div>
+          </div>
+
+          <div class="feat-chips-row">
+            <span class="feat-chip">Procedural Eye Tracking</span>
+            <span class="feat-chip">CSS Robotic Paws Animation</span>
+            <span class="feat-chip">Web Audio Squishy Sound</span>
+            <span class="feat-chip">Password Eye-Covering</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Command Center Dashboard -->
+      <div class="showcase-card">
+        <div class="showcase-img-wrap">
+          <img src="screenshots/02_command_center.png" alt="Master Command Center" onerror="this.onerror=null; this.src='https://placehold.co/800x500/0a0e1c/00f2fe?text=Master+Command+Center';">
+        </div>
+        <div class="showcase-body">
+          <div>
+            <div class="showcase-badge-pill"><span>🎯</span> DRIFT-FREE COCKPIT</div>
+            <h3 class="showcase-title">Command Center & Target Countdown</h3>
+            
+            <div class="idea-block">
+              <span class="idea-label">The Core Idea</span>
+              <p class="idea-text">An ultra-clean study dashboard displaying an authentic drift-free countdown to JEE Advanced (18 Months, Total Weeks, Days), daily study velocity graphs, PCM balance doughnut, quick question logging counters, and split-screen focus drawers.</p>
+            </div>
+
+            <div class="idea-block">
+              <span class="idea-label">Mathematical Precision</span>
+              <p class="idea-text">Standard browser timers drift by minutes over long sessions due to background tab throttling. ClockEE calculates true temporal offsets from Unix epoch timestamps, guaranteeing absolute sub-second accuracy across multi-hour drills.</p>
+            </div>
+          </div>
+
+          <div class="feat-chips-row">
+            <span class="feat-chip">Months / Weeks / Days Countdown</span>
+            <span class="feat-chip">PCM Doughnut Balance</span>
+            <span class="feat-chip">7-Day Study Velocity</span>
+            <span class="feat-chip">1-Click Quick Logging</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Tactical Pace Sprint Cockpit -->
+      <div class="showcase-card">
+        <div class="showcase-img-wrap">
+          <img src="screenshots/03_tactical_sprint.png" alt="Tactical Pace Sprint Cockpit" onerror="this.onerror=null; this.src='https://placehold.co/800x500/0a0e1c/00f2fe?text=Tactical+Pace+Sprint+Cockpit';">
+        </div>
+        <div class="showcase-body">
+          <div>
+            <div class="showcase-badge-pill"><span>⏱️</span> PACE BENCHMARKING</div>
+            <h3 class="showcase-title">Question Solving Pace Sprint Arena</h3>
+            
+            <div class="idea-block">
+              <span class="idea-label">The Core Idea</span>
+              <p class="idea-text">Students solve questions in timed sprints against dynamic pace benchmarks (e.g., 20s/Q rapid recall, 120s/Q advanced numericals). A 4-HUD card displays real-time lap cadence, delta pace (+4.2s ahead / -12.1s behind), live JEE score projection, and an incorrect question sequence uploader.</p>
+            </div>
+
+            <div class="idea-block">
+              <span class="idea-label">The Mistake Autopsy Innovation</span>
+              <p class="idea-text">Instead of losing track of wrong attempts, wrong questions are flagged in sequential pills (✕ Q#2, ✕ Q#4). Aspirants immediately attach problem statements via markdown or screenshot dropzones, classifying root causes into Calculation, Concept Gap, or Time Crunch.</p>
+            </div>
+          </div>
+
+          <div class="feat-chips-row">
+            <span class="feat-chip">Ahead/Behind Latency HUD</span>
+            <span class="feat-chip">Live +4/-1 JEE Marking</span>
+            <span class="feat-chip">Sequenced Mistake Vault</span>
+            <span class="feat-chip">Custom Glassmorphic Menus</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Crash-Proof CBT Exam Simulator -->
+      <div class="showcase-card">
+        <div class="showcase-img-wrap">
+          <img src="screenshots/04_cbt_exam.png" alt="Authentic NTA CBT Exam Simulator" onerror="this.onerror=null; this.src='https://placehold.co/800x500/0a0e1c/00f2fe?text=Authentic+NTA+CBT+Exam+Simulator';">
+        </div>
+        <div class="showcase-body">
+          <div>
+            <div class="showcase-badge-pill"><span>🧪</span> EXAMINATION SIMULATION</div>
+            <h3 class="showcase-title">Crash-Proof Authentic CBT Exam Arena</h3>
+            
+            <div class="idea-block">
+              <span class="idea-label">The Core Idea</span>
+              <p class="idea-text">Replicates the exact National Testing Agency (NTA) JEE exam console with question navigation palettes, marked for review statuses, and full LaTeX formula rendering. Every answer selection and elapsed second is auto-saved in real time.</p>
+            </div>
+
+            <div class="idea-block">
+              <span class="idea-label">Instant Crash Recovery</span>
+              <p class="idea-text">If the browser crashes or the user accidentally hits refresh mid-test, ClockEE immediately restores the exact state, question index, marked answers, and running countdown without restarting the test or losing data.</p>
+            </div>
+          </div>
+
+          <div class="feat-chips-row">
+            <span class="feat-chip">Zero-Loss Crash Recovery</span>
+            <span class="feat-chip">NTA Question Palette</span>
+            <span class="feat-chip">MathJax LaTeX Rendering</span>
+            <span class="feat-chip">Post-Exam Latency Autopsy</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Coaching Syllabus & PCM Milestones -->
+      <div class="showcase-card">
+        <div class="showcase-img-wrap">
+          <img src="screenshots/05_coaching_matrix.png" alt="Coaching Syllabus Matrix" onerror="this.onerror=null; this.src='https://placehold.co/800x500/0a0e1c/00f2fe?text=Coaching+Syllabus+Matrix';">
+        </div>
+        <div class="showcase-body">
+          <div>
+            <div class="showcase-badge-pill"><span>📚</span> SYLLABUS ENGINEERING</div>
+            <h3 class="showcase-title">PCM Milestone Blocks & Syllabus Matrix</h3>
+            
+            <div class="idea-block">
+              <span class="idea-label">The Core Idea</span>
+              <p class="idea-text">Coaching syllabi are structured into three dynamic blocks: Previous Mastered Chapters (PCM), Active In-Progress Chapters with deliberate practice meters, and Queued Next Chapters. Features cyber checkboxes with dual-tone Web Audio chimes upon completion.</p>
+            </div>
+
+            <div class="idea-block">
+              <span class="idea-label">Fuzzy Aggregator Engine</span>
+              <p class="idea-text">Aspirants log questions from diverse sources (PYQ drills, sprint timers, coaching sheets). ClockEE's normalized string matcher automatically correlates slight naming variations (e.g., 'Basic Math & Vectors' vs 'Basic Mathematics') ensuring zero dropped question counts.</p>
+            </div>
+          </div>
+
+          <div class="feat-chips-row">
+            <span class="feat-chip">3 PCM Milestone Blocks</span>
+            <span class="feat-chip">Cyber Audio Checkboxes</span>
+            <span class="feat-chip">Fuzzy Chapter Aggregator</span>
+            <span class="feat-chip">Categorized Practice Stream</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Multi-User Admin & Diagnostics -->
+      <div class="showcase-card">
+        <div class="showcase-img-wrap">
+          <img src="screenshots/06_admin_panel.png" alt="Multi-User Cloud Admin" onerror="this.onerror=null; this.src='https://placehold.co/800x500/0a0e1c/00f2fe?text=Multi-User+Cloud+Admin';">
+        </div>
+        <div class="showcase-body">
+          <div>
+            <div class="showcase-badge-pill"><span>🛡️</span> CLOUD INFRASTRUCTURE</div>
+            <h3 class="showcase-title">Multi-User Cloud Admin & Database Hub</h3>
+            
+            <div class="idea-block">
+              <span class="idea-label">The Core Idea</span>
+              <p class="idea-text">A dedicated mentor and administrator panel providing live Firebase database ping diagnostics, student profile management, custom question log injection, and strict cross-device synchronization.</p>
+            </div>
+
+            <div class="idea-block">
+              <span class="idea-label">Zero-Leak Multi-User Isolation</span>
+              <p class="idea-text">Multiple aspirants can use the same device or switch between student profiles (Alpha, Beta, Gamma) via the top header flyout with 100% strict data sandboxing, ensuring no student's question progress or study history bleeds into another.</p>
+            </div>
+          </div>
+
+          <div class="feat-chips-row">
+            <span class="feat-chip">1-Click Profile Switching</span>
+            <span class="feat-chip">Firebase Realtime DB Bridge</span>
+            <span class="feat-chip">Admin Passcode Protection</span>
+            <span class="feat-chip">Live DB Health Diagnostics</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ─── EVALUATION & JUDGE ACCESS ─── -->
+    <section class="judge-panel">
+      <div class="judge-head">
+        <div>
+          <h3 style="font-size: 22px; font-weight: 800; color: #fff; margin: 0;">⚖️ Hackathon Judges & Evaluators Quick-Start</h3>
+          <p style="color: #94a3b8; margin: 4px 0 0 0; font-size: 14px;">Instant evaluation credentials pre-seeded with isolated student profiles and admin controls.</p>
+        </div>
+        <button onclick="copySubmissionJSON()" class="nav-btn nav-btn-primary" style="padding: 10px 20px;">
+          <span>📋 Copy Registration JSON</span>
+        </button>
+      </div>
+
+      <div class="cred-grid">
+        <div class="cred-card">
+          <div class="cred-role">Student Alpha (Active Aspirant)</div>
+          <div class="cred-val">Email: <code>alpha@clockee.app</code> <span class="copy-chip" onclick="copyText('alpha@clockee.app')">Copy</span></div>
+          <div class="cred-val">Password: <code>password123</code> <span class="copy-chip" onclick="copyText('password123')">Copy</span></div>
+          <div style="font-size: 11px; color: #64748b; margin-top: 6px;">Includes solved question history & daily velocity.</div>
+        </div>
+
+        <div class="cred-card">
+          <div class="cred-role">Student Beta (Isolated Profile)</div>
+          <div class="cred-val">Email: <code>beta@clockee.app</code> <span class="copy-chip" onclick="copyText('beta@clockee.app')">Copy</span></div>
+          <div class="cred-val">Password: <code>password456</code> <span class="copy-chip" onclick="copyText('password456')">Copy</span></div>
+          <div style="font-size: 11px; color: #64748b; margin-top: 6px;">Demonstrates complete multi-user zero-leak isolation.</div>
+        </div>
+
+        <div class="cred-card">
+          <div class="cred-role">Admin / Mentor Panel</div>
+          <div class="cred-val">Panel URL: <code>admin.html</code> <a href="admin.html" style="color: #00f2fe; font-size: 11px; text-decoration: underline;">Open</a></div>
+          <div class="cred-val">Passcode / PIN: <code>2028</code> <span class="copy-chip" onclick="copyText('2028')">Copy</span></div>
+          <div style="font-size: 11px; color: #64748b; margin-top: 6px;">Live Firebase ping, student management & custom log editor.</div>
+        </div>
+
+        <div class="cred-card">
+          <div class="cred-role">Guest Sandbox Mode</div>
+          <div class="cred-val">Access: <code>1-Click Direct Launch</code></div>
+          <div class="cred-val">Redirect: <code>login.html</code> <a href="login.html" style="color: #00f2fe; font-size: 11px; text-decoration: underline;">Launch</a></div>
+          <div style="font-size: 11px; color: #64748b; margin-top: 6px;">Test all features immediately with clean slate.</div>
+        </div>
+      </div>
+
+      <div style="background: rgba(0, 242, 254, 0.08); border: 1px dashed rgba(0, 242, 254, 0.35); border-radius: 12px; padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+        <div style="font-size: 13px; color: #cbd5e1;">
+          💡 <b>Live Deployment URL:</b> <code style="color: #00f2fe;">https://galacticzenpai.github.io/ClockEE/</code> | <b>Status:</b> <code style="color: #10b981;">Online & Verified</code>
+        </div>
+        <a href="https://galacticzenpai.github.io/ClockEE/" target="_blank" class="copy-chip" style="padding: 6px 14px; font-weight: 700; text-decoration: none;">Launch Pages App →</a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="hackathon-footer">
+      <p>ClockEE Study Engine • Built with ❤️ for Competitive Exam Aspirants Worldwide.</p>
+      <p style="margin-top: 6px;">Open Source • MIT Licensed • Hosted on GitHub Pages</p>
+    </footer>
+
+  </div>
+
+  <!-- Hackathon Registration Modal -->
+  <div id="hackathonModal" class="modal-backdrop">
+    <div class="modal-box">
+      <button class="modal-close-btn" onclick="closeHackathonModal()">✕</button>
+      
+      <div class="modal-header">
+        <h3 style="font-size: 24px; font-weight: 800; color: #fff; margin: 0 0 6px 0;">📋 Official Hackathon Submission Data</h3>
+        <p style="font-size: 14px; color: #94a3b8; margin: 0 0 24px 0;">Copy project information, links, and credentials directly into your hackathon registration form (Devpost, Devfolio, Unstop, MLH).</p>
+      </div>
+
+      <div class="form-group-copy">
+        <label>Project Name</label>
+        <div class="val">ClockEE — Autonomous JEE Tactical Cockpit & Cognitive CBT Engine</div>
+      </div>
+
+      <div class="form-group-copy">
+        <label>Elevator Pitch / Tagline</label>
+        <div class="val">The world's first drift-free, multi-user study operating system with a whimsical biometric mascot, sub-second latency autopsies, and adaptive CBT engine for competitive exam aspirants.</div>
+      </div>
+
+      <div class="form-group-copy">
+        <label>Development Progress Status</label>
+        <div class="val">50% Completed (Phase 1 Delivered & Verified) • Phase 2 (Task Flow, AI Question Gen, Retheming Studio) in progress</div>
+      </div>
+
+      <div class="form-group-copy">
+        <label>Live Hosted Web Application URL (GitHub Pages)</label>
+        <div class="val">https://galacticzenpai.github.io/ClockEE/</div>
+      </div>
+
+      <div class="form-group-copy">
+        <label>GitHub Repository URL</label>
+        <div class="val">https://github.com/galacticzenpai/ClockEE</div>
+      </div>
+
+      <div class="form-group-copy">
+        <label>Tech Stack & Frameworks</label>
+        <div class="val">HTML5, CSS3 Glassmorphism, Web Audio API, Canvas 2D, Firebase Realtime Database, Client-Side Multi-User Isolation Engine, Pure Vanilla JS Architecture</div>
+      </div>
+
+      <div class="form-group-copy">
+        <label>Judge Test Credentials</label>
+        <div class="val">Alpha: alpha@clockee.app / password123 | Beta: beta@clockee.app / password456 | Admin PIN: 2028</div>
+      </div>
+
+      <div class="modal-actions">
+        <button onclick="copySubmissionJSON()" class="nav-btn nav-btn-primary">
+          <span>📋 Copy Full Registration JSON</span>
+        </button>
+        <button onclick="copySubmissionMarkdown()" class="nav-btn nav-btn-secondary">
+          <span>📝 Copy Pitch Deck Markdown</span>
+        </button>
+        <button onclick="closeHackathonModal()" class="nav-btn nav-btn-secondary">
+          <span>Done</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Canvas Ambient Starfield
+    const canvas = document.getElementById('hackathonCanvas');
+    const ctx = canvas.getContext('2d');
+    let width = canvas.width = window.innerWidth;
+    let height = canvas.height = window.innerHeight;
+
+    window.addEventListener('resize', () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    });
+
+    const stars = Array.from({ length: 65 }, () => ({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      size: Math.random() * 2 + 0.5,
+      speed: Math.random() * 0.35 + 0.1,
+      alpha: Math.random() * 0.7 + 0.3
+    }));
+
+    function renderStarfield() {
+      ctx.clearRect(0, 0, width, height);
+
+      const grad1 = ctx.createRadialGradient(width * 0.2, height * 0.3, 0, width * 0.2, height * 0.3, 400);
+      grad1.addColorStop(0, 'rgba(0, 242, 254, 0.06)');
+      grad1.addColorStop(1, 'transparent');
+      ctx.fillStyle = grad1;
+      ctx.fillRect(0, 0, width, height);
+
+      const grad2 = ctx.createRadialGradient(width * 0.8, height * 0.7, 0, width * 0.8, height * 0.7, 500);
+      grad2.addColorStop(0, 'rgba(121, 40, 202, 0.08)');
+      grad2.addColorStop(1, 'transparent');
+      ctx.fillStyle = grad2;
+      ctx.fillRect(0, 0, width, height);
+
+      ctx.fillStyle = '#00f2fe';
+      stars.forEach(s => {
+        ctx.globalAlpha = s.alpha;
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
+        ctx.fill();
+
+        s.y -= s.speed;
+        if (s.y < 0) {
+          s.y = height;
+          s.x = Math.random() * width;
+        }
+      });
+      ctx.globalAlpha = 1;
+
+      requestAnimationFrame(renderStarfield);
+    }
+    renderStarfield();
+
+    // Modal Controls
+    function openHackathonModal() {
+      document.getElementById('hackathonModal').classList.add('active');
+    }
+    function closeHackathonModal() {
+      document.getElementById('hackathonModal').classList.remove('active');
+    }
+
+    function copyText(txt) {
+      navigator.clipboard.writeText(txt);
+      if (window.showToast) window.showToast('Copied: ' + txt);
+      else alert('Copied to clipboard: ' + txt);
+    }
+
+    const HACKATHON_DATA = {
+      project_name: "ClockEE — Autonomous JEE Tactical Cockpit & Cognitive CBT Engine",
+      tagline: "The world's first drift-free, multi-user study operating system with a whimsical biometric mascot, sub-second latency autopsies, and adaptive CBT engine.",
+      progress: "50% Completed (Phase 1 Delivered & Verified; Task Flow, Question Gen & Retheming in Phase 2)",
+      live_demo_url: "https://galacticzenpai.github.io/ClockEE/",
+      github_pages_url: "https://galacticzenpai.github.io/ClockEE/",
+      github_repo: "https://github.com/galacticzenpai/ClockEE",
+      tracks: ["EdTech", "AI & Productivity", "Student Tools", "Full-Stack Web"],
+      tech_stack: [
+        "HTML5", "CSS3 Glassmorphism", "Web Audio API", "HTML5 Canvas",
+        "Firebase Realtime Database", "Client-Side Multi-User Engine"
+      ],
+      judge_accounts: {
+        student_alpha: { email: "alpha@clockee.app", auth_mode: "Sandbox (No Secret Req)", role: "JEE 2028 Aspirant" },
+        student_beta: { email: "beta@clockee.app", auth_mode: "Sandbox (No Secret Req)", role: "JEE 2027 Aspirant" },
+        admin_panel: { path: "admin.html", passcode: "2028" },
+        guest_access: "1-Click Direct Launch"
+      }
+    };
+
+    function copySubmissionJSON() {
+      const jsonStr = JSON.stringify(HACKATHON_DATA, null, 2);
+      navigator.clipboard.writeText(jsonStr);
+      alert('✓ Complete Hackathon Registration JSON copied to clipboard!');
+    }
+
+    function copySubmissionMarkdown() {
+      const md = `# ${HACKATHON_DATA.project_name}\n\n` +
+        `> ${HACKATHON_DATA.tagline}\n\n` +
+        `**Progress**: ${HACKATHON_DATA.progress}\n\n` +
+        `## 🚀 Quick Links\n` +
+        `- **Live Web App**: ${HACKATHON_DATA.live_demo_url}\n` +
+        `- **GitHub Pages**: ${HACKATHON_DATA.github_pages_url}\n` +
+        `- **GitHub Repository**: ${HACKATHON_DATA.github_repo}\n\n` +
+        `## 🔑 Judge Test Accounts\n` +
+        `- **Student Alpha**: \`alpha@clockee.app\` / \`password123\`\n` +
+        `- **Student Beta**: \`beta@clockee.app\` / \`password456\`\n` +
+        `- **Admin Panel**: \`admin.html\` (Passcode: \`2028\`)\n\n` +
+        `## 🛠️ Tech Stack\n` +
+        HACKATHON_DATA.tech_stack.map(t => `- ${t}`).join('\n');
+
+      navigator.clipboard.writeText(md);
+      alert('✓ Pitch Deck Markdown copied to clipboard!');
+    }
+  </script>
+</body>
+</html>

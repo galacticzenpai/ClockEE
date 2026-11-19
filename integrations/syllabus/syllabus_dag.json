@@ -1,0 +1,23 @@
+{
+  "curriculum": "JEE_ADVANCED_STEM",
+  "version": "2026.1",
+  "nodes": [
+    { "id": "phy_kinematics", "subject": "Physics", "name": "Kinematics 1D & 2D", "level": 1, "prereqs": [] },
+    { "id": "phy_nlm", "subject": "Physics", "name": "Newton's Laws & Friction", "level": 2, "prereqs": ["phy_kinematics"] },
+    { "id": "phy_wep", "subject": "Physics", "name": "Work, Energy & Power", "level": 3, "prereqs": ["phy_nlm"] },
+    { "id": "phy_rotational", "subject": "Physics", "name": "Rotational Dynamics", "level": 4, "prereqs": ["phy_wep"] },
+    { "id": "phy_shm", "subject": "Physics", "name": "Simple Harmonic Motion", "level": 4, "prereqs": ["phy_wep"] },
+    
+    { "id": "chem_mole", "subject": "Chemistry", "name": "Mole Concept & Stoichiometry", "level": 1, "prereqs": [] },
+    { "id": "chem_atomic", "subject": "Chemistry", "name": "Atomic Structure & Quantum", "level": 2, "prereqs": ["chem_mole"] },
+    { "id": "chem_bonding", "subject": "Chemistry", "name": "Chemical Bonding & VSEPR", "level": 3, "prereqs": ["chem_atomic"] },
+    { "id": "chem_thermo", "subject": "Chemistry", "name": "Chemical Thermodynamics", "level": 4, "prereqs": ["chem_bonding"] },
+    { "id": "chem_organic_goc", "subject": "Chemistry", "name": "General Organic Chemistry (GOC)", "level": 4, "prereqs": ["chem_bonding"] },
+
+    { "id": "math_sets", "subject": "Mathematics", "name": "Sets, Relations & Functions", "level": 1, "prereqs": [] },
+    { "id": "math_trig", "subject": "Mathematics", "name": "Trigonometric Identities", "level": 2, "prereqs": ["math_sets"] },
+    { "id": "math_limits", "subject": "Mathematics", "name": "Limits, Continuity & Differentiability", "level": 3, "prereqs": ["math_sets", "math_trig"] },
+    { "id": "math_diff_calc", "subject": "Mathematics", "name": "Applications of Derivatives", "level": 4, "prereqs": ["math_limits"] },
+    { "id": "math_int_calc", "subject": "Mathematics", "name": "Definite & Indefinite Integrals", "level": 5, "prereqs": ["math_diff_calc"] }
+  ]
+}

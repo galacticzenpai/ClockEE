@@ -1,0 +1,30 @@
+{
+  "dom_checks": {
+    "hasGoogleBtn": true,
+    "hasGithubBtn": true,
+    "hasOAuthStatus": true,
+    "hasGoogleClick": true,
+    "hasGithubClick": true
+  },
+  "touch_target_checks": {
+    "googleMinHeight": 44,
+    "googleTouchPass": true,
+    "githubMinHeight": 44,
+    "githubTouchPass": true
+  },
+  "hash_extraction_simulation": {
+    "parser_success": true,
+    "extracted_user": {
+      "uid": "018f2d59-7d88-7f9a-b850-c8e9b62a129f",
+      "id": "018f2d59-7d88-7f9a-b850-c8e9b62a129f",
+      "email": "aspirant.test@clockee.app",
+      "name": "Test JEE Topper",
+      "role": "JEE 2028 Aspirant",
+      "provider": "google"
+    },
+    "token_stored": true,
+    "supabase_token_stored": true,
+    "refresh_token_stored": true
+  },
+  "verdict": "PASSED"
+}

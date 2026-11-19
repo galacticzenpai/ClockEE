@@ -1,0 +1,32 @@
+name: Hallmark Anti-AI-Slop Quality Gate
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  sloplint-audit:
+    name: Certify 100/100 Hallmark Visual Standards
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run Hallmark Anti-Slop Linter
+        run: |
+          python integrations/hallmark_design/sloplint.py
+
+      - name: Upload SlopLint Audit Artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sloplint-report
+          path: integrations/hallmark_design/reports/*.json

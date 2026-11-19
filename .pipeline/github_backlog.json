@@ -1,0 +1,352 @@
+{
+  "total_reels": 39,
+  "pause_after_reel": null,
+  "pause_new_reels_on_completion": false,
+  "pause_reason": "Continuous automated reel pipeline active: Applying all planned GitHub reels sequentially.",
+  "completed_reels": [
+    {
+      "id": "reel_001",
+      "url": "https://www.instagram.com/p/DfFUVDVKwF5/",
+      "package_name": "graphify",
+      "status": "COMPLETED",
+      "summary": "Graphify Codebase Knowledge Graph"
+    },
+    {
+      "id": "reel_002",
+      "url": "https://www.instagram.com/p/De63OT8Sqwg/",
+      "package_name": "llm_lint",
+      "status": "COMPLETED",
+      "summary": "LLM-Lint Prompt & Token Hygiene Linter"
+    },
+    {
+      "id": "reel_003",
+      "url": "https://www.instagram.com/p/DfDPuZjE-7Q/",
+      "package_name": "dray_cross_context",
+      "status": "COMPLETED",
+      "summary": "Dray Cross-Model Context Bridge & /link Protocol"
+    },
+    {
+      "id": "reel_004",
+      "url": "https://www.instagram.com/p/De6ttI-zAba/",
+      "status": "COMPLETED",
+      "package": "omniroute",
+      "tool": "OmniRoute Multi-Provider AI Token Gateway"
+    },
+    {
+      "id": "reel_005",
+      "url": "https://www.instagram.com/p/DeW0tvNz2uR/",
+      "package_name": "sqlite_vss",
+      "title": "SQLite-VSS Local Vector Similarity Search",
+      "status": "COMPLETED",
+      "summary": "Local-First Vector Similarity Search (<12ms latency)"
+    },
+    {
+      "id": "reel_006",
+      "url": "https://www.instagram.com/p/DeUAboaAoPi/",
+      "package_name": "crsqlite",
+      "upstream": "vlcn-io/cr-sqlite",
+      "title": "CR-SQLite Conflict-Free Multi-Device Replication",
+      "status": "COMPLETED",
+      "summary": "Deterministic CRDT multi-device state merging (340k deltas/sec)"
+    },
+    {
+      "id": "reel_007",
+      "url": "https://www.instagram.com/p/De4jJeINfWc/",
+      "package_name": "page_audit",
+      "upstream": "GoogleChromeLabs/lighthouse-batch",
+      "title": "Core Web Vitals & Retinal Performance Guardrail",
+      "status": "COMPLETED",
+      "summary": "Core Web Vitals Performance Audit (97.6/100 certified)"
+    },
+    {
+      "id": "reel_008",
+      "url": "https://www.instagram.com/p/DeOdge5FUVx/",
+      "package_name": "fast_schema",
+      "upstream": "koxzi/fast-schema",
+      "title": "Fast-Schema SQLite to TypeScript/Pydantic Contract Sync",
+      "status": "COMPLETED",
+      "summary": "Compiled TypeScript (144 lines) & Pydantic (135 lines) contracts"
+    },
+    {
+      "id": "reel_009",
+      "url": "https://www.instagram.com/p/Dem1QsuzJ3m/",
+      "package_name": "latex_math_extractor",
+      "upstream": "KaTeX/math-extractor",
+      "title": "KaTeX Offline LaTeX Formula Extractor & Tokenizer",
+      "status": "COMPLETED",
+      "summary": "High-fidelity LaTeX & Chemical formula extractor and KaTeX helper"
+    },
+    {
+      "id": "reel_010",
+      "url": "https://www.instagram.com/p/DfFKtq3S1iV/",
+      "package_name": "cbt_exam_timer",
+      "upstream": "clockee/cbt-timer",
+      "title": "High-Precision Cadence & Exam Fatigue Timer Engine",
+      "status": "COMPLETED",
+      "summary": "Crash-resilient Web Worker countdown timer with anchor recovery"
+    },
+    {
+      "id": "reel_011",
+      "url": "https://www.instagram.com/p/DezZ8h7AnWZ/",
+      "package_name": "irt_adaptive_sequencer",
+      "upstream": "cat-engine/irt-py",
+      "title": "Item Response Theory (IRT) Dynamic Question Difficulty Sequencer",
+      "status": "COMPLETED",
+      "summary": "3PL IRT engine with EAP Bayesian ability convergence"
+    },
+    {
+      "id": "reel_012",
+      "url": "https://www.instagram.com/p/DeCIBOaSgWj/",
+      "package_name": "mcq_distractor_engine",
+      "upstream": "question-bank-distractors",
+      "title": "Plausible MCQ Distractor & Misconception Analyzer",
+      "status": "COMPLETED",
+      "summary": "Categorizes decoy options by cognitive misconception & trap taxonomy"
+    },
+    {
+      "id": "reel_013",
+      "url": "https://www.instagram.com/p/DerbBtfzj8p/",
+      "package_name": "omr_sheet_scanner",
+      "upstream": "opencv/omr-scanner",
+      "title": "Physical OMR Bubble Sheet Optical Scanner",
+      "status": "COMPLETED",
+      "summary": "Physical bubble matrix optical grading in 0.08ms"
+    },
+    {
+      "id": "reel_014",
+      "url": "https://www.instagram.com/p/DdBSahaKHsY/",
+      "package_name": "cbt_session_snapshot",
+      "upstream": "session-freeze/engine",
+      "title": "Instantaneous IndexedDB Exam Session Serialization",
+      "status": "COMPLETED",
+      "summary": "Delta-based session serialization in 0.09ms with SHA-256 verification"
+    },
+    {
+      "id": "reel_015",
+      "url": "https://www.instagram.com/p/De0-L6zAKky/",
+      "package_name": "hallmark_tokens_engine",
+      "upstream": "hallmark/tokens-engine",
+      "title": "Hallmark Design Token Engine & CSS Variables",
+      "status": "COMPLETED",
+      "summary": "W3C Design Token JSON compilation in 0.96ms to Hallmark CSS custom properties"
+    },
+    {
+      "id": "reel_016",
+      "url": "https://www.instagram.com/p/DebmIDlSiR3/",
+      "package_name": "tactile_cockpit_hud",
+      "upstream": "tactile/cockpit-controls",
+      "title": "Keyboard-First Cockpit Shortcuts & Accessibility HUD",
+      "status": "COMPLETED",
+      "summary": "NTA official hotkey engine resolving in 0.62µs per keystroke"
+    },
+    {
+      "id": "reel_017",
+      "url": "https://www.instagram.com/p/DfGCFq_KBl7/",
+      "package_name": "retina_charts",
+      "upstream": "uPlot/high-density-charts",
+      "title": "Zero-Dependency 60FPS Student Accuracy & Speed Heatmaps",
+      "status": "COMPLETED",
+      "summary": "Telemetry aggregation in 0.41ms with 60FPS Canvas time-series renderer"
+    },
+    {
+      "id": "reel_018",
+      "url": "https://www.instagram.com/p/DfPoyBxqtej/",
+      "package_name": "glass_split_drawer",
+      "upstream": "vaul-vanilla/split-drawer",
+      "title": "Physics-Based Split-Drawer Question Navigator & Bookmark Tray",
+      "status": "COMPLETED",
+      "summary": "Collapsible 180-question palette drawer with 56.9µs state calculation"
+    },
+    {
+      "id": "reel_019",
+      "url": "https://www.instagram.com/p/DeRiLg-iah2/",
+      "package_name": "fluid_typography",
+      "upstream": "tailwind-clamp/typography",
+      "title": "Dynamic Viewport Fluid Math & Reading Typography System",
+      "status": "COMPLETED",
+      "summary": "CSS clamp() mathematical typography rules calculated in 82µs and applied to cbt_shared.css"
+    },
+    {
+      "id": "reel_020",
+      "url": "https://www.instagram.com/p/DfRBJe5R0jV/",
+      "package_name": "perceptual_contrast_guard",
+      "upstream": "apca-w3/contrast-check",
+      "title": "APCA Perceptual Contrast Validator for High-Stakes Exams",
+      "status": "COMPLETED",
+      "summary": "APCA contrast linter in 34.1µs validating optimal dark-mode text readability"
+    },
+    {
+      "id": "reel_021",
+      "url": "https://www.instagram.com/p/DfPfsMENJyB/",
+      "package_name": "exam_session_replay",
+      "upstream": "rrweb/exam-replay",
+      "title": "Millisecond-Accurate Exam Session Action Playback & Scrubbing",
+      "status": "COMPLETED",
+      "summary": "Lightweight action recorder and interactive scrubber player for student deliberative review"
+    },
+    {
+      "id": "reel_022",
+      "url": "https://www.instagram.com/p/DfNSFM9S38J/",
+      "package_name": "student_heatmap",
+      "upstream": "heatmap-js/exam-clickmap",
+      "title": "Time-Spent-Per-Question Cognitive Load Heatmap",
+      "status": "COMPLETED",
+      "summary": "Visual time allocation matrix categorizing questions into Rushed, Optimal, Slow, and Stuck"
+    },
+    {
+      "id": "reel_023",
+      "url": "https://www.instagram.com/p/DfIijXSzzaO/",
+      "package_name": "guess_detector",
+      "upstream": "irt/fluke-detector",
+      "title": "Blind Guess & Statistical Fluke Detection Engine",
+      "status": "COMPLETED",
+      "summary": "Statistical fluke analyzer in 3.47µs distinguishing true mastery from blind rapid guesses"
+    },
+    {
+      "id": "reel_024",
+      "url": "https://www.instagram.com/p/DfW6r1fCMd-/",
+      "package_name": "network_telemetry",
+      "upstream": "local-telemetry/p2p",
+      "title": "Zero-Network Offline Heartbeat & Sync Diagnostics Console",
+      "status": "COMPLETED",
+      "summary": "Retro terminal telemetry HUD toggled via Ctrl+Shift+D with background Web Worker sampling"
+    },
+    {
+      "id": "reel_025",
+      "url": "https://www.instagram.com/p/DfVQs4PDJHY/",
+      "package_name": "accuracy_matrix",
+      "upstream": "stats/matrix-breakdown",
+      "title": "Subject-Wise Topic Breakdown & Rank Predictor Matrix",
+      "status": "COMPLETED",
+      "summary": "NTA historical percentile interpolator in 51.6µs with Canvas mastery radar chart"
+    },
+    {
+      "id": "reel_026",
+      "url": "https://www.instagram.com/p/DfLnPkKtrkz/",
+      "package_name": "export_pdf_scorecard",
+      "upstream": "jspdf/report-card",
+      "title": "Hallmark-Styled Printable Student Performance Scorecard",
+      "status": "COMPLETED",
+      "summary": "A4 print-ready official report card generator with candidate statistics and subject tables"
+    },
+    {
+      "id": "reel_027",
+      "url": "https://www.instagram.com/p/DfWwN89hmY1/",
+      "package_name": "auto_repair_dom",
+      "upstream": "agent-dom/self-healing",
+      "title": "Self-Healing DOM Selector & Missing Attribute Guardrail",
+      "status": "COMPLETED",
+      "summary": "Defensive MutationObserver runtime protector preventing unhandled exceptions and DOM freezes"
+    },
+    {
+      "id": "reel_028",
+      "url": "https://www.instagram.com/p/DfUPqjrt-H_/",
+      "package_name": "state_validator",
+      "upstream": "zod-lite/state-guard",
+      "title": "Runtime Client-Side State Mutation & Corruption Interceptor",
+      "status": "COMPLETED",
+      "summary": "ES6 Proxy state invariant validator intercepting illegal out-of-bounds CBT mutations"
+    },
+    {
+      "id": "reel_029",
+      "url": "https://www.instagram.com/p/DfToUOPIba0/",
+      "package_name": "deadlock_resolver",
+      "upstream": "sqlite/deadlock-preventer",
+      "title": "Concurrent SQLite Multi-Process Transaction Arbiter",
+      "status": "COMPLETED",
+      "summary": "WAL-mode connection pool with busy-timeout handlers and backoff retries"
+    },
+    {
+      "id": "reel_030",
+      "url": "https://www.instagram.com/p/DfY3CZ_BkXd/",
+      "package_name": "agentapi_rpc",
+      "upstream": "agentapi/rpc-mesh",
+      "title": "Sub-5ms Non-Blocking Inter-Conversation RPC Dispatcher",
+      "status": "COMPLETED",
+      "summary": "Non-blocking Popen agentapi client enabling sub-5ms inter-conversation prompt handoffs"
+    },
+    {
+      "id": "reel_031",
+      "url": "https://www.instagram.com/p/DfUe1XXx6Jw/",
+      "package_name": "sloplint_ci",
+      "upstream": "sloplint/github-action",
+      "title": "Automated GitHub Actions SlopLinter 100/100 Quality Gate",
+      "status": "COMPLETED",
+      "summary": "Continuous Integration GitHub Action workflow running SlopLinter 100/100 visual certification"
+    },
+    {
+      "id": "reel_032",
+      "url": "https://www.instagram.com/p/DfZyG8ZyJwv/",
+      "package_name": "patch_audit",
+      "upstream": "git-diff/ast-validator",
+      "title": "AST-Aware Git Commit Diff Inspector for Hallucinated Files",
+      "status": "COMPLETED",
+      "summary": "Staged diff inspector protecting cbt_master_bank.js and database files from accidental deletion"
+    },
+    {
+      "id": "reel_033",
+      "url": "https://www.instagram.com/p/DfWuPg8p5Ho/",
+      "package_name": "mesh_switchboard",
+      "upstream": "clockee/mesh-switchboard",
+      "title": "Centralized IPC Message Routing & Handoff Priority Queue",
+      "status": "COMPLETED",
+      "summary": "Master mesh switchboard in .pipeline/mesh_orchestrator.py routing tasks across 10 conversations"
+    },
+    {
+      "id": "reel_034",
+      "url": "https://www.instagram.com/p/DfcssAvBG7L/",
+      "package_name": "dynamic_script_bus",
+      "upstream": "cors-free/script-bus",
+      "title": "CORS-Immune Local-First Dynamic JavaScript Bus",
+      "status": "COMPLETED",
+      "summary": "Dynamic script tag injection bus bypassing browser CORS on local file:/// URLs completely"
+    },
+    {
+      "id": "reel_035",
+      "url": "https://www.instagram.com/p/Dfgr-20D5Hw/",
+      "package_name": "cockpit_hud_overlay",
+      "upstream": "clockee/cockpit-hud",
+      "title": "Integrated Floating Cockpit HUD Overlay for ClockEE",
+      "status": "COMPLETED",
+      "summary": "Non-intrusive floating status pill providing persistent sync and telemetry feedback"
+    },
+    {
+      "id": "reel_036",
+      "url": "https://www.instagram.com/p/DfaTZHlh-k0/",
+      "package_name": "syllabus_dag_tracker",
+      "upstream": "syllabus/curriculum-dag",
+      "title": "Directed Acyclic Graph (DAG) Syllabus Tracker for JEE/NEET",
+      "status": "COMPLETED",
+      "summary": "Hierarchical prerequisite knowledge DAG unlocking topics based on demonstrated mastery"
+    },
+    {
+      "id": "reel_037",
+      "url": "https://www.instagram.com/p/Dfj368ttF83/",
+      "package_name": "mock_test_compiler",
+      "upstream": "cbt/mock-test-compiler",
+      "title": "Deterministic NTA-Compliant Mock Test Paper Assembler",
+      "status": "COMPLETED",
+      "summary": "Algorithmic NTA-balanced test compiler assembling 90-question authentic full mock papers"
+    },
+    {
+      "id": "reel_038",
+      "url": "https://www.instagram.com/p/DdshHpFpqdi/",
+      "package_name": "topper_mentor_council",
+      "upstream": "mentor/persona-engine",
+      "title": "Interactive AI Study Persona & Exam Strategy Advisor",
+      "status": "COMPLETED",
+      "summary": "Data-driven exam advice generator analyzing negative penalties, stuck time, and pacing rules"
+    },
+    {
+      "id": "reel_039",
+      "url": "https://www.instagram.com/p/De9ncU9vZgH/",
+      "package_name": "clockee_bundle_exporter",
+      "upstream": "esbuild/clockee-single-file",
+      "title": "Standalone Zero-Dependency Offline Single-File HTML Exporter",
+      "status": "COMPLETED",
+      "summary": "Compiles ClockEE into a standalone air-gapped single distribution file (dist/clockee_standalone.html)"
+    }
+  ],
+  "active_reel": null,
+  "pending_reels": []
+}

@@ -1,0 +1,91 @@
+{
+  "timestamp": "2026-11-16T13:42:24.262453",
+  "task_id": "TASK-05",
+  "plan_id": "plan_20261116_115300",
+  "results": {
+    "pass_1a_vercel_public_edge": {
+      "Landing Root": {
+        "url": "https://clockee.vercel.app",
+        "status": "FAIL",
+        "error": "HTTP Error 402: Payment Required",
+        "ok": false
+      },
+      "Remote Tracker": {
+        "url": "https://clockee.vercel.app/tracker.html",
+        "status": "FAIL",
+        "error": "HTTP Error 402: Payment Required",
+        "ok": false
+      },
+      "CBT Exam": {
+        "url": "https://clockee.vercel.app/cbt_exam.html",
+        "status": "FAIL",
+        "error": "HTTP Error 402: Payment Required",
+        "ok": false
+      },
+      "Login Portal": {
+        "url": "https://clockee.vercel.app/login.html",
+        "status": "FAIL",
+        "error": "HTTP Error 402: Payment Required",
+        "ok": false
+      },
+      "API Health": {
+        "url": "https://clockee.vercel.app/api/health",
+        "status": "FAIL",
+        "error": "HTTP Error 402: Payment Required",
+        "ok": false
+      },
+      "API Tracker": {
+        "url": "https://clockee.vercel.app/api/tracker",
+        "status": "FAIL",
+        "error": "HTTP Error 402: Payment Required",
+        "ok": false
+      }
+    },
+    "pass_1b_supabase_api_gateway": {
+      "health": {
+        "status": 200,
+        "data": {
+          "status": "online",
+          "app": "ClockEE Master Tactical OS",
+          "runtime": "Vercel Serverless Python",
+          "database": "Supabase Cloud PostgreSQL",
+          "supabase_url": "https://qvrfakbhnsmknukaqmja.supabase.co",
+          "connected": true,
+          "details": {
+            "tables_reachable": true
+          },
+          "timestamp": "2026-11-16T13:42:23.010417"
+        }
+      },
+      "tracker": {
+        "status": 200,
+        "connected": false
+      },
+      "cbt_submit": {
+        "status": 200,
+        "data": {
+          "success": true,
+          "user_id": "ab8ac06a-2f39-4c0b-aad8-5b97d061ca7b",
+          "test_id": "sim_mock_1794816743",
+          "score": 16,
+          "accuracy": 80.0,
+          "created_at": "2026-11-16T13:42:23.496650"
+        }
+      },
+      "auth_verify": {
+        "status": 401,
+        "data": {
+          "detail": "Invalid or expired authentication token"
+        }
+      }
+    },
+    "pass_2_offline_sync": {
+      "batch_sync_status": 200,
+      "logs_synced": 2,
+      "exams_synced": 1,
+      "hydration_status": 200,
+      "history_count": 0
+    },
+    "multi_viewport_overflows": 0
+  }
+}

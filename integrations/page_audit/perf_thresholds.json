@@ -1,0 +1,18 @@
+{
+  "thresholds": {
+    "INP_max_ms": 100.0,
+    "CLS_max": 0.05,
+    "LCP_max_ms": 1200.0,
+    "FID_max_ms": 50.0,
+    "max_dom_nodes": 1800,
+    "mandatory_font_display": "swap",
+    "require_async_defer_scripts": true
+  },
+  "targets": [
+    "index.html",
+    "login.html",
+    "tracker.html",
+    "cbt_exam.html",
+    "cbt_analysis.html"
+  ]
+}

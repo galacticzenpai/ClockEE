@@ -1,0 +1,30 @@
+{
+  "version": "1.0.0",
+  "timestamp": "2026-11-16 11:27:15",
+  "generator": "Dray Cross-Model Bridge (drayhq.com)",
+  "task": {
+    "name": "CBT Webhook & Timer Resiliency",
+    "current_step": 2,
+    "total_steps": 4,
+    "progress_percent": 50.0,
+    "completed": [
+      "Configured webhook listener in server.py",
+      "Added retry logic for timer sync"
+    ],
+    "remaining": [
+      "Wire frontend storage event listener in cbt_exam.html",
+      "Run regression simulation"
+    ]
+  },
+  "boundaries": {
+    "protected_files_do_not_touch": [
+      "cbt_master_bank.js",
+      "backend/db.py",
+      "payment_routes.py"
+    ],
+    "active_modified_files": [
+      "cbt_exam.html",
+      "clockee_core.js"
+    ]
+  }
+}

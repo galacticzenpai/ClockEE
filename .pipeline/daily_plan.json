@@ -1,0 +1,31 @@
+{
+  "plan_id": "plan_20261116_200000",
+  "title": "ClockEE Grand Clean-Slate Reset & 100% Knowledge Preservation Directive",
+  "timestamp": "2026-11-16T20:00:00+05:30",
+  "status": "DISPATCHED_TO_BACKBONE",
+  "action": "CLEAN_SLATE_RESTART_WITH_KNOWLEDGE_PRESERVED",
+  "new_nodes": [
+    {
+      "name": "deploy",
+      "role": "Production Deployment & Vercel Edge Release Commander",
+      "target_domain": "https://clockee.vercel.app"
+    }
+  ],
+  "manifesto_file": "C:/Users/Kunal/.gemini/antigravity/brain/b411e7a0-c268-4614-b3d5-f2b2836f4500/clockee_grand_reset_and_knowledge_preservation_manifesto.md",
+  "preservation_rules": [
+    "Retain all 39 reel learnings, tools, and upstream integrations.",
+    "Retain Apple Human Interface Guidelines + Mathongo (Marks App) design language.",
+    "Retain APCA contrast, 100ms Doherty threshold, and 44pt touch hitbox standards.",
+    "Retain Supabase schema, CRDT sync knowledge, and IRT 3PL mathematical models.",
+    "Retain CBT Exam Mode authentic layout specifications (cbt_exam.html) as sacred.",
+    "Archive legacy code before clean slate build."
+  ],
+  "tasks": [
+    {
+      "id": "RESET-BROADCAST",
+      "target": "backbone",
+      "priority": "P0",
+      "task": "Broadcast the Grand Reset & Knowledge Preservation Directive to all 10 worker conversations. Register DEPLOY node in queue.json. Set mesh into Clean-Slate Architecture mode."
+    }
+  ]
+}

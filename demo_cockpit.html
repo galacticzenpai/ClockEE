@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <title>ClockEE - Apple HIG &amp; Mathongo Prototype Cockpit</title>
+
+  <!-- KaTeX for High-APCA Crisp Mathematical Typography -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+
+  <!-- Apple HIG + Mathongo Precision Stylesheet -->
+  <link rel="stylesheet" href="css/apple_mathongo_theme.css" />
+
+  <!-- Apple Viewport Insets Support -->
+  <style>
+    @supports (padding: max(0px)) {
+      body {
+        padding-top: max(0px, env(safe-area-inset-top));
+        padding-bottom: max(0px, env(safe-area-inset-bottom));
+        padding-left: max(0px, env(safe-area-inset-left));
+        padding-right: max(0px, env(safe-area-inset-right));
+      }
+    }
+  </style>
+  <!-- Master Apple HIG & Apple Intelligence Design System -->
+  <link rel="stylesheet" href="css/apple_design_system.css" />
+</head>
+<body>
+
+  <!-- ─── 1. Translucent Floating Navigation Shell ─── -->
+  <header class="demo-header-wrapper">
+    <nav class="demo-top-pill" aria-label="Cockpit Navigation">
+      <!-- Brand & Version -->
+      <a href="index.html" class="demo-brand" title="Return to Main Cockpit">
+        <div class="demo-brand-logo">⏱</div>
+        <div>
+          <span class="demo-brand-name">ClockEE</span>
+          <span class="demo-brand-badge">Apple HIG</span>
+        </div>
+      </a>
+
+      <!-- Subject & Chapter Context Indicator -->
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <span class="demo-pill-badge subject-pill" id="demo-subject-pill">Physics</span>
+        <span class="demo-pill-badge" id="demo-chapter-text" style="max-width: 260px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Rotational Motion</span>
+      </div>
+
+      <!-- Live Stopwatch Telemetry & Legacy Split Button -->
+      <div class="demo-header-telemetry">
+        <div class="demo-live-stopwatch" title="Question Elapsed Timer">
+          <span class="dot-pulse"></span>
+          <span id="demo-student-time">0:00</span>
+        </div>
+        <button type="button" class="demo-btn demo-btn-secondary" id="demo-split-toggle" style="min-height: 44px; padding: 8px 14px; font-size: 12px;">
+          <span id="demo-split-label">Compare with Legacy Design</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ─── 2. Main Question Canvas & Mathongo Pacing Layout ─── -->
+  <main class="demo-app-container">
+
+    <!-- Mathongo Topper Pacing Benchmark Banner -->
+    <section class="demo-pacing-banner" aria-label="Pacing Telemetry">
+      <div class="demo-pacing-stat">
+        <span>Elapsed:</span>
+        <strong id="demo-student-time-duplicate" style="display:none;">0:00</strong>
+        <span>Topper Avg:</span>
+        <strong id="demo-topper-time">2:00</strong>
+      </div>
+
+      <div class="demo-pacing-gauge-track" title="Pacing Gauge vs Topper Average">
+        <div class="demo-pacing-gauge-fill" id="demo-pacing-bar"></div>
+      </div>
+
+      <div class="demo-pacing-badge">
+        <span id="demo-pacing-badge" class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+          🚀 Fast &amp; Accurate Pace
+        </span>
+      </div>
+    </section>
+
+    <!-- Question Statement Hero Card -->
+    <article class="demo-question-canvas" id="demo-question-card">
+      <!-- Question Meta Header -->
+      <header class="demo-question-header">
+        <div class="demo-q-meta">
+          <span class="demo-pill-badge" id="demo-question-counter">Question 1 of 5</span>
+          <span class="demo-pill-badge" id="demo-difficulty-badge">Advanced</span>
+          <span class="demo-pill-badge">Single Choice</span>
+        </div>
+        <div class="demo-q-marking">+4 / -1 Marks</div>
+      </header>
+
+      <!-- Question Text Statement -->
+      <div id="demo-question-body">
+        <p>Loading authentic JEE question statement with mathematical typesetting...</p>
+      </div>
+
+      <!-- Tactile MCQ Options Grid -->
+      <div id="demo-options-container" role="radiogroup" aria-label="Question Options">
+        <!-- Option Tiles rendered dynamically by js/demo_app_shell.js -->
+      </div>
+
+      <!-- Mathongo Micro-Taxonomy Error Audit -->
+      <div id="demo-mistake-taxonomy">
+        <!-- Rendered dynamically by js/demo_app_shell.js -->
+      </div>
+    </article>
+
+    <!-- Palette Question Navigator -->
+    <section class="demo-palette-card" aria-label="Question Navigation Palette">
+      <div class="demo-palette-header">
+        <span>Interactive Question Navigator (5 Authentic Samples)</span>
+        <span style="font-size: 11px; text-transform: none; color: var(--apple-text-muted);">Click question to jump</span>
+      </div>
+      <div id="demo-palette-grid">
+        <!-- Rendered dynamically by js/demo_app_shell.js -->
+      </div>
+    </section>
+
+    <!-- Legacy Split Comparison Container (Toggled via button) -->
+    <section id="demo-legacy-split-frame" style="display: none;" aria-label="Legacy ClockEE Cockpit Comparison">
+      <div class="demo-split-header">
+        <div>
+          <span>Legacy ClockEE Cockpit (Heavy Neon Glow &amp; Multi-Zone Layout)</span>
+          <span class="demo-pill-badge" style="margin-left: 8px;">Legacy Baseline</span>
+        </div>
+        <span style="font-size: 11px; color: var(--apple-text-muted);">Loaded from cbt_exam.html</span>
+      </div>
+      <iframe src="cbt_exam.html" class="demo-split-iframe" title="Legacy CBT Exam View"></iframe>
+    </section>
+
+  </main>
+
+  <!-- ─── 3. Floating Bottom Control Dock ─── -->
+  <div class="demo-bottom-dock-wrapper">
+    <footer class="demo-bottom-dock" aria-label="Exam Action Controls">
+      <div class="demo-dock-group">
+        <button type="button" class="demo-btn demo-btn-secondary" id="demo-prev-btn">
+          ← Previous
+        </button>
+      </div>
+
+      <div class="demo-dock-group">
+        <a href="cbt_home.html" class="demo-btn demo-btn-secondary" style="font-size: 12px;">
+          Full CBT Portal
+        </a>
+        <button type="button" class="demo-btn demo-btn-primary" id="demo-next-btn">
+          Next Question →
+        </button>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Primary Application Script -->
+  <script src="js/demo_app_shell.js"></script>
+
+</body>
+</html>

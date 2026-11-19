@@ -1,9 +1,20 @@
 {
-  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "version": 2,
+  "name": "jee-mesh-tracker",
   "cleanUrls": true,
   "rewrites": [
     { "source": "/", "destination": "/live_tracker.html" },
+    { "source": "/tracker", "destination": "/live_tracker.html" },
     { "source": "/cockpit", "destination": "/live_tracker.html" },
-    { "source": "/tracker", "destination": "/tracker.html" }
+    { "source": "/syllabus", "destination": "/tracker.html" },
+    { "source": "/api/tracker", "destination": "/mesh/mesh_tracker_state.json" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" }
+      ]
+    }
   ]
 }

@@ -66,5 +66,27 @@
     "timestamp": "2026-11-16T20:00:00+05:30",
     "mandate": "Wipe technical debt; 100% preservation of all 39 reels, research, and design tokens.",
     "nodes_active": 11
-  }
+  },
+  "tasks": [
+    {
+      "id": "TASK-IPC-234894",
+      "source_node": "github",
+      "target_node": "feature_builder",
+      "target_id": "c3adf94a-9cfa-4a23-b055-c8df8757b041",
+      "title": "Verify CBT state restoration hook",
+      "priority": 1,
+      "status": "QUEUED",
+      "enqueued_at": 1795117234.8943415
+    },
+    {
+      "id": "TASK-IPC-362590",
+      "source_node": "github",
+      "target_node": "feature_builder",
+      "target_id": "c3adf94a-9cfa-4a23-b055-c8df8757b041",
+      "title": "Verify CBT state restoration hook",
+      "priority": 1,
+      "status": "QUEUED",
+      "enqueued_at": 1795118362.5904922
+    }
+  ]
 }

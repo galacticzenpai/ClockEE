@@ -20,8 +20,8 @@ class ExamSessionRecorder {
   }
 
   stop() {
-    this.recording = false;
     this.recordEvent('SESSION_END', { timestamp: Date.now() });
+    this.recording = false;
     return this.exportEvents();
   }
 

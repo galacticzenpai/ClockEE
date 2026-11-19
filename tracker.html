@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JEE 2026 // Mastery Matrix & Syllabus Command Tracker</title>
+  <link rel="stylesheet" href="styles/tokens.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --surface-0: #090d16;
+      --surface-1: #111726;
+      --surface-2: #1a2236;
+      --surface-inset: #060910;
+      --border-subtle: 1px solid rgba(255, 255, 255, 0.07);
+      --border-strong: 1px solid rgba(255, 255, 255, 0.16);
+      --border-focus: 2px solid #38bdf8;
+    }
+    body {
+      background-color: var(--surface-0);
+      color: #f1f5f9;
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    .tabular { font-variant-numeric: tabular-nums; }
+    .panel {
+      background-color: var(--surface-1);
+      border: var(--border-subtle);
+    }
+    .panel:hover {
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+    .panel-inset {
+      background-color: var(--surface-inset);
+      border: var(--border-subtle);
+    }
+    .subtle-shadow {
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+    }
+    input:focus, button:focus {
+      outline: 2px solid #38bdf8;
+      outline-offset: 2px;
+    }
+    /* Custom compact scrollbar */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: var(--surface-0); }
+    ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #334155; }
+  </style>
+</head>
+<body class="p-4 md:p-8">
+
+  <!-- Top Instrument Header -->
+  <header class="max-w-7xl mx-auto mb-8 border-b border-slate-800 pb-6">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div>
+        <div class="flex items-center gap-2.5">
+          <span class="inline-block w-2.5 h-2.5 rounded-sm bg-sky-400"></span>
+          <span class="text-xs font-bold tracking-widest text-sky-400 uppercase mono">JEE 2026 // FLIGHT COCKPIT</span>
+        </div>
+        <h1 class="text-2xl md:text-3xl font-extrabold text-white tracking-tight mt-1">Syllabus & Mastery Matrix</h1>
+        <p class="text-sm text-slate-400 mt-1">75-Chapter PCM Precision Tracker with 3-Tier Verification (Theory, Examples, PYQs)</p>
+      </div>
+
+      <!-- Quick Action Toolbar -->
+      <div class="flex items-center gap-3">
+        <button onclick="exportData()" class="px-3.5 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 border border-slate-700 transition flex items-center gap-2">
+          <span>Export Backup</span>
+        </button>
+        <label class="px-3.5 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 border border-slate-700 cursor-pointer transition flex items-center gap-2">
+          <span>Import</span>
+          <input type="file" id="importFile" onchange="importData(event)" class="hidden" accept=".json">
+        </label>
+        <button onclick="resetData()" class="px-3 py-2 rounded-lg bg-rose-950/40 hover:bg-rose-900/60 text-xs font-semibold text-rose-300 border border-rose-800/40 transition">
+          Reset
+        </button>
+      </div>
+    </div>
+
+    <!-- High-Impact Summary Bar (Tabular Digits, 0 CLS) -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mt-6">
+      <div class="panel p-4 rounded-xl">
+        <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wider mono">Overall Mastery</div>
+        <div class="text-2xl font-black text-white mt-1 tabular" id="overallPercent">0.0%</div>
+        <div class="w-full bg-slate-900 h-1.5 rounded-full mt-2 overflow-hidden border border-slate-800">
+          <div id="overallBar" class="bg-sky-400 h-full rounded-full transition-all duration-300" style="width: 0%"></div>
+        </div>
+      </div>
+
+      <div class="panel p-4 rounded-xl">
+        <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wider mono">Theory Completed</div>
+        <div class="text-2xl font-black text-slate-200 mt-1 tabular" id="theoryCount">0 / 75</div>
+        <div class="text-[11px] text-slate-500 mt-1">Concepts & Notes</div>
+      </div>
+
+      <div class="panel p-4 rounded-xl">
+        <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wider mono">Solved Drills</div>
+        <div class="text-2xl font-black text-slate-200 mt-1 tabular" id="practiceCount">0 / 75</div>
+        <div class="text-[11px] text-slate-500 mt-1">Core Illustrations</div>
+      </div>
+
+      <div class="panel p-4 rounded-xl">
+        <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wider mono">PYQ Archives</div>
+        <div class="text-2xl font-black text-emerald-400 mt-1 tabular" id="pyqCount">0 / 75</div>
+        <div class="text-[11px] text-slate-500 mt-1">Past 5 Years Solved</div>
+      </div>
+
+      <div class="panel p-4 rounded-xl">
+        <div class="text-[11px] font-bold text-amber-400 uppercase tracking-wider mono">High Weightage</div>
+        <div class="text-2xl font-black text-amber-300 mt-1 tabular" id="highWeightagePercent">0.0%</div>
+        <div class="text-[11px] text-slate-500 mt-1">24 Prime JEE Topics</div>
+      </div>
+
+      <div class="panel p-4 rounded-xl">
+        <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wider mono">Total Revisions</div>
+        <div class="text-2xl font-black text-purple-400 mt-1 tabular" id="totalRevisions">0</div>
+        <div class="text-[11px] text-slate-500 mt-1">Active Recall Cycles</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Filter & Search Console -->
+  <main class="max-w-7xl mx-auto space-y-6">
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 panel p-4 rounded-xl">
+      
+      <!-- Subject Tabs -->
+      <div class="flex items-center gap-1.5 overflow-x-auto pb-1 md:pb-0">
+        <button onclick="setSubject('all')" id="tab-all" class="subject-tab px-3.5 py-1.5 rounded-lg text-xs font-bold transition bg-sky-500/20 text-sky-400 border border-sky-500/30">
+          All (75)
+        </button>
+        <button onclick="setSubject('physics')" id="tab-physics" class="subject-tab px-3.5 py-1.5 rounded-lg text-xs font-bold text-slate-400 hover:text-white border border-transparent transition">
+          Physics (25)
+        </button>
+        <button onclick="setSubject('chemistry')" id="tab-chemistry" class="subject-tab px-3.5 py-1.5 rounded-lg text-xs font-bold text-slate-400 hover:text-white border border-transparent transition">
+          Chemistry (25)
+        </button>
+        <button onclick="setSubject('math')" id="tab-math" class="subject-tab px-3.5 py-1.5 rounded-lg text-xs font-bold text-slate-400 hover:text-white border border-transparent transition">
+          Mathematics (25)
+        </button>
+        <button onclick="toggleHighWeightageOnly()" id="tab-high" class="px-3.5 py-1.5 rounded-lg text-xs font-bold text-amber-400/80 hover:text-amber-300 border border-amber-500/20 transition">
+          High Weightage Only
+        </button>
+      </div>
+
+      <!-- Search Input with Keyboard Shortcut Signifier -->
+      <div class="relative w-full md:w-72">
+        <input 
+          type="text" 
+          id="searchInput" 
+          oninput="renderChapters()" 
+          placeholder="Filter chapters by title or topic..." 
+          class="w-full bg-slate-900 border border-slate-700/80 rounded-lg px-3.5 py-2 text-xs text-slate-200 placeholder-slate-500 focus:border-sky-400 transition"
+        >
+        <div class="absolute right-2.5 top-2 text-[10px] mono text-slate-500 bg-slate-800 px-1.5 py-0.5 rounded border border-slate-700 pointer-events-none">
+          /
+        </div>
+      </div>
+    </div>
+
+    <!-- Active Chapters Table / Matrix View -->
+    <div class="panel rounded-2xl overflow-hidden border border-slate-800 subtle-shadow">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="border-b border-slate-800 bg-slate-950/40 text-[11px] font-bold text-slate-400 uppercase tracking-wider mono">
+              <th class="py-3.5 px-4 w-12 text-center">#</th>
+              <th class="py-3.5 px-4">Chapter Title & Subject</th>
+              <th class="py-3.5 px-3 w-28 text-center">Weightage</th>
+              <th class="py-3.5 px-3 w-28 text-center">Theory</th>
+              <th class="py-3.5 px-3 w-28 text-center">Drills</th>
+              <th class="py-3.5 px-3 w-28 text-center">PYQs</th>
+              <th class="py-3.5 px-3 w-32 text-center">Revisions</th>
+              <th class="py-3.5 px-4 w-28 text-right">Status</th>
+            </tr>
+          </thead>
+          <tbody id="chapterTableBody" class="divide-y divide-slate-800/60 text-sm">
+            <!-- Dynamically Populated -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Authentic 75-Chapter JEE PCM Dataset
+    const CHAPTER_DATA = [
+      // Physics (25)
+      { id: 1, subject: 'physics', title: 'Units & Measurements', weightage: 'Medium', class: 11 },
+      { id: 2, subject: 'physics', title: 'Kinematics in 1D & 2D', weightage: 'Medium', class: 11 },
+      { id: 3, subject: 'physics', title: 'Laws of Motion & Friction', weightage: 'High', class: 11 },
+      { id: 4, subject: 'physics', title: 'Work, Energy & Power', weightage: 'High', class: 11 },
+      { id: 5, subject: 'physics', title: 'Center of Mass & System of Particles', weightage: 'Medium', class: 11 },
+      { id: 6, subject: 'physics', title: 'Rotational Dynamics', weightage: 'High', class: 11 },
+      { id: 7, subject: 'physics', title: 'Gravitation', weightage: 'High', class: 11 },
+      { id: 8, subject: 'physics', title: 'Mechanical Properties of Solids & Fluids', weightage: 'Medium', class: 11 },
+      { id: 9, subject: 'physics', title: 'Thermal Properties & Thermodynamics', weightage: 'High', class: 11 },
+      { id: 10, subject: 'physics', title: 'Kinetic Theory of Gases', weightage: 'Medium', class: 11 },
+      { id: 11, subject: 'physics', title: 'Oscillations (SHM)', weightage: 'High', class: 11 },
+      { id: 12, subject: 'physics', title: 'Wave Motion & Acoustics', weightage: 'Medium', class: 11 },
+      { id: 13, subject: 'physics', title: 'Electrostatics & Electric Potential', weightage: 'High', class: 12 },
+      { id: 14, subject: 'physics', title: 'Capacitance & Dielectrics', weightage: 'Medium', class: 12 },
+      { id: 15, subject: 'physics', title: 'Current Electricity', weightage: 'High', class: 12 },
+      { id: 16, subject: 'physics', title: 'Magnetic Effects of Current', weightage: 'High', class: 12 },
+      { id: 17, subject: 'physics', title: 'Magnetism & Matter', weightage: 'Low', class: 12 },
+      { id: 18, subject: 'physics', title: 'Electromagnetic Induction', weightage: 'High', class: 12 },
+      { id: 19, subject: 'physics', title: 'Alternating Current', weightage: 'Medium', class: 12 },
+      { id: 20, subject: 'physics', title: 'Electromagnetic Waves', weightage: 'Medium', class: 12 },
+      { id: 21, subject: 'physics', title: 'Ray Optics & Optical Instruments', weightage: 'High', class: 12 },
+      { id: 22, subject: 'physics', title: 'Wave Optics', weightage: 'Medium', class: 12 },
+      { id: 23, subject: 'physics', title: 'Dual Nature of Radiation & Matter', weightage: 'High', class: 12 },
+      { id: 24, subject: 'physics', title: 'Atoms & Nuclei', weightage: 'High', class: 12 },
+      { id: 25, subject: 'physics', title: 'Semiconductor Electronics', weightage: 'High', class: 12 },
+
+      // Chemistry (25)
+      { id: 26, subject: 'chemistry', title: 'Mole Concept & Stoichiometry', weightage: 'Medium', class: 11 },
+      { id: 27, subject: 'chemistry', title: 'Atomic Structure', weightage: 'High', class: 11 },
+      { id: 28, subject: 'chemistry', title: 'Chemical Bonding & Molecular Structure', weightage: 'High', class: 11 },
+      { id: 29, subject: 'chemistry', title: 'Chemical Thermodynamics', weightage: 'High', class: 11 },
+      { id: 30, subject: 'chemistry', title: 'Chemical & Ionic Equilibrium', weightage: 'High', class: 11 },
+      { id: 31, subject: 'chemistry', title: 'Redox Reactions & Electrochemistry', weightage: 'High', class: 11 },
+      { id: 32, subject: 'chemistry', title: 'Periodic Properties & Classification', weightage: 'High', class: 11 },
+      { id: 33, subject: 'chemistry', title: 'General Organic Chemistry (GOC)', weightage: 'High', class: 11 },
+      { id: 34, subject: 'chemistry', title: 'Hydrocarbons (Alkanes, Alkenes, Alkynes)', weightage: 'High', class: 11 },
+      { id: 35, subject: 'chemistry', title: 'Solutions & Colligative Properties', weightage: 'High', class: 12 },
+      { id: 36, subject: 'chemistry', title: 'Chemical Kinetics', weightage: 'High', class: 12 },
+      { id: 37, subject: 'chemistry', title: 'Surface Chemistry', weightage: 'Low', class: 12 },
+      { id: 38, subject: 'chemistry', title: 'd and f-Block Elements', weightage: 'High', class: 12 },
+      { id: 39, subject: 'chemistry', title: 'Coordination Compounds', weightage: 'High', class: 12 },
+      { id: 40, subject: 'chemistry', title: 'p-Block Elements (Grp 13-18)', weightage: 'Medium', class: 12 },
+      { id: 41, subject: 'chemistry', title: 'Haloalkanes & Haloarenes', weightage: 'Medium', class: 12 },
+      { id: 42, subject: 'chemistry', title: 'Alcohols, Phenols & Ethers', weightage: 'High', class: 12 },
+      { id: 43, subject: 'chemistry', title: 'Aldehydes, Ketones & Carboxylic Acids', weightage: 'High', class: 12 },
+      { id: 44, subject: 'chemistry', title: 'Amines & Diazonium Salts', weightage: 'High', class: 12 },
+      { id: 45, subject: 'chemistry', title: 'Biomolecules', weightage: 'High', class: 12 },
+      { id: 46, subject: 'chemistry', title: 'Polymers & Everyday Chemistry', weightage: 'Low', class: 12 },
+      { id: 47, subject: 'chemistry', title: 'Practical Chemistry & Salt Analysis', weightage: 'Medium', class: 12 },
+      { id: 48, subject: 'chemistry', title: 'Environmental Chemistry', weightage: 'Low', class: 11 },
+      { id: 49, subject: 'chemistry', title: 'Solid State (Select Principles)', weightage: 'Low', class: 12 },
+      { id: 50, subject: 'chemistry', title: 'Purification of Organic Compounds', weightage: 'Medium', class: 11 },
+
+      // Mathematics (25)
+      { id: 51, subject: 'math', title: 'Sets, Relations & Functions', weightage: 'High', class: 11 },
+      { id: 52, subject: 'math', title: 'Complex Numbers & Quadratic Equations', weightage: 'High', class: 11 },
+      { id: 53, subject: 'math', title: 'Matrices & Determinants', weightage: 'High', class: 12 },
+      { id: 54, subject: 'math', title: 'Permutations & Combinations', weightage: 'Medium', class: 11 },
+      { id: 55, subject: 'math', title: 'Binomial Theorem', weightage: 'High', class: 11 },
+      { id: 56, subject: 'math', title: 'Sequences & Series (AP, GP, HP)', weightage: 'High', class: 11 },
+      { id: 57, subject: 'math', title: 'Limits, Continuity & Differentiability', weightage: 'High', class: 12 },
+      { id: 58, subject: 'math', title: 'Application of Derivatives (AOD)', weightage: 'High', class: 12 },
+      { id: 59, subject: 'math', title: 'Indefinite Integration', weightage: 'Medium', class: 12 },
+      { id: 60, subject: 'math', title: 'Definite Integration & Area Under Curves', weightage: 'High', class: 12 },
+      { id: 61, subject: 'math', title: 'Differential Equations', weightage: 'High', class: 12 },
+      { id: 62, subject: 'math', title: 'Straight Lines & Pair of Lines', weightage: 'High', class: 11 },
+      { id: 63, subject: 'math', title: 'Circles', weightage: 'High', class: 11 },
+      { id: 64, subject: 'math', title: 'Parabola', weightage: 'Medium', class: 11 },
+      { id: 65, subject: 'math', title: 'Ellipse & Hyperbola', weightage: 'High', class: 11 },
+      { id: 66, subject: 'math', title: 'Vector Algebra', weightage: 'High', class: 12 },
+      { id: 67, subject: 'math', title: 'Three Dimensional Geometry (3D)', weightage: 'High', class: 12 },
+      { id: 68, subject: 'math', title: 'Probability', weightage: 'High', class: 12 },
+      { id: 69, subject: 'math', title: 'Statistics', weightage: 'High', class: 11 },
+      { id: 70, subject: 'math', title: 'Trigonometric Ratios & Equations', weightage: 'Medium', class: 11 },
+      { id: 71, subject: 'math', title: 'Inverse Trigonometric Functions', weightage: 'Medium', class: 12 },
+      { id: 72, subject: 'math', title: 'Mathematical Reasoning', weightage: 'Low', class: 11 },
+      { id: 73, subject: 'math', title: 'Linear Inequalities', weightage: 'Low', class: 11 },
+      { id: 74, subject: 'math', title: 'Properties of Triangles', weightage: 'Low', class: 11 },
+      { id: 75, subject: 'math', title: 'Heights & Distances', weightage: 'Low', class: 11 }
+    ];
+
+    let userProgress = {};
+    let activeSubject = 'all';
+    let highWeightageOnly = false;
+
+    function init() {
+      const stored = localStorage.getItem('jee_matrix_progress');
+      if (stored) {
+        try { userProgress = JSON.parse(stored); } catch(e) { userProgress = {}; }
+      }
+      renderChapters();
+      updateMetrics();
+
+      // Keyboard shortcut for search
+      window.addEventListener('keydown', (e) => {
+        if (e.key === '/' && document.activeElement.tagName !== 'INPUT') {
+          e.preventDefault();
+          document.getElementById('searchInput').focus();
+        }
+      });
+    }
+
+    function save() {
+      localStorage.setItem('jee_matrix_progress', JSON.stringify(userProgress));
+      updateMetrics();
+    }
+
+    function toggleCheck(chapterId, key) {
+      if (!userProgress[chapterId]) {
+        userProgress[chapterId] = { theory: false, practice: false, pyq: false, revisions: 0 };
+      }
+      userProgress[chapterId][key] = !userProgress[chapterId][key];
+      save();
+      renderChapters();
+    }
+
+    function adjustRevisions(chapterId, delta) {
+      if (!userProgress[chapterId]) {
+        userProgress[chapterId] = { theory: false, practice: false, pyq: false, revisions: 0 };
+      }
+      userProgress[chapterId].revisions = Math.max(0, (userProgress[chapterId].revisions || 0) + delta);
+      save();
+      renderChapters();
+    }
+
+    function setSubject(sub) {
+      activeSubject = sub;
+      document.querySelectorAll('.subject-tab').forEach(b => {
+        b.className = 'subject-tab px-3.5 py-1.5 rounded-lg text-xs font-bold text-slate-400 hover:text-white border border-transparent transition';
+      });
+      const activeBtn = document.getElementById(`tab-${sub}`);
+      if (activeBtn) {
+        activeBtn.className = 'subject-tab px-3.5 py-1.5 rounded-lg text-xs font-bold transition bg-sky-500/20 text-sky-400 border border-sky-500/30';
+      }
+      renderChapters();
+    }
+
+    function toggleHighWeightageOnly() {
+      highWeightageOnly = !highWeightageOnly;
+      const btn = document.getElementById('tab-high');
+      if (highWeightageOnly) {
+        btn.className = 'px-3.5 py-1.5 rounded-lg text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40 transition';
+      } else {
+        btn.className = 'px-3.5 py-1.5 rounded-lg text-xs font-bold text-amber-400/80 hover:text-amber-300 border border-amber-500/20 transition';
+      }
+      renderChapters();
+    }
+
+    function getWeightageBadge(w) {
+      if (w === 'High') return `<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-500/10 text-amber-400 border border-amber-500/20 mono">HIGH</span>`;
+      if (w === 'Medium') return `<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-sky-500/10 text-sky-400 border border-sky-500/20 mono">MED</span>`;
+      return `<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-800 text-slate-400 mono">LOW</span>`;
+    }
+
+    function getSubjectBadge(s) {
+      if (s === 'physics') return `<span class="text-[10px] font-bold text-cyan-400 uppercase tracking-wider mono">PHY</span>`;
+      if (s === 'chemistry') return `<span class="text-[10px] font-bold text-emerald-400 uppercase tracking-wider mono">CHEM</span>`;
+      return `<span class="text-[10px] font-bold text-purple-400 uppercase tracking-wider mono">MATH</span>`;
+    }
+
+    function renderChapters() {
+      const tbody = document.getElementById('chapterTableBody');
+      const query = (document.getElementById('searchInput').value || '').toLowerCase().trim();
+
+      const filtered = CHAPTER_DATA.filter(ch => {
+        if (activeSubject !== 'all' && ch.subject !== activeSubject) return false;
+        if (highWeightageOnly && ch.weightage !== 'High') return false;
+        if (query && !ch.title.toLowerCase().includes(query) && !ch.subject.toLowerCase().includes(query)) return false;
+        return true;
+      });
+
+      if (!filtered.length) {
+        tbody.innerHTML = `<tr><td colspan="8" class="text-center py-10 text-slate-500 text-xs">No chapters match your query.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = filtered.map(ch => {
+        const prog = userProgress[ch.id] || { theory: false, practice: false, pyq: false, revisions: 0 };
+        const score = (prog.theory ? 1 : 0) + (prog.practice ? 1 : 0) + (prog.pyq ? 1 : 0);
+        
+        let statusBadge = `<span class="text-[10px] font-semibold text-slate-500">Unstarted</span>`;
+        if (score === 3) {
+          statusBadge = `<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">MASTERED</span>`;
+        } else if (score > 0) {
+          statusBadge = `<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-sky-500/10 text-sky-400 border border-sky-500/20">IN PROGRESS</span>`;
+        }
+
+        return `
+          <tr class="hover:bg-slate-900/50 transition border-b border-slate-800/40">
+            <td class="py-3 px-4 text-center font-bold text-slate-500 text-xs tabular">${ch.id}</td>
+            <td class="py-3 px-4">
+              <div class="flex items-center gap-2">
+                ${getSubjectBadge(ch.subject)}
+                <span class="font-semibold text-slate-200 text-xs">${ch.title}</span>
+                <span class="text-[10px] text-slate-500 mono">Class ${ch.class}</span>
+              </div>
+            </td>
+            <td class="py-3 px-3 text-center">${getWeightageBadge(ch.weightage)}</td>
+            
+            <!-- Theory Toggle -->
+            <td class="py-3 px-3 text-center">
+              <button onclick="toggleCheck(${ch.id}, 'theory')" class="w-7 h-7 rounded border transition inline-flex items-center justify-center ${prog.theory ? 'bg-sky-500/20 border-sky-400 text-sky-400' : 'border-slate-700 bg-slate-900 text-transparent hover:border-slate-500'}">
+                <span class="text-xs font-black">✓</span>
+              </button>
+            </td>
+
+            <!-- Practice Toggle -->
+            <td class="py-3 px-3 text-center">
+              <button onclick="toggleCheck(${ch.id}, 'practice')" class="w-7 h-7 rounded border transition inline-flex items-center justify-center ${prog.practice ? 'bg-indigo-500/20 border-indigo-400 text-indigo-400' : 'border-slate-700 bg-slate-900 text-transparent hover:border-slate-500'}">
+                <span class="text-xs font-black">✓</span>
+              </button>
+            </td>
+
+            <!-- PYQ Toggle -->
+            <td class="py-3 px-3 text-center">
+              <button onclick="toggleCheck(${ch.id}, 'pyq')" class="w-7 h-7 rounded border transition inline-flex items-center justify-center ${prog.pyq ? 'bg-emerald-500/20 border-emerald-400 text-emerald-400' : 'border-slate-700 bg-slate-900 text-transparent hover:border-slate-500'}">
+                <span class="text-xs font-black">✓</span>
+              </button>
+            </td>
+
+            <!-- Revision Counter -->
+            <td class="py-3 px-3 text-center">
+              <div class="inline-flex items-center gap-1.5 bg-slate-950/70 border border-slate-800 rounded px-1.5 py-0.5">
+                <button onclick="adjustRevisions(${ch.id}, -1)" class="w-5 h-5 rounded hover:bg-slate-800 text-slate-400 text-xs font-bold transition flex items-center justify-center">-</button>
+                <span class="text-xs font-bold text-purple-300 w-4 text-center tabular">${prog.revisions || 0}</span>
+                <button onclick="adjustRevisions(${ch.id}, 1)" class="w-5 h-5 rounded hover:bg-slate-800 text-slate-400 text-xs font-bold transition flex items-center justify-center">+</button>
+              </div>
+            </td>
+
+            <td class="py-3 px-4 text-right">${statusBadge}</td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function updateMetrics() {
+      let totalTheory = 0;
+      let totalPractice = 0;
+      let totalPyq = 0;
+      let highDone = 0;
+      let highTotal = 0;
+      let revisions = 0;
+
+      CHAPTER_DATA.forEach(ch => {
+        const p = userProgress[ch.id] || {};
+        if (p.theory) totalTheory++;
+        if (p.practice) totalPractice++;
+        if (p.pyq) totalPyq++;
+        if (p.revisions) revisions += p.revisions;
+
+        if (ch.weightage === 'High') {
+          highTotal++;
+          if (p.theory && p.practice && p.pyq) highDone++;
+        }
+      });
+
+      const maxScore = CHAPTER_DATA.length * 3;
+      const currentScore = totalTheory + totalPractice + totalPyq;
+      const overallPercent = ((currentScore / maxScore) * 100).toFixed(1);
+      const highPercent = highTotal ? ((highDone / highTotal) * 100).toFixed(1) : 0;
+
+      document.getElementById('overallPercent').innerText = `${overallPercent}%`;
+      document.getElementById('overallBar').style.width = `${overallPercent}%`;
+      document.getElementById('theoryCount').innerText = `${totalTheory} / 75`;
+      document.getElementById('practiceCount').innerText = `${totalPractice} / 75`;
+      document.getElementById('pyqCount').innerText = `${totalPyq} / 75`;
+      document.getElementById('highWeightagePercent').innerText = `${highPercent}%`;
+      document.getElementById('totalRevisions').innerText = revisions;
+    }
+
+    function exportData() {
+      const blob = new Blob([JSON.stringify(userProgress, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `jee_matrix_backup_${new Date().toISOString().slice(0, 10)}.json`;
+      a.click();
+    }
+
+    function importData(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        try {
+          const parsed = JSON.parse(e.target.result);
+          userProgress = parsed;
+          save();
+          renderChapters();
+          alert('Backup imported successfully.');
+        } catch(err) {
+          alert('Invalid backup file format.');
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    function resetData() {
+      if (confirm('Are you sure you want to reset all tracked progress? This cannot be undone.')) {
+        userProgress = {};
+        save();
+        renderChapters();
+      }
+    }
+
+    init();
+  </script>
+</body>
+</html>

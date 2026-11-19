@@ -1,0 +1,77 @@
+{
+  "version": "1.0.0",
+  "project": "JEE Aspirant Educational Platform",
+  "orchestrator_id": "b5f97b16-8c62-47fd-92b6-1c96b5172e19",
+  "nodes": {
+    "planner": {
+      "name": "Planner",
+      "conversation_id": "7b4415e6-d51f-45cf-9ccd-b3c103323d0e",
+      "role": "Planning, prompt enhancement, spec breakdown",
+      "can_edit_code": false,
+      "status": "IDLE"
+    },
+    "backbone": {
+      "name": "Backbone (Chitti)",
+      "conversation_id": "b5f97b16-8c62-47fd-92b6-1c96b5172e19",
+      "role": "Central Mesh Orchestrator, Priority Routing, Pipeline Dispatch",
+      "can_edit_code": false,
+      "status": "ACTIVE"
+    },
+    "github": {
+      "name": "GitHub & Deployment",
+      "conversation_id": "d78b401e-4699-42cc-8aad-ed6f2c44c428",
+      "role": "Package analysis, reproduction, git commit/push, online deployment",
+      "can_edit_code": false,
+      "status": "IDLE"
+    },
+    "feature_builder": {
+      "name": "Main Feature Builder",
+      "conversation_id": "c3adf94a-9cfa-4a23-b055-c8df8757b041",
+      "role": "Core application feature implementation & trio coordination",
+      "can_edit_code": true,
+      "status": "IDLE"
+    },
+    "ui_ux": {
+      "name": "UI/UX Craftsman",
+      "conversation_id": "7da67306-b0d1-425c-9ee4-166365f218d1",
+      "role": "Design tokens, responsive layouts, animations, design language",
+      "can_edit_code": true,
+      "status": "IDLE"
+    },
+    "simulation": {
+      "name": "Simulation & Auditor",
+      "conversation_id": "56a83a63-c595-4bc7-a564-5defc1766715",
+      "role": "End-to-end testing, visual audit, NTA boundary checks",
+      "can_edit_code": false,
+      "status": "IDLE"
+    },
+    "bug_fix": {
+      "name": "Bug Fix Specialist",
+      "conversation_id": "e5ca28e1-5055-4b76-89a8-d37b0b5930e8",
+      "role": "Autonomous bug resolution from simulation reports",
+      "can_edit_code": true,
+      "status": "IDLE"
+    },
+    "db_backend": {
+      "name": "DB / Backend Architect",
+      "conversation_id": "e2bd04a9-a20c-4d9a-bfa0-0db7fe390194",
+      "role": "Database schemas, migrations, APIs, Auth, RLS",
+      "can_edit_code": true,
+      "status": "IDLE"
+    },
+    "qa_engine": {
+      "name": "Q/A Ingestion Engine",
+      "conversation_id": "859110f2-3156-4c22-abb0-2a0253ab82c4",
+      "role": "PDF processing, OCR, LaTeX math questions extraction",
+      "can_edit_code": false,
+      "status": "IDLE"
+    },
+    "innovation": {
+      "name": "Innovation & Discovery",
+      "conversation_id": "37d092f4-06fe-43f4-886a-4070f5b28256",
+      "role": "JEE pedagogy research, trending features, gamification ideas",
+      "can_edit_code": false,
+      "status": "IDLE"
+    }
+  }
+}

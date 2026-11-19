@@ -365,7 +365,8 @@
 
   </main>
 
-  <!-- Reusable Navigation Script -->
+  <!-- Core Storage & Reusable Navigation Script -->
+  <script src="scripts/db.js"></script>
   <script src="components/navbar.js"></script>
 
   <!-- HUD Telemetry Controller -->
@@ -389,8 +390,31 @@
       }
     }
 
+    async function loadFocusProgress() {
+      if (window.ClockEEDB) {
+        try {
+          const sessions = await ClockEEDB.getAll('sessions');
+          let totalMins = 0;
+          const today = new Date().toDateString();
+          sessions.forEach(s => {
+            if (s.timestamp && new Date(s.timestamp).toDateString() === today) {
+              totalMins += (s.durationMinutes || 0);
+            }
+          });
+          if (totalMins > 0) {
+            const hours = (totalMins / 60).toFixed(1);
+            const el = document.getElementById('hud-focus-hours');
+            if (el) el.innerHTML = `${hours} <span class="text-sm font-semibold text-slate-400">/ 8.0h</span>`;
+          }
+        } catch(e) {
+          console.warn('Could not read sessions from DB:', e);
+        }
+      }
+    }
+
     updateHUDCountdowns();
     setInterval(updateHUDCountdowns, 1000);
+    window.addEventListener('DOMContentLoaded', loadFocusProgress);
   </script>
 </body>
 </html>

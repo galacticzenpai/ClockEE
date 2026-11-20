@@ -1,0 +1,202 @@
+[
+  {
+    "id": "pw-phy-c11-misl-001",
+    "subject": "Physics",
+    "chapter": "Motion in a Straight Line",
+    "topic": "Kinematics - Uniform Acceleration",
+    "questionNumber": 1,
+    "statement": "A particle moves in a straight line with a constant acceleration. It changes its velocity from 10 ms-1 to 20 ms-1 while passing through a distance 135 m in t second. The value of t is:",
+    "statementImages": [],
+    "options": [
+      { "optionIndex": 1, "label": "A", "text": "12", "isCorrect": false, "markedPercentage": "14.2%" },
+      { "optionIndex": 2, "label": "B", "text": "9", "isCorrect": true, "markedPercentage": "20.12%" },
+      { "optionIndex": 3, "label": "C", "text": "10", "isCorrect": false, "markedPercentage": "35.4%" },
+      { "optionIndex": 4, "label": "D", "text": "1.8", "isCorrect": false, "markedPercentage": "30.28%" }
+    ],
+    "correctOption": 2,
+    "correctAnswer": "9",
+    "accuracy": "20.12% of students got it right",
+    "difficulty": "Medium",
+    "solutionText": "Using kinematic equation:\nv^2 = u^2 + 2as\n(20)^2 = (10)^2 + 2(a)(135)\n400 - 100 = 270a => 300 = 270a => a = 10/9 m/s^2\n\nNow using:\nv = u + at\n20 = 10 + (10/9)t\n10 = (10/9)t => t = 9 s."
+  },
+  {
+    "id": "pw-phy-c11-misl-002",
+    "subject": "Physics",
+    "chapter": "Motion in a Straight Line",
+    "topic": "Kinematics - Graphs",
+    "questionNumber": 2,
+    "statement": "A body is thrown vertically upwards. Which one of the following graphs correctly represent the velocity vs time?",
+    "statementImages": [],
+    "options": [
+      { "optionIndex": 1, "label": "A", "text": "Linear decreasing graph passing through zero into negative velocity", "isCorrect": true, "markedPercentage": "43.21%", "imgs": ["https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/ubviy77q18t5l387fb6exiuaf.png"] },
+      { "optionIndex": 2, "label": "B", "text": "Parabolic curve", "isCorrect": false, "markedPercentage": "24.34%", "imgs": ["https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/k93svd4jykurxdcwkpol5l3kt.PNG"] },
+      { "optionIndex": 3, "label": "C", "text": "Linear increasing graph", "isCorrect": false, "markedPercentage": "27.48%", "imgs": ["https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/hiljyr0ad4ez7f1cmblwqx856.png"] },
+      { "optionIndex": 4, "label": "D", "text": "Exponential curve", "isCorrect": false, "markedPercentage": "5.46%", "imgs": ["https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/4i3ge8uuvrgmgnf4tzpfsavui.PNG"] }
+    ],
+    "correctOption": 1,
+    "correctAnswer": "A",
+    "accuracy": "43.21% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "When a body is thrown vertically upward, acceleration is constant and directed downward (a = -g). The velocity-time equation is v = u - gt, which is a straight line with negative slope (-g) and positive y-intercept (u)."
+  },
+  {
+    "id": "pw-phy-c11-misl-003",
+    "subject": "Physics",
+    "chapter": "Motion in a Straight Line",
+    "topic": "Relative Motion / Collision in 1D",
+    "questionNumber": 3,
+    "statement": "Object A is project from ground with speed 100 m/s and B is dropped from height 50 m then the time when they will collide is;",
+    "statementImages": [],
+    "options": [
+      { "optionIndex": 1, "label": "A", "text": "2 sec", "isCorrect": false, "markedPercentage": "19.74%" },
+      { "optionIndex": 2, "label": "B", "text": "4 sec", "isCorrect": false, "markedPercentage": "22.1%" },
+      { "optionIndex": 3, "label": "C", "text": "1/2 sec", "isCorrect": true, "markedPercentage": "47.0%" },
+      { "optionIndex": 4, "label": "D", "text": "14 sec", "isCorrect": false, "markedPercentage": "10.94%" }
+    ],
+    "correctOption": 3,
+    "correctAnswer": "1/2 sec",
+    "accuracy": "47.0% of students got it right",
+    "difficulty": "Medium",
+    "solutionText": "Object A projected upwards: s1 = 100t - 0.5 g t^2 = 100t - 5t^2\nObject B dropped from height 50 m: s2 = 0.5 g t^2 = 5t^2\nThey collide when s1 + s2 = 50 m\n(100t - 5t^2) + 5t^2 = 50 => 100t = 50 => t = 0.5 sec = 1/2 sec.\nFinal Answer: Option C (1/2 sec)."
+  },
+  {
+    "id": "pw-phy-c11-misl-004",
+    "subject": "Physics",
+    "chapter": "Motion in a Straight Line",
+    "topic": "Kinematics - Velocity-Time Graphs",
+    "questionNumber": 4,
+    "statement": "A body is projected vertically upward from the surface of the earth, its velocity-time graph is:",
+    "statementImages": [],
+    "options": [
+      { "optionIndex": 1, "label": "A", "text": "V-t graph 1", "isCorrect": false, "markedPercentage": "24.32%", "imgs": ["https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/7u9m7oftawn19c62jd2ksuuw0.png"] },
+      { "optionIndex": 2, "label": "B", "text": "V-t graph 2 (straight line with negative slope)", "isCorrect": true, "markedPercentage": "44.11%", "imgs": ["https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/2skz4lmfopj1ir7c1ikzga3z8.png"] },
+      { "optionIndex": 3, "label": "C", "text": "V-t graph 3", "isCorrect": false, "markedPercentage": "15.35%", "imgs": ["https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/pznm426phhsklww98ibu5als7.png"] },
+      { "optionIndex": 4, "label": "D", "text": "V-t graph 4", "isCorrect": false, "markedPercentage": "16.23%", "imgs": ["https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/ilt2iic5f17j9tn7amttg7yqx.png"] }
+    ],
+    "correctOption": 2,
+    "correctAnswer": "B",
+    "accuracy": "44.11% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "During vertical projection under gravity, acceleration is constantly -g. Velocity changes linearly according to v = u - gt. The graph is a continuous straight line with negative slope -g."
+  },
+  {
+    "id": "pw-phy-c11-misl-005",
+    "subject": "Physics",
+    "chapter": "Motion in a Straight Line",
+    "topic": "Kinematics - Free Fall and Released Packets",
+    "questionNumber": 5,
+    "statement": "A helicopter rises from rest on the ground vertically upwards with a constant acceleration g. A food packet is dropped from the helicopter when it is at a height h. The time taken by the packet to reach the ground is close to [ g is the acceleration due to gravity]",
+    "statementImages": [],
+    "options": [
+      { "optionIndex": 1, "label": "A", "text": "t = 3.4 \\sqrt{\\frac{h}{g}}", "isCorrect": true, "markedPercentage": "35.18%" },
+      { "optionIndex": 2, "label": "B", "text": "t = 1.8 \\sqrt{\\frac{h}{g}}", "isCorrect": false, "markedPercentage": "26.35%" },
+      { "optionIndex": 3, "label": "C", "text": "t = \\sqrt{\\frac{2h}{3g}}", "isCorrect": false, "markedPercentage": "30.39%" },
+      { "optionIndex": 4, "label": "D", "text": "\\frac{2}{3} \\sqrt{\\frac{h}{g}}", "isCorrect": false, "markedPercentage": "8.23%" }
+    ],
+    "correctOption": 1,
+    "correctAnswer": "t = 3.4 \\sqrt{h/g}",
+    "accuracy": "35.18% of students got it right",
+    "difficulty": "Medium",
+    "solutionText": "When the helicopter reaches height h with acceleration g from rest:\nv^2 = 0 + 2gh => v = \\sqrt{2gh} (directed upward).\nFor the dropped packet:\nTaking ground as origin:\n0 = h + vt - 0.5 g t^2\n0 = h + \\sqrt{2gh} t - 0.5 g t^2\n0.5 g t^2 - \\sqrt{2gh} t - h = 0\nt = [\\sqrt{2gh} + \\sqrt{2gh + 4(0.5g)(h)}] / g = [\\sqrt{2gh} + \\sqrt{4gh}] / g = (\\sqrt{2} + 2) \\sqrt{h/g} ≈ (1.414 + 2) \\sqrt{h/g} = 3.414 \\sqrt{h/g} ≈ 3.4 \\sqrt{h/g}."
+  },
+  {
+    "id": "pw-phy-c11-misl-006",
+    "subject": "Physics",
+    "chapter": "Motion in a Straight Line",
+    "topic": "Effective Acceleration",
+    "questionNumber": 6,
+    "statement": "The effective acceleration of a body when thrown upwards with acceleration a is",
+    "statementImages": [],
+    "options": [
+      { "optionIndex": 1, "label": "A", "text": "(g + a)", "isCorrect": false, "markedPercentage": "25.7%" },
+      { "optionIndex": 2, "label": "B", "text": "(a − g)", "isCorrect": true, "markedPercentage": "46.94%" },
+      { "optionIndex": 3, "label": "C", "text": "\\sqrt{g^2 + a^2}", "isCorrect": false, "markedPercentage": "21.43%" },
+      { "optionIndex": 4, "label": "D", "text": "(g − a^2 / g)", "isCorrect": false, "markedPercentage": "6.03%" }
+    ],
+    "correctOption": 2,
+    "correctAnswer": "(a − g)",
+    "accuracy": "46.66% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "To find the effective acceleration of the body, we analyze the directions of the accelerations acting on it:\nUpward Acceleration (a): The body is actively thrown or propelled upwards with an acceleration of a.\nDownward Acceleration (g): The acceleration due to gravity always acts vertically downwards towards the Earth.\nSince these two accelerations act in exactly opposite directions along the vertical line of motion, the net or effective upward acceleration is: Effective Acceleration = a − g."
+  },
+  {
+    "id": "pw-phy-c11-misl-007",
+    "subject": "Physics",
+    "chapter": "Motion in a Straight Line",
+    "topic": "Average Velocity",
+    "questionNumber": 7,
+    "statement": "A car travel half the distance with constant velocity of 40 kmph and the remaining half with a constant velocity of 80 kmph. The average velocity of the car in kmph is:",
+    "statementImages": [],
+    "options": [
+      { "optionIndex": 1, "label": "A", "text": "32 km/hr", "isCorrect": false, "markedPercentage": "8.84%" },
+      { "optionIndex": 2, "label": "B", "text": "53.3 km/hr", "isCorrect": true, "markedPercentage": "72.22%" },
+      { "optionIndex": 3, "label": "C", "text": "43.2 km/hr", "isCorrect": false, "markedPercentage": "12.24%" },
+      { "optionIndex": 4, "label": "D", "text": "42 km/hr", "isCorrect": false, "markedPercentage": "6.69%" }
+    ],
+    "correctOption": 2,
+    "correctAnswer": "53.3 km/hr",
+    "accuracy": "72.68% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "Avg velocity = Total displacement / Total time\n= x / [(x/2)/40 + (x/2)/80] = 2 * 40 * 80 / (40 + 80) = 6400 / 120 = 160/3 = 53.3 km/hr."
+  },
+  {
+    "id": "pw-phy-c11-misl-008",
+    "subject": "Physics",
+    "chapter": "Motion in a Straight Line",
+    "topic": "Distance vs Displacement",
+    "questionNumber": 8,
+    "statement": "If displacement of a particle is zero, the distance covered :",
+    "statementImages": [],
+    "options": [
+      { "optionIndex": 1, "label": "A", "text": "Must be zero", "isCorrect": false, "markedPercentage": "5.93%" },
+      { "optionIndex": 2, "label": "B", "text": "May or may not be zero", "isCorrect": true, "markedPercentage": "62.87%" },
+      { "optionIndex": 3, "label": "C", "text": "Cannot be zero", "isCorrect": false, "markedPercentage": "25.58%" },
+      { "optionIndex": 4, "label": "D", "text": "Depends upon the particle", "isCorrect": false, "markedPercentage": "5.85%" }
+    ],
+    "correctOption": 2,
+    "correctAnswer": "May or may not be zero",
+    "accuracy": "62.71% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "If the particle remains at rest at the starting position, both distance and displacement are zero. If the particle moves along a closed path and returns to its starting point, displacement is zero but distance is non-zero. Hence, distance covered may or may not be zero."
+  },
+  {
+    "id": "pw-phy-c11-misl-009",
+    "subject": "Physics",
+    "chapter": "Motion in a Straight Line",
+    "topic": "Average Velocity in Semicircular Motion",
+    "questionNumber": 9,
+    "statement": "A particle moves along a semicircle of radius 10 m in 5 seconds. The average velocity of the particle is:",
+    "statementImages": [],
+    "options": [
+      { "optionIndex": 1, "label": "A", "text": "2π ms−1", "isCorrect": false, "markedPercentage": "23.65%" },
+      { "optionIndex": 2, "label": "B", "text": "4π ms−1", "isCorrect": false, "markedPercentage": "22.69%" },
+      { "optionIndex": 3, "label": "C", "text": "2 ms−1", "isCorrect": false, "markedPercentage": "22.16%" },
+      { "optionIndex": 4, "label": "D", "text": "4 ms−1", "isCorrect": true, "markedPercentage": "31.5%" }
+    ],
+    "correctOption": 4,
+    "correctAnswer": "4 ms−1",
+    "accuracy": "31.5% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "Average Velocity = Displacement / Time.\nFor a particle moving along a semicircle of radius r = 10 m:\nDisplacement = diameter = 2r = 2 * 10 = 20 m.\nTime = 5 s.\nAverage Velocity = 20 / 5 = 4 m/s.\nCorrect option: D (4 ms−1)."
+  },
+  {
+    "id": "pw-phy-c11-misl-010",
+    "subject": "Physics",
+    "chapter": "Motion in a Straight Line",
+    "topic": "Distance in nth Second",
+    "questionNumber": 10,
+    "statement": "A body starts from rest with uniform acceleration. What is the ratio of the distance travelled by the body during the 4th and 3rd second?",
+    "statementImages": [],
+    "options": [
+      { "optionIndex": 1, "label": "A", "text": "7/5", "isCorrect": true, "markedPercentage": "64.44%" },
+      { "optionIndex": 2, "label": "B", "text": "5/7", "isCorrect": false, "markedPercentage": "18.08%" },
+      { "optionIndex": 3, "label": "C", "text": "7/3", "isCorrect": false, "markedPercentage": "12.22%" },
+      { "optionIndex": 4, "label": "D", "text": "3/7", "isCorrect": false, "markedPercentage": "5.52%" }
+    ],
+    "correctOption": 1,
+    "correctAnswer": "7/5",
+    "accuracy": "64.27% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "For a body starting from rest (u = 0) with uniform acceleration a, distance travelled in the nth second is:\ns_n = u + (a/2)(2n - 1) = (a/2)(2n - 1)\nDistance during 4th second: s_4 = (a/2)(2*4 - 1) = 7a/2\nDistance during 3rd second: s_3 = (a/2)(2*3 - 1) = 5a/2\nRatio s_4 / s_3 = (7a/2) / (5a/2) = 7/5.\nCorrect answer: A (7/5)."
+  }
+]

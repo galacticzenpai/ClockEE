@@ -163,7 +163,7 @@
     }
 
     /* Test Card */
-    .test-card-quizrr {
+    .test-card-clocky, .test-card-quizrr {
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
       border-radius: 12px;
@@ -174,7 +174,7 @@
       min-height: 180px;
       transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .test-card-quizrr:hover {
+    .test-card-clocky:hover, .test-card-quizrr:hover {
       background: var(--bg-card-hover);
       border-color: rgba(10, 132, 255, 0.35);
       transform: translateY(-2px);
@@ -201,7 +201,7 @@
       opacity: 1;
       pointer-events: auto;
     }
-    .modal-card-quizrr {
+    .modal-card-clocky, .modal-card-quizrr {
       width: 100%;
       max-width: 620px;
       background: #090d16;
@@ -212,6 +212,7 @@
       transform: scale(0.96);
       transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
+    .modal-overlay.active .modal-card-clocky,
     .modal-overlay.active .modal-card-quizrr {
       transform: scale(1);
     }
@@ -683,6 +684,7 @@
   </div>
 
   <!-- Core CBT Scripts -->
+  <script src="cbt_master_bank.js"></script>
   <script src="cbt_shared.js"></script>
   <script>
     // ══════════════════════════════════════════════════════════
@@ -773,6 +775,15 @@
               if (!masterChaptersMap[sub]) masterChaptersMap[sub] = {};
               if (!masterChaptersMap[sub][ch]) masterChaptersMap[sub][ch] = [];
               masterChaptersMap[sub][ch].push(q);
+              if (sub === "Mathematics") {
+                if (!masterChaptersMap["Maths"]) masterChaptersMap["Maths"] = {};
+                if (!masterChaptersMap["Maths"][ch]) masterChaptersMap["Maths"][ch] = [];
+                masterChaptersMap["Maths"][ch].push(q);
+              } else if (sub === "Maths") {
+                if (!masterChaptersMap["Mathematics"]) masterChaptersMap["Mathematics"] = {};
+                if (!masterChaptersMap["Mathematics"][ch]) masterChaptersMap["Mathematics"][ch] = [];
+                masterChaptersMap["Mathematics"][ch].push(q);
+              }
             });
           }
           renderAccordions();

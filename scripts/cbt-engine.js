@@ -67,6 +67,49 @@
    * 30 Mathematics (Q61-80 Sec A, Q81-90 Sec B)
    */
   function generateDefaultQuestions() {
+    if (typeof window !== 'undefined' && Array.isArray(window.CBT_MASTER_QUESTION_BANK) && window.CBT_MASTER_QUESTION_BANK.length >= 90) {
+      const list = [];
+      let qGlobalIndex = 1;
+      const bank = window.CBT_MASTER_QUESTION_BANK;
+
+      SUBJECTS.forEach((subject) => {
+        const subShort = subject === 'Mathematics' ? 'Maths' : subject;
+        const subQs = bank.filter(q => q.subject === subject || q.subjectShort === subShort || q.subject === subShort);
+        const secA = subQs.filter(q => q.section === 'A' || q.type === 'MCQ');
+        const secB = subQs.filter(q => q.section === 'B' || q.type === 'NUMERICAL');
+
+        for (let i = 1; i <= 20; i++) {
+          const rawQ = secA[(i - 1) % secA.length];
+          list.push({
+            ...rawQ,
+            id: `Q_${qGlobalIndex}`,
+            originalMasterId: rawQ.id,
+            number: qGlobalIndex,
+            localNumber: i,
+            subject: subject,
+            section: 'A',
+            type: 'MCQ'
+          });
+          qGlobalIndex++;
+        }
+        for (let j = 1; j <= 10; j++) {
+          const rawQ = secB[(j - 1) % secB.length];
+          list.push({
+            ...rawQ,
+            id: `Q_${qGlobalIndex}`,
+            originalMasterId: rawQ.id,
+            number: qGlobalIndex,
+            localNumber: j,
+            subject: subject,
+            section: 'B',
+            type: 'NUMERICAL'
+          });
+          qGlobalIndex++;
+        }
+      });
+      return list;
+    }
+
     const list = [];
     let qGlobalIndex = 1;
 

@@ -357,13 +357,25 @@
 
     document.addEventListener("DOMContentLoaded", () => {
       const state = CBT_STATE.load();
-      const test = state.tests.find(t => t.id === testId) || state.tests[0];
-      
-      document.getElementById('test-title-header').innerText = `General Instructions: ${test.title}`;
-      if (state.profile) {
-        document.getElementById('cand-name').innerText = state.profile?.name || "Candidate";
-        document.getElementById('cand-roll').innerText = state.profile.roll || "JEE28-98471";
+      let test = state && state.tests ? state.tests.find(t => t.id === testId) : null;
+      if (!test) {
+        test = {
+          id: testId,
+          title: "Units and Dimensions - Test 3",
+          durationMin: 50,
+          totalQs: 25,
+          marks: 100
+        };
       }
+      
+      const titleElem = document.getElementById('test-title-header');
+      if (titleElem) titleElem.innerText = `General Instructions: ${test.title}`;
+      const nameElem = document.getElementById('cand-name');
+      if (nameElem) nameElem.innerText = (state && state.profile && state.profile.name) ? state.profile.name : "Kunal Sahoo";
+      const rollElem = document.getElementById('cand-roll');
+      if (rollElem) rollElem.innerText = (state && state.profile && state.profile.roll) ? state.profile.roll : "JEE26-98471";
+      const durElem = document.getElementById('paper-duration-badge');
+      if (durElem) durElem.innerText = `${test.durationMin || 50} Minutes`;
     });
 
     function toggleBeginButton(isChecked) {

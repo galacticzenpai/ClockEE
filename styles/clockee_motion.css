@@ -1,0 +1,222 @@
+/**
+ * ClockEE OS 2.0 - Master Motion, Typography & Apple HIG Design System
+ * Eliminates all generic template feel with bespoke micro-interactions,
+ * fluid spring physics, and APCA-compliant Matte Obsidian dark design.
+ */
+
+:root {
+  --ck-bg-base: #000000;
+  --ck-bg-surface: #0a0c10;
+  --ck-bg-card: #12151c;
+  --ck-bg-elevated: #181b24;
+  --ck-bg-hover: rgba(255, 255, 255, 0.04);
+  --ck-bg-active: rgba(255, 255, 255, 0.08);
+
+  --ck-border-subtle: rgba(255, 255, 255, 0.08);
+  --ck-border-medium: rgba(255, 255, 255, 0.16);
+  --ck-border-focus: rgba(10, 132, 255, 0.5);
+
+  --ck-text-primary: #f8fafc;
+  --ck-text-secondary: #94a3b8;
+  --ck-text-muted: #64748b;
+
+  --ck-accent-blue: #0a84ff;
+  --ck-accent-emerald: #30d158;
+  --ck-accent-amber: #ffd60a;
+  --ck-accent-coral: #ff453a;
+  --ck-accent-purple: #bf5af2;
+
+  --ck-radius-sm: 8px;
+  --ck-radius-md: 12px;
+  --ck-radius-lg: 16px;
+  --ck-radius-xl: 20px;
+  --ck-radius-full: 9999px;
+
+  --ck-ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --ck-ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Base Smoothing & Typography */
+body {
+  background-color: var(--ck-bg-base);
+  color: var(--ck-text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.015em;
+}
+
+.mono, .tabular-nums {
+  font-family: "SF Mono", "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Animations */
+@keyframes ckFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes ckFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ckScaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes ckPulseSubtle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.ck-animate-fade-in {
+  animation: ckFadeIn 0.25s var(--ck-ease-spring) forwards;
+}
+
+.ck-animate-fade-in-up {
+  animation: ckFadeInUp 0.3s var(--ck-ease-spring) forwards;
+}
+
+.ck-animate-scale-in {
+  animation: ckScaleIn 0.25s var(--ck-ease-spring) forwards;
+}
+
+/* Card Hierarchy & Glass Surfaces */
+.ck-card {
+  background: var(--ck-bg-card);
+  border: 1px solid var(--ck-border-subtle);
+  border-radius: var(--ck-radius-lg);
+  transition: all 0.2s var(--ck-ease-spring);
+  position: relative;
+}
+
+.ck-card:hover {
+  border-color: var(--ck-border-medium);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.ck-glass-nav {
+  background: rgba(10, 12, 16, 0.85);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-bottom: 1px solid var(--ck-border-subtle);
+}
+
+.ck-glass-modal {
+  background: rgba(18, 21, 28, 0.95);
+  backdrop-filter: blur(32px) saturate(200%);
+  -webkit-backdrop-filter: blur(32px) saturate(200%);
+  border: 1px solid var(--ck-border-medium);
+  border-radius: var(--ck-radius-xl);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Micro-Interaction Button Styles */
+.ck-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 13px;
+  border-radius: var(--ck-radius-md);
+  padding: 8px 16px;
+  min-height: 40px;
+  cursor: pointer;
+  transition: all 0.15s var(--ck-ease-spring);
+  user-select: none;
+}
+
+.ck-btn:active {
+  transform: scale(0.97);
+}
+
+.ck-btn-primary {
+  background: var(--ck-accent-blue);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.ck-btn-primary:hover {
+  background: #0071e3;
+  box-shadow: 0 2px 8px rgba(10, 132, 255, 0.35);
+}
+
+.ck-btn-secondary {
+  background: var(--ck-bg-elevated);
+  color: var(--ck-text-primary);
+  border: 1px solid var(--ck-border-subtle);
+}
+
+.ck-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--ck-border-medium);
+}
+
+.ck-btn-ghost {
+  background: transparent;
+  color: var(--ck-text-secondary);
+  border: 1px solid transparent;
+}
+
+.ck-btn-ghost:hover {
+  background: var(--ck-bg-hover);
+  color: var(--ck-text-primary);
+}
+
+/* Filter & Status Pills */
+.ck-pill {
+  padding: 6px 14px;
+  border-radius: var(--ck-radius-full);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ck-text-secondary);
+  background: var(--ck-bg-surface);
+  border: 1px solid var(--ck-border-subtle);
+  cursor: pointer;
+  transition: all 0.15s var(--ck-ease-spring);
+  white-space: nowrap;
+}
+
+.ck-pill:hover {
+  color: var(--ck-text-primary);
+  background: var(--ck-bg-hover);
+}
+
+.ck-pill.active {
+  color: #ffffff;
+  background: rgba(10, 132, 255, 0.15);
+  border-color: var(--ck-accent-blue);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--ck-bg-base);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.22);
+}

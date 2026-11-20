@@ -4,86 +4,97 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kanban Task & DPP Hub // ClockEE OS 2.0</title>
+  <link rel="stylesheet" href="styles/clockee_motion.css">
   <link rel="stylesheet" href="styles/tokens.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --surface-0: #090d16;
-      --surface-1: #111726;
-      --surface-2: #1a2236;
-      --surface-inset: #060910;
+      --surface-0: #000000;
+      --surface-1: #0a0c10;
+      --surface-2: #12151c;
+      --surface-inset: #161a24;
       --border-subtle: 1px solid rgba(255, 255, 255, 0.08);
       --border-strong: 1px solid rgba(255, 255, 255, 0.16);
-      --border-focus: 2px solid #38bdf8;
+      --border-focus: 2px solid #0a84ff;
     }
     body {
       background-color: var(--surface-0);
       color: #f8fafc;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", 'Inter', sans-serif;
       margin: 0;
       padding: 0;
       min-height: 100vh;
       -webkit-font-smoothing: antialiased;
     }
-    .mono { font-family: 'JetBrains Mono', monospace; }
+    .mono { font-family: 'JetBrains Mono', 'SF Mono', monospace; }
     .tabular { font-variant-numeric: tabular-nums; }
     .panel {
       background-color: var(--surface-1);
       border: var(--border-subtle);
-    }
-    .panel-inset {
-      background-color: var(--surface-inset);
-      border: var(--border-subtle);
-    }
-    .touch-target {
-      min-height: 44px;
-      min-width: 44px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+      border-radius: 16px;
+      transition: border-color 0.2s ease;
     }
     .kanban-card {
-      background-color: var(--surface-inset);
-      border: var(--border-subtle);
-      transition: transform 0.1s ease, border-color 0.15s ease, background-color 0.15s ease;
-      cursor: pointer;
+      background-color: var(--surface-2);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: grab;
+      user-select: none;
+    }
+    .kanban-card:active {
+      cursor: grabbing;
     }
     .kanban-card:hover {
-      border-color: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.22);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
     }
     .kanban-card.selected-card {
-      border-color: #38bdf8 !important;
-      background-color: rgba(56, 189, 248, 0.08) !important;
+      border-color: #0a84ff !important;
+      background-color: rgba(10, 132, 255, 0.12) !important;
       transform: translateY(-2px);
+      outline: 1px solid #0a84ff;
     }
-    ::-webkit-scrollbar { width: 6px; height: 6px; }
-    ::-webkit-scrollbar-track { background: var(--surface-0); }
-    ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
-    ::-webkit-scrollbar-thumb:hover { background: #334155; }
+    .kanban-card.dragging {
+      opacity: 0.4;
+      transform: scale(0.98);
+    }
+    .drop-zone-active {
+      background-color: rgba(10, 132, 255, 0.06) !important;
+      border: 2px dashed rgba(10, 132, 255, 0.4) !important;
+    }
   </style>
 </head>
-<body data-page="task" class="min-h-screen flex flex-col bg-[#090d16] text-[#f8fafc]">
+<body data-page="task" class="min-h-screen flex flex-col bg-[#000000] text-[#f8fafc]">
 
   <!-- Unified Navigation Bar Component -->
   <div id="clockee-nav" class="tabular-nums"></div>
 
   <main class="max-w-7xl mx-auto px-4 py-6 md:py-8 flex-1 w-full space-y-6">
 
-    <!-- Header Strip -->
-    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-b border-slate-800 pb-5">
+    <!-- Header Strip with Trello-Style Filter Bar -->
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-b border-white/[0.08] pb-5">
       <div>
         <div class="flex items-center gap-2.5">
-          <span class="inline-block w-2.5 h-2.5 rounded-sm bg-amber-400"></span>
-          <span class="text-xs font-bold tracking-widest text-amber-400 uppercase mono">KANBAN TASK & DPP EXECUTION HUB</span>
+          <span class="inline-block w-2.5 h-2.5 rounded-sm bg-blue-500"></span>
+          <span class="text-xs font-bold tracking-widest text-blue-400 uppercase mono">KANBAN TASK &amp; DPP HUB</span>
         </div>
-        <h1 class="text-2xl md:text-3xl font-extrabold text-white tracking-tight mt-1">Daily Target Execution Board</h1>
-        <p class="text-sm text-slate-400 mt-1">Vim Keyboard Controls (H/J/K/L) &bull; Subject Metadata &bull; Offline-First</p>
+        <h1 class="text-2xl md:text-3xl font-extrabold text-white tracking-tight mt-1">Deep Work Execution Board</h1>
+        <p class="text-xs text-slate-400 mt-1">Drag &amp; Drop &bull; Vim Controls (H/J/K/L) &bull; IndexedDB v2 Sync</p>
       </div>
 
-      <div class="flex items-center gap-3">
-        <button onclick="openAddTaskModal()" class="touch-target px-4 py-2 rounded-xl bg-amber-600 hover:bg-amber-500 text-xs font-bold text-white transition shadow-sm mono uppercase">
-          + Add New DPP / Task
+      <!-- Filter Chips & Add Action -->
+      <div class="flex items-center gap-2 flex-wrap">
+        <div class="flex items-center gap-1 bg-[#12151c] p-1 rounded-xl border border-white/[0.08]">
+          <button onclick="filterSubject('all')" id="flt-all" class="ck-pill active text-xs">All</button>
+          <button onclick="filterSubject('Physics')" id="flt-phy" class="ck-pill text-xs">Physics</button>
+          <button onclick="filterSubject('Chemistry')" id="flt-chem" class="ck-pill text-xs">Chemistry</button>
+          <button onclick="filterSubject('Mathematics')" id="flt-math" class="ck-pill text-xs">Maths</button>
+        </div>
+        <button onclick="openAddTaskModal()" class="ck-btn ck-btn-primary text-xs uppercase mono">
+          + New Task
         </button>
       </div>
     </div>
@@ -264,34 +275,132 @@
       }
     }
 
+    let currentSubjectFilter = 'all';
+
+    function filterSubject(sub) {
+      currentSubjectFilter = sub;
+      ['all', 'phy', 'chem', 'math'].forEach(k => {
+        const el = document.getElementById(`flt-${k}`);
+        if (el) el.classList.remove('active');
+      });
+      const activeEl = sub === 'all' ? document.getElementById('flt-all')
+                     : sub === 'Physics' ? document.getElementById('flt-phy')
+                     : sub === 'Chemistry' ? document.getElementById('flt-chem')
+                     : document.getElementById('flt-math');
+      if (activeEl) activeEl.classList.add('active');
+      renderBoard();
+    }
+
     function renderBoard() {
       COLUMNS.forEach(col => {
         const container = document.getElementById(`col-${col}`);
-        const colTasks = tasks.filter(t => t.status === col);
+        let colTasks = tasks.filter(t => t.status === col);
+        if (currentSubjectFilter !== 'all') {
+          colTasks = colTasks.filter(t => t.subject === currentSubjectFilter);
+        }
         document.getElementById(`count-${col}`).innerText = colTasks.length;
 
         container.innerHTML = colTasks.map(t => {
           const isSelected = t.id === selectedTaskId;
 
-          let badgeColor = 'bg-sky-500/10 text-sky-400 border-sky-500/20';
-          if (t.subject === 'Chemistry') badgeColor = 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20';
-          else if (t.subject === 'Mathematics') badgeColor = 'bg-amber-500/10 text-amber-400 border-amber-500/20';
+          let badgeColor = 'bg-blue-500/10 text-blue-400 border-blue-500/20';
+          let dotColor = '#0a84ff';
+          if (t.subject === 'Chemistry') {
+            badgeColor = 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20';
+            dotColor = '#30d158';
+          } else if (t.subject === 'Mathematics') {
+            badgeColor = 'bg-amber-500/10 text-amber-400 border-amber-500/20';
+            dotColor = '#ffd60a';
+          }
 
           return `
-            <div onclick="selectCard('${t.id}')" class="kanban-card p-3.5 rounded-xl border space-y-2 ${isSelected ? 'selected-card' : ''}">
+            <div 
+              id="card-${t.id}"
+              draggable="true" 
+              ondragstart="handleDragStart(event, '${t.id}')"
+              ondragend="handleDragEnd(event)"
+              onclick="selectCard('${t.id}')" 
+              class="kanban-card p-3.5 space-y-2.5 ${isSelected ? 'selected-card' : ''}"
+            >
               <div class="flex items-center justify-between text-[10px] mono">
-                <span class="px-2 py-0.5 rounded font-bold border uppercase ${badgeColor}">${t.subject}</span>
+                <span class="flex items-center gap-1.5 px-2 py-0.5 rounded font-bold border uppercase ${badgeColor}">
+                  <span class="w-1.5 h-1.5 rounded-full" style="background:${dotColor}"></span>
+                  ${t.subject}
+                </span>
                 <span class="text-slate-400 tabular">${t.estMinutes}m</span>
               </div>
               <div class="text-xs font-semibold text-white leading-snug">${escapeHtml(t.title)}</div>
-              <div class="flex items-center justify-between text-[10px] text-slate-400 mono border-t border-slate-800/80 pt-1.5">
+              <div class="flex items-center justify-between text-[10px] text-slate-400 mono border-t border-white/[0.06] pt-1.5">
                 <span class="truncate max-w-[130px]">${escapeHtml(t.source)}</span>
-                <span class="text-purple-400 font-bold">${t.priority}</span>
+                <span class="text-blue-400 font-bold">${t.priority}</span>
               </div>
             </div>
           `;
-        }).join('');
+        }).join('') + `
+          <!-- Trello Quick Add Inline Button -->
+          <div class="pt-2">
+            <button onclick="quickAddPrompt('${col}')" class="w-full py-1.5 px-2 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-white/[0.04] text-[11px] font-semibold flex items-center gap-1.5 transition">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              <span>Add a card</span>
+            </button>
+          </div>
+        `;
+
+        // Bind dragover / drop on column container
+        container.ondragover = (e) => {
+          e.preventDefault();
+          container.classList.add('drop-zone-active');
+        };
+        container.ondragleave = () => {
+          container.classList.remove('drop-zone-active');
+        };
+        container.ondrop = (e) => {
+          e.preventDefault();
+          container.classList.remove('drop-zone-active');
+          const draggedId = e.dataTransfer.getData('text/plain');
+          if (draggedId) {
+            const task = tasks.find(t => t.id === draggedId);
+            if (task && task.status !== col) {
+              task.status = col;
+              saveTasks();
+              renderBoard();
+            }
+          }
+        };
       });
+    }
+
+    let draggedTaskId = null;
+    function handleDragStart(e, id) {
+      draggedTaskId = id;
+      e.dataTransfer.setData('text/plain', id);
+      const el = document.getElementById(`card-${id}`);
+      if (el) el.classList.add('dragging');
+    }
+    function handleDragEnd(e) {
+      if (draggedTaskId) {
+        const el = document.getElementById(`card-${draggedTaskId}`);
+        if (el) el.classList.remove('dragging');
+      }
+    }
+
+    function quickAddPrompt(col) {
+      const title = prompt(`Quick Add Task to ${col.toUpperCase()}:`);
+      if (title && title.trim()) {
+        const newTask = {
+          id: `task_${Date.now()}`,
+          title: title.trim(),
+          subject: currentSubjectFilter !== 'all' ? currentSubjectFilter : 'Physics',
+          priority: 'P1',
+          status: col,
+          estMinutes: 45,
+          source: 'Quick Entry'
+        };
+        tasks.push(newTask);
+        selectedTaskId = newTask.id;
+        saveTasks();
+        renderBoard();
+      }
     }
 
     function selectCard(id) {

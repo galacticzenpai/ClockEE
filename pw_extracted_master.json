@@ -1170,5 +1170,225 @@
     "accuracy": "65.44% of students got it right",
     "difficulty": "Easy",
     "solutionText": "External torque about the vertical rotation axis is zero (\u03c4_ext = 0), so angular momentum L = I \u03c9 is conserved."
+  },
+  {
+    "id": "pw-phy-c11-grav-001",
+    "questionNumber": 1,
+    "subject": "Physics",
+    "chapter": "Gravitation",
+    "topic": "Universal Law of Gravitation & Proportionality",
+    "statement": "Two identical spheres of gold are in contact with each other. The gravitational attraction between them is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "directly proportional to the square of the radius",
+        "isCorrect": false,
+        "markedPercentage": "13.78%"
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "directly proportional to the cube of the radius",
+        "isCorrect": false,
+        "markedPercentage": "13.78%"
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "directly proportional to the fourth power of the radius",
+        "isCorrect": true,
+        "markedPercentage": "28.44%"
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "inversely proportional to the square of the radius",
+        "isCorrect": false,
+        "markedPercentage": "44.44%"
+      }
+    ],
+    "correctOption": 3,
+    "correctAnswer": "C",
+    "accuracy": "28.89% of students got it right",
+    "difficulty": "Medium",
+    "solutionText": "m = (4/3)\u03c0R^3 \u03c1. Distance r = 2R. F = G m^2 / r^2 = G [(4/3)\u03c0R^3 \u03c1]^2 / (4R^2) \u221d R^6 / R^2 = R^4. Directly proportional to R^4."
+  },
+  {
+    "id": "pw-phy-c11-grav-002",
+    "questionNumber": 2,
+    "subject": "Physics",
+    "chapter": "Gravitation",
+    "topic": "Inverse Square Law",
+    "statement": "If the distance between sun and earth is increased by 3 times, then attraction between two will be",
+    "statementImages": [],
+    "options": [
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "Remains constant",
+        "isCorrect": false,
+        "markedPercentage": "20.17%"
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "Decrease by 63%",
+        "isCorrect": false,
+        "markedPercentage": "29.83%"
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "Increase by 63%",
+        "isCorrect": false,
+        "markedPercentage": "15.56%"
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "Decreases by 89%",
+        "isCorrect": true,
+        "markedPercentage": "34.44%"
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": "D",
+    "accuracy": "34.44% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "F \u221d 1/r^2. If r becomes 3r, F becomes F/9. Percentage decrease = (1 - 1/9) * 100% = 88.89% \u2248 89%."
+  },
+  {
+    "id": "pw-phy-c11-grav-004",
+    "questionNumber": 4,
+    "subject": "Physics",
+    "chapter": "Gravitation",
+    "topic": "Variation of g with Height and Depth",
+    "statement": "If the change in the value of 'g' at a height 'h' above the surface of the earth is same as at a depth x below it, then (x and h being much smaller than the radius of the earth)",
+    "statementImages": [],
+    "options": [
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "x = h",
+        "isCorrect": false,
+        "markedPercentage": "13.25%"
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "x = 2h",
+        "isCorrect": true,
+        "markedPercentage": "56.13%"
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "x = h/2",
+        "isCorrect": false,
+        "markedPercentage": "24.67%"
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "x = h\u00b2",
+        "isCorrect": false,
+        "markedPercentage": "6.29%"
+      }
+    ],
+    "correctOption": 2,
+    "correctAnswer": "B",
+    "accuracy": "56.29% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "\u0394g_h = g(2h/R). \u0394g_x = g(x/R). Given \u0394g_h = \u0394g_x => 2h/R = x/R => x = 2h."
+  },
+  {
+    "id": "pw-phy-c11-grav-006",
+    "questionNumber": 6,
+    "subject": "Physics",
+    "chapter": "Gravitation",
+    "topic": "Orbital and Escape Energy of Satellites",
+    "statement": "The K.E. of a satellite in an orbit close to the surface of the earth is E. Its max K.E. so as to escape from the gravitational field of the earth is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "2E",
+        "isCorrect": true,
+        "markedPercentage": "39.73%"
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "4E",
+        "isCorrect": false,
+        "markedPercentage": "14.13%"
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "2\u221a2 E",
+        "isCorrect": false,
+        "markedPercentage": "31.38%"
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "\u221a2 E",
+        "isCorrect": false,
+        "markedPercentage": "14.67%"
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": "A",
+    "accuracy": "39.82% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "v_orbit = \u221a(GM/R), KE_orbit = E = (1/2)m v_o^2. v_escape = \u221a2 v_orbit => KE_escape = (1/2)m (\u221a2 v_o)^2 = 2 * E."
+  },
+  {
+    "id": "pw-phy-c11-grav-007",
+    "questionNumber": 7,
+    "subject": "Physics",
+    "chapter": "Gravitation",
+    "topic": "Effect of Earth's Rotation on Gravity",
+    "statement": "If the rotational speed of earth in increases, then weight of body at the equator",
+    "statementImages": [],
+    "options": [
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "Increases",
+        "isCorrect": false,
+        "markedPercentage": "19.37%"
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "Decreases",
+        "isCorrect": true,
+        "markedPercentage": "52.95%"
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "No effect",
+        "isCorrect": false,
+        "markedPercentage": "22.88%"
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "Becomes double",
+        "isCorrect": false,
+        "markedPercentage": "4.8%"
+      }
+    ],
+    "correctOption": 2,
+    "correctAnswer": "B",
+    "accuracy": "52.4% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "g_equator = g - R \u03c9^2. If \u03c9 increases, g_equator decreases, so weight decreases."
   }
 ]

@@ -1,30 +1,31 @@
 /**
  * ClockEE OS 2.0 - Master Motion, Typography & Apple HIG Design System
- * Eliminates all generic template feel with bespoke micro-interactions,
- * fluid spring physics, and APCA-compliant Matte Obsidian dark design.
+ * Bespoke micro-interactions, fluid spring physics, and APCA-compliant Matte Obsidian dark design.
+ * Strict Anti-Slop (Zero Neon Glow Spread > 12px | Crisp Hairline Borders)
  */
 
 :root {
-  --ck-bg-base: #000000;
-  --ck-bg-surface: #0a0c10;
-  --ck-bg-card: #12151c;
-  --ck-bg-elevated: #181b24;
+  --ck-bg-base: var(--surface-0, #000000);
+  --ck-bg-surface: var(--surface-1, #0a0c10);
+  --ck-bg-card: var(--surface-2, #12151c);
+  --ck-bg-elevated: var(--surface-3, #181b24);
   --ck-bg-hover: rgba(255, 255, 255, 0.04);
   --ck-bg-active: rgba(255, 255, 255, 0.08);
 
-  --ck-border-subtle: rgba(255, 255, 255, 0.08);
-  --ck-border-medium: rgba(255, 255, 255, 0.16);
-  --ck-border-focus: rgba(10, 132, 255, 0.5);
+  --ck-border-subtle: var(--border-subtle, rgba(255, 255, 255, 0.08));
+  --ck-border-medium: var(--border-elevated, rgba(255, 255, 255, 0.16));
+  --ck-border-focus: var(--accent-primary, #0a84ff);
 
-  --ck-text-primary: #f8fafc;
-  --ck-text-secondary: #94a3b8;
-  --ck-text-muted: #64748b;
+  --ck-text-primary: var(--text-primary, #f8fafc);
+  --ck-text-secondary: var(--text-secondary, #94a3b8);
+  --ck-text-muted: var(--text-muted, #64748b);
 
   --ck-accent-blue: #0a84ff;
   --ck-accent-emerald: #30d158;
   --ck-accent-amber: #ffd60a;
   --ck-accent-coral: #ff453a;
   --ck-accent-purple: #bf5af2;
+  --ck-accent-cyan: #00f0ff;
 
   --ck-radius-sm: 8px;
   --ck-radius-md: 12px;
@@ -36,7 +37,7 @@
   --ck-ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* Base Smoothing & Typography */
+/* Base Typography & Background */
 body {
   background-color: var(--ck-bg-base);
   color: var(--ck-text-primary);
@@ -44,179 +45,147 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   letter-spacing: -0.015em;
+  transition: background-color 0.3s var(--ck-ease-spring), color 0.3s ease;
 }
 
 .mono, .tabular-nums {
   font-family: "SF Mono", "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
   font-variant-numeric: tabular-nums;
+  -moz-font-feature-settings: "tnum";
+  -webkit-font-feature-settings: "tnum";
+  font-feature-settings: "tnum";
 }
 
-/* Animations */
-@keyframes ckFadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes ckFadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes ckScaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.96);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes ckPulseSubtle {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
-}
-
-.ck-animate-fade-in {
-  animation: ckFadeIn 0.25s var(--ck-ease-spring) forwards;
-}
-
-.ck-animate-fade-in-up {
-  animation: ckFadeInUp 0.3s var(--ck-ease-spring) forwards;
-}
-
-.ck-animate-scale-in {
-  animation: ckScaleIn 0.25s var(--ck-ease-spring) forwards;
-}
-
-/* Card Hierarchy & Glass Surfaces */
-.ck-card {
-  background: var(--ck-bg-card);
-  border: 1px solid var(--ck-border-subtle);
-  border-radius: var(--ck-radius-lg);
-  transition: all 0.2s var(--ck-ease-spring);
+/* Tactile Button Press Physics */
+.btn-tactile, .tactile-press {
   position: relative;
-}
-
-.ck-card:hover {
-  border-color: var(--ck-border-medium);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-}
-
-.ck-glass-nav {
-  background: rgba(10, 12, 16, 0.85);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  border-bottom: 1px solid var(--ck-border-subtle);
-}
-
-.ck-glass-modal {
-  background: rgba(18, 21, 28, 0.95);
-  backdrop-filter: blur(32px) saturate(200%);
-  -webkit-backdrop-filter: blur(32px) saturate(200%);
-  border: 1px solid var(--ck-border-medium);
-  border-radius: var(--ck-radius-xl);
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
-}
-
-/* Micro-Interaction Button Styles */
-.ck-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 6px;
   font-weight: 600;
-  font-size: 13px;
   border-radius: var(--ck-radius-md);
-  padding: 8px 16px;
-  min-height: 40px;
+  transition: transform 0.16s var(--ck-ease-spring), background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.18s ease;
+  user-select: none;
   cursor: pointer;
-  transition: all 0.15s var(--ck-ease-spring);
+  touch-action: manipulation;
+}
+
+.btn-tactile:hover {
+  transform: translateY(-1px);
+}
+
+.btn-tactile:active, .tactile-press:active {
+  transform: scale(0.97) translateY(0);
+}
+
+.btn-tactile:focus-visible {
+  outline: 2px solid var(--accent-primary, #0a84ff);
+  outline-offset: 2px;
+}
+
+/* Symmetrical Neo-Obsidian Card */
+.neo-card {
+  background: var(--surface-1, #0a0c10);
+  border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.08));
+  border-radius: 18px;
+  padding: 1.25rem;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: border-color 0.25s var(--ck-ease-spring), transform 0.25s var(--ck-ease-spring), box-shadow 0.25s var(--ck-ease-spring);
+  box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.5);
+}
+
+.neo-card:hover {
+  border-color: var(--border-elevated, rgba(255, 255, 255, 0.16));
+  transform: translateY(-2px);
+  box-shadow: 0 8px 12px -4px rgba(0, 0, 0, 0.7);
+}
+
+/* Glass Card Variant */
+.glass-card {
+  background: var(--surface-frosted, rgba(10, 12, 18, 0.88));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.08));
+  border-radius: 18px;
+  transition: all 0.25s var(--ck-ease-spring);
+  box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.4);
+}
+
+.glass-card:hover {
+  border-color: var(--border-elevated, rgba(255, 255, 255, 0.16));
+}
+
+/* Trello-Style Kanban Drag & Drop Physics */
+.kanban-card {
+  background: var(--surface-2, #12151c);
+  border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.08));
+  border-radius: 12px;
+  padding: 0.875rem;
+  transition: transform 0.2s var(--ck-ease-spring), border-color 0.2s ease, box-shadow 0.2s ease;
+  cursor: grab;
   user-select: none;
 }
 
-.ck-btn:active {
-  transform: scale(0.97);
+.kanban-card:hover {
+  border-color: var(--border-elevated, rgba(255, 255, 255, 0.18));
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px -3px rgba(0, 0, 0, 0.6);
 }
 
-.ck-btn-primary {
-  background: var(--ck-accent-blue);
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+.kanban-card:active {
+  cursor: grabbing;
+  transform: scale(1.02) rotate(1deg);
+  box-shadow: 0 10px 12px -2px rgba(0, 0, 0, 0.75);
 }
 
-.ck-btn-primary:hover {
-  background: #0071e3;
-  box-shadow: 0 2px 8px rgba(10, 132, 255, 0.35);
+.kanban-col {
+  background: var(--surface-1, #0a0c10);
+  border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.08));
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s ease;
 }
 
-.ck-btn-secondary {
-  background: var(--ck-bg-elevated);
-  color: var(--ck-text-primary);
-  border: 1px solid var(--ck-border-subtle);
+.kanban-col.drag-over {
+  border-color: var(--accent-primary, #0a84ff);
+  background: var(--surface-2, #12151c);
 }
 
-.ck-btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: var(--ck-border-medium);
+/* Pulse / Breathing Live Badges */
+@keyframes calmBreath {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.92); }
 }
 
-.ck-btn-ghost {
-  background: transparent;
-  color: var(--ck-text-secondary);
-  border: 1px solid transparent;
+.badge-live-pulse {
+  animation: calmBreath 2.4s ease-in-out infinite;
 }
 
-.ck-btn-ghost:hover {
-  background: var(--ck-bg-hover);
-  color: var(--ck-text-primary);
+/* Dropdown Menu Animation */
+@keyframes navDropdownFadeIn {
+  from { opacity: 0; transform: translateY(-6px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-/* Filter & Status Pills */
-.ck-pill {
-  padding: 6px 14px;
-  border-radius: var(--ck-radius-full);
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--ck-text-secondary);
-  background: var(--ck-bg-surface);
-  border: 1px solid var(--ck-border-subtle);
-  cursor: pointer;
-  transition: all 0.15s var(--ck-ease-spring);
-  white-space: nowrap;
+.nav-dropdown-menu {
+  animation: navDropdownFadeIn 0.18s var(--ck-ease-spring);
 }
 
-.ck-pill:hover {
-  color: var(--ck-text-primary);
-  background: var(--ck-bg-hover);
+/* Sliding Focus Drawer */
+.split-drawer-transition {
+  transition: transform 0.32s var(--ck-ease-spring), opacity 0.24s ease;
 }
 
-.ck-pill.active {
-  color: #ffffff;
-  background: rgba(10, 132, 255, 0.15);
-  border-color: var(--ck-accent-blue);
+/* Smooth Accordions */
+.accordion-content {
+  transition: max-height 0.28s var(--ck-ease-spring), opacity 0.2s ease;
 }
 
 /* Custom Scrollbars */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-::-webkit-scrollbar-track {
-  background: var(--ck-bg-base);
-}
-::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.12);
-  border-radius: 9999px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.22);
-}
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--surface-0, #000000); }
+::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #334155; }

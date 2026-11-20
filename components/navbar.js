@@ -1,7 +1,8 @@
 /**
- * ClockEE OS 2.0 - Universal Master Navigation Bar
+ * ClockEE OS 2.0 - Universal Master Navigation Bar & Design Palette Controller
  * Apple Human Interface Design System + Matte Obsidian Architecture
  * Uncluttered top-level layout with organized dropdowns referencing v1.
+ * Live Design Palette Theme Engine: Obsidian | Cyber Cyan | Vapor Violet | Matrix Emerald | Solar Amber
  */
 
 (function () {
@@ -26,7 +27,7 @@
       background: rgba(255, 255, 255, 0.06);
     }
     .nav-active {
-      background: #0a84ff !important;
+      background: var(--accent-primary, #0a84ff) !important;
       color: #ffffff !important;
       font-weight: 600;
       border: 1px solid rgba(255, 255, 255, 0.2);
@@ -52,8 +53,8 @@
       left: 0;
       margin-top: 6px;
       min-width: 230px;
-      background: rgba(10, 12, 18, 0.98);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: var(--surface-frosted-elevated, rgba(10, 12, 18, 0.98));
+      border: 1px solid var(--border-elevated, rgba(255, 255, 255, 0.12));
       border-radius: 14px;
       padding: 6px;
       display: none;
@@ -110,7 +111,15 @@
       background: rgba(255, 255, 255, 0.1);
     }
     .hud-ring {
-      border: 1.5px solid rgba(10, 132, 255, 0.6);
+      border: 1.5px solid var(--accent-primary, rgba(10, 132, 255, 0.6));
+    }
+    .palette-swatch {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: inline-block;
+      flex-shrink: 0;
     }
   `;
 
@@ -123,11 +132,31 @@
     }
   }
 
+  // Load and apply saved design palette theme
+  function initPaletteTheme() {
+    try {
+      const saved = localStorage.getItem('clockee_design_palette') || 'obsidian';
+      document.documentElement.setAttribute('data-palette', saved);
+    } catch (e) {}
+  }
+
+  window.setDesignPalette = function(paletteName) {
+    try {
+      document.documentElement.setAttribute('data-palette', paletteName);
+      localStorage.setItem('clockee_design_palette', paletteName);
+      window.dispatchEvent(new CustomEvent('paletteChange', { detail: { palette: paletteName } }));
+      if (window.showToast) {
+        window.showToast(`Applied ${paletteName.toUpperCase()} Design Palette`, 'info');
+      }
+    } catch (e) {}
+  };
+
   function detectActiveSection() {
     const path = window.location.pathname.toLowerCase();
     const explicit = document.body ? document.body.getAttribute('data-page') : null;
     if (explicit) return explicit;
 
+    if (path.includes('design_palette')) return 'palette';
     if (path.includes('task')) return 'task';
     if (path.includes('today')) return 'today';
     if (path.includes('timer')) return 'timer';
@@ -140,6 +169,7 @@
 
   function renderNavbar() {
     injectStyles();
+    initPaletteTheme();
 
     let mountPoint = document.getElementById('clockee-nav');
     if (!mountPoint) {
@@ -151,7 +181,7 @@
     const activeSec = detectActiveSection();
 
     mountPoint.innerHTML = `
-      <header class="sticky top-0 z-50 px-4 py-2.5 sm:px-6 transition-all duration-300 bg-[#080a14]/85 backdrop-blur-2xl border-b border-white/10 shadow-sm">
+      <header class="sticky top-0 z-50 px-4 py-2.5 sm:px-6 transition-all duration-300 bg-[#080a14]/90 backdrop-blur-2xl border-b border-white/10 shadow-sm">
         <div class="max-w-7xl mx-auto flex items-center justify-between gap-2 sm:gap-4">
           
           <!-- Brand / Logo -->
@@ -178,7 +208,7 @@
             </a>
           </div>
 
-          <!-- Center Nav Links with Dropdowns (Clean v1 Layout) -->
+          <!-- Center Nav Links with Dropdowns -->
           <nav class="hidden md:flex items-center gap-1 sm:gap-1.5" id="main-nav" aria-label="Master Navigation">
             <a href="index.html" class="nav-btn ${activeSec === 'home' ? 'nav-active' : ''}">Home</a>
             <a href="task.html" class="nav-btn ${activeSec === 'task' ? 'nav-active' : ''}">Task</a>
@@ -235,7 +265,7 @@
               </div>
             </div>
 
-            <!-- CBT Portal Dropdown (Hiding excess CBT views) -->
+            <!-- CBT Portal Dropdown -->
             <div class="nav-dropdown">
               <a href="cbt_home.html" class="nav-btn ${activeSec === 'cbt' ? 'nav-active' : ''} text-cyan-300">
                 <svg class="w-3.5 h-3.5 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
@@ -275,6 +305,12 @@
                 <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
               </svg>
               <span>Inspiration</span>
+            </a>
+
+            <!-- Design Palette Showcase (New requested showcase) -->
+            <a href="design_palette.html" class="nav-btn ${activeSec === 'palette' ? 'nav-active' : ''} text-purple-300 hover:text-white" title="ClockEE Design Palette &amp; System Playground">
+              <svg class="w-3.5 h-3.5 text-purple-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+              <span>Design Palette</span>
             </a>
 
             <!-- Settings / More Dropdown -->
@@ -325,6 +361,38 @@
 
           <!-- Right Status Telemetry & Quick Action Controls -->
           <div class="nav-right flex items-center gap-2 sm:gap-3 flex-shrink-0">
+            
+            <!-- Quick Theme Switcher Pill -->
+            <div class="nav-dropdown hidden lg:inline-block">
+              <button class="px-2.5 py-1 rounded-full bg-white/5 border border-white/10 hover:border-white/25 text-[11px] font-mono text-slate-300 flex items-center gap-1.5 transition cursor-pointer" title="Quick Theme Switcher">
+                <span class="palette-swatch bg-[#0a84ff]"></span>
+                <span class="hidden xl:inline">Palette</span>
+                <span class="nav-caret">▼</span>
+              </button>
+              <div class="nav-dropdown-menu" style="min-width: 175px;">
+                <button onclick="setDesignPalette('obsidian')" class="nav-dropdown-item w-full text-left cursor-pointer">
+                  <span class="palette-swatch bg-[#0a84ff]"></span>
+                  <span>Obsidian Pure</span>
+                </button>
+                <button onclick="setDesignPalette('cyber')" class="nav-dropdown-item w-full text-left cursor-pointer">
+                  <span class="palette-swatch bg-[#00f0ff]"></span>
+                  <span>Cyber Cyan</span>
+                </button>
+                <button onclick="setDesignPalette('violet')" class="nav-dropdown-item w-full text-left cursor-pointer">
+                  <span class="palette-swatch bg-[#a855f7]"></span>
+                  <span>Vapor Violet</span>
+                </button>
+                <button onclick="setDesignPalette('emerald')" class="nav-dropdown-item w-full text-left cursor-pointer">
+                  <span class="palette-swatch bg-[#10b981]"></span>
+                  <span>Matrix Emerald</span>
+                </button>
+                <button onclick="setDesignPalette('amber')" class="nav-dropdown-item w-full text-left cursor-pointer">
+                  <span class="palette-swatch bg-[#f59e0b]"></span>
+                  <span>Solar Amber</span>
+                </button>
+              </div>
+            </div>
+
             <!-- Live Edge Connection Status Pill -->
             <a href="live_tracker.html" id="edge-connection-pill" class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-950/60 border border-emerald-500/40 text-[11px] font-mono font-bold text-emerald-400 hover:border-emerald-400 transition" title="Connected to Vercel Edge &amp; Supabase Cloud Mesh">
               <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -359,12 +427,29 @@
 
         </div>
 
-        <!-- Mobile Drawer Menu (Hierarchical Accordions) -->
+        <!-- Mobile Drawer Menu -->
         <div id="clockee-mobile-drawer" class="hidden md:hidden border-t border-white/10 bg-[#090b14] px-4 py-3 space-y-1.5 max-h-[80vh] overflow-y-auto">
           <a href="index.html" class="block px-3 py-2 rounded-lg text-xs font-semibold ${activeSec === 'home' ? 'bg-[#0a84ff] text-white' : 'text-slate-300 hover:bg-white/5'}">Home Command Center</a>
           <a href="task.html" class="block px-3 py-2 rounded-lg text-xs font-semibold ${activeSec === 'task' ? 'bg-[#0a84ff] text-white' : 'text-slate-300 hover:bg-white/5'}">Tasks &amp; DPP Kanban</a>
           <a href="today.html" class="block px-3 py-2 rounded-lg text-xs font-semibold ${activeSec === 'today' ? 'bg-[#0a84ff] text-white' : 'text-slate-300 hover:bg-white/5'}">Daily Practice Log</a>
+          <a href="design_palette.html" class="block px-3 py-2 rounded-lg text-xs font-semibold ${activeSec === 'palette' ? 'bg-[#0a84ff] text-white' : 'text-purple-300 hover:bg-white/5'}">Design Palette Showcase</a>
           
+          <div class="pt-2 border-t border-white/10 text-[10px] font-mono uppercase text-slate-500 font-bold px-3">Live Themes</div>
+          <div class="grid grid-cols-2 gap-1.5 px-3 py-1">
+            <button onclick="setDesignPalette('obsidian')" class="text-left text-xs text-slate-300 hover:text-white flex items-center gap-1.5">
+              <span class="palette-swatch bg-[#0a84ff]"></span> Obsidian
+            </button>
+            <button onclick="setDesignPalette('cyber')" class="text-left text-xs text-cyan-300 hover:text-white flex items-center gap-1.5">
+              <span class="palette-swatch bg-[#00f0ff]"></span> Cyber
+            </button>
+            <button onclick="setDesignPalette('violet')" class="text-left text-xs text-purple-300 hover:text-white flex items-center gap-1.5">
+              <span class="palette-swatch bg-[#a855f7]"></span> Violet
+            </button>
+            <button onclick="setDesignPalette('emerald')" class="text-left text-xs text-emerald-300 hover:text-white flex items-center gap-1.5">
+              <span class="palette-swatch bg-[#10b981]"></span> Emerald
+            </button>
+          </div>
+
           <div class="pt-2 border-t border-white/10 text-[10px] font-mono uppercase text-slate-500 font-bold px-3">Timer Modes</div>
           <a href="timer.html?mode=drill" class="block px-3 py-1.5 rounded-lg text-xs text-slate-300 hover:bg-white/5">Tactical Pace Sprint</a>
           <a href="timer.html?mode=lecture" class="block px-3 py-1.5 rounded-lg text-xs text-slate-300 hover:bg-white/5">Lecture Focus Timer</a>

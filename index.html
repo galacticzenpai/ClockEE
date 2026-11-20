@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en" class="dark" data-palette="obsidian">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ClockEE OS 2.0 // High-Precision Cockpit</title>
+  <title>ClockEE OS 2.0 // Neo-Obsidian Cockpit</title>
   
   <script src="env.js" onerror="/* env.js optional */"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -29,24 +29,24 @@
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 
-  <link rel="stylesheet" href="styles/clockee_motion.css" />
+  <!-- Master Tokens & Motion -->
   <link rel="stylesheet" href="styles/tokens.css" />
+  <link rel="stylesheet" href="styles/clockee_motion.css" />
 
   <style>
     :root {
-      --bg-base: #070913;
-      --bg-surface: #0a0c10;
-      --bg-elevated: #12151c;
-      --border-subtle: rgba(255, 255, 255, 0.08);
-      --border-strong: rgba(255, 255, 255, 0.16);
-      --accent: #0a84ff;
-      --accent-cyan: #00f0ff;
+      --bg-base: var(--surface-0, #000000);
+      --bg-surface: var(--surface-1, #0a0c10);
+      --bg-elevated: var(--surface-2, #12151c);
+      --border-subtle: var(--border-subtle, rgba(255, 255, 255, 0.08));
+      --border-strong: var(--border-elevated, rgba(255, 255, 255, 0.16));
+      --accent: var(--accent-primary, #0a84ff);
       --text-primary: #ffffff;
       --text-secondary: #94a3b8;
     }
 
     body {
-      background-color: var(--bg-base);
+      background-color: var(--surface-0, #000000);
       color: var(--text-primary);
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       margin: 0;
@@ -55,26 +55,14 @@
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       overflow-x: hidden;
-    }
-
-    .glass-card {
-      background: rgba(10, 12, 18, 0.88);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 18px;
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .glass-card:hover {
-      border-color: rgba(255, 255, 255, 0.14);
+      transition: background-color 0.25s var(--ck-ease-spring), color 0.25s ease;
     }
 
     .mono { font-family: 'JetBrains Mono', monospace; }
     .tabular-nums { font-variant-numeric: tabular-nums; }
 
     ::-webkit-scrollbar { width: 6px; height: 6px; }
-    ::-webkit-scrollbar-track { background: #070913; }
+    ::-webkit-scrollbar-track { background: var(--surface-0, #000000); }
     ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
     ::-webkit-scrollbar-thumb:hover { background: #334155; }
 
@@ -269,12 +257,12 @@
   <script src="js/clockee_runtime.js"></script>
   <script src="components/navbar.js"></script>
 </head>
-<body data-page="home" class="min-h-screen flex flex-col relative antialiased selection:bg-[#0a84ff] selection:text-white bg-[#070913]">
+<body data-page="home" class="min-h-screen flex flex-col relative antialiased selection:bg-[#0a84ff] selection:text-white">
 
   <!-- Universal Master Navigation Bar -->
   <div id="clockee-nav"></div>
 
-  <!-- Main Cockpit Workspace -->
+  <!-- Main Cockpit Workspace (Smashed v1 + v2 Design Palette) -->
   <main class="max-w-7xl mx-auto px-4 sm:px-6 py-6 pb-24 grid grid-cols-1 lg:grid-cols-12 gap-6 relative w-full flex-1">
     
     <!-- Left Column: Aspirant Profile, XP Status, Monthly Heatmap & Dual Graphs (lg:col-span-4) -->
@@ -286,7 +274,7 @@
     <div class="lg:col-span-8 flex flex-col gap-6 min-w-0">
       
       <!-- 1. JEE Target Countdown Card: Months, Total Weeks, Days -->
-      <div class="glass-card p-5 space-y-3.5 shadow-xl border border-white/10 bg-[#0d1122]/75">
+      <div class="neo-card glass-card p-5 space-y-3.5 shadow-xl border border-white/10 bg-[#0d1122]/75">
         <div class="flex items-center justify-between flex-wrap gap-2">
           <div class="flex items-center gap-2.5">
             <div class="w-7 h-7 rounded-lg bg-cyan-950/60 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
@@ -317,7 +305,7 @@
       </div>
 
       <!-- 2. Aspirant Daily Target & Readiness HUD -->
-      <div class="glass-card p-5 border border-white/10 bg-[#0d1122]/75 shadow-xl space-y-3">
+      <div class="neo-card glass-card p-5 border border-white/10 bg-[#0d1122]/75 shadow-xl space-y-3">
         <div class="flex items-center justify-between pb-2.5 border-b border-white/10 flex-wrap gap-2">
           <div class="flex items-center gap-2.5">
             <div class="w-7 h-7 rounded-lg bg-[#161b24] border border-white/10 flex items-center justify-center text-[#0a84ff]">
@@ -358,15 +346,15 @@
           <div class="p-3.5 rounded-xl bg-black/35 border border-white/5 flex flex-col justify-between shadow-inner">
             <div class="text-[10px] text-[#0a84ff] uppercase font-bold tracking-wider">Adaptive Practice</div>
             <div class="flex items-center gap-2 pt-1">
-              <a href="timer.html?mode=drill" class="flex-1 py-1.5 px-2 bg-[#0a84ff] hover:bg-[#0a84ff] text-white rounded-lg text-xs font-bold text-center transition shadow">Start Drill</a>
-              <a href="cbt_home.html" class="flex-1 py-1.5 px-2 bg-cyan-600/20 hover:bg-cyan-600 text-cyan-300 hover:text-white border border-cyan-500/30 rounded-lg text-xs font-bold text-center transition">CBT Exam</a>
+              <a href="timer.html?mode=drill" class="btn-tactile flex-1 py-1.5 px-2 bg-[#0a84ff] hover:bg-[#0a84ff] text-white rounded-lg text-xs font-bold text-center transition shadow">Start Drill</a>
+              <a href="cbt_home.html" class="btn-tactile flex-1 py-1.5 px-2 bg-cyan-600/20 hover:bg-cyan-600 text-cyan-300 hover:text-white border border-cyan-500/30 rounded-lg text-xs font-bold text-center transition">CBT Exam</a>
             </div>
           </div>
         </div>
       </div>
 
       <!-- 3. Quick Log Solved Questions (+1, +5, -1 with top counter) -->
-      <div class="glass-card p-5 border border-white/10 bg-[#0d1122]/75 shadow-xl relative overflow-hidden space-y-3.5">
+      <div class="neo-card glass-card p-5 border border-white/10 bg-[#0d1122]/75 shadow-xl relative overflow-hidden space-y-3.5">
         <div class="flex items-center justify-between pb-2.5 border-b border-white/10 flex-wrap gap-2">
           <div class="flex items-center gap-2.5">
             <div class="w-7 h-7 rounded-lg bg-cyan-950/60 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
@@ -391,13 +379,13 @@
               <span class="font-extrabold text-slate-100">Physics Practice</span>
             </div>
             <div class="grid grid-cols-3 gap-2">
-              <button onclick="logQuickQuestions('Physics', 1)" class="py-2 rounded-xl bg-blue-500/15 hover:bg-blue-600 text-blue-300 hover:text-white border border-blue-500/30 text-xs font-black transition shadow-sm">+1</button>
-              <button onclick="logQuickQuestions('Physics', 5)" class="py-2 rounded-xl bg-blue-500/25 hover:bg-blue-600 text-blue-200 hover:text-white border border-blue-500/40 text-xs font-black transition shadow-sm">+5</button>
-              <button onclick="logQuickQuestions('Physics', -1)" class="py-2 rounded-xl bg-red-500/15 hover:bg-red-600 text-red-300 hover:text-white border border-red-500/30 text-xs font-black transition shadow-sm" title="Deduct 1 question">-1</button>
+              <button onclick="logQuickQuestions('Physics', 1)" class="btn-tactile py-2 rounded-xl bg-blue-500/15 hover:bg-blue-600 text-blue-300 hover:text-white border border-blue-500/30 text-xs font-black transition shadow-sm">+1</button>
+              <button onclick="logQuickQuestions('Physics', 5)" class="btn-tactile py-2 rounded-xl bg-blue-500/25 hover:bg-blue-600 text-blue-200 hover:text-white border border-blue-500/40 text-xs font-black transition shadow-sm">+5</button>
+              <button onclick="logQuickQuestions('Physics', -1)" class="btn-tactile py-2 rounded-xl bg-red-500/15 hover:bg-red-600 text-red-300 hover:text-white border border-red-500/30 text-xs font-black transition shadow-sm" title="Deduct 1 question">-1</button>
             </div>
             <div class="flex gap-1.5 pt-0.5">
               <input type="number" id="custom-phy-input" placeholder="Custom" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-2 py-1 text-xs text-white text-center outline-none focus:border-blue-400 font-mono font-bold">
-              <button onclick="logCustomQuestions('Physics')" class="px-3 py-1 bg-blue-600 hover:bg-blue-500 text-white rounded-lg text-xs font-black transition">Log</button>
+              <button onclick="logCustomQuestions('Physics')" class="btn-tactile px-3 py-1 bg-blue-600 hover:bg-blue-500 text-white rounded-lg text-xs font-black transition">Log</button>
             </div>
           </div>
 
@@ -412,13 +400,13 @@
               <span class="font-extrabold text-slate-100">Chemistry Practice</span>
             </div>
             <div class="grid grid-cols-3 gap-2">
-              <button onclick="logQuickQuestions('Chemistry', 1)" class="py-2 rounded-xl bg-emerald-500/15 hover:bg-emerald-600 text-emerald-300 hover:text-white border border-emerald-500/30 text-xs font-black transition shadow-sm">+1</button>
-              <button onclick="logQuickQuestions('Chemistry', 5)" class="py-2 rounded-xl bg-emerald-500/25 hover:bg-emerald-600 text-emerald-200 hover:text-white border border-emerald-500/40 text-xs font-black transition shadow-sm">+5</button>
-              <button onclick="logQuickQuestions('Chemistry', -1)" class="py-2 rounded-xl bg-red-500/15 hover:bg-red-600 text-red-300 hover:text-white border border-red-500/30 text-xs font-black transition shadow-sm" title="Deduct 1 question">-1</button>
+              <button onclick="logQuickQuestions('Chemistry', 1)" class="btn-tactile py-2 rounded-xl bg-emerald-500/15 hover:bg-emerald-600 text-emerald-300 hover:text-white border border-emerald-500/30 text-xs font-black transition shadow-sm">+1</button>
+              <button onclick="logQuickQuestions('Chemistry', 5)" class="btn-tactile py-2 rounded-xl bg-emerald-500/25 hover:bg-emerald-600 text-emerald-200 hover:text-white border border-emerald-500/40 text-xs font-black transition shadow-sm">+5</button>
+              <button onclick="logQuickQuestions('Chemistry', -1)" class="btn-tactile py-2 rounded-xl bg-red-500/15 hover:bg-red-600 text-red-300 hover:text-white border border-red-500/30 text-xs font-black transition shadow-sm" title="Deduct 1 question">-1</button>
             </div>
             <div class="flex gap-1.5 pt-0.5">
               <input type="number" id="custom-chem-input" placeholder="Custom" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-2 py-1 text-xs text-white text-center outline-none focus:border-emerald-400 font-mono font-bold">
-              <button onclick="logCustomQuestions('Chemistry')" class="px-3 py-1 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-xs font-black transition">Log</button>
+              <button onclick="logCustomQuestions('Chemistry')" class="btn-tactile px-3 py-1 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-xs font-black transition">Log</button>
             </div>
           </div>
 
@@ -433,24 +421,24 @@
               <span class="font-extrabold text-slate-100">Maths Practice</span>
             </div>
             <div class="grid grid-cols-3 gap-2">
-              <button onclick="logQuickQuestions('Maths', 1)" class="py-2 rounded-xl bg-amber-500/15 hover:bg-amber-600 text-amber-300 hover:text-white border border-amber-500/30 text-xs font-black transition shadow-sm">+1</button>
-              <button onclick="logQuickQuestions('Maths', 5)" class="py-2 rounded-xl bg-amber-500/25 hover:bg-amber-600 text-amber-200 hover:text-white border border-amber-500/40 text-xs font-black transition shadow-sm">+5</button>
-              <button onclick="logQuickQuestions('Maths', -1)" class="py-2 rounded-xl bg-red-500/15 hover:bg-red-600 text-red-300 hover:text-white border border-red-500/30 text-xs font-black transition shadow-sm" title="Deduct 1 question">-1</button>
+              <button onclick="logQuickQuestions('Maths', 1)" class="btn-tactile py-2 rounded-xl bg-amber-500/15 hover:bg-amber-600 text-amber-300 hover:text-white border border-amber-500/30 text-xs font-black transition shadow-sm">+1</button>
+              <button onclick="logQuickQuestions('Maths', 5)" class="btn-tactile py-2 rounded-xl bg-amber-500/25 hover:bg-amber-600 text-amber-200 hover:text-white border border-amber-500/40 text-xs font-black transition shadow-sm">+5</button>
+              <button onclick="logQuickQuestions('Maths', -1)" class="btn-tactile py-2 rounded-xl bg-red-500/15 hover:bg-red-600 text-red-300 hover:text-white border border-red-500/30 text-xs font-black transition shadow-sm" title="Deduct 1 question">-1</button>
             </div>
             <div class="flex gap-1.5 pt-0.5">
               <input type="number" id="custom-math-input" placeholder="Custom" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-2 py-1 text-xs text-white text-center outline-none focus:border-amber-400 font-mono font-bold">
-              <button onclick="logCustomQuestions('Maths')" class="px-3 py-1 bg-amber-600 hover:bg-amber-500 text-white rounded-lg text-xs font-black transition">Log</button>
+              <button onclick="logCustomQuestions('Maths')" class="btn-tactile px-3 py-1 bg-amber-600 hover:bg-amber-500 text-white rounded-lg text-xs font-black transition">Log</button>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- 4. Tactical Simulation & Error Diagnostics Control EXCLUDED AS REQUESTED -->
+      <!-- 4. Tactical Simulation Card EXCLUDED AS REQUESTED -->
 
       <!-- 5. Today's Queue (Foldable TickTick section) & Upcoming Milestones -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 flex-1 items-stretch">
         <!-- Today's Queue with Foldable TickTick Tasks -->
-        <div class="glass-card p-5 space-y-3.5 flex flex-col justify-between h-full bg-[#0d1122]/75 border border-white/10 shadow-xl">
+        <div class="neo-card glass-card p-5 space-y-3.5 flex flex-col justify-between h-full bg-[#0d1122]/75 border border-white/10 shadow-xl">
           <div class="flex-1 flex flex-col">
             <div class="flex items-center justify-between border-b border-white/10 pb-2.5 mb-2.5">
               <div class="flex items-center gap-2">
@@ -473,7 +461,7 @@
         </div>
 
         <!-- Upcoming Milestones & Deadlines -->
-        <div class="glass-card p-5 space-y-3.5 flex flex-col justify-between h-full bg-[#0d1122]/75 border border-white/10 shadow-xl">
+        <div class="neo-card glass-card p-5 space-y-3.5 flex flex-col justify-between h-full bg-[#0d1122]/75 border border-white/10 shadow-xl">
           <div class="flex-1 flex flex-col">
             <div class="flex items-center justify-between border-b border-white/10 pb-3 mb-3">
               <div class="flex items-center gap-2">
@@ -612,8 +600,13 @@
 
   <!-- Floating Action Triggers -->
   <div class="fixed bottom-4 right-4 z-40 flex items-center gap-2">
-    <button onclick="window.toggleSplitScreen ? window.toggleSplitScreen() : (function(){ var d = document.getElementById('split-drawer'); if (d) d.classList.toggle('translate-x-full'); })()" id="clockee-chat-floating-pill" class="px-3.5 py-2 rounded-full bg-[#0a0c10]/90 border border-white/10 hover:border-blue-400/50 text-slate-300 hover:text-white text-xs font-bold shadow-sm backdrop-blur-xl flex items-center gap-2 transition cursor-pointer">
-      <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+    <a href="design_palette.html" id="clockee-palette-floating-pill" class="btn-tactile px-3 py-2 rounded-full bg-[var(--surface-2,#12151c)]/90 border border-white/10 hover:border-purple-400/50 text-purple-300 hover:text-white text-xs font-bold shadow-sm backdrop-blur-xl flex items-center gap-1.5 transition cursor-pointer" title="Open Living Design Palette Showcase">
+      <svg class="w-3.5 h-3.5 text-purple-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+      <span class="hidden sm:inline">Design Palette</span>
+    </a>
+
+    <button onclick="window.toggleSplitScreen ? window.toggleSplitScreen() : (function(){ var d = document.getElementById('split-drawer'); if (d) d.classList.toggle('translate-x-full'); })()" id="clockee-chat-floating-pill" class="btn-tactile px-3.5 py-2 rounded-full bg-[var(--surface-1,#0a0c10)]/90 border border-white/10 hover:border-blue-400/50 text-slate-300 hover:text-white text-xs font-bold shadow-sm backdrop-blur-xl flex items-center gap-2 transition cursor-pointer">
+      <span class="w-2 h-2 rounded-full bg-[var(--accent-primary,#0a84ff)] animate-pulse"></span>
       <span>AI TUTOR</span>
     </button>
   </div>
@@ -816,7 +809,7 @@
           </div>
           <div class="flex items-center gap-2 shrink-0">
             <span class="text-[10px] px-2 py-0.5 rounded-full bg-[#161b24] text-[#0a84ff] border border-white/10 font-mono font-bold">${m.dueDate}</span>
-            <a href="cbt_home.html" class="text-[10px] bg-[#0a84ff] hover:bg-[#0a84ff] text-white font-extrabold px-2.5 py-1 rounded-lg transition">CBT</a>
+            <a href="cbt_home.html" class="btn-tactile text-[10px] bg-[#0a84ff] hover:bg-[#0a84ff] text-white font-extrabold px-2.5 py-1 rounded-lg transition">CBT</a>
           </div>
         </div>
       `).join('');

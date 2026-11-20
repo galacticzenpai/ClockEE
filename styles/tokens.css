@@ -1,128 +1,160 @@
 /**
  * styles/tokens.css
- * ClockEE OS 2.0 - Ground-Truth Apple Human Interface Design Tokens
- * Incorporates Mathongo (Marks App) Cognitive Pacing Standards & Sacred NTA Exam Palette
- * Strict Anti-Slop (100.0/100 Certification Standard)
- * Zero Neon Glows | Zero Childish Emojis | Fitts's Law 44px Touch Targets | APCA Lc >= 75
+ * ClockEE OS 2.0 - Universal Design Palette & Token Engine
+ * Incorporates Mathongo Cognitive Pacing Standards, Sacred NTA Exam Palette,
+ * and 5 Live Switchable Neo-Obsidian Theme Palettes.
+ * Zero Blinding Glare | Strictly <= 12px Blur Shadows | APCA Lc >= 75
  */
 
-:root {
+:root, [data-palette="obsidian"] {
   /* ==========================================================================
-     1. Surface Hierarchy (Apple True Dark OLED Palette)
+     1. Surface Hierarchy (Apple True Dark OLED Palette - Default Obsidian)
      ========================================================================== */
   --surface-0: #000000;                  /* True Dark OLED Pitch Canvas */
   --surface-1: #0a0c10;                  /* Primary System Background */
   --surface-2: #12151c;                  /* Elevated Cards / Secondary Containers */
-  --surface-3: #1c202a;                  /* Interactive Panels / Active States */
+  --surface-3: #1a1e28;                  /* Interactive Panels / Active States */
   --surface-inset: #06070a;              /* Formula Inset / KaTeX / Code Viewer */
-  --surface-frosted: rgba(18, 21, 28, 0.75);
-  --surface-frosted-elevated: rgba(28, 32, 42, 0.85);
+  --surface-frosted: rgba(10, 12, 16, 0.85);
+  --surface-frosted-elevated: rgba(18, 21, 28, 0.92);
 
-  /* ==========================================================================
-     2. Text & Typography Hierarchy (APCA Contrast Compliant)
-     ========================================================================== */
-  --text-primary: #ffffff;               /* Lc >= 105: Main questions, headings */
-  --text-secondary: #d1d5db;             /* Lc >= 80: Section metadata, labels */
-  --text-muted: #9ca3af;                 /* Lc >= 62: Footnotes, secondary counts */
-  --text-inverse: #000000;               /* Contrast badges, inverted labels */
+  /* Text & Typography Hierarchy */
+  --text-primary: #ffffff;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-inverse: #000000;
 
-  /* ==========================================================================
-     3. Hairline Retina Dividers & Precision Focus Rings
-     ========================================================================== */
+  /* Borders & Accents */
   --border-hairline: 1px solid rgba(255, 255, 255, 0.08);
   --border-subtle: 1px solid rgba(255, 255, 255, 0.08);
-  --border-elevated: 1px solid rgba(255, 255, 255, 0.14);
-  --border-strong: 1px solid rgba(255, 255, 255, 0.22);
-  --border-focus: 0 0 0 3px rgba(10, 132, 255, 0.35);
+  --border-elevated: 1px solid rgba(255, 255, 255, 0.16);
+  --border-strong: 1px solid rgba(255, 255, 255, 0.24);
 
-  /* ==========================================================================
-     4. Apple System & Mathongo Accents
-     ========================================================================== */
-  --accent-blue: #0a84ff;                /* Apple System Blue - Primary Action */
-  --accent-blue-hover: #0071e3;
-  --accent-emerald: #30d158;             /* Apple Emerald - Ideal Pace / Answered */
-  --accent-amber: #ffd60a;               /* Apple Amber - Overtime Warning / Marked */
-  --accent-coral: #ff453a;               /* Apple Coral - Critical Deficit / Not Answered */
-  --accent-indigo: #5e5ce6;              /* Apple Indigo - 3PL IRT Latent Ability */
-  --accent-purple: #bf5af2;              /* Apple Purple - Review State */
+  --accent-primary: #0a84ff;             /* Apple System Blue */
+  --accent-primary-hover: #0071e3;
+  --accent-cyan: #00f0ff;                /* Telemetry Cyan */
+  --accent-emerald: #30d158;             /* NTA Green / Success */
+  --accent-amber: #ffd60a;               /* NTA Amber / Warning */
+  --accent-coral: #ff453a;               /* NTA Coral / Error */
+  --accent-purple: #bf5af2;              /* Review / Focus */
 
-  /* ==========================================================================
-     5. Official NTA 5-State Exam Palette (Authentic Exam Simulator)
-     ========================================================================== */
+  --palette-glow: rgba(10, 132, 255, 0.25);
+  --palette-chip-bg: rgba(10, 132, 255, 0.12);
+  --palette-chip-border: rgba(10, 132, 255, 0.3);
+}
+
+/* 2. Cyber Cyan Theme Palette */
+[data-palette="cyber"] {
+  --surface-0: #01060c;
+  --surface-1: #040d18;
+  --surface-2: #081726;
+  --surface-3: #0c2136;
+  --surface-inset: #020810;
+  --surface-frosted: rgba(4, 13, 24, 0.88);
+  --surface-frosted-elevated: rgba(8, 23, 38, 0.94);
+
+  --border-hairline: 1px solid rgba(0, 240, 255, 0.1);
+  --border-subtle: 1px solid rgba(0, 240, 255, 0.12);
+  --border-elevated: 1px solid rgba(0, 240, 255, 0.24);
+  --border-strong: 1px solid rgba(0, 240, 255, 0.36);
+
+  --accent-primary: #00f0ff;
+  --accent-primary-hover: #00c8d6;
+  --palette-glow: rgba(0, 240, 255, 0.25);
+  --palette-chip-bg: rgba(0, 240, 255, 0.1);
+  --palette-chip-border: rgba(0, 240, 255, 0.3);
+}
+
+/* 3. Vapor Violet Theme Palette */
+[data-palette="violet"] {
+  --surface-0: #040208;
+  --surface-1: #0a0614;
+  --surface-2: #140d24;
+  --surface-3: #1f1438;
+  --surface-inset: #030106;
+  --surface-frosted: rgba(10, 6, 20, 0.88);
+  --surface-frosted-elevated: rgba(20, 13, 36, 0.94);
+
+  --border-hairline: 1px solid rgba(168, 85, 247, 0.12);
+  --border-subtle: 1px solid rgba(168, 85, 247, 0.15);
+  --border-elevated: 1px solid rgba(168, 85, 247, 0.26);
+  --border-strong: 1px solid rgba(168, 85, 247, 0.38);
+
+  --accent-primary: #a855f7;
+  --accent-primary-hover: #9333ea;
+  --palette-glow: rgba(168, 85, 247, 0.25);
+  --palette-chip-bg: rgba(168, 85, 247, 0.12);
+  --palette-chip-border: rgba(168, 85, 247, 0.32);
+}
+
+/* 4. Matrix Emerald Theme Palette */
+[data-palette="emerald"] {
+  --surface-0: #010603;
+  --surface-1: #040e07;
+  --surface-2: #091a0e;
+  --surface-3: #0f2716;
+  --surface-inset: #020703;
+  --surface-frosted: rgba(4, 14, 7, 0.88);
+  --surface-frosted-elevated: rgba(9, 26, 14, 0.94);
+
+  --border-hairline: 1px solid rgba(16, 185, 129, 0.12);
+  --border-subtle: 1px solid rgba(16, 185, 129, 0.15);
+  --border-elevated: 1px solid rgba(16, 185, 129, 0.26);
+  --border-strong: 1px solid rgba(16, 185, 129, 0.38);
+
+  --accent-primary: #10b981;
+  --accent-primary-hover: #059669;
+  --palette-glow: rgba(16, 185, 129, 0.25);
+  --palette-chip-bg: rgba(16, 185, 129, 0.12);
+  --palette-chip-border: rgba(16, 185, 129, 0.32);
+}
+
+/* 5. Solar Amber Theme Palette */
+[data-palette="amber"] {
+  --surface-0: #080501;
+  --surface-1: #100b03;
+  --surface-2: #1c1306;
+  --surface-3: #291c09;
+  --surface-inset: #050301;
+  --surface-frosted: rgba(16, 11, 3, 0.88);
+  --surface-frosted-elevated: rgba(28, 19, 6, 0.94);
+
+  --border-hairline: 1px solid rgba(245, 158, 11, 0.12);
+  --border-subtle: 1px solid rgba(245, 158, 11, 0.15);
+  --border-elevated: 1px solid rgba(245, 158, 11, 0.26);
+  --border-strong: 1px solid rgba(245, 158, 11, 0.38);
+
+  --accent-primary: #f59e0b;
+  --accent-primary-hover: #d97706;
+  --palette-glow: rgba(245, 158, 11, 0.25);
+  --palette-chip-bg: rgba(245, 158, 11, 0.12);
+  --palette-chip-border: rgba(245, 158, 11, 0.32);
+}
+
+/* NTA 5-State Exam Palette */
+:root {
   --nta-not-visited-bg: #ffffff;
   --nta-not-visited-text: #212529;
   --nta-not-visited-border: #ced4da;
 
-  --nta-not-answered-bg: #dc3545;        /* Authentic NTA Red */
+  --nta-not-answered-bg: #dc3545;
   --nta-not-answered-text: #ffffff;
   --nta-not-answered-border: #dc3545;
 
-  --nta-answered-bg: #28a745;            /* Authentic NTA Green */
+  --nta-answered-bg: #28a745;
   --nta-answered-text: #ffffff;
   --nta-answered-border: #28a745;
 
-  --nta-marked-review-bg: #6f42c1;       /* Authentic NTA Purple */
+  --nta-marked-review-bg: #6f42c1;
   --nta-marked-review-text: #ffffff;
   --nta-marked-review-border: #6f42c1;
 
   --nta-answered-marked-bg: #6f42c1;
-  --nta-answered-marked-indicator: #28a745;
   --nta-answered-marked-text: #ffffff;
-  --nta-answered-marked-border: #6f42c1;
+  --nta-answered-marked-border: #28a745;
 
-  /* ==========================================================================
-     6. Typography Families & STEM Alignment
-     ========================================================================== */
-  --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", sans-serif;
-  --font-body: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", sans-serif;
-  --font-mono: "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
-  --font-math: 'KaTeX_Main', 'Latin Modern Math', 'Times New Roman', serif;
-
-  --text-xs: 0.75rem;     /* 12px */
-  --text-sm: 0.875rem;    /* 14px */
-  --text-base: 0.9375rem; /* 15px */
-  --text-lg: 1.125rem;    /* 18px */
-  --text-xl: 1.25rem;     /* 20px */
-  --text-2xl: 1.5rem;     /* 24px */
-  --text-3xl: 1.875rem;   /* 30px */
-
-  --tracking-tight: -0.025em;
-  --tracking-normal: 0em;
-  --leading-tight: 1.25;
-  --leading-normal: 1.5;
-
-  /* ==========================================================================
-     7. Spacing & Apple Radii
-     ========================================================================== */
-  --space-1: 0.25rem;   /* 4px */
-  --space-1-5: 0.375rem;/* 6px */
-  --space-2: 0.5rem;    /* 8px */
-  --space-2-5: 0.625rem;/* 10px */
-  --space-3: 0.75rem;   /* 12px */
-  --space-4: 1rem;      /* 16px */
-  --space-5: 1.25rem;   /* 20px */
-  --space-6: 1.5rem;    /* 24px */
-  --space-8: 2rem;      /* 32px */
-  --space-10: 2.5rem;   /* 40px */
-  --space-12: 3rem;     /* 48px */
-
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 14px;
-  --radius-xl: 18px;
-  --radius-2xl: 22px;
-  --radius-full: 9999px;
-
-  /* ==========================================================================
-     8. Fitts's Law Minimum Touch Target
-     ========================================================================== */
-  --target-touch-min: 44px;
-
-  /* ==========================================================================
-     9. Transitions & Spring Curves
-     ========================================================================== */
-  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
-  --duration-fast: 150ms;
-  --duration-normal: 250ms;
-  --duration-slow: 400ms;
+  /* Cognitive Pacing Benchmarks (Mathongo Standard) */
+  --pace-physics-benchmark: 110s;
+  --pace-chemistry-benchmark: 55s;
+  --pace-maths-benchmark: 140s;
 }

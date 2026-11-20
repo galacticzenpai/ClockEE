@@ -5,23 +5,33 @@ with open('scripts/card_1.html', 'r', encoding='utf-8') as f:
 
 # Add tabular-nums and mono to countdown header to satisfy linter
 card_1 = re.sub(r'class="text-base sm:text-lg font-black text-white tracking-tight"\s*id="jee-countdown-title"', 'id="jee-countdown-title" class="text-base sm:text-lg font-black text-white tracking-tight tabular-nums mono"', card_1)
+card_1 = card_1.replace('class="glass-card', 'class="neo-card glass-card')
 
 with open('scripts/card_2.html', 'r', encoding='utf-8') as f:
     card_2 = f.read().strip()
 
-# Sanitize card 2 arbitrary shadow
+# Sanitize card 2 arbitrary shadow and upgrade buttons
 card_2 = card_2.replace('shadow-[0_0_14px_rgba(249,115,22,0.3)]', 'shadow-sm')
+card_2 = card_2.replace('class="glass-card', 'class="neo-card glass-card')
+card_2 = card_2.replace('class="flex-1 py-1.5 px-2 bg-[#0a84ff]', 'class="btn-tactile flex-1 py-1.5 px-2 bg-[#0a84ff]')
+card_2 = card_2.replace('class="flex-1 py-1.5 px-2 bg-cyan-600/20', 'class="btn-tactile flex-1 py-1.5 px-2 bg-cyan-600/20')
 
 with open('scripts/card_3.html', 'r', encoding='utf-8') as f:
     card_3 = f.read().strip()
+card_3 = card_3.replace('class="glass-card', 'class="neo-card glass-card')
+# Upgrade quick log buttons to btn-tactile
+card_3 = re.sub(r'class="py-2 rounded-xl bg-([a-z]+)-500/15', r'class="btn-tactile py-2 rounded-xl bg-\1-500/15', card_3)
+card_3 = re.sub(r'class="py-2 rounded-xl bg-([a-z]+)-500/25', r'class="btn-tactile py-2 rounded-xl bg-\1-500/25', card_3)
+card_3 = re.sub(r'class="px-3 py-1 bg-([a-z]+)-600', r'class="btn-tactile px-3 py-1 bg-\1-600', card_3)
 
 with open('scripts/card_5.html', 'r', encoding='utf-8') as f:
     card_5 = f.read().strip()
+card_5 = card_5.replace('class="glass-card', 'class="neo-card glass-card')
 
 with open('scripts/v1_drawer_full.html', 'r', encoding='utf-8') as f:
     drawer_html = f.read().strip()
 
-# Sanitize drawer shadow
+# Sanitize drawer shadow and enhance
 drawer_html = drawer_html.replace('shadow-[-10px_0_40px_rgba(0,0,0,0.8)]', 'shadow-[-4px_0_12px_rgba(0,0,0,0.7)]')
 
 with open('scripts/v1_styles.css', 'r', encoding='utf-8') as f:
@@ -33,11 +43,11 @@ v1_styles = re.sub(r'box-shadow:\s*0\s+0\s+(?:1[3-9]|[2-9][0-9])px[^;]+;', 'box-
 v1_styles = re.sub(r'box-shadow:\s*0\s+[0-9]+px\s+(?:1[3-9]|[2-9][0-9])px[^;]+;', 'box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);', v1_styles)
 
 index_html = f"""<!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en" class="dark" data-palette="obsidian">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ClockEE OS 2.0 // High-Precision Cockpit</title>
+  <title>ClockEE OS 2.0 // Neo-Obsidian Cockpit</title>
   
   <script src="env.js" onerror="/* env.js optional */"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -63,24 +73,24 @@ index_html = f"""<!DOCTYPE html>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 
-  <link rel="stylesheet" href="styles/clockee_motion.css" />
+  <!-- Master Tokens & Motion -->
   <link rel="stylesheet" href="styles/tokens.css" />
+  <link rel="stylesheet" href="styles/clockee_motion.css" />
 
   <style>
     :root {{
-      --bg-base: #070913;
-      --bg-surface: #0a0c10;
-      --bg-elevated: #12151c;
-      --border-subtle: rgba(255, 255, 255, 0.08);
-      --border-strong: rgba(255, 255, 255, 0.16);
-      --accent: #0a84ff;
-      --accent-cyan: #00f0ff;
+      --bg-base: var(--surface-0, #000000);
+      --bg-surface: var(--surface-1, #0a0c10);
+      --bg-elevated: var(--surface-2, #12151c);
+      --border-subtle: var(--border-subtle, rgba(255, 255, 255, 0.08));
+      --border-strong: var(--border-elevated, rgba(255, 255, 255, 0.16));
+      --accent: var(--accent-primary, #0a84ff);
       --text-primary: #ffffff;
       --text-secondary: #94a3b8;
     }}
 
     body {{
-      background-color: var(--bg-base);
+      background-color: var(--surface-0, #000000);
       color: var(--text-primary);
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       margin: 0;
@@ -89,26 +99,14 @@ index_html = f"""<!DOCTYPE html>
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       overflow-x: hidden;
-    }}
-
-    .glass-card {{
-      background: rgba(10, 12, 18, 0.88);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 18px;
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    }}
-
-    .glass-card:hover {{
-      border-color: rgba(255, 255, 255, 0.14);
+      transition: background-color 0.25s var(--ck-ease-spring), color 0.25s ease;
     }}
 
     .mono {{ font-family: 'JetBrains Mono', monospace; }}
     .tabular-nums {{ font-variant-numeric: tabular-nums; }}
 
     ::-webkit-scrollbar {{ width: 6px; height: 6px; }}
-    ::-webkit-scrollbar-track {{ background: #070913; }}
+    ::-webkit-scrollbar-track {{ background: var(--surface-0, #000000); }}
     ::-webkit-scrollbar-thumb {{ background: #1e293b; border-radius: 3px; }}
     ::-webkit-scrollbar-thumb:hover {{ background: #334155; }}
 
@@ -130,12 +128,12 @@ index_html = f"""<!DOCTYPE html>
   <script src="js/clockee_runtime.js"></script>
   <script src="components/navbar.js"></script>
 </head>
-<body data-page="home" class="min-h-screen flex flex-col relative antialiased selection:bg-[#0a84ff] selection:text-white bg-[#070913]">
+<body data-page="home" class="min-h-screen flex flex-col relative antialiased selection:bg-[#0a84ff] selection:text-white">
 
   <!-- Universal Master Navigation Bar -->
   <div id="clockee-nav"></div>
 
-  <!-- Main Cockpit Workspace -->
+  <!-- Main Cockpit Workspace (Smashed v1 + v2 Design Palette) -->
   <main class="max-w-7xl mx-auto px-4 sm:px-6 py-6 pb-24 grid grid-cols-1 lg:grid-cols-12 gap-6 relative w-full flex-1">
     
     <!-- Left Column: Aspirant Profile, XP Status, Monthly Heatmap & Dual Graphs (lg:col-span-4) -->
@@ -155,7 +153,7 @@ index_html = f"""<!DOCTYPE html>
       <!-- 3. Quick Log Solved Questions (+1, +5, -1 with top counter) -->
       {card_3}
 
-      <!-- 4. Tactical Simulation & Error Diagnostics Control EXCLUDED AS REQUESTED -->
+      <!-- 4. Tactical Simulation Card EXCLUDED AS REQUESTED -->
 
       <!-- 5. Today's Queue (Foldable TickTick section) & Upcoming Milestones -->
       {card_5}
@@ -168,8 +166,13 @@ index_html = f"""<!DOCTYPE html>
 
   <!-- Floating Action Triggers -->
   <div class="fixed bottom-4 right-4 z-40 flex items-center gap-2">
-    <button onclick="window.toggleSplitScreen ? window.toggleSplitScreen() : (function(){{ var d = document.getElementById('split-drawer'); if (d) d.classList.toggle('translate-x-full'); }})()" id="clockee-chat-floating-pill" class="px-3.5 py-2 rounded-full bg-[#0a0c10]/90 border border-white/10 hover:border-blue-400/50 text-slate-300 hover:text-white text-xs font-bold shadow-sm backdrop-blur-xl flex items-center gap-2 transition cursor-pointer">
-      <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+    <a href="design_palette.html" id="clockee-palette-floating-pill" class="btn-tactile px-3 py-2 rounded-full bg-[var(--surface-2,#12151c)]/90 border border-white/10 hover:border-purple-400/50 text-purple-300 hover:text-white text-xs font-bold shadow-sm backdrop-blur-xl flex items-center gap-1.5 transition cursor-pointer" title="Open Living Design Palette Showcase">
+      <svg class="w-3.5 h-3.5 text-purple-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+      <span class="hidden sm:inline">Design Palette</span>
+    </a>
+
+    <button onclick="window.toggleSplitScreen ? window.toggleSplitScreen() : (function(){{ var d = document.getElementById('split-drawer'); if (d) d.classList.toggle('translate-x-full'); }})()" id="clockee-chat-floating-pill" class="btn-tactile px-3.5 py-2 rounded-full bg-[var(--surface-1,#0a0c10)]/90 border border-white/10 hover:border-blue-400/50 text-slate-300 hover:text-white text-xs font-bold shadow-sm backdrop-blur-xl flex items-center gap-2 transition cursor-pointer">
+      <span class="w-2 h-2 rounded-full bg-[var(--accent-primary,#0a84ff)] animate-pulse"></span>
       <span>AI TUTOR</span>
     </button>
   </div>
@@ -372,7 +375,7 @@ index_html = f"""<!DOCTYPE html>
           </div>
           <div class="flex items-center gap-2 shrink-0">
             <span class="text-[10px] px-2 py-0.5 rounded-full bg-[#161b24] text-[#0a84ff] border border-white/10 font-mono font-bold">${{m.dueDate}}</span>
-            <a href="cbt_home.html" class="text-[10px] bg-[#0a84ff] hover:bg-[#0a84ff] text-white font-extrabold px-2.5 py-1 rounded-lg transition">CBT</a>
+            <a href="cbt_home.html" class="btn-tactile text-[10px] bg-[#0a84ff] hover:bg-[#0a84ff] text-white font-extrabold px-2.5 py-1 rounded-lg transition">CBT</a>
           </div>
         </div>
       `).join('');
@@ -474,4 +477,4 @@ index_html = f"""<!DOCTYPE html>
 with open('index.html', 'w', encoding='utf-8') as out:
     out.write(index_html)
 
-print("Generated clean index.html, lines:", len(index_html.splitlines()), "size:", len(index_html))
+print("Generated smashed index.html, lines:", len(index_html.splitlines()), "size:", len(index_html))

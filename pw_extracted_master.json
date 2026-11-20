@@ -3583,5 +3583,405 @@
     "difficulty": "Easy",
     "video_solution_url": "https://www.youtube.com/embed/c_ozN6-Hc-c",
     "solution_text": "The unit of equilibrium constant $K_C$ is given by:\n$$\\text{Unit of } K_C = (\\text{mol L}^{-1})^{\\Delta n_g}$$\nFor the reaction:\n$$\\text{C}_2\\text{H}_4(g) + \\text{H}_2(g) \\rightleftharpoons \\text{C}_2\\text{H}_6(g)$$\n$$\\Delta n_g = n_p - n_r = 1 - (1 + 1) = 1 - 2 = -1$$\nSubstituting $\\Delta n_g = -1$:\n$$\\text{Unit of } K_C = (\\text{mol L}^{-1})^{-1} = \\text{mol}^{-1}\\text{ L} = \\text{L mol}^{-1}$$\nTherefore, option (2) is correct."
+  },
+  {
+    "question_number": 1,
+    "chapter": "Redox Reactions",
+    "subject": "Chemistry",
+    "question_type": "Single Choice Question",
+    "statement": "Oxidation number of Cl in CaOCl2 is:",
+    "options": [
+      {
+        "option_number": 1,
+        "option_text": "−1 and +1",
+        "is_correct": true,
+        "student_percentage": "58.4%"
+      },
+      {
+        "option_number": 2,
+        "option_text": "−2",
+        "is_correct": false,
+        "student_percentage": "11.63%"
+      },
+      {
+        "option_number": 3,
+        "option_text": "+2",
+        "is_correct": false,
+        "student_percentage": "11.5%"
+      },
+      {
+        "option_number": 4,
+        "option_text": "none of these",
+        "is_correct": false,
+        "student_percentage": "18.6%"
+      }
+    ],
+    "registered_answer": 1,
+    "registered_answers": [
+      1
+    ],
+    "student_accuracy": "58.4%",
+    "solution_text": "In bleaching powder, CaOCl₂ exists as Ca²⁺(OCl)⁻(Cl)⁻.\nIn the hypochlorite ion (OCl)⁻: O(−2) + Cl(x) = −1 ⇒ x = +1.\nIn chloride ion Cl⁻: Cl = −1.\nTherefore, the two chlorine atoms have oxidation states of −1 and +1.",
+    "video_url": "https://www.youtube.com/embed/NYRyJAhVKsg"
+  },
+  {
+    "question_number": 2,
+    "chapter": "Redox Reactions",
+    "subject": "Chemistry",
+    "question_type": "Single Choice Question",
+    "statement": "The oxidation state of a metal in a compound is represented according to the notation which is known as",
+    "options": [
+      {
+        "option_number": 1,
+        "option_text": "Alfred stock",
+        "is_correct": false,
+        "student_percentage": "16.75%"
+      },
+      {
+        "option_number": 2,
+        "option_text": "German stock",
+        "is_correct": false,
+        "student_percentage": "15.27%"
+      },
+      {
+        "option_number": 3,
+        "option_text": "Stock notation",
+        "is_correct": true,
+        "student_percentage": "57.64%"
+      },
+      {
+        "option_number": 4,
+        "option_text": "Haworth stock",
+        "is_correct": false,
+        "student_percentage": "10.34%"
+      }
+    ],
+    "registered_answer": 3,
+    "registered_answers": [
+      3
+    ],
+    "student_accuracy": "57.64%",
+    "solution_text": "The German chemist Alfred Stock introduced the system of indicating the oxidation state of a metal in a compound by Roman numerals in parentheses after the symbol of the metal, known as Stock notation (e.g., Fe(II)SO₄, Fe(III)Cl₃).",
+    "video_url": "https://www.youtube.com/embed/NYRyJAhVKsg"
+  },
+  {
+    "question_number": 3,
+    "chapter": "Redox Reactions",
+    "subject": "Chemistry",
+    "question_type": "Single Choice Question",
+    "statement": "3KClO3 + 3H2SO4 ⟶ 3KHSO4 + HClO4 + 2ClO2 + H2O\n\nEquivalent weight of KClO3 is",
+    "options": [
+      {
+        "option_number": 1,
+        "option_text": "M/4",
+        "is_correct": false,
+        "student_percentage": "15.9%"
+      },
+      {
+        "option_number": 2,
+        "option_text": "M/2",
+        "is_correct": false,
+        "student_percentage": "26.36%"
+      },
+      {
+        "option_number": 3,
+        "option_text": "M + M/2 (or M/1 + M/2 = 3M/2 per mol reaction, giving Eq wt = M + M/2)",
+        "is_correct": true,
+        "student_percentage": "45.61%"
+      },
+      {
+        "option_number": 4,
+        "option_text": "M/4 + M/2",
+        "is_correct": false,
+        "student_percentage": "12.55%"
+      }
+    ],
+    "registered_answer": 3,
+    "registered_answers": [
+      3
+    ],
+    "student_accuracy": "45.61%",
+    "solution_text": "In 3KClO₃, chlorine (+5) undergoes disproportionation:\n1 mol KClO₃ oxidises to HClO₄ (+7) -> change = 2 (n-factor = 2), Eq wt = M/2\n2 mol KClO₃ reduce to 2ClO₂ (+4) -> change per mol = 1 (n-factor = 1), Eq wt = M/1\nTotal equivalent weight of disproportionating salt = Eq(ox) + Eq(red) = M + M/2.",
+    "video_url": "https://www.youtube.com/embed/NYRyJAhVKsg"
+  },
+  {
+    "question_number": 4,
+    "chapter": "Redox Reactions",
+    "subject": "Chemistry",
+    "question_type": "Single Choice Question",
+    "statement": "0.52 g of a dibasic acid required 100 mL of 0.2 N NaOH for complete neutralization. The equivalent weight of acid is",
+    "options": [
+      {
+        "option_number": 1,
+        "option_text": "26",
+        "is_correct": true,
+        "student_percentage": "43.29%"
+      },
+      {
+        "option_number": 2,
+        "option_text": "52",
+        "is_correct": false,
+        "student_percentage": "27.53%"
+      },
+      {
+        "option_number": 3,
+        "option_text": "104",
+        "is_correct": false,
+        "student_percentage": "19.76%"
+      },
+      {
+        "option_number": 4,
+        "option_text": "156",
+        "is_correct": false,
+        "student_percentage": "9.41%"
+      }
+    ],
+    "registered_answer": 1,
+    "registered_answers": [
+      1
+    ],
+    "student_accuracy": "42.82%",
+    "solution_text": "Given:\nMass of dibasic acid = 0.52 g\nVolume of NaOH = 100 mL = 0.1 L\nNormality of NaOH = 0.2 N\nEquivalents of base = N × V = 0.2 × 0.1 = 0.02 eq.\nAt complete neutralization:\nEquivalents of acid = Equivalents of base = 0.02 eq.\nEquivalent weight = Mass / Equivalents = 0.52 / 0.02 = 26 g/eq.\nHence, Option 1 (26) is correct.",
+    "video_url": "https://www.youtube.com/embed/NYRyJAhVKsg"
+  },
+  {
+    "question_number": 5,
+    "chapter": "Redox Reactions",
+    "subject": "Chemistry",
+    "question_type": "Single Choice Question",
+    "statement": "How many electrons should X2H4 liberate so that in the new compound X shows oxidation number of −1/2 (E.N. X > H)",
+    "options": [
+      {
+        "option_number": 1,
+        "option_text": "10",
+        "is_correct": false,
+        "student_percentage": "18.32%"
+      },
+      {
+        "option_number": 2,
+        "option_text": "4",
+        "is_correct": false,
+        "student_percentage": "31.15%"
+      },
+      {
+        "option_number": 3,
+        "option_text": "3",
+        "is_correct": true,
+        "student_percentage": "36.1%"
+      },
+      {
+        "option_number": 4,
+        "option_text": "2",
+        "is_correct": false,
+        "student_percentage": "14.44%"
+      }
+    ],
+    "registered_answer": 3,
+    "registered_answers": [
+      3
+    ],
+    "student_accuracy": "36.1%",
+    "solution_text": "In X₂H₄, with E.N. of X > H:\nEach H is +1.\n2(x) + 4(+1) = 0 ⇒ 2x = −4 ⇒ x = −2 (initial oxidation state of each X).\nFor the molecule X₂H₄, total initial charge on the two X atoms = 2 × (−2) = −4.\nIn the new compound, oxidation state of X is −1/2.\nTotal charge on the two X atoms in the product = 2 × (−1/2) = −1.\nChange in total charge = (−1) − (−4) = +3.\nTherefore, 3 electrons must be liberated.",
+    "video_url": "https://www.youtube.com/embed/NYRyJAhVKsg"
+  },
+  {
+    "question_number": 6,
+    "chapter": "Redox Reactions",
+    "subject": "Chemistry",
+    "question_type": "Single Choice Question",
+    "statement": "Oxidation state of nitrogen is correctly given for:",
+    "options": [
+      {
+        "option_number": 1,
+        "option_text": "Mg3N2 : -3",
+        "is_correct": true,
+        "student_percentage": "51.84%"
+      },
+      {
+        "option_number": 2,
+        "option_text": "NH2OH : +1",
+        "is_correct": false,
+        "student_percentage": "19.01%"
+      },
+      {
+        "option_number": 3,
+        "option_text": "(N2H5)2SO4 : +2",
+        "is_correct": false,
+        "student_percentage": "14.2%"
+      },
+      {
+        "option_number": 4,
+        "option_text": "[Co(NH3)5Cl]Cl2 : 0",
+        "is_correct": false,
+        "student_percentage": "14.96%"
+      }
+    ],
+    "registered_answer": 1,
+    "registered_answers": [
+      1
+    ],
+    "student_accuracy": "51.84%",
+    "solution_text": "A. In Mg₃N₂: Mg is +2. 3(+2) + 2x = 0 ⇒ 2x = −6 ⇒ x = −3. Correct.\nB. In NH₂OH: x + 3(+1) + (−2) = 0 ⇒ x = −1 (not +1). Incorrect.\nC. In (N₂H₅)₂SO₄: N₂H₅⁺ has 2x + 5(+1) = +1 ⇒ 2x = −4 ⇒ x = −2 (not +2). Incorrect.\nD. In [Co(NH₃)₅Cl]Cl₂: NH₃ is a neutral ligand where N has oxidation state −3, not 0. Incorrect.\nTherefore, Option 1 is correct.",
+    "video_url": "https://www.youtube.com/embed/NYRyJAhVKsg"
+  },
+  {
+    "question_number": 7,
+    "chapter": "Redox Reactions",
+    "subject": "Chemistry",
+    "question_type": "Single Choice Question",
+    "statement": "The oxidation state of Fe in Fe3O4 is",
+    "options": [
+      {
+        "option_number": 1,
+        "option_text": "+3",
+        "is_correct": false,
+        "student_percentage": "5.93%"
+      },
+      {
+        "option_number": 2,
+        "option_text": "8/3",
+        "is_correct": true,
+        "student_percentage": "84.08%"
+      },
+      {
+        "option_number": 3,
+        "option_text": "+6",
+        "is_correct": false,
+        "student_percentage": "6.35%"
+      },
+      {
+        "option_number": 4,
+        "option_text": "+2",
+        "is_correct": false,
+        "student_percentage": "3.75%"
+      }
+    ],
+    "registered_answer": 2,
+    "registered_answers": [
+      2
+    ],
+    "student_accuracy": "84.08%",
+    "solution_text": "Fe₃O₄ is a mixed oxide (FeO·Fe₂O₃).\nLet average oxidation state of Fe = x.\n3x + 4(−2) = 0\n3x = +8\nx = +8/3.\nHence, the average oxidation state of Fe in Fe₃O₄ is +8/3.",
+    "video_url": "https://www.youtube.com/embed/NYRyJAhVKsg"
+  },
+  {
+    "question_number": 8,
+    "chapter": "Redox Reactions",
+    "subject": "Chemistry",
+    "question_type": "Single Choice Question",
+    "statement": "The equivalent weight of KIO3 in the reaction, 2Cr(OH)3 + 4OH⁻ + KIO3 → 2CrO4²⁻ + 5H2O + KI\n\nis",
+    "options": [
+      {
+        "option_number": 1,
+        "option_text": "Mol. wt.",
+        "is_correct": false,
+        "student_percentage": "12.1%"
+      },
+      {
+        "option_number": 2,
+        "option_text": "Mol. wt. / 6",
+        "is_correct": true,
+        "student_percentage": "67.34%"
+      },
+      {
+        "option_number": 3,
+        "option_text": "Mol. wt. / 2",
+        "is_correct": false,
+        "student_percentage": "11.49%"
+      },
+      {
+        "option_number": 4,
+        "option_text": "Mol. wt. / 3",
+        "is_correct": false,
+        "student_percentage": "8.87%"
+      }
+    ],
+    "registered_answer": 2,
+    "registered_answers": [
+      2
+    ],
+    "student_accuracy": "67.34%",
+    "solution_text": "(i) In this redox reaction, KIO₃ acts as an oxidising agent.\n(ii) In KIO₃, oxidation state of I is: +1 + x + 3(−2) = 0 ⇒ x = +5.\nIn product KI, oxidation state of I is −1.\nChange in oxidation number of iodine per formula unit = (+5) − (−1) = 6.\nTherefore, n-factor = 6.\nEquivalent weight = Molecular weight / 6.",
+    "video_url": null
+  },
+  {
+    "question_number": 9,
+    "chapter": "Redox Reactions",
+    "subject": "Chemistry",
+    "question_type": "Single Choice Question",
+    "statement": "When K2Cr2O7 is converted to K2CrO4, the change in the oxidation state of chromium is",
+    "options": [
+      {
+        "option_number": 1,
+        "option_text": "0",
+        "is_correct": true,
+        "student_percentage": "60.44%"
+      },
+      {
+        "option_number": 2,
+        "option_text": "6",
+        "is_correct": false,
+        "student_percentage": "19.54%"
+      },
+      {
+        "option_number": 3,
+        "option_text": "4",
+        "is_correct": false,
+        "student_percentage": "8.86%"
+      },
+      {
+        "option_number": 4,
+        "option_text": "3",
+        "is_correct": false,
+        "student_percentage": "11.16%"
+      }
+    ],
+    "registered_answer": 1,
+    "registered_answers": [
+      1
+    ],
+    "student_accuracy": "60.44%",
+    "solution_text": "In K₂Cr₂O₇:\n2(+1) + 2x + 7(−2) = 0 ⇒ 2x = 12 ⇒ x = +6.\nIn K₂CrO₄:\n2(+1) + x + 4(−2) = 0 ⇒ x = +6.\nBoth compounds have chromium in the +6 oxidation state.\nTherefore, the change in the oxidation state is 6 − 6 = 0 (this is an acid-base equilibrium reaction, not a redox reaction).",
+    "video_url": null
+  },
+  {
+    "question_number": 10,
+    "chapter": "Redox Reactions",
+    "subject": "Chemistry",
+    "question_type": "Single Choice Question",
+    "statement": "When chlorine is passed into hot conc caustic soda solution the oxidation number of chlorine was increased in one of the products from:",
+    "options": [
+      {
+        "option_number": 1,
+        "option_text": "0 to +7",
+        "is_correct": false,
+        "student_percentage": "30.87%"
+      },
+      {
+        "option_number": 2,
+        "option_text": "−1 to +7",
+        "is_correct": false,
+        "student_percentage": "25.59%"
+      },
+      {
+        "option_number": 3,
+        "option_text": "0 to +5",
+        "is_correct": true,
+        "student_percentage": "29.18%"
+      },
+      {
+        "option_number": 4,
+        "option_text": "0 to −1",
+        "is_correct": false,
+        "student_percentage": "14.37%"
+      }
+    ],
+    "registered_answer": 3,
+    "registered_answers": [
+      3
+    ],
+    "student_accuracy": "29.18%",
+    "solution_text": "When chlorine is passed into hot concentrated NaOH solution, disproportionation occurs:\n3Cl₂ + 6NaOH → 5NaCl + NaClO₃ + 3H₂O\nOxidation number of chlorine in Cl₂ = 0.\nIn NaClO₃: (+1) + x + 3(−2) = 0 ⇒ x = +5.\nThus, chlorine undergoes oxidation from 0 to +5.\nSimultaneously, chlorine is reduced from 0 to −1 in NaCl.\nHence, the oxidation number was increased from 0 to +5.",
+    "video_url": "https://www.youtube.com/embed/KpklEvg1hsw"
   }
 ]

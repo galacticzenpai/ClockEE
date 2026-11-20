@@ -1,21 +1,43 @@
 [
   {
-    "id": "book_pyq_chemistry",
-    "title": "JEE Main & Advanced 11th Chemistry Authentic PYQ Bank",
+    "id": "book_pw_chemistry",
+    "title": "Physics Wallah Infinite Practice - Class 11 Chemistry",
     "subject": "Chemistry",
-    "category": "PYQs",
-    "totalQuestions": 1907,
+    "category": "PW Infinite Practice",
+    "totalQuestions": 20,
     "totalAttempted": 0,
     "chapters": [
       {
-        "chapterName": "Organic Chemistry Basics (GOC)",
-        "totalQuestions": 267,
+        "chapterName": "Chemical Bonding and Molecular Structure",
+        "totalQuestions": 10,
         "attemptedCount": 0,
         "completedIds": []
       },
       {
+        "chapterName": "Structure of Atom",
+        "totalQuestions": 10,
+        "attemptedCount": 0,
+        "completedIds": []
+      }
+    ]
+  },
+  {
+    "id": "book_pyq_chemistry",
+    "title": "JEE Main & Advanced 11th Chemistry Authentic PYQ Bank",
+    "subject": "Chemistry",
+    "category": "PYQs",
+    "totalQuestions": 1916,
+    "totalAttempted": 0,
+    "chapters": [
+      {
         "chapterName": "Chemical Bonding & Molecular Structure",
-        "totalQuestions": 261,
+        "totalQuestions": 270,
+        "attemptedCount": 0,
+        "completedIds": []
+      },
+      {
+        "chapterName": "Organic Chemistry Basics (GOC)",
+        "totalQuestions": 267,
         "attemptedCount": 0,
         "completedIds": []
       },
@@ -128,66 +150,66 @@
     "title": "JEE Main & Advanced 11th Maths Authentic PYQ Bank",
     "subject": "Maths",
     "category": "PYQs",
-    "totalQuestions": 2023,
+    "totalQuestions": 2123,
     "totalAttempted": 0,
     "chapters": [
       {
         "chapterName": "Complex Numbers & Quadratic Equations",
-        "totalQuestions": 426,
-        "attemptedCount": 0,
-        "completedIds": []
-      },
-      {
-        "chapterName": "Matrices & Determinants",
-        "totalQuestions": 353,
+        "totalQuestions": 448,
         "attemptedCount": 0,
         "completedIds": []
       },
       {
         "chapterName": "Sequences & Series",
-        "totalQuestions": 338,
+        "totalQuestions": 366,
+        "attemptedCount": 0,
+        "completedIds": []
+      },
+      {
+        "chapterName": "Matrices & Determinants",
+        "totalQuestions": 358,
         "attemptedCount": 0,
         "completedIds": []
       },
       {
         "chapterName": "Probability",
-        "totalQuestions": 266,
+        "totalQuestions": 273,
         "attemptedCount": 0,
         "completedIds": []
       },
       {
         "chapterName": "Binomial Theorem",
-        "totalQuestions": 230,
+        "totalQuestions": 248,
         "attemptedCount": 0,
         "completedIds": []
       },
       {
         "chapterName": "Permutations & Combinations",
-        "totalQuestions": 166,
+        "totalQuestions": 170,
         "attemptedCount": 0,
         "completedIds": []
       },
       {
         "chapterName": "Inverse Trigonometric Functions",
-        "totalQuestions": 84,
+        "totalQuestions": 94,
         "attemptedCount": 0,
         "completedIds": []
       },
       {
         "chapterName": "Trigonometric Equations",
-        "totalQuestions": 72,
+        "totalQuestions": 73,
         "attemptedCount": 0,
         "completedIds": []
       },
       {
         "chapterName": "Trigonometric Ratios & Identities",
-        "totalQuestions": 62,
+        "totalQuestions": 66,
         "attemptedCount": 0,
         "completedIds": []
       },
       {
         "chapterName": "Basic Mathematics & Logarithm",
-        "totalQuestions": 20,
+        "totalQuestions": 21,
         "attemptedCount": 0,
         "completedIds": []
       },
@@ -204,12 +226,114 @@
     "title": "Physics Wallah Infinite Practice - Class 11 Physics",
     "subject": "Physics",
     "category": "PW Infinite Practice",
-    "totalQuestions": 10,
+    "totalQuestions": 91,
     "totalAttempted": 0,
     "chapters": [
       {
+        "chapterName": "Kinematics",
+        "totalQuestions": 12,
+        "attemptedCount": 0,
+        "completedIds": []
+      },
+      {
+        "chapterName": "Gravitation",
+        "totalQuestions": 10,
+        "attemptedCount": 0,
+        "completedIds": []
+      },
+      {
         "chapterName": "Motion in a Straight Line",
         "totalQuestions": 10,
+        "attemptedCount": 0,
+        "completedIds": []
+      },
+      {
+        "chapterName": "Laws of Motion",
+        "totalQuestions": 6,
+        "attemptedCount": 0,
+        "completedIds": []
+      },
+      {
+        "chapterName": "Mechanical Properties of Solids & Fluids",
+        "totalQuestions": 5,
+        "attemptedCount": 0,
+        "completedIds": []
+      },
+      {
+        "chapterName": "Oscillations & Waves",
+        "totalQuestions": 5,
+        "attemptedCount": 0,
+        "completedIds": []
+      },
+      {
+        "chapterName": "Rotational Dynamics",
+        "totalQuestions": 5,
+        "attemptedCount": 0,
+        "completedIds": []
+      },
+      {
+        "chapterName": "System of Particles and Rotational Motion",
+        "totalQuestions": 5,
+        "attemptedCount": 0,
+        "completedIds": []
+      },
+      {
+        "chapterName": "Thermodynamics & KTG",
+        "totalQuestions": 5,
+        "attemptedCount": 0,
+        "completedIds": []
+      },
+      {
+        "chapterName": "Work Power Energy",
+        "totalQuestions": 5,
+        "attemptedCount": 0,
+        "completedIds": []
+      },
+      {
+        "chapterName": "Work, Energy and Power",
+        "totalQuestions": 5,
+        "attemptedCount": 0,
+        "completedIds": []
+      },
+      {
+        "chapterName": "Mechanical Properties of Fluids",
+        "totalQuestions": 3,
+        "attemptedCount": 0,
+        "completedIds": []
+      },
+      {
+        "chapterName": "Motion in a Plane",
+        "totalQuestions": 3,
+        "attemptedCount": 0,
+        "completedIds": []
+      },
+      {
+        "chapterName": "Oscillations",
+        "totalQuestions": 3,
+        "attemptedCount": 0,
+        "completedIds": []
+      },
+      {
+        "chapterName": "Thermodynamics",
+        "totalQuestions": 3,
+        "attemptedCount": 0,
+        "completedIds": []
+      },
+      {
+        "chapterName": "Mechanical Properties of Solids",
+        "totalQuestions": 2,
+        "attemptedCount": 0,
+        "completedIds": []
+      },
+      {
+        "chapterName": "Thermal Properties of Matter",
+        "totalQuestions": 2,
+        "attemptedCount": 0,
+        "completedIds": []
+      },
+      {
+        "chapterName": "Waves",
+        "totalQuestions": 2,
         "attemptedCount": 0,
         "completedIds": []
       }

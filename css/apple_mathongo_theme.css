@@ -109,7 +109,7 @@ html, body {
   padding: 6px 14px;
   backdrop-filter: var(--apple-blur);
   -webkit-backdrop-filter: var(--apple-blur);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
   transition: all 0.2s var(--apple-spring);
 }
 
@@ -179,7 +179,7 @@ html, body {
   height: 6px;
   border-radius: 50%;
   background: var(--apple-green);
-  box-shadow: 0 0 6px var(--apple-green);
+  box-shadow: 0 2px 6px rgba(48, 209, 88, 0.25);
   animation: pulseDot 2s infinite ease-in-out;
 }
 
@@ -257,7 +257,7 @@ html, body {
   margin-bottom: 20px;
   backdrop-filter: var(--apple-blur);
   -webkit-backdrop-filter: var(--apple-blur);
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 .demo-question-header {
@@ -430,7 +430,7 @@ html, body {
   padding: 8px 16px;
   backdrop-filter: var(--apple-blur);
   -webkit-backdrop-filter: var(--apple-blur);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 .demo-dock-group {
@@ -474,7 +474,7 @@ html, body {
 
 .demo-btn-primary:hover:not(:disabled) {
   background: var(--apple-blue-dark);
-  box-shadow: 0 4px 14px rgba(10, 132, 255, 0.5);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 .demo-btn-secondary {
@@ -497,7 +497,7 @@ html, body {
   border: 1px solid var(--apple-hairline-bright);
   border-radius: var(--apple-radius-xl);
   overflow: hidden;
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 .demo-split-header {

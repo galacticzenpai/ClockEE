@@ -179,7 +179,7 @@
       <div class="space-y-5">
         <!-- Top Title & Brand Logo -->
         <div class="flex items-center gap-3 pb-3 border-b border-white/10">
-          <a href="cbt_home.html" class="w-9 h-9 rounded-xl bg-gradient-to-br from-cyan-500/20 to-purple-500/20 border border-cyan-500/40 flex items-center justify-center shadow-[0_0_15px_rgba(0,240,255,0.3)] hover:scale-105 transition flex-shrink-0" title="Back to ClockEE CBT Portal">
+          <a href="cbt_home.html" class="w-9 h-9 rounded-xl bg-gradient-to-br from-cyan-500/20 to-purple-500/20 border border-cyan-500/40 flex items-center justify-center shadow-sm hover:scale-105 transition flex-shrink-0" title="Back to ClockEE CBT Portal">
             <svg class="w-5 h-5 text-cyan-400 animate-spin-slow" viewBox="0 0 64 64" fill="none">
               <circle cx="32" cy="32" r="28" stroke="url(#cbtAnaLogoGrad)" stroke-width="4" stroke-dasharray="6 6"/>
               <path d="M32 16V32L42 42" stroke="#00f0ff" stroke-width="4" stroke-linecap="round"/>
@@ -301,7 +301,7 @@
       <section id="pane-overview" class="space-y-6">
         
         <!-- Hero Score Card (Faithful to Screenshot) -->
-        <div class="glass-card p-6 border border-indigo-500/30 bg-gradient-to-r from-[#0d1226] via-[#10152e] to-[#12193b] flex flex-col md:flex-row items-center justify-between gap-6 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+        <div class="glass-card p-6 border border-indigo-500/30 bg-gradient-to-r from-[#0d1226] via-[#10152e] to-[#12193b] flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
           <!-- Left: Big Overall Score -->
           <div class="space-y-1">
             <div class="text-xs font-bold uppercase tracking-wider text-gray-400">Overall Score</div>
@@ -369,7 +369,7 @@
         <div class="glass-card p-6 border border-white/10 space-y-4">
           <div class="flex items-center justify-between border-b border-white/10 pb-3">
             <div>
-              <h3 class="text-sm font-bold text-white flex items-center gap-2"><span>📝</span> Note Down Your Learnings</h3>
+              <h3 class="text-sm font-bold text-white flex items-center gap-2"><span></span> Note Down Your Learnings</h3>
               <p class="text-xs text-gray-400">Capture formula traps, conceptual gaps, and strategy takeaways from this test</p>
             </div>
             <span class="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-indigo-950 text-indigo-300 border border-indigo-500/30">Auto-Saved</span>
@@ -483,7 +483,7 @@
         <div class="glass-card p-6 border border-white/10 space-y-4">
           <div class="flex items-center justify-between flex-wrap gap-2">
             <div>
-              <h3 class="text-sm font-bold text-white">⚡ Per-Question Latency vs Target Benchmark</h3>
+              <h3 class="text-sm font-bold text-white">Per-Question Latency vs Target Benchmark</h3>
               <p class="text-xs text-gray-400">Green = Fast &amp; Correct, Amber = Overtime Correct, Red = Wrong</p>
             </div>
             <div class="flex gap-3 text-xs font-mono">
@@ -579,6 +579,8 @@
     </div>
   </div>
 
+  <script src="js/clockee_runtime.js"></script>
+  <script src="components/navbar.js"></script>
   <script src="cbt_shared.js"></script>
   <script src="js/local_vector_search.js"></script>
   <script>

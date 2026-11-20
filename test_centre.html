@@ -103,7 +103,7 @@
       flex-direction: column;
       gap: 2px;
       z-index: 100;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.8);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
     }
     .nav-dropdown:hover .nav-dropdown-menu { display: flex; }
     .nav-dropdown-item {
@@ -158,7 +158,7 @@
     }
     ::-webkit-scrollbar-thumb:hover {
       background: var(--accent, #6366f1);
-      box-shadow: 0 0 10px var(--accent, #6366f1);
+      box-shadow: 0 2px 8px rgba(99, 102, 241, 0.25);
     }
   </style>
 
@@ -178,11 +178,11 @@
 </head>
 <body class="relative bg-[#07080e] text-[#f8fafc]">
 
-<header class="sticky top-0 z-50 px-4 py-3 sm:px-6 transition-all duration-300 bg-[#080a14]/75 backdrop-blur-2xl border-b border-white/10 shadow-[0_4px_24px_rgba(0,0,0,0.65)]">
+<header class="sticky top-0 z-50 px-4 py-3 sm:px-6 transition-all duration-300 bg-[#080a14]/75 backdrop-blur-2xl border-b border-white/10 shadow-sm">
   <div class="max-w-7xl mx-auto flex items-center justify-between gap-2 sm:gap-4">
     <!-- Brand / Logo -->
     <div class="nav-left flex items-center gap-3">
-      <div class="relative w-8 h-8 flex items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500/20 to-cyan-500/20 border border-white/15 shadow-[0_0_15px_rgba(99,102,241,0.25)]">
+      <div class="relative w-8 h-8 flex items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500/20 to-cyan-500/20 border border-white/15 shadow-sm">
         <svg class="w-5 h-5 text-cyan-400 animate-spin-slow" viewBox="0 0 64 64" fill="none">
           <circle cx="32" cy="32" r="28" stroke="url(#logoGrad)" stroke-width="4" stroke-dasharray="6 6"/>
           <path d="M32 16V32L42 42" stroke="#00f0ff" stroke-width="4" stroke-linecap="round"/>
@@ -273,7 +273,7 @@
     <!-- Right Actions: Split Screen + Avatar Ring -->
     <div class="nav-right flex items-center gap-3">
       <button class="nav-icon-btn hover:border-cyan-400 hover:text-cyan-300" title="Toggle Split-Screen Quick Panel" onclick="toggleSplitScreen()">⊟</button>
-      <a href="settings.html" class="relative p-[2px] rounded-full hud-ring shadow-[0_0_15px_rgba(0,240,255,0.4)] cursor-pointer inline-block" title="Commander Profile & Settings">
+      <a href="settings.html" class="relative p-[2px] rounded-full hud-ring shadow-sm cursor-pointer inline-block" title="Commander Profile & Settings">
         <img
           class="w-8 h-8 rounded-full bg-[#070913] object-cover block cursor-pointer"
           data-profile-avatar
@@ -364,7 +364,7 @@
 </main>
 
 <!-- Split-Screen Slide-in Drawer -->
-<div id="split-drawer" class="fixed top-0 right-0 h-full w-full max-w-[420px] bg-[#0c0e17]/98 border-l border-white/10 z-[200] transform translate-x-full transition-transform duration-300 flex flex-col shadow-[-10px_0_40px_rgba(0,0,0,0.8)] backdrop-blur-2xl">
+<div id="split-drawer" class="fixed top-0 right-0 h-full w-full max-w-[420px] bg-[#0c0e17]/98 border-l border-white/10 z-[200] transform translate-x-full transition-transform duration-300 flex flex-col shadow-sm backdrop-blur-2xl">
   <div class="flex items-center justify-between p-4 border-b border-white/10">
     <div class="flex items-center gap-2">
       <span class="text-indigo-400 font-bold">⚡ Focus Drawer</span>
@@ -425,9 +425,7 @@
   <div id="drawer-pane-audio" class="drawer-pane hidden flex-1 flex-col p-4 overflow-y-auto space-y-3.5">
     <div class="flex items-center justify-between">
       <div>
-        <h3 class="text-white font-bold text-xs flex items-center gap-1.5">
-          <span>🎵</span> Focus Music Corner
-        </h3>
+        <h3 class="text-white font-bold text-xs flex items-center gap-1.5"><span></span> Focus Music Corner</h3>
         <p class="text-[10px] text-gray-400">Distraction-Free Ambient &amp; Lo-Fi Beats</p>
       </div>
       <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-500/30 font-bold font-mono">Stream Active</span>

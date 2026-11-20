@@ -271,7 +271,7 @@ body {
   flex-direction: column;
   gap: 2px;
   z-index: 100;
-  box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.06);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
   backdrop-filter: var(--cbt-glass-blur);
   -webkit-backdrop-filter: var(--cbt-glass-blur);
 }
@@ -373,7 +373,7 @@ body {
 }
 
 .cbt-sidebar-brand:hover .cbt-brand-logo {
-  box-shadow: 0 4px 16px rgba(10, 132, 255, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
   border-color: #0a84ff;
   transform: scale(1.03);
 }
@@ -755,7 +755,7 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
   animation: slideInRight 0.25s ease;
 }
 
@@ -893,7 +893,7 @@ button:disabled,
   width: 100%;
   backdrop-filter: blur(25px) saturate(190%);
   -webkit-backdrop-filter: blur(25px) saturate(190%);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
   box-sizing: border-box;
 }
 .cbt-subnav-ribbon::-webkit-scrollbar {

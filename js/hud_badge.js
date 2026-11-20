@@ -30,15 +30,15 @@ class CockpitHUDBadge {
       z-index: 9999;
       cursor: pointer;
       backdrop-filter: blur(8px);
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
       transition: border-color 0.2s ease, transform 0.2s ease;
       user-select: none;
     `;
     pill.innerHTML = `
-      <span id="clockee-hud-pulse" style="width:7px; height:7px; border-radius:50%; background:#10b981; display:inline-block; box-shadow:0 0 8px #10b981;"></span>
+      <span class="tabular-nums" id="clockee-hud-pulse" style="width:7px; height:7px; border-radius:50%; background:#10b981; display:inline-block; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);"></span>
       <span style="font-weight:600; color:#f8fafc;">ClockEE OS</span>
       <span style="color:#64748b;">|</span>
-      <span id="clockee-hud-state" style="color:#10b981;">SYNCED</span>
+      <span class="tabular-nums" id="clockee-hud-state" style="color:#10b981;">SYNCED</span>
     `;
 
     pill.onmouseenter = () => {

@@ -674,10 +674,10 @@ window.renderMonthlyHeatmap = function() {
       bgClass = "bg-indigo-700/80 border-indigo-500/60 hover:border-indigo-300";
       textClass = "text-white font-semibold";
     } else if (q >= 35 && q < 60) {
-      bgClass = "bg-indigo-600 border-indigo-400 shadow-[0_0_8px_rgba(99,102,241,0.5)]";
+      bgClass = "bg-indigo-600 border-indigo-400 shadow-sm";
       textClass = "text-white font-bold";
     } else if (q >= 60) {
-      bgClass = "bg-cyan-500 border-cyan-300 text-black shadow-[0_0_12px_rgba(0,240,255,0.7)]";
+      bgClass = "bg-cyan-500 border-cyan-300 text-black shadow-sm";
       textClass = "text-gray-950 font-extrabold";
     }
 
@@ -856,7 +856,7 @@ window.renderClockEESidebar = function() {
   <!-- Aspirant Profile Card with Inspiring Quote & Dynamic JEE Year -->
   <div class="p-3.5 rounded-2xl bg-black/40 border border-white/10 hover:border-white/20 transition-all shadow-md relative group">
     <div class="relative w-16 h-16 mx-auto mb-2">
-      <img class="w-16 h-16 rounded-full bg-[#070913] object-cover border-2 border-indigo-400/80 shadow-[0_0_20px_rgba(99,102,241,0.25)]" data-profile-avatar src="https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Aspirant" alt="Avatar" />
+      <img class="w-16 h-16 rounded-full bg-[#070913] object-cover border-2 border-indigo-400/80 shadow-sm" data-profile-avatar src="https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Aspirant" alt="Avatar" />
       <span class="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-emerald-400 ring-2 ring-[#070913]" title="Active"></span>
     </div>
     <div class="text-center space-y-1">
@@ -956,19 +956,19 @@ window.renderClockEESidebar = function() {
       <div class="flex-1 min-w-0 space-y-1.5 text-[10px] font-mono">
         <div class="flex items-center justify-between">
           <span class="text-blue-400 font-bold flex items-center gap-1.5">
-            <span class="w-2 h-2 rounded-full bg-blue-400 inline-block shadow-[0_0_6px_rgba(96,165,250,0.6)]"></span> Physics
+            <span class="w-2 h-2 rounded-full bg-blue-400 inline-block shadow-sm"></span> Physics
           </span>
           <span id="sidebar-pcm-phy" class="text-gray-300 font-extrabold">38%</span>
         </div>
         <div class="flex items-center justify-between">
           <span class="text-emerald-400 font-bold flex items-center gap-1.5">
-            <span class="w-2 h-2 rounded-full bg-emerald-400 inline-block shadow-[0_0_6px_rgba(52,211,153,0.6)]"></span> Chemistry
+            <span class="w-2 h-2 rounded-full bg-emerald-400 inline-block shadow-sm"></span> Chemistry
           </span>
           <span id="sidebar-pcm-chem" class="text-gray-300 font-extrabold">34%</span>
         </div>
         <div class="flex items-center justify-between">
           <span class="text-amber-400 font-bold flex items-center gap-1.5">
-            <span class="w-2 h-2 rounded-full bg-amber-400 inline-block shadow-[0_0_6px_rgba(251,191,36,0.6)]"></span> Maths
+            <span class="w-2 h-2 rounded-full bg-amber-400 inline-block shadow-sm"></span> Maths
           </span>
           <span id="sidebar-pcm-math" class="text-gray-300 font-extrabold">28%</span>
         </div>
@@ -1259,7 +1259,7 @@ window.openPhotoCropperModal = function(imageDataUrl) {
         <!-- Interactive Canvas Area -->
         <div class="relative w-full h-64 bg-black/60 rounded-xl overflow-hidden border border-white/10 flex items-center justify-center select-none cursor-move" id="cropper-canvas-wrap">
           <canvas id="crop-canvas" width="300" height="300" class="rounded-lg shadow-inner"></canvas>
-          <div class="absolute inset-0 pointer-events-none border-2 border-cyan-400/60 rounded-full mx-auto my-auto w-[240px] h-[240px] shadow-[0_0_0_9999px_rgba(0,0,0,0.65)]"></div>
+          <div class="absolute inset-0 pointer-events-none border-2 border-cyan-400/60 rounded-full mx-auto my-auto w-[240px] h-[240px] shadow-sm"></div>
         </div>
 
         <!-- Controls: Zoom & Pan Hint -->
@@ -1666,7 +1666,7 @@ window.applyAccentColor = function(color) {
     .nav-btn.nav-active, .accent-bg, .btn-accent {
       background-color: ${color} !important;
       color: #050811 !important;
-      box-shadow: 0 0 16px ${accentGlow} !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4)} !important;
       font-weight: 700 !important;
     }
     .nav-btn.nav-active svg {
@@ -1674,7 +1674,7 @@ window.applyAccentColor = function(color) {
       stroke: #050811 !important;
     }
     .hud-ring, .accent-ring {
-      box-shadow: 0 0 0 2px ${color}, 0 0 15px ${accentGlow} !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4)}, 0 0 15px ${accentGlow} !important;
     }
     .accent-text, .text-accent {
       color: ${color} !important;
@@ -2059,7 +2059,7 @@ window.openPdfReaderModal = function(title, url, maximize = false) {
     modal.id = "pdf-reader-modal";
     modal.className = "fixed inset-0 z-[500] bg-black/85 backdrop-blur-md flex items-center justify-center p-4 transition-all duration-300";
     modal.innerHTML = `
-      <div id="pdf-modal-box" class="glass-card w-[95vw] h-[92vh] flex flex-col border border-cyan-500/40 bg-[#0a0d18] shadow-[0_20px_60px_rgba(0,0,0,0.9)] rounded-2xl overflow-hidden transition-all duration-300">
+      <div id="pdf-modal-box" class="glass-card w-[95vw] h-[92vh] flex flex-col border border-cyan-500/40 bg-[#0a0d18] shadow-sm rounded-2xl overflow-hidden transition-all duration-300">
         <!-- PDF Modal Header -->
         <div class="flex items-center justify-between p-4 border-b border-white/10 bg-black/60 shrink-0">
           <div class="flex items-center gap-3">
@@ -2141,10 +2141,10 @@ window.togglePdfMaximize = function() {
   const btn = document.getElementById("btn-pdf-maximize");
   if (!box) return;
   if (box.classList.contains("w-[95vw]")) {
-    box.className = "glass-card w-[99vw] h-[98vh] flex flex-col border border-cyan-500/60 bg-[#0a0d18] shadow-[0_20px_60px_rgba(0,0,0,0.9)] rounded-none overflow-hidden transition-all duration-300";
+    box.className = "glass-card w-[99vw] h-[98vh] flex flex-col border border-cyan-500/60 bg-[#0a0d18] shadow-sm rounded-none overflow-hidden transition-all duration-300";
     if (btn) btn.innerHTML = '<span>❐</span> Restore';
   } else {
-    box.className = "glass-card w-[95vw] h-[92vh] flex flex-col border border-cyan-500/40 bg-[#0a0d18] shadow-[0_20px_60px_rgba(0,0,0,0.9)] rounded-2xl overflow-hidden transition-all duration-300";
+    box.className = "glass-card w-[95vw] h-[92vh] flex flex-col border border-cyan-500/40 bg-[#0a0d18] shadow-sm rounded-2xl overflow-hidden transition-all duration-300";
     if (btn) btn.innerHTML = '<span>⛶</span> Maximize';
   }
 };
@@ -2155,13 +2155,13 @@ window.ensureFloatingTimerHUD = function() {
   if (!hud) {
     hud = document.createElement("div");
     hud.id = "floating-mini-timer-hud";
-    hud.className = "hidden fixed bottom-6 right-6 z-[9999] glass-card p-3 border border-cyan-500/50 bg-[#0b0e1b]/95 shadow-[0_10px_35px_rgba(0,0,0,0.85)] backdrop-blur-xl rounded-2xl flex items-center gap-3 transition-all duration-300";
+    hud.className = "hidden fixed bottom-6 right-6 z-[9999] glass-card p-3 border border-cyan-500/50 bg-[#0b0e1b]/95 shadow-sm backdrop-blur-xl rounded-2xl flex items-center gap-3 transition-all duration-300";
     hud.innerHTML = `
       <div class="flex items-center gap-2.5">
         <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
         <div>
-          <div class="text-[10px] uppercase font-mono font-bold text-cyan-300" id="hud-clock-title">Focus Clock</div>
-          <div class="text-xl font-mono font-extrabold text-white tracking-wider" id="hud-clock-digits">00:00:00</div>
+          <div class="text-[10px] uppercase font-mono font-bold text-cyan-300 tabular-nums" id="hud-clock-title">Focus Clock</div>
+          <div class="text-xl font-mono font-extrabold text-white tracking-wider tabular-nums" id="hud-clock-digits">00:00:00</div>
         </div>
       </div>
       <div class="h-7 w-px bg-white/10"></div>
@@ -2716,14 +2716,14 @@ window.ClockEEChatNetwork = (function() {
       <div class="pb-2.5 mb-2.5 border-b border-white/10 flex flex-col gap-2">
         <div class="flex items-center justify-between">
           <div class="flex items-center gap-1.5">
-            <span class="clockee-chat-presence-badge text-[11px] font-bold">
+            <span class="clockee-chat-presence-badge text-[11px] font-bold tabular-nums">
               ${tabCount > 1 
                 ? `<span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse inline-block mr-1"></span> <span class="font-extrabold text-emerald-300">${tabCount} Chats Connected</span> <span class="opacity-75">• Live Sync Active</span>`
                 : `<span class="w-2 h-2 rounded-full bg-cyan-400 inline-block mr-1"></span> <span class="font-bold text-cyan-300">Connected</span> <span class="opacity-75">• Real-time Sync Ready</span>`}
             </span>
           </div>
           <div class="flex items-center gap-2">
-            <button onclick="window.ClockEEChatNetwork.toggleSimultaneousMode()" id="chat-sim-toggle-btn" class="px-2 py-0.5 rounded-lg text-[10px] font-extrabold transition cursor-pointer ${simActive ? 'bg-indigo-600/60 text-indigo-200 border border-indigo-400/50 shadow-[0_0_10px_rgba(99,102,241,0.3)]' : 'bg-gray-800 text-gray-400 border border-gray-700'}" title="Toggle Simultaneous Multi-Mentor Solving">
+            <button onclick="window.ClockEEChatNetwork.toggleSimultaneousMode()" id="chat-sim-toggle-btn" class="px-2 py-0.5 rounded-lg text-[10px] font-extrabold transition cursor-pointer ${simActive ? 'bg-indigo-600/60 text-indigo-200 border border-indigo-400/50 shadow-sm' : 'bg-gray-800 text-gray-400 border border-gray-700'}" title="Toggle Simultaneous Multi-Mentor Solving">
               ⚡ Simultaneous: ${simActive ? 'ON' : 'OFF'}
             </button>
             <button onclick="window.ClockEEChatNetwork.clearCurrentChannel()" class="text-[10px] text-slate-400 hover:text-rose-400 transition" title="Clear this chat history">🗑️</button>
@@ -3013,7 +3013,7 @@ window.ClockEEChatNetwork = (function() {
     const btn = document.getElementById("chat-sim-toggle-btn");
     if (btn) {
       if (session.simultaneousMode) {
-        btn.className = "px-2 py-0.5 rounded-lg text-[10px] font-extrabold transition cursor-pointer bg-indigo-600/60 text-indigo-200 border border-indigo-400/50 shadow-[0_0_10px_rgba(99,102,241,0.3)]";
+        btn.className = "px-2 py-0.5 rounded-lg text-[10px] font-extrabold transition cursor-pointer bg-indigo-600/60 text-indigo-200 border border-indigo-400/50 shadow-sm";
         btn.textContent = "⚡ Simultaneous: ON";
       } else {
         btn.className = "px-2 py-0.5 rounded-lg text-[10px] font-extrabold transition cursor-pointer bg-gray-800 text-gray-400 border border-gray-700";
@@ -3103,7 +3103,7 @@ window.ClockEEChatNetwork = (function() {
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border: 1px solid rgba(0, 240, 255, 0.35);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 240, 255, 0.2);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
       border-radius: 9999px;
       padding: 8px 16px;
       color: #fff;
@@ -3169,7 +3169,7 @@ window.ClockEEChatNetwork = (function() {
         height: 100vh;
         background: rgba(12, 14, 23, 0.98);
         border-left: 1px solid rgba(255, 255, 255, 0.12);
-        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.85);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
         z-index: 99999;
@@ -3390,7 +3390,7 @@ window.applyAllSettingsGlobally = function() {
       backdrop-filter: blur(20px) saturate(180%) !important;
       -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-      box-shadow: 0 4px 24px -2px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.04) !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
     }
 
     /* Refined Frosted Glass Cards */
@@ -3400,12 +3400,12 @@ window.applyAllSettingsGlobally = function() {
       background: rgba(13, 17, 30, 0.72) !important;
       border: 1px solid rgba(255, 255, 255, 0.08) !important;
       border-radius: 18px !important;
-      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
       transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
     }
     .glass-card:hover {
       border-color: rgba(255, 255, 255, 0.14) !important;
-      box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
     }
 
     /* Phase 1 GPU Transitions & Micro-Interactions */
@@ -3459,7 +3459,7 @@ window.applyAllSettingsGlobally = function() {
       background: #00f0ff !important;
       color: #050811 !important;
       border: 1px solid rgba(0, 240, 255, 0.8) !important;
-      box-shadow: 0 0 16px rgba(0, 240, 255, 0.5) !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
       font-weight: 700 !important;
     }
     .nav-btn.nav-active svg {
@@ -3490,7 +3490,7 @@ window.applyAllSettingsGlobally = function() {
       -webkit-backdrop-filter: blur(32px) saturate(220%) !important;
       border: 1px solid rgba(0, 240, 255, 0.48) !important;
       border-radius: 16px !important;
-      box-shadow: 0 20px 50px -8px rgba(0, 0, 0, 0.9), 0 0 25px rgba(0, 240, 255, 0.25), inset 0 0 14px rgba(0, 240, 255, 0.08) !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
       padding: 6px !important;
     }
     .nav-dropdown:hover .nav-dropdown-menu,
@@ -3508,7 +3508,7 @@ window.applyAllSettingsGlobally = function() {
     .nav-dropdown-item:hover {
       background: rgba(0, 240, 255, 0.16) !important;
       color: #00f0ff !important;
-      box-shadow: 0 0 12px rgba(0, 240, 255, 0.2) !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
     }
 
     /* Custom Glassmorphic Cyber Dropdown Component */
@@ -3534,11 +3534,11 @@ window.applyAllSettingsGlobally = function() {
       font-weight: 600;
       cursor: pointer;
       transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4), 0 0 12px rgba(0, 240, 255, 0.1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
     }
     .custom-glass-trigger:hover, .custom-glass-dropdown.open .custom-glass-trigger {
       border-color: #00f0ff !important;
-      box-shadow: 0 0 16px rgba(0, 240, 255, 0.32), 0 6px 20px rgba(0, 0, 0, 0.5) !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
     }
     .custom-glass-trigger .chevron-icon {
       transition: transform 0.25s ease;
@@ -3558,7 +3558,7 @@ window.applyAllSettingsGlobally = function() {
       border: 1px solid rgba(0, 240, 255, 0.48) !important;
       border-radius: 16px !important;
       padding: 6px !important;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), 0 0 25px rgba(0, 240, 255, 0.25), inset 0 0 12px rgba(0, 240, 255, 0.06) !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
       z-index: 1000;
       display: none;
       flex-direction: column;
@@ -3600,13 +3600,13 @@ window.applyAllSettingsGlobally = function() {
       backdrop-filter: blur(16px) !important;
       -webkit-backdrop-filter: blur(16px) !important;
       border: 1px solid rgba(0, 240, 255, 0.4) !important;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.55), 0 0 12px rgba(0, 240, 255, 0.12) !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
       color: #f1f5f9 !important;
       border-radius: 12px !important;
     }
     select:focus {
       border-color: rgba(0, 240, 255, 0.8) !important;
-      box-shadow: 0 0 16px rgba(0, 240, 255, 0.35) !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
       outline: none !important;
     }
     select option {
@@ -3689,7 +3689,7 @@ window.applyAllSettingsGlobally = function() {
       border-radius: 6px;
       background: rgba(15, 23, 42, 0.7);
       border: 1.5px solid rgba(0, 240, 255, 0.45);
-      box-shadow: 0 0 8px rgba(0, 240, 255, 0.15);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -3697,13 +3697,13 @@ window.applyAllSettingsGlobally = function() {
     }
     .cyber-checkbox-container:hover input ~ .cyber-checkmark {
       border-color: #00f0ff;
-      box-shadow: 0 0 12px rgba(0, 240, 255, 0.4);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
       transform: scale(1.08);
     }
     .cyber-checkbox-container input:checked ~ .cyber-checkmark {
       background: linear-gradient(135deg, #00f0ff 0%, #6366f1 100%);
       border-color: #00f0ff;
-      box-shadow: 0 0 16px rgba(0, 240, 255, 0.55), inset 0 0 6px rgba(255, 255, 255, 0.5);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
       animation: cyberCheckPulse 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .cyber-checkmark svg {
@@ -3890,7 +3890,7 @@ window.initGlobalProfileMenu = function() {
   if (!popover) {
     popover = document.createElement("div");
     popover.id = "clockee-profile-popover";
-    popover.className = "hidden fixed z-[999999] top-16 right-4 sm:right-6 w-80 glass-card p-4 space-y-3.5 border border-indigo-500/30 bg-[#0a0d18]/95 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.9)] text-white";
+    popover.className = "hidden fixed z-[999999] top-16 right-4 sm:right-6 w-80 glass-card p-4 space-y-3.5 border border-indigo-500/30 bg-[#0a0d18]/95 backdrop-blur-2xl shadow-sm text-white";
     document.body.appendChild(popover);
   }
 
@@ -4226,7 +4226,7 @@ function injectCommandPalette() {
   modal.id = "clockee-cmd-palette-modal";
   modal.className = "hidden fixed inset-0 z-[1000] bg-black/80 backdrop-blur-md flex items-start justify-center pt-20 px-4";
   modal.innerHTML = `
-    <div class="glass-card max-w-xl w-full p-4 space-y-3 border border-cyan-500/40 bg-[#0b0e1d]/95 shadow-[0_0_50px_rgba(0,240,255,0.25)] rounded-2xl animate-in fade-in zoom-in-95 duration-150">
+    <div class="glass-card max-w-xl w-full p-4 space-y-3 border border-cyan-500/40 bg-[#0b0e1d]/95 shadow-sm rounded-2xl animate-in fade-in zoom-in-95 duration-150">
       <div class="flex items-center gap-2.5 pb-2.5 border-b border-white/10">
         <span class="text-cyan-400 text-base">⚡</span>
         <input 
@@ -4255,7 +4255,7 @@ function injectCommandPalette() {
   // 2. Floating Quick Launcher Pill
   const trigger = document.createElement("div");
   trigger.id = "clockee-cmd-trigger";
-  trigger.className = "fixed bottom-4 right-4 z-[990] flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#0a0d18]/90 border border-cyan-500/35 text-cyan-300 text-xs font-mono font-bold cursor-pointer hover:scale-105 hover:border-cyan-400 transition shadow-[0_0_15px_rgba(0,240,255,0.2)] backdrop-blur-md select-none";
+  trigger.className = "fixed bottom-4 right-4 z-[990] flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#0a0d18]/90 border border-cyan-500/35 text-cyan-300 text-xs font-mono font-bold cursor-pointer hover:scale-105 hover:border-cyan-400 transition shadow-sm backdrop-blur-md select-none";
   trigger.innerHTML = `<span>⚡</span> <span class="hidden sm:inline">Command Palette</span> <kbd class="px-1.5 py-0.2 rounded bg-white/10 text-[9px] text-cyan-300 font-mono">Ctrl+K</kbd>`;
   trigger.onclick = () => window.toggleCommandPalette();
   document.body.appendChild(trigger);
@@ -4526,7 +4526,7 @@ if (document.readyState === "complete" || document.readyState === "interactive")
       justify-content: center;
       cursor: pointer;
       transition: all 0.2s ease;
-      box-shadow: 0 0 12px rgba(0, 240, 255, 0.2);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
     }
     .clockee-mobile-hamburger-btn svg {
       width: 22px;
@@ -4569,7 +4569,7 @@ if (document.readyState === "complete" || document.readyState === "interactive")
       width: min(340px, 86vw);
       background: rgba(8, 12, 24, 0.98);
       border-left: 1.5px solid rgba(0, 240, 255, 0.4);
-      box-shadow: -20px 0 50px rgba(0, 0, 0, 0.9), 0 0 30px rgba(0, 240, 255, 0.25);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
       backdrop-filter: blur(36px) saturate(220%);
       -webkit-backdrop-filter: blur(36px) saturate(220%);
       z-index: 999999;
@@ -4619,7 +4619,7 @@ if (document.readyState === "complete" || document.readyState === "interactive")
       background: rgba(0, 240, 255, 0.18);
       border-color: #00f0ff;
       color: #00f0ff;
-      box-shadow: 0 0 16px rgba(0, 240, 255, 0.35);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
       font-weight: 700;
     }
     .drawer-nav-item.active svg {
@@ -4641,7 +4641,7 @@ if (document.readyState === "complete" || document.readyState === "interactive")
       backdrop-filter: blur(28px) saturate(200%);
       -webkit-backdrop-filter: blur(28px) saturate(200%);
       border-top: 1px solid rgba(0, 240, 255, 0.35);
-      box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 240, 255, 0.15);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
       z-index: 99990;
       align-items: center;
       justify-content: space-around;
@@ -4751,7 +4751,7 @@ if (document.readyState === "complete" || document.readyState === "interactive")
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
           <span>Cockpit Home</span>
         </a>
-        <a href="timer.html" class="drawer-nav-item ${isTimer ? 'active' : ''}">
+        <a href="timer.html" class="drawer-nav-item ${isTimer ? 'active' : ''} tabular-nums">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           <span>Tactical Sprint Timer</span>
         </a>
@@ -4788,9 +4788,9 @@ if (document.readyState === "complete" || document.readyState === "interactive")
           <span>Split View</span>
         </button>
         <div style="display:flex;align-items:center;gap:6px;">
-          <button onclick="if(typeof applyAccentColor==='function') applyAccentColor('#00f0ff');" style="width:26px;height:26px;border-radius:50%;background:#00f0ff;border:2px solid #fff;box-shadow:0 0 10px #00f0ff;cursor:pointer;" title="Cyan Theme"></button>
-          <button onclick="if(typeof applyAccentColor==='function') applyAccentColor('#6366f1');" style="width:26px;height:26px;border-radius:50%;background:#6366f1;border:2px solid #fff;box-shadow:0 0 10px #6366f1;cursor:pointer;" title="Indigo Theme"></button>
-          <button onclick="if(typeof applyAccentColor==='function') applyAccentColor('#f59e0b');" style="width:26px;height:26px;border-radius:50%;background:#f59e0b;border:2px solid #fff;box-shadow:0 0 10px #f59e0b;cursor:pointer;" title="Amber Theme"></button>
+          <button onclick="if(typeof applyAccentColor==='function') applyAccentColor('#00f0ff');" style="width:26px;height:26px;border-radius:50%;background:#00f0ff;border:2px solid #fff;box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);cursor:pointer;" title="Cyan Theme"></button>
+          <button onclick="if(typeof applyAccentColor==='function') applyAccentColor('#6366f1');" style="width:26px;height:26px;border-radius:50%;background:#6366f1;border:2px solid #fff;box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);cursor:pointer;" title="Indigo Theme"></button>
+          <button onclick="if(typeof applyAccentColor==='function') applyAccentColor('#f59e0b');" style="width:26px;height:26px;border-radius:50%;background:#f59e0b;border:2px solid #fff;box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);cursor:pointer;" title="Amber Theme"></button>
         </div>
       </div>
     `;
@@ -4807,7 +4807,7 @@ if (document.readyState === "complete" || document.readyState === "interactive")
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
         <span>Home</span>
       </a>
-      <a href="timer.html" class="bottom-nav-btn ${isTimer ? 'active' : ''}">
+      <a href="timer.html" class="bottom-nav-btn ${isTimer ? 'active' : ''} tabular-nums">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         <span>Timer</span>
       </a>
@@ -5000,7 +5000,7 @@ if (document.readyState === "complete" || document.readyState === "interactive")
       z-index: 999995;
       border: 2px dashed #00f0ff;
       border-radius: 16px;
-      box-shadow: 0 0 35px rgba(0, 240, 255, 0.8), inset 0 0 20px rgba(0, 240, 255, 0.35);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
       transition: all 0.36s cubic-bezier(0.16, 1, 0.3, 1);
       opacity: 0;
       animation: tourHaloPulse 2s infinite ease-in-out;
@@ -5010,8 +5010,8 @@ if (document.readyState === "complete" || document.readyState === "interactive")
     }
 
     @keyframes tourHaloPulse {
-      0%, 100% { box-shadow: 0 0 30px rgba(0, 240, 255, 0.7), inset 0 0 15px rgba(0, 240, 255, 0.25); border-color: #00f0ff; }
-      50% { box-shadow: 0 0 45px rgba(0, 240, 255, 0.95), inset 0 0 30px rgba(0, 240, 255, 0.45); border-color: #67e8f9; }
+      0%, 100% { box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4); border-color: #00f0ff; }
+      50% { box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4); border-color: #67e8f9; }
     }
 
     /* Target Element Raised to Front for Interaction */
@@ -5030,7 +5030,7 @@ if (document.readyState === "complete" || document.readyState === "interactive")
       background: rgba(10, 15, 30, 0.95);
       border: 1.5px solid rgba(0, 240, 255, 0.65);
       border-radius: 24px;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85), 0 0 35px rgba(0, 240, 255, 0.28), inset 0 0 20px rgba(0, 240, 255, 0.08);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
       backdrop-filter: blur(32px) saturate(200%);
       -webkit-backdrop-filter: blur(32px) saturate(200%);
       padding: 18px 20px;
@@ -5087,7 +5087,7 @@ if (document.readyState === "complete" || document.readyState === "interactive")
       background: rgba(10, 16, 32, 0.95);
       border: 1.5px solid rgba(0, 240, 255, 0.7);
       border-radius: 9999px;
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8), 0 0 25px rgba(0, 240, 255, 0.4);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
       backdrop-filter: blur(24px);
       padding: 8px 16px 8px 10px;
       display: flex;
@@ -5107,7 +5107,7 @@ if (document.readyState === "complete" || document.readyState === "interactive")
     .cockpit-tour-corner-box:hover {
       transform: scale(1.05);
       border-color: #00f0ff;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), 0 0 35px rgba(0, 240, 255, 0.6);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
     }
 
     /* Interruption Flight Mascot Modal */
@@ -5124,7 +5124,7 @@ if (document.readyState === "complete" || document.readyState === "interactive")
       border-radius: 24px;
       padding: 24px;
       text-align: center;
-      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9), 0 0 45px rgba(0, 240, 255, 0.4);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
       backdrop-filter: blur(32px);
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       opacity: 0;
@@ -5170,7 +5170,7 @@ if (document.readyState === "complete" || document.readyState === "interactive")
       : 'M 108 102 Q 120 96 132 102 Q 120 108 108 102';
 
     return `
-      <svg class="clockee-tour-avatar-svg ${isExcited ? 'mascot-excited' : ''}" style="width: 52px; height: 52px; flex-shrink: 0;" viewBox="0 0 240 250" fill="none">
+      <svg class="clockee-tour-avatar-svg ${isExcited ? 'mascot-excited' : ''} tabular-nums" style="width: 52px; height: 52px; flex-shrink: 0;" viewBox="0 0 240 250" fill="none">
         <defs>
           <radialGradient id="tMascotFaceGrad" cx="50%" cy="40%" r="55%">
             <stop offset="0%" stop-color="#1e293b"/>
@@ -5299,7 +5299,7 @@ if (document.readyState === "complete" || document.readyState === "interactive")
     floatingCard.innerHTML = `
       <div class="flex items-center justify-between pb-2 mb-2 border-b border-cyan-500/20">
         <div class="flex items-center gap-2">
-          <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_8px_#00f0ff]"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse shadow-sm"></span>
           <span id="tourBadge" class="text-[11px] font-mono font-bold text-cyan-300 uppercase tracking-wider">Step 1</span>
         </div>
         <div class="flex items-center gap-2">
@@ -5366,7 +5366,7 @@ if (document.readyState === "complete" || document.readyState === "interactive")
           ${getClockEEMascotSvg(true)}
         </div>
       </div>
-      <h3 class="text-base font-extrabold text-white mb-1">Tour in Progress! ⏱️</h3>
+      <h3 class="text-base font-extrabold text-white mb-1">Tour in Progress! ️</h3>
       <p class="text-xs text-slate-300 leading-relaxed mb-4">
         Ready to continue the guided cockpit tour, or would you like to explore independently?
       </p>
@@ -6306,7 +6306,7 @@ if (document.readyState === "complete" || document.readyState === "interactive")
       modal.className = 'cockpit-tour-menu-modal-backdrop';
       modal.style.cssText = 'position:fixed;inset:0;background:rgba(2,4,10,0.88);backdrop-filter:blur(24px);z-index:999999;display:flex;align-items:center;justify-content:center;padding:16px;';
       modal.innerHTML = `
-        <div style="max-width:820px;width:100%;max-height:90vh;overflow-y:auto;background:rgba(10,15,30,0.96);border:1.5px solid rgba(0,240,255,0.5);border-radius:24px;padding:24px;box-shadow:0 24px 60px rgba(0,0,0,0.9),0 0 40px rgba(0,240,255,0.3);color:#fff;">
+        <div style="max-width:820px;width:100%;max-height:90vh;overflow-y:auto;background:rgba(10,15,30,0.96);border:1.5px solid rgba(0,240,255,0.5);border-radius:24px;padding:24px;box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);color:#fff;">
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
             <div style="display:flex;align-items:center;gap:12px;">
               <span style="font-size:26px;">🚀</span>
@@ -6378,7 +6378,7 @@ if (document.readyState === "complete" || document.readyState === "interactive")
 
           <div style="display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,0.1);padding-top:16px;">
             <span style="font-size:12px;color:#94a3b8;">Continuous multi-page walkthrough across all 8 modules.</span>
-            <button onclick="window.startCockpitGuidedTour()" style="padding:10px 20px;border-radius:12px;background:linear-gradient(to right,#00f0ff,#6366f1);color:#fff;font-weight:800;border:none;cursor:pointer;box-shadow:0 0 20px rgba(0,240,255,0.4);">
+            <button onclick="window.startCockpitGuidedTour()" style="padding:10px 20px;border-radius:12px;background:linear-gradient(to right,#00f0ff,#6366f1);color:#fff;font-weight:800;border:none;cursor:pointer;box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);">
               🚀 Start Full Continuous Tour
             </button>
           </div>

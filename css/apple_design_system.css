@@ -219,7 +219,7 @@ body {
   height: 8px;
   border-radius: 50%;
   background: linear-gradient(135deg, #0a84ff, #bf5af2);
-  box-shadow: 0 0 6px rgba(10, 132, 255, 0.7);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
   animation: apple-ai-pulse 2.2s infinite ease-in-out;
 }
 
@@ -371,7 +371,7 @@ input:focus,
 select:focus,
 textarea:focus {
   border-color: var(--accent);
-  box-shadow: 0 0 0 1px var(--accent);
+  outline: 1px solid var(--accent, #0a84ff);
   outline: none;
 }
 

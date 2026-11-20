@@ -87,7 +87,7 @@
       border-radius: 4px;
       backdrop-filter: none;
       -webkit-backdrop-filter: none;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8), 0 0 12px rgba(255, 158, 59, 0.05);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
     }
 
     .nav-btn {
@@ -140,7 +140,7 @@
       flex-direction: column;
       gap: 3px;
       z-index: 100;
-      box-shadow: 0 20px 50px -8px rgba(0, 0, 0, 0.9), 0 0 25px rgba(0, 240, 255, 0.25), inset 0 0 14px rgba(0, 240, 255, 0.08) !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
       backdrop-filter: blur(32px) saturate(220%) !important;
       -webkit-backdrop-filter: blur(32px) saturate(220%) !important;
     }
@@ -200,10 +200,10 @@
 </head>
 <body class="relative bg-[#07080e] text-[#f8fafc]">
 
-<header class="sticky top-0 z-50 px-4 py-3 sm:px-6 transition-all duration-300 bg-[#080a14]/75 backdrop-blur-2xl border-b border-white/10 shadow-[0_4px_24px_rgba(0,0,0,0.65)]">
+<header class="sticky top-0 z-50 px-4 py-3 sm:px-6 transition-all duration-300 bg-[#080a14]/75 backdrop-blur-2xl border-b border-white/10 shadow-sm">
   <div class="max-w-7xl mx-auto flex items-center justify-between gap-2 sm:gap-4">
     <div class="nav-left flex items-center gap-3">
-      <div class="relative w-8 h-8 flex items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500/20 to-cyan-500/20 border border-white/15 shadow-[0_0_15px_rgba(99,102,241,0.25)]">
+      <div class="relative w-8 h-8 flex items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500/20 to-cyan-500/20 border border-white/15 shadow-sm">
         <svg class="w-5 h-5 text-cyan-400 animate-spin-slow" viewBox="0 0 64 64" fill="none">
           <circle cx="32" cy="32" r="28" stroke="url(#logoGrad)" stroke-width="4" stroke-dasharray="6 6"/>
           <path d="M32 16V32L42 42" stroke="#00f0ff" stroke-width="4" stroke-linecap="round"/>
@@ -236,7 +236,7 @@
         </a>
         <div class="nav-dropdown-menu">
           <a href="timer.html?mode=drill" class="nav-dropdown-item group">
-            <div class="w-7 h-7 rounded-lg bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center text-cyan-400 group-hover:scale-105 group-hover:border-cyan-400 transition shadow-[0_0_10px_rgba(0,240,255,0.2)]">
+            <div class="w-7 h-7 rounded-lg bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center text-cyan-400 group-hover:scale-105 group-hover:border-cyan-400 transition shadow-sm">
               <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
             </div>
             <div>
@@ -248,7 +248,7 @@
             </div>
           </a>
           <a href="timer.html?mode=lecture" class="nav-dropdown-item group">
-            <div class="w-7 h-7 rounded-lg bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center text-indigo-400 group-hover:scale-105 group-hover:border-indigo-400 transition shadow-[0_0_10px_rgba(99,102,241,0.2)]">
+            <div class="w-7 h-7 rounded-lg bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center text-indigo-400 group-hover:scale-105 group-hover:border-indigo-400 transition shadow-sm">
               <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
             </div>
             <div>
@@ -340,7 +340,7 @@
     <!-- Right Actions -->
     <div class="nav-right flex items-center gap-3">
       <button class="nav-icon-btn hover:border-cyan-400 hover:text-cyan-300" title="Toggle Split-Screen Quick Panel" onclick="toggleSplitScreen()">⊟</button>
-      <a href="settings.html" class="relative p-[2px] rounded-full hud-ring shadow-[0_0_15px_rgba(0,240,255,0.4)] cursor-pointer inline-block" title="Commander Profile & Settings">
+      <a href="settings.html" class="relative p-[2px] rounded-full hud-ring shadow-sm cursor-pointer inline-block" title="Commander Profile & Settings">
         <img
           class="w-8 h-8 rounded-full bg-[#070913] object-cover block cursor-pointer"
           data-profile-avatar
@@ -382,7 +382,7 @@
     <!-- Commander Focus Recommendation Banner -->
     <div class="glass-card p-4 border border-cyan-500/30 bg-gradient-to-r from-cyan-950/40 via-indigo-950/30 to-[#0e1222] shadow-xl flex items-center justify-between flex-wrap gap-3">
       <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-cyan-500/20 border border-cyan-500/40 flex items-center justify-center text-cyan-400 shadow-[0_0_12px_rgba(0,240,255,0.3)]">
+        <div class="w-10 h-10 rounded-xl bg-cyan-500/20 border border-cyan-500/40 flex items-center justify-center text-cyan-400 shadow-sm">
           <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7z"/></svg>
         </div>
         <div>
@@ -402,7 +402,7 @@
       <div class="flex items-center justify-between pb-3 border-b border-white/10 flex-wrap gap-2">
         <div>
           <h3 class="text-base font-black text-white flex items-center gap-2">
-            <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 inline-block shadow-[0_0_8px_rgba(0,240,255,0.7)]"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 inline-block shadow-sm"></span>
             <span>Question Solving Sprint Setup</span>
           </h3>
           <p class="text-xs text-slate-400 font-medium mt-0.5">Define target questions and block duration. Real-time pace benchmark is calculated automatically.</p>
@@ -535,7 +535,7 @@
         <div class="glass-card p-4 border border-white/10 bg-[#090b14]/90 rounded-2xl shadow-xl space-y-1">
           <div class="text-[10px] font-black uppercase tracking-wider text-slate-400">PACE HEALTH</div>
           <div class="text-base sm:text-lg font-black text-emerald-400 flex items-center gap-1.5 pt-1" id="active-pace-health-title">
-            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block shadow-[0_0_8px_rgba(52,211,153,0.7)]" id="active-pace-health-dot"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block shadow-sm" id="active-pace-health-dot"></span>
             <span id="active-pace-health-text">Ahead of Pace</span>
           </div>
           <div class="text-[11px] font-mono text-slate-400 pt-1">
@@ -581,7 +581,7 @@
         <!-- 3 Large Outcome Buttons -->
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-xl mx-auto">
           <!-- Correct -->
-          <button onclick="recordOutcome('correct')" class="p-4 rounded-2xl border-2 border-emerald-500/50 bg-emerald-950/20 hover:bg-emerald-900/30 text-emerald-300 transition-all shadow-[0_0_20px_rgba(16,185,129,0.15)] hover:shadow-[0_0_25px_rgba(16,185,129,0.3)] hover:scale-[1.02] flex flex-col items-center justify-center gap-1 group cursor-pointer">
+          <button onclick="recordOutcome('correct')" class="p-4 rounded-2xl border-2 border-emerald-500/50 bg-emerald-950/20 hover:bg-emerald-900/30 text-emerald-300 transition-all shadow-sm hover:shadow-sm hover:scale-[1.02] flex flex-col items-center justify-center gap-1 group cursor-pointer">
             <div class="flex items-center gap-1.5 text-base font-black text-emerald-300 group-hover:text-emerald-200">
               <span>✓</span>
               <span>Correct</span>
@@ -591,7 +591,7 @@
           </button>
 
           <!-- Incorrect -->
-          <button onclick="recordOutcome('wrong')" class="p-4 rounded-2xl border-2 border-red-500/50 bg-red-950/20 hover:bg-red-900/30 text-red-300 transition-all shadow-[0_0_20px_rgba(239,68,68,0.15)] hover:shadow-[0_0_25px_rgba(239,68,68,0.3)] hover:scale-[1.02] flex flex-col items-center justify-center gap-1 group cursor-pointer">
+          <button onclick="recordOutcome('wrong')" class="p-4 rounded-2xl border-2 border-red-500/50 bg-red-950/20 hover:bg-red-900/30 text-red-300 transition-all shadow-sm hover:shadow-sm hover:scale-[1.02] flex flex-col items-center justify-center gap-1 group cursor-pointer">
             <div class="flex items-center gap-1.5 text-base font-black text-red-300 group-hover:text-red-200">
               <span>✕</span>
               <span>Incorrect</span>
@@ -698,10 +698,8 @@
     <!-- 4. Drill Summary & Analysis Panel (With Text & Screenshot Question Attachment) -->
     <div id="drill-summary-panel" class="hidden glass-card p-6 border border-white/10 space-y-6 bg-[#090b14]/90 rounded-2xl shadow-2xl">
       <div class="flex items-center justify-between pb-3 border-b border-white/10 flex-wrap gap-2">
-        <h3 class="text-base font-black text-white flex items-center gap-2">
-          <span>📊</span>
-          <span>Drill Performance Autopsy</span>
-        </h3>
+        <h3 class="text-base font-black text-white flex items-center gap-2"><span></span>
+          <span>Drill Performance Autopsy</span></h3>
         <span class="text-xs font-mono font-bold text-cyan-400 px-3 py-1 rounded-full bg-slate-900 border border-slate-700" id="summary-chapter-badge">Physics &bull; Units &amp; Measurements</span>
       </div>
       
@@ -737,11 +735,9 @@
       <div id="incorrect-seq-panel" class="p-5 rounded-2xl bg-gradient-to-br from-[#140b17] to-[#0c0e1c] border border-red-500/35 space-y-4 shadow-xl">
         <div class="flex items-center justify-between flex-wrap gap-2 pb-3 border-b border-white/10">
           <div>
-            <h4 class="text-sm font-black text-white flex items-center gap-2">
-              <span class="text-red-400">⚠️</span>
+            <h4 class="text-sm font-black text-white flex items-center gap-2"><span class="text-red-400">️</span>
               <span>Upload Incorrect Questions in Sequence</span>
-              <span id="incorrect-seq-count-badge" class="px-2 py-0.5 rounded-full bg-red-950 text-red-300 border border-red-500/40 text-[10px] font-mono">0 Incorrect</span>
-            </h4>
+              <span id="incorrect-seq-count-badge" class="px-2 py-0.5 rounded-full bg-red-950 text-red-300 border border-red-500/40 text-[10px] font-mono">0 Incorrect</span></h4>
             <p class="text-xs text-slate-400 mt-0.5">Upload problem statement &amp; screenshot for each question marked wrong in the exact order attempted.</p>
           </div>
           <!-- Sequence Question Pills -->
@@ -756,10 +752,8 @@
       <div class="p-5 rounded-2xl bg-black/40 border border-cyan-500/30 space-y-4">
         <div class="flex items-center justify-between flex-wrap gap-2">
           <div>
-            <h4 class="text-sm font-black text-white flex items-center gap-2">
-              <span class="text-cyan-400">📥</span>
-              <span>Attach Questions Attempted to Session Record</span>
-            </h4>
+            <h4 class="text-sm font-black text-white flex items-center gap-2"><span class="text-cyan-400"></span>
+              <span>Attach Questions Attempted to Session Record</span></h4>
             <p class="text-xs text-slate-400 mt-0.5">Attach the questions, formula hints, or a screenshot of the DPP / problem sheet for future review.</p>
           </div>
           <div class="flex gap-1.5 bg-slate-900 p-1 rounded-xl border border-slate-700">
@@ -810,7 +804,7 @@
   <div id="section-lecture" class="hidden glass-card p-6 border border-white/10 space-y-6">
     <div class="flex items-center justify-between border-b border-white/10 pb-3 flex-wrap gap-3">
       <div class="flex items-center gap-2">
-        <h2 class="text-base font-bold text-white flex items-center gap-2">🎓 Deep Lecture Focus Block</h2>
+        <h2 class="text-base font-bold text-white flex items-center gap-2">Deep Lecture Focus Block</h2>
         <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-cyan-950 text-cyan-300 border border-cyan-500/30">Dual-Screen Enabled</span>
       </div>
       
@@ -869,7 +863,7 @@
       </div>
       
       <!-- Clock Box Area (With Up / Down Arrows above & below Hours, Minutes, Seconds) -->
-      <div id="lecture-clock-col" class="text-center py-4 bg-black/30 rounded-2xl border border-white/5 p-4">
+      <div id="lecture-clock-col" class="text-center py-4 bg-black/30 rounded-2xl border border-white/5 p-4 tabular-nums">
         
         <!-- Quick Focus Preset Chips -->
         <div class="flex items-center justify-center flex-wrap gap-2 mb-3">
@@ -958,7 +952,7 @@
 <div id="autopsy-modal" class="hidden fixed inset-0 z-[300] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
   <div class="glass-card max-w-md w-full p-6 border border-red-500/40 space-y-4">
     <div class="flex justify-between items-center border-b border-white/10 pb-2">
-      <h3 class="text-sm font-bold text-red-400 flex items-center gap-2"><span>🔬</span> Error Autopsy</h3>
+      <h3 class="text-sm font-bold text-red-400 flex items-center gap-2"><span></span> Error Autopsy</h3>
       <button onclick="closeAutopsyModal()" class="text-gray-400 hover:text-white">✕</button>
     </div>
     <div>
@@ -983,7 +977,7 @@
 </div>
 
 <!-- Split-Screen Slide-in Drawer -->
-<div id="split-drawer" class="fixed top-0 right-0 h-full w-full max-w-[420px] bg-[#0c0e17]/98 border-l border-white/10 z-[200] transform translate-x-full transition-transform duration-300 flex flex-col shadow-[-10px_0_40px_rgba(0,0,0,0.8)] backdrop-blur-2xl">
+<div id="split-drawer" class="fixed top-0 right-0 h-full w-full max-w-[420px] bg-[#0c0e17]/98 border-l border-white/10 z-[200] transform translate-x-full transition-transform duration-300 flex flex-col shadow-sm backdrop-blur-2xl">
   <div class="flex items-center justify-between p-4 border-b border-white/10">
     <div class="flex items-center gap-2">
       <span class="text-indigo-400 font-bold">⚡ Focus Drawer</span>
@@ -1044,9 +1038,7 @@
   <div id="drawer-pane-audio" class="drawer-pane hidden flex-1 flex-col p-4 overflow-y-auto space-y-3.5">
     <div class="flex items-center justify-between">
       <div>
-        <h3 class="text-white font-bold text-xs flex items-center gap-1.5">
-          <span>🎵</span> Focus Music Corner
-        </h3>
+        <h3 class="text-white font-bold text-xs flex items-center gap-1.5"><span></span> Focus Music Corner</h3>
         <p class="text-[10px] text-gray-400">Distraction-Free Ambient &amp; Lo-Fi Beats</p>
       </div>
       <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-500/30 font-bold font-mono">Stream Active</span>
@@ -1078,6 +1070,7 @@
 </div>
 
   <script src="clockee_core.js"></script>
+  <script src="js/clockee_runtime.js"></script>
   <script>
     const CHAPTERS_DATA = {
       Physics: [
@@ -1520,11 +1513,11 @@
       const healthDot = document.getElementById('active-pace-health-dot');
       if (avgPace <= targetPaceSec) {
         if (healthTitle) healthTitle.className = 'text-base sm:text-lg font-black text-emerald-400 flex items-center gap-1.5 pt-1';
-        if (healthDot) healthDot.className = 'w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block shadow-[0_0_8px_rgba(52,211,153,0.7)]';
+        if (healthDot) healthDot.className = 'w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block shadow-sm';
         if (healthText) healthText.textContent = 'Ahead of Pace';
       } else {
         if (healthTitle) healthTitle.className = 'text-base sm:text-lg font-black text-rose-400 flex items-center gap-1.5 pt-1';
-        if (healthDot) healthDot.className = 'w-2.5 h-2.5 rounded-full bg-rose-400 inline-block shadow-[0_0_8px_rgba(244,63,94,0.7)]';
+        if (healthDot) healthDot.className = 'w-2.5 h-2.5 rounded-full bg-rose-400 inline-block shadow-sm';
         if (healthText) healthText.textContent = 'Behind Pace';
       }
 

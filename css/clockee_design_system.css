@@ -369,7 +369,7 @@ body {
 .cbt-option-card.selected {
   background: var(--cbt-accent-blue-light);
   border-color: var(--cbt-accent-blue);
-  box-shadow: 0 0 0 1px var(--cbt-accent-blue);
+  outline: 1px solid var(--accent, #0a84ff);
 }
 
 .cbt-option-marker {

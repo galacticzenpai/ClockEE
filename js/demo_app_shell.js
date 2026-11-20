@@ -233,7 +233,7 @@
             onclick="window.DemoAppShell.selectOption(${i})" 
             class="min-h-[44px] w-full text-left p-3.5 rounded-xl border transition flex items-center gap-3.5 cursor-pointer select-none ${
               isChecked 
-                ? 'bg-blue-600/15 border-blue-500 text-white shadow-[0_0_15px_rgba(10,132,255,0.2)]' 
+                ? 'bg-blue-600/15 border-blue-500 text-white shadow-sm' 
                 : 'bg-white/[0.02] border-white/10 hover:border-white/20 text-slate-200 hover:bg-white/[0.04]'
             }"
           >

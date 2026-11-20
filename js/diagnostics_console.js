@@ -70,7 +70,7 @@ class DiagnosticsConsole {
       background: rgba(7, 9, 14, 0.96);
       border: 1px solid rgba(16, 185, 129, 0.4);
       border-radius: 8px;
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8), 0 0 20px rgba(16, 185, 129, 0.15);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
       padding: 14px 18px;
       font-family: 'JetBrains Mono', monospace;
       font-size: 11px;
@@ -84,9 +84,9 @@ class DiagnosticsConsole {
           <span style="width:6px; height:6px; border-radius:50%; background:#10b981; display:inline-block;"></span>
           ClockEE Telemetry Console
         </span>
-        <button id="clockee-diag-close" style="background:none; border:none; color:#64748b; cursor:pointer; font-size:13px;">✕</button>
+        <button class="tabular-nums" id="clockee-diag-close" style="background:none; border:none; color:#64748b; cursor:pointer; font-size:13px;">✕</button>
       </div>
-      <div id="clockee-diag-stats" style="space-y:6px; color:#e2e8f0;"></div>
+      <div class="tabular-nums" id="clockee-diag-stats" style="space-y:6px; color:#e2e8f0;"></div>
       <div style="margin-top:10px; font-size:10px; color:#64748b; border-top:1px solid rgba(255,255,255,0.05); padding-top:6px; display:flex; justify-content:space-between;">
         <span>Shortcut: Ctrl+Shift+D</span>
         <span style="color:#10b981;">STATUS: LIVE</span>

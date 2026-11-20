@@ -115,7 +115,7 @@
       flex-direction: column;
       gap: 2px;
       z-index: 100;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.85), 0 0 0 1px rgba(255, 255, 255, 0.08);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
       backdrop-filter: blur(32px) saturate(220%);
       -webkit-backdrop-filter: blur(32px) saturate(220%);
     }
@@ -174,7 +174,7 @@
       gap: 6px;
       overflow-x: auto;
       scrollbar-width: none;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.08);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
     }
     .settings-nav-bar::-webkit-scrollbar { display: none; }
 
@@ -203,7 +203,7 @@
       color: #00f0ff;
       background: linear-gradient(135deg, rgba(0, 240, 255, 0.22), rgba(99, 102, 241, 0.3));
       border-color: rgba(0, 240, 255, 0.5);
-      box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
     }
     .settings-nav-pill.active .pill-icon {
       animation: pulseIcon 1.5s ease infinite alternate;
@@ -214,7 +214,7 @@
     }
     @keyframes sectionGlow {
       0% { box-shadow: 0 0 0 rgba(0, 240, 255, 0); }
-      40% { box-shadow: 0 0 35px rgba(0, 240, 255, 0.55); border-color: rgba(0, 240, 255, 0.85); }
+      40% { box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4); border-color: rgba(0, 240, 255, 0.85); }
       100% { box-shadow: 0 0 0 rgba(0, 240, 255, 0); }
     }
     .section-highlight {
@@ -229,7 +229,7 @@
       position: relative;
       overflow: hidden;
       border: 1px solid rgba(255, 255, 255, 0.1);
-      box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
     }
     .aura-live-blob-1 {
       position: absolute;
@@ -277,11 +277,11 @@
 </head>
 <body class="relative bg-[#07080e] text-[#f8fafc]">
 
-<header class="sticky top-0 z-50 px-4 py-3 sm:px-6 transition-all duration-300 bg-[#080a14]/75 backdrop-blur-2xl border-b border-white/10 shadow-[0_4px_24px_rgba(0,0,0,0.65)]">
+<header class="sticky top-0 z-50 px-4 py-3 sm:px-6 transition-all duration-300 bg-[#080a14]/75 backdrop-blur-2xl border-b border-white/10 shadow-sm">
   <div class="max-w-7xl mx-auto flex items-center justify-between gap-2 sm:gap-4">
     <!-- Brand / Logo -->
     <div class="nav-left flex items-center gap-3">
-      <div class="relative w-8 h-8 flex items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500/20 to-cyan-500/20 border border-white/15 shadow-[0_0_15px_rgba(99,102,241,0.25)]">
+      <div class="relative w-8 h-8 flex items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500/20 to-cyan-500/20 border border-white/15 shadow-sm">
         <svg class="w-5 h-5 text-cyan-400 animate-spin-slow" viewBox="0 0 64 64" fill="none">
           <circle cx="32" cy="32" r="28" stroke="url(#logoGrad)" stroke-width="4" stroke-dasharray="6 6"/>
           <path d="M32 16V32L42 42" stroke="#00f0ff" stroke-width="4" stroke-linecap="round"/>
@@ -405,7 +405,7 @@
     <!-- Right Actions -->
     <div class="nav-right flex items-center gap-3">
       <button class="nav-icon-btn hover:border-cyan-400 hover:text-cyan-300" title="Toggle Split-Screen Quick Panel" onclick="toggleSplitScreen()">⊟</button>
-      <a href="settings.html" class="relative p-[2px] rounded-full hud-ring shadow-[0_0_15px_rgba(0,240,255,0.4)] cursor-pointer inline-block" title="Commander Profile & Settings">
+      <a href="settings.html" class="relative p-[2px] rounded-full hud-ring shadow-sm cursor-pointer inline-block" title="Commander Profile & Settings">
         <img
           class="w-8 h-8 rounded-full bg-[#070913] object-cover block cursor-pointer"
           data-profile-avatar
@@ -489,7 +489,7 @@
   <!-- 1. Commander Identity (With Crop Photo & Switch User hidden safely here!) -->
   <div id="sec-identity" class="glass-card p-6 border border-white/10 space-y-4">
     <div class="flex items-center justify-between border-b border-white/10 pb-2 flex-wrap gap-2">
-      <h2 class="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2"><span>👤</span> Commander Identity &amp; Profile</h2>
+      <h2 class="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2"><span></span> Commander Identity &amp; Profile</h2>
       <div class="flex items-center gap-2">
         <button onclick="document.getElementById('global-avatar-upload').click()" class="px-3 py-1 bg-cyan-600/20 hover:bg-cyan-600/40 text-cyan-300 border border-cyan-500/30 rounded-lg text-xs font-semibold transition flex items-center gap-1">
           <span>📸</span> Crop Photo (1:1 Aspect Ratio)
@@ -501,7 +501,7 @@
     </div>
 
     <div class="flex items-center gap-5 flex-wrap">
-      <div class="relative w-16 h-16 rounded-full overflow-hidden border-2 border-cyan-400 shadow-[0_0_15px_rgba(0,240,255,0.4)] cursor-pointer" onclick="document.getElementById('global-avatar-upload').click()" title="Click to upload and crop avatar">
+      <div class="relative w-16 h-16 rounded-full overflow-hidden border-2 border-cyan-400 shadow-sm cursor-pointer" onclick="document.getElementById('global-avatar-upload').click()" title="Click to upload and crop avatar">
         <img id="settings-avatar-img" data-profile-avatar src="https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Aspirant" class="w-full h-full object-cover">
       </div>
       <div class="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-3 min-w-[240px]">
@@ -522,14 +522,14 @@
         <div class="flex items-center gap-2 flex-wrap">
           <input type="color" id="settings-accent" value="#6366f1" oninput="setThemeAccent(this.value)" class="w-10 h-8 bg-transparent cursor-pointer rounded-lg border border-gray-700 p-0.5" title="Custom Color Picker">
           <div class="flex items-center gap-1.5 flex-wrap">
-            <button type="button" onclick="setThemeAccent('#00f0ff')" class="w-6 h-6 rounded-full bg-[#00f0ff] border-2 border-white/20 hover:scale-110 transition shadow-[0_0_8px_rgba(0,240,255,0.6)] cursor-pointer" title="Cyber Cyan"></button>
-            <button type="button" onclick="setThemeAccent('#6366f1')" class="w-6 h-6 rounded-full bg-[#6366f1] border-2 border-white/20 hover:scale-110 transition shadow-[0_0_8px_rgba(99,102,241,0.6)] cursor-pointer" title="Indigo Laser"></button>
-            <button type="button" onclick="setThemeAccent('#a855f7')" class="w-6 h-6 rounded-full bg-[#a855f7] border-2 border-white/20 hover:scale-110 transition shadow-[0_0_8px_rgba(168,85,247,0.6)] cursor-pointer" title="Deep Violet"></button>
-            <button type="button" onclick="setThemeAccent('#10b981')" class="w-6 h-6 rounded-full bg-[#10b981] border-2 border-white/20 hover:scale-110 transition shadow-[0_0_8px_rgba(16,185,129,0.6)] cursor-pointer" title="Matrix Emerald"></button>
-            <button type="button" onclick="setThemeAccent('#f59e0b')" class="w-6 h-6 rounded-full bg-[#f59e0b] border-2 border-white/20 hover:scale-110 transition shadow-[0_0_8px_rgba(245,158,11,0.6)] cursor-pointer" title="Quantum Gold"></button>
-            <button type="button" onclick="setThemeAccent('#f43f5e')" class="w-6 h-6 rounded-full bg-[#f43f5e] border-2 border-white/20 hover:scale-110 transition shadow-[0_0_8px_rgba(244,63,94,0.6)] cursor-pointer" title="Crimson Nova"></button>
-            <button type="button" onclick="setThemeAccent('#38bdf8')" class="w-6 h-6 rounded-full bg-[#38bdf8] border-2 border-white/20 hover:scale-110 transition shadow-[0_0_8px_rgba(56,189,248,0.6)] cursor-pointer" title="Ice Blue"></button>
-            <button type="button" onclick="setThemeAccent('#84cc16')" class="w-6 h-6 rounded-full bg-[#84cc16] border-2 border-white/20 hover:scale-110 transition shadow-[0_0_8px_rgba(132,204,22,0.6)] cursor-pointer" title="Neon Lime"></button>
+            <button type="button" onclick="setThemeAccent('#00f0ff')" class="w-6 h-6 rounded-full bg-[#00f0ff] border-2 border-white/20 hover:scale-110 transition shadow-sm cursor-pointer" title="Cyber Cyan"></button>
+            <button type="button" onclick="setThemeAccent('#6366f1')" class="w-6 h-6 rounded-full bg-[#6366f1] border-2 border-white/20 hover:scale-110 transition shadow-sm cursor-pointer" title="Indigo Laser"></button>
+            <button type="button" onclick="setThemeAccent('#a855f7')" class="w-6 h-6 rounded-full bg-[#a855f7] border-2 border-white/20 hover:scale-110 transition shadow-sm cursor-pointer" title="Deep Violet"></button>
+            <button type="button" onclick="setThemeAccent('#10b981')" class="w-6 h-6 rounded-full bg-[#10b981] border-2 border-white/20 hover:scale-110 transition shadow-sm cursor-pointer" title="Matrix Emerald"></button>
+            <button type="button" onclick="setThemeAccent('#f59e0b')" class="w-6 h-6 rounded-full bg-[#f59e0b] border-2 border-white/20 hover:scale-110 transition shadow-sm cursor-pointer" title="Quantum Gold"></button>
+            <button type="button" onclick="setThemeAccent('#f43f5e')" class="w-6 h-6 rounded-full bg-[#f43f5e] border-2 border-white/20 hover:scale-110 transition shadow-sm cursor-pointer" title="Crimson Nova"></button>
+            <button type="button" onclick="setThemeAccent('#38bdf8')" class="w-6 h-6 rounded-full bg-[#38bdf8] border-2 border-white/20 hover:scale-110 transition shadow-sm cursor-pointer" title="Ice Blue"></button>
+            <button type="button" onclick="setThemeAccent('#84cc16')" class="w-6 h-6 rounded-full bg-[#84cc16] border-2 border-white/20 hover:scale-110 transition shadow-sm cursor-pointer" title="Neon Lime"></button>
           </div>
         </div>
       </div>
@@ -625,7 +625,7 @@
 
   <!-- 3. Examination Target & Daily Goals -->
   <div id="sec-goals" class="glass-card p-6 border border-white/10 space-y-4">
-    <h2 class="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2"><span>🎯</span> JEE Examination Goals</h2>
+    <h2 class="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2"><span></span> JEE Examination Goals</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
       <div>
         <label class="text-[10px] text-gray-400 uppercase font-bold block mb-1">Target JEE Advanced Date</label>
@@ -656,7 +656,7 @@
   <!-- 4. Immediate Next Milestone & Test Deadline -->
   <div id="sec-milestones" class="glass-card p-6 border border-cyan-500/40 bg-gradient-to-r from-[#0d1326] to-[#12162b] space-y-4">
     <div class="flex items-center justify-between">
-      <h2 class="text-sm font-bold text-cyan-300 uppercase tracking-wider flex items-center gap-2"><span>🏆</span> Immediate Next Milestone / Test Deadline</h2>
+      <h2 class="text-sm font-bold text-cyan-300 uppercase tracking-wider flex items-center gap-2"><span></span> Immediate Next Milestone / Test Deadline</h2>
       <span class="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-cyan-950 text-cyan-200 border border-cyan-500/30">Auto-synced to Home feed</span>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -674,7 +674,7 @@
   <!-- 5. Connected APIs Integration Hub -->
   <div id="sec-apis" class="glass-card p-6 border border-white/10 space-y-5">
     <div class="border-b border-white/10 pb-3 flex items-center justify-between">
-      <h2 class="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2"><span>🔌</span> Connected APIs Engine</h2>
+      <h2 class="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2"><span></span> Connected APIs Engine</h2>
       <span class="text-[10px] text-emerald-400 font-bold flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-emerald-400 inline-block animate-ping"></span> Live Integration Active</span>
     </div>
 
@@ -750,7 +750,7 @@
 <div id="user-session-modal" class="hidden fixed inset-0 z-[300] bg-black/85 backdrop-blur-sm flex items-center justify-center p-4">
   <div class="glass-card max-w-md w-full p-6 border border-cyan-500/30 space-y-4 bg-[#0a0d18]">
     <div class="flex justify-between items-center border-b border-white/10 pb-2">
-      <h3 class="text-sm font-bold text-white flex items-center gap-2"><span>👥</span> User Profiles &amp; Sessions</h3>
+      <h3 class="text-sm font-bold text-white flex items-center gap-2"><span></span> User Profiles &amp; Sessions</h3>
       <button onclick="document.getElementById('user-session-modal').classList.add('hidden')" class="text-gray-400 hover:text-white">✕</button>
     </div>
     <div id="user-sessions-list" class="space-y-2 max-h-60 overflow-y-auto"></div>

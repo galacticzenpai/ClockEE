@@ -91,7 +91,7 @@
     }
     .glass-card:hover {
       border-color: rgba(255, 255, 255, 0.15);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.08);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
     }
 
     .glass-panel {
@@ -164,7 +164,7 @@
       flex-direction: column;
       gap: 3px;
       z-index: 100;
-      box-shadow: 0 20px 50px -8px rgba(0, 0, 0, 0.9), 0 0 25px rgba(0, 240, 255, 0.25), inset 0 0 14px rgba(0, 240, 255, 0.08) !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
       backdrop-filter: blur(32px) saturate(220%) !important;
       -webkit-backdrop-filter: blur(32px) saturate(220%) !important;
     }
@@ -282,12 +282,12 @@
   <canvas id="aura-canvas"></canvas>
 
   <!-- Sticky Top Frosted Glass Header -->
-  <header class="sticky top-0 z-50 px-4 py-3 sm:px-6 transition-all duration-300 bg-[#080a14]/80 backdrop-blur-2xl border-b border-white/10 shadow-[0_4px_24px_rgba(0,0,0,0.65)]">
+  <header class="sticky top-0 z-50 px-4 py-3 sm:px-6 transition-all duration-300 bg-[#080a14]/80 backdrop-blur-2xl border-b border-white/10 shadow-sm">
     <div class="max-w-7xl mx-auto flex items-center justify-between gap-2 sm:gap-4">
       
       <!-- Brand / Logo -->
       <div class="nav-left flex items-center gap-3">
-        <div class="relative w-8 h-8 flex items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500/20 to-cyan-500/20 border border-white/15 shadow-[0_0_15px_rgba(99,102,241,0.25)]">
+        <div class="relative w-8 h-8 flex items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500/20 to-cyan-500/20 border border-white/15 shadow-sm">
           <svg class="w-5 h-5 text-cyan-400 animate-spin-slow" viewBox="0 0 64 64" fill="none">
             <circle cx="32" cy="32" r="28" stroke="url(#logoGrad)" stroke-width="4" stroke-dasharray="6 6"/>
             <path d="M32 16V32L42 42" stroke="#00f0ff" stroke-width="4" stroke-linecap="round"/>
@@ -412,7 +412,7 @@
           <span>Tour</span>
         </button>
         <button class="nav-icon-btn hover:border-cyan-400 hover:text-cyan-300" title="Toggle Split-Screen Quick Panel" onclick="toggleSplitScreen()">⊟</button>
-        <a href="settings.html" class="relative p-[2px] rounded-full hud-ring shadow-[0_0_15px_rgba(0,240,255,0.4)] cursor-pointer inline-block" title="Commander Profile & Settings">
+        <a href="settings.html" class="relative p-[2px] rounded-full hud-ring shadow-sm cursor-pointer inline-block" title="Commander Profile & Settings">
           <img
             class="w-8 h-8 rounded-full bg-[#070913] object-cover block cursor-pointer"
             data-profile-avatar
@@ -451,7 +451,7 @@
 
         <!-- Quick Motivational Spark Card & Action -->
         <div class="flex flex-col sm:flex-row items-center gap-3 w-full lg:w-auto">
-          <button onclick="generateDailySpark()" class="w-full sm:w-auto px-5 py-3 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-sm shadow-[0_0_20px_rgba(245,158,11,0.35)] transition transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2">
+          <button onclick="generateDailySpark()" class="w-full sm:w-auto px-5 py-3 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-sm shadow-sm transition transform hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2">
             <svg class="w-4 h-4 text-slate-950" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7-6.3-4.6-6.3 4.6 2.3-7-6-4.6h7.6z"/>
             </svg>
@@ -490,14 +490,14 @@
             <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
             JEE ADVANCED 2028
           </span>
-          <span id="countdown-date-badge" class="px-2 py-0.5 rounded bg-cyan-950/60 border border-cyan-500/30 text-[10px]">MAY 17, 2028</span>
+          <span id="countdown-date-badge" class="px-2 py-0.5 rounded bg-cyan-950/60 border border-cyan-500/30 text-[10px] tabular-nums">MAY 17, 2028</span>
         </div>
         <div class="my-4">
-          <div class="text-3xl sm:text-4xl font-black tracking-tight text-white mono" id="countdown-days">572</div>
-          <div class="text-xs text-slate-400 mt-1 flex items-center gap-2 font-mono" id="countdown-subtext">
-            <span id="countdown-hrs" class="text-cyan-300 font-semibold">14h</span> :
-            <span id="countdown-mins" class="text-cyan-300 font-semibold">22m</span> :
-            <span id="countdown-secs" class="text-cyan-300 font-semibold">45s</span>
+          <div class="text-3xl sm:text-4xl font-black tracking-tight text-white mono tabular-nums" id="countdown-days">572</div>
+          <div class="text-xs text-slate-400 mt-1 flex items-center gap-2 font-mono tabular-nums" id="countdown-subtext">
+            <span id="countdown-hrs" class="text-cyan-300 font-semibold tabular-nums">14h</span> :
+            <span id="countdown-mins" class="text-cyan-300 font-semibold tabular-nums">22m</span> :
+            <span id="countdown-secs" class="text-cyan-300 font-semibold tabular-nums">45s</span>
           </div>
         </div>
         <div class="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
@@ -535,7 +535,7 @@
         </div>
         <div class="my-4">
           <div class="text-lg font-bold text-white line-clamp-1" id="milestone-title">Phase Major Test #01</div>
-          <div class="text-xs text-purple-300/80 mt-1 font-mono" id="milestone-countdown">23 Days Remaining</div>
+          <div class="text-xs text-purple-300/80 mt-1 font-mono tabular-nums" id="milestone-countdown">23 Days Remaining</div>
         </div>
         <a href="test_centre.html" class="inline-flex items-center gap-1 text-[11px] font-mono text-indigo-400 hover:text-indigo-300">
           <span>Review Test Syllabus &rarr;</span>
@@ -565,9 +565,7 @@
     <section class="space-y-4">
       <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
         <div>
-          <h2 class="text-xl sm:text-2xl font-black tracking-tight text-white flex items-center gap-2">
-            <span>🏛️ Dream Campuses &amp; Target Benchmarks</span>
-          </h2>
+          <h2 class="text-xl sm:text-2xl font-black tracking-tight text-white flex items-center gap-2"><span>️ Dream Campuses &amp; Target Benchmarks</span></h2>
           <p class="text-slate-400 text-xs sm:text-sm">Where you will spend 2028-2032. Select a campus to inspect cutoffs, department stats, and campus spirit.</p>
         </div>
         <!-- College Tabs -->
@@ -656,9 +654,7 @@
     <section class="space-y-4">
       <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
         <div>
-          <h2 class="text-xl sm:text-2xl font-black tracking-tight text-white flex items-center gap-2">
-            <span>📌 Interactive Vision Canvas &amp; Pinboard</span>
-          </h2>
+          <h2 class="text-xl sm:text-2xl font-black tracking-tight text-white flex items-center gap-2"><span> Interactive Vision Canvas &amp; Pinboard</span></h2>
           <p class="text-slate-400 text-xs sm:text-sm">Personal affirmations, study aesthetics, topper frameworks, and commitments. Click any card to edit or add your own.</p>
         </div>
 
@@ -745,9 +741,7 @@
   <div id="add-pin-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
     <div class="glass-card max-w-lg w-full p-6 space-y-4 border-indigo-500/40 bg-[#0f1322] shadow-2xl">
       <div class="flex items-center justify-between border-b border-white/10 pb-3">
-        <h3 class="text-lg font-bold text-white flex items-center gap-2">
-          <span>📌 Add Inspiration Pin</span>
-        </h3>
+        <h3 class="text-lg font-bold text-white flex items-center gap-2"><span> Add Inspiration Pin</span></h3>
         <button onclick="closeAddPinModal()" class="text-slate-400 hover:text-white text-lg font-bold">✕</button>
       </div>
 

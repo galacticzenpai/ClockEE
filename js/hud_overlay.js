@@ -24,7 +24,7 @@ class CBTHUDOverlay {
       background: rgba(13, 17, 26, 0.95);
       border: 1px solid rgba(245, 158, 11, 0.35);
       border-radius: 12px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 16px rgba(245, 158, 11, 0.15);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
       padding: 16px 20px;
       font-family: 'JetBrains Mono', monospace;
       color: #f8fafc;
@@ -41,7 +41,7 @@ class CBTHUDOverlay {
           <span style="width:6px; height:6px; border-radius:50%; background:#f59e0b; display:inline-block;"></span>
           Cockpit Keymap
         </span>
-        <button id="clockee-hud-close" style="background:none; border:none; color:#64748b; cursor:pointer; font-size:14px; padding:2px;">✕</button>
+        <button class="tabular-nums" id="clockee-hud-close" style="background:none; border:none; color:#64748b; cursor:pointer; font-size:14px; padding:2px;">✕</button>
       </div>
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px 12px;">
         <div><kbd style="background:#1e293b; color:#38bdf8; padding:2px 6px; border-radius:4px; font-weight:600;">1 - 4</kbd> <span style="color:#94a3b8;">Select Opt</span></div>

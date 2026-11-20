@@ -13,6 +13,7 @@
   <!-- Optional Local Environment Loader -->
   <script src="env.js" onerror="/* env.js optional */"></script>
   <script src="clockee_core.js"></script>
+  <script src="js/clockee_runtime.js"></script>
 
   <!-- Google Fonts: Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -112,7 +113,7 @@
       backdrop-filter: blur(28px) saturate(190%);
       -webkit-backdrop-filter: blur(28px) saturate(190%);
       border: 1px solid rgba(255, 255, 255, 0.12);
-      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
       border-radius: 24px;
     }
 
@@ -175,7 +176,7 @@
       transform: scale(1.22) rotate(8deg);
       border-color: #0a84ff;
       background: rgba(10, 132, 255, 0.16);
-      box-shadow: 0 4px 14px rgba(10, 132, 255, 0.35);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
     }
     .easter-egg-badge:active {
       transform: scale(0.95);
@@ -372,7 +373,7 @@
     .show-happy-eyes .happy-eyes {
       opacity: 1 !important;
     }
-    .show-happy-eyes #normalClockEyes {
+    .show-happy-eyes #normalMascotEyes {
       opacity: 0 !important;
     }
 
@@ -400,7 +401,7 @@
       font-size: 0.74rem;
       font-weight: 800;
       color: #e0f2fe;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.7), 0 0 18px rgba(0, 240, 255, 0.35);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
       white-space: nowrap;
       pointer-events: none;
       opacity: 0;
@@ -467,7 +468,7 @@
       border: 1.5px solid rgba(0, 240, 255, 0.45);
       border-radius: 24px;
       padding: 22px 26px;
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 35px rgba(0, 240, 255, 0.2);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
       backdrop-filter: blur(24px);
       -webkit-backdrop-filter: blur(24px);
       transition: all 0.5s cubic-bezier(0.34, 1.3, 0.64, 1);
@@ -484,7 +485,7 @@
     .tour-highlight-target {
       position: relative !important;
       z-index: 999995 !important;
-      box-shadow: 0 0 0 4px #00f0ff, 0 0 30px rgba(0, 240, 255, 0.55) !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
       border-radius: 16px !important;
       transition: all 0.3s ease !important;
     }
@@ -502,7 +503,7 @@
     }
     .form-input:focus {
       border-color: #0a84ff;
-      box-shadow: 0 0 0 1px #0a84ff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
       background: rgba(18, 21, 28, 0.95);
     }
 
@@ -534,7 +535,7 @@
       background: #10b981;
       border-color: #10b981;
       color: #ffffff;
-      box-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
     }
 
     /* Professional One-Click Google & GitHub Buttons */
@@ -543,12 +544,12 @@
       border: 1px solid rgba(0, 240, 255, 0.35);
       min-height: 44px;
       transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), inset 0 0 10px rgba(0, 240, 255, 0.05);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
     }
     .btn-google:hover:not(:disabled) {
       background: rgba(18, 26, 46, 0.95);
       border-color: #00f0ff;
-      box-shadow: 0 0 20px rgba(0, 240, 255, 0.25), inset 0 0 15px rgba(0, 240, 255, 0.1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
       transform: translateY(-1px);
     }
     .btn-google:disabled {
@@ -563,12 +564,12 @@
       border: 1px solid rgba(16, 185, 129, 0.35);
       min-height: 44px;
       transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), inset 0 0 10px rgba(16, 185, 129, 0.05);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
     }
     .btn-github:hover:not(:disabled) {
       background: rgba(22, 30, 44, 0.95);
       border-color: #10b981;
-      box-shadow: 0 0 20px rgba(16, 185, 129, 0.25), inset 0 0 15px rgba(16, 185, 129, 0.1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
       transform: translateY(-1px);
     }
     .btn-github:disabled {
@@ -634,10 +635,8 @@
         <!-- Brand Title & On-Screen Tour Action -->
         <div class="space-y-1.5 flex flex-col items-center">
           <div class="flex items-center justify-center gap-2">
-            <h1 class="text-2xl sm:text-3xl font-black tracking-tight text-white flex items-center gap-2">
-              <span>Clock<span class="text-cyan-400">EE</span></span>
-              <span class="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-cyan-950/80 border border-cyan-500/40 text-cyan-300 font-bold">⚡ Chrono-Sync</span>
-            </h1>
+            <h1 class="text-2xl sm:text-3xl font-black tracking-tight text-white flex items-center gap-2"><span>Clock<span class="text-cyan-400">EE</span></span>
+              <span class="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-cyan-950/80 border border-cyan-500/40 text-cyan-300 font-bold"> Chrono-Sync</span></h1>
           </div>
           <p class="text-xs text-gray-400 font-medium">Precision Study Cadence • JEE Advanced 2028</p>
 
@@ -661,7 +660,7 @@
 
           <!-- CUTE FRIENDLY BRAND-THEMED CLOCKEE BOT SVG -->
           <div class="mascot-box" id="mascotWrapper">
-            <svg class="clockee-svg" viewBox="0 0 240 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg class="clockee-svg tabular-nums" viewBox="0 0 240 250" fill="none" xmlns="http://www.w3.org/2000/svg">
               <defs>
                 <!-- Soft Cyber Glow Filters -->
                 <filter id="cyberGlow" x="-20%" y="-20%" width="140%" height="140%">
@@ -695,7 +694,7 @@
               </defs>
 
               <!-- TWIN BELL EARS WITH CONNECTED ROBOTIC BRACKETS -->
-              <g id="clockEarsGroup">
+              <g id="mascotEarsGroup">
                 <path d="M 76 74 L 60 52" stroke="#38bdf8" stroke-width="5" stroke-linecap="round"/>
                 <g id="bellLeft" transform="translate(56, 48) rotate(-35)">
                   <ellipse cx="0" cy="0" rx="16" ry="10" fill="url(#bellGrad)" stroke="#00f0ff" stroke-width="2"/>
@@ -712,7 +711,7 @@
               </g>
 
               <!-- ROBOTIC LEGS & HOVER THRUSTERS -->
-              <g id="clockFeetGroup">
+              <g id="mascotFeetGroup">
                 <path d="M 94 182 Q 90 198 86 210" stroke="#38bdf8" stroke-width="5.5" stroke-linecap="round" fill="none"/>
                 <g id="footLeft" transform="translate(86, 212)">
                   <ellipse cx="0" cy="0" rx="16" ry="8" fill="#1e293b" stroke="#00f0ff" stroke-width="2"/>
@@ -727,11 +726,11 @@
               </g>
 
               <!-- CLOCK MAIN BODY & DIAL -->
-              <g id="clockBodyGroup">
+              <g id="mascotBodyGroup">
                 <!-- Outer Radiant Neon Rim -->
-                <circle id="clockOuterAura" cx="120" cy="125" r="72" fill="none" stroke="url(#cyberRimGrad)" stroke-width="3.5" opacity="0.95"/>
+                <circle id="mascotOuterAura" cx="120" cy="125" r="72" fill="none" stroke="url(#cyberRimGrad)" stroke-width="3.5" opacity="0.95"/>
                 <circle cx="120" cy="125" r="70" fill="#080b14" stroke="#1e293b" stroke-width="2"/>
-                <circle id="clockFace" cx="120" cy="125" r="66" fill="url(#cyberDialGrad)" stroke="#1e293b" stroke-width="1.5"/>
+                <circle id="mascotFace" cx="120" cy="125" r="66" fill="url(#cyberDialGrad)" stroke="#1e293b" stroke-width="1.5"/>
 
                 <!-- 12 Modern Minimalist Luminous Neon Dial Ticks (Perimeter) -->
                 <rect x="118.5" y="62" width="3" height="9" rx="1.5" fill="#00f0ff"/>
@@ -749,21 +748,21 @@
                 <circle cx="90" cy="74" r="2.2" fill="#818cf8"/>
 
                 <!-- FOREHEAD TIMEPIECE DIAL HANDS (Pivots at top center so eyes and mouth remain 100% unobstructed!) -->
-                <g id="clockHandsSubgroup">
+                <g id="mascotHandsSubgroup">
                   <circle cx="120" cy="74" r="3.5" fill="#0f172a" stroke="#00f0ff" stroke-width="1.5"/>
                   <circle cx="120" cy="74" r="1.5" fill="#00f0ff"/>
-                  <line id="clockHourHand" x1="120" y1="74" x2="108" y2="67" stroke="#818cf8" stroke-width="3" stroke-linecap="round"/>
-                  <line id="clockMinuteHand" x1="120" y1="74" x2="134" y2="65" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round"/>
-                  <line id="clockSecondHand" x1="120" y1="79" x2="120" y2="62" stroke="#00f0ff" stroke-width="1.5" stroke-linecap="round"/>
+                  <line id="mascotHourHand" x1="120" y1="74" x2="108" y2="67" stroke="#818cf8" stroke-width="3" stroke-linecap="round"/>
+                  <line id="mascotMinuteHand" x1="120" y1="74" x2="134" y2="65" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round"/>
+                  <line id="mascotSecondHand" x1="120" y1="79" x2="120" y2="62" stroke="#00f0ff" stroke-width="1.5" stroke-linecap="round"/>
                 </g>
 
                 <!-- CUTE BIG EXPRESSIVE ANIME ROBOT EYES (HIGH CONTRAST & ADORABLE) -->
-                <g id="clockEyesContainer">
-                  <g id="normalClockEyes">
+                <g id="mascotEyesContainer">
+                  <g id="normalMascotEyes">
                     <!-- LEFT EYE -->
-                    <g id="leftEyeGroup" class="clock-eyelid">
+                    <g id="leftEyeGroup" class="clock-eyelid tabular-nums">
                       <ellipse id="eyeSocketLeft" cx="94" cy="112" rx="15" ry="21" fill="#ffffff" stroke="#1e293b" stroke-width="2"/>
-                      <g id="pupilLeft" class="clock-pupil">
+                      <g id="pupilLeft" class="clock-pupil tabular-nums">
                         <ellipse cx="94" cy="112" rx="10.5" ry="16" fill="url(#pupilGrad)"/>
                         <ellipse cx="91" cy="104" rx="4" ry="6" fill="#ffffff" opacity="0.95"/>
                         <circle cx="98" cy="119" r="2.2" fill="#ffffff" opacity="0.9"/>
@@ -773,9 +772,9 @@
                     </g>
 
                     <!-- RIGHT EYE -->
-                    <g id="rightEyeGroup" class="clock-eyelid">
+                    <g id="rightEyeGroup" class="clock-eyelid tabular-nums">
                       <ellipse id="eyeSocketRight" cx="146" cy="112" rx="15" ry="21" fill="#ffffff" stroke="#1e293b" stroke-width="2"/>
-                      <g id="pupilRight" class="clock-pupil">
+                      <g id="pupilRight" class="clock-pupil tabular-nums">
                         <ellipse cx="146" cy="112" rx="10.5" ry="16" fill="url(#pupilGrad)"/>
                         <ellipse cx="143" cy="104" rx="4" ry="6" fill="#ffffff" opacity="0.95"/>
                         <circle cx="150" cy="119" r="2.2" fill="#ffffff" opacity="0.9"/>
@@ -786,7 +785,7 @@
                   </g>
 
                   <!-- Super Cute Happy Crescent Anime Eyes (^ ^) -->
-                  <g id="happyClockEyes" class="happy-eyes" opacity="0">
+                  <g id="happyMascotEyes" class="happy-eyes" opacity="0">
                     <path d="M 81 114 Q 94 98 107 114" stroke="#00f0ff" stroke-width="4.5" stroke-linecap="round" fill="none" filter="url(#cyberGlow)"/>
                     <path d="M 133 114 Q 146 98 159 114" stroke="#00f0ff" stroke-width="4.5" stroke-linecap="round" fill="none" filter="url(#cyberGlow)"/>
                   </g>
@@ -797,7 +796,7 @@
                 <ellipse id="cheekRight" class="cheeks" cx="164" cy="132" rx="8" ry="4.5" fill="#ec4899" opacity="0.45"/>
 
                 <!-- CUTE EXPRESSIVE MOUTHS -->
-                <g id="clockMouthGroup">
+                <g id="mascotMouthGroup">
                   <g id="mouthHappy">
                     <path d="M 108 138 Q 120 148 132 138" stroke="#38bdf8" stroke-width="3.5" stroke-linecap="round" fill="none"/>
                     <circle cx="107" cy="137" r="1.5" fill="#38bdf8"/>
@@ -808,16 +807,16 @@
                 </g>
 
                 <!-- Cute Sweat Drop (for weak password) -->
-                <g id="clockSweat" opacity="0" transform="translate(168, 86)">
+                <g id="mascotSweat" opacity="0" transform="translate(168, 86)">
                   <path d="M 0 8 C -3 8 -5 5 -5 2 C -5 -2 0 -7 0 -7 C 0 -7 5 -2 5 2 C 5 5 3 8 0 8 Z" fill="#38bdf8" stroke="#0284c7" stroke-width="1.2"/>
                 </g>
 
                 <!-- Interactive Boop Area -->
-                <circle id="clockNose" cx="120" cy="128" r="16" fill="transparent" class="cursor-pointer" onclick="handleNoseClick()" title="Boop ClockEE! ✨"/>
+                <circle id="mascotNose" cx="120" cy="128" r="16" fill="transparent" class="cursor-pointer" onclick="handleNoseClick()" title="Boop ClockEE! ✨"/>
               </g>
 
               <!-- CONNECTED ROBOTIC ARMS & CUTE CYBER GLOVES -->
-              <g id="clockArmLeft" class="clock-arm arm-left">
+              <g id="clockArmLeft" class="clock-arm arm-left tabular-nums">
                 <path d="M 64 130 Q 42 138 34 148" stroke="#38bdf8" stroke-width="5" stroke-linecap="round" fill="none"/>
                 <g id="handLeft" transform="translate(20, 142)">
                   <ellipse cx="14" cy="14" rx="13" ry="11" fill="#ffffff" stroke="#38bdf8" stroke-width="2"/>
@@ -826,7 +825,7 @@
                 </g>
               </g>
 
-              <g id="clockArmRight" class="clock-arm arm-right">
+              <g id="clockArmRight" class="clock-arm arm-right tabular-nums">
                 <path d="M 176 130 Q 198 138 206 148" stroke="#38bdf8" stroke-width="5" stroke-linecap="round" fill="none"/>
                 <g id="handRight" transform="translate(192, 142)">
                   <ellipse cx="14" cy="14" rx="13" ry="11" fill="#ffffff" stroke="#38bdf8" stroke-width="2"/>
@@ -881,7 +880,7 @@
           </div>
 
           <!-- In-Flight OAuth Redirection Status Indicator -->
-          <div id="oauthStatusIndicator" class="hidden p-3 rounded-xl bg-cyan-950/80 border border-cyan-400/50 text-cyan-200 text-xs flex items-center gap-3 shadow-[0_0_20px_rgba(0,240,255,0.2)]">
+          <div id="oauthStatusIndicator" class="hidden p-3 rounded-xl bg-cyan-950/80 border border-cyan-400/50 text-cyan-200 text-xs flex items-center gap-3 shadow-sm">
             <span class="inline-block animate-spin text-cyan-400 text-sm">⚙</span>
             <div class="flex-1">
               <div id="oauthStatusTitle" class="font-bold text-white tracking-wide">Connecting Provider...</div>
@@ -2308,7 +2307,7 @@
   <!-- Floating Tour Mascot Agent (Travels across the screen) -->
   <div id="tourMascotAgent" class="tour-mascot-agent">
     <div style="width: 155px; height: 155px; position: relative;">
-      <svg class="clockee-svg" viewBox="0 0 240 250" fill="none" style="filter: drop-shadow(0 0 20px #00f0ff);">
+      <svg class="clockee-svg tabular-nums" viewBox="0 0 240 250" fill="none" style="filter: drop-shadow(0 0 20px #00f0ff);">
         <use href="#clockEarsGroup"/>
         <use href="#clockFeetGroup"/>
         <use href="#clockBodyGroup"/>
@@ -2365,7 +2364,7 @@
 
   <!-- Guest Dream College & Branch Modal -->
   <div id="guestDreamModal" class="fixed inset-0 z-[999999] bg-[#07090e]/90 backdrop-blur-2xl flex items-center justify-center p-4" style="display: none;">
-    <div class="max-w-md w-full bg-[#0d1222] border border-cyan-400/40 rounded-2xl p-6 shadow-[0_0_50px_rgba(0,240,255,0.25)] relative text-left">
+    <div class="max-w-md w-full bg-[#0d1222] border border-cyan-400/40 rounded-2xl p-6 shadow-sm relative text-left">
       <div class="flex items-center gap-3 mb-3">
         <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-400/30 flex items-center justify-center text-xl">🎯</div>
         <div>

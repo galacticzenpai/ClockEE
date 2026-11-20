@@ -1390,5 +1390,229 @@
     "accuracy": "52.4% of students got it right",
     "difficulty": "Easy",
     "solutionText": "g_equator = g - R \u03c9^2. If \u03c9 increases, g_equator decreases, so weight decreases."
+  },
+  {
+    "id": "pw-phy-c11-flu-001",
+    "questionNumber": 1,
+    "subject": "Physics",
+    "chapter": "Mechanical Properties of Fluids",
+    "topic": "Torricelli's Law & Efflux Rate",
+    "statement": "A cylindrical tank has a hole of 1 cm\u00b2 in its bottom. If the water is allowed to flow into the tank from a tube above it at the rate of 70 cm\u00b3/sec. then the maximum height up to which water can rise in the tank is:",
+    "statementImages": [],
+    "options": [
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "2.5 cm",
+        "isCorrect": true,
+        "markedPercentage": "45.73%"
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "5 cm",
+        "isCorrect": false,
+        "markedPercentage": "19.61%"
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "10 cm",
+        "isCorrect": false,
+        "markedPercentage": "18.24%"
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "0.25 cm",
+        "isCorrect": false,
+        "markedPercentage": "16.58%"
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": "A",
+    "accuracy": "45.73% of students got it right",
+    "difficulty": "Hard",
+    "solutionText": "Qin = 70 cm^3/s. Qout = a \u221a(2gh) = 1 * \u221a(2 * 980 * h). 70 = \u221a(1960 h) => h = 4900 / 1960 = 2.5 cm."
+  },
+  {
+    "id": "pw-phy-c11-sol-002",
+    "questionNumber": 2,
+    "subject": "Physics",
+    "chapter": "Mechanical Properties of Solids",
+    "topic": "Bulk Strain & Volume Compression",
+    "statement": "A uniform cube is subjected to volume compression. If each side is decreased by 1%, then bulk strain is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "0.01",
+        "isCorrect": false,
+        "markedPercentage": "22.91%"
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "0.06",
+        "isCorrect": false,
+        "markedPercentage": "10.7%"
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "0.02",
+        "isCorrect": false,
+        "markedPercentage": "11.24%"
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "0.03",
+        "isCorrect": true,
+        "markedPercentage": "54.99%"
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": "D",
+    "accuracy": "55.48% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "V = a^3 => \u0394V/V = 3(\u0394a/a). \u0394a/a = 1% = 0.01. Bulk strain = 3 * 0.01 = 0.03."
+  },
+  {
+    "id": "pw-phy-c11-sol-003",
+    "questionNumber": 3,
+    "subject": "Physics",
+    "chapter": "Mechanical Properties of Solids",
+    "topic": "Combination of Wires & Equivalent Young's Modulus",
+    "statement": "Two wires of equal length and cross-sectional area are suspended as shown in figure. Their Young's modulii are Y1 and Y2 respectively. The equivalent Youngs modulii will be:",
+    "statementImages": [
+      "https://penpencil-static-content.s3.ap-south-1.amazonaws.com/5eb393ee95fab7468a79d189/0uagn8yeh4f6mairo5kvvzcqo.png"
+    ],
+    "options": [
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "Y1 + Y2",
+        "isCorrect": false,
+        "markedPercentage": "23.63%"
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "(Y1 Y2) / (Y1 + Y2)",
+        "isCorrect": false,
+        "markedPercentage": "37.07%"
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "(Y1 + Y2) / 2",
+        "isCorrect": true,
+        "markedPercentage": "34.83%"
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "\u221a(Y1 Y2)",
+        "isCorrect": false,
+        "markedPercentage": "4.28%"
+      }
+    ],
+    "correctOption": 3,
+    "correctAnswer": "C",
+    "accuracy": "35.44% of students got it right",
+    "difficulty": "Medium",
+    "solutionText": "In parallel, both wires experience identical strain. Total F = F1 + F2 = (Y1 + Y2) A (\u0394L/L). Equivalent wire has area 2A: Y_eq (2A)(\u0394L/L) = (Y1 + Y2) A(\u0394L/L) => Y_eq = (Y1 + Y2)/2."
+  },
+  {
+    "id": "pw-phy-c11-flu-007",
+    "questionNumber": 7,
+    "subject": "Physics",
+    "chapter": "Mechanical Properties of Fluids",
+    "topic": "Hydrostatic Pressure & Hydrostatic Paradox",
+    "statement": "Three vessel A,B,C contain water upto the same height. If PA,PB,PC be the pressure exerted by the water at the bottom of the vessels A,B,C respectively, Then",
+    "statementImages": [
+      "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/twvzhzrnswhwessxh7nbk8sft.png"
+    ],
+    "options": [
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "PA > PB > PC",
+        "isCorrect": false,
+        "markedPercentage": "18.29%"
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "PC > PB > PA",
+        "isCorrect": false,
+        "markedPercentage": "20.62%"
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "PA < PB > PC",
+        "isCorrect": false,
+        "markedPercentage": "8.95%"
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "PA = PB = PC",
+        "isCorrect": true,
+        "markedPercentage": "52.14%"
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": "D",
+    "accuracy": "52.14% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "P = h \u03c1 g. Depends only on depth h and density \u03c1, independent of container geometry. Hence PA = PB = PC."
+  },
+  {
+    "id": "pw-phy-c11-flu-010",
+    "questionNumber": 10,
+    "subject": "Physics",
+    "chapter": "Mechanical Properties of Fluids",
+    "topic": "Surface Tension & Soap Bubble Surface Energy",
+    "statement": "The radius of a soap bubble is r. The surface tension of soap solution is S . Keeping temperature constant, the radius of the soap bubble is doubled. The energy necessary for this will be",
+    "statementImages": [],
+    "options": [
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "24\u03c0r\u00b2S",
+        "isCorrect": true,
+        "markedPercentage": "31.3%"
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "8\u03c0r\u00b2S",
+        "isCorrect": false,
+        "markedPercentage": "31.3%"
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "16\u03c0r\u00b2S",
+        "isCorrect": false,
+        "markedPercentage": "19.13%"
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "12\u03c0r\u00b2S",
+        "isCorrect": false,
+        "markedPercentage": "18.26%"
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": "A",
+    "accuracy": "31.3% of students got it right",
+    "difficulty": "Medium",
+    "solutionText": "Soap bubble has 2 free surfaces: A1 = 2 * (4\u03c0r^2) = 8\u03c0r^2. Doubled radius r' = 2r => A2 = 2 * (4\u03c0(2r)^2) = 32\u03c0r^2. \u0394A = 32\u03c0r^2 - 8\u03c0r^2 = 24\u03c0r^2. Work = S * \u0394A = 24\u03c0r^2 S."
   }
 ]

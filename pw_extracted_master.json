@@ -1614,5 +1614,229 @@
     "accuracy": "31.3% of students got it right",
     "difficulty": "Medium",
     "solutionText": "Soap bubble has 2 free surfaces: A1 = 2 * (4\u03c0r^2) = 8\u03c0r^2. Doubled radius r' = 2r => A2 = 2 * (4\u03c0(2r)^2) = 32\u03c0r^2. \u0394A = 32\u03c0r^2 - 8\u03c0r^2 = 24\u03c0r^2. Work = S * \u0394A = 24\u03c0r^2 S."
+  },
+  {
+    "id": "pw-phy-c11-th-001",
+    "questionNumber": 1,
+    "subject": "Physics",
+    "chapter": "Thermodynamics",
+    "topic": "First Law of Thermodynamics & Cyclic Processes",
+    "statement": "When a system is taken from state a to state b along the path acb, it is found that a quantity of heat Q = 200 J is absorbed by the system and a work W = 80 J is done by it. Along the path adb, Q = 144 J. In above question, if U_d = 88 J, heat absorbed for the path db is if U_a = 40 J",
+    "statementImages": [
+      "https://penpencil-static-content.s3.ap-south-1.amazonaws.com/5eb393ee95fab7468a79d189/vm3fe5z99diceuv69arizcf4r.png"
+    ],
+    "options": [
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "\u221272 J",
+        "isCorrect": false,
+        "markedPercentage": "50%"
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "72 J",
+        "isCorrect": true,
+        "markedPercentage": "50%"
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "144 J",
+        "isCorrect": false,
+        "markedPercentage": "0%"
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "\u2212144 J",
+        "isCorrect": false,
+        "markedPercentage": "0%"
+      }
+    ],
+    "correctOption": 2,
+    "correctAnswer": "B",
+    "accuracy": "50% of students got it right",
+    "difficulty": "Hard",
+    "solutionText": "From path acb: \u0394U = Q - W = 200 - 80 = 120 J. Along adb: Q = 144 J => W_adb = 24 J. Using loop relation and U_d = 88 J, U_a = 40 J gives Q_db = 72 J."
+  },
+  {
+    "id": "pw-phy-c11-th-002",
+    "questionNumber": 2,
+    "subject": "Physics",
+    "chapter": "Thermal Properties of Matter",
+    "topic": "Stefan's Law of Radiation",
+    "statement": "If the radius of a star is R and it acts as a black body, what would be the temperature of the star, in which the rate of energy production is Q? (\u03c3 stands for Stefans constant)",
+    "statementImages": [],
+    "options": [
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "Q / (4\u03c0R\u00b2\u03c3)",
+        "isCorrect": false,
+        "markedPercentage": "17.66%"
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "(Q / 4\u03c0R\u00b2\u03c3)\u207b\u00b9/\u00b2",
+        "isCorrect": false,
+        "markedPercentage": "20.9%"
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "(4\u03c0R\u00b2Q / \u03c3)\u00b9/\u2074",
+        "isCorrect": false,
+        "markedPercentage": "19.15%"
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "(Q / 4\u03c0R\u00b2\u03c3)\u00b9/\u2074",
+        "isCorrect": true,
+        "markedPercentage": "42.29%"
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": "D",
+    "accuracy": "42.79% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "Q = \u03c3 A T^4 = \u03c3 (4\u03c0 R^2) T^4 => T = (Q / (4\u03c0 R^2 \u03c3))^(1/4)."
+  },
+  {
+    "id": "pw-phy-c11-th-005",
+    "questionNumber": 5,
+    "subject": "Physics",
+    "chapter": "Thermodynamics",
+    "topic": "Adiabatic Compression & Insulated Cylinder",
+    "statement": "One mole of a monoatomic ideal gas occupies two chambers of a cylinder partitioned by means of a movable piston. The walls of the cylinder as well as the piston are thermal insulators. Initially equal amounts of gas fill both the chambers at (P\u2080, V\u2080, T\u2080). A coil is burnt in the left chamber which absorbs heat and expands, pushing the piston to the right. The gas on the right chamber is compressed until to pressure becomes 32P\u2080. The final volume of left chamber is :-",
+    "statementImages": [
+      "https://penpencil-static-content.s3.ap-south-1.amazonaws.com/5eb393ee95fab7468a79d189/ue9t7d3oj0tlv03htphk4v1oi.png"
+    ],
+    "options": [
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "V\u2080 / 8",
+        "isCorrect": false,
+        "markedPercentage": "35.8%"
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "15/8 V\u2080",
+        "isCorrect": true,
+        "markedPercentage": "39.64%"
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "7/8 V\u2080",
+        "isCorrect": false,
+        "markedPercentage": "16.86%"
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "9/8 V\u2080",
+        "isCorrect": false,
+        "markedPercentage": "7.69%"
+      }
+    ],
+    "correctOption": 2,
+    "correctAnswer": "B",
+    "accuracy": "39.35% of students got it right",
+    "difficulty": "Medium",
+    "solutionText": "Right chamber undergoes adiabatic compression: P0 V0^(5/3) = (32 P0) V_R^(5/3) => V_R = V0/8. Total volume is 2V0, so V_left = 2V0 - V0/8 = 15/8 V0."
+  },
+  {
+    "id": "pw-phy-c11-th-009",
+    "questionNumber": 9,
+    "subject": "Physics",
+    "chapter": "Thermodynamics",
+    "topic": "First Law of Thermodynamics & Degrees of Freedom",
+    "statement": "A polyatomic gas with six degrees of freedom does 25 J of work when it is expanded at constant pressure. The heat given to the gas is :-",
+    "statementImages": [],
+    "options": [
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "100 J",
+        "isCorrect": true,
+        "markedPercentage": "40%"
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "150 J",
+        "isCorrect": false,
+        "markedPercentage": "31.88%"
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "200 J",
+        "isCorrect": false,
+        "markedPercentage": "18.55%"
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "250 J",
+        "isCorrect": false,
+        "markedPercentage": "9.57%"
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": "A",
+    "accuracy": "40.29% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "For f = 6: C_v = 3R, C_p = 4R. W = n R \u0394T = 25 J. Heat Q = n C_p \u0394T = 4 (n R \u0394T) = 4 * 25 = 100 J."
+  },
+  {
+    "id": "pw-phy-c11-th-010",
+    "questionNumber": 10,
+    "subject": "Physics",
+    "chapter": "Thermal Properties of Matter",
+    "topic": "Thermal Expansion of Solids (Cavity / Hole Expansion)",
+    "statement": "Suppose there is a hole in a copper plate. On heating the plate, diameter of hole, would :",
+    "statementImages": [],
+    "options": [
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "always increase",
+        "isCorrect": true,
+        "markedPercentage": "69.19%"
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "always decrease",
+        "isCorrect": false,
+        "markedPercentage": "14.57%"
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "always remain the same",
+        "isCorrect": false,
+        "markedPercentage": "13.45%"
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "none of these",
+        "isCorrect": false,
+        "markedPercentage": "2.8%"
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": "A",
+    "accuracy": "69.47% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "When a solid with a cavity is heated, it expands as if it were solid throughout (photographic magnification). Hence, the diameter of the hole always increases."
   }
 ]

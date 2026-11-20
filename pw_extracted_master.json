@@ -241,7 +241,7 @@
     "correctAnswer": "t = 3.4 \\sqrt{h/g}",
     "accuracy": "35.18% of students got it right",
     "difficulty": "Medium",
-    "solutionText": "When the helicopter reaches height h with acceleration g from rest:\nv^2 = 0 + 2gh => v = \\sqrt{2gh} (directed upward).\nFor the dropped packet:\nTaking ground as origin:\n0 = h + vt - 0.5 g t^2\n0 = h + \\sqrt{2gh} t - 0.5 g t^2\n0.5 g t^2 - \\sqrt{2gh} t - h = 0\nt = [\\sqrt{2gh} + \\sqrt{2gh + 4(0.5g)(h)}] / g = [\\sqrt{2gh} + \\sqrt{4gh}] / g = (\\sqrt{2} + 2) \\sqrt{h/g} \u2248 (1.414 + 2) \\sqrt{h/g} = 3.414 \\sqrt{h/g} \u2248 3.4 \\sqrt{h/g}."
+    "solutionText": "When the helicopter reaches height h with acceleration g from rest:\nv^2 = 0 + 2gh => v = \\sqrt{2gh} (directed upward).\nFor the dropped packet:\nTaking ground as origin:\n0 = h + vt - 0.5 g t^2\n0 = h + \\sqrt{2gh} t - 0.5 g t^2\n0.5 g t^2 - \\sqrt{2gh} t - h = 0\nt = [\\sqrt{2gh} + \\sqrt{2gh + 4(0.5g)(h)}] / g = [\\sqrt{2gh} + \\sqrt{4gh}] / g = (\\sqrt{2} + 2) \\sqrt{h/g} ≈ (1.414 + 2) \\sqrt{h/g} = 3.414 \\sqrt{h/g} ≈ 3.4 \\sqrt{h/g}."
   },
   {
     "id": "pw-phy-c11-misl-006",
@@ -262,7 +262,7 @@
       {
         "optionIndex": 2,
         "label": "B",
-        "text": "(a \u2212 g)",
+        "text": "(a − g)",
         "isCorrect": true,
         "markedPercentage": "46.94%"
       },
@@ -276,16 +276,16 @@
       {
         "optionIndex": 4,
         "label": "D",
-        "text": "(g \u2212 a^2 / g)",
+        "text": "(g − a^2 / g)",
         "isCorrect": false,
         "markedPercentage": "6.03%"
       }
     ],
     "correctOption": 2,
-    "correctAnswer": "(a \u2212 g)",
+    "correctAnswer": "(a − g)",
     "accuracy": "46.66% of students got it right",
     "difficulty": "Easy",
-    "solutionText": "To find the effective acceleration of the body, we analyze the directions of the accelerations acting on it:\nUpward Acceleration (a): The body is actively thrown or propelled upwards with an acceleration of a.\nDownward Acceleration (g): The acceleration due to gravity always acts vertically downwards towards the Earth.\nSince these two accelerations act in exactly opposite directions along the vertical line of motion, the net or effective upward acceleration is: Effective Acceleration = a \u2212 g."
+    "solutionText": "To find the effective acceleration of the body, we analyze the directions of the accelerations acting on it:\nUpward Acceleration (a): The body is actively thrown or propelled upwards with an acceleration of a.\nDownward Acceleration (g): The acceleration due to gravity always acts vertically downwards towards the Earth.\nSince these two accelerations act in exactly opposite directions along the vertical line of motion, the net or effective upward acceleration is: Effective Acceleration = a − g."
   },
   {
     "id": "pw-phy-c11-misl-007",
@@ -387,37 +387,37 @@
       {
         "optionIndex": 1,
         "label": "A",
-        "text": "2\u03c0 ms\u22121",
+        "text": "2π ms−1",
         "isCorrect": false,
         "markedPercentage": "23.65%"
       },
       {
         "optionIndex": 2,
         "label": "B",
-        "text": "4\u03c0 ms\u22121",
+        "text": "4π ms−1",
         "isCorrect": false,
         "markedPercentage": "22.69%"
       },
       {
         "optionIndex": 3,
         "label": "C",
-        "text": "2 ms\u22121",
+        "text": "2 ms−1",
         "isCorrect": false,
         "markedPercentage": "22.16%"
       },
       {
         "optionIndex": 4,
         "label": "D",
-        "text": "4 ms\u22121",
+        "text": "4 ms−1",
         "isCorrect": true,
         "markedPercentage": "31.5%"
       }
     ],
     "correctOption": 4,
-    "correctAnswer": "4 ms\u22121",
+    "correctAnswer": "4 ms−1",
     "accuracy": "31.5% of students got it right",
     "difficulty": "Easy",
-    "solutionText": "Average Velocity = Displacement / Time.\nFor a particle moving along a semicircle of radius r = 10 m:\nDisplacement = diameter = 2r = 2 * 10 = 20 m.\nTime = 5 s.\nAverage Velocity = 20 / 5 = 4 m/s.\nCorrect option: D (4 ms\u22121)."
+    "solutionText": "Average Velocity = Displacement / Time.\nFor a particle moving along a semicircle of radius r = 10 m:\nDisplacement = diameter = 2r = 2 * 10 = 20 m.\nTime = 5 s.\nAverage Velocity = 20 / 5 = 4 m/s.\nCorrect option: D (4 ms−1)."
   },
   {
     "id": "pw-phy-c11-misl-010",
@@ -551,7 +551,7 @@
     "correctAnswer": "D",
     "accuracy": "20.82% of students got it right",
     "difficulty": "Hard",
-    "solutionText": "Since both stones are projected simultaneously with the same speed from the same point at different angles, their horizontal and vertical velocity components differ. For them to collide, both their x and y coordinates must be identical at the same instant t. Since x1 = (u cos \u03b81)t and x2 = (u cos \u03b82)t, x1 = x2 requires \u03b81 = \u03b82, meaning identical trajectories. If \u03b81 \u2260 \u03b82, x1 \u2260 x2 for all t > 0, so they can never be at the same point at the same time. Hence, Statement-1 is false. Their geometric paths (trajectories) do intersect at a point, so Statement-2 is true. Correct answer: Option 4."
+    "solutionText": "Since both stones are projected simultaneously with the same speed from the same point at different angles, their horizontal and vertical velocity components differ. For them to collide, both their x and y coordinates must be identical at the same instant t. Since x1 = (u cos θ1)t and x2 = (u cos θ2)t, x1 = x2 requires θ1 = θ2, meaning identical trajectories. If θ1 ≠ θ2, x1 ≠ x2 for all t > 0, so they can never be at the same point at the same time. Hence, Statement-1 is false. Their geometric paths (trajectories) do intersect at a point, so Statement-2 is true. Correct answer: Option 4."
   },
   {
     "id": "pw-phy-c11-miap-003",
@@ -559,7 +559,7 @@
     "subject": "Physics",
     "chapter": "Motion in a Plane",
     "topic": "Horizontal Range Formula",
-    "statement": "A projectile is projected with initial velocity (6i^ + 8j^) m/s. If g = 10 ms\u22122, then horizontal range is :",
+    "statement": "A projectile is projected with initial velocity (6i^ + 8j^) m/s. If g = 10 ms−2, then horizontal range is :",
     "statementImages": [],
     "options": [
       {
@@ -647,34 +647,34 @@
     "subject": "Physics",
     "chapter": "Laws of Motion",
     "topic": "Angle of Friction & Limiting Equilibrium",
-    "statement": "A weight W rests on a rough horizontal plane. If the angle of friction is \u03b8, the least force that can move the body along the plane will be",
+    "statement": "A weight W rests on a rough horizontal plane. If the angle of friction is θ, the least force that can move the body along the plane will be",
     "statementImages": [],
     "options": [
       {
         "optionIndex": 1,
         "label": "A",
-        "text": "W cos \u03b8",
+        "text": "W cos θ",
         "isCorrect": false,
         "markedPercentage": "30.92%"
       },
       {
         "optionIndex": 2,
         "label": "B",
-        "text": "W tan \u03b8",
+        "text": "W tan θ",
         "isCorrect": true,
         "markedPercentage": "39.69%"
       },
       {
         "optionIndex": 3,
         "label": "C",
-        "text": "W cot \u03b8",
+        "text": "W cot θ",
         "isCorrect": false,
         "markedPercentage": "7.82%"
       },
       {
         "optionIndex": 4,
         "label": "D",
-        "text": "W sin \u03b8",
+        "text": "W sin θ",
         "isCorrect": false,
         "markedPercentage": "21.95%"
       }
@@ -683,7 +683,7 @@
     "correctAnswer": "B",
     "accuracy": "39.69% of students got it right",
     "difficulty": "Medium",
-    "solutionText": "To move the body along a rough horizontal plane with angle of friction \u03b8 (where \u03bc = tan \u03b8), the limiting static friction force is f_s = \u03bc W = W tan \u03b8. Hence Option B."
+    "solutionText": "To move the body along a rough horizontal plane with angle of friction θ (where μ = tan θ), the limiting static friction force is f_s = μ W = W tan θ. Hence Option B."
   },
   {
     "id": "pw-phy-c11-lom-004",
@@ -735,7 +735,7 @@
     "subject": "Physics",
     "chapter": "Work, Energy and Power",
     "topic": "Work-Energy Theorem & Conservation of Energy",
-    "statement": "A body of mass 2 kg is thrown up vertically with kinetic energy of 490 J. If g=9.8 ms\u22122, the height at which the kinetic energy of the body becomes half of the original value, is",
+    "statement": "A body of mass 2 kg is thrown up vertically with kinetic energy of 490 J. If g=9.8 ms−2, the height at which the kinetic energy of the body becomes half of the original value, is",
     "statementImages": [],
     "options": [
       {
@@ -771,7 +771,7 @@
     "correctAnswer": "C",
     "accuracy": "54.73% of students got it right",
     "difficulty": "Medium",
-    "solutionText": "Loss in KE = Gain in PE => \u0394KE = 490 / 2 = 245 J. m * g * h = 245 => 2 * 9.8 * h = 245 => h = 12.5 m."
+    "solutionText": "Loss in KE = Gain in PE => ΔKE = 490 / 2 = 245 J. m * g * h = 245 => 2 * 9.8 * h = 245 => h = 12.5 m."
   },
   {
     "id": "pw-phy-c11-wep-002",
@@ -815,7 +815,7 @@
     "correctAnswer": "A",
     "accuracy": "43.85% of students got it right",
     "difficulty": "Easy",
-    "solutionText": "p = sqrt(2mK). For small percentage variations: \u0394p/p = (1/2) * (\u0394K/K) = (1/2) * 4% = 2% increase."
+    "solutionText": "p = sqrt(2mK). For small percentage variations: Δp/p = (1/2) * (ΔK/K) = (1/2) * 4% = 2% increase."
   },
   {
     "id": "pw-phy-c11-wep-003",
@@ -829,7 +829,7 @@
       {
         "optionIndex": 1,
         "label": "A",
-        "text": "1/2 Ka(a\u2212b)",
+        "text": "1/2 Ka(a−b)",
         "isCorrect": false,
         "markedPercentage": "22.73%"
       },
@@ -843,7 +843,7 @@
       {
         "optionIndex": 3,
         "label": "C",
-        "text": "1/2 Kb(a\u2212b)",
+        "text": "1/2 Kb(a−b)",
         "isCorrect": false,
         "markedPercentage": "21.15%"
       },
@@ -905,7 +905,7 @@
     "correctAnswer": "B",
     "accuracy": "44.16% of students got it right",
     "difficulty": "Medium",
-    "solutionText": "Impulse = Area under F-t curve = 60 - 10 = 50 N*s. \u0394p = m * v_f = 10 * v_f = 50 => v_f = 5 m/s. Total work done W = \u0394KE = 1/2 * 10 * 5^2 = 125 J."
+    "solutionText": "Impulse = Area under F-t curve = 60 - 10 = 50 N*s. Δp = m * v_f = 10 * v_f = 50 => v_f = 5 m/s. Total work done W = ΔKE = 1/2 * 10 * 5^2 = 125 J."
   },
   {
     "id": "pw-phy-c11-wep-010",
@@ -913,7 +913,7 @@
     "subject": "Physics",
     "chapter": "Work, Energy and Power",
     "topic": "Work Done by Constant Force Vector (Dot Product)",
-    "statement": "A body is constrained to move along z-axis of the co-ordinate system is being applied by a constant force F\u2192=(2i^+3j^+4k^). Find the work done by this force in moving the body over a distance of 5 m along z-axis.",
+    "statement": "A body is constrained to move along z-axis of the co-ordinate system is being applied by a constant force F→=(2i^+3j^+4k^). Find the work done by this force in moving the body over a distance of 5 m along z-axis.",
     "statementImages": [],
     "options": [
       {
@@ -949,7 +949,7 @@
     "correctAnswer": "B",
     "accuracy": "66.67% of students got it right",
     "difficulty": "Easy",
-    "solutionText": "s = 5 k^. Work done W = F \u00b7 s = (2 i^ + 3 j^ + 4 k^) \u00b7 5 k^ = 4 * 5 = 20 J."
+    "solutionText": "s = 5 k^. Work done W = F · s = (2 i^ + 3 j^ + 4 k^) · 5 k^ = 4 * 5 = 20 J."
   },
   {
     "id": "pw-phy-c11-rot-001",
@@ -957,7 +957,7 @@
     "subject": "Physics",
     "chapter": "System of Particles and Rotational Motion",
     "topic": "Rotational Kinematics / Angular Acceleration",
-    "statement": "A car wheel is rotated to uniform angular acceleration about its axis. Initially its angular velocity is zero. It rotates through an angle \u03b81 in the first 2sec, in the next 2sec, it rotates through an additional angle \u03b82, the ratio of \u03b82/\u03b81 is:",
+    "statement": "A car wheel is rotated to uniform angular acceleration about its axis. Initially its angular velocity is zero. It rotates through an angle θ1 in the first 2sec, in the next 2sec, it rotates through an additional angle θ2, the ratio of θ2/θ1 is:",
     "statementImages": [],
     "options": [
       {
@@ -993,7 +993,7 @@
     "correctAnswer": "C",
     "accuracy": "50% of students got it right",
     "difficulty": "Medium",
-    "solutionText": "\u03b8 = (1/2)\u03b1t^2. In first 2s: \u03b81 = 2\u03b1. In 4s: \u03b8_total = 8\u03b1. In next 2s: \u03b82 = 8\u03b1 - 2\u03b1 = 6\u03b1. Ratio \u03b82/\u03b81 = 6/2 = 3."
+    "solutionText": "θ = (1/2)αt^2. In first 2s: θ1 = 2α. In 4s: θ_total = 8α. In next 2s: θ2 = 8α - 2α = 6α. Ratio θ2/θ1 = 6/2 = 3."
   },
   {
     "id": "pw-phy-c11-rot-002",
@@ -1014,7 +1014,7 @@
       {
         "optionIndex": 2,
         "label": "B",
-        "text": "L = \u221a3 R",
+        "text": "L = √3 R",
         "isCorrect": true,
         "markedPercentage": "54.83%"
       },
@@ -1037,7 +1037,7 @@
     "correctAnswer": "B",
     "accuracy": "56.07% of students got it right",
     "difficulty": "Medium",
-    "solutionText": "(1/2)MR^2 = (1/4)MR^2 + (1/12)ML^2 => (1/4)MR^2 = (1/12)ML^2 => L^2 = 3R^2 => L = \u221a3 R."
+    "solutionText": "(1/2)MR^2 = (1/4)MR^2 + (1/12)ML^2 => (1/4)MR^2 = (1/12)ML^2 => L^2 = 3R^2 => L = √3 R."
   },
   {
     "id": "pw-phy-c11-rot-003",
@@ -1081,7 +1081,7 @@
     "correctAnswer": "B",
     "accuracy": "34.43% of students got it right",
     "difficulty": "Medium",
-    "solutionText": "F - f = Ma, f R = (1/2 MR^2)(a/R) => f = (1/2)Ma. F = (3/2)Ma => a = 2F/(3M). f = F/3. For no slip: f <= \u03bcMg => \u03bc_min = F / (3Mg)."
+    "solutionText": "F - f = Ma, f R = (1/2 MR^2)(a/R) => f = (1/2)Ma. F = (3/2)Ma => a = 2F/(3M). f = F/3. For no slip: f <= μMg => μ_min = F / (3Mg)."
   },
   {
     "id": "pw-phy-c11-rot-004",
@@ -1089,34 +1089,34 @@
     "subject": "Physics",
     "chapter": "System of Particles and Rotational Motion",
     "topic": "Rotational Kinetic Energy / Flywheel",
-    "statement": "A flywheel is making 3000/\u03c0 revolutions per minute about its axis. If the moment of inertia of the flywheel about that axis is 400 kgm\u00b2, its rotational kinetic energy is",
+    "statement": "A flywheel is making 3000/π revolutions per minute about its axis. If the moment of inertia of the flywheel about that axis is 400 kgm², its rotational kinetic energy is",
     "statementImages": [],
     "options": [
       {
         "optionIndex": 1,
         "label": "A",
-        "text": "2 \u00d7 10\u2076 J",
+        "text": "2 × 10⁶ J",
         "isCorrect": true,
         "markedPercentage": "56.43%"
       },
       {
         "optionIndex": 2,
         "label": "B",
-        "text": "3 \u00d7 10\u00b3 J",
+        "text": "3 × 10³ J",
         "isCorrect": false,
         "markedPercentage": "20.38%"
       },
       {
         "optionIndex": 3,
         "label": "C",
-        "text": "500\u03c0\u00b2 J",
+        "text": "500π² J",
         "isCorrect": false,
         "markedPercentage": "16.93%"
       },
       {
         "optionIndex": 4,
         "label": "D",
-        "text": "12 \u00d7 10\u00b3 J",
+        "text": "12 × 10³ J",
         "isCorrect": false,
         "markedPercentage": "6.58%"
       }
@@ -1125,7 +1125,7 @@
     "correctAnswer": "A",
     "accuracy": "56.74% of students got it right",
     "difficulty": "Easy",
-    "solutionText": "\u03c9 = 2\u03c0(3000/\u03c0)/60 = 100 rad/s. K_rot = (1/2) I \u03c9^2 = (1/2)(400)(100)^2 = 2 * 10^6 J."
+    "solutionText": "ω = 2π(3000/π)/60 = 100 rad/s. K_rot = (1/2) I ω^2 = (1/2)(400)(100)^2 = 2 * 10^6 J."
   },
   {
     "id": "pw-phy-c11-rot-010",
@@ -1169,7 +1169,7 @@
     "correctAnswer": "B",
     "accuracy": "65.44% of students got it right",
     "difficulty": "Easy",
-    "solutionText": "External torque about the vertical rotation axis is zero (\u03c4_ext = 0), so angular momentum L = I \u03c9 is conserved."
+    "solutionText": "External torque about the vertical rotation axis is zero (τ_ext = 0), so angular momentum L = I ω is conserved."
   },
   {
     "id": "pw-phy-c11-grav-001",
@@ -1213,7 +1213,7 @@
     "correctAnswer": "C",
     "accuracy": "28.89% of students got it right",
     "difficulty": "Medium",
-    "solutionText": "m = (4/3)\u03c0R^3 \u03c1. Distance r = 2R. F = G m^2 / r^2 = G [(4/3)\u03c0R^3 \u03c1]^2 / (4R^2) \u221d R^6 / R^2 = R^4. Directly proportional to R^4."
+    "solutionText": "m = (4/3)πR^3 ρ. Distance r = 2R. F = G m^2 / r^2 = G [(4/3)πR^3 ρ]^2 / (4R^2) ∝ R^6 / R^2 = R^4. Directly proportional to R^4."
   },
   {
     "id": "pw-phy-c11-grav-002",
@@ -1257,7 +1257,7 @@
     "correctAnswer": "D",
     "accuracy": "34.44% of students got it right",
     "difficulty": "Easy",
-    "solutionText": "F \u221d 1/r^2. If r becomes 3r, F becomes F/9. Percentage decrease = (1 - 1/9) * 100% = 88.89% \u2248 89%."
+    "solutionText": "F ∝ 1/r^2. If r becomes 3r, F becomes F/9. Percentage decrease = (1 - 1/9) * 100% = 88.89% ≈ 89%."
   },
   {
     "id": "pw-phy-c11-grav-004",
@@ -1292,7 +1292,7 @@
       {
         "optionIndex": 4,
         "label": "D",
-        "text": "x = h\u00b2",
+        "text": "x = h²",
         "isCorrect": false,
         "markedPercentage": "6.29%"
       }
@@ -1301,7 +1301,7 @@
     "correctAnswer": "B",
     "accuracy": "56.29% of students got it right",
     "difficulty": "Easy",
-    "solutionText": "\u0394g_h = g(2h/R). \u0394g_x = g(x/R). Given \u0394g_h = \u0394g_x => 2h/R = x/R => x = 2h."
+    "solutionText": "Δg_h = g(2h/R). Δg_x = g(x/R). Given Δg_h = Δg_x => 2h/R = x/R => x = 2h."
   },
   {
     "id": "pw-phy-c11-grav-006",
@@ -1329,14 +1329,14 @@
       {
         "optionIndex": 3,
         "label": "C",
-        "text": "2\u221a2 E",
+        "text": "2√2 E",
         "isCorrect": false,
         "markedPercentage": "31.38%"
       },
       {
         "optionIndex": 4,
         "label": "D",
-        "text": "\u221a2 E",
+        "text": "√2 E",
         "isCorrect": false,
         "markedPercentage": "14.67%"
       }
@@ -1345,7 +1345,7 @@
     "correctAnswer": "A",
     "accuracy": "39.82% of students got it right",
     "difficulty": "Easy",
-    "solutionText": "v_orbit = \u221a(GM/R), KE_orbit = E = (1/2)m v_o^2. v_escape = \u221a2 v_orbit => KE_escape = (1/2)m (\u221a2 v_o)^2 = 2 * E."
+    "solutionText": "v_orbit = √(GM/R), KE_orbit = E = (1/2)m v_o^2. v_escape = √2 v_orbit => KE_escape = (1/2)m (√2 v_o)^2 = 2 * E."
   },
   {
     "id": "pw-phy-c11-grav-007",
@@ -1389,7 +1389,7 @@
     "correctAnswer": "B",
     "accuracy": "52.4% of students got it right",
     "difficulty": "Easy",
-    "solutionText": "g_equator = g - R \u03c9^2. If \u03c9 increases, g_equator decreases, so weight decreases."
+    "solutionText": "g_equator = g - R ω^2. If ω increases, g_equator decreases, so weight decreases."
   },
   {
     "id": "pw-phy-c11-flu-001",
@@ -1397,7 +1397,7 @@
     "subject": "Physics",
     "chapter": "Mechanical Properties of Fluids",
     "topic": "Torricelli's Law & Efflux Rate",
-    "statement": "A cylindrical tank has a hole of 1 cm\u00b2 in its bottom. If the water is allowed to flow into the tank from a tube above it at the rate of 70 cm\u00b3/sec. then the maximum height up to which water can rise in the tank is:",
+    "statement": "A cylindrical tank has a hole of 1 cm² in its bottom. If the water is allowed to flow into the tank from a tube above it at the rate of 70 cm³/sec. then the maximum height up to which water can rise in the tank is:",
     "statementImages": [],
     "options": [
       {
@@ -1433,7 +1433,7 @@
     "correctAnswer": "A",
     "accuracy": "45.73% of students got it right",
     "difficulty": "Hard",
-    "solutionText": "Qin = 70 cm^3/s. Qout = a \u221a(2gh) = 1 * \u221a(2 * 980 * h). 70 = \u221a(1960 h) => h = 4900 / 1960 = 2.5 cm."
+    "solutionText": "Qin = 70 cm^3/s. Qout = a √(2gh) = 1 * √(2 * 980 * h). 70 = √(1960 h) => h = 4900 / 1960 = 2.5 cm."
   },
   {
     "id": "pw-phy-c11-sol-002",
@@ -1477,7 +1477,7 @@
     "correctAnswer": "D",
     "accuracy": "55.48% of students got it right",
     "difficulty": "Easy",
-    "solutionText": "V = a^3 => \u0394V/V = 3(\u0394a/a). \u0394a/a = 1% = 0.01. Bulk strain = 3 * 0.01 = 0.03."
+    "solutionText": "V = a^3 => ΔV/V = 3(Δa/a). Δa/a = 1% = 0.01. Bulk strain = 3 * 0.01 = 0.03."
   },
   {
     "id": "pw-phy-c11-sol-003",
@@ -1514,7 +1514,7 @@
       {
         "optionIndex": 4,
         "label": "D",
-        "text": "\u221a(Y1 Y2)",
+        "text": "√(Y1 Y2)",
         "isCorrect": false,
         "markedPercentage": "4.28%"
       }
@@ -1523,7 +1523,7 @@
     "correctAnswer": "C",
     "accuracy": "35.44% of students got it right",
     "difficulty": "Medium",
-    "solutionText": "In parallel, both wires experience identical strain. Total F = F1 + F2 = (Y1 + Y2) A (\u0394L/L). Equivalent wire has area 2A: Y_eq (2A)(\u0394L/L) = (Y1 + Y2) A(\u0394L/L) => Y_eq = (Y1 + Y2)/2."
+    "solutionText": "In parallel, both wires experience identical strain. Total F = F1 + F2 = (Y1 + Y2) A (ΔL/L). Equivalent wire has area 2A: Y_eq (2A)(ΔL/L) = (Y1 + Y2) A(ΔL/L) => Y_eq = (Y1 + Y2)/2."
   },
   {
     "id": "pw-phy-c11-flu-007",
@@ -1569,7 +1569,7 @@
     "correctAnswer": "D",
     "accuracy": "52.14% of students got it right",
     "difficulty": "Easy",
-    "solutionText": "P = h \u03c1 g. Depends only on depth h and density \u03c1, independent of container geometry. Hence PA = PB = PC."
+    "solutionText": "P = h ρ g. Depends only on depth h and density ρ, independent of container geometry. Hence PA = PB = PC."
   },
   {
     "id": "pw-phy-c11-flu-010",
@@ -1583,28 +1583,28 @@
       {
         "optionIndex": 1,
         "label": "A",
-        "text": "24\u03c0r\u00b2S",
+        "text": "24πr²S",
         "isCorrect": true,
         "markedPercentage": "31.3%"
       },
       {
         "optionIndex": 2,
         "label": "B",
-        "text": "8\u03c0r\u00b2S",
+        "text": "8πr²S",
         "isCorrect": false,
         "markedPercentage": "31.3%"
       },
       {
         "optionIndex": 3,
         "label": "C",
-        "text": "16\u03c0r\u00b2S",
+        "text": "16πr²S",
         "isCorrect": false,
         "markedPercentage": "19.13%"
       },
       {
         "optionIndex": 4,
         "label": "D",
-        "text": "12\u03c0r\u00b2S",
+        "text": "12πr²S",
         "isCorrect": false,
         "markedPercentage": "18.26%"
       }
@@ -1613,7 +1613,7 @@
     "correctAnswer": "A",
     "accuracy": "31.3% of students got it right",
     "difficulty": "Medium",
-    "solutionText": "Soap bubble has 2 free surfaces: A1 = 2 * (4\u03c0r^2) = 8\u03c0r^2. Doubled radius r' = 2r => A2 = 2 * (4\u03c0(2r)^2) = 32\u03c0r^2. \u0394A = 32\u03c0r^2 - 8\u03c0r^2 = 24\u03c0r^2. Work = S * \u0394A = 24\u03c0r^2 S."
+    "solutionText": "Soap bubble has 2 free surfaces: A1 = 2 * (4πr^2) = 8πr^2. Doubled radius r' = 2r => A2 = 2 * (4π(2r)^2) = 32πr^2. ΔA = 32πr^2 - 8πr^2 = 24πr^2. Work = S * ΔA = 24πr^2 S."
   },
   {
     "id": "pw-phy-c11-th-001",
@@ -1629,7 +1629,7 @@
       {
         "optionIndex": 1,
         "label": "A",
-        "text": "\u221272 J",
+        "text": "−72 J",
         "isCorrect": false,
         "markedPercentage": "50%"
       },
@@ -1650,7 +1650,7 @@
       {
         "optionIndex": 4,
         "label": "D",
-        "text": "\u2212144 J",
+        "text": "−144 J",
         "isCorrect": false,
         "markedPercentage": "0%"
       }
@@ -1659,7 +1659,7 @@
     "correctAnswer": "B",
     "accuracy": "50% of students got it right",
     "difficulty": "Hard",
-    "solutionText": "From path acb: \u0394U = Q - W = 200 - 80 = 120 J. Along adb: Q = 144 J => W_adb = 24 J. Using loop relation and U_d = 88 J, U_a = 40 J gives Q_db = 72 J."
+    "solutionText": "From path acb: ΔU = Q - W = 200 - 80 = 120 J. Along adb: Q = 144 J => W_adb = 24 J. Using loop relation and U_d = 88 J, U_a = 40 J gives Q_db = 72 J."
   },
   {
     "id": "pw-phy-c11-th-002",
@@ -1667,34 +1667,34 @@
     "subject": "Physics",
     "chapter": "Thermal Properties of Matter",
     "topic": "Stefan's Law of Radiation",
-    "statement": "If the radius of a star is R and it acts as a black body, what would be the temperature of the star, in which the rate of energy production is Q? (\u03c3 stands for Stefans constant)",
+    "statement": "If the radius of a star is R and it acts as a black body, what would be the temperature of the star, in which the rate of energy production is Q? (σ stands for Stefans constant)",
     "statementImages": [],
     "options": [
       {
         "optionIndex": 1,
         "label": "A",
-        "text": "Q / (4\u03c0R\u00b2\u03c3)",
+        "text": "Q / (4πR²σ)",
         "isCorrect": false,
         "markedPercentage": "17.66%"
       },
       {
         "optionIndex": 2,
         "label": "B",
-        "text": "(Q / 4\u03c0R\u00b2\u03c3)\u207b\u00b9/\u00b2",
+        "text": "(Q / 4πR²σ)⁻¹/²",
         "isCorrect": false,
         "markedPercentage": "20.9%"
       },
       {
         "optionIndex": 3,
         "label": "C",
-        "text": "(4\u03c0R\u00b2Q / \u03c3)\u00b9/\u2074",
+        "text": "(4πR²Q / σ)¹/⁴",
         "isCorrect": false,
         "markedPercentage": "19.15%"
       },
       {
         "optionIndex": 4,
         "label": "D",
-        "text": "(Q / 4\u03c0R\u00b2\u03c3)\u00b9/\u2074",
+        "text": "(Q / 4πR²σ)¹/⁴",
         "isCorrect": true,
         "markedPercentage": "42.29%"
       }
@@ -1703,7 +1703,7 @@
     "correctAnswer": "D",
     "accuracy": "42.79% of students got it right",
     "difficulty": "Easy",
-    "solutionText": "Q = \u03c3 A T^4 = \u03c3 (4\u03c0 R^2) T^4 => T = (Q / (4\u03c0 R^2 \u03c3))^(1/4)."
+    "solutionText": "Q = σ A T^4 = σ (4π R^2) T^4 => T = (Q / (4π R^2 σ))^(1/4)."
   },
   {
     "id": "pw-phy-c11-th-005",
@@ -1711,7 +1711,7 @@
     "subject": "Physics",
     "chapter": "Thermodynamics",
     "topic": "Adiabatic Compression & Insulated Cylinder",
-    "statement": "One mole of a monoatomic ideal gas occupies two chambers of a cylinder partitioned by means of a movable piston. The walls of the cylinder as well as the piston are thermal insulators. Initially equal amounts of gas fill both the chambers at (P\u2080, V\u2080, T\u2080). A coil is burnt in the left chamber which absorbs heat and expands, pushing the piston to the right. The gas on the right chamber is compressed until to pressure becomes 32P\u2080. The final volume of left chamber is :-",
+    "statement": "One mole of a monoatomic ideal gas occupies two chambers of a cylinder partitioned by means of a movable piston. The walls of the cylinder as well as the piston are thermal insulators. Initially equal amounts of gas fill both the chambers at (P₀, V₀, T₀). A coil is burnt in the left chamber which absorbs heat and expands, pushing the piston to the right. The gas on the right chamber is compressed until to pressure becomes 32P₀. The final volume of left chamber is :-",
     "statementImages": [
       "https://penpencil-static-content.s3.ap-south-1.amazonaws.com/5eb393ee95fab7468a79d189/ue9t7d3oj0tlv03htphk4v1oi.png"
     ],
@@ -1719,28 +1719,28 @@
       {
         "optionIndex": 1,
         "label": "A",
-        "text": "V\u2080 / 8",
+        "text": "V₀ / 8",
         "isCorrect": false,
         "markedPercentage": "35.8%"
       },
       {
         "optionIndex": 2,
         "label": "B",
-        "text": "15/8 V\u2080",
+        "text": "15/8 V₀",
         "isCorrect": true,
         "markedPercentage": "39.64%"
       },
       {
         "optionIndex": 3,
         "label": "C",
-        "text": "7/8 V\u2080",
+        "text": "7/8 V₀",
         "isCorrect": false,
         "markedPercentage": "16.86%"
       },
       {
         "optionIndex": 4,
         "label": "D",
-        "text": "9/8 V\u2080",
+        "text": "9/8 V₀",
         "isCorrect": false,
         "markedPercentage": "7.69%"
       }
@@ -1793,7 +1793,7 @@
     "correctAnswer": "A",
     "accuracy": "40.29% of students got it right",
     "difficulty": "Easy",
-    "solutionText": "For f = 6: C_v = 3R, C_p = 4R. W = n R \u0394T = 25 J. Heat Q = n C_p \u0394T = 4 (n R \u0394T) = 4 * 25 = 100 J."
+    "solutionText": "For f = 6: C_v = 3R, C_p = 4R. W = n R ΔT = 25 J. Heat Q = n C_p ΔT = 4 (n R ΔT) = 4 * 25 = 100 J."
   },
   {
     "id": "pw-phy-c11-th-010",
@@ -1881,7 +1881,7 @@
     "correctAnswer": "D",
     "accuracy": "52.96% of students got it right",
     "difficulty": "Easy",
-    "solutionText": "a = -\u03c9^2 x. At mean position x = 0, so acceleration a = 0."
+    "solutionText": "a = -ω^2 x. At mean position x = 0, so acceleration a = 0."
   },
   {
     "id": "pw-phy-c11-wav-002",
@@ -1889,34 +1889,34 @@
     "subject": "Physics",
     "chapter": "Waves",
     "topic": "Travelling Wave Equation",
-    "statement": "A wave travelling in the +ve x-direction having displacement along y-direction as 1 m, wavelength 2\u03c0 m and frequency of 1/\u03c0 Hz is represented by :",
+    "statement": "A wave travelling in the +ve x-direction having displacement along y-direction as 1 m, wavelength 2π m and frequency of 1/π Hz is represented by :",
     "statementImages": [],
     "options": [
       {
         "optionIndex": 1,
         "label": "A",
-        "text": "y = sin(2\u03c0x + 2\u03c0t)",
+        "text": "y = sin(2πx + 2πt)",
         "isCorrect": false,
         "markedPercentage": "15.55%"
       },
       {
         "optionIndex": 2,
         "label": "B",
-        "text": "y = sin(x \u2212 2t)",
+        "text": "y = sin(x − 2t)",
         "isCorrect": true,
         "markedPercentage": "47.56%"
       },
       {
         "optionIndex": 3,
         "label": "C",
-        "text": "y = sin(2\u03c0x \u2212 2\u03c0t)",
+        "text": "y = sin(2πx − 2πt)",
         "isCorrect": false,
         "markedPercentage": "29.93%"
       },
       {
         "optionIndex": 4,
         "label": "D",
-        "text": "y = sin(10\u03c0x \u2212 20\u03c0t)",
+        "text": "y = sin(10πx − 20πt)",
         "isCorrect": false,
         "markedPercentage": "7.19%"
       }
@@ -1925,7 +1925,7 @@
     "correctAnswer": "B",
     "accuracy": "47.33% of students got it right",
     "difficulty": "Easy",
-    "solutionText": "k = 2\u03c0/\u03bb = 1 m^-1. \u03c9 = 2\u03c0 f = 2 rad/s. A = 1 m. Wave along +x is y = A sin(kx - \u03c9t) = sin(x - 2t)."
+    "solutionText": "k = 2π/λ = 1 m^-1. ω = 2π f = 2 rad/s. A = 1 m. Wave along +x is y = A sin(kx - ωt) = sin(x - 2t)."
   },
   {
     "id": "pw-phy-c11-osc-003",
@@ -1933,34 +1933,34 @@
     "subject": "Physics",
     "chapter": "Oscillations",
     "topic": "Kinematics of SHM & Time Intervals",
-    "statement": "A particle executes simple harmonic motion between x = \u2212A and x = +A. The time taken for it to go from 0 to A/2 is T\u2081 and to go from A/2 to A is T\u2082. Then:",
+    "statement": "A particle executes simple harmonic motion between x = −A and x = +A. The time taken for it to go from 0 to A/2 is T₁ and to go from A/2 to A is T₂. Then:",
     "statementImages": [],
     "options": [
       {
         "optionIndex": 1,
         "label": "A",
-        "text": "T\u2081 < T\u2082",
+        "text": "T₁ < T₂",
         "isCorrect": true,
         "markedPercentage": "49.13%"
       },
       {
         "optionIndex": 2,
         "label": "B",
-        "text": "T\u2081 > T\u2082",
+        "text": "T₁ > T₂",
         "isCorrect": false,
         "markedPercentage": "23.12%"
       },
       {
         "optionIndex": 3,
         "label": "C",
-        "text": "T\u2081 = T\u2082",
+        "text": "T₁ = T₂",
         "isCorrect": false,
         "markedPercentage": "16.76%"
       },
       {
         "optionIndex": 4,
         "label": "D",
-        "text": "T\u2081 = 2 T\u2082",
+        "text": "T₁ = 2 T₂",
         "isCorrect": false,
         "markedPercentage": "11.56%"
       }
@@ -1969,7 +1969,7 @@
     "correctAnswer": "A",
     "accuracy": "48.55% of students got it right",
     "difficulty": "Medium",
-    "solutionText": "x = A sin(\u03c9t). At A/2: sin(\u03c9 T1) = 1/2 => T1 = T/12. Time from 0 to A is T/4 = 3T/12 => T2 = T/4 - T1 = T/6. Hence T1 < T2."
+    "solutionText": "x = A sin(ωt). At A/2: sin(ω T1) = 1/2 => T1 = T/12. Time from 0 to A is T/4 = 3T/12 => T2 = T/4 - T1 = T/6. Hence T1 < T2."
   },
   {
     "id": "pw-phy-c11-osc-007",
@@ -1977,7 +1977,7 @@
     "subject": "Physics",
     "chapter": "Oscillations",
     "topic": "Spring-Mass Oscillator in Parallel",
-    "statement": "A block of mass 0.1 kg is held between two rigid supports by two springs of force constants 8 N m\u207b\u00b9 and 2 N m\u207b\u00b9. If the block is displaced along the direction of the length of the springs, then the frequency of vibration is",
+    "statement": "A block of mass 0.1 kg is held between two rigid supports by two springs of force constants 8 N m⁻¹ and 2 N m⁻¹. If the block is displaced along the direction of the length of the springs, then the frequency of vibration is",
     "statementImages": [
       "https://penpencil-static-content.s3.ap-south-1.amazonaws.com/5eb393ee95fab7468a79d189/sht11786zczj45audsqoegr34.png"
     ],
@@ -1985,21 +1985,21 @@
       {
         "optionIndex": 1,
         "label": "A",
-        "text": "5/\u03c0",
+        "text": "5/π",
         "isCorrect": true,
         "markedPercentage": "62.5%"
       },
       {
         "optionIndex": 2,
         "label": "B",
-        "text": "4/\u03c0",
+        "text": "4/π",
         "isCorrect": false,
         "markedPercentage": "25%"
       },
       {
         "optionIndex": 3,
         "label": "C",
-        "text": "2/\u03c0",
+        "text": "2/π",
         "isCorrect": false,
         "markedPercentage": "0%"
       },
@@ -2015,7 +2015,7 @@
     "correctAnswer": "A",
     "accuracy": "62.5% of students got it right",
     "difficulty": "Hard",
-    "solutionText": "k_eq = k1 + k2 = 8 + 2 = 10 N/m. f = (1 / 2\u03c0) \u221a(k_eq / m) = (1 / 2\u03c0) \u221a(10 / 0.1) = 10 / (2\u03c0) = 5/\u03c0 Hz."
+    "solutionText": "k_eq = k1 + k2 = 8 + 2 = 10 N/m. f = (1 / 2π) √(k_eq / m) = (1 / 2π) √(10 / 0.1) = 10 / (2π) = 5/π Hz."
   },
   {
     "id": "pw-phy-c11-wav-010",
@@ -2029,21 +2029,21 @@
       {
         "optionIndex": 1,
         "label": "A",
-        "text": "y = x\u00b2 \u2212 t\u00b2",
+        "text": "y = x² − t²",
         "isCorrect": false,
         "markedPercentage": "13.28%"
       },
       {
         "optionIndex": 2,
         "label": "B",
-        "text": "y = cos(x\u00b2) sin(t)",
+        "text": "y = cos(x²) sin(t)",
         "isCorrect": false,
         "markedPercentage": "26.56%"
       },
       {
         "optionIndex": 3,
         "label": "C",
-        "text": "y = log(x\u00b2 \u2212 t\u00b2) \u2212 log(x \u2212 t)",
+        "text": "y = log(x² − t²) − log(x − t)",
         "isCorrect": true,
         "markedPercentage": "41.49%"
       },
@@ -2111,34 +2111,34 @@
     "subject": "Chemistry",
     "chapter": "Structure of Atom",
     "topic": "Photoelectric Effect & Work Function",
-    "statement": "In a photoelectric effect, the energy of the photon striking a metallic surface is 5.6\u00d710\u221219 J. The kinetic energy of the ejected electrons is 12.0\u00d710\u221220 J. The work function is :",
+    "statement": "In a photoelectric effect, the energy of the photon striking a metallic surface is 5.6×10−19 J. The kinetic energy of the ejected electrons is 12.0×10−20 J. The work function is :",
     "statementImages": [],
     "options": [
       {
         "optionIndex": 1,
         "label": "A",
-        "text": "6.4\u00d710\u221219 J",
+        "text": "6.4×10−19 J",
         "isCorrect": false,
         "markedPercentage": "32.14%"
       },
       {
         "optionIndex": 2,
         "label": "B",
-        "text": "6.8\u00d710\u221219 J",
+        "text": "6.8×10−19 J",
         "isCorrect": false,
         "markedPercentage": "19.87%"
       },
       {
         "optionIndex": 3,
         "label": "C",
-        "text": "4.4\u00d710\u221219 J",
+        "text": "4.4×10−19 J",
         "isCorrect": true,
         "markedPercentage": "40.38%"
       },
       {
         "optionIndex": 4,
         "label": "D",
-        "text": "6.4\u00d710\u221220 J",
+        "text": "6.4×10−20 J",
         "isCorrect": false,
         "markedPercentage": "7.82%"
       }
@@ -2147,7 +2147,7 @@
     "correctAnswer": "C",
     "accuracy": "40.38% of students got it right",
     "difficulty": "Easy",
-    "solutionText": "E = W + KE => W = E - KE = 5.6\u00d710^-19 - 1.20\u00d710^-19 = 4.4\u00d710^-19 J."
+    "solutionText": "E = W + KE => W = E - KE = 5.6×10^-19 - 1.20×10^-19 = 4.4×10^-19 J."
   },
   {
     "id": "pw-chem-c11-atom-006",
@@ -2198,7 +2198,7 @@
     "questionNumber": 7,
     "subject": "Chemistry",
     "chapter": "Structure of Atom",
-    "topic": "Rydberg Formula for Li\u00b2\u207a",
+    "topic": "Rydberg Formula for Li²⁺",
     "statement": "The difference between the wave number of 1st line of the Balmer series and the last line of Paschen series for Li2+ ion is :",
     "statementImages": [],
     "options": [
@@ -2235,7 +2235,7 @@
     "correctAnswer": "D",
     "accuracy": "33.52% of students got it right",
     "difficulty": "Medium",
-    "solutionText": "Li2+ (Z=3). \u1e7d_balmer1 = 9R(1/4 - 1/9) = 5R/4. \u1e7d_paschen_last = 9R(1/9 - 0) = R. Difference = 5R/4 - R = R/4."
+    "solutionText": "Li2+ (Z=3). ṽ_balmer1 = 9R(1/4 - 1/9) = 5R/4. ṽ_paschen_last = 9R(1/9 - 0) = R. Difference = 5R/4 - R = R/4."
   },
   {
     "id": "pw-chem-c11-atom-010",
@@ -2280,5 +2280,455 @@
     "accuracy": "45.93% of students got it right",
     "difficulty": "Easy",
     "solutionText": "Mn (Z=25): [Ar] 3d5 4s2. Mn2+: [Ar] 3d5 4s0. All five 3d electrons are unpaired by Hund's rule."
+  },
+  {
+    "chapter": "Chemical Bonding and Molecular Structure",
+    "question_number": 1,
+    "question_type": "Single Choice Question",
+    "statement": "Which of the following is least volatile?",
+    "images": [],
+    "options": [
+      {
+        "option_number": 1,
+        "text": "H2O",
+        "image": null,
+        "student_percentage": "47.7% Marked this option",
+        "is_correct": true
+      },
+      {
+        "option_number": 2,
+        "text": "H2S",
+        "image": null,
+        "student_percentage": "15.72% Marked this option",
+        "is_correct": false
+      },
+      {
+        "option_number": 3,
+        "text": "H2Se",
+        "image": null,
+        "student_percentage": "14.36% Marked this option",
+        "is_correct": false
+      },
+      {
+        "option_number": 4,
+        "text": "H2Te",
+        "image": null,
+        "student_percentage": "22.22% Marked this option",
+        "is_correct": false
+      }
+    ],
+    "correct_option": 1,
+    "correct_options": [
+      1
+    ],
+    "student_stats": "47.7% of students got it right",
+    "solution_text": "Solution\nEasy\nDue to strong intermolecular hydrogen bonding among H2O molecules, water possesses anomalously high boiling point and significantly lower vapour pressure compared to group 16 hydrides (H2S, H2Se, H2Te) which only exhibit weaker van der Waals / dipole-dipole interactions. Hence, H2O is the least volatile.",
+    "video_url": "https://www.youtube.com/embed/videoseries?list=PL_X_H_2O",
+    "subject": "Chemistry"
+  },
+  {
+    "chapter": "Chemical Bonding and Molecular Structure",
+    "question_number": 2,
+    "question_type": "Single Choice Question",
+    "statement": "In which of the following compound there is more than one kind of hybridization (sp, sp2, sp3) for carbon?",
+    "images": [],
+    "options": [
+      {
+        "option_number": 1,
+        "text": "CH2 = CH − CH = CH2",
+        "image": null,
+        "student_percentage": "23.56% Marked this option",
+        "is_correct": false
+      },
+      {
+        "option_number": 2,
+        "text": "H − C ≡ C − H",
+        "image": null,
+        "student_percentage": "17.78% Marked this option",
+        "is_correct": false
+      },
+      {
+        "option_number": 3,
+        "text": "CH3CH2CH2CH3",
+        "image": null,
+        "student_percentage": "14.44% Marked this option",
+        "is_correct": false
+      },
+      {
+        "option_number": 4,
+        "text": "CH3 − CH = CH − CH3",
+        "image": null,
+        "student_percentage": "44.22% Marked this option",
+        "is_correct": true
+      }
+    ],
+    "correct_option": 4,
+    "correct_options": [
+      4
+    ],
+    "student_stats": "44.67% of students got it right",
+    "solution_text": "CH₂=CH−CH=CH₂ contains only sp²-hybridised carbon atoms. H−C≡C−H contains only sp-hybridised carbon atoms. CH₃CH₂CH₂CH₃ contains only sp³-hybridised carbon atoms. In CH₃−CH=CH−CH₃, the two terminal carbon atoms of the CH₃ groups are sp³-hybridised, while the two carbon atoms involved in the double bond are sp²-hybridised. Thus, this compound contains more than one type of hybridisation, namely sp² and sp³. Answer: D",
+    "video_url": "https://www.youtube.com/embed/videoseries",
+    "subject": "Chemistry"
+  },
+  {
+    "chapter": "Chemical Bonding and Molecular Structure",
+    "question_number": 3,
+    "question_type": "Single Choice Question",
+    "statement": "During change of O2 to O2− ion, the electron adds to which of the following orbital.",
+    "images": [],
+    "options": [
+      {
+        "option_number": 1,
+        "text": "π-orbital",
+        "image": null,
+        "student_percentage": "15.06% Marked this option",
+        "is_correct": false
+      },
+      {
+        "option_number": 2,
+        "text": "π∗-orbital",
+        "image": null,
+        "student_percentage": "64.86% Marked this option",
+        "is_correct": true
+      },
+      {
+        "option_number": 3,
+        "text": "σ∗-orbital",
+        "image": null,
+        "student_percentage": "14.29% Marked this option",
+        "is_correct": false
+      },
+      {
+        "option_number": 4,
+        "text": "σ− orbital.",
+        "image": null,
+        "student_percentage": "6.18% Marked this option",
+        "is_correct": false
+      }
+    ],
+    "correct_option": 2,
+    "correct_options": [
+      2
+    ],
+    "student_stats": "64.86% of students got it right",
+    "solution_text": "Solution\nMedium\nThe ground-state electronic configuration of O₂ (16 electrons) according to Molecular Orbital Theory is:\nσ1s² σ*1s² σ2s² σ*2s² σ2pz² (π2px² = π2py²) (π*2px¹ = π*2py¹).\nThe lowest unoccupied / partially filled molecular orbital (LUMO/SOMO) is the antibonding π* orbital (π*2px or π*2py). When an additional electron is added to form the superoxide ion O₂⁻ (17 electrons), it enters into the π* antibonding molecular orbital.",
+    "video_url": "https://www.youtube.com/embed/YmfRv5k9Suo?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live",
+    "subject": "Chemistry"
+  },
+  {
+    "chapter": "Chemical Bonding and Molecular Structure",
+    "question_number": 4,
+    "question_type": "Single Choice Question",
+    "statement": "Predict the correct order among the following:",
+    "images": [],
+    "options": [
+      {
+        "option_number": 1,
+        "text": "Lone pair − bond pair > bond pair − bond pair > lone pair – lone pair",
+        "image": null,
+        "student_percentage": "10.84% Marked this option",
+        "is_correct": false
+      },
+      {
+        "option_number": 2,
+        "text": "Lone pair − lone pair > lone pair − bond pair > bond pair – bond pair",
+        "image": null,
+        "student_percentage": "73.98% Marked this option",
+        "is_correct": true
+      },
+      {
+        "option_number": 3,
+        "text": "Lone pair – lone pair > bond pair − bond pair > lone pair – bond pair",
+        "image": null,
+        "student_percentage": "6.99% Marked this option",
+        "is_correct": false
+      },
+      {
+        "option_number": 4,
+        "text": "Bond pair − bond pair > lone pair − bond pair > lone pair – lone pair",
+        "image": null,
+        "student_percentage": "8.19% Marked this option",
+        "is_correct": false
+      }
+    ],
+    "correct_option": 2,
+    "correct_options": [
+      2
+    ],
+    "student_stats": "73.98% of students got it right",
+    "solution_text": "Solution\nEasy\nShow Video Sol.\nAccording to VSEPR theory, repulsive interaction of electron pairs decreases in the order:\nLone pair – lone pair (lp–lp) > Lone pair – bond pair (lp–bp) > Bond pair – bond pair (bp–bp).\nLone pairs are localized on the central atom under the influence of only one nucleus, occupying more spatial volume and exerting greater repulsion than bonded pairs shared between two nuclei.",
+    "video_url": "",
+    "subject": "Chemistry"
+  },
+  {
+    "chapter": "Chemical Bonding and Molecular Structure",
+    "question_number": 5,
+    "question_type": "Single Choice Question",
+    "statement": "Which of the following has fractional bond order :",
+    "images": [],
+    "options": [
+      {
+        "option_number": 1,
+        "text": "O2^2+",
+        "image": null,
+        "student_percentage": "13.71% Marked this option",
+        "is_correct": false
+      },
+      {
+        "option_number": 2,
+        "text": "O2^2−",
+        "image": null,
+        "student_percentage": "20.49% Marked this option",
+        "is_correct": false
+      },
+      {
+        "option_number": 3,
+        "text": "F2^2−",
+        "image": null,
+        "student_percentage": "14.57% Marked this option",
+        "is_correct": false
+      },
+      {
+        "option_number": 4,
+        "text": "H2^−",
+        "image": null,
+        "student_percentage": "51.23% Marked this option",
+        "is_correct": true
+      }
+    ],
+    "correct_option": 4,
+    "correct_options": [
+      4
+    ],
+    "student_stats": "51.52% of students got it right",
+    "solution_text": "Solution\nEasy\n1. O₂²⁺ (14 electrons, isoelectronic with N₂): Bond Order = (10 - 4)/2 = 3 (integer)\n2. O₂²⁻ (18 electrons): Bond Order = (10 - 8)/2 = 1 (integer)\n3. F₂²⁻ (20 electrons): Bond Order = (10 - 10)/2 = 0\n4. H₂⁻ (3 electrons): Electronic configuration σ1s² σ*1s¹. Bond Order = (Nb - Na)/2 = (2 - 1)/2 = 0.5 (fractional).",
+    "video_url": "https://www.youtube.com/embed/76mWAKIrDoM?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live",
+    "subject": "Chemistry"
+  },
+  {
+    "chapter": "Chemical Bonding and Molecular Structure",
+    "question_number": 6,
+    "question_type": "Single Choice Question",
+    "statement": "Which of the following species does not contain unpaired electrons?",
+    "images": [],
+    "options": [
+      {
+        "option_number": 1,
+        "text": "B2",
+        "image": null,
+        "student_percentage": "23.14% Marked this option",
+        "is_correct": false
+      },
+      {
+        "option_number": 2,
+        "text": "N2^+",
+        "image": null,
+        "student_percentage": "17.48% Marked this option",
+        "is_correct": false
+      },
+      {
+        "option_number": 3,
+        "text": "O2",
+        "image": null,
+        "student_percentage": "16.2% Marked this option",
+        "is_correct": false
+      },
+      {
+        "option_number": 4,
+        "text": "O2^2−",
+        "image": null,
+        "student_percentage": "42.93% Marked this option",
+        "is_correct": true
+      }
+    ],
+    "correct_option": 4,
+    "correct_options": [
+      4
+    ],
+    "student_stats": "42.93% of students got it right",
+    "solution_text": "Solution\nEasy\n- B₂ (10 e⁻): π2px¹ = π2py¹ (2 unpaired electrons, paramagnetic)\n- N₂⁺ (13 e⁻): σ2pz¹ (1 unpaired electron, paramagnetic)\n- O₂ (16 e⁻): π*2px¹ = π*2py¹ (2 unpaired electrons, paramagnetic)\n- O₂²⁻ (peroxide ion, 18 e⁻): all molecular orbitals including π*2px² and π*2py² are fully paired (0 unpaired electrons, diamagnetic).",
+    "video_url": "https://www.youtube.com/embed/76mWAKIrDoM?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live",
+    "subject": "Chemistry"
+  },
+  {
+    "chapter": "Chemical Bonding and Molecular Structure",
+    "question_number": 7,
+    "question_type": "Single Choice Question",
+    "statement": "Which of the following molecules has more than one lone pair?",
+    "images": [],
+    "options": [
+      {
+        "option_number": 1,
+        "text": "SO2",
+        "image": null,
+        "student_percentage": "16.1% Marked this option",
+        "is_correct": false
+      },
+      {
+        "option_number": 2,
+        "text": "XeF2",
+        "image": null,
+        "student_percentage": "72.2% Marked this option",
+        "is_correct": true
+      },
+      {
+        "option_number": 3,
+        "text": "SiF4",
+        "image": null,
+        "student_percentage": "8.78% Marked this option",
+        "is_correct": false
+      },
+      {
+        "option_number": 4,
+        "text": "CH4",
+        "image": null,
+        "student_percentage": "2.93% Marked this option",
+        "is_correct": false
+      }
+    ],
+    "correct_option": 2,
+    "correct_options": [
+      2
+    ],
+    "student_stats": "71.22% of students got it right",
+    "solution_text": "Solution\nEasy\nShow Video Sol.\nIn XeF₂ (xenon difluoride), Xenon has 8 valence electrons, shares 2 with fluorine atoms (2 bond pairs), leaving 6 non-bonding electrons which constitute 3 lone pairs on the central Xe atom (sp³d hybridization, linear geometry). In SO₂ there is 1 lone pair on S; in SiF₄ and CH₄ there are 0 lone pairs on the central atom.",
+    "video_url": "",
+    "subject": "Chemistry"
+  },
+  {
+    "chapter": "Chemical Bonding and Molecular Structure",
+    "question_number": 8,
+    "question_type": "Single Choice Question",
+    "statement": "The bond between two identical non-metal atoms has a pair of electrons:",
+    "images": [],
+    "options": [
+      {
+        "option_number": 1,
+        "text": "unequally shared between the two",
+        "image": null,
+        "student_percentage": "14.61% Marked this option",
+        "is_correct": false
+      },
+      {
+        "option_number": 2,
+        "text": "equally shared between the two",
+        "image": null,
+        "student_percentage": "68.7% Marked this option",
+        "is_correct": true
+      },
+      {
+        "option_number": 3,
+        "text": "transferred fully from one atom to another",
+        "image": null,
+        "student_percentage": "12.97% Marked this option",
+        "is_correct": false
+      },
+      {
+        "option_number": 4,
+        "text": "none of the above",
+        "image": null,
+        "student_percentage": "3.58% Marked this option",
+        "is_correct": false
+      }
+    ],
+    "correct_option": 2,
+    "correct_options": [
+      2
+    ],
+    "student_stats": "68.7% of students got it right",
+    "solution_text": "Solution\nEasy\nWhen two identical non-metal atoms form a chemical bond (such as H₂, Cl₂, O₂), they have identical electronegativities (ΔEN = 0). As a result, the shared electron pair is attracted equally by both nuclei, forming a pure non-polar covalent bond with equal electron density sharing.",
+    "video_url": "https://www.youtube.com/embed/UcRIeaGgZCQ?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live",
+    "subject": "Chemistry"
+  },
+  {
+    "chapter": "Chemical Bonding and Molecular Structure",
+    "question_number": 9,
+    "question_type": "Single Choice Question",
+    "statement": "Maximum no. of hydrogen bonds formed by an H2O molecule in ice is",
+    "images": [],
+    "options": [
+      {
+        "option_number": 1,
+        "text": "4",
+        "image": null,
+        "student_percentage": "43.92% Marked this option",
+        "is_correct": true
+      },
+      {
+        "option_number": 2,
+        "text": "3",
+        "image": null,
+        "student_percentage": "14.23% Marked this option",
+        "is_correct": false
+      },
+      {
+        "option_number": 3,
+        "text": "2",
+        "image": null,
+        "student_percentage": "36.08% Marked this option",
+        "is_correct": false
+      },
+      {
+        "option_number": 4,
+        "text": "1",
+        "image": null,
+        "student_percentage": "5.77% Marked this option",
+        "is_correct": false
+      }
+    ],
+    "correct_option": 1,
+    "correct_options": [
+      1
+    ],
+    "student_stats": "43.92% of students got it right",
+    "solution_text": "Solution\nEasy\nShow Video Sol.\nIn ice, each H₂O molecule can form a maximum of four hydrogen bonds: two via its own hydrogen atoms (donors) and two via the lone pairs on its oxygen (acceptors). This extensive tetrahedral H‐bonding network is responsible for ice’s lower density compared to liquid water.",
+    "video_url": "",
+    "subject": "Chemistry"
+  },
+  {
+    "chapter": "Chemical Bonding and Molecular Structure",
+    "question_number": 10,
+    "question_type": "Single Choice Question",
+    "statement": "The vapour pressure of o-nitrophenol at any given temperature is predicted to be",
+    "images": [],
+    "options": [
+      {
+        "option_number": 1,
+        "text": "higher than that of p-nitrophenol",
+        "image": null,
+        "student_percentage": "47.55% Marked this option",
+        "is_correct": true
+      },
+      {
+        "option_number": 2,
+        "text": "lower than that of p-nitrophenol",
+        "image": null,
+        "student_percentage": "34.27% Marked this option",
+        "is_correct": false
+      },
+      {
+        "option_number": 3,
+        "text": "same as that of p-nitrophenol",
+        "image": null,
+        "student_percentage": "6.53% Marked this option",
+        "is_correct": false
+      },
+      {
+        "option_number": 4,
+        "text": "higher or lower depending upon the size of the vessel",
+        "image": null,
+        "student_percentage": "11.89% Marked this option",
+        "is_correct": false
+      }
+    ],
+    "correct_option": 1,
+    "correct_options": [
+      1
+    ],
+    "student_stats": "47.32% of students got it right",
+    "solution_text": "Solution\nEasy\nShow Video Sol.\no‐Nitrophenol predominantly exhibits intramolecular hydrogen bonding, reducing intermolecular forces and making its molecules easier to vaporize. By contrast, p‐nitrophenol forms intermolecular H‐bonds, causing stronger associations in the liquid and lower vapor pressure. Hence o‐nitrophenol has higher vapor pressure at a given temperature.",
+    "video_url": "",
+    "subject": "Chemistry"
   }
 ]

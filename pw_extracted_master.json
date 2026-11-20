@@ -950,5 +950,225 @@
     "accuracy": "66.67% of students got it right",
     "difficulty": "Easy",
     "solutionText": "s = 5 k^. Work done W = F \u00b7 s = (2 i^ + 3 j^ + 4 k^) \u00b7 5 k^ = 4 * 5 = 20 J."
+  },
+  {
+    "id": "pw-phy-c11-rot-001",
+    "questionNumber": 1,
+    "subject": "Physics",
+    "chapter": "System of Particles and Rotational Motion",
+    "topic": "Rotational Kinematics / Angular Acceleration",
+    "statement": "A car wheel is rotated to uniform angular acceleration about its axis. Initially its angular velocity is zero. It rotates through an angle \u03b81 in the first 2sec, in the next 2sec, it rotates through an additional angle \u03b82, the ratio of \u03b82/\u03b81 is:",
+    "statementImages": [],
+    "options": [
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "1",
+        "isCorrect": false,
+        "markedPercentage": "25.0%"
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "2",
+        "isCorrect": false,
+        "markedPercentage": "25.0%"
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "3",
+        "isCorrect": true,
+        "markedPercentage": "50.0%"
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "5",
+        "isCorrect": false,
+        "markedPercentage": "0.0%"
+      }
+    ],
+    "correctOption": 3,
+    "correctAnswer": "C",
+    "accuracy": "50% of students got it right",
+    "difficulty": "Medium",
+    "solutionText": "\u03b8 = (1/2)\u03b1t^2. In first 2s: \u03b81 = 2\u03b1. In 4s: \u03b8_total = 8\u03b1. In next 2s: \u03b82 = 8\u03b1 - 2\u03b1 = 6\u03b1. Ratio \u03b82/\u03b81 = 6/2 = 3."
+  },
+  {
+    "id": "pw-phy-c11-rot-002",
+    "questionNumber": 2,
+    "subject": "Physics",
+    "chapter": "System of Particles and Rotational Motion",
+    "topic": "Moment of Inertia / Solid Cylinder",
+    "statement": "The moment of inertia of a solid cylinder about its own axis is the same as its moment of inertia about an axis passing through its centre of gravity and perpendicular to its length. The relation between its length L and radius R is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "L = 2R",
+        "isCorrect": false,
+        "markedPercentage": "24.92%"
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "L = \u221a3 R",
+        "isCorrect": true,
+        "markedPercentage": "54.83%"
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "L = 3R",
+        "isCorrect": false,
+        "markedPercentage": "12.77%"
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "L = R",
+        "isCorrect": false,
+        "markedPercentage": "7.17%"
+      }
+    ],
+    "correctOption": 2,
+    "correctAnswer": "B",
+    "accuracy": "56.07% of students got it right",
+    "difficulty": "Medium",
+    "solutionText": "(1/2)MR^2 = (1/4)MR^2 + (1/12)ML^2 => (1/4)MR^2 = (1/12)ML^2 => L^2 = 3R^2 => L = \u221a3 R."
+  },
+  {
+    "id": "pw-phy-c11-rot-003",
+    "questionNumber": 3,
+    "subject": "Physics",
+    "chapter": "System of Particles and Rotational Motion",
+    "topic": "Rolling Motion / Minimum Friction for Pure Rolling",
+    "statement": "A force F is applied at the centre of a disc of mass M. The minimum value of coefficient of friction of the surface for rolling is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "F / (2Mg)",
+        "isCorrect": false,
+        "markedPercentage": "40.44%"
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "F / (3Mg)",
+        "isCorrect": true,
+        "markedPercentage": "34.43%"
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "2F / (5Mg)",
+        "isCorrect": false,
+        "markedPercentage": "21.86%"
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "2F / (7Mg)",
+        "isCorrect": false,
+        "markedPercentage": "3.28%"
+      }
+    ],
+    "correctOption": 2,
+    "correctAnswer": "B",
+    "accuracy": "34.43% of students got it right",
+    "difficulty": "Medium",
+    "solutionText": "F - f = Ma, f R = (1/2 MR^2)(a/R) => f = (1/2)Ma. F = (3/2)Ma => a = 2F/(3M). f = F/3. For no slip: f <= \u03bcMg => \u03bc_min = F / (3Mg)."
+  },
+  {
+    "id": "pw-phy-c11-rot-004",
+    "questionNumber": 4,
+    "subject": "Physics",
+    "chapter": "System of Particles and Rotational Motion",
+    "topic": "Rotational Kinetic Energy / Flywheel",
+    "statement": "A flywheel is making 3000/\u03c0 revolutions per minute about its axis. If the moment of inertia of the flywheel about that axis is 400 kgm\u00b2, its rotational kinetic energy is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "2 \u00d7 10\u2076 J",
+        "isCorrect": true,
+        "markedPercentage": "56.43%"
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "3 \u00d7 10\u00b3 J",
+        "isCorrect": false,
+        "markedPercentage": "20.38%"
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "500\u03c0\u00b2 J",
+        "isCorrect": false,
+        "markedPercentage": "16.93%"
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "12 \u00d7 10\u00b3 J",
+        "isCorrect": false,
+        "markedPercentage": "6.58%"
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": "A",
+    "accuracy": "56.74% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "\u03c9 = 2\u03c0(3000/\u03c0)/60 = 100 rad/s. K_rot = (1/2) I \u03c9^2 = (1/2)(400)(100)^2 = 2 * 10^6 J."
+  },
+  {
+    "id": "pw-phy-c11-rot-010",
+    "questionNumber": 10,
+    "subject": "Physics",
+    "chapter": "System of Particles and Rotational Motion",
+    "topic": "Conservation of Angular Momentum",
+    "statement": "A boy comes and sits suddenly on a circular rotating table. What will remain conserved for the table-boy system?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "Angular velocity",
+        "isCorrect": false,
+        "markedPercentage": "10.82%"
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "Angular momentum",
+        "isCorrect": true,
+        "markedPercentage": "65.96%"
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "Linear momentum",
+        "isCorrect": false,
+        "markedPercentage": "17.94%"
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "Angular acceleration",
+        "isCorrect": false,
+        "markedPercentage": "5.54%"
+      }
+    ],
+    "correctOption": 2,
+    "correctAnswer": "B",
+    "accuracy": "65.44% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "External torque about the vertical rotation axis is zero (\u03c4_ext = 0), so angular momentum L = I \u03c9 is conserved."
   }
 ]

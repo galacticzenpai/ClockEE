@@ -1838,5 +1838,227 @@
     "accuracy": "69.47% of students got it right",
     "difficulty": "Easy",
     "solutionText": "When a solid with a cavity is heated, it expands as if it were solid throughout (photographic magnification). Hence, the diameter of the hole always increases."
+  },
+  {
+    "id": "pw-phy-c11-osc-001",
+    "questionNumber": 1,
+    "subject": "Physics",
+    "chapter": "Oscillations",
+    "topic": "Simple Harmonic Motion (SHM) Mean Position Acceleration",
+    "statement": "Acceleration of a particle executing SHM, at it's mean position is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "variable",
+        "isCorrect": false,
+        "markedPercentage": "9.35%"
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "infinity",
+        "isCorrect": false,
+        "markedPercentage": "11.53%"
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "maximum",
+        "isCorrect": false,
+        "markedPercentage": "26.17%"
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "zero",
+        "isCorrect": true,
+        "markedPercentage": "52.96%"
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": "D",
+    "accuracy": "52.96% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "a = -\u03c9^2 x. At mean position x = 0, so acceleration a = 0."
+  },
+  {
+    "id": "pw-phy-c11-wav-002",
+    "questionNumber": 2,
+    "subject": "Physics",
+    "chapter": "Waves",
+    "topic": "Travelling Wave Equation",
+    "statement": "A wave travelling in the +ve x-direction having displacement along y-direction as 1 m, wavelength 2\u03c0 m and frequency of 1/\u03c0 Hz is represented by :",
+    "statementImages": [],
+    "options": [
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "y = sin(2\u03c0x + 2\u03c0t)",
+        "isCorrect": false,
+        "markedPercentage": "15.55%"
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "y = sin(x \u2212 2t)",
+        "isCorrect": true,
+        "markedPercentage": "47.56%"
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "y = sin(2\u03c0x \u2212 2\u03c0t)",
+        "isCorrect": false,
+        "markedPercentage": "29.93%"
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "y = sin(10\u03c0x \u2212 20\u03c0t)",
+        "isCorrect": false,
+        "markedPercentage": "7.19%"
+      }
+    ],
+    "correctOption": 2,
+    "correctAnswer": "B",
+    "accuracy": "47.33% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "k = 2\u03c0/\u03bb = 1 m^-1. \u03c9 = 2\u03c0 f = 2 rad/s. A = 1 m. Wave along +x is y = A sin(kx - \u03c9t) = sin(x - 2t)."
+  },
+  {
+    "id": "pw-phy-c11-osc-003",
+    "questionNumber": 3,
+    "subject": "Physics",
+    "chapter": "Oscillations",
+    "topic": "Kinematics of SHM & Time Intervals",
+    "statement": "A particle executes simple harmonic motion between x = \u2212A and x = +A. The time taken for it to go from 0 to A/2 is T\u2081 and to go from A/2 to A is T\u2082. Then:",
+    "statementImages": [],
+    "options": [
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "T\u2081 < T\u2082",
+        "isCorrect": true,
+        "markedPercentage": "49.13%"
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "T\u2081 > T\u2082",
+        "isCorrect": false,
+        "markedPercentage": "23.12%"
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "T\u2081 = T\u2082",
+        "isCorrect": false,
+        "markedPercentage": "16.76%"
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "T\u2081 = 2 T\u2082",
+        "isCorrect": false,
+        "markedPercentage": "11.56%"
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": "A",
+    "accuracy": "48.55% of students got it right",
+    "difficulty": "Medium",
+    "solutionText": "x = A sin(\u03c9t). At A/2: sin(\u03c9 T1) = 1/2 => T1 = T/12. Time from 0 to A is T/4 = 3T/12 => T2 = T/4 - T1 = T/6. Hence T1 < T2."
+  },
+  {
+    "id": "pw-phy-c11-osc-007",
+    "questionNumber": 7,
+    "subject": "Physics",
+    "chapter": "Oscillations",
+    "topic": "Spring-Mass Oscillator in Parallel",
+    "statement": "A block of mass 0.1 kg is held between two rigid supports by two springs of force constants 8 N m\u207b\u00b9 and 2 N m\u207b\u00b9. If the block is displaced along the direction of the length of the springs, then the frequency of vibration is",
+    "statementImages": [
+      "https://penpencil-static-content.s3.ap-south-1.amazonaws.com/5eb393ee95fab7468a79d189/sht11786zczj45audsqoegr34.png"
+    ],
+    "options": [
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "5/\u03c0",
+        "isCorrect": true,
+        "markedPercentage": "62.5%"
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "4/\u03c0",
+        "isCorrect": false,
+        "markedPercentage": "25%"
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "2/\u03c0",
+        "isCorrect": false,
+        "markedPercentage": "0%"
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "None",
+        "isCorrect": false,
+        "markedPercentage": "12.5%"
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": "A",
+    "accuracy": "62.5% of students got it right",
+    "difficulty": "Hard",
+    "solutionText": "k_eq = k1 + k2 = 8 + 2 = 10 N/m. f = (1 / 2\u03c0) \u221a(k_eq / m) = (1 / 2\u03c0) \u221a(10 / 0.1) = 10 / (2\u03c0) = 5/\u03c0 Hz."
+  },
+  {
+    "id": "pw-phy-c11-wav-010",
+    "questionNumber": 10,
+    "subject": "Physics",
+    "chapter": "Waves",
+    "topic": "General Wave Equation Criterion",
+    "statement": "Which of the following function correctly represents the travelling wave equation for finite positive values of x and t",
+    "statementImages": [],
+    "options": [
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "y = x\u00b2 \u2212 t\u00b2",
+        "isCorrect": false,
+        "markedPercentage": "13.28%"
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "y = cos(x\u00b2) sin(t)",
+        "isCorrect": false,
+        "markedPercentage": "26.56%"
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "y = log(x\u00b2 \u2212 t\u00b2) \u2212 log(x \u2212 t)",
+        "isCorrect": true,
+        "markedPercentage": "41.49%"
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "y = e^(2x) sin(t)",
+        "isCorrect": false,
+        "markedPercentage": "19.09%"
+      }
+    ],
+    "correctOption": 3,
+    "correctAnswer": "C",
+    "accuracy": "41.08% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "y = log[(x - t)(x + t) / (x - t)] = log(x + t), which is of the form f(x + vt) representing a wave moving in the negative x-direction."
   }
 ]

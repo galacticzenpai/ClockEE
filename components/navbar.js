@@ -71,13 +71,13 @@
           </div>
 
           <!-- Main Module Navigation Links (Horizontal Scroll on Mobile) -->
-          <nav class="flex items-center gap-1 overflow-x-auto py-1 scrollbar-none" aria-label="Main Navigation">
+          <nav class="flex items-center gap-1.5 overflow-x-auto py-1 scrollbar-none flex-nowrap" aria-label="Main Navigation">
             ${NAV_LINKS.map(link => {
               const isActive = link.id === activeId;
               return `
                 <a 
                   href="${link.href}" 
-                  class="touch-target px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${
+                  class="touch-target shrink-0 flex-shrink-0 px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${
                     isActive
                       ? 'bg-sky-500/20 text-sky-300 border border-sky-400/50 shadow-sm'
                       : 'text-slate-300 hover:text-white hover:bg-slate-900 border border-transparent'

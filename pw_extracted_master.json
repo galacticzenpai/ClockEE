@@ -2060,5 +2060,225 @@
     "accuracy": "41.08% of students got it right",
     "difficulty": "Easy",
     "solutionText": "y = log[(x - t)(x + t) / (x - t)] = log(x + t), which is of the form f(x + vt) representing a wave moving in the negative x-direction."
+  },
+  {
+    "id": "pw-chem-c11-atom-001",
+    "questionNumber": 1,
+    "subject": "Chemistry",
+    "chapter": "Structure of Atom",
+    "topic": "Quantum Numbers & Azimuthal Limits",
+    "statement": "If n=3, then the value of l which is incorrect",
+    "statementImages": [],
+    "options": [
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "0",
+        "isCorrect": false,
+        "markedPercentage": "44.43%"
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "1",
+        "isCorrect": false,
+        "markedPercentage": "7.13%"
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "2",
+        "isCorrect": false,
+        "markedPercentage": "14.02%"
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "3",
+        "isCorrect": true,
+        "markedPercentage": "34.54%"
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": "D",
+    "accuracy": "34.42% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "For a given n, azimuthal quantum number l ranges from 0 to n-1. For n = 3, l can be 0, 1, 2. l = 3 is invalid."
+  },
+  {
+    "id": "pw-chem-c11-atom-002",
+    "questionNumber": 2,
+    "subject": "Chemistry",
+    "chapter": "Structure of Atom",
+    "topic": "Photoelectric Effect & Work Function",
+    "statement": "In a photoelectric effect, the energy of the photon striking a metallic surface is 5.6\u00d710\u221219 J. The kinetic energy of the ejected electrons is 12.0\u00d710\u221220 J. The work function is :",
+    "statementImages": [],
+    "options": [
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "6.4\u00d710\u221219 J",
+        "isCorrect": false,
+        "markedPercentage": "32.14%"
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "6.8\u00d710\u221219 J",
+        "isCorrect": false,
+        "markedPercentage": "19.87%"
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "4.4\u00d710\u221219 J",
+        "isCorrect": true,
+        "markedPercentage": "40.38%"
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "6.4\u00d710\u221220 J",
+        "isCorrect": false,
+        "markedPercentage": "7.82%"
+      }
+    ],
+    "correctOption": 3,
+    "correctAnswer": "C",
+    "accuracy": "40.38% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "E = W + KE => W = E - KE = 5.6\u00d710^-19 - 1.20\u00d710^-19 = 4.4\u00d710^-19 J."
+  },
+  {
+    "id": "pw-chem-c11-atom-006",
+    "questionNumber": 6,
+    "subject": "Chemistry",
+    "chapter": "Structure of Atom",
+    "topic": "Pauli Principle & Spin Multiplicity",
+    "statement": "The maximum number of 3 d-electrons having spin quantum number s=+1/2 are _____",
+    "statementImages": [],
+    "options": [
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "4",
+        "isCorrect": false,
+        "markedPercentage": "11.6%"
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "5",
+        "isCorrect": true,
+        "markedPercentage": "57.92%"
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "3",
+        "isCorrect": false,
+        "markedPercentage": "20.09%"
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "2",
+        "isCorrect": false,
+        "markedPercentage": "11.23%"
+      }
+    ],
+    "correctOption": 2,
+    "correctAnswer": "B",
+    "accuracy": "57.83% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "3d has 5 orbitals. Each orbital can hold at most 1 electron with spin +1/2. Maximum electrons with spin +1/2 = 5."
+  },
+  {
+    "id": "pw-chem-c11-atom-007",
+    "questionNumber": 7,
+    "subject": "Chemistry",
+    "chapter": "Structure of Atom",
+    "topic": "Rydberg Formula for Li\u00b2\u207a",
+    "statement": "The difference between the wave number of 1st line of the Balmer series and the last line of Paschen series for Li2+ ion is :",
+    "statementImages": [],
+    "options": [
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "R/36",
+        "isCorrect": false,
+        "markedPercentage": "14%"
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "5R/36",
+        "isCorrect": false,
+        "markedPercentage": "33.24%"
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "4R",
+        "isCorrect": false,
+        "markedPercentage": "19.24%"
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "R/4",
+        "isCorrect": true,
+        "markedPercentage": "33.52%"
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": "D",
+    "accuracy": "33.52% of students got it right",
+    "difficulty": "Medium",
+    "solutionText": "Li2+ (Z=3). \u1e7d_balmer1 = 9R(1/4 - 1/9) = 5R/4. \u1e7d_paschen_last = 9R(1/9 - 0) = R. Difference = 5R/4 - R = R/4."
+  },
+  {
+    "id": "pw-chem-c11-atom-010",
+    "questionNumber": 10,
+    "subject": "Chemistry",
+    "chapter": "Structure of Atom",
+    "topic": "d-Orbital Electronic Configuration & Unpaired Electrons",
+    "statement": "In Mn2+ ion, the number of unpaired electrons is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "2",
+        "isCorrect": false,
+        "markedPercentage": "24.42%"
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "3",
+        "isCorrect": false,
+        "markedPercentage": "19.96%"
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "4",
+        "isCorrect": false,
+        "markedPercentage": "9.88%"
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "5",
+        "isCorrect": true,
+        "markedPercentage": "45.74%"
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": "D",
+    "accuracy": "45.93% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "Mn (Z=25): [Ar] 3d5 4s2. Mn2+: [Ar] 3d5 4s0. All five 3d electrons are unpaired by Hund's rule."
   }
 ]

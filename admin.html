@@ -2,56 +2,16 @@
 <html lang="en" class="dark">
 <head>
   <!-- Security & Content Protection Headers -->
-  <script>
-    function escapeHtml(str) {
-      if (str === null || str === undefined) return "";
-      return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
-    }
-
-    (function() {
-      try {
-        var isAuth = localStorage.getItem("clockee_auth_active") === "true";
-        var user = null;
-        try { user = JSON.parse(localStorage.getItem("clockee_current_user")); } catch(e){}
-        var isGuest = !user || (user.uid && user.uid.indexOf("guest_") === 0) || (user.id && user.id.indexOf("guest_") === 0) || user.role === "Guest" || user.role === "Guest Aspirant" || user.isGuest === true;
-        var isUnlocked = sessionStorage.getItem("clockee_admin_authorized") === "true";
-        var isAdmin = !isGuest && (user && (user.role === "Admin" || user.role === "Mentor / Faculty" || user.isAdmin === true || isUnlocked));
-        if (!isAuth || isGuest || !isAdmin) {
-          window.location.replace("index.html");
-        }
-      } catch(err) {
-        window.location.replace("index.html");
-      }
-    })();
-  </script>
   <meta http-equiv="X-Content-Type-Options" content="nosniff" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' https: blob: data:; img-src 'self' https: data: blob:; connect-src 'self' https: wss:; font-src 'self' https: data:;" />
   <script src="env.js" onerror="/* env.js optional */"></script>
+  <script src="js/clockee_runtime.js"></script>
   <script>
     function escapeHtml(str) {
       if (str === null || str === undefined) return "";
       return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
     }
-
-    (function() {
-      try {
-        const isAuth = localStorage.getItem('clockee_auth_active');
-        if (!isAuth) {
-          window.location.replace('login.html');
-          return;
-        }
-        let user = null;
-        const raw = localStorage.getItem('clockee_current_user');
-        if (raw) user = JSON.parse(raw);
-        const isGuest = Boolean(!user || (user.uid && user.uid.startsWith('guest_')) || (user.id && user.id.startsWith('guest_')) || user.role === 'Guest' || user.role === 'Guest Aspirant' || user.name === 'Guest Aspirant' || user.isGuest);
-        if (isGuest) {
-          window.location.replace('index.html');
-        }
-      } catch(e) {
-        window.location.replace('index.html');
-      }
-    })();
   </script>
 
 
@@ -678,41 +638,32 @@
   function checkAdminPrivileges() {
     let user = null;
     try { user = JSON.parse(localStorage.getItem("clockee_current_user")); } catch(e){}
-    const isGuest = !user || (user.uid && user.uid.startsWith("guest_")) || (user.id && user.id.startsWith("guest_")) || user.role === "Guest" || user.role === "Guest Aspirant" || user.isGuest === true;
-    if (isGuest) {
-      window.location.replace("index.html");
-      return false;
-    }
-    const active = window.getUsersList().find(u => u.active) || { role: "JEE 2028 Aspirant" };
+    const active = (window.getUsersList ? window.getUsersList().find(u => u.active) : null) || user || { name: "Supervisor", role: "JEE 2028 Aspirant" };
     const isUnlocked = sessionStorage.getItem('clockee_admin_authorized') === 'true';
     const isAdmin = Boolean(
-      active.role === "Mentor / Faculty" || 
-      active.role === "Admin" || 
-      active.email === "admin@clockee.app" || 
-      active.id === "user_master_admin" || 
-      active.isAdmin === true || 
-      isUnlocked
+      isUnlocked ||
+      (active && (active.role === "Mentor / Faculty" || active.role === "Admin" || active.email === "admin@clockee.app" || active.id === "user_master_admin" || active.isAdmin === true))
     );
 
+    const lockscreen = document.getElementById('admin-lockscreen');
+    const mainContent = document.getElementById('admin-main-content');
     const banner = document.getElementById('admin-role-banner');
     const title = document.getElementById('admin-role-title');
     const desc = document.getElementById('admin-role-desc');
     const actions = document.getElementById('admin-role-actions');
 
     if (isAdmin) {
-      banner.className = 'p-3.5 rounded-xl border flex items-center justify-between flex-wrap gap-3 text-xs bg-purple-950/40 border-purple-500/30 text-purple-200';
-      title.textContent = `Supervisor & Cloud Administrator: ${active.name} (${active.role})`;
-      desc.textContent = "Full read/write permissions active. You can edit student goals, alter practice logs, or remove student accounts.";
-      actions.innerHTML = `<span class="text-[10px] font-mono px-2.5 py-1 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-500/30 font-bold">Admin Verified ✓</span>`;
+      if (lockscreen) lockscreen.classList.add('hidden');
+      if (mainContent) mainContent.classList.remove('hidden');
+      if (banner && title && desc && actions) {
+        banner.className = 'p-3.5 rounded-xl border flex items-center justify-between flex-wrap gap-3 text-xs bg-purple-950/40 border-purple-500/30 text-purple-200';
+        title.textContent = `Supervisor & Cloud Administrator: ${active.name} (${active.role})`;
+        desc.textContent = "Full read/write permissions active. Live metrics, Question Bank Inspector, and tamper-evident audit logs enabled.";
+        actions.innerHTML = `<span class="text-[10px] font-mono px-2.5 py-1 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-500/30 font-bold">Admin Verified (PIN 170126) ✓</span>`;
+      }
     } else {
-      banner.className = 'p-3.5 rounded-xl border flex items-center justify-between flex-wrap gap-3 text-xs bg-amber-950/40 border-amber-500/30 text-amber-200';
-      title.textContent = `Standard Student Account: ${active.name} (${active.role})`;
-      desc.textContent = "Viewing in Student Read-Only Mode. Mentor authorization required to edit or delete cloud student data.";
-      actions.innerHTML = `
-        <button onclick="openAdminAuthModal()" class="px-3 py-1 bg-amber-600 hover:bg-amber-500 text-white rounded-lg text-xs font-bold transition flex items-center gap-1.5 shadow">
-          <span>🔐</span> <span>Unlock Admin Controls</span>
-        </button>
-      `;
+      if (lockscreen) lockscreen.classList.remove('hidden');
+      if (mainContent) mainContent.classList.add('hidden');
     }
 
     return isAdmin;
@@ -747,6 +698,10 @@
     if (isPinValid) {
       if (window.ClockEESecurity) window.ClockEESecurity.RateLimiter.recordAttempt('admin_unlock', true);
       sessionStorage.setItem('clockee_admin_authorized', 'true');
+      const lockscreen = document.getElementById('admin-lockscreen');
+      const mainContent = document.getElementById('admin-main-content');
+      if (lockscreen) lockscreen.classList.add('hidden');
+      if (mainContent) mainContent.classList.remove('hidden');
       closeAdminAuthModal();
       window.showToast('✓ Admin Controls Unlocked for Session!', 'success');
       checkAdminPrivileges();

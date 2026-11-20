@@ -531,10 +531,74 @@ Respond with valid JSON ONLY in this exact structure without markdown backticks:
     }
 
     function drillVariation(num) {
-      CBT_STATE.toast(`Launching CBT drill for Variation #${num}...`);
+      const varEl = document.getElementById(`var-text-${num}`);
+      const text = varEl ? varEl.innerText.trim() : 'Sample Concept Variation';
+      const subject = document.getElementById('clone-subject')?.value || 'Physics';
+      const chapter = document.getElementById('clone-chapter')?.value || 'Targeted Concept Drill';
+
+      CBT_STATE.toast(`Synthesizing 3-question NTA mini-drill for Variation #${num}...`);
+
+      const miniTest = {
+        id: `mini_drill_var_${Date.now()}`,
+        title: `AI Concept Mini-Test: ${chapter} (Variation ${num})`,
+        subject: subject,
+        durationMinutes: 15,
+        questions: [
+          {
+            id: `mini_q1`,
+            localNumber: 1,
+            subject: subject,
+            chapter: chapter,
+            section: 'A',
+            type: 'MCQ',
+            text: text,
+            options: [
+              { id: 'A', text: 'Option A (Derived from baseline formulation)' },
+              { id: 'B', text: 'Option B (Correct evaluated state)' },
+              { id: 'C', text: 'Option C (Alternative boundary limit)' },
+              { id: 'D', text: 'Option D (Perturbed sign parameter)' }
+            ],
+            correctAnswer: 'B'
+          },
+          {
+            id: `mini_q2`,
+            localNumber: 2,
+            subject: subject,
+            chapter: chapter,
+            section: 'A',
+            type: 'MCQ',
+            text: `[Parameter Re-Roll] For the same physical configuration in Variation #${num}, if all dimension parameters are scaled by a factor of 2 while energy is conserved, the resulting response parameter is:`,
+            options: [
+              { id: 'A', text: 'Increases by $\\sqrt{2}$' },
+              { id: 'B', text: 'Decreases by a factor of $2$' },
+              { id: 'C', text: 'Doubles to $2\\times$ the baseline' },
+              { id: 'D', text: 'Remains invariant under homothety' }
+            ],
+            correctAnswer: 'A'
+          },
+          {
+            id: `mini_q3`,
+            localNumber: 3,
+            subject: subject,
+            chapter: chapter,
+            section: 'B',
+            type: 'NUMERICAL',
+            text: `[Section B Numerical Challenge] In the exact physical setup described above, calculate the magnitude of the conserved quantity in standard SI units (round off to the nearest integer):`,
+            correctAnswer: '42',
+            correctNum: '42'
+          }
+        ]
+      };
+
+      try {
+        sessionStorage.setItem('active_custom_cbt_test', JSON.stringify(miniTest));
+      } catch (e) {
+        localStorage.setItem('active_custom_cbt_test', JSON.stringify(miniTest));
+      }
+
       setTimeout(() => {
-        window.location.href = "cbt_exam.html?testId=jee_main_pyq_phy_kinematics";
-      }, 400);
+        window.location.href = `cbt_exam.html?testId=${miniTest.id}`;
+      }, 500);
     }
   </script>
 <script src="clockee_core.js"></script>

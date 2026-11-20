@@ -8,10 +8,34 @@
     "statement": "A particle moves in a straight line with a constant acceleration. It changes its velocity from 10 ms-1 to 20 ms-1 while passing through a distance 135 m in t second. The value of t is:",
     "statementImages": [],
     "options": [
-      { "optionIndex": 1, "label": "A", "text": "12", "isCorrect": false, "markedPercentage": "14.2%" },
-      { "optionIndex": 2, "label": "B", "text": "9", "isCorrect": true, "markedPercentage": "20.12%" },
-      { "optionIndex": 3, "label": "C", "text": "10", "isCorrect": false, "markedPercentage": "35.4%" },
-      { "optionIndex": 4, "label": "D", "text": "1.8", "isCorrect": false, "markedPercentage": "30.28%" }
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "12",
+        "isCorrect": false,
+        "markedPercentage": "14.2%"
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "9",
+        "isCorrect": true,
+        "markedPercentage": "20.12%"
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "10",
+        "isCorrect": false,
+        "markedPercentage": "35.4%"
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "1.8",
+        "isCorrect": false,
+        "markedPercentage": "30.28%"
+      }
     ],
     "correctOption": 2,
     "correctAnswer": "9",
@@ -28,10 +52,46 @@
     "statement": "A body is thrown vertically upwards. Which one of the following graphs correctly represent the velocity vs time?",
     "statementImages": [],
     "options": [
-      { "optionIndex": 1, "label": "A", "text": "Linear decreasing graph passing through zero into negative velocity", "isCorrect": true, "markedPercentage": "43.21%", "imgs": ["https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/ubviy77q18t5l387fb6exiuaf.png"] },
-      { "optionIndex": 2, "label": "B", "text": "Parabolic curve", "isCorrect": false, "markedPercentage": "24.34%", "imgs": ["https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/k93svd4jykurxdcwkpol5l3kt.PNG"] },
-      { "optionIndex": 3, "label": "C", "text": "Linear increasing graph", "isCorrect": false, "markedPercentage": "27.48%", "imgs": ["https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/hiljyr0ad4ez7f1cmblwqx856.png"] },
-      { "optionIndex": 4, "label": "D", "text": "Exponential curve", "isCorrect": false, "markedPercentage": "5.46%", "imgs": ["https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/4i3ge8uuvrgmgnf4tzpfsavui.PNG"] }
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "Linear decreasing graph passing through zero into negative velocity",
+        "isCorrect": true,
+        "markedPercentage": "43.21%",
+        "imgs": [
+          "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/ubviy77q18t5l387fb6exiuaf.png"
+        ]
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "Parabolic curve",
+        "isCorrect": false,
+        "markedPercentage": "24.34%",
+        "imgs": [
+          "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/k93svd4jykurxdcwkpol5l3kt.PNG"
+        ]
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "Linear increasing graph",
+        "isCorrect": false,
+        "markedPercentage": "27.48%",
+        "imgs": [
+          "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/hiljyr0ad4ez7f1cmblwqx856.png"
+        ]
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "Exponential curve",
+        "isCorrect": false,
+        "markedPercentage": "5.46%",
+        "imgs": [
+          "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/4i3ge8uuvrgmgnf4tzpfsavui.PNG"
+        ]
+      }
     ],
     "correctOption": 1,
     "correctAnswer": "A",
@@ -48,10 +108,34 @@
     "statement": "Object A is project from ground with speed 100 m/s and B is dropped from height 50 m then the time when they will collide is;",
     "statementImages": [],
     "options": [
-      { "optionIndex": 1, "label": "A", "text": "2 sec", "isCorrect": false, "markedPercentage": "19.74%" },
-      { "optionIndex": 2, "label": "B", "text": "4 sec", "isCorrect": false, "markedPercentage": "22.1%" },
-      { "optionIndex": 3, "label": "C", "text": "1/2 sec", "isCorrect": true, "markedPercentage": "47.0%" },
-      { "optionIndex": 4, "label": "D", "text": "14 sec", "isCorrect": false, "markedPercentage": "10.94%" }
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "2 sec",
+        "isCorrect": false,
+        "markedPercentage": "19.74%"
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "4 sec",
+        "isCorrect": false,
+        "markedPercentage": "22.1%"
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "1/2 sec",
+        "isCorrect": true,
+        "markedPercentage": "47.0%"
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "14 sec",
+        "isCorrect": false,
+        "markedPercentage": "10.94%"
+      }
     ],
     "correctOption": 3,
     "correctAnswer": "1/2 sec",
@@ -68,10 +152,46 @@
     "statement": "A body is projected vertically upward from the surface of the earth, its velocity-time graph is:",
     "statementImages": [],
     "options": [
-      { "optionIndex": 1, "label": "A", "text": "V-t graph 1", "isCorrect": false, "markedPercentage": "24.32%", "imgs": ["https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/7u9m7oftawn19c62jd2ksuuw0.png"] },
-      { "optionIndex": 2, "label": "B", "text": "V-t graph 2 (straight line with negative slope)", "isCorrect": true, "markedPercentage": "44.11%", "imgs": ["https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/2skz4lmfopj1ir7c1ikzga3z8.png"] },
-      { "optionIndex": 3, "label": "C", "text": "V-t graph 3", "isCorrect": false, "markedPercentage": "15.35%", "imgs": ["https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/pznm426phhsklww98ibu5als7.png"] },
-      { "optionIndex": 4, "label": "D", "text": "V-t graph 4", "isCorrect": false, "markedPercentage": "16.23%", "imgs": ["https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/ilt2iic5f17j9tn7amttg7yqx.png"] }
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "V-t graph 1",
+        "isCorrect": false,
+        "markedPercentage": "24.32%",
+        "imgs": [
+          "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/7u9m7oftawn19c62jd2ksuuw0.png"
+        ]
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "V-t graph 2 (straight line with negative slope)",
+        "isCorrect": true,
+        "markedPercentage": "44.11%",
+        "imgs": [
+          "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/2skz4lmfopj1ir7c1ikzga3z8.png"
+        ]
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "V-t graph 3",
+        "isCorrect": false,
+        "markedPercentage": "15.35%",
+        "imgs": [
+          "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/pznm426phhsklww98ibu5als7.png"
+        ]
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "V-t graph 4",
+        "isCorrect": false,
+        "markedPercentage": "16.23%",
+        "imgs": [
+          "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/ilt2iic5f17j9tn7amttg7yqx.png"
+        ]
+      }
     ],
     "correctOption": 2,
     "correctAnswer": "B",
@@ -88,16 +208,40 @@
     "statement": "A helicopter rises from rest on the ground vertically upwards with a constant acceleration g. A food packet is dropped from the helicopter when it is at a height h. The time taken by the packet to reach the ground is close to [ g is the acceleration due to gravity]",
     "statementImages": [],
     "options": [
-      { "optionIndex": 1, "label": "A", "text": "t = 3.4 \\sqrt{\\frac{h}{g}}", "isCorrect": true, "markedPercentage": "35.18%" },
-      { "optionIndex": 2, "label": "B", "text": "t = 1.8 \\sqrt{\\frac{h}{g}}", "isCorrect": false, "markedPercentage": "26.35%" },
-      { "optionIndex": 3, "label": "C", "text": "t = \\sqrt{\\frac{2h}{3g}}", "isCorrect": false, "markedPercentage": "30.39%" },
-      { "optionIndex": 4, "label": "D", "text": "\\frac{2}{3} \\sqrt{\\frac{h}{g}}", "isCorrect": false, "markedPercentage": "8.23%" }
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "t = 3.4 \\sqrt{\\frac{h}{g}}",
+        "isCorrect": true,
+        "markedPercentage": "35.18%"
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "t = 1.8 \\sqrt{\\frac{h}{g}}",
+        "isCorrect": false,
+        "markedPercentage": "26.35%"
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "t = \\sqrt{\\frac{2h}{3g}}",
+        "isCorrect": false,
+        "markedPercentage": "30.39%"
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "\\frac{2}{3} \\sqrt{\\frac{h}{g}}",
+        "isCorrect": false,
+        "markedPercentage": "8.23%"
+      }
     ],
     "correctOption": 1,
     "correctAnswer": "t = 3.4 \\sqrt{h/g}",
     "accuracy": "35.18% of students got it right",
     "difficulty": "Medium",
-    "solutionText": "When the helicopter reaches height h with acceleration g from rest:\nv^2 = 0 + 2gh => v = \\sqrt{2gh} (directed upward).\nFor the dropped packet:\nTaking ground as origin:\n0 = h + vt - 0.5 g t^2\n0 = h + \\sqrt{2gh} t - 0.5 g t^2\n0.5 g t^2 - \\sqrt{2gh} t - h = 0\nt = [\\sqrt{2gh} + \\sqrt{2gh + 4(0.5g)(h)}] / g = [\\sqrt{2gh} + \\sqrt{4gh}] / g = (\\sqrt{2} + 2) \\sqrt{h/g} ≈ (1.414 + 2) \\sqrt{h/g} = 3.414 \\sqrt{h/g} ≈ 3.4 \\sqrt{h/g}."
+    "solutionText": "When the helicopter reaches height h with acceleration g from rest:\nv^2 = 0 + 2gh => v = \\sqrt{2gh} (directed upward).\nFor the dropped packet:\nTaking ground as origin:\n0 = h + vt - 0.5 g t^2\n0 = h + \\sqrt{2gh} t - 0.5 g t^2\n0.5 g t^2 - \\sqrt{2gh} t - h = 0\nt = [\\sqrt{2gh} + \\sqrt{2gh + 4(0.5g)(h)}] / g = [\\sqrt{2gh} + \\sqrt{4gh}] / g = (\\sqrt{2} + 2) \\sqrt{h/g} \u2248 (1.414 + 2) \\sqrt{h/g} = 3.414 \\sqrt{h/g} \u2248 3.4 \\sqrt{h/g}."
   },
   {
     "id": "pw-phy-c11-misl-006",
@@ -108,16 +252,40 @@
     "statement": "The effective acceleration of a body when thrown upwards with acceleration a is",
     "statementImages": [],
     "options": [
-      { "optionIndex": 1, "label": "A", "text": "(g + a)", "isCorrect": false, "markedPercentage": "25.7%" },
-      { "optionIndex": 2, "label": "B", "text": "(a − g)", "isCorrect": true, "markedPercentage": "46.94%" },
-      { "optionIndex": 3, "label": "C", "text": "\\sqrt{g^2 + a^2}", "isCorrect": false, "markedPercentage": "21.43%" },
-      { "optionIndex": 4, "label": "D", "text": "(g − a^2 / g)", "isCorrect": false, "markedPercentage": "6.03%" }
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "(g + a)",
+        "isCorrect": false,
+        "markedPercentage": "25.7%"
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "(a \u2212 g)",
+        "isCorrect": true,
+        "markedPercentage": "46.94%"
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "\\sqrt{g^2 + a^2}",
+        "isCorrect": false,
+        "markedPercentage": "21.43%"
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "(g \u2212 a^2 / g)",
+        "isCorrect": false,
+        "markedPercentage": "6.03%"
+      }
     ],
     "correctOption": 2,
-    "correctAnswer": "(a − g)",
+    "correctAnswer": "(a \u2212 g)",
     "accuracy": "46.66% of students got it right",
     "difficulty": "Easy",
-    "solutionText": "To find the effective acceleration of the body, we analyze the directions of the accelerations acting on it:\nUpward Acceleration (a): The body is actively thrown or propelled upwards with an acceleration of a.\nDownward Acceleration (g): The acceleration due to gravity always acts vertically downwards towards the Earth.\nSince these two accelerations act in exactly opposite directions along the vertical line of motion, the net or effective upward acceleration is: Effective Acceleration = a − g."
+    "solutionText": "To find the effective acceleration of the body, we analyze the directions of the accelerations acting on it:\nUpward Acceleration (a): The body is actively thrown or propelled upwards with an acceleration of a.\nDownward Acceleration (g): The acceleration due to gravity always acts vertically downwards towards the Earth.\nSince these two accelerations act in exactly opposite directions along the vertical line of motion, the net or effective upward acceleration is: Effective Acceleration = a \u2212 g."
   },
   {
     "id": "pw-phy-c11-misl-007",
@@ -128,10 +296,34 @@
     "statement": "A car travel half the distance with constant velocity of 40 kmph and the remaining half with a constant velocity of 80 kmph. The average velocity of the car in kmph is:",
     "statementImages": [],
     "options": [
-      { "optionIndex": 1, "label": "A", "text": "32 km/hr", "isCorrect": false, "markedPercentage": "8.84%" },
-      { "optionIndex": 2, "label": "B", "text": "53.3 km/hr", "isCorrect": true, "markedPercentage": "72.22%" },
-      { "optionIndex": 3, "label": "C", "text": "43.2 km/hr", "isCorrect": false, "markedPercentage": "12.24%" },
-      { "optionIndex": 4, "label": "D", "text": "42 km/hr", "isCorrect": false, "markedPercentage": "6.69%" }
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "32 km/hr",
+        "isCorrect": false,
+        "markedPercentage": "8.84%"
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "53.3 km/hr",
+        "isCorrect": true,
+        "markedPercentage": "72.22%"
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "43.2 km/hr",
+        "isCorrect": false,
+        "markedPercentage": "12.24%"
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "42 km/hr",
+        "isCorrect": false,
+        "markedPercentage": "6.69%"
+      }
     ],
     "correctOption": 2,
     "correctAnswer": "53.3 km/hr",
@@ -148,10 +340,34 @@
     "statement": "If displacement of a particle is zero, the distance covered :",
     "statementImages": [],
     "options": [
-      { "optionIndex": 1, "label": "A", "text": "Must be zero", "isCorrect": false, "markedPercentage": "5.93%" },
-      { "optionIndex": 2, "label": "B", "text": "May or may not be zero", "isCorrect": true, "markedPercentage": "62.87%" },
-      { "optionIndex": 3, "label": "C", "text": "Cannot be zero", "isCorrect": false, "markedPercentage": "25.58%" },
-      { "optionIndex": 4, "label": "D", "text": "Depends upon the particle", "isCorrect": false, "markedPercentage": "5.85%" }
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "Must be zero",
+        "isCorrect": false,
+        "markedPercentage": "5.93%"
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "May or may not be zero",
+        "isCorrect": true,
+        "markedPercentage": "62.87%"
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "Cannot be zero",
+        "isCorrect": false,
+        "markedPercentage": "25.58%"
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "Depends upon the particle",
+        "isCorrect": false,
+        "markedPercentage": "5.85%"
+      }
     ],
     "correctOption": 2,
     "correctAnswer": "May or may not be zero",
@@ -168,16 +384,40 @@
     "statement": "A particle moves along a semicircle of radius 10 m in 5 seconds. The average velocity of the particle is:",
     "statementImages": [],
     "options": [
-      { "optionIndex": 1, "label": "A", "text": "2π ms−1", "isCorrect": false, "markedPercentage": "23.65%" },
-      { "optionIndex": 2, "label": "B", "text": "4π ms−1", "isCorrect": false, "markedPercentage": "22.69%" },
-      { "optionIndex": 3, "label": "C", "text": "2 ms−1", "isCorrect": false, "markedPercentage": "22.16%" },
-      { "optionIndex": 4, "label": "D", "text": "4 ms−1", "isCorrect": true, "markedPercentage": "31.5%" }
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "2\u03c0 ms\u22121",
+        "isCorrect": false,
+        "markedPercentage": "23.65%"
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "4\u03c0 ms\u22121",
+        "isCorrect": false,
+        "markedPercentage": "22.69%"
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "2 ms\u22121",
+        "isCorrect": false,
+        "markedPercentage": "22.16%"
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "4 ms\u22121",
+        "isCorrect": true,
+        "markedPercentage": "31.5%"
+      }
     ],
     "correctOption": 4,
-    "correctAnswer": "4 ms−1",
+    "correctAnswer": "4 ms\u22121",
     "accuracy": "31.5% of students got it right",
     "difficulty": "Easy",
-    "solutionText": "Average Velocity = Displacement / Time.\nFor a particle moving along a semicircle of radius r = 10 m:\nDisplacement = diameter = 2r = 2 * 10 = 20 m.\nTime = 5 s.\nAverage Velocity = 20 / 5 = 4 m/s.\nCorrect option: D (4 ms−1)."
+    "solutionText": "Average Velocity = Displacement / Time.\nFor a particle moving along a semicircle of radius r = 10 m:\nDisplacement = diameter = 2r = 2 * 10 = 20 m.\nTime = 5 s.\nAverage Velocity = 20 / 5 = 4 m/s.\nCorrect option: D (4 ms\u22121)."
   },
   {
     "id": "pw-phy-c11-misl-010",
@@ -188,15 +428,527 @@
     "statement": "A body starts from rest with uniform acceleration. What is the ratio of the distance travelled by the body during the 4th and 3rd second?",
     "statementImages": [],
     "options": [
-      { "optionIndex": 1, "label": "A", "text": "7/5", "isCorrect": true, "markedPercentage": "64.44%" },
-      { "optionIndex": 2, "label": "B", "text": "5/7", "isCorrect": false, "markedPercentage": "18.08%" },
-      { "optionIndex": 3, "label": "C", "text": "7/3", "isCorrect": false, "markedPercentage": "12.22%" },
-      { "optionIndex": 4, "label": "D", "text": "3/7", "isCorrect": false, "markedPercentage": "5.52%" }
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "7/5",
+        "isCorrect": true,
+        "markedPercentage": "64.44%"
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "5/7",
+        "isCorrect": false,
+        "markedPercentage": "18.08%"
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "7/3",
+        "isCorrect": false,
+        "markedPercentage": "12.22%"
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "3/7",
+        "isCorrect": false,
+        "markedPercentage": "5.52%"
+      }
     ],
     "correctOption": 1,
     "correctAnswer": "7/5",
     "accuracy": "64.27% of students got it right",
     "difficulty": "Easy",
     "solutionText": "For a body starting from rest (u = 0) with uniform acceleration a, distance travelled in the nth second is:\ns_n = u + (a/2)(2n - 1) = (a/2)(2n - 1)\nDistance during 4th second: s_4 = (a/2)(2*4 - 1) = 7a/2\nDistance during 3rd second: s_3 = (a/2)(2*3 - 1) = 5a/2\nRatio s_4 / s_3 = (7a/2) / (5a/2) = 7/5.\nCorrect answer: A (7/5)."
+  },
+  {
+    "id": "pw-phy-c11-miap-001",
+    "questionNumber": 1,
+    "subject": "Physics",
+    "chapter": "Motion in a Plane",
+    "topic": "Relative Motion in 2D",
+    "statement": "Two balls are projected from an inclined plane from point Q & P respectively as shown. Select the incorrect statement:- (During the time both remain in air)",
+    "statementImages": [
+      "https://penpencil-static-content.s3.ap-south-1.amazonaws.com/5eb393ee95fab7468a79d189/iaf12r3j58sbh43ca152f52ma.png"
+    ],
+    "options": [
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "Path of w.r.t. is straight line",
+        "isCorrect": false,
+        "markedPercentage": "23.5%"
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "Velocity of w.r.t. is constant",
+        "isCorrect": false,
+        "markedPercentage": "14.27%"
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "Path of w.r.t. is parabolic",
+        "isCorrect": true,
+        "markedPercentage": "50.45%"
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "Acceleration of w.r.t. is zero",
+        "isCorrect": false,
+        "markedPercentage": "11.92%"
+      }
+    ],
+    "correctOption": 3,
+    "correctAnswer": "C",
+    "accuracy": "50.22% of students got it right",
+    "difficulty": "Medium",
+    "solutionText": "Path of projectile A w.r.t projectile B is a straight line since relative acceleration between two freely falling bodies under gravity is zero (a_rel = g - g = 0). Since relative acceleration is zero, relative velocity is constant and the relative path is a straight line, not parabolic. Hence, statement 3 is incorrect."
+  },
+  {
+    "id": "pw-phy-c11-miap-002",
+    "questionNumber": 2,
+    "subject": "Physics",
+    "chapter": "Motion in a Plane",
+    "topic": "Projectile Collisions in Air",
+    "statement": "Statement-1: Two stones are simultaneously projected from level ground from same point with same speeds but different angles with horizontal. Both stones move in same vertical plane. Then the two stones may collide in mid air.\n\nStatement-2 : For two stones projected simultaneously from same point with same speed at different angles with horizontal, their trajectories may intersect at some point.",
+    "statementImages": [],
+    "options": [
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "Statement-1 is true, statement- 2 is true and statement- 2 is correct explanation for statement-1.",
+        "isCorrect": false,
+        "markedPercentage": "50.01%"
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "Statement-1 is true, statement- 2 is true and statement- 2 is NOT the correct explanation for statement-1.",
+        "isCorrect": false,
+        "markedPercentage": "19.61%"
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "Statement-1 is true, statement- 2 is false.",
+        "isCorrect": false,
+        "markedPercentage": "9.66%"
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "Statement-1 is false, statement- 2 is true.",
+        "isCorrect": true,
+        "markedPercentage": "20.96%"
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": "D",
+    "accuracy": "20.82% of students got it right",
+    "difficulty": "Hard",
+    "solutionText": "Since both stones are projected simultaneously with the same speed from the same point at different angles, their horizontal and vertical velocity components differ. For them to collide, both their x and y coordinates must be identical at the same instant t. Since x1 = (u cos \u03b81)t and x2 = (u cos \u03b82)t, x1 = x2 requires \u03b81 = \u03b82, meaning identical trajectories. If \u03b81 \u2260 \u03b82, x1 \u2260 x2 for all t > 0, so they can never be at the same point at the same time. Hence, Statement-1 is false. Their geometric paths (trajectories) do intersect at a point, so Statement-2 is true. Correct answer: Option 4."
+  },
+  {
+    "id": "pw-phy-c11-miap-003",
+    "questionNumber": 3,
+    "subject": "Physics",
+    "chapter": "Motion in a Plane",
+    "topic": "Horizontal Range Formula",
+    "statement": "A projectile is projected with initial velocity (6i^ + 8j^) m/s. If g = 10 ms\u22122, then horizontal range is :",
+    "statementImages": [],
+    "options": [
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "4.8 metre",
+        "isCorrect": false,
+        "markedPercentage": "15.33%"
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "9.6 metre",
+        "isCorrect": true,
+        "markedPercentage": "63.59%"
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "19.2 metre",
+        "isCorrect": false,
+        "markedPercentage": "14.39%"
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "14.0 metre",
+        "isCorrect": false,
+        "markedPercentage": "6.65%"
+      }
+    ],
+    "correctOption": 2,
+    "correctAnswer": "B",
+    "accuracy": "63.65% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "Given u_x = 6 m/s, u_y = 8 m/s, g = 10 m/s^2.\nHorizontal range R = 2 * u_x * u_y / g = 2 * 6 * 8 / 10 = 96 / 10 = 9.6 m.\nCorrect Option: 2 (9.6 metre)."
+  },
+  {
+    "id": "pw-phy-c11-lom-001",
+    "questionNumber": 1,
+    "subject": "Physics",
+    "chapter": "Laws of Motion",
+    "topic": "Rope Breaking Strength & Acceleration",
+    "statement": "With what minimum acceleration can a fireman slide down a rope whose breaking strength is two thirds of his weight?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "g/2",
+        "isCorrect": false,
+        "markedPercentage": "16.0%"
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "2g/3",
+        "isCorrect": false,
+        "markedPercentage": "36.0%"
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "3g/2",
+        "isCorrect": false,
+        "markedPercentage": "12.0%"
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "g/3",
+        "isCorrect": true,
+        "markedPercentage": "36.0%"
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": "D",
+    "accuracy": "36.0% of students got it right",
+    "difficulty": "Medium",
+    "solutionText": "Using free body diagram:\nmg - T = ma\nGiven T = (2/3)mg\nmg - (2/3)mg = ma => (1/3)mg = ma => a = g/3.\nCorrect option: D (g/3)."
+  },
+  {
+    "id": "pw-phy-c11-lom-002",
+    "questionNumber": 2,
+    "subject": "Physics",
+    "chapter": "Laws of Motion",
+    "topic": "Angle of Friction & Limiting Equilibrium",
+    "statement": "A weight W rests on a rough horizontal plane. If the angle of friction is \u03b8, the least force that can move the body along the plane will be",
+    "statementImages": [],
+    "options": [
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "W cos \u03b8",
+        "isCorrect": false,
+        "markedPercentage": "30.92%"
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "W tan \u03b8",
+        "isCorrect": true,
+        "markedPercentage": "39.69%"
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "W cot \u03b8",
+        "isCorrect": false,
+        "markedPercentage": "7.82%"
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "W sin \u03b8",
+        "isCorrect": false,
+        "markedPercentage": "21.95%"
+      }
+    ],
+    "correctOption": 2,
+    "correctAnswer": "B",
+    "accuracy": "39.69% of students got it right",
+    "difficulty": "Medium",
+    "solutionText": "To move the body along a rough horizontal plane with angle of friction \u03b8 (where \u03bc = tan \u03b8), the limiting static friction force is f_s = \u03bc W = W tan \u03b8. Hence Option B."
+  },
+  {
+    "id": "pw-phy-c11-lom-004",
+    "questionNumber": 4,
+    "subject": "Physics",
+    "chapter": "Laws of Motion",
+    "topic": "Apparent Weight in Accelerating Lift",
+    "statement": "The mass of a lift is 500 kg. When it ascends with an acceleration of 2 m/s2, the tension in the cable will be g=10 m/s2",
+    "statementImages": [],
+    "options": [
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "6000 N",
+        "isCorrect": true,
+        "markedPercentage": "80.8%"
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "5000 N",
+        "isCorrect": false,
+        "markedPercentage": "8.82%"
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "4000 N",
+        "isCorrect": false,
+        "markedPercentage": "8.13%"
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "50 N",
+        "isCorrect": false,
+        "markedPercentage": "2.08%"
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": "A",
+    "accuracy": "80.8% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "The lift accelerates upward at 2 m/s^2, so cable tension is:\nT = m(g + a) = 500(10 + 2) = 500 * 12 = 6000 N. Correct Option: A."
+  },
+  {
+    "id": "pw-phy-c11-wep-001",
+    "questionNumber": 1,
+    "subject": "Physics",
+    "chapter": "Work, Energy and Power",
+    "topic": "Work-Energy Theorem & Conservation of Energy",
+    "statement": "A body of mass 2 kg is thrown up vertically with kinetic energy of 490 J. If g=9.8 ms\u22122, the height at which the kinetic energy of the body becomes half of the original value, is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "50 m",
+        "isCorrect": false,
+        "markedPercentage": "9.95%"
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "25 m",
+        "isCorrect": false,
+        "markedPercentage": "21.39%"
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "12.5 m",
+        "isCorrect": true,
+        "markedPercentage": "54.23%"
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "19.6 m",
+        "isCorrect": false,
+        "markedPercentage": "8.96%"
+      }
+    ],
+    "correctOption": 3,
+    "correctAnswer": "C",
+    "accuracy": "54.73% of students got it right",
+    "difficulty": "Medium",
+    "solutionText": "Loss in KE = Gain in PE => \u0394KE = 490 / 2 = 245 J. m * g * h = 245 => 2 * 9.8 * h = 245 => h = 12.5 m."
+  },
+  {
+    "id": "pw-phy-c11-wep-002",
+    "questionNumber": 2,
+    "subject": "Physics",
+    "chapter": "Work, Energy and Power",
+    "topic": "Relation between Momentum and Kinetic Energy",
+    "statement": "If the kinetic energy of a body increases by 4% the momentum :",
+    "statementImages": [],
+    "options": [
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "Increases by 2%",
+        "isCorrect": true,
+        "markedPercentage": "43.77%"
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "Increases by 4%",
+        "isCorrect": false,
+        "markedPercentage": "17.77%"
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "Increases by 8%",
+        "isCorrect": false,
+        "markedPercentage": "22.55%"
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "Increases by 16%",
+        "isCorrect": false,
+        "markedPercentage": "15.92%"
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": "A",
+    "accuracy": "43.85% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "p = sqrt(2mK). For small percentage variations: \u0394p/p = (1/2) * (\u0394K/K) = (1/2) * 4% = 2% increase."
+  },
+  {
+    "id": "pw-phy-c11-wep-003",
+    "questionNumber": 3,
+    "subject": "Physics",
+    "chapter": "Work, Energy and Power",
+    "topic": "Spring Potential Energy & Work Done",
+    "statement": "A spring of force constant K is first stretched by distance a from its natural length and then further by distance b. The work done in stretching the part b is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "1/2 Ka(a\u2212b)",
+        "isCorrect": false,
+        "markedPercentage": "22.73%"
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "1/2 Ka(a+b)",
+        "isCorrect": false,
+        "markedPercentage": "29.78%"
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "1/2 Kb(a\u2212b)",
+        "isCorrect": false,
+        "markedPercentage": "21.15%"
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "1/2 Kb(2a+b)",
+        "isCorrect": true,
+        "markedPercentage": "25.32%"
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": "D",
+    "accuracy": "25.32% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "W = U_final - U_initial = 1/2 K (a + b)^2 - 1/2 K a^2 = 1/2 K (2ab + b^2) = 1/2 K b (2a + b)."
+  },
+  {
+    "id": "pw-phy-c11-wep-005",
+    "questionNumber": 5,
+    "subject": "Physics",
+    "chapter": "Work, Energy and Power",
+    "topic": "Work Done from Force-Time Graph & Impulse",
+    "statement": "Starting at rest, a 10 kg object is acted upon by only one force as indicated in figure. Then the total work done by the force is",
+    "statementImages": [
+      "https://penpencil-static-content.s3.ap-south-1.amazonaws.com/5eb393ee95fab7468a79d189/4shjqaohde33s4gqf9sj7edhz.png"
+    ],
+    "options": [
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "90 J",
+        "isCorrect": false,
+        "markedPercentage": "32.47%"
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "125 J",
+        "isCorrect": true,
+        "markedPercentage": "44.16%"
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "245 J",
+        "isCorrect": false,
+        "markedPercentage": "16.56%"
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "490 J",
+        "isCorrect": false,
+        "markedPercentage": "6.82%"
+      }
+    ],
+    "correctOption": 2,
+    "correctAnswer": "B",
+    "accuracy": "44.16% of students got it right",
+    "difficulty": "Medium",
+    "solutionText": "Impulse = Area under F-t curve = 60 - 10 = 50 N*s. \u0394p = m * v_f = 10 * v_f = 50 => v_f = 5 m/s. Total work done W = \u0394KE = 1/2 * 10 * 5^2 = 125 J."
+  },
+  {
+    "id": "pw-phy-c11-wep-010",
+    "questionNumber": 10,
+    "subject": "Physics",
+    "chapter": "Work, Energy and Power",
+    "topic": "Work Done by Constant Force Vector (Dot Product)",
+    "statement": "A body is constrained to move along z-axis of the co-ordinate system is being applied by a constant force F\u2192=(2i^+3j^+4k^). Find the work done by this force in moving the body over a distance of 5 m along z-axis.",
+    "statementImages": [],
+    "options": [
+      {
+        "optionIndex": 1,
+        "label": "A",
+        "text": "30 J",
+        "isCorrect": false,
+        "markedPercentage": "11.11%"
+      },
+      {
+        "optionIndex": 2,
+        "label": "B",
+        "text": "20 J",
+        "isCorrect": true,
+        "markedPercentage": "66.67%"
+      },
+      {
+        "optionIndex": 3,
+        "label": "C",
+        "text": "40 J",
+        "isCorrect": false,
+        "markedPercentage": "18.52%"
+      },
+      {
+        "optionIndex": 4,
+        "label": "D",
+        "text": "61 J",
+        "isCorrect": false,
+        "markedPercentage": "5.56%"
+      }
+    ],
+    "correctOption": 2,
+    "correctAnswer": "B",
+    "accuracy": "66.67% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "s = 5 k^. Work done W = F \u00b7 s = (2 i^ + 3 j^ + 4 k^) \u00b7 5 k^ = 4 * 5 = 20 J."
   }
 ]

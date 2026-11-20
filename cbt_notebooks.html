@@ -54,6 +54,46 @@
     ::-webkit-scrollbar-track { background: var(--surface-0); }
     ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
     ::-webkit-scrollbar-thumb:hover { background: #334155; }
+
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+      }
+      #clockee-nav, #formula-search-input, button, #copy-toast, .no-print {
+        display: none !important;
+      }
+      .panel {
+        background: #ffffff !important;
+        border: 1px solid #cbd5e1 !important;
+        color: #000000 !important;
+        break-inside: avoid;
+        page-break-inside: avoid;
+        margin-bottom: 14px !important;
+        box-shadow: none !important;
+      }
+      .panel-inset {
+        background: #f8fafc !important;
+        border: 1px solid #e2e8f0 !important;
+        color: #000000 !important;
+      }
+      .text-white, .text-cyan-300, .text-slate-200 {
+        color: #0f172a !important;
+      }
+      .text-slate-400, .text-slate-500 {
+        color: #475569 !important;
+      }
+      .katex {
+        color: #0f172a !important;
+      }
+      .print-header {
+        display: block !important;
+      }
+    }
+
+    .print-header {
+      display: none;
+    }
   </style>
 </head>
 <body data-page="notebooks" class="min-h-screen flex flex-col bg-[#090d16] text-[#f8fafc]">
@@ -63,8 +103,15 @@
 
   <main class="max-w-7xl mx-auto px-4 py-6 md:py-8 flex-1 w-full space-y-6">
 
+    <!-- Official ClockEE Print Document Header (Visible only in print / exported PDF) -->
+    <div class="print-header pb-4 mb-4 border-b-2 border-sky-600">
+      <div class="text-xl font-black text-slate-900 tracking-tight">ClockEE CBT Official Examination Suite</div>
+      <div class="text-sm font-bold text-sky-700">JEE (Main & Advanced) High-Yield Formula & Revision Guide</div>
+      <div class="text-xs text-slate-600 mt-1">Verified Dimensional Units • Governing Principles • Regulatory NTA Parity</div>
+    </div>
+
     <!-- Header Strip -->
-    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-b border-slate-800 pb-5">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-b border-slate-800 pb-5 no-print">
       <div>
         <div class="flex items-center gap-2.5">
           <span class="inline-block w-2.5 h-2.5 rounded-sm bg-blue-400"></span>
@@ -74,9 +121,9 @@
         <p class="text-sm text-slate-400 mt-1">Sub-100ms Fuzzy Search &bull; Verified Dimensional Units &bull; 1-Click LaTeX Copy</p>
       </div>
 
-      <!-- Search Input Bar -->
-      <div class="flex items-center gap-3 w-full md:w-80">
-        <div class="relative w-full">
+      <!-- Search Input Bar & PDF Download Button -->
+      <div class="flex items-center gap-3 w-full md:w-auto">
+        <div class="relative w-full md:w-72">
           <input 
             type="text" 
             id="formula-search-input" 
@@ -86,6 +133,9 @@
           >
           <kbd class="hidden sm:inline-block absolute right-3 top-2.5 text-[10px] mono bg-slate-800 border border-slate-700 px-1.5 py-0.5 rounded text-slate-400">Ctrl+K</kbd>
         </div>
+        <button onclick="exportRevisionPDF()" class="px-4 py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-xs flex items-center gap-2 transition whitespace-nowrap shadow-sm">
+          <span>⬇ Export PDF</span>
+        </button>
       </div>
     </div>
 
@@ -309,6 +359,11 @@
       document.getElementById('count-phy').innerText = FORMULAS.filter(f => f.subject === 'Physics').length;
       document.getElementById('count-chem').innerText = FORMULAS.filter(f => f.subject === 'Chemistry').length;
       document.getElementById('count-math').innerText = FORMULAS.filter(f => f.subject === 'Mathematics').length;
+    }
+
+    function exportRevisionPDF() {
+      // Trigger browser native high-fidelity print / Save as PDF
+      window.print();
     }
 
     function escapeAttr(str) {

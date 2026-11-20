@@ -33,7 +33,7 @@
 
   const SUBJECTS = ['Physics', 'Chemistry', 'Mathematics'];
   const EXAM_ID = 'jee_main_2026_cbt_mock_01';
-  const TOTAL_DURATION_SECONDS = 180 * 60; // 10,800 seconds
+  let TOTAL_DURATION_SECONDS = 180 * 60; // 10,800 seconds
 
   // Active Runtime State
   let state = {
@@ -242,11 +242,66 @@
   }
 
   /**
-   * Initializes or restores the exam state from IndexedDB
+   * Initializes or restores the exam state from IndexedDB or Custom Test Storage
    */
   async function init(listeners = {}) {
     uiListeners = { ...uiListeners, ...listeners };
-    state.questions = generateDefaultQuestions();
+
+    // Check if a custom test, topic test, or AI mini drill was generated
+    let loadedCustom = false;
+    try {
+      const urlParams = new URLSearchParams(window.location.search);
+      const testIdParam = urlParams.get('testId');
+      const customTestRaw = sessionStorage.getItem('active_custom_cbt_test') || localStorage.getItem('active_custom_cbt_test');
+
+      if (customTestRaw) {
+        const customTest = JSON.parse(customTestRaw);
+        if (customTest && Array.isArray(customTest.questions) && customTest.questions.length > 0) {
+          if (!testIdParam || customTest.id === testIdParam || testIdParam.startsWith('mini_') || testIdParam.startsWith('custom_') || testIdParam.startsWith('topic_') || testIdParam.startsWith('jee_')) {
+            state.questions = customTest.questions.map((q, idx) => ({
+              id: q.id || `Q_${idx + 1}`,
+              number: q.number || (idx + 1),
+              localNumber: q.localNumber || (idx + 1),
+              subject: q.subject || 'Physics',
+              chapter: q.chapter || 'Topic Drill',
+              topic: q.topic || '',
+              section: q.section || (q.type === 'NUMERICAL' || q.type === 'numerical' ? 'B' : 'A'),
+              type: (q.type === 'NUMERICAL' || q.type === 'numerical') ? 'NUMERICAL' : 'MCQ',
+              text: q.text || q.statement || '',
+              options: Array.isArray(q.options) 
+                ? q.options.map((opt, oIdx) => {
+                    if (typeof opt === 'string') {
+                      const letter = ['A', 'B', 'C', 'D'][oIdx] || `${oIdx + 1}`;
+                      return { id: letter, text: opt };
+                    }
+                    return { id: opt.id || opt.label || ['A', 'B', 'C', 'D'][oIdx], text: opt.text || '' };
+                  })
+                : [],
+              correctAnswer: q.correctAnswer || (q.options && q.options[q.correct] ? (q.options[q.correct].id || 'A') : 'A'),
+              correctNum: q.correctNum || q.correctAnswer || '',
+              marking: q.marking || { correct: 4, wrong: -1 }
+            }));
+
+            state.title = customTest.title || 'JEE Computer Based Test';
+            state.examId = customTest.id || testIdParam || EXAM_ID;
+            if (state.questions.length > 0 && state.questions[0].subject) {
+              state.currentSubject = state.questions[0].subject;
+            }
+            if (customTest.durationMinutes) {
+              TOTAL_DURATION_SECONDS = customTest.durationMinutes * 60;
+              state.remainingSeconds = TOTAL_DURATION_SECONDS;
+            }
+            loadedCustom = true;
+          }
+        }
+      }
+    } catch (e) {
+      console.warn('Custom test loader error, falling back to regulatory bank:', e);
+    }
+
+    if (!loadedCustom) {
+      state.questions = generateDefaultQuestions();
+    }
 
     // Initialize initial response models
     state.questions.forEach((q) => {

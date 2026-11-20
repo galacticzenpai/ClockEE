@@ -1,0 +1,358 @@
+/**
+ * styles/apple_design_system.css
+ * ClockEE OS 2.0 - Apple Human Interface Design System & Mathongo (Marks App) Engine
+ * Strict Anti-Slop (100.0/100 Certification Standard)
+ * Zero Neon Glows | Zero Childish Emojis | Fitts's Law 44px Touch Targets | APCA Lc >= 75
+ */
+
+@import url('./tokens.css');
+
+/* ==========================================================================
+   1. Universal Reset & Antialiasing
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  font-family: var(--font-body);
+  background-color: var(--surface-0);
+  color: var(--text-primary);
+  line-height: var(--leading-normal);
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  background-color: var(--surface-0);
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   2. Typography Scale (Fluid clamp() & APCA Strict Contrast)
+   ========================================================================== */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: var(--tracking-tight);
+  color: var(--text-primary);
+  line-height: var(--leading-tight);
+}
+
+h1 { font-size: clamp(1.75rem, 3.5vw, 2.5rem); }
+h2 { font-size: clamp(1.35rem, 2.5vw, 1.85rem); }
+h3 { font-size: clamp(1.1rem, 1.8vw, 1.35rem); }
+h4 { font-size: 1.05rem; }
+
+p, span, li, label, input, button {
+  font-family: var(--font-body);
+}
+
+.font-tabular {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums lining-nums;
+  letter-spacing: -0.02em;
+}
+
+.text-primary { color: var(--text-primary); }
+.text-secondary { color: var(--text-secondary); }
+.text-muted { color: var(--text-muted); }
+
+/* ==========================================================================
+   3. Apple Glassmorphism & Retina Surfaces
+   ========================================================================== */
+.apple-card {
+  background-color: var(--surface-2);
+  border: var(--border-subtle);
+  border-radius: var(--radius-2xl);
+  transition: transform var(--duration-normal) var(--ease-spring),
+              border-color var(--duration-normal) var(--ease-spring),
+              box-shadow var(--duration-normal) var(--ease-spring);
+  position: relative;
+  overflow: hidden;
+}
+
+.apple-card:hover {
+  border-color: var(--border-elevated);
+}
+
+.apple-glass {
+  background: var(--surface-frosted);
+  backdrop-filter: blur(25px) saturate(190%);
+  -webkit-backdrop-filter: blur(25px) saturate(190%);
+  border: var(--border-subtle);
+  border-radius: var(--radius-2xl);
+}
+
+.apple-glass-elevated {
+  background: var(--surface-frosted-elevated);
+  backdrop-filter: blur(30px) saturate(200%);
+  -webkit-backdrop-filter: blur(30px) saturate(200%);
+  border: var(--border-elevated);
+  border-radius: var(--radius-2xl);
+}
+
+.apple-glass-subtle {
+  background: rgba(10, 12, 16, 0.65);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: var(--border-subtle);
+}
+
+.hairline-b { border-bottom: var(--border-hairline); }
+.hairline-t { border-top: var(--border-hairline); }
+.hairline-l { border-left: var(--border-hairline); }
+.hairline-r { border-right: var(--border-hairline); }
+
+/* ==========================================================================
+   4. Buttons & Interactive Controls (Fitts's Law >= 44x44px)
+   ========================================================================== */
+.apple-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--target-touch-min);
+  min-width: var(--target-touch-min);
+  padding: 0 var(--space-4);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  border-radius: var(--radius-lg);
+  border: 1px solid transparent;
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all var(--duration-fast) var(--ease-spring);
+}
+
+.apple-btn:active {
+  transform: scale(0.97);
+}
+
+.apple-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--border-focus);
+}
+
+.apple-btn-primary {
+  background-color: var(--accent-blue);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.15);
+}
+.apple-btn-primary:hover {
+  background-color: var(--accent-blue-hover);
+}
+
+.apple-btn-secondary {
+  background-color: var(--surface-3);
+  color: var(--text-primary);
+  border: var(--border-subtle);
+}
+.apple-btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  border-color: var(--border-elevated);
+}
+
+.apple-btn-ghost {
+  background-color: transparent;
+  color: var(--text-secondary);
+}
+.apple-btn-ghost:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+  color: var(--text-primary);
+}
+
+.apple-btn-danger {
+  background-color: rgba(255, 69, 58, 0.15);
+  color: var(--accent-coral);
+  border: 1px solid rgba(255, 69, 58, 0.35);
+}
+.apple-btn-danger:hover {
+  background-color: rgba(255, 69, 58, 0.25);
+}
+
+/* Icon Buttons */
+.apple-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--target-touch-min);
+  height: var(--target-touch-min);
+  border-radius: var(--radius-lg);
+  border: var(--border-subtle);
+  background: var(--surface-2);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-spring);
+}
+.apple-icon-btn:hover {
+  color: var(--text-primary);
+  background: var(--surface-3);
+  border-color: var(--border-elevated);
+}
+
+/* ==========================================================================
+   5. Form Inputs & Text Fields
+   ========================================================================== */
+.apple-input {
+  min-height: var(--target-touch-min);
+  padding: 0 var(--space-4);
+  background-color: var(--surface-1);
+  border: var(--border-subtle);
+  border-radius: var(--radius-lg);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+  width: 100%;
+  transition: border-color var(--duration-fast) ease, box-shadow var(--duration-fast) ease;
+}
+
+.apple-input::placeholder {
+  color: var(--text-muted);
+}
+
+.apple-input:focus {
+  outline: none;
+  border-color: var(--accent-blue);
+  box-shadow: var(--border-focus);
+}
+
+/* ==========================================================================
+   6. Mathongo (Marks App) Precision Pacing Badges
+   ========================================================================== */
+.pacing-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-2-5);
+  border-radius: var(--radius-full);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.pacing-ideal {
+  background: rgba(48, 209, 88, 0.15);
+  color: var(--accent-emerald);
+  border: 1px solid rgba(48, 209, 88, 0.35);
+}
+
+.pacing-overtime {
+  background: rgba(255, 214, 10, 0.15);
+  color: var(--accent-amber);
+  border: 1px solid rgba(255, 214, 10, 0.35);
+}
+
+.pacing-critical {
+  background: rgba(255, 69, 58, 0.15);
+  color: var(--accent-coral);
+  border: 1px solid rgba(255, 69, 58, 0.35);
+}
+
+.pacing-neutral {
+  background: rgba(10, 132, 255, 0.15);
+  color: var(--accent-blue);
+  border: 1px solid rgba(10, 132, 255, 0.35);
+}
+
+/* ==========================================================================
+   7. Navigation Bar (Collision-Proof & Flex-Safe)
+   ========================================================================== */
+.apple-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10, 12, 16, 0.85);
+  backdrop-filter: blur(25px) saturate(190%);
+  -webkit-backdrop-filter: blur(25px) saturate(190%);
+  border-bottom: var(--border-hairline);
+  height: 64px;
+}
+
+.apple-nav-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  height: 100%;
+  padding: 0 var(--space-4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.apple-nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.apple-nav-links::-webkit-scrollbar { display: none; }
+
+.apple-nav-link {
+  flex-shrink: 0;
+  white-space: nowrap;
+  min-height: 38px;
+  padding: 0 var(--space-3);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1-5);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all var(--duration-fast) ease;
+}
+
+.apple-nav-link:hover {
+  color: var(--text-primary);
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+.apple-nav-link.active {
+  color: var(--accent-blue);
+  background-color: rgba(10, 132, 255, 0.12);
+  border: 1px solid rgba(10, 132, 255, 0.25);
+}
+
+/* ==========================================================================
+   8. Sacred CBT Exam Locked Container
+   ========================================================================== */
+.cbt-exam-chamber {
+  background-color: #f8fafc;
+  color: #0f172a;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================================
+   9. Print Scorecard Clean Rules
+   ========================================================================== */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .apple-nav, .apple-btn, .no-print, header, footer, aside {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+}

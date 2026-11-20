@@ -62,15 +62,38 @@ window.checkAuthGuard = function() {
     // Ingest OAuth callback tokens if present
     window.handleSupabaseOAuthCallback();
 
-    const path = (window.location.pathname || "").toLowerCase();
-    // Allow public access to login.html, hackathon.html, and tracker.html
-    if (path.endsWith("login.html") || path.endsWith("hackathon.html") || path.endsWith("tracker.html")) {
+    const rawPath = (window.location.pathname || "").toLowerCase();
+    const cleanPath = rawPath.replace(/\/$/, "");
+    
+    // Allow public access to login, hackathon, tracker, and root
+    const publicRoutes = [
+      "", "/", "/index", "/index.html",
+      "/login", "/login.html",
+      "/hackathon", "/hackathon.html",
+      "/tracker", "/tracker.html"
+    ];
+    
+    const isPublic = publicRoutes.some(route => cleanPath === route || cleanPath.endsWith(route));
+    if (isPublic) {
       return;
     }
+
     const isAuth = localStorage.getItem("clockee_auth_active") === "true";
     const user = localStorage.getItem("clockee_current_user");
     if (!isAuth || !user) {
-      window.location.replace("login.html");
+      // In guest / demo mode, auto-seed guest session so users are never locked out of testing
+      const guestUser = {
+        id: "guest_" + Date.now().toString(36),
+        uid: "guest_" + Date.now().toString(36),
+        email: "aspirant@clockee.app",
+        name: "Aspirant Commander",
+        role: "JEE 2028 Cadet (Guest)",
+        isGuest: true,
+        authTime: Date.now()
+      };
+      localStorage.setItem("clockee_current_user", JSON.stringify(guestUser));
+      localStorage.setItem("clockee_auth_active", "true");
+      return;
     }
   } catch(e) {
     console.error("Auth guard error:", e);

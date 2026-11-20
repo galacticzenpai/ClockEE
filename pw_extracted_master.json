@@ -3983,5 +3983,405 @@
     "student_accuracy": "29.18%",
     "solution_text": "When chlorine is passed into hot concentrated NaOH solution, disproportionation occurs:\n3Cl₂ + 6NaOH → 5NaCl + NaClO₃ + 3H₂O\nOxidation number of chlorine in Cl₂ = 0.\nIn NaClO₃: (+1) + x + 3(−2) = 0 ⇒ x = +5.\nThus, chlorine undergoes oxidation from 0 to +5.\nSimultaneously, chlorine is reduced from 0 to −1 in NaCl.\nHence, the oxidation number was increased from 0 to +5.",
     "video_url": "https://www.youtube.com/embed/KpklEvg1hsw"
+  },
+  {
+    "question_number": 1,
+    "chapter": "Organic Chemistry Basics (GOC)",
+    "subject": "Chemistry",
+    "question_type": "Single Choice Question",
+    "statement": "Which of the following is not an electrophile?",
+    "options": [
+      {
+        "option_number": 1,
+        "option_text": "CH3⁺ (methyl carbocation)",
+        "is_correct": false,
+        "student_percentage": "11.92%"
+      },
+      {
+        "option_number": 2,
+        "option_text": "AlCl3",
+        "is_correct": false,
+        "student_percentage": "10.43%"
+      },
+      {
+        "option_number": 3,
+        "option_text": "SiF4",
+        "is_correct": false,
+        "student_percentage": "14.74%"
+      },
+      {
+        "option_number": 4,
+        "option_text": "OH⊖ (hydroxide ion)",
+        "is_correct": true,
+        "student_percentage": "62.91%"
+      }
+    ],
+    "registered_answer": 4,
+    "registered_answers": [
+      4
+    ],
+    "student_accuracy": "62.91%",
+    "solution_text": "Electrophiles are electron-deficient species (Lewis acids or positively charged ions/electron-deficient molecules like CH₃⁺, AlCl₃ with an incomplete octet, and SiF₄ with vacant d-orbitals). Hydroxide ion (OH⁻) has unshared lone pairs and negative charge, acting as an electron-rich nucleophile, not an electrophile.",
+    "video_url": null
+  },
+  {
+    "question_number": 2,
+    "chapter": "Organic Chemistry Basics (GOC)",
+    "subject": "Chemistry",
+    "question_type": "Single Choice Question",
+    "statement": "Select the correct common name of the compound from:\nCH3–CH(Cl)–CH2–CH3",
+    "options": [
+      {
+        "option_number": 1,
+        "option_text": "2-chlorobutane",
+        "is_correct": false,
+        "student_percentage": "53.85%"
+      },
+      {
+        "option_number": 2,
+        "option_text": "sec-butyl chloride",
+        "is_correct": true,
+        "student_percentage": "28.85%"
+      },
+      {
+        "option_number": 3,
+        "option_text": "isobutyl chloride",
+        "is_correct": false,
+        "student_percentage": "14.84%"
+      },
+      {
+        "option_number": 4,
+        "option_text": "butane chloride",
+        "is_correct": false,
+        "student_percentage": "3.3%"
+      }
+    ],
+    "registered_answer": 2,
+    "registered_answers": [
+      2
+    ],
+    "student_accuracy": "28.85%",
+    "solution_text": "The compound is CH₃–CH(Cl)–CH₂–CH₃. The chloride substituent is attached to a secondary carbon (2° carbon) of a four-carbon butyl chain, giving the trivial/common name 'sec-butyl chloride'. Note: 2-chlorobutane is the IUPAC name, but the question specifically asks for the common name.",
+    "video_url": "https://www.youtube.com/embed/DTBU0HYkEuM"
+  },
+  {
+    "question_number": 3,
+    "chapter": "Organic Chemistry Basics (GOC)",
+    "subject": "Chemistry",
+    "question_type": "Single Choice Question",
+    "statement": "Which of the following represent incorrect numbering schemes according to IUPAC rules?",
+    "options": [
+      {
+        "option_number": 1,
+        "option_text": "Scheme A only",
+        "is_correct": false,
+        "student_percentage": "7.31%"
+      },
+      {
+        "option_number": 2,
+        "option_text": "Schemes B and D",
+        "is_correct": true,
+        "student_percentage": "40.94%"
+      },
+      {
+        "option_number": 3,
+        "option_text": "Scheme C only",
+        "is_correct": false,
+        "student_percentage": "9.36%"
+      },
+      {
+        "option_number": 4,
+        "option_text": "Schemes A and C",
+        "is_correct": false,
+        "student_percentage": "42.69%"
+      }
+    ],
+    "registered_answer": 2,
+    "registered_answers": [
+      2
+    ],
+    "student_accuracy": "41.52%",
+    "solution_text": "Incorrect numbering: B and D.\nAccording to IUPAC lowest locant rule for unsaturated chains, double and triple bonds must receive the lowest locant set possible. Renumbering from the opposite terminus in B and D yields lower locants for multiple bonds, showing that B and D violate IUPAC numbering rules.",
+    "video_url": "https://www.youtube.com/embed/DTBU0HYkEuM"
+  },
+  {
+    "question_number": 4,
+    "chapter": "Organic Chemistry Basics (GOC)",
+    "subject": "Chemistry",
+    "question_type": "Single Choice Question",
+    "statement": "In which structure carbon does not act as an electrophile?",
+    "options": [
+      {
+        "option_number": 1,
+        "option_text": "CH3−CH2−Cl",
+        "is_correct": false,
+        "student_percentage": "10.89%"
+      },
+      {
+        "option_number": 2,
+        "option_text": "CH3−CO−CH3",
+        "is_correct": false,
+        "student_percentage": "20.46%"
+      },
+      {
+        "option_number": 3,
+        "option_text": "CH3−MgBr (Grignard reagent / carbanion character)",
+        "is_correct": true,
+        "student_percentage": "55.78%"
+      },
+      {
+        "option_number": 4,
+        "option_text": "CH3−CN",
+        "is_correct": false,
+        "student_percentage": "12.87%"
+      }
+    ],
+    "registered_answer": 3,
+    "registered_answers": [
+      3
+    ],
+    "student_accuracy": "55.78%",
+    "solution_text": "In CH₃–CH₂–Cl, the carbon attached to electronegative chlorine carries a partial positive charge (δ+) and acts as an electrophile.\nIn CH₃–CO–CH₃, the carbonyl carbon has δ+ due to C=O polarisation and acts as an electrophilic center.\nIn CH₃–CN, the cyano carbon has δ+ due to C≡N polarisation and acts as an electrophile.\nIn CH₃–MgBr (organometallic reagent), carbon is more electronegative than magnesium (C: 2.5 vs Mg: 1.2), giving carbon a partial negative charge (δ−, carbanionic character); therefore it acts as a nucleophile, not an electrophile.",
+    "video_url": "https://www.youtube.com/embed/DTBU0HYkEuM"
+  },
+  {
+    "question_number": 5,
+    "chapter": "Organic Chemistry Basics (GOC)",
+    "subject": "Chemistry",
+    "question_type": "Single Choice Question",
+    "statement": "A sample of 0.5 g of an organic compound was treated according to Kjeldahl's method. The ammonia evolved was absorbed in 50 mL of 0.5 M H2SO4. The remaining acid after neutralisation by ammonia consumed 80 mL of 0.5 M NaOH. The percentage of nitrogen in the organic compound is",
+    "options": [
+      {
+        "option_number": 1,
+        "option_text": "42%",
+        "is_correct": false,
+        "student_percentage": "31.82%"
+      },
+      {
+        "option_number": 2,
+        "option_text": "28%",
+        "is_correct": true,
+        "student_percentage": "45.45%"
+      },
+      {
+        "option_number": 3,
+        "option_text": "32%",
+        "is_correct": false,
+        "student_percentage": "9.09%"
+      },
+      {
+        "option_number": 4,
+        "option_text": "56%",
+        "is_correct": false,
+        "student_percentage": "13.64%"
+      }
+    ],
+    "registered_answer": 2,
+    "registered_answers": [
+      2
+    ],
+    "student_accuracy": "45.45%",
+    "solution_text": "Normality of H₂SO₄ = 2 × M = 2 × 0.5 = 1 N.\nTotal milli-equivalents of H₂SO₄ taken = 50 mL × 1 N = 50 meq.\nNormality of NaOH = 1 × 0.5 = 0.5 N.\nMilli-equivalents of unreacted H₂SO₄ = 80 mL × 0.5 N = 40 meq.\nMilli-equivalents of H₂SO₄ consumed by ammonia = 50 − 40 = 10 meq.\nPercentage of Nitrogen = (1.4 × meq of acid consumed) / (mass of compound in g)\n% N = (1.4 × 10) / 0.5 = 14 / 0.5 = 28%.\nHence, Option 2 (28%) is correct.",
+    "video_url": "https://www.youtube.com/embed/DTBU0HYkEuM"
+  },
+  {
+    "question_number": 6,
+    "chapter": "Organic Chemistry Basics (GOC)",
+    "subject": "Chemistry",
+    "question_type": "Single Choice Question",
+    "statement": "Give the IUPAC name of the compound (cyclohexene ring with a double bond at C1 and methyl substituents at C1, C3, and C3):",
+    "options": [
+      {
+        "option_number": 1,
+        "option_text": "1,1,3-Trimethylcyclohex-2-ene",
+        "is_correct": false,
+        "student_percentage": "28.99%"
+      },
+      {
+        "option_number": 2,
+        "option_text": "1,3,3-Trimethylcyclohex-1-ene",
+        "is_correct": true,
+        "student_percentage": "58.7%"
+      },
+      {
+        "option_number": 3,
+        "option_text": "1,1,5-Trimethylcyclohex-5-ene",
+        "is_correct": false,
+        "student_percentage": "5.8%"
+      },
+      {
+        "option_number": 4,
+        "option_text": "2,6,6-Trimethylcyclohex-1-ene",
+        "is_correct": false,
+        "student_percentage": "6.52%"
+      }
+    ],
+    "registered_answer": 2,
+    "registered_answers": [
+      2
+    ],
+    "student_accuracy": "58.7%",
+    "solution_text": "The double bond in the cycloalkene takes priority and receives positions 1 and 2. Numbering from the double bonded carbon containing the methyl group gives C1 with one methyl group and C3 with two methyl groups. This produces the lowest locant set (1, 3, 3). The IUPAC name is 1,3,3-trimethylcyclohex-1-ene.",
+    "video_url": null
+  },
+  {
+    "question_number": 7,
+    "chapter": "Organic Chemistry Basics (GOC)",
+    "subject": "Chemistry",
+    "question_type": "Single Choice Question",
+    "statement": "The IUPAC name of the following compound is:\nH3C–CH2–CH(CH2CH3)–CH2–CH(CH3)–CH2CH3",
+    "options": [
+      {
+        "option_number": 1,
+        "option_text": "3-ethyl-5-methylheptane",
+        "is_correct": true,
+        "student_percentage": "64.69%"
+      },
+      {
+        "option_number": 2,
+        "option_text": "5-ethyl-3-methylheptane",
+        "is_correct": false,
+        "student_percentage": "21.96%"
+      },
+      {
+        "option_number": 3,
+        "option_text": "3,5-diethylhexane",
+        "is_correct": false,
+        "student_percentage": "9.5%"
+      },
+      {
+        "option_number": 4,
+        "option_text": "1,1-diethyl-3-methylpentane",
+        "is_correct": false,
+        "student_percentage": "4.15%"
+      }
+    ],
+    "registered_answer": 1,
+    "registered_answers": [
+      1
+    ],
+    "student_accuracy": "64.99%",
+    "solution_text": "The longest continuous carbon chain contains 7 carbon atoms (heptane).\nSubstituents are located at positions 3 and 5 from either direction: an ethyl group and a methyl group.\nWhen numbering from either end gives identical locants (3, 5), the alphabetical priority rule decides: 'ethyl' comes before 'methyl' alphabetically, so the ethyl group gets the lower locant 3 and the methyl group gets 5.\nHence, the correct IUPAC name is 3-ethyl-5-methylheptane.",
+    "video_url": "https://www.youtube.com/embed/wx9CBnye0vI"
+  },
+  {
+    "question_number": 8,
+    "chapter": "Organic Chemistry Basics (GOC)",
+    "subject": "Chemistry",
+    "question_type": "Single Choice Question",
+    "statement": "Which of the following compounds contains only 2∘ carbon atoms?",
+    "options": [
+      {
+        "option_number": 1,
+        "option_text": "Pentane",
+        "is_correct": false,
+        "student_percentage": "5.7%"
+      },
+      {
+        "option_number": 2,
+        "option_text": "2-methylpentane",
+        "is_correct": false,
+        "student_percentage": "28.48%"
+      },
+      {
+        "option_number": 3,
+        "option_text": "Methylcyclopentane",
+        "is_correct": false,
+        "student_percentage": "13.61%"
+      },
+      {
+        "option_number": 4,
+        "option_text": "Cyclohexane",
+        "is_correct": true,
+        "student_percentage": "52.22%"
+      }
+    ],
+    "registered_answer": 4,
+    "registered_answers": [
+      4
+    ],
+    "student_accuracy": "52.22%",
+    "solution_text": "A secondary (2°) carbon atom is directly bonded to two other carbon atoms.\nIn cyclohexane (C₆H₁₂), each carbon is a –CH₂– ring member connected to two neighboring carbon atoms; hence all six carbons are secondary (2°).\nPentane contains two 1° (terminal) and three 2° carbons.\n2-methylpentane contains 1°, 2°, and 3° carbons.\nMethylcyclopentane contains a 3° ring junction carbon and a 1° methyl carbon.\nTherefore, Option 4 (Cyclohexane) is correct.",
+    "video_url": "https://www.youtube.com/embed/wx9CBnye0vI"
+  },
+  {
+    "question_number": 9,
+    "chapter": "Organic Chemistry Basics (GOC)",
+    "subject": "Chemistry",
+    "question_type": "Single Choice Question",
+    "statement": "The IUPAC name for the given compound is:\nCH3–CH=CH–CH2–CH(Cl)–CH3",
+    "options": [
+      {
+        "option_number": 1,
+        "option_text": "5-Chlorohex-2-ene",
+        "is_correct": true,
+        "student_percentage": "63.07%"
+      },
+      {
+        "option_number": 2,
+        "option_text": "2-Chlorohex-5-ene",
+        "is_correct": false,
+        "student_percentage": "14.39%"
+      },
+      {
+        "option_number": 3,
+        "option_text": "1-Chloro-1-methylpent-3-ene",
+        "is_correct": false,
+        "student_percentage": "11.03%"
+      },
+      {
+        "option_number": 4,
+        "option_text": "5-Chloro-5-methylpent-2-ene",
+        "is_correct": false,
+        "student_percentage": "11.75%"
+      }
+    ],
+    "registered_answer": 1,
+    "registered_answers": [
+      1
+    ],
+    "student_accuracy": "63.55%",
+    "solution_text": "The principal functional group/unsaturation is the C=C double bond, which takes precedence over halogen substituents.\nNumbering must start from the end nearer the double bond:\nC1–C2=C3–C4–C5(Cl)–C6\nDouble bond is at position 2 (hex-2-ene) and chlorine substituent is at position 5.\nTherefore, the correct IUPAC name is 5-chlorohex-2-ene.",
+    "video_url": "https://www.youtube.com/embed/wx9CBnye0vI"
+  },
+  {
+    "question_number": 10,
+    "chapter": "Organic Chemistry Basics (GOC)",
+    "subject": "Chemistry",
+    "question_type": "Single Choice Question",
+    "statement": "In the following compounds the decreasing order of B.P. is:\n(I) CH3−CH2−CH2−CH2−CH2−CH3 (n-hexane)\n(II) CH3−CH(CH3)−CH2−CH2−CH3 (2-methylpentane)\n(III) CH3−C(CH3)2−CH2−CH3 (2,2-dimethylbutane)",
+    "options": [
+      {
+        "option_number": 1,
+        "option_text": "(I) > (II) > (III)",
+        "is_correct": true,
+        "student_percentage": "52.63%"
+      },
+      {
+        "option_number": 2,
+        "option_text": "(I) > (III) > (II)",
+        "is_correct": false,
+        "student_percentage": "14.35%"
+      },
+      {
+        "option_number": 3,
+        "option_text": "(II) > (III) > (I)",
+        "is_correct": false,
+        "student_percentage": "7.18%"
+      },
+      {
+        "option_number": 4,
+        "option_text": "(III) > (II) > (I)",
+        "is_correct": false,
+        "student_percentage": "26.32%"
+      }
+    ],
+    "registered_answer": 1,
+    "registered_answers": [
+      1
+    ],
+    "student_accuracy": "52.15%",
+    "solution_text": "For isomeric alkanes having the same molecular formula (C₆H₁₄):\nAs branching increases, the molecule becomes more compact and spherical, reducing the surface area of contact between adjacent molecules.\nThis decreases van der Waals (London dispersion) forces, leading to a lower boiling point.\nTherefore:\nStraight-chain n-hexane (I) has the largest surface area and highest boiling point.\nMonobranched 2-methylpentane (II) has intermediate boiling point.\nDibranched 2,2-dimethylbutane (III) has the most spherical shape and lowest boiling point.\nDecreasing order of boiling point: (I) > (II) > (III).",
+    "video_url": "https://www.youtube.com/embed/wx9CBnye0vI"
   }
 ]

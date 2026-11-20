@@ -676,8 +676,9 @@
     document.getElementById('modal-admin-auth').classList.add('hidden');
   }
   async function verifyAdminPasscode() {
-    const inputEl = document.getElementById('admin-passcode-input') || document.getElementById('admin-lockscreen-passcode');
-    const inputRaw = inputEl ? inputEl.value : '';
+    const lockEl = document.getElementById('admin-lockscreen-passcode');
+    const modalEl = document.getElementById('admin-passcode-input');
+    const inputRaw = (lockEl && lockEl.value.trim()) || (modalEl && modalEl.value.trim()) || '';
 
     // Rate limiting: Max 5 attempts per 15 minutes
     if (window.ClockEESecurity) {

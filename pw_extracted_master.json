@@ -2730,5 +2730,465 @@
     "solution_text": "Solution\nEasy\nShow Video Sol.\no‐Nitrophenol predominantly exhibits intramolecular hydrogen bonding, reducing intermolecular forces and making its molecules easier to vaporize. By contrast, p‐nitrophenol forms intermolecular H‐bonds, causing stronger associations in the liquid and lower vapor pressure. Hence o‐nitrophenol has higher vapor pressure at a given temperature.",
     "video_url": "",
     "subject": "Chemistry"
+  },
+  {
+    "chapter": "Chemical Thermodynamics",
+    "question_number": 1,
+    "question_type": "Single Choice Question",
+    "comprehension": "Answer Qs. 1-1 based on Comprehension: 20 g of N2 at 300K is compressed reversibly and adiabatically from 20 dm3 to 10 dm3.",
+    "statement": "Calculate the final temperature",
+    "images": [],
+    "options": [
+      {
+        "option_number": 1,
+        "text": "300 K",
+        "image": null,
+        "student_percentage": "27.08% Marked this option",
+        "is_correct": false
+      },
+      {
+        "option_number": 2,
+        "text": "396 K",
+        "image": null,
+        "student_percentage": "46.53% Marked this option",
+        "is_correct": true
+      },
+      {
+        "option_number": 3,
+        "text": "450 K",
+        "image": null,
+        "student_percentage": "20.83% Marked this option",
+        "is_correct": false
+      },
+      {
+        "option_number": 4,
+        "text": "500 K",
+        "image": null,
+        "student_percentage": "5.56% Marked this option",
+        "is_correct": false
+      }
+    ],
+    "correct_option": 2,
+    "correct_options": [
+      2
+    ],
+    "student_stats": "46.53% of students got it right",
+    "solution_text": "Solution\nEasy\nV1 = 20 L, V2 = 10 L\nn = 20/28 = 5/7 mol\nT1 = 300 K; q = 0 (adiabatic)\nN2 is a diatomic gas: γ = 7/5\nFor reversible adiabatic process:\nT1 * V1^(γ-1) = T2 * V2^(γ-1)\nT1 / T2 = (V2 / V1)^(γ-1)\n300 / T2 = (10 / 20)^(7/5 - 1) = (1/2)^(2/5)\nT2 = 300 * (2)^(2/5) = 395.85 K ≈ 396 K.",
+    "video_url": "",
+    "subject": "Chemistry"
+  },
+  {
+    "chapter": "Chemical Thermodynamics",
+    "question_number": 2,
+    "question_type": "Single Choice Question",
+    "comprehension": "",
+    "statement": "In an isothermal expansion of an ideal gas",
+    "images": [],
+    "options": [
+      {
+        "option_number": 1,
+        "text": "q = 0",
+        "image": null,
+        "student_percentage": "17.69% Marked this option",
+        "is_correct": false
+      },
+      {
+        "option_number": 2,
+        "text": "ΔV = 0",
+        "image": null,
+        "student_percentage": "13.4% Marked this option",
+        "is_correct": false
+      },
+      {
+        "option_number": 3,
+        "text": "ΔU = 0",
+        "image": null,
+        "student_percentage": "60.32% Marked this option",
+        "is_correct": true
+      },
+      {
+        "option_number": 4,
+        "text": "W = 0",
+        "image": null,
+        "student_percentage": "8.58% Marked this option",
+        "is_correct": false
+      }
+    ],
+    "correct_option": 3,
+    "correct_options": [
+      3
+    ],
+    "student_stats": "60.32% of students got it right",
+    "solution_text": "Solution\nEasy\nFor an ideal gas, internal energy is solely a function of temperature: U = f(T). In an isothermal process, the temperature remains constant (ΔT = 0), which implies that the internal energy of the ideal gas remains constant: ΔU = 0.",
+    "video_url": "",
+    "subject": "Chemistry"
+  },
+  {
+    "chapter": "Chemical Thermodynamics",
+    "question_number": 3,
+    "question_type": "Single Choice Question",
+    "comprehension": "",
+    "statement": "For a system in equilibrium ΔG = 0 under conditions of constant",
+    "images": [],
+    "options": [
+      {
+        "option_number": 1,
+        "text": "Temperature and pressure",
+        "image": null,
+        "student_percentage": "54.44% Marked this option",
+        "is_correct": true
+      },
+      {
+        "option_number": 2,
+        "text": "Temperature and volume",
+        "image": null,
+        "student_percentage": "26.25% Marked this option",
+        "is_correct": false
+      },
+      {
+        "option_number": 3,
+        "text": "Energy and volume",
+        "image": null,
+        "student_percentage": "11.2% Marked this option",
+        "is_correct": false
+      },
+      {
+        "option_number": 4,
+        "text": "Pressure and Volume",
+        "image": null,
+        "student_percentage": "8.11% Marked this option",
+        "is_correct": false
+      }
+    ],
+    "correct_option": 1,
+    "correct_options": [
+      1
+    ],
+    "student_stats": "54.44% of students got it right",
+    "solution_text": "Solution\nEasy\nAccording to classical thermodynamics, the criterion for spontaneity and thermodynamic equilibrium at constant temperature and constant pressure is defined by Gibbs free energy: (dG)_{T, P} ≤ 0. At equilibrium, (dG)_{T, P} = 0.",
+    "video_url": "https://www.youtube.com/embed/HqwUPzoya7M?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live",
+    "subject": "Chemistry"
+  },
+  {
+    "chapter": "Chemical Thermodynamics",
+    "question_number": 4,
+    "question_type": "Single Choice Question",
+    "comprehension": "",
+    "statement": "Internal pressure of a perfect gas (ideal gas) is",
+    "images": [],
+    "options": [
+      {
+        "option_number": 1,
+        "text": "Zero",
+        "image": null,
+        "student_percentage": "40.4% Marked this option",
+        "is_correct": true
+      },
+      {
+        "option_number": 2,
+        "text": "infinite",
+        "image": null,
+        "student_percentage": "9.06% Marked this option",
+        "is_correct": false
+      },
+      {
+        "option_number": 3,
+        "text": "Calculated by PV=nRT",
+        "image": null,
+        "student_percentage": "46.85% Marked this option",
+        "is_correct": false
+      },
+      {
+        "option_number": 4,
+        "text": "Can not say directally",
+        "image": null,
+        "student_percentage": "3.69% Marked this option",
+        "is_correct": false
+      }
+    ],
+    "correct_option": 1,
+    "correct_options": [
+      1
+    ],
+    "student_stats": "40.4% of students got it right",
+    "solution_text": "Solution\nEasy\nInternal pressure π_T is defined as (∂U/∂V)_T. For an ideal gas, there are no intermolecular forces of attraction or repulsion between the gas molecules, meaning internal energy is independent of volume at constant temperature. Therefore, π_T = (∂U/∂V)_T = 0.",
+    "video_url": "https://www.youtube.com/embed/HqwUPzoya7M?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live",
+    "subject": "Chemistry"
+  },
+  {
+    "chapter": "Chemical Thermodynamics",
+    "question_number": 5,
+    "question_type": "Single Choice Question",
+    "comprehension": "",
+    "statement": "The value of Δn for the combustion reaction of one mole of benzene in gaseous state when both the reactants and products are at 298 K is",
+    "images": [],
+    "options": [
+      {
+        "option_number": 1,
+        "text": "1",
+        "image": null,
+        "student_percentage": "16.77% Marked this option",
+        "is_correct": false
+      },
+      {
+        "option_number": 2,
+        "text": "0",
+        "image": null,
+        "student_percentage": "27.74% Marked this option",
+        "is_correct": false
+      },
+      {
+        "option_number": 3,
+        "text": "1/2",
+        "image": null,
+        "student_percentage": "35.61% Marked this option",
+        "is_correct": true
+      },
+      {
+        "option_number": 4,
+        "text": "−1/2.",
+        "image": null,
+        "student_percentage": "19.46% Marked this option",
+        "is_correct": false
+      }
+    ],
+    "correct_option": 3,
+    "correct_options": [
+      3
+    ],
+    "student_stats": "35.61% of students got it right",
+    "solution_text": "Solution\nEasy\nCombustion reaction with all species in the gaseous state:\nC6H6(g) + 15/2 O2(g) -> 6 CO2(g) + 3 H2O(g)\nMoles of gaseous products = 6 + 3 = 9\nMoles of gaseous reactants = 1 + 15/2 = 8.5\nΔng = n_p(g) - n_r(g) = 9 - 8.5 = +0.5 = 1/2.",
+    "video_url": "https://www.youtube.com/embed/HqwUPzoya7M?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live",
+    "subject": "Chemistry"
+  },
+  {
+    "chapter": "Chemical Thermodynamics",
+    "question_number": 6,
+    "question_type": "Single Choice Question",
+    "comprehension": "",
+    "statement": "For which change ΔH ≠ ΔE",
+    "images": [],
+    "options": [
+      {
+        "option_number": 1,
+        "text": "H2(g) + I2(g) ⇌ 2HI(g)",
+        "image": null,
+        "student_percentage": "17.3% Marked this option",
+        "is_correct": false
+      },
+      {
+        "option_number": 2,
+        "text": "HCl(ℓ) + NaOH(ℓ) → NaCl(s) + H2O(ℓ)",
+        "image": null,
+        "student_percentage": "25.45% Marked this option",
+        "is_correct": false
+      },
+      {
+        "option_number": 3,
+        "text": "C(s) + O2(g) → CO2(g)",
+        "image": null,
+        "student_percentage": "10.69% Marked this option",
+        "is_correct": false
+      },
+      {
+        "option_number": 4,
+        "text": "N2(g) + 3H2(g) → 2NH3(g)",
+        "image": null,
+        "student_percentage": "46.82% Marked this option",
+        "is_correct": true
+      }
+    ],
+    "correct_option": 4,
+    "correct_options": [
+      4
+    ],
+    "student_stats": "46.56% of students got it right",
+    "solution_text": "Solution\nEasy\nShow Video Sol.\nRelationship: ΔH = ΔE + Δng RT.\nFor ΔH = ΔE, Δng must be zero.\nIn option (1): Δng = 2 - (1 + 1) = 0 => ΔH = ΔE.\nIn option (3): Δng = 1 - 1 = 0 => ΔH = ΔE.\nIn option (4): Δng = 2 - (1 + 3) = -2 ≠ 0 => ΔH ≠ ΔE.",
+    "video_url": "https://www.youtube.com/embed/HqwUPzoya7M?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live",
+    "subject": "Chemistry"
+  },
+  {
+    "chapter": "Chemical Thermodynamics",
+    "question_number": 7,
+    "question_type": "Single Choice Question",
+    "comprehension": "",
+    "statement": "Find the work done when 18ml of water is getting vapourised at 373 K is open vessel\n\n(Assume the ideal behaviour of water vapour.)",
+    "images": [],
+    "options": [
+      {
+        "option_number": 1,
+        "text": "−30 litre atm",
+        "image": null,
+        "student_percentage": "34.4% Marked this option",
+        "is_correct": true
+      },
+      {
+        "option_number": 2,
+        "text": "−60 litre atm",
+        "image": null,
+        "student_percentage": "36.24% Marked this option",
+        "is_correct": false
+      },
+      {
+        "option_number": 3,
+        "text": "−10 litre atm",
+        "image": null,
+        "student_percentage": "20.64% Marked this option",
+        "is_correct": false
+      },
+      {
+        "option_number": 4,
+        "text": "−20 litre atm",
+        "image": null,
+        "student_percentage": "9.17% Marked this option",
+        "is_correct": false
+      }
+    ],
+    "correct_option": 1,
+    "correct_options": [
+      1
+    ],
+    "student_stats": "33.49% of students got it right",
+    "solution_text": "Solution\nEasy\nShow Video Sol.\nGiven:\nVolume of water = 18 mL, Density = 1 g/mL => Mass = 18 g\nMoles of water: n = 18 / 18 = 1 mol\nAt 373 K, ideal gas behavior:\nPV = nRT\nWork done during vaporization in an open vessel against atmospheric pressure:\nw = -P ΔV ≈ -P V_gas = -nRT\nw = -(1 mol) * (0.0821 L atm mol^-1 K^-1) * (373 K) ≈ -30.62 L atm ≈ -30 L atm.",
+    "video_url": "https://www.youtube.com/embed/HqwUPzoya7M?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live",
+    "subject": "Chemistry"
+  },
+  {
+    "chapter": "Chemical Thermodynamics",
+    "question_number": 8,
+    "question_type": "Single Choice Question",
+    "comprehension": "",
+    "statement": "Out of the following, the correct statement is:",
+    "images": [],
+    "options": [
+      {
+        "option_number": 1,
+        "text": "w is a state function",
+        "image": null,
+        "student_percentage": "9.56% Marked this option",
+        "is_correct": false
+      },
+      {
+        "option_number": 2,
+        "text": "ΔE = q + w for every thermodynamic system at rest in the absence of external field",
+        "image": null,
+        "student_percentage": "26.61% Marked this option",
+        "is_correct": false
+      },
+      {
+        "option_number": 3,
+        "text": "q = 0 for every cyclic process",
+        "image": null,
+        "student_percentage": "19.64% Marked this option",
+        "is_correct": false
+      },
+      {
+        "option_number": 4,
+        "text": "ΔE = 0 for every cyclic process",
+        "image": null,
+        "student_percentage": "44.19% Marked this option",
+        "is_correct": true
+      }
+    ],
+    "correct_option": 4,
+    "correct_options": [
+      4
+    ],
+    "student_stats": "44.19% of students got it right",
+    "solution_text": "Solution\nEasy\nShow Video Sol.\nInternal energy E is a state function. In a cyclic process, the system undergoes a series of transformations and returns to its initial state (State 1 -> State 2 -> ... -> State 1). Therefore, the overall change in internal energy is identically zero: ΔE = 0.",
+    "video_url": "",
+    "subject": "Chemistry"
+  },
+  {
+    "chapter": "Chemical Thermodynamics",
+    "question_number": 9,
+    "question_type": "Single Choice Question",
+    "comprehension": "",
+    "statement": "If 1/2 X2O(s) → X(s) + 1/4 O2(g) : ΔH = 90 kJ.\n\nThen heat change during reaction of metal X with one mole of O2 to form oxide to maximum extent is",
+    "images": [],
+    "options": [
+      {
+        "option_number": 1,
+        "text": "360 kJ",
+        "image": null,
+        "student_percentage": "20.08% Marked this option",
+        "is_correct": false
+      },
+      {
+        "option_number": 2,
+        "text": "-360 kJ",
+        "image": null,
+        "student_percentage": "47.88% Marked this option",
+        "is_correct": true
+      },
+      {
+        "option_number": 3,
+        "text": "-180 kJ",
+        "image": null,
+        "student_percentage": "22.39% Marked this option",
+        "is_correct": false
+      },
+      {
+        "option_number": 4,
+        "text": "180 kJ",
+        "image": null,
+        "student_percentage": "9.65% Marked this option",
+        "is_correct": false
+      }
+    ],
+    "correct_option": 2,
+    "correct_options": [
+      2
+    ],
+    "student_stats": "48.26% of students got it right",
+    "solution_text": "Solution\nEasy\nGiven reaction:\n1/2 X2O(s) -> X(s) + 1/4 O2(g) : ΔH = +90 kJ\nReversing the reaction:\nX(s) + 1/4 O2(g) -> 1/2 X2O(s) : ΔH = -90 kJ\nFor reaction of metal X with 1 mole of O2 to form oxide, multiply the entire equation by 4:\n4 X(s) + O2(g) -> 2 X2O(s)\nΔH_reaction = 4 * (-90 kJ) = -360 kJ.",
+    "video_url": "https://www.youtube.com/embed/_69390nHBM0?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live",
+    "subject": "Chemistry"
+  },
+  {
+    "chapter": "Chemical Thermodynamics",
+    "question_number": 10,
+    "question_type": "Single Choice Question",
+    "comprehension": "",
+    "statement": "Adiabatic expansion of ideal gas into vacuum correspond to",
+    "images": [],
+    "options": [
+      {
+        "option_number": 1,
+        "text": "w = 0",
+        "image": null,
+        "student_percentage": "14.34% Marked this option",
+        "is_correct": false
+      },
+      {
+        "option_number": 2,
+        "text": "ΔE = 0",
+        "image": null,
+        "student_percentage": "7.79% Marked this option",
+        "is_correct": false
+      },
+      {
+        "option_number": 3,
+        "text": "ΔH = 0",
+        "image": null,
+        "student_percentage": "11.48% Marked this option",
+        "is_correct": false
+      },
+      {
+        "option_number": 4,
+        "text": "All of these",
+        "image": null,
+        "student_percentage": "66.39% Marked this option",
+        "is_correct": true
+      }
+    ],
+    "correct_option": 4,
+    "correct_options": [
+      4
+    ],
+    "student_stats": "66.39% of students got it right",
+    "solution_text": "Solution\nMedium\nShow Video Sol.\nIn free adiabatic expansion of an ideal gas into vacuum:\n1. Expansion into vacuum means P_ext = 0, so work done w = -P_ext * ΔV = 0.\n2. Adiabatic conditions mean heat transfer q = 0.\n3. By the First Law of Thermodynamics: ΔE = q + w = 0 + 0 = 0.\n4. Since ΔE = 0 for an ideal gas, temperature does not change (ΔT = 0). Consequently, ΔH = ΔE + Δ(PV) = ΔE + nRΔT = 0.\nTherefore, all of these statements (w = 0, ΔE = 0, ΔH = 0) are correct.",
+    "video_url": "",
+    "subject": "Chemistry"
   }
 ]

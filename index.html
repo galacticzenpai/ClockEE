@@ -1,423 +1,915 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ClockEE OS 2.0 // The JEE Cockpit</title>
-  <link rel="stylesheet" href="styles/clockee_motion.css">
-  <link rel="stylesheet" href="styles/tokens.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ClockEE OS 2.0 // High-Precision Cockpit</title>
+  
+  <script src="env.js" onerror="/* env.js optional */"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- CDNs -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+        },
+      },
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+  <link rel="stylesheet" href="styles/clockee_motion.css" />
+  <link rel="stylesheet" href="styles/tokens.css" />
+
   <style>
     :root {
-      --surface-0: #090d16;
-      --surface-1: #111726;
-      --surface-2: #1a2236;
-      --surface-inset: #060910;
-      --border-subtle: 1px solid rgba(255, 255, 255, 0.08);
-      --border-strong: 1px solid rgba(255, 255, 255, 0.16);
-      --border-focus: 2px solid #38bdf8;
-      --text-high-contrast: #f8fafc;
-      --text-muted-readable: #94a3b8;
+      --bg-base: #070913;
+      --bg-surface: #0a0c10;
+      --bg-elevated: #12151c;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.16);
+      --accent: #0a84ff;
+      --accent-cyan: #00f0ff;
+      --text-primary: #ffffff;
+      --text-secondary: #94a3b8;
     }
 
     body {
-      background-color: var(--surface-0);
-      color: var(--text-high-contrast);
+      background-color: var(--bg-base);
+      color: var(--text-primary);
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       margin: 0;
       padding: 0;
       min-height: 100vh;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
     }
 
-    .mono { font-family: 'JetBrains Mono', 'Roboto Mono', monospace; }
-
-    .tabular {
-      font-variant-numeric: tabular-nums;
-      -moz-font-feature-settings: "tnum";
-      -webkit-font-feature-settings: "tnum";
-      font-feature-settings: "tnum";
+    .glass-card {
+      background: rgba(10, 12, 18, 0.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .panel {
-      background-color: var(--surface-1);
-      border: var(--border-subtle);
-      transition: border-color 0.15s ease, background-color 0.15s ease;
+    .glass-card:hover {
+      border-color: rgba(255, 255, 255, 0.14);
     }
 
-    .panel:hover {
-      border-color: rgba(255, 255, 255, 0.16);
-    }
-
-    .panel-inset {
-      background-color: var(--surface-inset);
-      border: var(--border-subtle);
-    }
-
-    .touch-target {
-      min-height: 44px;
-      min-width: 44px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    button:focus-visible, a:focus-visible {
-      outline: 2px solid #38bdf8 !important;
-      outline-offset: 2px;
-    }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    .tabular-nums { font-variant-numeric: tabular-nums; }
 
     ::-webkit-scrollbar { width: 6px; height: 6px; }
-    ::-webkit-scrollbar-track { background: var(--surface-0); }
+    ::-webkit-scrollbar-track { background: #070913; }
     ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
     ::-webkit-scrollbar-thumb:hover { background: #334155; }
-  </style>
-</head>
-<body data-page="hud" class="min-h-screen flex flex-col">
 
-  <!-- Unified Navigation Bar Component -->
-  <div id="clockee-nav" class="tabular-nums"></div>
+    @keyframes spinSlow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .animate-spin-slow {
+      animation: spinSlow 14s linear infinite;
+    }
+
+    :root {
+      --bg-base: #000000;
+      --bg-surface: #1c1c1e;
+      --bg-elevated: #2c2c2e;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-focus: rgba(10, 132, 255, 0.5);
+      --accent: #0a84ff;
+      --accent-soft: rgba(10, 132, 255, 0.16);
+      --text-primary: #ffffff;
+      --text-secondary: rgba(235, 235, 245, 0.64);
+    }
+
+    /* Industrial Bauhaus Theme (Hallmark Design System) */
+    [data-theme="industrial_bauhaus"],
+    body.theme-industrial-bauhaus,
+    body[data-page-theme="industrial_bauhaus"] {
+      --bg-base: #ecebe4;
+      --bg-surface: #ffffff;
+      --bg-elevated: #e2e0d7;
+      --border-subtle: #1a1a1a;
+      --border-focus: #0047bb;
+      --accent: #0047bb;
+      --accent-soft: rgba(0, 71, 187, 0.12);
+      --text-primary: #0f0f0f;
+      --text-secondary: #4a4a4a;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-primary);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "SF Pro", 'Inter', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+      padding-top: env(safe-area-inset-top);
+      padding-bottom: env(safe-area-inset-bottom);
+      padding-left: env(safe-area-inset-left);
+      padding-right: env(safe-area-inset-right);
+    }
+
+    .mono { font-family: "SF Mono", "JetBrains Mono", Menlo, monospace; }
+
+    .glass-card {
+      backdrop-filter: blur(25px) saturate(190%);
+      -webkit-backdrop-filter: blur(25px) saturate(190%);
+      background: rgba(28, 28, 30, 0.72);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    [data-theme="industrial_bauhaus"] .glass-card,
+    body.theme-industrial-bauhaus .glass-card,
+    body[data-page-theme="industrial_bauhaus"] .glass-card {
+      background: #ffffff;
+      border: 2px solid #1a1a1a;
+      border-radius: 2px;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      box-shadow: 4px 4px 0px #1a1a1a;
+    }
+
+    .nav-btn {
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      text-decoration: none;
+    }
+    .nav-btn:hover {
+      background: var(--accent-soft);
+      color: #fff;
+    }
+    .nav-btn.nav-active {
+      background: var(--accent);
+      color: #ffffff;
+      box-shadow: 0 2px 10px rgba(10, 132, 255, 0.35);
+    }
+
+    .nav-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .nav-caret {
+      font-size: 0.65rem;
+      margin-left: 2px;
+      opacity: 0.7;
+      display: inline-block;
+      transition: transform 0.25s ease;
+    }
+    .nav-dropdown:hover .nav-caret {
+      transform: rotate(180deg);
+    }
+    .nav-dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      margin-top: 6px;
+      min-width: 215px;
+      background: rgba(8, 12, 26, 0.98);
+      border: 1px solid rgba(0, 240, 255, 0.45);
+      border-radius: 14px;
+      padding: 6px;
+      display: none;
+      flex-direction: column;
+      gap: 2px;
+      z-index: 100;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(36px) saturate(220%);
+      -webkit-backdrop-filter: blur(36px) saturate(220%);
+    }
+    .nav-dropdown:hover .nav-dropdown-menu { display: flex; }
+    .nav-dropdown-item {
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      color: #9ca3af;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+    .nav-dropdown-item:hover {
+      background: rgba(99, 102, 241, 0.22);
+      color: #00f0ff;
+      transform: translateX(2px);
+    }
+
+    .nav-icon-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .nav-icon-btn:hover {
+      border-color: #00f0ff;
+      color: #00f0ff;
+      background: rgba(0, 240, 255, 0.1);
+    }
+
+    ::-webkit-scrollbar {
+      width: 7px;
+      height: 7px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #07080d;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.16);
+      border-radius: 9999px;
+      border: 1px solid rgba(0, 0, 0, 0.5);
+      transition: background 0.2s ease;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--accent, #0a84ff);
+    }
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255, 255, 255, 0.18) #000000;
+    }
+  </style>
+
+  <!-- Core Scripts -->
+  <script src="cbt_master_bank.js"></script>
+  <script src="cbt_shared.js"></script>
+  <script src="clockee_core.js"></script>
+  <script src="js/clockee_runtime.js"></script>
+  <script src="components/navbar.js"></script>
+</head>
+<body data-page="home" class="min-h-screen flex flex-col relative antialiased selection:bg-[#0a84ff] selection:text-white bg-[#070913]">
+
+  <!-- Universal Master Navigation Bar -->
+  <div id="clockee-nav"></div>
 
   <!-- Main Cockpit Workspace -->
-  <main class="max-w-7xl mx-auto px-4 py-6 md:py-8 flex-1 w-full space-y-8">
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 py-6 pb-24 grid grid-cols-1 lg:grid-cols-12 gap-6 relative w-full flex-1">
     
-    <!-- Hero Header Strip -->
-    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-b border-slate-800 pb-6">
-      <div>
-        <div class="flex items-center gap-2.5">
-          <span class="inline-block w-2.5 h-2.5 rounded-sm bg-sky-400"></span>
-          <span class="text-xs font-bold tracking-widest text-sky-400 uppercase mono">CLOCKEE OS 2.0 // MASTER COCKPIT</span>
-        </div>
-        <h1 class="text-2xl md:text-3xl font-extrabold text-white tracking-tight mt-1">High-Precision JEE Study Control Center</h1>
-        <p class="text-sm text-slate-400 mt-1">Cognitive Ergonomics, Zero Slop, NTA Test Parity & Offline-First Intelligence</p>
-      </div>
+    <!-- Left Column: Aspirant Profile, XP Status, Monthly Heatmap & Dual Graphs (lg:col-span-4) -->
+    <aside class="lg:col-span-4 flex flex-col gap-6" id="clockee-sidebar-root">
+      <!-- Dynamically mounted by window.renderClockEESidebar() -->
+    </aside>
 
-      <!-- Quick Action Chamber Launch -->
-      <div class="flex items-center gap-3">
-        <a href="timer.html" class="touch-target px-4 py-2 rounded-xl bg-sky-600 hover:bg-sky-500 text-xs font-bold text-white transition shadow-sm">
-          ▶ Enter Sprint Chamber
-        </a>
-        <a href="cbt_exam.html" class="touch-target px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-xs font-bold text-white transition shadow-sm">
-          ⚡ Launch CBT Mock
-        </a>
-      </div>
-    </div>
-
-    <!-- Top Instrumentation Matrix: 4 High-Precision Instruments -->
-    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+    <!-- Right Column: Symmetrical Alignment & Balanced Spacing (lg:col-span-8) -->
+    <div class="lg:col-span-8 flex flex-col gap-6 min-w-0">
       
-      <!-- Instrument 1: JEE Main Countdown Clock -->
-      <div class="panel p-5 rounded-2xl flex flex-col justify-between">
-        <div>
-          <div class="flex items-center justify-between text-xs text-slate-400 mono font-semibold">
-            <span>JEE MAIN 2027</span>
-            <span class="px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20 text-[10px]">SESSION 1</span>
+      <!-- 1. JEE Target Countdown Card: Months, Total Weeks, Days -->
+      <div class="glass-card p-5 space-y-3.5 shadow-xl border border-white/10 bg-[#0d1122]/75">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <div class="flex items-center gap-2.5">
+            <div class="w-7 h-7 rounded-lg bg-cyan-950/60 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <div>
+              <h2 id="jee-countdown-title" class="text-base sm:text-lg font-black text-white tracking-tight tabular-nums mono">Target: JEE 2028</h2>
+            </div>
           </div>
-          <div class="mt-3 text-2xl md:text-3xl font-black text-white mono tabular-nums tabular" id="hud-jee-days">
-            ---d --h
-          </div>
-          <div class="text-xs text-slate-400 mt-1 mono tabular-nums tabular" id="hud-jee-secs">
-            Target: Jan 24, 2027 • 09:00 IST
-          </div>
+          <span class="text-xs font-mono font-bold px-3 py-1 rounded-full bg-[#0a84ff]/15 text-[#0a84ff] border border-white/10" id="jee-target-date-label">May 17, 2028</span>
         </div>
-        <div class="mt-4 pt-3 border-t border-slate-800 text-[11px] text-slate-400 flex items-center justify-between">
-          <span>Session 2: Apr 2027</span>
-          <span class="text-sky-400 font-semibold">Adv: May 2027</span>
-        </div>
-      </div>
-
-      <!-- Instrument 2: Daily Focus Dial -->
-      <div class="panel p-5 rounded-2xl flex items-center justify-between">
-        <div>
-          <div class="text-xs text-slate-400 mono font-semibold">DAILY FOCUS GOAL</div>
-          <div class="mt-2 text-2xl md:text-3xl font-black text-white mono tabular-nums tabular" id="hud-focus-hours">
-            6.5 <span class="text-sm font-semibold text-slate-400">/ 8.0h</span>
-          </div>
-          <div class="text-xs text-emerald-400 mt-1 font-medium">81% Goal Completed</div>
-        </div>
-        <!-- Crisp SVG Progress Meter -->
-        <div class="relative w-16 h-16 flex-shrink-0">
-          <svg class="w-16 h-16 transform -rotate-90" viewBox="0 0 36 36">
-            <path class="text-slate-800" stroke-width="3.5" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-            <path class="text-sky-400" stroke-width="3.5" stroke-dasharray="81, 100" stroke-linecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-          </svg>
-          <span class="absolute inset-0 flex items-center justify-center text-xs font-bold text-white mono tabular">81%</span>
-        </div>
-      </div>
-
-      <!-- Instrument 3: Focus Chamber Physical State -->
-      <div class="panel p-5 rounded-2xl flex flex-col justify-between">
-        <div>
-          <div class="flex items-center justify-between text-xs text-slate-400 mono font-semibold">
-            <span>CHAMBER PROTOCOL</span>
-            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
-          </div>
-          <div class="mt-3 text-lg font-bold text-white flex items-center gap-2">
-            <span class="px-2.5 py-1 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 text-xs font-black mono uppercase">STANDBY</span>
-          </div>
-          <p class="text-xs text-slate-400 mt-2">Next block: 50m Deep Block (Physics - Rotational Dynamics)</p>
-        </div>
-        <div class="mt-3 pt-3 border-t border-slate-800 text-[11px] text-slate-400 flex items-center justify-between">
-          <span>Web Worker: Ready</span>
-          <span class="text-purple-300 font-semibold">40Hz Binaural</span>
-        </div>
-      </div>
-
-      <!-- Instrument 4: 75-Chapter Syllabus Velocity -->
-      <div class="panel p-5 rounded-2xl flex flex-col justify-between">
-        <div>
-          <div class="flex items-center justify-between text-xs text-slate-400 mono font-semibold">
-            <span>75-CHAPTER SYLLABUS</span>
-            <span class="text-sky-400 font-bold tabular">56%</span>
-          </div>
-          <div class="mt-3 text-2xl md:text-3xl font-black text-white mono tabular-nums tabular">
-            42 <span class="text-sm font-semibold text-slate-400">/ 75 Mastered</span>
-          </div>
-          <!-- Tri-Color Progress Bar (Physics, Chemistry, Maths) -->
-          <div class="w-full bg-slate-800 h-2.5 rounded-full mt-3 overflow-hidden flex">
-            <div style="width: 20%" class="bg-sky-400" title="Physics: 15/25"></div>
-            <div style="width: 19%" class="bg-emerald-400" title="Chemistry: 14/25"></div>
-            <div style="width: 17%" class="bg-amber-400" title="Maths: 13/25"></div>
-          </div>
-        </div>
-        <div class="mt-3 pt-3 border-t border-slate-800 text-[11px] text-slate-400 flex items-center justify-between mono">
-          <span class="text-sky-400">P: 15</span>
-          <span class="text-emerald-400">C: 14</span>
-          <span class="text-amber-400">M: 13</span>
-        </div>
-      </div>
-
-    </section>
-
-    <!-- Core 8-Module Launchpad Grid -->
-    <section class="space-y-4">
-      <div class="flex items-center justify-between">
-        <div>
-          <h2 class="text-base font-bold text-white tracking-tight">ClockEE 2.0 Core Modules</h2>
-          <p class="text-xs text-slate-400 mt-0.5">Direct 1-click execution across the master JEE architecture</p>
-        </div>
-        <span class="text-xs text-slate-400 mono">8 Systems Operational</span>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         
-        <!-- Module 1: CBT Examination Suite -->
-        <a href="cbt_home.html" class="panel p-5 rounded-2xl no-underline group block flex flex-col justify-between min-h-[170px]">
-          <div>
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-bold text-emerald-400 mono uppercase">Module 06-07</span>
-              <span class="w-6 h-6 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xs mono">CBT</span>
-            </div>
-            <h3 class="text-base font-bold text-white group-hover:text-emerald-400 transition mt-2">NTA CBT Exam Suite</h3>
-            <p class="text-xs text-slate-400 mt-1 leading-relaxed">
-              Authentic 3-hour NTA test simulator with 5-state palette machine, KaTeX equations, and Section B numeric keypad.
-            </p>
+        <!-- Individual Countdown Boxes Grid (Months, Total Weeks, Days) -->
+        <div class="grid grid-cols-3 gap-3 sm:gap-4 text-center">
+          <div class="bg-black/40 rounded-2xl p-3.5 sm:p-4 border border-cyan-500/25 shadow-inner hover:border-cyan-400/40 transition">
+            <div class="text-3xl sm:text-4xl font-black font-mono text-cyan-400 tracking-tight" id="cd-months">--</div>
+            <div class="text-[10px] sm:text-xs text-cyan-200/80 uppercase tracking-widest mt-1.5 font-extrabold">Months</div>
           </div>
-          <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400 mono">
-            <span>75 Questions</span>
-            <span class="text-emerald-400 font-bold group-hover:translate-x-0.5 transition">Enter Test →</span>
+          <div class="bg-black/40 rounded-2xl p-3.5 sm:p-4 border border-[#0a84ff]/25 shadow-inner hover:border-white/10 transition">
+            <div class="text-3xl sm:text-4xl font-black font-mono text-[#0a84ff] tracking-tight" id="cd-weeks">--</div>
+            <div class="text-[10px] sm:text-xs text-blue-200/80 uppercase tracking-widest mt-1.5 font-extrabold">Total Weeks</div>
           </div>
-        </a>
-
-        <!-- Module 2: Sprint Focus Chamber -->
-        <a href="timer.html" class="panel p-5 rounded-2xl no-underline group block flex flex-col justify-between min-h-[170px]">
-          <div>
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-bold text-sky-400 mono uppercase">Module 02</span>
-              <span class="w-6 h-6 rounded-lg bg-sky-500/10 text-sky-400 flex items-center justify-center text-xs mono">⏱</span>
-            </div>
-            <h3 class="text-base font-bold text-white group-hover:text-sky-400 transition mt-2">Sprint Focus Chamber</h3>
-            <p class="text-xs text-slate-400 mt-1 leading-relaxed">
-              Zero-drift Web Worker countdown clock (25m/50m/90m), chapter context tagging, and synthesized 40Hz audio.
-            </p>
+          <div class="bg-black/40 rounded-2xl p-3.5 sm:p-4 border border-white/10 shadow-inner hover:border-white/10 transition">
+            <div class="text-3xl sm:text-4xl font-black font-mono text-[#0a84ff] tracking-tight" id="cd-days">--</div>
+            <div class="text-[10px] sm:text-xs text-[#0a84ff] uppercase tracking-widest mt-1.5 font-extrabold">Days</div>
           </div>
-          <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400 mono">
-            <span>Deep Study</span>
-            <span class="text-sky-400 font-bold group-hover:translate-x-0.5 transition">Start Block →</span>
-          </div>
-        </a>
-
-        <!-- Module 3: 75-Chapter Syllabus Matrix -->
-        <a href="tracker.html" class="panel p-5 rounded-2xl no-underline group block flex flex-col justify-between min-h-[170px]">
-          <div>
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-bold text-purple-400 mono uppercase">Module 10</span>
-              <span class="w-6 h-6 rounded-lg bg-purple-500/10 text-purple-400 flex items-center justify-center text-xs mono">§</span>
-            </div>
-            <h3 class="text-base font-bold text-white group-hover:text-purple-400 transition mt-2">75-Chapter Matrix</h3>
-            <p class="text-xs text-slate-400 mt-1 leading-relaxed">
-              Complete JEE syllabus roadmap with question weightage, revision intervals, and formula mastery checklists.
-            </p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400 mono">
-            <span>42/75 Mastered</span>
-            <span class="text-purple-400 font-bold group-hover:translate-x-0.5 transition">View Matrix →</span>
-          </div>
-        </a>
-
-        <!-- Module 4: Mistake Autopsy & SRS Vault -->
-        <a href="cbt_mistakes.html" class="panel p-5 rounded-2xl no-underline group block flex flex-col justify-between min-h-[170px]">
-          <div>
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-bold text-rose-400 mono uppercase">Module 09</span>
-              <span class="w-6 h-6 rounded-lg bg-rose-500/10 text-rose-400 flex items-center justify-center text-xs mono">⚠</span>
-            </div>
-            <h3 class="text-base font-bold text-white group-hover:text-rose-400 transition mt-2">Mistake Autopsy & SRS</h3>
-            <p class="text-xs text-slate-400 mt-1 leading-relaxed">
-              E1-E4 error classification taxonomy with 4-tier Leitner spaced repetition deck and blind re-solve engine.
-            </p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400 mono">
-            <span class="text-rose-400 font-bold">18 Due Today</span>
-            <span class="text-rose-400 font-bold group-hover:translate-x-0.5 transition">Review Mistakes →</span>
-          </div>
-        </a>
-
-        <!-- Module 5: Kanban Task & DPP Hub -->
-        <a href="task.html" class="panel p-5 rounded-2xl no-underline group block flex flex-col justify-between min-h-[170px]">
-          <div>
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-bold text-amber-400 mono uppercase">Module 04</span>
-              <span class="w-6 h-6 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center text-xs mono">▦</span>
-            </div>
-            <h3 class="text-base font-bold text-white group-hover:text-amber-400 transition mt-2">Tasks & DPP Hub</h3>
-            <p class="text-xs text-slate-400 mt-1 leading-relaxed">
-              4-column execution board: Backlog, Today's Target, In Solving, and Mastered with Vim keyboard navigation.
-            </p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400 mono">
-            <span>12 Pending</span>
-            <span class="text-amber-400 font-bold group-hover:translate-x-0.5 transition">Open Board →</span>
-          </div>
-        </a>
-
-        <!-- Module 6: Coaching Intelligence Matrix -->
-        <a href="coaching.html" class="panel p-5 rounded-2xl no-underline group block flex flex-col justify-between min-h-[170px]">
-          <div>
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-bold text-cyan-400 mono uppercase">Module 05</span>
-              <span class="w-6 h-6 rounded-lg bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xs mono">📊</span>
-            </div>
-            <h3 class="text-base font-bold text-white group-hover:text-cyan-400 transition mt-2">Coaching Matrix</h3>
-            <p class="text-xs text-slate-400 mt-1 leading-relaxed">
-              Test series score tracker (Allen/FIITJEE), dynamic quartile distribution curve, and PCM balance triangle.
-            </p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400 mono">
-            <span>Top 2.5% Tile</span>
-            <span class="text-cyan-400 font-bold group-hover:translate-x-0.5 transition">Analytics →</span>
-          </div>
-        </a>
-
-        <!-- Module 7: Daily Practice Ledger -->
-        <a href="today.html" class="panel p-5 rounded-2xl no-underline group block flex flex-col justify-between min-h-[170px]">
-          <div>
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-bold text-emerald-400 mono uppercase">Module 03</span>
-              <span class="w-6 h-6 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xs mono">✓</span>
-            </div>
-            <h3 class="text-base font-bold text-white group-hover:text-emerald-400 transition mt-2">Daily Practice Ledger</h3>
-            <p class="text-xs text-slate-400 mt-1 leading-relaxed">
-              Sanitized practice stream, rapid question increment dock, and chronological study event log.
-            </p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400 mono">
-            <span>42 Qs Solved</span>
-            <span class="text-emerald-400 font-bold group-hover:translate-x-0.5 transition">Open Ledger →</span>
-          </div>
-        </a>
-
-        <!-- Module 8: Formula & PDF Vault -->
-        <a href="cbt_notebooks.html" class="panel p-5 rounded-2xl no-underline group block flex flex-col justify-between min-h-[170px]">
-          <div>
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-bold text-purple-400 mono uppercase">Module 12</span>
-              <span class="w-6 h-6 rounded-lg bg-purple-500/10 text-purple-400 flex items-center justify-center text-xs mono">∑</span>
-            </div>
-            <h3 class="text-base font-bold text-white group-hover:text-purple-400 transition mt-2">Formula & PDF Vault</h3>
-            <p class="text-xs text-slate-400 mt-1 leading-relaxed">
-              Instant-search KaTeX mathematical equation sheets, ray diagrams, and organic chemistry mechanisms.
-            </p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400 mono">
-            <span>High-Yield Sheets</span>
-            <span class="text-purple-400 font-bold group-hover:translate-x-0.5 transition">Browse Vault →</span>
-          </div>
-        </a>
-
-      </div>
-    </section>
-
-    <!-- Bottom Telemetry & Storage Beacon Strip -->
-    <footer class="panel p-5 rounded-2xl flex flex-col md:flex-row md:items-center justify-between text-xs text-slate-400 gap-4">
-      <div class="flex items-center gap-3">
-        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
-        <span class="text-slate-300 font-medium">IndexedDB Storage (<strong class="text-white mono">clockee_db v2</strong>): Active & Synchronized</span>
+        </div>
       </div>
 
-      <div class="flex items-center gap-4 mono text-[11px]">
-        <span>Companion Daemon: <strong class="text-emerald-400">127.0.0.1:8765</strong></span>
-        <span>•</span>
-        <span>Mesh Node: <strong class="text-sky-400">UI/UX Craftsman</strong></span>
-      </div>
-    </footer>
+      <!-- 2. Aspirant Daily Target & Readiness HUD -->
+      <div class="glass-card p-5 border border-white/10 bg-[#0d1122]/75 shadow-xl space-y-3">
+        <div class="flex items-center justify-between pb-2.5 border-b border-white/10 flex-wrap gap-2">
+          <div class="flex items-center gap-2.5">
+            <div class="w-7 h-7 rounded-lg bg-[#161b24] border border-white/10 flex items-center justify-center text-[#0a84ff]">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+            </div>
+            <div>
+              <h3 class="text-xs font-black uppercase tracking-widest text-slate-200">Daily Mission &amp; High-Yield Focus Sprint</h3>
+              <p class="text-[11px] text-slate-400 font-medium" id="daily-mission-subtitle">Current target mastery for JEE 2028</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-[10px] font-mono px-3 py-1 rounded-full bg-gradient-to-r from-amber-500/20 via-orange-500/25 to-red-500/20 text-orange-300 border border-orange-500/40 font-black flex items-center gap-1.5 shadow-sm"><span class="text-xs">🔥</span> <span id="home-mission-streak-text">0-Day Streak</span></span>
+          </div>
+        </div>
 
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5">
+          <!-- Focus Chapter Card -->
+          <div class="p-3.5 rounded-xl bg-black/35 border border-white/5 space-y-1 shadow-inner">
+            <div class="text-[10px] text-slate-400 uppercase font-bold tracking-wider">Active High-Yield Chapter</div>
+            <div class="text-xs font-black text-white flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-blue-400 inline-block shadow-[0_0_8px_rgba(96,165,250,0.7)]"></span>
+              <span id="active-chapter-name">Kinematics &amp; Vectors</span>
+            </div>
+            <div class="text-[10px] text-cyan-300 font-mono font-medium" id="active-chapter-topic">1D/2D Motion &amp; Mechanics Foundation</div>
+          </div>
+
+          <!-- Target Metric / Accuracy Card -->
+          <div class="p-3.5 rounded-xl bg-black/35 border border-white/5 space-y-1 shadow-inner">
+            <div class="text-[10px] text-slate-400 uppercase font-bold tracking-wider">Today's Focus Target</div>
+            <div class="text-xs font-black text-emerald-300 flex items-center gap-1.5 font-mono">
+              <svg class="w-3.5 h-3.5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+              <span>90+ Target Questions / Day</span>
+            </div>
+            <div class="text-[10px] text-slate-400 font-medium">Accuracy Benchmark: &gt; 85%</div>
+          </div>
+
+          <!-- Quick Action Launch -->
+          <div class="p-3.5 rounded-xl bg-black/35 border border-white/5 flex flex-col justify-between shadow-inner">
+            <div class="text-[10px] text-[#0a84ff] uppercase font-bold tracking-wider">Adaptive Practice</div>
+            <div class="flex items-center gap-2 pt-1">
+              <a href="timer.html?mode=drill" class="flex-1 py-1.5 px-2 bg-[#0a84ff] hover:bg-[#0a84ff] text-white rounded-lg text-xs font-bold text-center transition shadow">Start Drill</a>
+              <a href="cbt_home.html" class="flex-1 py-1.5 px-2 bg-cyan-600/20 hover:bg-cyan-600 text-cyan-300 hover:text-white border border-cyan-500/30 rounded-lg text-xs font-bold text-center transition">CBT Exam</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Quick Log Solved Questions (+1, +5, -1 with top counter) -->
+      <div class="glass-card p-5 border border-white/10 bg-[#0d1122]/75 shadow-xl relative overflow-hidden space-y-3.5">
+        <div class="flex items-center justify-between pb-2.5 border-b border-white/10 flex-wrap gap-2">
+          <div class="flex items-center gap-2.5">
+            <div class="w-7 h-7 rounded-lg bg-cyan-950/60 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+            </div>
+            <div>
+              <h3 class="text-xs font-black uppercase tracking-widest text-slate-200">Quick Log Solved Questions</h3>
+              <p class="text-[11px] text-slate-400 font-medium">Instant counter logging syncs Monthly Heatmap, XP &amp; Coaching Log</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- Physics Logger Card -->
+          <div class="bg-black/35 border border-white/10 hover:border-blue-500/40 rounded-2xl p-4 text-center space-y-3 transition shadow-inner">
+            <div>
+              <div id="quick-phy-today" class="text-3xl font-extrabold font-mono text-blue-400">0</div>
+              <div class="text-[10px] uppercase tracking-wider text-gray-400 font-bold mt-0.5">Questions Today</div>
+            </div>
+            <div class="text-xs font-bold text-white flex items-center justify-center gap-2 py-1 border-y border-white/5">
+              <span class="w-2.5 h-2.5 rounded-full bg-blue-400 inline-block shadow-[0_0_8px_rgba(96,165,250,0.7)]"></span>
+              <span class="font-extrabold text-slate-100">Physics Practice</span>
+            </div>
+            <div class="grid grid-cols-3 gap-2">
+              <button onclick="logQuickQuestions('Physics', 1)" class="py-2 rounded-xl bg-blue-500/15 hover:bg-blue-600 text-blue-300 hover:text-white border border-blue-500/30 text-xs font-black transition shadow-sm">+1</button>
+              <button onclick="logQuickQuestions('Physics', 5)" class="py-2 rounded-xl bg-blue-500/25 hover:bg-blue-600 text-blue-200 hover:text-white border border-blue-500/40 text-xs font-black transition shadow-sm">+5</button>
+              <button onclick="logQuickQuestions('Physics', -1)" class="py-2 rounded-xl bg-red-500/15 hover:bg-red-600 text-red-300 hover:text-white border border-red-500/30 text-xs font-black transition shadow-sm" title="Deduct 1 question">-1</button>
+            </div>
+            <div class="flex gap-1.5 pt-0.5">
+              <input type="number" id="custom-phy-input" placeholder="Custom" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-2 py-1 text-xs text-white text-center outline-none focus:border-blue-400 font-mono font-bold">
+              <button onclick="logCustomQuestions('Physics')" class="px-3 py-1 bg-blue-600 hover:bg-blue-500 text-white rounded-lg text-xs font-black transition">Log</button>
+            </div>
+          </div>
+
+          <!-- Chemistry Logger Card -->
+          <div class="bg-black/35 border border-white/10 hover:border-emerald-500/40 rounded-2xl p-4 text-center space-y-3 transition shadow-inner">
+            <div>
+              <div id="quick-chem-today" class="text-3xl font-black font-mono text-emerald-400 tracking-tight">0</div>
+              <div class="text-[10px] uppercase tracking-widest text-slate-400 font-bold mt-0.5">Questions Today</div>
+            </div>
+            <div class="text-xs font-bold text-white flex items-center justify-center gap-2 py-1 border-y border-white/5">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block shadow-[0_0_8px_rgba(52,211,153,0.7)]"></span>
+              <span class="font-extrabold text-slate-100">Chemistry Practice</span>
+            </div>
+            <div class="grid grid-cols-3 gap-2">
+              <button onclick="logQuickQuestions('Chemistry', 1)" class="py-2 rounded-xl bg-emerald-500/15 hover:bg-emerald-600 text-emerald-300 hover:text-white border border-emerald-500/30 text-xs font-black transition shadow-sm">+1</button>
+              <button onclick="logQuickQuestions('Chemistry', 5)" class="py-2 rounded-xl bg-emerald-500/25 hover:bg-emerald-600 text-emerald-200 hover:text-white border border-emerald-500/40 text-xs font-black transition shadow-sm">+5</button>
+              <button onclick="logQuickQuestions('Chemistry', -1)" class="py-2 rounded-xl bg-red-500/15 hover:bg-red-600 text-red-300 hover:text-white border border-red-500/30 text-xs font-black transition shadow-sm" title="Deduct 1 question">-1</button>
+            </div>
+            <div class="flex gap-1.5 pt-0.5">
+              <input type="number" id="custom-chem-input" placeholder="Custom" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-2 py-1 text-xs text-white text-center outline-none focus:border-emerald-400 font-mono font-bold">
+              <button onclick="logCustomQuestions('Chemistry')" class="px-3 py-1 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-xs font-black transition">Log</button>
+            </div>
+          </div>
+
+          <!-- Maths Logger Card -->
+          <div class="bg-black/35 border border-white/10 hover:border-amber-500/40 rounded-2xl p-4 text-center space-y-3 transition shadow-inner">
+            <div>
+              <div id="quick-math-today" class="text-3xl font-black font-mono text-amber-400 tracking-tight">0</div>
+              <div class="text-[10px] uppercase tracking-widest text-slate-400 font-bold mt-0.5">Questions Today</div>
+            </div>
+            <div class="text-xs font-bold text-white flex items-center justify-center gap-2 py-1 border-y border-white/5">
+              <span class="w-2.5 h-2.5 rounded-full bg-amber-400 inline-block shadow-[0_0_8px_rgba(251,191,36,0.7)]"></span>
+              <span class="font-extrabold text-slate-100">Maths Practice</span>
+            </div>
+            <div class="grid grid-cols-3 gap-2">
+              <button onclick="logQuickQuestions('Maths', 1)" class="py-2 rounded-xl bg-amber-500/15 hover:bg-amber-600 text-amber-300 hover:text-white border border-amber-500/30 text-xs font-black transition shadow-sm">+1</button>
+              <button onclick="logQuickQuestions('Maths', 5)" class="py-2 rounded-xl bg-amber-500/25 hover:bg-amber-600 text-amber-200 hover:text-white border border-amber-500/40 text-xs font-black transition shadow-sm">+5</button>
+              <button onclick="logQuickQuestions('Maths', -1)" class="py-2 rounded-xl bg-red-500/15 hover:bg-red-600 text-red-300 hover:text-white border border-red-500/30 text-xs font-black transition shadow-sm" title="Deduct 1 question">-1</button>
+            </div>
+            <div class="flex gap-1.5 pt-0.5">
+              <input type="number" id="custom-math-input" placeholder="Custom" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-2 py-1 text-xs text-white text-center outline-none focus:border-amber-400 font-mono font-bold">
+              <button onclick="logCustomQuestions('Maths')" class="px-3 py-1 bg-amber-600 hover:bg-amber-500 text-white rounded-lg text-xs font-black transition">Log</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Tactical Simulation & Error Diagnostics Control EXCLUDED AS REQUESTED -->
+
+      <!-- 5. Today's Queue (Foldable TickTick section) & Upcoming Milestones -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 flex-1 items-stretch">
+        <!-- Today's Queue with Foldable TickTick Tasks -->
+        <div class="glass-card p-5 space-y-3.5 flex flex-col justify-between h-full bg-[#0d1122]/75 border border-white/10 shadow-xl">
+          <div class="flex-1 flex flex-col">
+            <div class="flex items-center justify-between border-b border-white/10 pb-2.5 mb-2.5">
+              <div class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M9 12h6"/><path d="M9 16h6"/></svg>
+                <h3 class="text-xs font-black text-slate-200 uppercase tracking-widest">Today's Queue</h3>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <button onclick="toggleTickTickFold()" id="btn-toggle-tt-fold" class="text-[10px] bg-white/5 hover:bg-white/10 text-cyan-300 border border-cyan-500/30 px-2 py-0.5 rounded-lg transition font-mono font-bold">
+                  ▾ TickTick Fold
+                </button>
+                <button onclick="syncTickTickTasks()" class="text-xs bg-[#0a84ff]/20 hover:bg-[#0a84ff]/40 text-[#0a84ff] border border-white/10 px-2.5 py-1 rounded-lg transition flex items-center gap-1.5 font-bold">
+                  <svg class="w-3.5 h-3.5 text-[#0a84ff]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/></svg>
+                  <span>Sync</span>
+                </button>
+              </div>
+            </div>
+            <div id="home-tasks-list" class="space-y-2 flex-1 min-h-[210px] max-h-72 overflow-y-auto pr-1"></div>
+          </div>
+          <a href="task.html" class="block text-center text-xs text-[#0a84ff] hover:text-[#0a84ff] pt-2 border-t border-white/5 font-extrabold uppercase tracking-wider">Open Task Command &amp; Kanban Board →</a>
+        </div>
+
+        <!-- Upcoming Milestones & Deadlines -->
+        <div class="glass-card p-5 space-y-3.5 flex flex-col justify-between h-full bg-[#0d1122]/75 border border-white/10 shadow-xl">
+          <div class="flex-1 flex flex-col">
+            <div class="flex items-center justify-between border-b border-white/10 pb-3 mb-3">
+              <div class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg>
+                <h3 class="text-xs font-black text-white uppercase tracking-widest">Upcoming Tests &amp; Milestones</h3>
+              </div>
+              <a href="settings.html" class="text-xs font-bold text-slate-400 hover:text-white transition">Edit Deadlines →</a>
+            </div>
+            <div id="milestones-list" class="space-y-2 flex-1 min-h-[210px] max-h-72 overflow-y-auto pr-1"></div>
+          </div>
+          <a href="cbt_home.html" class="block text-center text-xs text-cyan-400 hover:text-cyan-300 pt-2 border-t border-white/5 font-extrabold uppercase tracking-wider">Launch ClockEE CBT Portal →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+    </div>
   </main>
 
-  <!-- Core Storage & Master Unified Runtime -->
-  <script src="env.js"></script>
-  <script src="js/clockee_runtime.js"></script>
-  <script src="scripts/db.js"></script>
-  <script src="components/navbar.js"></script>
+  <!-- Split Screen Focus Drawer -->
+  <div id="split-drawer" class="fixed top-0 right-0 h-full w-full max-w-full sm:w-[420px] bg-[#0c0e17]/98 border-l border-white/10 z-[200] transform translate-x-full transition-transform duration-300 flex flex-col shadow-[-4px_0_12px_rgba(0,0,0,0.7)] backdrop-blur-2xl">
+  <div class="flex items-center justify-between p-4 border-b border-white/10">
+    <div class="flex items-center gap-2">
+      <div class="w-6 h-6 rounded-lg bg-[#161b24] border border-white/10 flex items-center justify-center text-[#0a84ff]">
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      </div>
+      <span class="text-white font-black uppercase tracking-wider text-sm">Focus Drawer</span>
+    </div>
+    <button onclick="toggleSplitScreen()" class="text-gray-400 hover:text-white p-1 rounded-lg hover:bg-white/5 transition">✕</button>
+  </div>
 
-  <!-- HUD Telemetry Controller -->
+  <div class="flex border-b border-white/10 bg-black/40 text-[11px] overflow-x-auto">
+    <button class="drawer-tab flex-1 py-3 px-2 font-bold text-center text-[#0a84ff] hover:text-white transition whitespace-nowrap flex items-center justify-center gap-1.5" onclick="switchDrawerTab('lectures')">
+      <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+      <span>Lectures</span>
+    </button>
+    <button class="drawer-tab flex-1 py-3 px-2 font-bold text-center text-slate-400 hover:text-white transition whitespace-nowrap flex items-center justify-center gap-1.5" onclick="switchDrawerTab('pdf')">
+      <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      <span>PDF Vault</span>
+    </button>
+    <button class="drawer-tab flex-1 py-3 px-2 font-bold text-center text-slate-400 hover:text-white transition whitespace-nowrap flex items-center justify-center gap-1.5" onclick="switchDrawerTab('audio')">
+      <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+      <span>Music Corner</span>
+    </button>
+    <button class="drawer-tab flex-1 py-3 px-2 font-bold text-center text-slate-400 hover:text-white transition whitespace-nowrap flex items-center justify-center gap-1.5" onclick="switchDrawerTab('ai')">
+      <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3l1.912 5.885L20 10.8l-4.956 3.6 1.894 5.885L12 16.685 7.062 20.285l1.894-5.885L4 10.8l6.088-1.915L12 3z"/></svg>
+      <span>AI Tutor</span>
+    </button>
+    <button class="drawer-tab flex-1 py-3 px-2 font-bold text-center text-slate-400 hover:text-white transition whitespace-nowrap flex items-center justify-center gap-1.5" onclick="switchDrawerTab('notes')">
+      <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+      <span>Notes</span>
+    </button>
+  </div>
+
+  <!-- Pane: Lectures (PCM vs One-Shot with Thumbnails) -->
+  <div id="drawer-pane-lectures" class="drawer-pane flex-1 overflow-y-auto p-4 space-y-3">
+    <div id="lectures-list-container" class="space-y-3"></div>
+  </div>
+
+  <!-- Pane: PDF Vault -->
+  <div id="drawer-pane-pdf" class="drawer-pane hidden flex-1 overflow-y-auto p-4 space-y-3">
+    <div id="drive-links-list" class="space-y-3"></div>
+  </div>
+
+  <!-- Pane: AI Doubt Tutor (Gemini API Connected) -->
+  <div id="drawer-pane-ai" class="drawer-pane hidden flex-1 flex-col overflow-hidden p-4">
+    <div class="flex items-center justify-between pb-2 mb-2 border-b border-white/10">
+      <div class="flex items-center gap-1.5">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="text-xs font-black uppercase tracking-wider text-white">Gemini 2.0 JEE Tutor</span>
+      </div>
+      <a href="settings.html" class="text-[10px] text-[#0a84ff] hover:underline font-bold">API Key in Settings →</a>
+    </div>
+    <div id="ai-chat-messages" class="flex-1 overflow-y-auto space-y-2.5 pr-1 text-xs">
+      <div class="bg-[#161b24] border border-white/10 rounded-xl p-3 text-blue-200 font-medium">
+        Welcome! I am your JEE tutor. Ask me any conceptual question or doubt from Physics, Chemistry, or Maths.
+      </div>
+    </div>
+    <div class="mt-3 flex gap-2">
+      <input id="ai-doubt-input" type="text" placeholder="Ask JEE doubt..." class="flex-1 bg-gray-900 border border-gray-700 text-white rounded-xl px-3 py-2 text-xs outline-none focus:border-[#0a84ff] font-medium" onkeydown="if(event.key==='Enter') sendAIDoubtMessage()">
+      <button onclick="sendAIDoubtMessage()" class="px-4 py-2 bg-[#0a84ff] hover:bg-[#0a84ff] text-white rounded-xl text-xs font-bold">Send</button>
+    </div>
+  </div>
+
+  <!-- Pane: Notes -->
+  <div id="drawer-pane-notes" class="drawer-pane hidden flex-1 flex-col overflow-hidden p-4 gap-2">
+    <div class="flex justify-between items-center">
+      <p class="text-xs font-black text-slate-400 uppercase tracking-widest">Live Session Notes</p>
+      <button onclick="insertNoteTimestamp()" class="bg-gray-800 hover:bg-gray-700 text-[#0a84ff] px-2.5 py-1 rounded-lg text-xs font-bold flex items-center gap-1.5 transition">
+        <svg class="w-3.5 h-3.5 text-[#0a84ff]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span>Insert Timestamp</span>
+      </button>
+    </div>
+    <textarea id="live-notes-area" class="flex-1 bg-gray-900 border border-gray-800 text-gray-200 rounded-xl p-3 text-xs resize-none focus:outline-none focus:border-[#0a84ff] font-mono leading-relaxed" placeholder="Type quick notes, formula reminders..." oninput="saveLiveNotes(this.value)"></textarea>
+  </div>
+
+  <!-- Pane: Music Only Corner (No Like/Dislike) -->
+  <div id="drawer-pane-audio" class="drawer-pane hidden flex-1 flex-col p-4 overflow-y-auto space-y-3.5">
+    <div class="flex items-center justify-between">
+      <div>
+        <h3 class="text-white font-black text-xs uppercase tracking-wider flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+          <span>Focus Music Studio</span>
+        </h3>
+        <p class="text-[10px] text-slate-400">Distraction-Free Ambient &amp; Lo-Fi Beats</p>
+      </div>
+      <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-500/30 font-bold font-mono">Stream Active</span>
+    </div>
+
+    <!-- Active Embedded Player -->
+    <div class="rounded-xl overflow-hidden border border-white/10 bg-black aspect-video relative shadow-lg">
+      <iframe id="yt-player-iframe" class="w-full h-full"
+        src="https://www.youtube-nocookie.com/embed/jfKfPfyJRdk?enablejsapi=1"
+        title="Focus Music Player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+
+    <!-- Active Track Display (Clean, No Likes/Dislikes) -->
+    <div class="flex items-center justify-between bg-gray-900/90 border border-white/10 rounded-xl p-3">
+      <div class="truncate flex-1 mr-2">
+        <div class="text-white text-xs font-bold truncate flex items-center gap-1.5" id="yt-active-title">
+          <span>🎶</span> Lofi Girl - Relax &amp; Study Beats
+        </div>
+        <div class="text-[10px] text-gray-400 mt-0.5">Focus Radio &bull; Continuous Playback</div>
+      </div>
+      <span class="px-2 py-1 rounded bg-[#161b24] text-[#0a84ff] text-[10px] font-mono border border-white/10">HQ Audio</span>
+    </div>
+
+    <!-- Stations List -->
+    <div id="pinned-playlists-list" class="space-y-1.5"></div>
+  </div>
+</div>
+
+  <!-- Floating Action Triggers -->
+  <div class="fixed bottom-4 right-4 z-40 flex items-center gap-2">
+    <button onclick="window.toggleSplitScreen ? window.toggleSplitScreen() : (function(){ var d = document.getElementById('split-drawer'); if (d) d.classList.toggle('translate-x-full'); })()" id="clockee-chat-floating-pill" class="px-3.5 py-2 rounded-full bg-[#0a0c10]/90 border border-white/10 hover:border-blue-400/50 text-slate-300 hover:text-white text-xs font-bold shadow-sm backdrop-blur-xl flex items-center gap-2 transition cursor-pointer">
+      <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+      <span>AI TUTOR</span>
+    </button>
+  </div>
+
+  <!-- Home Page Reactive Engine -->
   <script>
-    function updateHUDCountdowns() {
-      const targetDate = new Date('2027-01-24T09:00:00+05:30').getTime();
-      const now = Date.now();
+    let tickTickFolded = true;
+
+    function tickCountdown() {
+      const s = window.getState ? window.getState() : {};
+      const targetStr = s.jeeDate || '2028-05-17';
+      const targetDate = new Date(targetStr + 'T06:00:00');
+      const now = new Date();
       const diff = targetDate - now;
 
-      if (diff > 0) {
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-        const mins = Math.floor((diff / (1000 * 60)) % 60);
-        const secs = Math.floor((diff / 1000) % 60);
+      // Dynamic JEE Year
+      const year = targetStr.slice(0, 4) || '2028';
+      const titleEl = document.getElementById('jee-countdown-title');
+      if (titleEl) titleEl.textContent = `Target: JEE ${year}`;
+      const subEl = document.getElementById('daily-mission-subtitle');
+      if (subEl) subEl.textContent = `Current target mastery for JEE ${year}`;
 
-        const daysEl = document.getElementById('hud-jee-days');
-        const secsEl = document.getElementById('hud-jee-secs');
-
-        if (daysEl) daysEl.innerText = `${days}d ${hours}h ${mins}m`;
-        if (secsEl) secsEl.innerText = `${secs}s remaining until Session 1`;
+      if (diff <= 0) {
+        ['cd-months', 'cd-weeks', 'cd-days'].forEach(id => {
+          const el = document.getElementById(id);
+          if (el) el.textContent = '00';
+        });
+        return;
       }
-    }
 
-    async function loadFocusProgress() {
-      if (window.ClockEEDB) {
-        try {
-          const sessions = await ClockEEDB.getAll('sessions');
-          let totalMins = 0;
-          const today = new Date().toDateString();
-          sessions.forEach(s => {
-            if (s.timestamp && new Date(s.timestamp).toDateString() === today) {
-              totalMins += (s.durationMinutes || 0);
-            }
-          });
-          if (totalMins > 0) {
-            const hours = (totalMins / 60).toFixed(1);
-            const el = document.getElementById('hud-focus-hours');
-            if (el) el.innerHTML = `${hours} <span class="text-sm font-semibold text-slate-400">/ 8.0h</span>`;
-          }
-        } catch(e) {
-          console.warn('Could not read sessions from DB:', e);
+      // Calendar month progression for precise individual counting
+      let temp = new Date(now.getTime());
+      let months = 0;
+      while (true) {
+        let next = new Date(temp.getTime());
+        next.setMonth(next.getMonth() + 1);
+        if (next <= targetDate) {
+          months++;
+          temp = next;
+        } else {
+          break;
         }
       }
+
+      const totalDays = Math.floor(diff / 86400000);
+      const totalWeeks = Math.floor(totalDays / 7);
+
+      const elMonths = document.getElementById('cd-months');
+      if (elMonths) elMonths.textContent = String(months).padStart(2, '0');
+      const elWeeks = document.getElementById('cd-weeks');
+      if (elWeeks) elWeeks.textContent = String(totalWeeks).padStart(2, '0');
+      const elDays = document.getElementById('cd-days');
+      if (elDays) elDays.textContent = String(totalDays);
+
+      const elLabel = document.getElementById('jee-target-date-label');
+      if (elLabel) elLabel.textContent = s.jeeDate || 'May 17, 2028';
     }
 
-    updateHUDCountdowns();
-    setInterval(updateHUDCountdowns, 1000);
-    window.addEventListener('DOMContentLoaded', loadFocusProgress);
+    function updateDailyProgress() {
+      const s = window.getState ? window.getState() : {};
+      const qs = window.getQuestionsToday ? window.getQuestionsToday() : { Physics: 0, Chemistry: 0, Maths: 0, total: 0 };
+      
+      const qPhy = document.getElementById('quick-phy-today');
+      if (qPhy) qPhy.textContent = String(qs.Physics || 0);
+      const qChem = document.getElementById('quick-chem-today');
+      if (qChem) qChem.textContent = String(qs.Chemistry || 0);
+      const qMath = document.getElementById('quick-math-today');
+      if (qMath) qMath.textContent = String(qs.Maths || 0);
+
+      const streak = s.stats?.streakDays || 0;
+      const streakEl = document.getElementById('home-mission-streak-text');
+      if (streakEl) streakEl.textContent = `${streak}-Day Streak`;
+
+      const inProgTask = (s.tasks || []).find(t => !t.completed && t.subject);
+      const chNameEl = document.getElementById('active-chapter-name');
+      const chTopicEl = document.getElementById('active-chapter-topic');
+      if (inProgTask && chNameEl) {
+        chNameEl.textContent = inProgTask.title || 'Kinematics & Vectors';
+        if (chTopicEl) chTopicEl.textContent = inProgTask.list || 'Active Target';
+      }
+    }
+    window.updateDailyProgress = updateDailyProgress;
+
+    window.toggleTickTickFold = function() {
+      tickTickFolded = !tickTickFolded;
+      const btn = document.getElementById('btn-toggle-tt-fold');
+      if (btn) btn.textContent = tickTickFolded ? '▾ TickTick Fold' : '▴ TickTick Unfold';
+      renderTodaysTasks();
+    };
+
+    function renderTodaysTasks() {
+      const container = document.getElementById('home-tasks-list');
+      if (!container) return;
+      const s = window.getState ? window.getState() : { tasks: [] };
+      const today = window.getTodayStr ? window.getTodayStr() : new Date().toISOString().slice(0, 10);
+      const allTodayTasks = (s.tasks || []).filter(t => (t.dueDate || '').slice(0, 10) === today || t.status === 'in_progress');
+
+      if (allTodayTasks.length === 0) {
+        container.innerHTML = '<p class="text-xs text-slate-500 font-medium italic py-4 text-center">No tasks scheduled for today — all caught up.</p>';
+        return;
+      }
+
+      const regularTasks = [];
+      const tickTickTasks = [];
+
+      allTodayTasks.forEach(t => {
+        const isTT = (t.id && String(t.id).startsWith('tt_')) || t.source === 'ticktick';
+        if (isTT) tickTickTasks.push(t);
+        else regularTasks.push(t);
+      });
+
+      const renderCard = (t) => {
+        const isTickTick = (t.id && String(t.id).startsWith('tt_')) || t.source === 'ticktick';
+        const subCol = isTickTick ? 'text-cyan-300 bg-cyan-950/70 border-cyan-500/40' :
+                       t.subject === 'Physics' ? 'text-blue-300 bg-blue-950/60 border-blue-500/30' :
+                       t.subject === 'Chemistry' ? 'text-emerald-300 bg-emerald-950/60 border-emerald-500/30' :
+                       t.subject === 'Maths' ? 'text-amber-300 bg-amber-950/60 border-amber-500/30' :
+                       'text-gray-300 bg-gray-800 border-gray-700';
+
+        const subBadgeText = isTickTick ? 'From TickTick' : (t.subject || 'General');
+
+        return `
+          <div class="p-2.5 rounded-xl bg-gray-900/80 border border-white/5 space-y-1.5 hover:border-white/10 transition">
+            <div class="flex items-center justify-between gap-2">
+              <div class="flex items-center gap-2 truncate">
+                <input type="checkbox" ${t.completed ? 'checked' : ''} onchange="toggleTaskDone('${t.id}')" class="rounded text-[#0a84ff] focus:ring-0 cursor-pointer">
+                <span class="text-xs ${t.completed ? 'line-through text-slate-500' : 'text-slate-100 font-bold'} truncate">${t.title}</span>
+              </div>
+              <span class="text-[9px] px-2 py-0.5 rounded-full border ${subCol} font-mono shrink-0 font-bold">${subBadgeText}</span>
+            </div>
+            <div class="flex items-center justify-between text-[10px] text-slate-400 pl-6">
+              <span class="flex items-center gap-1.5 text-slate-300">
+                <svg class="w-3 h-3 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+                <span class="font-bold text-slate-300">${t.list || 'PW Modules & Practice Sheets'}</span>
+              </span>
+              <span class="text-[9px] text-slate-400 font-mono font-bold">${t.dueDate || 'Today'}</span>
+            </div>
+          </div>
+        `;
+      };
+
+      let html = regularTasks.map(renderCard).join('');
+
+      if (tickTickTasks.length > 0) {
+        html += `
+          <div class="pt-2 border-t border-cyan-500/20">
+            <div onclick="toggleTickTickFold()" class="p-2 rounded-xl bg-cyan-950/40 border border-cyan-500/30 flex items-center justify-between cursor-pointer hover:bg-cyan-950/60 transition">
+              <span class="text-xs font-black uppercase tracking-wider text-cyan-300 flex items-center gap-1.5">
+                <svg class="w-3.5 h-3.5 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>
+                <span>TickTick Folded Tasks (${tickTickTasks.length})</span>
+              </span>
+              <span class="text-[10px] font-mono font-bold text-cyan-400">${tickTickFolded ? '▾ Expand' : '▴ Collapse'}</span>
+            </div>
+            ${tickTickFolded ? '' : `<div class="space-y-1.5 pt-2 pl-1">${tickTickTasks.map(renderCard).join('')}</div>`}
+          </div>
+        `;
+      }
+
+      container.innerHTML = html;
+    }
+
+    window.toggleTaskDone = function(id) {
+      const s = window.getState ? window.getState() : {};
+      const t = (s.tasks || []).find(x => x.id === id);
+      if (t) {
+        t.completed = !t.completed;
+        t.status = t.completed ? 'done' : 'todo';
+        if (window.saveState) window.saveState();
+        renderTodaysTasks();
+      }
+    };
+
+    function renderMilestones() {
+      const container = document.getElementById('milestones-list');
+      if (!container) return;
+      const s = window.getState ? window.getState() : {};
+      const today = window.getTodayStr ? window.getTodayStr() : new Date().toISOString().slice(0, 10);
+      const items = (s.tasks || []).filter(t => (t.type === 'milestone' || t.type === 'aits') && (t.dueDate || '') >= today);
+
+      if (s.nextMilestone && s.nextMilestone.date && s.nextMilestone.date >= today) {
+        if (!items.some(x => x.title === s.nextMilestone.title)) {
+          items.unshift({
+            id: 'setting_milestone',
+            title: s.nextMilestone.title || 'Target Major Exam',
+            dueDate: s.nextMilestone.date,
+            type: 'milestone'
+          });
+        }
+      }
+
+      if (items.length === 0) {
+        container.innerHTML = '<p class="text-xs text-slate-500 font-medium italic py-4 text-center">No upcoming test deadlines. Set target in Settings.</p>';
+        return;
+      }
+      container.innerHTML = items.map(m => `
+        <div class="flex items-center justify-between p-2.5 rounded-xl bg-gray-900/80 border border-white/5 hover:border-white/10 transition">
+          <div class="flex items-center gap-2 truncate">
+            <svg class="w-3.5 h-3.5 text-amber-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+            <span class="text-xs font-bold text-white truncate">${m.title}</span>
+          </div>
+          <div class="flex items-center gap-2 shrink-0">
+            <span class="text-[10px] px-2 py-0.5 rounded-full bg-[#161b24] text-[#0a84ff] border border-white/10 font-mono font-bold">${m.dueDate}</span>
+            <a href="cbt_home.html" class="text-[10px] bg-[#0a84ff] hover:bg-[#0a84ff] text-white font-extrabold px-2.5 py-1 rounded-lg transition">CBT</a>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Quick Logger
+    window.logQuickQuestions = function(subject, delta) {
+      const s = window.getState ? window.getState() : {};
+      s.questionLogs = s.questionLogs || [];
+      const today = window.getTodayStr ? window.getTodayStr() : new Date().toISOString().slice(0, 10);
+
+      if (delta < 0) {
+        let remainingToDeduct = Math.abs(delta);
+        for (let i = s.questionLogs.length - 1; i >= 0; i--) {
+          const log = s.questionLogs[i];
+          if (log.date === today && log.subject === subject) {
+            const currentQ = log.questions || log.totalQs || 1;
+            if (currentQ <= remainingToDeduct) {
+              remainingToDeduct -= currentQ;
+              s.questionLogs.splice(i, 1);
+            } else {
+              log.questions = currentQ - remainingToDeduct;
+              remainingToDeduct = 0;
+            }
+            if (remainingToDeduct === 0) break;
+          }
+        }
+        if (window.showToast) window.showToast(`Deducted 1 question from ${subject}`, 'info');
+      } else {
+        s.questionLogs.push({
+          date: today,
+          subject: subject,
+          chapter: `${subject} Daily Practice`,
+          questions: delta,
+          correct: delta,
+          score: delta * 4,
+          durationMs: delta * 90000,
+          source: 'manual_drill',
+          timestamp: Date.now()
+        });
+        if (window.showToast) window.showToast(`+${delta} ${subject} questions logged`, 'success');
+      }
+
+      if (window.saveState) window.saveState();
+      updateDailyProgress();
+      if (typeof window.renderMonthlyHeatmap === 'function') window.renderMonthlyHeatmap();
+      if (typeof window.renderSidebarMiniChart === 'function') window.renderSidebarMiniChart();
+    };
+
+    window.logCustomQuestions = function(subject) {
+      const key = subject === 'Physics' ? 'custom-phy-input' : subject === 'Chemistry' ? 'custom-chem-input' : 'custom-math-input';
+      const input = document.getElementById(key);
+      const val = parseInt(input?.value || '0');
+      if (val > 0) {
+        logQuickQuestions(subject, val);
+        if (input) input.value = '';
+      }
+    };
+
+    // Setup Enter key on custom inputs
+    function setupCustomInputs() {
+      [['custom-phy-input', 'Physics'], ['custom-chem-input', 'Chemistry'], ['custom-math-input', 'Maths']].forEach(([id, sub]) => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+              logCustomQuestions(sub);
+            }
+          });
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      tickCountdown();
+      setInterval(tickCountdown, 1000);
+      updateDailyProgress();
+      renderTodaysTasks();
+      renderMilestones();
+      setupCustomInputs();
+      if (typeof window.renderClockEESidebar === 'function') {
+        window.renderClockEESidebar();
+      }
+    });
+
+    window.addEventListener('stateChange', function() {
+      updateDailyProgress();
+      renderTodaysTasks();
+      renderMilestones();
+      if (typeof window.renderClockEESidebar === 'function') {
+        window.renderClockEESidebar();
+      }
+    });
   </script>
 </body>
 </html>

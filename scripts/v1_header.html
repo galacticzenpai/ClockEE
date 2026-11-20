@@ -1,0 +1,163 @@
+<header class="sticky top-0 z-50 px-4 py-3 sm:px-6 transition-all duration-300 bg-[#080a14]/75 backdrop-blur-2xl border-b border-white/10 shadow-[0_4px_24px_rgba(0,0,0,0.65)]">
+  <div class="max-w-7xl mx-auto flex items-center justify-between gap-2 sm:gap-4">
+    <!-- Brand / Logo -->
+    <div class="nav-left flex items-center gap-3">
+      <div class="relative w-8 h-8 flex items-center justify-center rounded-xl bg-gradient-to-br from-[#0a84ff]/20 to-cyan-500/20 border border-white/15 shadow-[0_0_15px_rgba(99,102,241,0.25)]">
+        <svg class="w-4 h-4 text-cyan-400 animate-spin-slow" viewBox="0 0 64 64" fill="none">
+          <circle cx="32" cy="32" r="28" stroke="url(#logoGrad)" stroke-width="4" stroke-dasharray="6 6"/>
+          <path d="M32 16V32L42 42" stroke="#38bdf8" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="32" cy="32" r="4" fill="#38bdf8"/>
+          <defs>
+            <linearGradient id="logoGrad" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#38bdf8"/>
+              <stop offset="0.5" stop-color="#818cf8"/>
+              <stop offset="1" stop-color="#c084fc"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
+      <a href="index.html" class="flex items-center gap-2 cursor-pointer" style="text-decoration:none;" title="ClockEE Home Command Center">
+        <span class="text-base sm:text-lg font-bold tracking-tight text-white">ClockEE <span class="text-xs font-mono px-2 py-0.5 rounded-full bg-[#161b24] text-[#0a84ff] border border-white/10 font-semibold ml-1">v6</span></span>
+      </a>
+    </div>
+
+    <!-- Center Nav Switchers & Dropdowns -->
+    <nav class="header-center flex items-center gap-1 sm:gap-1.5" id="main-nav">
+      <a href="index.html" class="nav-btn nav-active">Home</a>
+      <a href="task.html" class="nav-btn">Task</a>
+      <a href="today.html" class="nav-btn">Today</a>
+
+      <!-- Timer Dropdown -->
+      <div class="nav-dropdown relative inline-block">
+        <a href="timer.html" class="nav-btn">
+          <span>Timer</span> <span class="nav-caret">▼</span>
+        </a>
+        <div class="nav-dropdown-menu">
+          <a href="timer.html?mode=drill" class="nav-dropdown-item group">
+            <div class="w-7 h-7 rounded-lg bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center text-cyan-400 group-hover:scale-105 group-hover:border-cyan-400 transition shadow-[0_0_10px_rgba(0,240,255,0.2)]">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <div>
+              <div class="font-bold text-white group-hover:text-cyan-300 transition text-xs flex items-center gap-1.5">
+                <span>Tactical Pace Sprint</span>
+                <span class="text-[9px] px-1.5 py-0.2 rounded bg-cyan-950 text-cyan-300 border border-cyan-500/30 font-mono">NEW</span>
+              </div>
+              <div class="text-[10px] text-slate-400 font-mono">Pace benchmark &amp; lap latency</div>
+            </div>
+          </a>
+          <a href="timer.html?mode=lecture" class="nav-dropdown-item group">
+            <div class="w-7 h-7 rounded-lg bg-[#0a84ff]/15 border border-white/10 flex items-center justify-center text-[#0a84ff] group-hover:scale-105 group-hover:border-white/10 transition shadow-[0_0_10px_rgba(99,102,241,0.2)]">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <div class="font-bold text-white group-hover:text-[#0a84ff] transition text-xs">Lecture Focus Timer</div>
+              <div class="text-[10px] text-slate-400 font-mono">Dual-screen &amp; mini timer HUD</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Coaching Dropdown -->
+      <div class="nav-dropdown relative inline-block">
+        <a href="coaching.html" class="nav-btn">
+          Coaching <span class="nav-caret">▼</span>
+        </a>
+        <div class="nav-dropdown-menu">
+          <a href="coaching.html?sub=syllabus" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            <span>Syllabus Covered</span>
+          </a>
+          <a href="coaching.html?sub=tests" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            <span>Test Performance &amp; OCR</span>
+          </a>
+          <a href="coaching.html?sub=logs" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M9 12h6"/><path d="M9 16h6"/></svg>
+            <span>Personal Question Log</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- CBT Portal Direct Nav -->
+      <a href="cbt_home.html" class="nav-btn text-cyan-300 font-bold" style="text-decoration: none;">
+        <svg class="w-3.5 h-3.5 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        <span>CBT Portal</span>
+      </a>
+
+      <!-- Inspiration Board -->
+      <a href="inspiration.html" class="nav-btn text-amber-300 hover:text-amber-200 font-bold" style="text-decoration: none;" title="Dream Vision & Inspiration Board">
+        <svg class="w-3.5 h-3.5 text-amber-400" viewBox="0 0 24 24" fill="currentColor">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+        </svg>
+        <span>Inspiration</span>
+      </a>
+
+      <!-- Settings Dropdown -->
+      <div class="nav-dropdown relative inline-block">
+        <a href="settings.html" class="nav-btn">
+          Settings <span class="nav-caret">▼</span>
+        </a>
+        <div class="nav-dropdown-menu">
+          <a href="settings.html" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            <span>Global Settings</span>
+          </a>
+          <a href="settings.html#sec-identity" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-[#0a84ff]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <span>Profile &amp; Identity</span>
+          </a>
+          <a href="settings.html#sec-aura" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-[#0a84ff]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/></svg>
+            <span>Themes &amp; Background</span>
+          </a>
+          <a href="settings.html#sec-goals" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+            <span>JEE Examination Goals</span>
+          </a>
+          <a href="settings.html#sec-milestones" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg>
+            <span>Milestones &amp; Deadlines</span>
+          </a>
+          <a href="settings.html#sec-apis" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            <span>Connected APIs</span>
+          </a>
+          <a href="settings.html#sec-data" class="nav-dropdown-item">
+            <svg class="w-3.5 h-3.5 text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+            <span>Data Backup &amp; Reset</span>
+          </a>
+        </div>
+      </div>
+
+      <a href="admin.html" class="nav-btn nav-admin-link hidden text-[#0a84ff] font-bold" style="display: none !important; text-decoration: none;">
+        <svg class="w-3.5 h-3.5 text-[#0a84ff]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>Admin</span>
+      </a>
+    </nav>
+
+    <!-- Right Actions: Edge Status + Split Screen + Avatar Ring -->
+    <div class="nav-right flex items-center gap-2 sm:gap-3">
+      <!-- Live Edge Connection Status Pill -->
+      <a href="tracker.html" id="edge-connection-pill" class="hidden md:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-950/60 border border-emerald-500/40 text-[11px] font-mono font-bold text-emerald-400 shadow-[0_0_12px_rgba(16,185,129,0.2)] hover:border-emerald-400 transition" title="Connected to Vercel Edge & Supabase Cloud Mesh">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span>EDGE LIVE</span>
+      </a>
+
+      <button id="btnNavTourCockpit" class="px-2.5 py-1 rounded-full bg-cyan-950/80 border border-cyan-400/50 text-cyan-300 hover:bg-cyan-900 text-xs font-black shadow-lg shadow-cyan-500/20 flex items-center gap-1.5 transition cursor-pointer" onclick="window.showCockpitTourMenu()" title="Open Interactive Cockpit Tour Menu">
+        <span class="animate-pulse">🚀</span>
+        <span>Tour</span>
+      </button>
+      <button class="nav-icon-btn hover:border-cyan-400 hover:text-cyan-300 min-h-[36px] min-w-[36px]" title="Toggle Split-Screen Quick Panel" onclick="toggleSplitScreen()">⊟</button>
+      <a href="settings.html" class="relative p-[2px] rounded-full hud-ring shadow-[0_0_15px_rgba(99,102,241,0.4)] cursor-pointer inline-block" title="Commander Profile & Settings">
+        <img
+          class="w-8 h-8 rounded-full bg-[#070913] object-cover block cursor-pointer border border-white/20"
+          data-profile-avatar
+          id="navAvatarImg"
+          src="https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Aspirant"
+          alt="Avatar"
+        />
+      </a>
+    </div>
+  </div>
+</header>

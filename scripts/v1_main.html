@@ -1,0 +1,301 @@
+<main class="relative z-10 max-w-7xl w-full mx-auto px-4 sm:px-6 pt-5 pb-16">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+    
+    <!-- Left Column: Aspirant Profile, XP Status, Monthly Heatmap & Dual Graphs -->
+    <div class="lg:col-span-4 flex flex-col h-full">
+      <div id="clockee-sidebar-root" class="h-full flex flex-col"></div>
+    </div>
+
+    <!-- Right Column: Symmetrical Alignment & Balanced Spacing -->
+    <div class="lg:col-span-8 flex flex-col justify-between space-y-6 h-full">
+      
+      <!-- 1. JEE Target Countdown Card: Months, Total Weeks, Days -->
+      <div class="glass-card p-5 space-y-3.5 shadow-xl border border-white/10 bg-[#0d1122]/75">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <div class="flex items-center gap-2.5">
+            <div class="w-7 h-7 rounded-lg bg-cyan-950/60 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <div>
+              <h2 class="text-base sm:text-lg font-black text-white tracking-tight" id="jee-countdown-title">Target: JEE 2028</h2>
+            </div>
+          </div>
+          <span class="text-xs font-mono font-bold px-3 py-1 rounded-full bg-[#0a84ff]/15 text-[#0a84ff] border border-white/10" id="jee-target-date-label">May 17, 2028</span>
+        </div>
+        
+        <!-- Individual Countdown Boxes Grid (Months, Total Weeks, Days) -->
+        <div class="grid grid-cols-3 gap-3 sm:gap-4 text-center">
+          <div class="bg-black/40 rounded-2xl p-3.5 sm:p-4 border border-cyan-500/25 shadow-inner hover:border-cyan-400/40 transition">
+            <div class="text-3xl sm:text-4xl font-black font-mono text-cyan-400 tracking-tight" id="cd-months">--</div>
+            <div class="text-[10px] sm:text-xs text-cyan-200/80 uppercase tracking-widest mt-1.5 font-extrabold">Months</div>
+          </div>
+          <div class="bg-black/40 rounded-2xl p-3.5 sm:p-4 border border-[#0a84ff]/25 shadow-inner hover:border-white/10 transition">
+            <div class="text-3xl sm:text-4xl font-black font-mono text-[#0a84ff] tracking-tight" id="cd-weeks">--</div>
+            <div class="text-[10px] sm:text-xs text-blue-200/80 uppercase tracking-widest mt-1.5 font-extrabold">Total Weeks</div>
+          </div>
+          <div class="bg-black/40 rounded-2xl p-3.5 sm:p-4 border border-white/10 shadow-inner hover:border-white/10 transition">
+            <div class="text-3xl sm:text-4xl font-black font-mono text-[#0a84ff] tracking-tight" id="cd-days">--</div>
+            <div class="text-[10px] sm:text-xs text-[#0a84ff] uppercase tracking-widest mt-1.5 font-extrabold">Days</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Aspirant Daily Target & Readiness HUD -->
+      <div class="glass-card p-5 border border-white/10 bg-[#0d1122]/75 shadow-xl space-y-3">
+        <div class="flex items-center justify-between pb-2.5 border-b border-white/10 flex-wrap gap-2">
+          <div class="flex items-center gap-2.5">
+            <div class="w-7 h-7 rounded-lg bg-[#161b24] border border-white/10 flex items-center justify-center text-[#0a84ff]">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+            </div>
+            <div>
+              <h3 class="text-xs font-black uppercase tracking-widest text-slate-200">Daily Mission &amp; High-Yield Focus Sprint</h3>
+              <p class="text-[11px] text-slate-400 font-medium" id="daily-mission-subtitle">Current target mastery for JEE 2028</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-[10px] font-mono px-3 py-1 rounded-full bg-gradient-to-r from-amber-500/20 via-orange-500/25 to-red-500/20 text-orange-300 border border-orange-500/40 font-black flex items-center gap-1.5 shadow-[0_0_14px_rgba(249,115,22,0.3)]"><span class="text-xs">🔥</span> <span id="home-mission-streak-text">0-Day Streak</span></span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5">
+          <!-- Focus Chapter Card -->
+          <div class="p-3.5 rounded-xl bg-black/35 border border-white/5 space-y-1 shadow-inner">
+            <div class="text-[10px] text-slate-400 uppercase font-bold tracking-wider">Active High-Yield Chapter</div>
+            <div class="text-xs font-black text-white flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-blue-400 inline-block shadow-[0_0_8px_rgba(96,165,250,0.7)]"></span>
+              <span id="active-chapter-name">Kinematics &amp; Vectors</span>
+            </div>
+            <div class="text-[10px] text-cyan-300 font-mono font-medium" id="active-chapter-topic">1D/2D Motion &amp; Mechanics Foundation</div>
+          </div>
+
+          <!-- Target Metric / Accuracy Card -->
+          <div class="p-3.5 rounded-xl bg-black/35 border border-white/5 space-y-1 shadow-inner">
+            <div class="text-[10px] text-slate-400 uppercase font-bold tracking-wider">Today's Focus Target</div>
+            <div class="text-xs font-black text-emerald-300 flex items-center gap-1.5 font-mono">
+              <svg class="w-3.5 h-3.5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+              <span>90+ Target Questions / Day</span>
+            </div>
+            <div class="text-[10px] text-slate-400 font-medium">Accuracy Benchmark: &gt; 85%</div>
+          </div>
+
+          <!-- Quick Action Launch -->
+          <div class="p-3.5 rounded-xl bg-black/35 border border-white/5 flex flex-col justify-between shadow-inner">
+            <div class="text-[10px] text-[#0a84ff] uppercase font-bold tracking-wider">Adaptive Practice</div>
+            <div class="flex items-center gap-2 pt-1">
+              <a href="timer.html?mode=drill" class="flex-1 py-1.5 px-2 bg-[#0a84ff] hover:bg-[#0a84ff] text-white rounded-lg text-xs font-bold text-center transition shadow">Start Drill</a>
+              <a href="cbt_home.html" class="flex-1 py-1.5 px-2 bg-cyan-600/20 hover:bg-cyan-600 text-cyan-300 hover:text-white border border-cyan-500/30 rounded-lg text-xs font-bold text-center transition">CBT Exam</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Quick Log Solved Questions (+1, +5, -1 with top counter) -->
+      <div class="glass-card p-5 border border-white/10 bg-[#0d1122]/75 shadow-xl relative overflow-hidden space-y-3.5">
+        <div class="flex items-center justify-between pb-2.5 border-b border-white/10 flex-wrap gap-2">
+          <div class="flex items-center gap-2.5">
+            <div class="w-7 h-7 rounded-lg bg-cyan-950/60 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+            </div>
+            <div>
+              <h3 class="text-xs font-black uppercase tracking-widest text-slate-200">Quick Log Solved Questions</h3>
+              <p class="text-[11px] text-slate-400 font-medium">Instant counter logging syncs Monthly Heatmap, XP &amp; Coaching Log</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- Physics Logger Card -->
+          <div class="bg-black/35 border border-white/10 hover:border-blue-500/40 rounded-2xl p-4 text-center space-y-3 transition shadow-inner">
+            <div>
+              <div id="quick-phy-today" class="text-3xl font-extrabold font-mono text-blue-400">0</div>
+              <div class="text-[10px] uppercase tracking-wider text-gray-400 font-bold mt-0.5">Questions Today</div>
+            </div>
+            <div class="text-xs font-bold text-white flex items-center justify-center gap-2 py-1 border-y border-white/5">
+              <span class="w-2.5 h-2.5 rounded-full bg-blue-400 inline-block shadow-[0_0_8px_rgba(96,165,250,0.7)]"></span>
+              <span class="font-extrabold text-slate-100">Physics Practice</span>
+            </div>
+            <div class="grid grid-cols-3 gap-2">
+              <button onclick="logQuickQuestions('Physics', 1)" class="py-2 rounded-xl bg-blue-500/15 hover:bg-blue-600 text-blue-300 hover:text-white border border-blue-500/30 text-xs font-black transition shadow-sm">+1</button>
+              <button onclick="logQuickQuestions('Physics', 5)" class="py-2 rounded-xl bg-blue-500/25 hover:bg-blue-600 text-blue-200 hover:text-white border border-blue-500/40 text-xs font-black transition shadow-sm">+5</button>
+              <button onclick="logQuickQuestions('Physics', -1)" class="py-2 rounded-xl bg-red-500/15 hover:bg-red-600 text-red-300 hover:text-white border border-red-500/30 text-xs font-black transition shadow-sm" title="Deduct 1 question">-1</button>
+            </div>
+            <div class="flex gap-1.5 pt-0.5">
+              <input type="number" id="custom-phy-input" placeholder="Custom" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-2 py-1 text-xs text-white text-center outline-none focus:border-blue-400 font-mono font-bold">
+              <button onclick="logCustomQuestions('Physics')" class="px-3 py-1 bg-blue-600 hover:bg-blue-500 text-white rounded-lg text-xs font-black transition">Log</button>
+            </div>
+          </div>
+
+          <!-- Chemistry Logger Card -->
+          <div class="bg-black/35 border border-white/10 hover:border-emerald-500/40 rounded-2xl p-4 text-center space-y-3 transition shadow-inner">
+            <div>
+              <div id="quick-chem-today" class="text-3xl font-black font-mono text-emerald-400 tracking-tight">0</div>
+              <div class="text-[10px] uppercase tracking-widest text-slate-400 font-bold mt-0.5">Questions Today</div>
+            </div>
+            <div class="text-xs font-bold text-white flex items-center justify-center gap-2 py-1 border-y border-white/5">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block shadow-[0_0_8px_rgba(52,211,153,0.7)]"></span>
+              <span class="font-extrabold text-slate-100">Chemistry Practice</span>
+            </div>
+            <div class="grid grid-cols-3 gap-2">
+              <button onclick="logQuickQuestions('Chemistry', 1)" class="py-2 rounded-xl bg-emerald-500/15 hover:bg-emerald-600 text-emerald-300 hover:text-white border border-emerald-500/30 text-xs font-black transition shadow-sm">+1</button>
+              <button onclick="logQuickQuestions('Chemistry', 5)" class="py-2 rounded-xl bg-emerald-500/25 hover:bg-emerald-600 text-emerald-200 hover:text-white border border-emerald-500/40 text-xs font-black transition shadow-sm">+5</button>
+              <button onclick="logQuickQuestions('Chemistry', -1)" class="py-2 rounded-xl bg-red-500/15 hover:bg-red-600 text-red-300 hover:text-white border border-red-500/30 text-xs font-black transition shadow-sm" title="Deduct 1 question">-1</button>
+            </div>
+            <div class="flex gap-1.5 pt-0.5">
+              <input type="number" id="custom-chem-input" placeholder="Custom" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-2 py-1 text-xs text-white text-center outline-none focus:border-emerald-400 font-mono font-bold">
+              <button onclick="logCustomQuestions('Chemistry')" class="px-3 py-1 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-xs font-black transition">Log</button>
+            </div>
+          </div>
+
+          <!-- Maths Logger Card -->
+          <div class="bg-black/35 border border-white/10 hover:border-amber-500/40 rounded-2xl p-4 text-center space-y-3 transition shadow-inner">
+            <div>
+              <div id="quick-math-today" class="text-3xl font-black font-mono text-amber-400 tracking-tight">0</div>
+              <div class="text-[10px] uppercase tracking-widest text-slate-400 font-bold mt-0.5">Questions Today</div>
+            </div>
+            <div class="text-xs font-bold text-white flex items-center justify-center gap-2 py-1 border-y border-white/5">
+              <span class="w-2.5 h-2.5 rounded-full bg-amber-400 inline-block shadow-[0_0_8px_rgba(251,191,36,0.7)]"></span>
+              <span class="font-extrabold text-slate-100">Maths Practice</span>
+            </div>
+            <div class="grid grid-cols-3 gap-2">
+              <button onclick="logQuickQuestions('Maths', 1)" class="py-2 rounded-xl bg-amber-500/15 hover:bg-amber-600 text-amber-300 hover:text-white border border-amber-500/30 text-xs font-black transition shadow-sm">+1</button>
+              <button onclick="logQuickQuestions('Maths', 5)" class="py-2 rounded-xl bg-amber-500/25 hover:bg-amber-600 text-amber-200 hover:text-white border border-amber-500/40 text-xs font-black transition shadow-sm">+5</button>
+              <button onclick="logQuickQuestions('Maths', -1)" class="py-2 rounded-xl bg-red-500/15 hover:bg-red-600 text-red-300 hover:text-white border border-red-500/30 text-xs font-black transition shadow-sm" title="Deduct 1 question">-1</button>
+            </div>
+            <div class="flex gap-1.5 pt-0.5">
+              <input type="number" id="custom-math-input" placeholder="Custom" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-2 py-1 text-xs text-white text-center outline-none focus:border-amber-400 font-mono font-bold">
+              <button onclick="logCustomQuestions('Maths')" class="px-3 py-1 bg-amber-600 hover:bg-amber-500 text-white rounded-lg text-xs font-black transition">Log</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Tactical Simulation & Error Diagnostics Control (Main Control Radar) -->
+      <div id="main-control-simulations-card" class="glass-card p-5 border border-cyan-500/30 bg-[#0c1022]/85 shadow-2xl space-y-4 relative overflow-hidden">
+        <!-- Top Glow Ambient Accent -->
+        <!-- [Apple HIG: Purged AI Blur Blob] -->
+
+        <!-- Header Row -->
+        <div class="flex items-center justify-between pb-3 border-b border-white/10 flex-wrap gap-2 relative z-10">
+          <div class="flex items-center gap-2.5">
+            <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-cyan-500/20 to-[#0071e3]/30 border border-cyan-500/40 flex items-center justify-center text-cyan-300 shadow-[0_0_15px_rgba(0,240,255,0.25)]">
+              <svg class="w-4 h-4 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07l14.14-14.14"/><circle cx="12" cy="12" r="3" fill="#00f0ff"/></svg>
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <h3 class="text-xs sm:text-sm font-black uppercase tracking-wider text-white">Tactical Simulation &amp; Error Control Station</h3>
+                <span id="sim-radar-status" class="text-[9px] font-mono px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-500/30 font-bold flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                  <span>Telemetry Live</span>
+                </span>
+              </div>
+              <p class="text-[11px] text-slate-400 font-medium">Autonomous JEE exam simulations &bull; Real-time error autopsies &bull; Task Flow rollover</p>
+            </div>
+          </div>
+
+          <!-- Quick Action Buttons -->
+          <div class="flex items-center gap-2 flex-wrap">
+            <button onclick="triggerMainControlSimulationModal()" class="px-3.5 py-1.5 bg-gradient-to-r from-cyan-500 to-[#0071e3] hover:from-cyan-400 hover:to-[#0071e3] text-white font-extrabold rounded-xl text-xs transition shadow-lg shadow-cyan-500/20 flex items-center gap-1.5">Run Simulation &amp; Error Check
+            </button>
+            <button onclick="autoFlowSimulationErrors()" class="px-3 py-1.5 bg-rose-600/20 hover:bg-rose-600/40 text-rose-300 border border-rose-500/30 font-bold rounded-xl text-xs transition flex items-center gap-1.5" title="Convert all unresolved errors into Kanban tasks">
+              <span>📋</span> Auto-Flow Errors
+            </button>
+            <a href="cbt_home.html" class="px-3 py-1.5 bg-white/5 hover:bg-white/10 text-cyan-300 border border-cyan-500/30 rounded-xl text-xs font-bold transition flex items-center gap-1">
+              <span>CBT Portal</span> <span>→</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 4-Metric Vitals HUD -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
+          <div class="bg-black/40 rounded-xl p-3 border border-white/5 shadow-inner">
+            <div id="sim-total-runs" class="text-2xl font-black font-mono text-cyan-400">0</div>
+            <div class="text-[10px] text-slate-400 uppercase tracking-widest font-bold mt-0.5">Simulations Run</div>
+          </div>
+          <div class="bg-black/40 rounded-xl p-3 border border-white/5 shadow-inner">
+            <div id="sim-active-errors" class="text-2xl font-black font-mono text-rose-400">0</div>
+            <div class="text-[10px] text-slate-400 uppercase tracking-widest font-bold mt-0.5">Mistake Vault Errors</div>
+          </div>
+          <div class="bg-black/40 rounded-xl p-3 border border-white/5 shadow-inner">
+            <div id="sim-avg-accuracy" class="text-2xl font-black font-mono text-emerald-400">--%</div>
+            <div class="text-[10px] text-slate-400 uppercase tracking-widest font-bold mt-0.5">Simulation Accuracy</div>
+          </div>
+          <div class="bg-black/40 rounded-xl p-3 border border-white/5 shadow-inner">
+            <div id="sim-avg-latency" class="text-2xl font-black font-mono text-amber-400">--s</div>
+            <div class="text-[10px] text-slate-400 uppercase tracking-widest font-bold mt-0.5">Pacing Benchmark</div>
+          </div>
+        </div>
+
+        <!-- Simulations & Error Stream Columns -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-3.5 pt-1">
+          <!-- Recent Simulations History (5 cols) -->
+          <div class="md:col-span-5 bg-black/30 border border-white/5 rounded-xl p-3 space-y-2">
+            <div class="flex items-center justify-between border-b border-white/5 pb-2">
+              <span class="text-[11px] font-bold text-slate-300 uppercase tracking-wider flex items-center gap-1.5">
+                <svg class="w-3.5 h-3.5 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                <span>Latest Simulations</span>
+              </span>
+              <span class="text-[10px] text-slate-500 font-mono" id="sim-stream-count">0 recorded</span>
+            </div>
+            <div id="sim-recent-list" class="space-y-1.5 max-h-48 overflow-y-auto pr-1"></div>
+          </div>
+
+          <!-- Live Error Autopsy Radar Stream (7 cols) -->
+          <div class="md:col-span-7 bg-black/30 border border-white/5 rounded-xl p-3 space-y-2">
+            <div class="flex items-center justify-between border-b border-white/5 pb-2">
+              <span class="text-[11px] font-bold text-rose-300 uppercase tracking-wider flex items-center gap-1.5">
+                <span class="text-xs">⚠️</span>
+                <span>Active Mistake Autopsy Stream</span>
+              </span>
+              <div class="flex items-center gap-2">
+                <a href="cbt_mistakes.html" class="text-[10px] text-cyan-400 hover:underline font-mono font-bold">Mistakes Hub →</a>
+              </div>
+            </div>
+            <div id="sim-errors-list" class="space-y-1.5 max-h-48 overflow-y-auto pr-1"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Today's Queue (Foldable TickTick section) & Upcoming Milestones -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 flex-1 items-stretch">
+        <!-- Today's Queue with Foldable TickTick Tasks -->
+        <div class="glass-card p-5 space-y-3.5 flex flex-col justify-between h-full bg-[#0d1122]/75 border border-white/10 shadow-xl">
+          <div class="flex-1 flex flex-col">
+            <div class="flex items-center justify-between border-b border-white/10 pb-2.5 mb-2.5">
+              <div class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M9 12h6"/><path d="M9 16h6"/></svg>
+                <h3 class="text-xs font-black text-slate-200 uppercase tracking-widest">Today's Queue</h3>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <button onclick="toggleTickTickFold()" id="btn-toggle-tt-fold" class="text-[10px] bg-white/5 hover:bg-white/10 text-cyan-300 border border-cyan-500/30 px-2 py-0.5 rounded-lg transition font-mono font-bold">
+                  ▾ TickTick Fold
+                </button>
+                <button onclick="syncTickTickTasks()" class="text-xs bg-[#0a84ff]/20 hover:bg-[#0a84ff]/40 text-[#0a84ff] border border-white/10 px-2.5 py-1 rounded-lg transition flex items-center gap-1.5 font-bold">
+                  <svg class="w-3.5 h-3.5 text-[#0a84ff]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/></svg>
+                  <span>Sync</span>
+                </button>
+              </div>
+            </div>
+            <div id="home-tasks-list" class="space-y-2 flex-1 min-h-[210px] max-h-72 overflow-y-auto pr-1"></div>
+          </div>
+          <a href="task.html" class="block text-center text-xs text-[#0a84ff] hover:text-[#0a84ff] pt-2 border-t border-white/5 font-extrabold uppercase tracking-wider">Open Task Command &amp; Kanban Board →</a>
+        </div>
+
+        <!-- Upcoming Milestones & Deadlines -->
+        <div class="glass-card p-5 space-y-3.5 flex flex-col justify-between h-full bg-[#0d1122]/75 border border-white/10 shadow-xl">
+          <div class="flex-1 flex flex-col">
+            <div class="flex items-center justify-between border-b border-white/10 pb-3 mb-3">
+              <div class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg>
+                <h3 class="text-xs font-black text-white uppercase tracking-widest">Upcoming Tests &amp; Milestones</h3>
+              </div>
+              <a href="settings.html" class="text-xs font-bold text-slate-400 hover:text-white transition">Edit Deadlines →</a>
+            </div>
+            <div id="milestones-list" class="space-y-2 flex-1 min-h-[210px] max-h-72 overflow-y-auto pr-1"></div>
+          </div>
+          <a href="cbt_home.html" class="block text-center text-xs text-cyan-400 hover:text-cyan-300 pt-2 border-t border-white/5 font-extrabold uppercase tracking-wider">Launch ClockEE CBT Portal →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>

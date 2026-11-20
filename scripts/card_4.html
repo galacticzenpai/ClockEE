@@ -1,0 +1,84 @@
+<div id="main-control-simulations-card" class="glass-card p-5 border border-cyan-500/30 bg-[#0c1022]/85 shadow-2xl space-y-4 relative overflow-hidden">
+        <!-- Top Glow Ambient Accent -->
+        <!-- [Apple HIG: Purged AI Blur Blob] -->
+
+        <!-- Header Row -->
+        <div class="flex items-center justify-between pb-3 border-b border-white/10 flex-wrap gap-2 relative z-10">
+          <div class="flex items-center gap-2.5">
+            <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-cyan-500/20 to-[#0071e3]/30 border border-cyan-500/40 flex items-center justify-center text-cyan-300 shadow-[0_0_15px_rgba(0,240,255,0.25)]">
+              <svg class="w-4 h-4 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07l14.14-14.14"/><circle cx="12" cy="12" r="3" fill="#00f0ff"/></svg>
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <h3 class="text-xs sm:text-sm font-black uppercase tracking-wider text-white">Tactical Simulation &amp; Error Control Station</h3>
+                <span id="sim-radar-status" class="text-[9px] font-mono px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-500/30 font-bold flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                  <span>Telemetry Live</span>
+                </span>
+              </div>
+              <p class="text-[11px] text-slate-400 font-medium">Autonomous JEE exam simulations &bull; Real-time error autopsies &bull; Task Flow rollover</p>
+            </div>
+          </div>
+
+          <!-- Quick Action Buttons -->
+          <div class="flex items-center gap-2 flex-wrap">
+            <button onclick="triggerMainControlSimulationModal()" class="px-3.5 py-1.5 bg-gradient-to-r from-cyan-500 to-[#0071e3] hover:from-cyan-400 hover:to-[#0071e3] text-white font-extrabold rounded-xl text-xs transition shadow-lg shadow-cyan-500/20 flex items-center gap-1.5">Run Simulation &amp; Error Check
+            </button>
+            <button onclick="autoFlowSimulationErrors()" class="px-3 py-1.5 bg-rose-600/20 hover:bg-rose-600/40 text-rose-300 border border-rose-500/30 font-bold rounded-xl text-xs transition flex items-center gap-1.5" title="Convert all unresolved errors into Kanban tasks">
+              <span>📋</span> Auto-Flow Errors
+            </button>
+            <a href="cbt_home.html" class="px-3 py-1.5 bg-white/5 hover:bg-white/10 text-cyan-300 border border-cyan-500/30 rounded-xl text-xs font-bold transition flex items-center gap-1">
+              <span>CBT Portal</span> <span>→</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 4-Metric Vitals HUD -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
+          <div class="bg-black/40 rounded-xl p-3 border border-white/5 shadow-inner">
+            <div id="sim-total-runs" class="text-2xl font-black font-mono text-cyan-400">0</div>
+            <div class="text-[10px] text-slate-400 uppercase tracking-widest font-bold mt-0.5">Simulations Run</div>
+          </div>
+          <div class="bg-black/40 rounded-xl p-3 border border-white/5 shadow-inner">
+            <div id="sim-active-errors" class="text-2xl font-black font-mono text-rose-400">0</div>
+            <div class="text-[10px] text-slate-400 uppercase tracking-widest font-bold mt-0.5">Mistake Vault Errors</div>
+          </div>
+          <div class="bg-black/40 rounded-xl p-3 border border-white/5 shadow-inner">
+            <div id="sim-avg-accuracy" class="text-2xl font-black font-mono text-emerald-400">--%</div>
+            <div class="text-[10px] text-slate-400 uppercase tracking-widest font-bold mt-0.5">Simulation Accuracy</div>
+          </div>
+          <div class="bg-black/40 rounded-xl p-3 border border-white/5 shadow-inner">
+            <div id="sim-avg-latency" class="text-2xl font-black font-mono text-amber-400">--s</div>
+            <div class="text-[10px] text-slate-400 uppercase tracking-widest font-bold mt-0.5">Pacing Benchmark</div>
+          </div>
+        </div>
+
+        <!-- Simulations & Error Stream Columns -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-3.5 pt-1">
+          <!-- Recent Simulations History (5 cols) -->
+          <div class="md:col-span-5 bg-black/30 border border-white/5 rounded-xl p-3 space-y-2">
+            <div class="flex items-center justify-between border-b border-white/5 pb-2">
+              <span class="text-[11px] font-bold text-slate-300 uppercase tracking-wider flex items-center gap-1.5">
+                <svg class="w-3.5 h-3.5 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                <span>Latest Simulations</span>
+              </span>
+              <span class="text-[10px] text-slate-500 font-mono" id="sim-stream-count">0 recorded</span>
+            </div>
+            <div id="sim-recent-list" class="space-y-1.5 max-h-48 overflow-y-auto pr-1"></div>
+          </div>
+
+          <!-- Live Error Autopsy Radar Stream (7 cols) -->
+          <div class="md:col-span-7 bg-black/30 border border-white/5 rounded-xl p-3 space-y-2">
+            <div class="flex items-center justify-between border-b border-white/5 pb-2">
+              <span class="text-[11px] font-bold text-rose-300 uppercase tracking-wider flex items-center gap-1.5">
+                <span class="text-xs">⚠️</span>
+                <span>Active Mistake Autopsy Stream</span>
+              </span>
+              <div class="flex items-center gap-2">
+                <a href="cbt_mistakes.html" class="text-[10px] text-cyan-400 hover:underline font-mono font-bold">Mistakes Hub →</a>
+              </div>
+            </div>
+            <div id="sim-errors-list" class="space-y-1.5 max-h-48 overflow-y-auto pr-1"></div>
+          </div>
+        </div>
+      </div>

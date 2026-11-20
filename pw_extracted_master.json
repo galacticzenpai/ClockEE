@@ -3190,5 +3190,398 @@
     "solution_text": "Solution\nMedium\nShow Video Sol.\nIn free adiabatic expansion of an ideal gas into vacuum:\n1. Expansion into vacuum means P_ext = 0, so work done w = -P_ext * ΔV = 0.\n2. Adiabatic conditions mean heat transfer q = 0.\n3. By the First Law of Thermodynamics: ΔE = q + w = 0 + 0 = 0.\n4. Since ΔE = 0 for an ideal gas, temperature does not change (ΔT = 0). Consequently, ΔH = ΔE + Δ(PV) = ΔE + nRΔT = 0.\nTherefore, all of these statements (w = 0, ΔE = 0, ΔH = 0) are correct.",
     "video_url": "",
     "subject": "Chemistry"
+  },
+  {
+    "question_number": 1,
+    "chapter": "Equilibrium",
+    "subject": "Chemistry",
+    "class": "Class 11",
+    "type": "Single Choice Question",
+    "statement": "On decomposition of $\\text{NH}_4\\text{HS}$, the following equilibrium is established\n\n$$\\text{NH}_4\\text{HS}(s) \\rightleftharpoons \\text{NH}_3(g) + \\text{H}_2\\text{S}(g)$$\n\nIf the total pressure is $P\\text{ atm}$, then the equilibrium constant $K_P$ is equal to",
+    "options": [
+      {
+        "option_number": 1,
+        "option_text": "$P\\text{ atm}$",
+        "student_percentage": "27.16%",
+        "is_correct": false
+      },
+      {
+        "option_number": 2,
+        "option_text": "$P^2\\text{ atm}^2$",
+        "student_percentage": "33.23%",
+        "is_correct": false
+      },
+      {
+        "option_number": 3,
+        "option_text": "$\\frac{P^2}{4}\\text{ atm}^2$",
+        "student_percentage": "30.03%",
+        "is_correct": true
+      },
+      {
+        "option_number": 4,
+        "option_text": "$2P\\text{ atm}$",
+        "student_percentage": "9.9%",
+        "is_correct": false
+      }
+    ],
+    "registered_answer": 3,
+    "student_accuracy": "30.03%",
+    "difficulty": "Easy",
+    "video_solution_url": "https://www.youtube.com/embed/0n352AzEmI4",
+    "solution_text": "On decomposition of solid ammonium hydrogen sulphide:\n$$\\text{NH}_4\\text{HS}(s) \\rightleftharpoons \\text{NH}_3(g) + \\text{H}_2\\text{S}(g)$$\nSince solid $\\text{NH}_4\\text{HS}$ does not contribute to gas pressure and produces equimolar amounts of $\\text{NH}_3(g)$ and $\\text{H}_2\\text{S}(g)$:\n$$p_{\\text{NH}_3} = p_{\\text{H}_2\\text{S}} = \\frac{P_{\\text{total}}}{2} = \\frac{P}{2}\\text{ atm}$$\nNow, applying the equilibrium constant expression in terms of partial pressures:\n$$K_P = p_{\\text{NH}_3} \\times p_{\\text{H}_2\\text{S}} = \\left(\\frac{P}{2}\\right) \\times \\left(\\frac{P}{2}\\right) = \\frac{P^2}{4}\\text{ atm}^2$$\nTherefore, option (3) is correct."
+  },
+  {
+    "question_number": 2,
+    "chapter": "Equilibrium",
+    "subject": "Chemistry",
+    "class": "Class 11",
+    "type": "Single Choice Question",
+    "statement": "Number of $\\text{H}^+$ ions present in $10\\text{ mL}$ of a solution of $\\text{pH} = 3$ is:",
+    "options": [
+      {
+        "option_number": 1,
+        "option_text": "$10^{13}$",
+        "student_percentage": "19.71%",
+        "is_correct": false
+      },
+      {
+        "option_number": 2,
+        "option_text": "$6.02 \\times 10^{18}$",
+        "student_percentage": "44.53%",
+        "is_correct": true
+      },
+      {
+        "option_number": 3,
+        "option_text": "$6.02 \\times 10^{13}$",
+        "student_percentage": "27.37%",
+        "is_correct": false
+      },
+      {
+        "option_number": 4,
+        "option_text": "$6.02 \\times 10^{10}$",
+        "student_percentage": "8.39%",
+        "is_correct": false
+      }
+    ],
+    "registered_answer": 2,
+    "student_accuracy": "44.53%",
+    "difficulty": "Easy",
+    "video_solution_url": "https://www.youtube.com/embed/0n352AzEmI4",
+    "solution_text": "Given:\n$\\text{pH} = 3 \\implies [\\text{H}^+] = 10^{-\\text{pH}} = 10^{-3}\\text{ mol/L}$\nVolume of solution $V = 10\\text{ mL} = 10 \\times 10^{-3}\\text{ L} = 10^{-2}\\text{ L}$\nMoles of $\\text{H}^+$ ions $n = [\\text{H}^+] \\times V = 10^{-3}\\text{ mol/L} \\times 10^{-2}\\text{ L} = 10^{-5}\\text{ mol}$\nNumber of $\\text{H}^+$ ions = $n \\times N_A = 10^{-5} \\times 6.022 \\times 10^{23} = 6.02 \\times 10^{18}\\text{ ions}$\nTherefore, the correct answer is option (2)."
+  },
+  {
+    "question_number": 3,
+    "chapter": "Equilibrium",
+    "subject": "Chemistry",
+    "class": "Class 11",
+    "type": "Single Choice Question",
+    "statement": "At $80^\\circ\\text{C}$, distilled water has $[\\text{H}_3\\text{O}^+]$ concentration equal to $1 \\times 10^{-6}\\text{ mole/litre}$. The value of $K_w$ at this temperature will be",
+    "options": [
+      {
+        "option_number": 1,
+        "option_text": "$1 \\times 10^{-6}$",
+        "student_percentage": "21.4%",
+        "is_correct": false
+      },
+      {
+        "option_number": 2,
+        "option_text": "$1 \\times 10^{-9}$",
+        "student_percentage": "21.86%",
+        "is_correct": false
+      },
+      {
+        "option_number": 3,
+        "option_text": "$1 \\times 10^{-12}$",
+        "student_percentage": "50.7%",
+        "is_correct": true
+      },
+      {
+        "option_number": 4,
+        "option_text": "$1 \\times 10^{-5}$",
+        "student_percentage": "6.51%",
+        "is_correct": false
+      }
+    ],
+    "registered_answer": 3,
+    "student_accuracy": "50.23%",
+    "difficulty": "Easy",
+    "video_solution_url": null,
+    "solution_text": "For pure distilled water at any temperature:\n$$[\\text{H}_3\\text{O}^+] = [\\text{OH}^-]$$\nGiven $[\\text{H}_3\\text{O}^+] = 1 \\times 10^{-6}\\text{ mol/L}$, so $[\\text{OH}^-] = 1 \\times 10^{-6}\\text{ mol/L}$.\nThe ionic product of water $K_w$ is defined as:\n$$K_w = [\\text{H}_3\\text{O}^+][\\text{OH}^-] = (1 \\times 10^{-6}) \\times (1 \\times 10^{-6}) = 1 \\times 10^{-12}\\text{ mol}^2\\text{L}^{-2}$$\nTherefore, the correct answer is option (3)."
+  },
+  {
+    "question_number": 4,
+    "chapter": "Equilibrium",
+    "subject": "Chemistry",
+    "class": "Class 11",
+    "type": "Single Choice Question",
+    "statement": "$K_{a1}$, $K_{a2}$ and $K_{a3}$ are the respective ionisation constants for the following reactions:\n\n1) $\\text{H}_2\\text{S} \\rightleftharpoons \\text{H}^+ + \\text{HS}^-$\n2) $\\text{HS}^- \\rightleftharpoons \\text{H}^+ + \\text{S}^{2-}$\n3) $\\text{H}_2\\text{S} \\rightleftharpoons 2\\text{H}^+ + \\text{S}^{2-}$\n\nThe correct relationship between $K_{a1}$, $K_{a2}$, $K_{a3}$ is:",
+    "options": [
+      {
+        "option_number": 1,
+        "option_text": "$K_{a3} = K_{a1} \\times K_{a2}$",
+        "student_percentage": "55.83%",
+        "is_correct": true
+      },
+      {
+        "option_number": 2,
+        "option_text": "$K_{a3} = K_{a1} + K_{a2}$",
+        "student_percentage": "20.87%",
+        "is_correct": false
+      },
+      {
+        "option_number": 3,
+        "option_text": "$K_{a3} = K_{a1} - K_{a2}$",
+        "student_percentage": "11.17%",
+        "is_correct": false
+      },
+      {
+        "option_number": 4,
+        "option_text": "$K_{a3} = K_{a1} / K_{a2}$",
+        "student_percentage": "12.14%",
+        "is_correct": false
+      }
+    ],
+    "registered_answer": 1,
+    "student_accuracy": "55.83%",
+    "difficulty": "Easy",
+    "video_solution_url": "https://www.youtube.com/embed/c_ozN6-Hc-c",
+    "solution_text": "Adding reaction (1) and reaction (2):\n$$\\text{H}_2\\text{S} \\rightleftharpoons \\text{H}^+ + \\text{HS}^- \\quad (K_{a1})$$\n$$\\text{HS}^- \\rightleftharpoons \\text{H}^+ + \\text{S}^{2-} \\quad (K_{a2})$$\n----------------------------------------------------\n$$\\text{H}_2\\text{S} \\rightleftharpoons 2\\text{H}^+ + \\text{S}^{2-} \\quad (K_{a3})$$\nWhen chemical equations are added, their equilibrium constants multiply:\n$$K_{a3} = K_{a1} \\times K_{a2}$$\nTherefore, option (1) is correct."
+  },
+  {
+    "question_number": 5,
+    "chapter": "Equilibrium",
+    "subject": "Chemistry",
+    "class": "Class 11",
+    "type": "Single Choice Question",
+    "statement": "The conjugate base of hydrazoic acid is :",
+    "options": [
+      {
+        "option_number": 1,
+        "option_text": "$\\text{N}^{-3}$",
+        "student_percentage": "13.2%",
+        "is_correct": false
+      },
+      {
+        "option_number": 2,
+        "option_text": "$\\text{N}_3^-$",
+        "student_percentage": "35.97%",
+        "is_correct": true
+      },
+      {
+        "option_number": 3,
+        "option_text": "$\\text{N}_2^-$",
+        "student_percentage": "21.78%",
+        "is_correct": false
+      },
+      {
+        "option_number": 4,
+        "option_text": "$\\text{HN}_3^-$",
+        "student_percentage": "29.37%",
+        "is_correct": false
+      }
+    ],
+    "registered_answer": 2,
+    "student_accuracy": "36.3%",
+    "difficulty": "Easy",
+    "video_solution_url": "https://www.youtube.com/embed/c_ozN6-Hc-c",
+    "solution_text": "Hydrazoic acid has the chemical formula $\\text{HN}_3$.\nAccording to Bronsted-Lowry acid-base theory, the conjugate base of an acid is formed when the acid donates a proton ($\\text{H}^+$):\n$$\\text{HN}_3 \\rightleftharpoons \\text{H}^+ + \\text{N}_3^-$$\nHere $\\text{N}_3^-$ is the azide ion, which is the conjugate base of hydrazoic acid.\nTherefore, option (2) is correct."
+  },
+  {
+    "question_number": 6,
+    "chapter": "Equilibrium",
+    "subject": "Chemistry",
+    "class": "Class 11",
+    "type": "Single Choice Question",
+    "statement": "Which of the following is not a Lewis acid?",
+    "options": [
+      {
+        "option_number": 1,
+        "option_text": "$\\text{SiF}_4$",
+        "student_percentage": "12.62%",
+        "is_correct": false
+      },
+      {
+        "option_number": 2,
+        "option_text": "$\\text{C}_2\\text{H}_4$",
+        "student_percentage": "41.75%",
+        "is_correct": true
+      },
+      {
+        "option_number": 3,
+        "option_text": "$\\text{BF}_3$",
+        "student_percentage": "33.5%",
+        "is_correct": false
+      },
+      {
+        "option_number": 4,
+        "option_text": "$\\text{FeCl}_3$",
+        "student_percentage": "12.14%",
+        "is_correct": false
+      }
+    ],
+    "registered_answer": 2,
+    "student_accuracy": "41.26%",
+    "difficulty": "Easy",
+    "video_solution_url": "https://www.youtube.com/embed/c_ozN6-Hc-c",
+    "solution_text": "A Lewis acid is an electron pair acceptor.\n- $\\text{BF}_3$: Boron has an incomplete octet (6 valence electrons), so it readily accepts a pair of electrons (strong Lewis acid).\n- $\\text{FeCl}_3$: Fe has vacant d-orbitals and incomplete valence shell, accepting electron pairs.\n- $\\text{SiF}_4$: Silicon can expand its octet using vacant 3d orbitals to form $[\\text{SiF}_6]^{2-}$, so it behaves as a Lewis acid.\n- $\\text{C}_2\\text{H}_4$ (ethene): Ethene possesses an electron-rich $\\pi$-electron cloud. It acts as an electron donor (Lewis base or nucleophile), not as an electron acceptor.\nTherefore, $\\text{C}_2\\text{H}_4$ is not a Lewis acid. Option (2) is correct."
+  },
+  {
+    "question_number": 7,
+    "chapter": "Equilibrium",
+    "subject": "Chemistry",
+    "class": "Class 11",
+    "type": "Single Choice Question",
+    "statement": "$1.1\\text{ mol}$ of $A$ mixed with $2.2\\text{ mol}$ of $B$ and the mixture is kept in a $1\\text{ L}$ flask and the equilibrium, $A + 2B \\rightleftharpoons 2C + D$ is reached. If at equilibrium $0.2\\text{ mol}$ of $C$ is formed then the value of $K_C$ will be",
+    "options": [
+      {
+        "option_number": 1,
+        "option_text": "$0.1$",
+        "student_percentage": "17.96%",
+        "is_correct": false
+      },
+      {
+        "option_number": 2,
+        "option_text": "$0.01$",
+        "student_percentage": "25.75%",
+        "is_correct": false
+      },
+      {
+        "option_number": 3,
+        "option_text": "$0.001$",
+        "student_percentage": "47.31%",
+        "is_correct": true
+      },
+      {
+        "option_number": 4,
+        "option_text": "$0.0001$",
+        "student_percentage": "8.98%",
+        "is_correct": false
+      }
+    ],
+    "registered_answer": 3,
+    "student_accuracy": "47.31%",
+    "difficulty": "Medium",
+    "video_solution_url": "https://www.youtube.com/embed/c_ozN6-Hc-c",
+    "solution_text": "Given volume $V = 1\\text{ L}$. Thus moles equal molar concentrations.\nReaction: $A + 2B \\rightleftharpoons 2C + D$\nInitial: $[A]_0 = 1.1\\text{ M}$, $[B]_0 = 2.2\\text{ M}$, $[C]_0 = 0$, $[D]_0 = 0$\nAt equilibrium, $[C] = 2x = 0.2\\text{ M} \\implies x = 0.1\\text{ M}$.\nThen:\n$[D] = x = 0.1\\text{ M}$\n$[A] = 1.1 - x = 1.1 - 0.1 = 1.0\\text{ M}$\n$[B] = 2.2 - 2x = 2.2 - 2(0.1) = 2.0\\text{ M}$\nNow calculating $K_C$:\n$$K_C = \\frac{[C]^2 [D]}{[A] [B]^2} = \\frac{(0.2)^2 \\times (0.1)}{(1.0) \\times (2.0)^2} = \\frac{0.04 \\times 0.1}{1.0 \\times 4.0} = \\frac{0.004}{4.0} = 0.001$$\nTherefore, option (3) is correct."
+  },
+  {
+    "question_number": 8,
+    "chapter": "Equilibrium",
+    "subject": "Chemistry",
+    "class": "Class 11",
+    "type": "Multiple Choice Question",
+    "statement": "Which of the following are Lewis bases?",
+    "options": [
+      {
+        "option_number": 1,
+        "option_text": "$\\text{AlCl}_3$",
+        "student_percentage": "35.81%",
+        "is_correct": false
+      },
+      {
+        "option_number": 2,
+        "option_text": "$\\text{Br}_2$",
+        "student_percentage": "34.88%",
+        "is_correct": true
+      },
+      {
+        "option_number": 3,
+        "option_text": "$\\text{H}^+$",
+        "student_percentage": "33.49%",
+        "is_correct": false
+      },
+      {
+        "option_number": 4,
+        "option_text": "$R-\\text{O}-\\text{H}$",
+        "student_percentage": "40.93%",
+        "is_correct": true
+      }
+    ],
+    "registered_answer": [
+      2,
+      4
+    ],
+    "student_accuracy": "10.7%",
+    "difficulty": "Easy",
+    "video_solution_url": "https://www.youtube.com/embed/c_ozN6-Hc-c",
+    "solution_text": "A Lewis base is a chemical species that cannot only accept protons but can donate a pair of electrons.\n- $\\text{AlCl}_3$: Electron-deficient central aluminium atom (6 valence electrons) makes it a classic Lewis acid.\n- $\\text{Br}_2$: The halogen molecule possesses non-bonding lone pairs of electrons and can donate electron density to act as an electron-pair donor toward suitable acceptors; in this standard JEE classification, it acts as a Lewis base.\n- $\\text{H}^+$: Has a completely vacant orbital and no electrons, acting exclusively as a Lewis acid.\n- Alcohols ($R-\\text{O}-\\text{H}$): The oxygen atom possesses two lone pairs of electrons and donates an electron pair, acting as a Lewis base.\nTherefore, options (2) and (4) are correct."
+  },
+  {
+    "question_number": 9,
+    "chapter": "Equilibrium",
+    "subject": "Chemistry",
+    "class": "Class 11",
+    "type": "Single Choice Question",
+    "statement": "At $25^\\circ\\text{C}$, the dissociation constant of a base $\\text{BOH}$ is $1.0 \\times 10^{-12}$. The concentration of hydroxyl ions in $0.01\\text{M}$ aqueous solution of the base would be",
+    "options": [
+      {
+        "option_number": 1,
+        "option_text": "$1.0 \\times 10^{-6}\\text{ mol L}^{-1}$",
+        "student_percentage": "17.68%",
+        "is_correct": false
+      },
+      {
+        "option_number": 2,
+        "option_text": "$1.0 \\times 10^{-7}\\text{ mol L}^{-1}$",
+        "student_percentage": "51.01%",
+        "is_correct": true
+      },
+      {
+        "option_number": 3,
+        "option_text": "$2.0 \\times 10^{-6}\\text{ mol L}^{-1}$",
+        "student_percentage": "17.68%",
+        "is_correct": false
+      },
+      {
+        "option_number": 4,
+        "option_text": "$1.0 \\times 10^{-5}\\text{ mol L}^{-1}$",
+        "student_percentage": "15.15%",
+        "is_correct": false
+      }
+    ],
+    "registered_answer": 2,
+    "student_accuracy": "50.51%",
+    "difficulty": "Medium",
+    "video_solution_url": "https://www.youtube.com/embed/c_ozN6-Hc-c",
+    "solution_text": "For a weak monobasic base $\\text{BOH}$:\n$$\\text{BOH} \\rightleftharpoons \\text{B}^+ + \\text{OH}^-$$\nWith initial concentration $C = 0.01\\text{ M} = 10^{-2}\\text{ M}$ and $K_b = 1.0 \\times 10^{-12}$.\nSince $K_b$ is very small, degree of dissociation $\\alpha \\ll 1$:\n$$[\\text{OH}^-] = \\sqrt{K_b \\times C} = \\sqrt{(1.0 \\times 10^{-12}) \\times (10^{-2})} = \\sqrt{1.0 \\times 10^{-14}} = 1.0 \\times 10^{-7}\\text{ mol L}^{-1}$$\nTherefore, the concentration of hydroxyl ions is $1.0 \\times 10^{-7}\\text{ mol L}^{-1}$. Option (2) is correct."
+  },
+  {
+    "question_number": 10,
+    "chapter": "Equilibrium",
+    "subject": "Chemistry",
+    "class": "Class 11",
+    "type": "Single Choice Question",
+    "statement": "In a reaction\n\n$$\\text{C}_2\\text{H}_4(g) + \\text{H}_2(g) \\rightleftharpoons \\text{C}_2\\text{H}_6(g)$$\n\nthe equilibrium constant can be expressed in units of",
+    "options": [
+      {
+        "option_number": 1,
+        "option_text": "$\\text{L}^{-1}\\text{ mol}^{-1}$",
+        "student_percentage": "19.95%",
+        "is_correct": false
+      },
+      {
+        "option_number": 2,
+        "option_text": "$\\text{L mol}^{-1}$",
+        "student_percentage": "46.11%",
+        "is_correct": true
+      },
+      {
+        "option_number": 3,
+        "option_text": "$\\text{mol}^2\\text{litre}^2$",
+        "student_percentage": "13.21%",
+        "is_correct": false
+      },
+      {
+        "option_number": 4,
+        "option_text": "$\\text{mole litre}^{-1}$",
+        "student_percentage": "20.73%",
+        "is_correct": false
+      }
+    ],
+    "registered_answer": 2,
+    "student_accuracy": "46.11%",
+    "difficulty": "Easy",
+    "video_solution_url": "https://www.youtube.com/embed/c_ozN6-Hc-c",
+    "solution_text": "The unit of equilibrium constant $K_C$ is given by:\n$$\\text{Unit of } K_C = (\\text{mol L}^{-1})^{\\Delta n_g}$$\nFor the reaction:\n$$\\text{C}_2\\text{H}_4(g) + \\text{H}_2(g) \\rightleftharpoons \\text{C}_2\\text{H}_6(g)$$\n$$\\Delta n_g = n_p - n_r = 1 - (1 + 1) = 1 - 2 = -1$$\nSubstituting $\\Delta n_g = -1$:\n$$\\text{Unit of } K_C = (\\text{mol L}^{-1})^{-1} = \\text{mol}^{-1}\\text{ L} = \\text{L mol}^{-1}$$\nTherefore, option (2) is correct."
   }
 ]

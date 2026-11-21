@@ -288,9 +288,11 @@ class QAValidator:
 
         # 3. Distractor Cognitive Mapping check
         distractor_map = q.get("distractor_map")
-        distractor_valid = True
-        if not distractor_map or not isinstance(distractor_map, dict):
-            distractor_valid = False
+        is_multi_all_correct = (
+            q.get("questionType") == "Multiple Choice Question" and
+            all(opt.get("isCorrect") or opt.get("is_correct") for opt in options)
+        )
+        distractor_valid = bool(distractor_map and isinstance(distractor_map, dict)) or is_multi_all_correct
 
         # 4. Syllabus Ontology Alignment check
         raw_ch = q.get("chapter", "")

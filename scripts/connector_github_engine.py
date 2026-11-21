@@ -237,7 +237,7 @@ def execute_vercel_deployment():
     """
     print("🌐 Initiating Vercel CI/CD Production Promotion...")
     # Check vercel whoami
-    whoami_proc = subprocess.run(["vercel", "whoami"], cwd=str(WORKSPACE), capture_output=True, text=True)
+    whoami_proc = subprocess.run(["vercel", "whoami"], cwd=str(WORKSPACE), capture_output=True, text=True, shell=True)
     user = whoami_proc.stdout.strip() if whoami_proc.returncode == 0 else "Unknown"
     print(f"   Authenticated Vercel User: {user}")
 
@@ -246,7 +246,8 @@ def execute_vercel_deployment():
         ["vercel", "--prod", "--yes"],
         cwd=str(WORKSPACE),
         capture_output=True,
-        text=True
+        text=True,
+        shell=True
     )
 
     stdout = deploy_proc.stdout.strip()

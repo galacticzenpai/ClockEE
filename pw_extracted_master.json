@@ -24975,11 +24975,36 @@
     "topic": "Movable Pulley Dynamic Acceleration",
     "questionNumber": 68,
     "questionType": "Single Choice Question",
-    "statement": "Type : Multiple Choice Question An arrangement of the masses and pulleys is shown in the figure. Strings connecting masses A and B with pulleys are horizontal and all pulleys and strings are light. Friction coefficient between the surface and the block B is 0.2 and between blocks A and B is 0.7. The system is released from rest. (use g=10 m/s2 ) 1 The magnitude of acceleration of the system is 2 m/s2 and there is no slipping between block A and block B. 50% Marked this option 2 The magnitude of friction force between block A and block B is 42 N. 50% Marked this option 3 Acceleration of block C is 1 m/s2 downwards. 25% Marked this option 4 Tension in the string connecting block B and block D is 12 N. 50% Marked this option You have missed this option 25% of students got it right Solution Hard Show Video Sol. For block C 60 – T = 6a      ……………(1) For Block D T ′ – 10 = a      …………….(2) Assume block A & B as a system, making FBD. (we can neglect the internal friction force between A and B . T−T'−f'=(6+3)a ⇒T−T'−0.2(6+3)g=9a ⇒T−T'=1.8g+9a……..(3) From eqn. (1) and (2) and (3) we get 6g−6a−(g+a)=T−T' i.e 6g−6a−g−a=1.8g+9a( from (3)) ⇒5g−7a=1.8g+9a ⇒a=2 m/s2 Now, for block A, T – f = 6 × a From eq. (1), 6(g−a)−f=6a 6×10−12×2=f ⇒f=36N Maximum friction force that can act between block A and block B =μ(mg)=0.7×(6×10)=42N=fmax Since, f<fmax, so both the blocks will move together without slipping. Hence our assumption was correct.",
+    "statement": "An arrangement of the masses and pulleys is shown in the figure. Strings connecting masses A and B with pulleys are horizontal and all pulleys and strings are light. Friction coefficient between the surface and the block B is 0.2 and between blocks A and B is 0.7. The system is released from rest. (use  = 10\\text{ m/s}^2$)",
     "diagramUrl": "https://d2bps9p1kiy4ka.cloudfront.net/5eb393ee95fab7468a79d189/2d9f2e06-340a-410c-ae50-f04cef8a50cf.png",
-    "options": [],
-    "correctOption": null,
-    "correctAnswer": "",
+    "options": [
+      {
+        "id": "A",
+        "text": "The magnitude of acceleration of the system is 2 m/s2$ and there is no slipping between block A and block B.",
+        "percentage": "50.0%",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "The magnitude of friction force between block A and block B is 42 N.",
+        "percentage": "50.0%",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "Acceleration of block C is 1 m/s2$ downwards.",
+        "percentage": "25.0%",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "Tension in the string connecting block B and block D is 12 N.",
+        "percentage": "50.0%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": "A",
+    "correctAnswer": "The magnitude of acceleration of the system is 2 m/s2$ and there is no slipping between block A and block B.",
     "accuracy": "40.00%",
     "accuracyPct": 40.0,
     "difficulty": "Medium",
@@ -24987,7 +25012,12 @@
     "videoSolutionUrl": "https://www.youtube.com/embed/kyyojsGboAg?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=93&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&vf=1",
     "source": "PW Infinite Practice - Class 11 Physics",
     "cohort": "Class 11 JEE",
-    "canonical_chapter": "Newton's Laws of Motion & Friction"
+    "canonical_chapter": "Newton's Laws of Motion & Friction",
+    "distractor_map": {
+      "B": "SUPERFICIAL_INTUITION",
+      "C": "SIGN_ERROR",
+      "D": "FORMULA_CONFUSION"
+    }
   },
   {
     "id": "PW_PHY_NLM_069",
@@ -27246,19 +27276,19 @@
         "id": "A",
         "text": "Physics is a basic discipline in the category of natural sciences, which does not induced other disciplines.",
         "percentage": "86.21%",
-        "isCorrect": true
+        "isCorrect": false
       },
       {
         "id": "B",
         "text": "In physics, we attempt to explain similar physical phenomena in terms of a few concepts and laws.",
         "percentage": "88.34%",
-        "isCorrect": true
+        "isCorrect": false
       },
       {
         "id": "C",
         "text": "The attempts to unify fundamental forces of nature is called unification.",
         "percentage": "86.7%",
-        "isCorrect": true
+        "isCorrect": false
       },
       {
         "id": "D",
@@ -27276,7 +27306,12 @@
     "videoSolutionUrl": "https://www.youtube.com/embed/1Fwb-5QuLfk?origin=https%3A%2F%2Fwww.pw.live",
     "source": "PW Infinite Practice - Class 11 Physics",
     "cohort": "Class 11 JEE",
-    "canonical_chapter": "Units, Dimensions & Errors"
+    "canonical_chapter": "Units, Dimensions & Errors",
+    "distractor_map": {
+      "A": "SUPERFICIAL_INTUITION",
+      "B": "SUPERFICIAL_INTUITION",
+      "C": "SUPERFICIAL_INTUITION"
+    }
   },
   {
     "id": "PW_PHY_PHYSICAL_WORLD_086",

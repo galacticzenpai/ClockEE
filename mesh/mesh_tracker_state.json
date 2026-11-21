@@ -54,10 +54,10 @@
     "qa_engine": {
       "status": "ONLINE",
       "connector_bot": "connector-qa",
-      "current_task": "Dossier DOSSIER-QA-20261122_001126 reported to Backbone",
+      "current_task": "Dossier DOSSIER-QA-20261122_001233 reported to Backbone",
       "load": 0,
       "handshake_confirmed": true,
-      "last_sync": "2026-11-22T00:11:26.570923"
+      "last_sync": "2026-11-22T00:12:33.538746"
     },
     "innovation": {
       "status": "ONLINE",
@@ -73,7 +73,7 @@
     "verified_books": 7,
     "ui_lint_status": "PASS (73/73 files)",
     "mesh_handshake_status": "10/10 CONFIRMED",
-    "qa_latex_pass_rate": "100.0%",
-    "qa_distractor_coverage": "99.6%"
+    "qa_latex_pass_rate": "99.9%",
+    "qa_distractor_coverage": "100.0%"
   }
 }

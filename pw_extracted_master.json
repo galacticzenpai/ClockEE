@@ -11055,5 +11055,1745 @@
     "difficulty": "Easy",
     "solutionText": "A standard unit must be universally accepted, well-defined, invariable over time, and of suitable size.\n\n---\nBoth Chapter 1 (Physical World: 62/62) and Chapter 2 (Units and Measurements: 90/90) have now been extracted and submitted! Ready for Chapter 3!\n</SYSTEM_MESSAGE>",
     "videoUrl": ""
+  },
+  {
+    "id": "PW_PHY_MOTION1D_001",
+    "subject": "Physics",
+    "chapter": "Motion in a Straight Line",
+    "topic": "Kinematics 1D",
+    "questionNumber": 1,
+    "statement": "A train moves in north direction with a speed of 54 km/h. A monkey is running on the roof of the train, against its motion with a velocity of 18 km/h with respect to train. The velocity of monkey as observed by a man standing on the ground is:\n1\n5 m/s due south\n15.38%",
+    "options": [
+      {
+        "index": 1,
+        "optionText": "5 m/s due south",
+        "isCorrect": false,
+        "studentPercentage": "15.38%"
+      },
+      {
+        "index": 2,
+        "optionText": "25 m/s due south",
+        "isCorrect": false,
+        "studentPercentage": "30.77%"
+      },
+      {
+        "index": 3,
+        "optionText": "10 m/s due south",
+        "isCorrect": false,
+        "studentPercentage": "15.38%"
+      },
+      {
+        "index": 4,
+        "optionText": "10 m/s due north.",
+        "isCorrect": true,
+        "studentPercentage": "38.46%"
+      }
+    ],
+    "correctOption": "D",
+    "correctAnswer": "D",
+    "accuracy": "38.46%",
+    "accuracyPct": 38.46,
+    "difficulty": "Hard",
+    "solutionText": "Given:\n\n\n\nSpeed of train = 54 km/h=15 m/s (northward)\n\n\n\nMonkey runs opposite to train at 18 km/h=5 m/s southward relative to train\n\n\n\nVelocity of monkey w.r.t ground:\n\nvmonkey, ground=vtrain−vmonkey, rel=15−5=10 m/s (north)\n\nAnswer: Option D: 10 m/s due north",
+    "videoSolutionUrl": "https://www.youtube.com/embed/1_EFKTpvHro?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=1&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&vf=1",
+    "source": "PW Infinite Practice",
+    "cohort": "Class 11 IIT JEE"
+  },
+  {
+    "id": "PW_PHY_MOTION1D_002",
+    "subject": "Physics",
+    "chapter": "Motion in a Straight Line",
+    "topic": "Kinematics 1D",
+    "questionNumber": 2,
+    "statement": "A person is moving with a velocity of 10 m s−1 towards north. A car moving with a velocity of 20 ms−1 towards south crosses the person. The velocity of car relative to the person is\n1\n−30 ms−1\n55.95%",
+    "options": [
+      {
+        "index": 1,
+        "optionText": "−30 ms−1",
+        "isCorrect": true,
+        "studentPercentage": "55.95%"
+      },
+      {
+        "index": 2,
+        "optionText": "+20 ms−1",
+        "isCorrect": false,
+        "studentPercentage": "11.31%"
+      },
+      {
+        "index": 3,
+        "optionText": "10 ms−1",
+        "isCorrect": false,
+        "studentPercentage": "19.69%"
+      },
+      {
+        "index": 4,
+        "optionText": "−10 ms−1",
+        "isCorrect": false,
+        "studentPercentage": "12.67%"
+      }
+    ],
+    "correctOption": "A",
+    "correctAnswer": "A",
+    "accuracy": "55.75%",
+    "accuracyPct": 55.75,
+    "difficulty": "Hard",
+    "solutionText": "",
+    "videoSolutionUrl": "https://www.youtube.com/embed/CAmSjNvnZbY?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=5&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&vf=1",
+    "source": "PW Infinite Practice",
+    "cohort": "Class 11 IIT JEE"
+  },
+  {
+    "id": "PW_PHY_MOTION1D_003",
+    "subject": "Physics",
+    "chapter": "Motion in a Straight Line",
+    "topic": "Kinematics 1D",
+    "questionNumber": 3,
+    "statement": "Consider an expanding sphere of instantaneous radius R whose total mass remains constant. The expansion is such that the instantaneous density ρ remains uniform throughout the volume. The rate of fractional change in density (1ρdρdt) is constant. The velocity v of any point on the surface of the expanding sphere is proportional to\n\n \n\n[JEE Advanced 2017 Paper 2]\n1\nR3\n15.58%",
+    "options": [
+      {
+        "index": 1,
+        "optionText": "R3",
+        "isCorrect": false,
+        "studentPercentage": "15.58%"
+      },
+      {
+        "index": 2,
+        "optionText": "R",
+        "isCorrect": true,
+        "studentPercentage": "59.83%"
+      },
+      {
+        "index": 3,
+        "optionText": "R2/3",
+        "isCorrect": false,
+        "studentPercentage": "18.18%"
+      },
+      {
+        "index": 4,
+        "optionText": "1R",
+        "isCorrect": false,
+        "studentPercentage": "6.57%"
+      }
+    ],
+    "correctOption": "B",
+    "correctAnswer": "B",
+    "accuracy": "59.79%",
+    "accuracyPct": 59.79,
+    "difficulty": "Hard",
+    "solutionText": "Mass equals density times volume, so M=ρ⋅43πR3=constant\n\nDifferentiating both sides with respect to time shows that the changes must balance out:\n1ρdρdt+3RdRdt=0\n\nThe fractional change in density (1ρdρdt) is constant. Therefore, 3RdRdt must also be a constant.\nVelocity is the rate of change of the radius (v=dRdt). Rearranging the equation gives:\nv∝R",
+    "videoSolutionUrl": "https://www.youtube.com/embed/CAmSjNvnZbY?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=5&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&vf=1",
+    "source": "PW Infinite Practice",
+    "cohort": "Class 11 IIT JEE"
+  },
+  {
+    "id": "PW_PHY_MOTION1D_004",
+    "subject": "Physics",
+    "chapter": "Motion in a Straight Line",
+    "topic": "Kinematics 1D",
+    "questionNumber": 4,
+    "statement": "A body is dropped from a certain height h ( h is very large) and second body is thrown downward with velocity of 5 m/s simultaneously. What will be difference in heights of the two bodies after 3s ?\n1\n5 m\n15.33%",
+    "options": [
+      {
+        "index": 1,
+        "optionText": "5 m",
+        "isCorrect": false,
+        "studentPercentage": "15.33%"
+      },
+      {
+        "index": 2,
+        "optionText": "10 m",
+        "isCorrect": false,
+        "studentPercentage": "18.79%"
+      },
+      {
+        "index": 3,
+        "optionText": "15 m",
+        "isCorrect": true,
+        "studentPercentage": "59.52%"
+      },
+      {
+        "index": 4,
+        "optionText": "20 m",
+        "isCorrect": false,
+        "studentPercentage": "6.07%"
+      }
+    ],
+    "correctOption": "C",
+    "correctAnswer": "C",
+    "accuracy": "59.37%",
+    "accuracyPct": 59.37,
+    "difficulty": "Hard",
+    "solutionText": "",
+    "videoSolutionUrl": "https://www.youtube.com/embed/CUgSMz5JpWU?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=9&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&vf=1",
+    "source": "PW Infinite Practice",
+    "cohort": "Class 11 IIT JEE"
+  },
+  {
+    "id": "PW_PHY_MOTION1D_005",
+    "subject": "Physics",
+    "chapter": "Motion in a Straight Line",
+    "topic": "Kinematics 1D",
+    "questionNumber": 5,
+    "statement": "A body A is thrown vertically upwards with such a velocity that it reaches a maximum height of h. Simultaneously another body B is dropped from height h. It strikes the ground and does not rebound. The velocity of A relative to B v/s time graph is best represented by: (upward direction is positive)\n1\n21.3%",
+    "options": [
+      {
+        "index": 1,
+        "optionText": "21.3% Marked this option",
+        "isCorrect": false,
+        "studentPercentage": "21.3%"
+      },
+      {
+        "index": 2,
+        "optionText": "27.12% Marked this option",
+        "isCorrect": false,
+        "studentPercentage": "27.12%"
+      },
+      {
+        "index": 3,
+        "optionText": "45.65% Marked this option",
+        "isCorrect": true,
+        "studentPercentage": "45.65%"
+      },
+      {
+        "index": 4,
+        "optionText": "5.97% Marked this option",
+        "isCorrect": false,
+        "studentPercentage": "5.97%"
+      }
+    ],
+    "correctOption": "C",
+    "correctAnswer": "C",
+    "accuracy": "45.6%",
+    "accuracyPct": 45.6,
+    "difficulty": "Hard",
+    "solutionText": "Velocity of A:vA=u-gtVelocity of B (before hitting ground):vB=-gtRelative velocity (t < t₁):vAB=vA-vB=uThus vAB is constant and positiveAfter B hits ground (t > t₁):vB=0vAB=u-gtLinear decrease with slope −gCorrect graph:Option C",
+    "videoSolutionUrl": "https://www.youtube.com/embed/CUgSMz5JpWU?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=9&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&vf=1",
+    "source": "PW Infinite Practice",
+    "cohort": "Class 11 IIT JEE"
+  },
+  {
+    "id": "PW_PHY_MOTION1D_006",
+    "subject": "Physics",
+    "chapter": "Motion in a Straight Line",
+    "topic": "Kinematics 1D",
+    "questionNumber": 6,
+    "statement": "In the given figure, let P,Q and R represent the position of a car at different instants of time.\n\n\nWith reference to the above given figure, match the Column I (displacement/path length) with Column II (value) and select the correct answer from the codes given below.\n\n1\n(A)\n67.56%",
+    "options": [
+      {
+        "index": 1,
+        "optionText": "(A)",
+        "isCorrect": true,
+        "studentPercentage": "67.56%"
+      },
+      {
+        "index": 2,
+        "optionText": "(B)",
+        "isCorrect": false,
+        "studentPercentage": "19.24%"
+      },
+      {
+        "index": 3,
+        "optionText": "(C)",
+        "isCorrect": false,
+        "studentPercentage": "10.96%"
+      },
+      {
+        "index": 4,
+        "optionText": "(D)",
+        "isCorrect": false,
+        "studentPercentage": "2.01%"
+      }
+    ],
+    "correctOption": "A",
+    "correctAnswer": "A",
+    "accuracy": "67.56%",
+    "accuracyPct": 67.56,
+    "difficulty": "Medium",
+    "solutionText": "",
+    "videoSolutionUrl": "https://www.youtube.com/embed/2-DtAZrk9Ak?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=11&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&vf=1",
+    "source": "PW Infinite Practice",
+    "cohort": "Class 11 IIT JEE"
+  },
+  {
+    "id": "PW_PHY_MOTION1D_007",
+    "subject": "Physics",
+    "chapter": "Motion in a Straight Line",
+    "topic": "Kinematics 1D",
+    "questionNumber": 7,
+    "statement": "A passenger train of length 60 m travels at a speed of 80 km / hr. Another freight train of length 120 m travels at a speed of 30 km / hr. The ratio of times taken by the passenger train to completely cross the freight train when: (i) they are moving in the same direction, and (ii) in the opposite direction is:\n\n \n\n[JEE Main 2019, 12 Jan (Shift 1)]\n1\n2511\n16.67%",
+    "options": [
+      {
+        "index": 1,
+        "optionText": "2511",
+        "isCorrect": false,
+        "studentPercentage": "16.67%"
+      },
+      {
+        "index": 2,
+        "optionText": "32",
+        "isCorrect": false,
+        "studentPercentage": "0%"
+      },
+      {
+        "index": 3,
+        "optionText": "52",
+        "isCorrect": false,
+        "studentPercentage": "16.67%"
+      },
+      {
+        "index": 4,
+        "optionText": "115",
+        "isCorrect": true,
+        "studentPercentage": "66.67%"
+      }
+    ],
+    "correctOption": "D",
+    "correctAnswer": "D",
+    "accuracy": "66.67%",
+    "accuracyPct": 66.67,
+    "difficulty": "Hard",
+    "solutionText": "Time taken if both moving in same direction\nt1= distance  speed =0.12+0.0680-30=0.1850\n\nTime taken if moving in opposite direction.\n t2= distance  speed =0.12+0.0680+30=0.18110 t1t2=115",
+    "videoSolutionUrl": "https://www.youtube.com/embed/XhnCtGb8xnA?autoplay=0&mute=0&controls=1&start=150&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=13&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&vf=1",
+    "source": "PW Infinite Practice",
+    "cohort": "Class 11 IIT JEE"
+  },
+  {
+    "id": "PW_PHY_MOTION1D_008",
+    "subject": "Physics",
+    "chapter": "Motion in a Straight Line",
+    "topic": "Kinematics 1D",
+    "questionNumber": 8,
+    "statement": "The position of particle is given by r→=2t2i^+3j^+4k^, where t is in second and the coefficients have proper units for r→ to be in metre. The a→(t) of the particle at t=1 s is\n1\n4 m s−2 along y-direction\n8.7%",
+    "options": [
+      {
+        "index": 1,
+        "optionText": "4 m s−2 along y-direction",
+        "isCorrect": false,
+        "studentPercentage": "8.7%"
+      },
+      {
+        "index": 2,
+        "optionText": "3 m s−2 along x-direction",
+        "isCorrect": false,
+        "studentPercentage": "11.29%"
+      },
+      {
+        "index": 3,
+        "optionText": "4 m s−2 along x-direction",
+        "isCorrect": true,
+        "studentPercentage": "75.27%"
+      },
+      {
+        "index": 4,
+        "optionText": "2 m s−2 along z-direction",
+        "isCorrect": false,
+        "studentPercentage": "4.86%"
+      }
+    ],
+    "correctOption": "C",
+    "correctAnswer": "C",
+    "accuracy": "75.3%",
+    "accuracyPct": 75.3,
+    "difficulty": "Hard",
+    "solutionText": "",
+    "videoSolutionUrl": "https://www.youtube.com/embed/dUewckRSO7M?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=15&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&vf=1",
+    "source": "PW Infinite Practice",
+    "cohort": "Class 11 IIT JEE"
+  },
+  {
+    "id": "PW_PHY_MOTION1D_009",
+    "subject": "Physics",
+    "chapter": "Motion in a Straight Line",
+    "topic": "Kinematics 1D",
+    "questionNumber": 9,
+    "statement": "The x and y coordinates of the particle at any time are x=5t−2t2 and y=10t respectively, where x and y are in meters and t in seconds. The acceleration of the particle at t=2 s is :-\n1\n5 m/s2\n9.75%",
+    "options": [
+      {
+        "index": 1,
+        "optionText": "5 m/s2",
+        "isCorrect": false,
+        "studentPercentage": "9.75%"
+      },
+      {
+        "index": 2,
+        "optionText": "−4 m/s2",
+        "isCorrect": true,
+        "studentPercentage": "63.19%"
+      },
+      {
+        "index": 3,
+        "optionText": "−8 m/s2",
+        "isCorrect": false,
+        "studentPercentage": "18.15%"
+      },
+      {
+        "index": 4,
+        "optionText": "0",
+        "isCorrect": false,
+        "studentPercentage": "9.08%"
+      }
+    ],
+    "correctOption": "B",
+    "correctAnswer": "B",
+    "accuracy": "63.03%",
+    "accuracyPct": 63.03,
+    "difficulty": "Medium",
+    "solutionText": "X-axis Acceleration:\n\nPosition: x=5t−2t2\n\nVelocity: vx=dxdt=5−4t\n\nAcceleration: ax=dvxdt=−4 m/s2\n\n\nY-axis Acceleration:\n\nPosition: y=10t\n\nVelocity: vy=dydt=10\n\nAcceleration: ay=dvydt=0 m/s2\n\n\nTotal Acceleration:\n\na=ax2+ay2\n\na=(−4)2+02\n\na=−4 m/s2 (directed along the negative x-axis)\n\n\n\nSince the acceleration is constant, it remains −4 m/s2 at t=2 s.",
+    "videoSolutionUrl": "https://www.youtube.com/embed/PHqCIJGXaS0?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=17&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&vf=1",
+    "source": "PW Infinite Practice",
+    "cohort": "Class 11 IIT JEE"
+  },
+  {
+    "id": "PW_PHY_MOTION1D_010",
+    "subject": "Physics",
+    "chapter": "Motion in a Straight Line",
+    "topic": "Kinematics 1D",
+    "questionNumber": 10,
+    "statement": "A small block slides down on a smooth inclined plane, starting from rest at time t=0. Let Sn be the distance travelled by the block in the interval t=n−1 to t=n. The ratio SnSn+1 is:\n1\n2n−12n+1\n65.27%",
+    "options": [
+      {
+        "index": 1,
+        "optionText": "2n−12n+1",
+        "isCorrect": true,
+        "studentPercentage": "65.27%"
+      },
+      {
+        "index": 2,
+        "optionText": "2n+12n−1",
+        "isCorrect": false,
+        "studentPercentage": "18.73%"
+      },
+      {
+        "index": 3,
+        "optionText": "2n2n−1",
+        "isCorrect": false,
+        "studentPercentage": "11.26%"
+      },
+      {
+        "index": 4,
+        "optionText": "2n+12n",
+        "isCorrect": false,
+        "studentPercentage": "4.83%"
+      }
+    ],
+    "correctOption": "A",
+    "correctAnswer": "A",
+    "accuracy": "65.49%",
+    "accuracyPct": 65.49,
+    "difficulty": "Hard",
+    "solutionText": "Sn = distance in nth sec.\n\nSn+1 = distance in (n + 1)th sec.\n\nSn=a22n−1SnSn+1=a22n−1a22n+1−1SnSn+1=2n−12n+1",
+    "videoSolutionUrl": "https://www.youtube.com/embed/J3PxQHOwE9s?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=19&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&vf=1",
+    "source": "PW Infinite Practice",
+    "cohort": "Class 11 IIT JEE"
+  },
+  {
+    "id": "PW_PHY_MOTION1D_011",
+    "subject": "Physics",
+    "chapter": "Motion in a Straight Line",
+    "topic": "Kinematics 1D",
+    "questionNumber": 11,
+    "statement": "A man in a boat crosses a river from point A. If he rows perpendicular to the banks then, 10 minutes after he starts, he will reach point C lying at a distance S=120 m downstream from point B. If the man heads at a certain angle α to the straight line AB (AB is perpendicular to the banks) against the current he will reach point B after 12.5 minutes. Assume the speed of the boat relative to the water to be constant and of the same magnitude in both cases.\n\nVelocity of the boat v relative to the water is-\n1\n5 m/min\n14.92%",
+    "options": [
+      {
+        "index": 1,
+        "optionText": "5 m/min",
+        "isCorrect": false,
+        "studentPercentage": "14.92%"
+      },
+      {
+        "index": 2,
+        "optionText": "20 m/min",
+        "isCorrect": true,
+        "studentPercentage": "59.94%"
+      },
+      {
+        "index": 3,
+        "optionText": "10 m/min",
+        "isCorrect": false,
+        "studentPercentage": "17.71%"
+      },
+      {
+        "index": 4,
+        "optionText": "25 m/min",
+        "isCorrect": false,
+        "studentPercentage": "7.35%"
+      }
+    ],
+    "correctOption": "B",
+    "correctAnswer": "B",
+    "accuracy": "59.99%",
+    "accuracyPct": 59.99,
+    "difficulty": "Hard",
+    "solutionText": "",
+    "videoSolutionUrl": "https://www.youtube.com/embed/YDDxbOKll0c?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=21&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&vf=1",
+    "source": "PW Infinite Practice",
+    "cohort": "Class 11 IIT JEE"
+  },
+  {
+    "id": "PW_PHY_MOTION1D_012",
+    "subject": "Physics",
+    "chapter": "Motion in a Straight Line",
+    "topic": "Kinematics 1D",
+    "questionNumber": 12,
+    "statement": "A body is started from rest with acceleration 2 m/s2 till it attains the maximum velocity then retards to rest with 3 m/s2. If total time taken is 10 second then maximum speed attained is\n1\n12 m/s\n50.53%",
+    "options": [
+      {
+        "index": 1,
+        "optionText": "12 m/s",
+        "isCorrect": true,
+        "studentPercentage": "50.53%"
+      },
+      {
+        "index": 2,
+        "optionText": "8 m/s",
+        "isCorrect": false,
+        "studentPercentage": "22%"
+      },
+      {
+        "index": 3,
+        "optionText": "6 m/s",
+        "isCorrect": false,
+        "studentPercentage": "19.6%"
+      },
+      {
+        "index": 4,
+        "optionText": "4 m/s",
+        "isCorrect": false,
+        "studentPercentage": "6.67%"
+      }
+    ],
+    "correctOption": "A",
+    "correctAnswer": "A",
+    "accuracy": "50.93%",
+    "accuracyPct": 50.93,
+    "difficulty": "Easy",
+    "solutionText": "Let maximum speed be V. Time during acceleration =V/2; time during retardation =V/3.\n\nV2+V3=10⇒5V6=10.\n\n⇒V=12ms−1.\n\n∴ Correct option: (A).",
+    "videoSolutionUrl": "https://www.youtube.com/embed/1ZLR4n82RQk?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=23&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&vf=1",
+    "source": "PW Infinite Practice",
+    "cohort": "Class 11 IIT JEE"
+  },
+  {
+    "id": "PW_PHY_MOTION1D_013",
+    "subject": "Physics",
+    "chapter": "Motion in a Straight Line",
+    "topic": "Kinematics 1D",
+    "questionNumber": 13,
+    "statement": "A car goes from A to B along the path with constant acceleration a as shown in figure.\n\n\nStudent-1 infers that initial velocity is positive, acceleration is negative and displacement is positive.\n\nStudent-2 infers that initial velocity is negative, acceleration is positive and displacement is positive.\n1\nStudent-1 is correct\n24.72%",
+    "options": [
+      {
+        "index": 1,
+        "optionText": "Student-1 is correct",
+        "isCorrect": false,
+        "studentPercentage": "24.72%"
+      },
+      {
+        "index": 2,
+        "optionText": "Student-2 is correct",
+        "isCorrect": true,
+        "studentPercentage": "48.39%"
+      },
+      {
+        "index": 3,
+        "optionText": "Both are correct",
+        "isCorrect": false,
+        "studentPercentage": "9.59%"
+      },
+      {
+        "index": 4,
+        "optionText": "Both are wrong",
+        "isCorrect": false,
+        "studentPercentage": "17.28%"
+      }
+    ],
+    "correctOption": "B",
+    "correctAnswer": "B",
+    "accuracy": "48.33%",
+    "accuracyPct": 48.33,
+    "difficulty": "Hard",
+    "solutionText": "student-2 is correct. sign convention is a matter of choice.",
+    "videoSolutionUrl": "https://www.youtube.com/embed/UCB-zkwg_Q8?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=25&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&vf=1",
+    "source": "PW Infinite Practice",
+    "cohort": "Class 11 IIT JEE"
+  },
+  {
+    "id": "PW_PHY_MOTION1D_014",
+    "subject": "Physics",
+    "chapter": "Motion in a Straight Line",
+    "topic": "Kinematics 1D",
+    "questionNumber": 14,
+    "statement": "A man is standing on the top of a building 100 m high. He throws two stones vertically, one at t=0 and other after a time interval (less than 2 s ). The later stone is thrown at a velocity of half the first. The vertical gap between first and second stone is 15 m at t=2 s. The gap is found to remain constant. The velocities with which the stones were thrown are ( take g=10 ms−2)\n1\n20 ms−1,10 ms−1\n46.91%",
+    "options": [
+      {
+        "index": 1,
+        "optionText": "20 ms−1,10 ms−1",
+        "isCorrect": true,
+        "studentPercentage": "46.91%"
+      },
+      {
+        "index": 2,
+        "optionText": "10 ms−1,5 ms−1",
+        "isCorrect": false,
+        "studentPercentage": "24.7%"
+      },
+      {
+        "index": 3,
+        "optionText": "16 ms−1,8 ms−1",
+        "isCorrect": false,
+        "studentPercentage": "18.28%"
+      },
+      {
+        "index": 4,
+        "optionText": "30 ms−1,15 ms−1",
+        "isCorrect": false,
+        "studentPercentage": "10.2%"
+      }
+    ],
+    "correctOption": "A",
+    "correctAnswer": "A",
+    "accuracy": "46.97%",
+    "accuracyPct": 46.97,
+    "difficulty": "Hard",
+    "solutionText": "Let the initial velocity of the first stone be u1=u.\n\nLet the initial velocity of the second stone be u2=u2.\n\nBoth stones experience the same downward acceleration due to gravity (g).\n\nThe relative acceleration between the two stones is zero (arel=g−g=0).\n\nTherefore, the relative velocity (vrel) between them must be zero for their vertical gap to remain constant over time.\n\nThis implies that at any time after both are in motion, their velocities must be equal:\nv1(t)=v2(t)\n\n \n\nLet the second stone be thrown at t=Δt.\n\nVelocity of the first stone at time t:\nv1=u−gt\n\nVelocity of the second stone at time t (where t>Δt):\nv2=u2−g(t−Δt)\n\nEquating the two velocities to satisfy the constant gap condition:\nu−gt=u2−gt+gΔt\nu2=gΔt⟹Δt=u2g\n\n \n\nThe position of the first stone at t=2 s is:\ns1=u(2)−12g(2)2=2u−2g\n\nThe position of the second stone at t=2 s is:\ns2=u2(2−Δt)−12g(2−Δt)2\n\nSubstitute Δt=u2g into the equation for s2:\ns2=u2(2−u2g)−12g(2−u2g)2\ns2=u−u24g−12g(4−2ug+u24g2)\ns2=u−u24g−2g+u−u28g=2u−2g−3u28g\n\n \n\nThe vertical gap between the stones at t=2 s is given as 15 m:\ns1−s2=15\n(2u−2g)−(2u−2g−3u28g)=15\n3u28g=15\n\nSubstitute g=10 ms−2:\n3u280=15\n3u2=1200⟹u2=400⟹u=20 ms−1\n\nThus, the velocities are:\n\nFirst stone (u1): 20 ms−1\n\nSecond stone (u2=u2): 10 ms−1",
+    "videoSolutionUrl": "https://www.youtube.com/embed/HzHjbw3EaFU?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=27&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&vf=1",
+    "source": "PW Infinite Practice",
+    "cohort": "Class 11 IIT JEE"
+  },
+  {
+    "id": "PW_PHY_MOTION1D_015",
+    "subject": "Physics",
+    "chapter": "Motion in a Straight Line",
+    "topic": "Kinematics 1D",
+    "questionNumber": 15,
+    "statement": "A car moving on a straight road covers one third of a certain distance with 20 km/h and the rest with 60 km/h. The average speed is :\n1\n40 km/h\n22.93%",
+    "options": [
+      {
+        "index": 1,
+        "optionText": "40 km/h",
+        "isCorrect": false,
+        "studentPercentage": "22.93%"
+      },
+      {
+        "index": 2,
+        "optionText": "80 km/h",
+        "isCorrect": false,
+        "studentPercentage": "14.76%"
+      },
+      {
+        "index": 3,
+        "optionText": "4623 km/h",
+        "isCorrect": false,
+        "studentPercentage": "17.57%"
+      },
+      {
+        "index": 4,
+        "optionText": "36 km/h",
+        "isCorrect": true,
+        "studentPercentage": "44.74%"
+      }
+    ],
+    "correctOption": "D",
+    "correctAnswer": "D",
+    "accuracy": "44.79%",
+    "accuracyPct": 44.79,
+    "difficulty": "Easy",
+    "solutionText": "Let total distance be d.\n\nTime for first d/3: t1=d/320=d60.\n\nTime for remaining 2d/3: t2=2d/360=d90.\n\nTotal time =d36.\n\nAverage speed =dd/36=36kmh−1.\n\n∴ Correct option: (D).",
+    "videoSolutionUrl": "https://www.youtube.com/embed/uFnm_5O89gw?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=29&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&vf=1",
+    "source": "PW Infinite Practice",
+    "cohort": "Class 11 IIT JEE"
+  },
+  {
+    "id": "PW_PHY_MOTION1D_016",
+    "subject": "Physics",
+    "chapter": "Motion in a Straight Line",
+    "topic": "Kinematics 1D",
+    "questionNumber": 16,
+    "statement": "A car is moving along a straight road with a uniform acceleration. It passes through two points P and Q separated by a distance with velocity 30 km/h and 40 km/h respectively. The velocity of the car midway between P and Q is\n1\n33.3 km/h\n22.21%",
+    "options": [
+      {
+        "index": 1,
+        "optionText": "33.3 km/h",
+        "isCorrect": false,
+        "studentPercentage": "22.21%"
+      },
+      {
+        "index": 2,
+        "optionText": "202 km/h",
+        "isCorrect": false,
+        "studentPercentage": "15.89%"
+      },
+      {
+        "index": 3,
+        "optionText": "252 km/h",
+        "isCorrect": true,
+        "studentPercentage": "56.53%"
+      },
+      {
+        "index": 4,
+        "optionText": "0.35 km/h",
+        "isCorrect": false,
+        "studentPercentage": "5.33%"
+      }
+    ],
+    "correctOption": "C",
+    "correctAnswer": "C",
+    "accuracy": "56.57%",
+    "accuracyPct": 56.57,
+    "difficulty": "Hard",
+    "solutionText": "Given:\n\nVelocity at point P=30 km/h\n\nVelocity at point Q=40 km/h\n\nUniform acceleration\n\nNeed velocity at midpoint (by distance) between P and Q\n\nUse formula:\n\nFor uniform acceleration, velocity at the midpoint of displacement is:\n\nv=v12+v222 v=302+4022=900+16002=1250=252 km/h\n\nCorrect option: C",
+    "videoSolutionUrl": "https://www.youtube.com/embed/VJEFQp9jFWA?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=31&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&vf=1",
+    "source": "PW Infinite Practice",
+    "cohort": "Class 11 IIT JEE"
+  },
+  {
+    "id": "PW_PHY_MOTION1D_017",
+    "subject": "Physics",
+    "chapter": "Motion in a Straight Line",
+    "topic": "Kinematics 1D",
+    "questionNumber": 17,
+    "statement": "A body covers first 1/3 part of its journey with a velocity of 2 m/s, next 1/3 part with a velocity of 3 m/s and rest of the journey with a velocity 6 m/s. The average velocity of the body will be\n1\n3 m/s\n45.5%",
+    "options": [
+      {
+        "index": 1,
+        "optionText": "3 m/s",
+        "isCorrect": true,
+        "studentPercentage": "45.5%"
+      },
+      {
+        "index": 2,
+        "optionText": "113 m/s",
+        "isCorrect": false,
+        "studentPercentage": "36.96%"
+      },
+      {
+        "index": 3,
+        "optionText": "83 m/s",
+        "isCorrect": false,
+        "studentPercentage": "12.85%"
+      },
+      {
+        "index": 4,
+        "optionText": "43 m/s",
+        "isCorrect": false,
+        "studentPercentage": "4.81%"
+      }
+    ],
+    "correctOption": "A",
+    "correctAnswer": "A",
+    "accuracy": "45.39%",
+    "accuracyPct": 45.39,
+    "difficulty": "Easy",
+    "solutionText": "Average velocity is calculated by dividing the total distance by the total time taken:\nAverage Velocity (vavg)=Total Distanc (S)Total Time (T)\n\n\nGiven Values\n\nLet the total distance of the journey be S.\nThe journey is divided into three equal parts:\n\nFirst part: Distance s1=S3 with velocity v1=2 m/s\n\nSecond part: Distance s2=S3 with velocity v2=3 m/s\n\nThird part: Distance s3=S3 with velocity v3=6 m/s\n\nTime for Each Part\n\nTime is equal to distance divided by velocity (t=sv):\n\nt1=S/32=S6\n\nt2=S/33=S9\n\nt3=S/36=S18\n\nTotal Time (T)\n\nFind a common denominator (18) to add the time intervals together:\nT=t1+t2+t3=S6+S9+S18\nT=3S+2S+1S18=6S18=S3\n\nAverage Velocity (vavg)\n\nSubstitute the total distance and total time back into the main formula:\nvavg=ST=SS3=3 m/s\n\nCorrect Answer: A",
+    "videoSolutionUrl": "https://www.youtube.com/embed/XCGDSRE-gKA?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=33&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&vf=1",
+    "source": "PW Infinite Practice",
+    "cohort": "Class 11 IIT JEE"
+  },
+  {
+    "id": "PW_PHY_MOTION1D_018",
+    "subject": "Physics",
+    "chapter": "Motion in a Straight Line",
+    "topic": "Kinematics 1D",
+    "questionNumber": 18,
+    "statement": "A particle located at x=0 at time t=0, starts moving along the positive x direction with a velocity V that varies as V∝x. The displacement of the particle varies with time as\n1\nt1/2\n33%",
+    "options": [
+      {
+        "index": 1,
+        "optionText": "t1/2",
+        "isCorrect": false,
+        "studentPercentage": "33%"
+      },
+      {
+        "index": 2,
+        "optionText": "t3",
+        "isCorrect": false,
+        "studentPercentage": "13.69%"
+      },
+      {
+        "index": 3,
+        "optionText": "t2",
+        "isCorrect": true,
+        "studentPercentage": "41.54%"
+      },
+      {
+        "index": 4,
+        "optionText": "t",
+        "isCorrect": false,
+        "studentPercentage": "11.85%"
+      }
+    ],
+    "correctOption": "C",
+    "correctAnswer": "C",
+    "accuracy": "41.46%",
+    "accuracyPct": 41.46,
+    "difficulty": "Medium",
+    "solutionText": "t2",
+    "videoSolutionUrl": "",
+    "source": "PW Infinite Practice",
+    "cohort": "Class 11 IIT JEE"
+  },
+  {
+    "id": "PW_PHY_MOTION1D_019",
+    "subject": "Physics",
+    "chapter": "Motion in a Straight Line",
+    "topic": "Kinematics 1D",
+    "questionNumber": 19,
+    "statement": "Water drops fall at regular intervals from a tap which is 5 m above the ground. The third drop is leaving the tap at the instant the first drop touches the ground. How far above the ground is the second drop at that instant ? (Take g=10 ms−2 )\n1\n54 m\n50%",
+    "options": [
+      {
+        "index": 1,
+        "optionText": "54 m",
+        "isCorrect": false,
+        "studentPercentage": "50%"
+      },
+      {
+        "index": 2,
+        "optionText": "4 m",
+        "isCorrect": false,
+        "studentPercentage": "0%"
+      },
+      {
+        "index": 3,
+        "optionText": "52 m",
+        "isCorrect": false,
+        "studentPercentage": "25%"
+      },
+      {
+        "index": 4,
+        "optionText": "154 m",
+        "isCorrect": true,
+        "studentPercentage": "25%"
+      }
+    ],
+    "correctOption": "D",
+    "correctAnswer": "D",
+    "accuracy": "25.0%",
+    "accuracyPct": 25.0,
+    "difficulty": "Hard",
+    "solutionText": "",
+    "videoSolutionUrl": "https://www.youtube.com/embed/DawIitvAff4?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=35&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&vf=1",
+    "source": "PW Infinite Practice",
+    "cohort": "Class 11 IIT JEE"
+  },
+  {
+    "id": "PW_PHY_MOTION1D_020",
+    "subject": "Physics",
+    "chapter": "Motion in a Straight Line",
+    "topic": "Kinematics 1D",
+    "questionNumber": 20,
+    "statement": "Position time graph of a particle moving along straight line is shown which is in the form of semi-circle starting from t=2 to t=8 s. Select correct statement\n\n1\nVelocity of particle between t=0 to t=2 s is positive\n12.97%",
+    "options": [
+      {
+        "index": 1,
+        "optionText": "Velocity of particle between t=0 to t=2 s is positive",
+        "isCorrect": false,
+        "studentPercentage": "12.97%"
+      },
+      {
+        "index": 2,
+        "optionText": "Velocity of particle is opposite to acceleration between t=2 to t=5 s",
+        "isCorrect": true,
+        "studentPercentage": "51.72%"
+      },
+      {
+        "index": 3,
+        "optionText": "Velocity of particle is opposite to acceleration between t=5 to t=8 s",
+        "isCorrect": false,
+        "studentPercentage": "15.03%"
+      },
+      {
+        "index": 4,
+        "optionText": "Acceleration of particle is positive between t1=2 s to t2=5 s while it is negative between t1=5 s to t2=8 s",
+        "isCorrect": false,
+        "studentPercentage": "20.34%"
+      }
+    ],
+    "correctOption": "B",
+    "correctAnswer": "B",
+    "accuracy": "51.77%",
+    "accuracyPct": 51.77,
+    "difficulty": "Hard",
+    "solutionText": "Between t = 2s to 8 s, x -t graph is concave downward\nHence acceleration a < 0 throughout\nFrom t = 2 s to 5 s : v > 0, a < 0\nVelocity opposite to acceleration\nCorrect option: (2)",
+    "videoSolutionUrl": "https://www.youtube.com/embed/jqLgR-e7HGw?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=37&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&vf=1",
+    "source": "PW Infinite Practice",
+    "cohort": "Class 11 IIT JEE"
+  },
+  {
+    "id": "PW_PHY_MOTION1D_021",
+    "subject": "Physics",
+    "chapter": "Motion in a Straight Line",
+    "topic": "Kinematics 1D",
+    "questionNumber": 21,
+    "questionType": "Single Choice",
+    "statement": "A car, starting from rest, accelerates at the rate f through a distance s, then continues at constant speed for time t and then decelerates at the rate 2f to come to rest. If the total distance travelled is 5s, then\n1\ns=16ft2\n14.77%",
+    "options": [
+      {
+        "index": 1,
+        "optionText": "s=16ft2",
+        "isCorrect": false,
+        "studentPercentage": "14.77%"
+      },
+      {
+        "index": 2,
+        "optionText": "s=ft",
+        "isCorrect": false,
+        "studentPercentage": "10.94%"
+      },
+      {
+        "index": 3,
+        "optionText": "s=14ft2",
+        "isCorrect": false,
+        "studentPercentage": "19.14%"
+      },
+      {
+        "index": 4,
+        "optionText": "s=849ft2",
+        "isCorrect": true,
+        "studentPercentage": "55.19%"
+      }
+    ],
+    "correctOption": "D",
+    "correctAnswer": "D",
+    "accuracy": "55.14%",
+    "accuracyPct": 55.14,
+    "difficulty": "Hard",
+    "solutionText": "s=849ft",
+    "videoSolutionUrl": "",
+    "source": "PW Infinite Practice",
+    "cohort": "Class 11 IIT JEE"
+  },
+  {
+    "id": "PW_PHY_MOTION1D_022",
+    "subject": "Physics",
+    "chapter": "Motion in a Straight Line",
+    "topic": "Kinematics 1D",
+    "questionNumber": 22,
+    "questionType": "Single Choice",
+    "statement": "A bullet moving with a velocity of 200 cm/s penetrates a wooden block and comes to rest after travelling 4 cm inside it. What velocity is needed for travelling a distance of 9 cm in same block?\n1\n100 cm/s\n6.45%",
+    "options": [
+      {
+        "index": 1,
+        "optionText": "100 cm/s",
+        "isCorrect": false,
+        "studentPercentage": "6.45%"
+      },
+      {
+        "index": 2,
+        "optionText": "136.2 cm/s",
+        "isCorrect": false,
+        "studentPercentage": "16.89%"
+      },
+      {
+        "index": 3,
+        "optionText": "300 cm/s",
+        "isCorrect": true,
+        "studentPercentage": "70.49%"
+      },
+      {
+        "index": 4,
+        "optionText": "250 cm/s",
+        "isCorrect": false,
+        "studentPercentage": "6.33%"
+      }
+    ],
+    "correctOption": "C",
+    "correctAnswer": "C",
+    "accuracy": "70.33%",
+    "accuracyPct": 70.33,
+    "difficulty": "Hard",
+    "solutionText": "u = 200 cm/sec\n\ns = 4 c",
+    "videoSolutionUrl": "",
+    "source": "PW Infinite Practice",
+    "cohort": "Class 11 IIT JEE"
+  },
+  {
+    "id": "PW_PHY_MOTION1D_023",
+    "subject": "Physics",
+    "chapter": "Motion in a Straight Line",
+    "topic": "Kinematics 1D",
+    "questionNumber": 23,
+    "questionType": "Single Choice",
+    "statement": "The driver of a car travelling at a speed of 20 m/s, wishes to overtake a truck that is moving with a constant speed of 20 m s−1 in the same lane. The cars maximum acceleration is 0.5 m s−2. Initially the vehicles are separated by 40 m, and the car returns back into its lane after it is 40 m ahead of the truck. The car is 3 m long and the truck 17 m long.\n\nFind the minimum time required for the car to pass the truck and ret",
+    "options": [
+      {
+        "index": 1,
+        "optionText": "10 second",
+        "isCorrect": false,
+        "studentPercentage": "33.33%"
+      },
+      {
+        "index": 2,
+        "optionText": "20 second,",
+        "isCorrect": true,
+        "studentPercentage": "33.33%"
+      },
+      {
+        "index": 3,
+        "optionText": "15 second",
+        "isCorrect": false,
+        "studentPercentage": "33.33%"
+      },
+      {
+        "index": 4,
+        "optionText": "none of these.",
+        "isCorrect": false,
+        "studentPercentage": "0%"
+      }
+    ],
+    "correctOption": "B",
+    "correctAnswer": "B",
+    "accuracy": "33.33%",
+    "accuracyPct": 33.33,
+    "difficulty": "Medium",
+    "solutionText": "",
+    "videoSolutionUrl": "https://www.youtube.com/embed/gVuYikbAQpA?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=39&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&vf=1",
+    "source": "PW Infinite Practice",
+    "cohort": "Class 11 IIT JEE"
+  },
+  {
+    "id": "PW_PHY_MOTION1D_024",
+    "subject": "Physics",
+    "chapter": "Motion in a Straight Line",
+    "topic": "Kinematics 1D",
+    "questionNumber": 24,
+    "questionType": "Single Choice",
+    "statement": "The position of a body moving along x-axis at time t is given by x=t2-4t+6m. The distance travelled by body in time interval t=0 to t=3 s is\n1\n5 m\n22.93%",
+    "options": [
+      {
+        "index": 1,
+        "optionText": "5 m",
+        "isCorrect": true,
+        "studentPercentage": "22.93%"
+      },
+      {
+        "index": 2,
+        "optionText": "7 m",
+        "isCorrect": false,
+        "studentPercentage": "17.29%"
+      },
+      {
+        "index": 3,
+        "optionText": "4 m",
+        "isCorrect": false,
+        "studentPercentage": "11.97%"
+      },
+      {
+        "index": 4,
+        "optionText": "3 m",
+        "isCorrect": false,
+        "studentPercentage": "47.81%"
+      }
+    ],
+    "correctOption": "A",
+    "correctAnswer": "A",
+    "accuracy": "22.85%",
+    "accuracyPct": 22.85,
+    "difficulty": "Easy",
+    "solutionText": "v = 0\n\nat t = 2\n\nDistance till 2 sec = 2 m\n\nDistance in 1 sec = 3 m\n\nTotal distance = 5 m  \n1",
+    "videoSolutionUrl": "https://www.youtube.com/embed/tJV6fjlkq4s?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=41&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&vf=1",
+    "source": "PW Infinite Practice",
+    "cohort": "Class 11 IIT JEE"
+  },
+  {
+    "id": "PW_PHY_MOTION1D_025",
+    "subject": "Physics",
+    "chapter": "Motion in a Straight Line",
+    "topic": "Kinematics 1D",
+    "questionNumber": 25,
+    "questionType": "Single Choice",
+    "statement": "A toy car with charge q moves on a frictionless horizontal plane surface under the influence of a uniform electric field E→. Due to the force qE→, its velocity increases from 0 to 6 m/s in one second duration. At that instant the direction of the field is reversed. The car continues to move for two more seconds under the influence of this field. The average velocity and the average speed of the toy car between 0 to 3 second",
+    "options": [
+      {
+        "index": 1,
+        "optionText": "1 m/s,3.5 m/s",
+        "isCorrect": false,
+        "studentPercentage": "14.73%"
+      },
+      {
+        "index": 2,
+        "optionText": "1 m/s,3 m/s",
+        "isCorrect": true,
+        "studentPercentage": "61.2%"
+      },
+      {
+        "index": 3,
+        "optionText": "2 m/s,4 m/s",
+        "isCorrect": false,
+        "studentPercentage": "16.24%"
+      },
+      {
+        "index": 4,
+        "optionText": "1⋅5 m/s,3 m/s",
+        "isCorrect": false,
+        "studentPercentage": "7.09%"
+      }
+    ],
+    "correctOption": "B",
+    "correctAnswer": "B",
+    "accuracy": "61.20%",
+    "accuracyPct": 61.2,
+    "difficulty": "Medium",
+    "solutionText": "",
+    "videoSolutionUrl": "https://www.youtube.com/embed/LCPrQsxnhmU?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=43&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&vf=1",
+    "source": "PW Infinite Practice",
+    "cohort": "Class 11 IIT JEE"
+  },
+  {
+    "id": "PW_PHY_MOTION1D_026",
+    "subject": "Physics",
+    "chapter": "Motion in a Straight Line",
+    "topic": "Kinematics 1D",
+    "questionNumber": 26,
+    "questionType": "Single Choice",
+    "statement": "Speed of two identical cars are u and 4u at a specific instant. The ratio of the respective distances in which the two cars are stopped from that instant is\n1\n16:1\n14.26%",
+    "options": [
+      {
+        "index": 1,
+        "optionText": "16:1",
+        "isCorrect": false,
+        "studentPercentage": "14.26%"
+      },
+      {
+        "index": 2,
+        "optionText": "16:4",
+        "isCorrect": false,
+        "studentPercentage": "12.22%"
+      },
+      {
+        "index": 3,
+        "optionText": "1:8",
+        "isCorrect": false,
+        "studentPercentage": "10.36%"
+      },
+      {
+        "index": 4,
+        "optionText": "1:16",
+        "isCorrect": true,
+        "studentPercentage": "63.67%"
+      }
+    ],
+    "correctOption": "D",
+    "correctAnswer": "D",
+    "accuracy": "61.46%",
+    "accuracyPct": 61.46,
+    "difficulty": "Medium",
+    "solutionText": "Stopping distance under the same braking force F (same car mass m) comes fr",
+    "videoSolutionUrl": "",
+    "source": "PW Infinite Practice",
+    "cohort": "Class 11 IIT JEE"
+  },
+  {
+    "id": "PW_PHY_MOTION1D_027",
+    "subject": "Physics",
+    "chapter": "Motion in a Straight Line",
+    "topic": "Kinematics 1D",
+    "questionNumber": 27,
+    "questionType": "Single Choice",
+    "statement": "Which of the following statement is correct?\n1\nStopping distance is directly proportional to deceleration a of the vehicle.\n10.78%",
+    "options": [
+      {
+        "index": 1,
+        "optionText": "Stopping distance is directly proportional to deceleration a of the vehicle.",
+        "isCorrect": false,
+        "studentPercentage": "10.78%"
+      },
+      {
+        "index": 2,
+        "optionText": "If two objects A and B are moving with velocities vA and vB in one dimension, then relative velocity of object A with respect to object B is given by vAB=vA−vB.",
+        "isCorrect": true,
+        "studentPercentage": "65.24%"
+      },
+      {
+        "index": 3,
+        "optionText": "For constant acceleration, average velocity is v¯=v−u2.",
+        "isCorrect": false,
+        "studentPercentage": "14.31%"
+      },
+      {
+        "index": 4,
+        "optionText": "For a body thrown vertically upwards, then acceleration due to gravity will be taken as positive.",
+        "isCorrect": false,
+        "studentPercentage": "9.85%"
+      }
+    ],
+    "correctOption": "B",
+    "correctAnswer": "B",
+    "accuracy": "65.24%",
+    "accuracyPct": 65.24,
+    "difficulty": "Medium",
+    "solutionText": "",
+    "videoSolutionUrl": "https://www.youtube.com/embed/7M38dwJaeps?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=45&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&vf=1",
+    "source": "PW Infinite Practice",
+    "cohort": "Class 11 IIT JEE"
+  },
+  {
+    "id": "PW_PHY_MOTION1D_028",
+    "subject": "Physics",
+    "chapter": "Motion in a Straight Line",
+    "topic": "Kinematics 1D",
+    "questionNumber": 28,
+    "questionType": "Single Choice",
+    "statement": "The numerical ratio of distance to displacement is:\n1\nAlways equal to one\n7.74%",
+    "options": [
+      {
+        "index": 1,
+        "optionText": "Always equal to one",
+        "isCorrect": false,
+        "studentPercentage": "7.74%"
+      },
+      {
+        "index": 2,
+        "optionText": "Always less than one",
+        "isCorrect": false,
+        "studentPercentage": "11.91%"
+      },
+      {
+        "index": 3,
+        "optionText": "Always greater than one",
+        "isCorrect": false,
+        "studentPercentage": "14.81%"
+      },
+      {
+        "index": 4,
+        "optionText": "Equal to or more than one",
+        "isCorrect": true,
+        "studentPercentage": "65.54%"
+      }
+    ],
+    "correctOption": "D",
+    "correctAnswer": "D",
+    "accuracy": "66.02%",
+    "accuracyPct": 66.02,
+    "difficulty": "Easy",
+    "solutionText": "Distance is equal to or more than displacement so ratio will be Equal to or more than one.\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10",
+    "videoSolutionUrl": "https://www.youtube.com/embed/NXpf11VgDsY?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=47&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&vf=1",
+    "source": "PW Infinite Practice",
+    "cohort": "Class 11 IIT JEE"
+  },
+  {
+    "id": "PW_PHY_MOTION1D_029",
+    "subject": "Physics",
+    "chapter": "Motion in a Straight Line",
+    "topic": "Kinematics 1D",
+    "questionNumber": 29,
+    "questionType": "Single Choice",
+    "statement": "A particle moves in a straight line with a constant acceleration. It changes its velocity from 10 m/s to 20 m/s while passing through a distance of 135 m in t seconds. The value of t is :-\n1\n12\n20%",
+    "options": [
+      {
+        "index": 1,
+        "optionText": "12",
+        "isCorrect": false,
+        "studentPercentage": "20%"
+      },
+      {
+        "index": 2,
+        "optionText": "9",
+        "isCorrect": true,
+        "studentPercentage": "60%"
+      },
+      {
+        "index": 3,
+        "optionText": "10",
+        "isCorrect": false,
+        "studentPercentage": "0%"
+      },
+      {
+        "index": 4,
+        "optionText": "1.8",
+        "isCorrect": false,
+        "studentPercentage": "20%"
+      }
+    ],
+    "correctOption": "B",
+    "correctAnswer": "B",
+    "accuracy": "60.00%",
+    "accuracyPct": 60.0,
+    "difficulty": "Hard",
+    "solutionText": "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31",
+    "videoSolutionUrl": "https://www.youtube.com/embed/1Txo7i2b0n8?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=49&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&vf=1",
+    "source": "PW Infinite Practice",
+    "cohort": "Class 11 IIT JEE"
+  },
+  {
+    "id": "PW_PHY_MOTION1D_030",
+    "subject": "Physics",
+    "chapter": "Motion in a Straight Line",
+    "topic": "Kinematics 1D",
+    "questionNumber": 30,
+    "questionType": "Single Choice",
+    "statement": "A body is projected vertically upward with speed 10 m/s and other at same time with same speed in downward direction from the top of a tower. The magnitude of acceleration of first body w.r.t. second is take g=10 m/s2\n1\nZero\n51.78%",
+    "options": [
+      {
+        "index": 1,
+        "optionText": "Zero",
+        "isCorrect": true,
+        "studentPercentage": "51.78%"
+      },
+      {
+        "index": 2,
+        "optionText": "10 m/s2",
+        "isCorrect": false,
+        "studentPercentage": "22.16%"
+      },
+      {
+        "index": 3,
+        "optionText": "5 m/s2",
+        "isCorrect": false,
+        "studentPercentage": "12.81%"
+      },
+      {
+        "index": 4,
+        "optionText": "20 m/s2",
+        "isCorrect": false,
+        "studentPercentage": "13.36%"
+      }
+    ],
+    "correctOption": "A",
+    "correctAnswer": "A",
+    "accuracy": "51.56%",
+    "accuracyPct": 51.56,
+    "difficulty": "Easy",
+    "solutionText": "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11",
+    "videoSolutionUrl": "https://www.youtube.com/embed/jCqQsCEyXXU?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=51&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&vf=1",
+    "source": "PW Infinite Practice",
+    "cohort": "Class 11 IIT JEE"
+  },
+  {
+    "id": "PW_PHY_MOTION1D_031",
+    "subject": "Physics",
+    "chapter": "Motion in a Straight Line",
+    "topic": "Kinematics 1D",
+    "questionNumber": 31,
+    "questionType": "Single Choice",
+    "statement": "A particle is executing a circular motion of radius R with a uniform speed v. After completing half the circle, the change in velocity and in speed will be respectively -\n1\nZero, zero\n19.14%",
+    "options": [
+      {
+        "index": 1,
+        "optionText": "Zero, zero",
+        "isCorrect": false,
+        "studentPercentage": "19.14%"
+      },
+      {
+        "index": 2,
+        "optionText": "2v, zero",
+        "isCorrect": true,
+        "studentPercentage": "47.04%"
+      },
+      {
+        "index": 3,
+        "optionText": "2v,2v",
+        "isCorrect": false,
+        "studentPercentage": "17.3%"
+      },
+      {
+        "index": 4,
+        "optionText": "zero, 2v",
+        "isCorrect": false,
+        "studentPercentage": "16.72%"
+      }
+    ],
+    "correctOption": "B",
+    "correctAnswer": "B",
+    "accuracy": "46.94%",
+    "accuracyPct": 46.94,
+    "difficulty": "Easy",
+    "solutionText": "Given:\n\n\n\nParticle in uniform circular motion wi",
+    "videoSolutionUrl": "https://www.youtube.com/embed/4vCQUWy0uc4?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=53&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&vf=1",
+    "source": "PW Infinite Practice",
+    "cohort": "Class 11 IIT JEE"
+  },
+  {
+    "id": "PW_PHY_MOTION1D_032",
+    "subject": "Physics",
+    "chapter": "Motion in a Straight Line",
+    "topic": "Kinematics 1D",
+    "questionNumber": 32,
+    "questionType": "Single Choice",
+    "statement": "Two cars A and B are travelling in the same direction with velocities v1 and v2(v1>v2), When the car A is at a distance d ahead of the car B the driver of the car A applied the brake producing a uniform retardation a There will be no collision when\n1\nd<(v1−v2)22a\n17.49%",
+    "options": [
+      {
+        "index": 1,
+        "optionText": "d<(v1−v2)22a",
+        "isCorrect": false,
+        "studentPercentage": "17.49%"
+      },
+      {
+        "index": 2,
+        "optionText": "d<v12−v222a",
+        "isCorrect": false,
+        "studentPercentage": "28.4%"
+      },
+      {
+        "index": 3,
+        "optionText": "d>(v1−v2)22a",
+        "isCorrect": true,
+        "studentPercentage": "42.15%"
+      },
+      {
+        "index": 4,
+        "optionText": "d>v12−v222a",
+        "isCorrect": false,
+        "studentPercentage": "12.26%"
+      }
+    ],
+    "correctOption": "C",
+    "correctAnswer": "C",
+    "accuracy": "42.15%",
+    "accuracyPct": 42.15,
+    "difficulty": "Medium",
+    "solutionText": "",
+    "videoSolutionUrl": "",
+    "source": "PW Infinite Practice",
+    "cohort": "Class 11 IIT JEE"
+  },
+  {
+    "id": "PW_PHY_MOTION1D_033",
+    "subject": "Physics",
+    "chapter": "Motion in a Straight Line",
+    "topic": "Kinematics 1D",
+    "questionNumber": 33,
+    "questionType": "Multiple Choice",
+    "statement": "If a man has a velocity varying with time given as v= 3t2,v is in m/s and t in sec then:\n\n\nRegarding acceleration of man choose the correct option(s):\n1\nAcceleration of man after t=3 second is 18 m/s2\n65.11%",
+    "options": [
+      {
+        "index": 1,
+        "optionText": "Acceleration of man after t=3 second is 18 m/s2",
+        "isCorrect": true,
+        "studentPercentage": "65.11%"
+      },
+      {
+        "index": 2,
+        "optionText": "Average acceleration of man during t=0 to t=3 seconds is 18 m/s2",
+        "isCorrect": false,
+        "studentPercentage": "27.52%"
+      },
+      {
+        "index": 3,
+        "optionText": "Average acceleration of man during t=0 to t=3 seconds is 9 m/s2",
+        "isCorrect": true,
+        "studentPercentage": "37.29%"
+      },
+      {
+        "index": 4,
+        "optionText": "Acceleration of man after t=3 second is 12 m/s2",
+        "isCorrect": false,
+        "studentPercentage": "7.97%"
+      }
+    ],
+    "correctOption": "A, C",
+    "correctAnswer": "A, C",
+    "accuracy": "65.11%",
+    "accuracyPct": 65.11,
+    "difficulty": "Medium",
+    "solutionText": "",
+    "videoSolutionUrl": "",
+    "source": "PW Infinite Practice",
+    "cohort": "Class 11 IIT JEE"
+  },
+  {
+    "id": "PW_PHY_MOTION1D_034",
+    "subject": "Physics",
+    "chapter": "Motion in a Straight Line",
+    "topic": "Kinematics 1D",
+    "questionNumber": 34,
+    "questionType": "Single Choice",
+    "statement": "2 m/s2\n28.14%",
+    "options": [
+      {
+        "index": 1,
+        "optionText": "2 m/s2",
+        "isCorrect": false,
+        "studentPercentage": "28.14%"
+      },
+      {
+        "index": 2,
+        "optionText": "4 m/s2",
+        "isCorrect": false,
+        "studentPercentage": "33.9%"
+      },
+      {
+        "index": 3,
+        "optionText": "3 m/s2",
+        "isCorrect": false,
+        "studentPercentage": "21.36%"
+      },
+      {
+        "index": 4,
+        "optionText": "5 m/s2",
+        "isCorrect": true,
+        "studentPercentage": "15.93%"
+      }
+    ],
+    "correctOption": "D",
+    "correctAnswer": "D",
+    "accuracy": "16.27%",
+    "accuracyPct": 16.27,
+    "difficulty": "Medium",
+    "solutionText": "will be uploaded soon!\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n32\n33\n34\n35\n36\n37\n38\n39\n40\n41\n42\n43\n44\n45\n46\n47\n48\n49\n50\n51\n52\n53\n54\n55\n56\n57\n58\n59\n60\n61\n62\n63\n64\n65\n66\n67\n68\n69\n70\n71\n72\n73\n74\n75\n76\n77\n78",
+    "videoSolutionUrl": "",
+    "source": "PW Infinite Practice",
+    "cohort": "Class 11 IIT JEE"
+  },
+  {
+    "id": "PW_PHY_MOTION1D_035",
+    "subject": "Physics",
+    "chapter": "Motion in a Straight Line",
+    "topic": "Kinematics 1D",
+    "questionNumber": 35,
+    "questionType": "Single Choice",
+    "statement": "The x−t graph shown in figure represents\n\n1\nConstant velocity\n15.15%",
+    "options": [
+      {
+        "index": 1,
+        "optionText": "Constant velocity",
+        "isCorrect": false,
+        "studentPercentage": "15.15%"
+      },
+      {
+        "index": 2,
+        "optionText": "Velocity of the body is continuously changing",
+        "isCorrect": false,
+        "studentPercentage": "8.35%"
+      },
+      {
+        "index": 3,
+        "optionText": "Instantaneous velocity",
+        "isCorrect": false,
+        "studentPercentage": "9.9%"
+      },
+      {
+        "index": 4,
+        "optionText": "The body travels with constant speed upto time t1 and then stops",
+        "isCorrect": true,
+        "studentPercentage": "66.99%"
+      }
+    ],
+    "correctOption": "D",
+    "correctAnswer": "D",
+    "accuracy": "66.60%",
+    "accuracyPct": 66.6,
+    "difficulty": "Easy",
+    "solutionText": "Graph Interpretation:\n\n\n\nFrom 0 to t1: Straight line with const",
+    "videoSolutionUrl": "",
+    "source": "PW Infinite Practice",
+    "cohort": "Class 11 IIT JEE"
+  },
+  {
+    "id": "PW_PHY_MOTION1D_036",
+    "subject": "Physics",
+    "chapter": "Motion in a Straight Line",
+    "topic": "Kinematics 1D",
+    "questionNumber": 36,
+    "questionType": "Single Choice",
+    "statement": "A car moves for half of its time at 80 km/h and for rest half of time at 40 km/h. Total distance covered is 60 km. What is the average speed of the car?\n1\n60 km/h\n67.67%",
+    "options": [
+      {
+        "index": 1,
+        "optionText": "60 km/h",
+        "isCorrect": true,
+        "studentPercentage": "67.67%"
+      },
+      {
+        "index": 2,
+        "optionText": "80 km/h",
+        "isCorrect": false,
+        "studentPercentage": "11.84%"
+      },
+      {
+        "index": 3,
+        "optionText": "120 km/h",
+        "isCorrect": false,
+        "studentPercentage": "16.17%"
+      },
+      {
+        "index": 4,
+        "optionText": "180 km/h",
+        "isCorrect": false,
+        "studentPercentage": "4.32%"
+      }
+    ],
+    "correctOption": "A",
+    "correctAnswer": "A",
+    "accuracy": "67.67%",
+    "accuracyPct": 67.67,
+    "difficulty": "Medium",
+    "solutionText": "We are given:\n\n\n\nA car moves for equal time intervals at two diff",
+    "videoSolutionUrl": "https://www.youtube.com/embed/62lGeOqMb_Y?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=55&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&vf=1",
+    "source": "PW Infinite Practice",
+    "cohort": "Class 11 IIT JEE"
+  },
+  {
+    "id": "PW_PHY_MOTION1D_037",
+    "subject": "Physics",
+    "chapter": "Motion in a Straight Line",
+    "topic": "Kinematics 1D",
+    "questionNumber": 37,
+    "questionType": "Single Choice",
+    "statement": "A particle starts from origin and moving along x− axis, whose v-t graph is as shown. Choose the Incorrect statement \n\n1\nAt point L particle is speeding up.\n33.33%",
+    "options": [
+      {
+        "index": 1,
+        "optionText": "At point L particle is speeding up.",
+        "isCorrect": false,
+        "studentPercentage": "33.33%"
+      },
+      {
+        "index": 2,
+        "optionText": "At point M particle is moving in positive x-direction.",
+        "isCorrect": false,
+        "studentPercentage": "0%"
+      },
+      {
+        "index": 3,
+        "optionText": "At point N particle is speeding up.",
+        "isCorrect": false,
+        "studentPercentage": "33.33%"
+      },
+      {
+        "index": 4,
+        "optionText": "At point O particle is rest.",
+        "isCorrect": true,
+        "studentPercentage": "33.33%"
+      }
+    ],
+    "correctOption": "D",
+    "correctAnswer": "D",
+    "accuracy": "33.33%",
+    "accuracyPct": 33.33,
+    "difficulty": "Hard",
+    "solutionText": "",
+    "videoSolutionUrl": "https://www.youtube.com/embed/YTbGYqYBDI0?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=57&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&vf=1",
+    "source": "PW Infinite Practice",
+    "cohort": "Class 11 IIT JEE"
+  },
+  {
+    "id": "PW_PHY_MOTION1D_038",
+    "subject": "Physics",
+    "chapter": "Motion in a Straight Line",
+    "topic": "Kinematics 1D",
+    "questionNumber": 38,
+    "questionType": "Single Choice",
+    "statement": "The velocity-time relation of an electron starting from rest is given by u=kt, where k=2 m/s2. The distance traversed in 3sec is:\n1\n9 m\n58.63%",
+    "options": [
+      {
+        "index": 1,
+        "optionText": "9 m",
+        "isCorrect": true,
+        "studentPercentage": "58.63%"
+      },
+      {
+        "index": 2,
+        "optionText": "16 m",
+        "isCorrect": false,
+        "studentPercentage": "15.96%"
+      },
+      {
+        "index": 3,
+        "optionText": "27 m",
+        "isCorrect": false,
+        "studentPercentage": "16.2%"
+      },
+      {
+        "index": 4,
+        "optionText": "36 m",
+        "isCorrect": false,
+        "studentPercentage": "9.21%"
+      }
+    ],
+    "correctOption": "A",
+    "correctAnswer": "A",
+    "accuracy": "58.63%",
+    "accuracyPct": 58.63,
+    "difficulty": "Easy",
+    "solutionText": "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n32\n33\n34\n35\n36\n37\n38\n39\n40\n41\n42\n43\n44",
+    "videoSolutionUrl": "",
+    "source": "PW Infinite Practice",
+    "cohort": "Class 11 IIT JEE"
+  },
+  {
+    "id": "PW_PHY_MOTION1D_039",
+    "subject": "Physics",
+    "chapter": "Motion in a Straight Line",
+    "topic": "Kinematics 1D",
+    "questionNumber": 39,
+    "questionType": "Single Choice",
+    "statement": "An object, moving with a speed of 6.25 m/s, is decelerated at a rate given by dvdt=-2.5v where v is the instantaneous speed. The time taken by the object, to come to rest would be:-\n1\n 4 s\n17.85%",
+    "options": [
+      {
+        "index": 1,
+        "optionText": "4 s",
+        "isCorrect": false,
+        "studentPercentage": "17.85%"
+      },
+      {
+        "index": 2,
+        "optionText": "8 s",
+        "isCorrect": false,
+        "studentPercentage": "19.47%"
+      },
+      {
+        "index": 3,
+        "optionText": "1 s",
+        "isCorrect": false,
+        "studentPercentage": "32.15%"
+      },
+      {
+        "index": 4,
+        "optionText": "2 s",
+        "isCorrect": true,
+        "studentPercentage": "30.12%"
+      }
+    ],
+    "correctOption": "D",
+    "correctAnswer": "D",
+    "accuracy": "29.92%",
+    "accuracyPct": 29.92,
+    "difficulty": "Easy",
+    "solutionText": "Given ⇒dvdt=−2.5v. ⇒dvv=−2.5dt.\n\nIntegrating from v0=",
+    "videoSolutionUrl": "https://www.youtube.com/embed/Mwt3QKJA52w?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=59&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&vf=1",
+    "source": "PW Infinite Practice",
+    "cohort": "Class 11 IIT JEE"
+  },
+  {
+    "id": "PW_PHY_MOTION1D_040",
+    "subject": "Physics",
+    "chapter": "Motion in a Straight Line",
+    "topic": "Kinematics 1D",
+    "questionNumber": 40,
+    "questionType": "Single Choice",
+    "statement": "A body dropped from the top of a tower covers a distance 7x in the last second of its journey, where xis the distance covered in first second. How much time does it take to reach the ground?\n1\n3 s\n15.38%",
+    "options": [
+      {
+        "index": 1,
+        "optionText": "3 s",
+        "isCorrect": false,
+        "studentPercentage": "15.38%"
+      },
+      {
+        "index": 2,
+        "optionText": "4 s",
+        "isCorrect": true,
+        "studentPercentage": "50.58%"
+      },
+      {
+        "index": 3,
+        "optionText": "5 s",
+        "isCorrect": false,
+        "studentPercentage": "17.02%"
+      },
+      {
+        "index": 4,
+        "optionText": "6 s",
+        "isCorrect": false,
+        "studentPercentage": "17.12%"
+      }
+    ],
+    "correctOption": "B",
+    "correctAnswer": "B",
+    "accuracy": "50.58%",
+    "accuracyPct": 50.58,
+    "difficulty": "Medium",
+    "solutionText": "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23",
+    "videoSolutionUrl": "",
+    "source": "PW Infinite Practice",
+    "cohort": "Class 11 IIT JEE"
   }
 ]

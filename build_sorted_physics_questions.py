@@ -6,6 +6,8 @@ import hashlib
 def clean_latex(text):
     if not text:
         return ""
+    if isinstance(text, str):
+        text = re.sub(r'\n+1\n.*$', '', text, flags=re.DOTALL)
     if isinstance(text, dict):
         text = text.get('text', '') or str(text)
     if not isinstance(text, str):
@@ -1284,7 +1286,79 @@ PHYSICAL_WORLD_SOLUTIONS = {
 }
 
 
+
+MOTION1D_SOLUTIONS = {
+    "PW_PHY_MOTION1D_001": '**Concept**: Kinematics $\\rightarrow$ Relative Velocity in 1D\n\n**Correct Answer**: **Option (D)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Velocity of the Train**:\n   $$v_T = +54\\text{ km/h} = 54 \\times \\frac{5}{18}\\text{ m/s} = +15\\text{ m/s (due North)}$$\n2. **Velocity of Monkey Relative to the Train**:\n   The monkey runs against the motion of the train (due South):\n   $$v_{M/T} = -18\\text{ km/h} = -18 \\times \\frac{5}{18}\\text{ m/s} = -5\\text{ m/s (due South)}$$\n3. **Velocity of Monkey Relative to Ground**:\n   $$v_{M/G} = v_{M/T} + v_{T/G} = -5\\text{ m/s} + 15\\text{ m/s} = +10\\text{ m/s (due North)}$$\n4. **Conclusion**: Velocity of the monkey observed by a man standing on the ground is **10 m/s due north**, verifying Option **(D)**.',
+    "PW_PHY_MOTION1D_002": '**Concept**: Kinematics $\\rightarrow$ Relative Velocity in One Dimension\n\n**Correct Answer**: **Option (A)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Coordinate System**:\n   Taking North as the positive direction ($+\\hat{j}$) and South as the negative direction ($-\\hat{j}$):\n   - Velocity of the person: $v_P = +10\\text{ m/s}$\n   - Velocity of the car: $v_C = -20\\text{ m/s}$\n2. **Relative Velocity Formulation**:\n   $$v_{C/P} = v_C - v_P = (-20\\text{ m/s}) - (+10\\text{ m/s}) = -30\\text{ m/s}$$\n3. **Physical Interpretation**:\n   The negative sign signifies that the car moves relative to the person at a speed of $30\\text{ m/s}$ in the southward direction.\n4. **Conclusion**: The velocity of the car relative to the person is **$-30\\text{ ms}^{-1}$**, verifying Option **(A)**.',
+    "PW_PHY_MOTION1D_003": '**Concept**: Kinematics $\\rightarrow$ Expanding Sphere Kinematics (JEE Advanced 2017)\n\n**Correct Answer**: **Option (B)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Constant Mass Equation**:\n   $$M = \\rho V = \\rho \\left(\\frac{4}{3}\\pi R^3\\right) = \\text{constant}$$\n2. **Logarithmic Differentiation with Respect to Time**:\n   $$\\ln M = \\ln\\left(\\frac{4}{3}\\pi\\right) + \\ln\\rho + 3\\ln R = \\text{constant}$$\n   Differentiating both sides with respect to time $t$:\n   $$\\frac{1}{\\rho}\\frac{d\\rho}{dt} + \\frac{3}{R}\\frac{dR}{dt} = 0$$\n3. **Expressing Surface Expansion Velocity**:\n   The velocity of any point on the surface of the sphere is $v = \\frac{dR}{dt}$:\n   $$\\frac{3}{R} v = -\\left(\\frac{1}{\\rho}\\frac{d\\rho}{dt}\\right) \\implies v = -\\frac{R}{3}\\left(\\frac{1}{\\rho}\\frac{d\\rho}{dt}\\right)$$\n4. **Proportionality**:\n   Since the fractional rate of density change $\\left(\\frac{1}{\\rho}\\frac{d\\rho}{dt}\\right)$ is given as constant:\n   $$v \\propto R$$\n5. **Conclusion**: The surface velocity is proportional to $R$, verifying Option **(B)**.',
+    "PW_PHY_MOTION1D_004": '**Concept**: Kinematics $\\rightarrow$ Relative Motion Under Gravity\n\n**Correct Answer**: **Option (C)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Governing Equations for Downward Displacements**:\n   - First body (dropped from rest, $u_1 = 0$):\n     $$y_1 = \\frac{1}{2}gt^2$$\n   - Second body (projected downwards with $u_2 = 5\\text{ m/s}$):\n     $$y_2 = u_2 t + \\frac{1}{2}gt^2$$\n2. **Difference in Heights (Separation)**:\n   $$\\Delta y = y_2 - y_1 = \\left(u_2 t + \\frac{1}{2}gt^2\\right) - \\left(\\frac{1}{2}gt^2\\right) = u_2 t$$\n3. **Substitution for $t = 3\\text{ s}$**:\n   $$\\Delta y = 5\\text{ m/s} \\times 3\\text{ s} = 15\\text{ m}$$\n4. **Conclusion**: The difference in heights after 3 seconds is **15 m**, verifying Option **(C)**.',
+    "PW_PHY_MOTION1D_005": '**Concept**: Kinematics $\\rightarrow$ Relative Velocity vs Time Graph\n\n**Correct Answer**: **Option (C)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Motion of Body A (Thrown Upwards)**:\n   Body A is thrown upwards with velocity $u = \\sqrt{2gh}$ to reach maximum height $h$:\n   $$v_A(t) = u - gt$$\n2. **Motion of Body B (Dropped from Height $h$)**:\n   Body B is dropped from rest, so its downward velocity before striking the ground is:\n   $$v_B(t) = -gt$$\n   Time taken by B to strike the ground: $t_1 = \\sqrt{\\frac{2h}{g}}$.\n3. **Relative Velocity Prior to Collision ($0 \\le t < t_1$)**:\n   $$v_{AB}(t) = v_A(t) - v_B(t) = (u - gt) - (-gt) = u = \\text{constant} > 0$$\n   Hence, the relative velocity graph is a horizontal straight line at constant value $+u$.\n4. **Motion After Body B Hits Ground and Stops ($t > t_1$)**:\n   When B strikes the ground, it does not rebound, hence $v_B = 0$ for $t > t_1$:\n   $$v_{AB}(t) = v_A(t) - 0 = u - gt$$\n   This represents a linearly decreasing straight line with negative slope $-g$.\n5. **Conclusion**: Graph is constant positive $u$ up to $t_1$, then linearly decreases with slope $-g$, verifying Option **(C)**.',
+    "PW_PHY_MOTION1D_006": '**Concept**: Kinematics $\\rightarrow$ Distance vs Displacement along a Straight Line\n\n**Correct Answer**: **Option (A)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Positions Along Straight Line** (NCERT Figure 3.1 convention):\n   Origin $O = 0\\text{ m}$, $R = +120\\text{ m}$, $Q = +240\\text{ m}$, $P = +360\\text{ m}$.\n2. **Evaluation of Column I Items**:\n   - **(A) Displacement from O to P**:\n     $$\\Delta x = x_P - x_O = 360\\text{ m} - 0\\text{ m} = +360\\text{ m} \\implies \\text{(1)}$$\n   - **(B) Path length from O to P and back to Q**:\n     $$\\text{Distance} = |x_P - x_O| + |x_Q - x_P| = 360\\text{ m} + |240 - 360|\\text{ m} = 360 + 120 = 480\\text{ m} \\implies \\text{(2)}$$\n   - **(C) Displacement from O to P and back to Q**:\n     $$\\Delta x = x_Q - x_O = 240\\text{ m} - 0\\text{ m} = +240\\text{ m} \\implies \\text{(3)}$$\n   - **(D) Path length from O to P**:\n     $$\\text{Distance} = |x_P - x_O| = 360\\text{ m} \\implies \\text{(4)}$$\n3. **Code Matching**: $\\text{A}\\to 1, \\text{B}\\to 2, \\text{C}\\to 3, \\text{D}\\to 4$.\n4. **Conclusion**: Option **(A)** is verified.',
+    "PW_PHY_MOTION1D_007": '**Concept**: Kinematics $\\rightarrow$ Relative Motion of Crossing Trains (JEE Main 2019)\n\n**Correct Answer**: **Option (D)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Given Parameters**:\n   - Passenger train length $L_1 = 60\\text{ m}$, speed $v_1 = 80\\text{ km/h}$.\n   - Freight train length $L_2 = 120\\text{ m}$, speed $v_2 = 30\\text{ km/h}$.\n   - Total distance to completely cross: $D = L_1 + L_2 = 60 + 120 = 180\\text{ m} = 0.18\\text{ km}$.\n2. **Case (i): Moving in the Same Direction**:\n   $$v_{\\text{rel}, 1} = v_1 - v_2 = 80 - 30 = 50\\text{ km/h}$$\n   $$t_1 = \\frac{D}{v_{\\text{rel}, 1}} = \\frac{0.18}{50}\\text{ hr}$$\n3. **Case (ii): Moving in Opposite Directions**:\n   $$v_{\\text{rel}, 2} = v_1 + v_2 = 80 + 30 = 110\\text{ km/h}$$\n   $$t_2 = \\frac{D}{v_{\\text{rel}, 2}} = \\frac{0.18}{110}\\text{ hr}$$\n4. **Ratio of Crossing Times**:\n   $$\\frac{t_1}{t_2} = \\frac{v_{\\text{rel}, 2}}{v_{\\text{rel}, 1}} = \\frac{110}{50} = \\frac{11}{5}$$\n5. **Conclusion**: The ratio of times is **11/5**, verifying Option **(D)**.',
+    "PW_PHY_MOTION1D_008": '**Concept**: Kinematics $\\rightarrow$ Acceleration from Vector Position Function\n\n**Correct Answer**: **Option (C)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Given Position Vector**:\n   $$\\mathbf{r}(t) = 2t^2\\hat{i} + 3\\hat{j} + 4\\hat{k}$$\n2. **Velocity Vector $\\mathbf{v}(t)$**:\n   $$\\mathbf{v}(t) = \\frac{d\\mathbf{r}}{dt} = \\frac{d}{dt}\\left(2t^2\\hat{i} + 3\\hat{j} + 4\\hat{k}\\right) = 4t\\hat{i} + 0\\hat{j} + 0\\hat{k} = 4t\\hat{i}$$\n3. **Acceleration Vector $\\mathbf{a}(t)$**:\n   $$\\mathbf{a}(t) = \\frac{d\\mathbf{v}}{dt} = \\frac{d}{dt}(4t\\hat{i}) = 4\\hat{i}\\text{ m/s}^2$$\n4. **Evaluation at $t = 1\\text{ s}$**:\n   $$\\mathbf{a}(1) = 4\\hat{i}\\text{ m/s}^2$$\n   The acceleration is constant and directed along the positive $x$-direction with magnitude $4\\text{ m}\\cdot\\text{s}^{-2}$.\n5. **Conclusion**: Acceleration is $4\\text{ m}\\cdot\\text{s}^{-2}$ along $x$-direction, verifying Option **(C)**.',
+    "PW_PHY_MOTION1D_009": '**Concept**: Kinematics $\\rightarrow$ Parametric Position and Acceleration\n\n**Correct Answer**: **Option (B)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **X-Motion Analysis**:\n   - Position: $x(t) = 5t - 2t^2$\n   - Velocity: $v_x = \\frac{dx}{dt} = 5 - 4t$\n   - Acceleration: $a_x = \\frac{dv_x}{dt} = -4\\text{ m/s}^2$\n2. **Y-Motion Analysis**:\n   - Position: $y(t) = 10t$\n   - Velocity: $v_y = \\frac{dy}{dt} = 10\\text{ m/s}$\n   - Acceleration: $a_y = \\frac{dv_y}{dt} = 0\\text{ m/s}^2$\n3. **Net Acceleration at $t = 2\\text{ s}$**:\n   $$\\mathbf{a} = a_x\\hat{i} + a_y\\hat{j} = -4\\hat{i} + 0\\hat{j} = -4\\hat{i}\\text{ m/s}^2$$\n   The acceleration is independent of time and equals $-4\\text{ m/s}^2$.\n4. **Conclusion**: Acceleration at $t = 2\\text{ s}$ is **$-4\\text{ m/s}^2$**, verifying Option **(B)**.',
+    "PW_PHY_MOTION1D_010": '**Concept**: Kinematics $\\rightarrow$ Distance Covered in Successive Seconds on an Incline\n\n**Correct Answer**: **Option (A)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Motion Under Constant Acceleration**:\n   Starting from rest ($u = 0$), the acceleration down a smooth incline of angle $\\theta$ is $a = g\\sin\\theta = \\text{constant}$.\n2. **Distance in the $n$-th Second ($S_n$)**:\n   $$S_n = u + \\frac{a}{2}(2n - 1) = \\frac{a}{2}(2n - 1)$$\n3. **Distance in the $(n+1)$-th Second ($S_{n+1}$)**:\n   $$S_{n+1} = \\frac{a}{2}(2(n+1) - 1) = \\frac{a}{2}(2n + 2 - 1) = \\frac{a}{2}(2n + 1)$$\n4. **Ratio $\\frac{S_n}{S_{n+1}}$**:\n   $$\\frac{S_n}{S_{n+1}} = \\frac{\\frac{a}{2}(2n - 1)}{\\frac{a}{2}(2n + 1)} = \\frac{2n - 1}{2n + 1}$$\n5. **Conclusion**: Ratio is $\\frac{2n - 1}{2n + 1}$, verifying Option **(A)**.',
+    "PW_PHY_MOTION1D_011": '**Concept**: Kinematics $\\rightarrow$ River-Boat Relative Velocity & Drift\n\n**Correct Answer**: **Option (B)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Parameters**:\n   - River width: $d$\n   - Boat speed relative to water: $v$\n   - Water flow speed: $u$\n2. **Case 1: Rowing Perpendicular to Banks**:\n   The crossing speed is $v$, so time taken is:\n   $$t_1 = \\frac{d}{v} = 10\\text{ min} \\implies d = 10v$$\n   Downstream drift along the bank:\n   $$S = u \\cdot t_1 \\implies 120\\text{ m} = u \\times 10\\text{ min} \\implies u = 12\\text{ m/min}$$\n3. **Case 2: Reaching Directly Opposite Point B**:\n   Net velocity perpendicular to the bank is $\\sqrt{v^2 - u^2}$:\n   $$t_2 = \\frac{d}{\\sqrt{v^2 - u^2}} = 12.5\\text{ min}$$\n4. **Combining the Equations**:\n   $$\\frac{10v}{\\sqrt{v^2 - u^2}} = 12.5 \\implies \\frac{v}{\\sqrt{v^2 - u^2}} = 1.25 = \\frac{5}{4}$$\n   Squaring both sides:\n   $$\\frac{v^2}{v^2 - u^2} = \\frac{25}{16} \\implies 16v^2 = 25v^2 - 25u^2 \\implies 9v^2 = 25u^2 \\implies v = \\frac{5}{3}u$$\n5. **Calculating Boat Speed $v$**:\n   $$v = \\frac{5}{3} \\times 12\\text{ m/min} = 20\\text{ m/min}$$\n6. **Conclusion**: Boat speed relative to water is **20 m/min**, verifying Option **(B)**.',
+    "PW_PHY_MOTION1D_012": '**Concept**: Kinematics $\\rightarrow$ Maximum Velocity in Accelerating and Retarding Motion\n\n**Correct Answer**: **Option (A)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Motion Breakdown**:\n   - Acceleration phase: Starts from rest ($u = 0$), accelerates at $a_1 = 2\\text{ m/s}^2$ up to $v_{\\max}$.\n     $$t_1 = \\frac{v_{\\max}}{a_1} = \\frac{v_{\\max}}{2}$$\n   - Retardation phase: Retards from $v_{\\max}$ to rest at $a_2 = 3\\text{ m/s}^2$.\n     $$t_2 = \\frac{v_{\\max}}{a_2} = \\frac{v_{\\max}}{3}$$\n2. **Total Time Equation**:\n   $$t_1 + t_2 = T \\implies \\frac{v_{\\max}}{2} + \\frac{v_{\\max}}{3} = 10$$\n3. **Solving for $v_{\\max}$**:\n   $$\\frac{5v_{\\max}}{6} = 10 \\implies v_{\\max} = \\frac{10 \\times 6}{5} = 12\\text{ m/s}$$\n4. **Conclusion**: Maximum speed attained is **12 m/s**, verifying Option **(A)**.',
+    "PW_PHY_MOTION1D_013": "**Concept**: Kinematics $\\rightarrow$ Coordinate Frames and Sign Conventions\n\n**Correct Answer**: **Option (B)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Understanding Coordinate System Freedom**:\n   The choice of positive direction and origin is completely arbitrary and a matter of reference convention.\n2. **Evaluation of Student-2's Formulation**:\n   If the coordinate axis is chosen such that the positive direction points from the turnaround towards $B$, a car moving initially towards the turning point has negative initial velocity ($u < 0$).\n   Under constant positive acceleration ($a > 0$), it decelerates, halts, reverses direction, and ends up at $B$ with net positive displacement ($s > 0$).\n   Hence, the inferences of Student-2 (initial velocity negative, acceleration positive, displacement positive) describe this trajectory consistently.\n3. **Conclusion**: Student-2 is correct, verifying Option **(B)**.",
+    "PW_PHY_MOTION1D_014": '**Concept**: Kinematics $\\rightarrow$ Two Projectiles with Invariable Spatial Separation\n\n**Correct Answer**: **Option (A)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Condition for Constant Spatial Separation**:\n   Both stones experience the same gravitational acceleration: $a_{\\text{rel}} = g - g = 0$.\n   For the vertical gap $\\Delta s$ to remain constant over time once both are moving, their relative velocity must be zero:\n   $$v_{\\text{rel}} = v_1(t) - v_2(t) = 0 \\implies v_1(t) = v_2(t)$$\n2. **Velocity Relations**:\n   Let first stone be thrown with $u_1 = u$ at $t = 0$.\n   Second stone is thrown with $u_2 = u/2$ at $t = \\Delta t$.\n   $$v_1(t) = u - gt, \\quad v_2(t) = \\frac{u}{2} - g(t - \\Delta t)$$\n   Equating velocities:\n   $$u - gt = \\frac{u}{2} - gt + g\\Delta t \\implies g\\Delta t = \\frac{u}{2} \\implies \\Delta t = \\frac{u}{2g}$$\n3. **Evaluating Separation at $t = 2\\text{ s}$**:\n   $$s_1(2) = 2u - \\frac{1}{2}g(2)^2 = 2u - 2g$$\n   $$s_2(2) = \\frac{u}{2}(2 - \\Delta t) - \\frac{1}{2}g(2 - \\Delta t)^2$$\n   Substituting $\\Delta t = \\frac{u}{2g}$ and simplifying yields:\n   $$s_1 - s_2 = \\frac{3u^2}{8g}$$\n4. **Given Gap $\\Delta s = 15\\text{ m}$ with $g = 10\\text{ m/s}^2$**:\n   $$\\frac{3u^2}{8(10)} = 15 \\implies 3u^2 = 1200 \\implies u^2 = 400 \\implies u = 20\\text{ m/s}$$\n5. **Velocities of the Two Stones**:\n   - First stone: $u_1 = 20\\text{ ms}^{-1}$\n   - Second stone: $u_2 = \\frac{20}{2} = 10\\text{ ms}^{-1}$\n6. **Conclusion**: Initial velocities are $20\\text{ ms}^{-1}$ and $10\\text{ ms}^{-1}$, verifying Option **(A)**.',
+    "PW_PHY_MOTION1D_015": '**Concept**: Kinematics $\\rightarrow$ Average Speed for Segmented Distances\n\n**Correct Answer**: **Option (D)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Total Distance and Portions**:\n   Let total distance be $d$.\n   - First portion: $s_1 = \\frac{d}{3}$, with speed $v_1 = 20\\text{ km/h}$.\n   - Remaining portion: $s_2 = \\frac{2d}{3}$, with speed $v_2 = 60\\text{ km/h}$.\n2. **Time Intervals**:\n   $$t_1 = \\frac{s_1}{v_1} = \\frac{d/3}{20} = \\frac{d}{60}\\text{ hr}$$\n   $$t_2 = \\frac{s_2}{v_2} = \\frac{2d/3}{60} = \\frac{d}{90}\\text{ hr}$$\n3. **Total Time $T$**:\n   $$T = t_1 + t_2 = \\frac{d}{60} + \\frac{d}{90} = d \\left(\\frac{3 + 2}{180}\\right) = \\frac{5d}{180} = \\frac{d}{36}\\text{ hr}$$\n4. **Average Speed Formulation**:\n   $$v_{\\text{avg}} = \\frac{\\text{Total Distance}}{\\text{Total Time}} = \\frac{d}{\\frac{d}{36}} = 36\\text{ km/h}$$\n5. **Conclusion**: Average speed is **36 km/h**, verifying Option **(D)**.',
+    "PW_PHY_MOTION1D_016": '**Concept**: Kinematics $\\rightarrow$ Velocity at Midpoint Under Uniform Acceleration\n\n**Correct Answer**: **Option (C)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Third Kinematic Equation**:\n   For a body moving with constant acceleration $a$ over total distance $s$:\n   $$v_2^2 - v_1^2 = 2as \\implies 2as = v_2^2 - v_1^2$$\n2. **Velocity at Midpoint ($s/2$)**:\n   Let $v_m$ be the velocity at the midpoint of distance:\n   $$v_m^2 - v_1^2 = 2a\\left(\\frac{s}{2}\\right) = as = \\frac{v_2^2 - v_1^2}{2}$$\n   $$v_m^2 = v_1^2 + \\frac{v_2^2 - v_1^2}{2} = \\frac{v_1^2 + v_2^2}{2}$$\n   $$v_m = \\sqrt{\\frac{v_1^2 + v_2^2}{2}}$$\n3. **Numerical Substitution** ($v_1 = 30\\text{ km/h}, v_2 = 40\\text{ km/h}$):\n   $$v_m = \\sqrt{\\frac{30^2 + 40^2}{2}} = \\sqrt{\\frac{900 + 1600}{2}} = \\sqrt{\\frac{2500}{2}} = \\sqrt{1250} = 25\\sqrt{2}\\text{ km/h}$$\n4. **Conclusion**: Midpoint velocity is $25\\sqrt{2}\\text{ km/h}$, verifying Option **(C)**.',
+    "PW_PHY_MOTION1D_017": '**Concept**: Kinematics $\\rightarrow$ Average Velocity for Three Equal Distance Intervals\n\n**Correct Answer**: **Option (A)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Partitioning Total Journey $S$**:\n   Three equal parts of length $s_1 = s_2 = s_3 = \\frac{S}{3}$.\n   - Portion 1: $v_1 = 2\\text{ m/s}$\n   - Portion 2: $v_2 = 3\\text{ m/s}$\n   - Portion 3: $v_3 = 6\\text{ m/s}$\n2. **Individual Time Intervals**:\n   $$t_1 = \\frac{S/3}{2} = \\frac{S}{6}, \\quad t_2 = \\frac{S/3}{3} = \\frac{S}{9}, \\quad t_3 = \\frac{S/3}{6} = \\frac{S}{18}$$\n3. **Total Time $T$**:\n   $$T = \\frac{S}{6} + \\frac{S}{9} + \\frac{S}{18} = S \\left(\\frac{3 + 2 + 1}{18}\\right) = \\frac{6S}{18} = \\frac{S}{3}$$\n4. **Average Velocity**:\n   $$v_{\\text{avg}} = \\frac{S}{T} = \\frac{S}{S/3} = 3\\text{ m/s}$$\n5. **Conclusion**: Average velocity is **3 m/s**, verifying Option **(A)**.',
+    "PW_PHY_MOTION1D_018": '**Concept**: Kinematics $\\rightarrow$ Differential Kinematics ($v \\propto \\sqrt{x}$)\n\n**Correct Answer**: **Option (C)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Differential Relation**:\n   Given velocity varies as $v \\propto \\sqrt{x}$:\n   $$v = \\frac{dx}{dt} = k\\sqrt{x}$$\n   where $k$ is a proportionality constant.\n2. **Separation of Variables & Integration**:\n   $$\\frac{dx}{\\sqrt{x}} = k\\,dt$$\n   Integrating from $x = 0$ at $t = 0$ to displacement $x$ at time $t$:\n   $$\\int_0^x x^{-1/2}\\,dx = k\\int_0^t dt \\implies \\left[2x^{1/2}\\right]_0^x = kt$$\n   $$2\\sqrt{x} = kt \\implies \\sqrt{x} = \\frac{k}{2}t$$\n3. **Displacement as a Function of Time**:\n   Squaring both sides:\n   $$x(t) = \\frac{k^2}{4}t^2 \\implies x \\propto t^2$$\n4. **Conclusion**: Displacement varies with time as $t^2$, verifying Option **(C)**.',
+    "PW_PHY_MOTION1D_019": '**Concept**: Kinematics $\\rightarrow$ Regularly Spaced Falling Water Drops\n\n**Correct Answer**: **Option (D)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Motion of the First Drop**:\n   Falls from rest from tap height $H = 5\\text{ m}$.\n   Time to reach the ground:\n   $$H = \\frac{1}{2}gt_1^2 \\implies 5 = \\frac{1}{2}(10)t_1^2 = 5t_1^2 \\implies t_1 = 1\\text{ s}$$\n2. **Time Interval Between Successive Drops**:\n   Drops fall at regular time intervals $\\Delta t$.\n   At the moment the 1st drop touches the ground ($t = 1\\text{ s}$), the 3rd drop is leaving the tap:\n   $$2\\Delta t = 1\\text{ s} \\implies \\Delta t = 0.5\\text{ s}$$\n3. **Position of the Second Drop**:\n   The second drop has been falling for time $t_2 = t_1 - \\Delta t = 1 - 0.5 = 0.5\\text{ s}$.\n   Distance fallen below the tap:\n   $$s_2 = \\frac{1}{2}gt_2^2 = \\frac{1}{2}(10)(0.5)^2 = 5 \\times 0.25 = 1.25\\text{ m} = \\frac{5}{4}\\text{ m}$$\n4. **Height Above Ground**:\n   $$h_2 = H - s_2 = 5 - 1.25 = 3.75\\text{ m} = \\frac{15}{4}\\text{ m}$$\n5. **Conclusion**: Height above ground is **15/4 m**, verifying Option **(D)**.',
+    "PW_PHY_MOTION1D_020": '**Concept**: Kinematics $\\rightarrow$ Graphical Analysis of Motion ($x-t$ Graph)\n\n**Correct Answer**: **Option (B)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Graph Geometry & Curvature**:\n   The position-time ($x-t$) curve is a semicircle concave downwards over the interval $t \\in [2, 8]\\text{ s}$ with its peak at $t = 5\\text{ s}$.\n2. **Sign of Acceleration**:\n   Concavity downwards implies that the second time-derivative of position is negative throughout:\n   $$a = \\frac{d^2x}{dt^2} < 0 \\quad \\text{for all } t \\in (2, 8)\\text{ s}$$\n3. **Sign of Velocity in Interval $t \\in (2, 5)\\text{ s}$**:\n   The slope of the tangent to the $x-t$ curve is positive:\n   $$v = \\frac{dx}{dt} > 0$$\n4. **Comparison of Directions**:\n   In $t \\in (2, 5)\\text{ s}$, velocity is positive ($v > 0$) while acceleration is negative ($a < 0$).\n   Therefore, the velocity and acceleration are in opposite directions (the particle is decelerating).\n5. **Conclusion**: Velocity of the particle is opposite to acceleration between $t = 2$ and $t = 5\\text{ s}$, verifying Option **(B)**.',
+}
+
 OPTION_OVERRIDES = {
+    "PW_PHY_MOTION1D_005": [
+        "Relative velocity remains zero initially, then decreases linearly",
+        "Relative velocity increases linearly initially, then remains constant",
+        "Constant positive relative velocity u while B is in air, then linearly decreasing with slope -g after B hits the ground",
+        "Relative velocity decreases parabolically throughout"
+    ],
+    "PW_PHY_MOTION1D_006": [
+        r"\text{A}\to 1, \text{B}\to 2, \text{C}\to 3, \text{D}\to 4",
+        r"\text{A}\to 2, \text{B}\to 1, \text{C}\to 4, \text{D}\to 3",
+        r"\text{A}\to 3, \text{B}\to 4, \text{C}\to 1, \text{D}\to 2",
+        r"\text{A}\to 4, \text{B}\to 3, \text{C}\to 2, \text{D}\to 1"
+    ],
+    "PW_PHY_MOTION1D_007": [
+        r"25/11",
+        r"3/2",
+        r"5/2",
+        r"11/5"
+    ],
+    "PW_PHY_MOTION1D_010": [
+        r"\frac{2n-1}{2n+1}",
+        r"\frac{2n+1}{2n-1}",
+        r"\frac{2n}{2n-1}",
+        r"\frac{2n+1}{2n}"
+    ],
+    "PW_PHY_MOTION1D_015": [
+        r"40\text{ km/h}",
+        r"80\text{ km/h}",
+        r"46\frac{2}{3}\text{ km/h}",
+        r"36\text{ km/h}"
+    ],
+    "PW_PHY_MOTION1D_016": [
+        r"33.3\text{ km/h}",
+        r"20\sqrt{2}\text{ km/h}",
+        r"25\sqrt{2}\text{ km/h}",
+        r"35\text{ km/h}"
+    ],
+    "PW_PHY_MOTION1D_017": [
+        r"3\text{ m/s}",
+        r"\frac{11}{3}\text{ m/s}",
+        r"\frac{8}{3}\text{ m/s}",
+        r"\frac{4}{3}\text{ m/s}"
+    ],
+    "PW_PHY_MOTION1D_019": [
+        r"\frac{5}{4}\text{ m}",
+        r"4\text{ m}",
+        r"\frac{5}{2}\text{ m}",
+        r"\frac{15}{4}\text{ m}"
+    ],
     "PW_PHY_UNITS_MEASUREMENTS_079": [
         r"\left(\frac{n-1}{n}\right)x",
         r"\left(\frac{n}{n-1}\right)x",
@@ -1310,6 +1384,28 @@ def parse_pw_physics_question(raw_q, idx):
     std_chapter = CHAPTER_MAP.get(ch_raw) or CHAPTER_MAP.get(" ".join(ch_raw.split()), "Kinematics")
     
     raw_text = raw_q.get('statement') or raw_q.get('text', '')
+    pw_id = raw_q.get('id', '')
+    if pw_id == 'PW_PHY_MOTION1D_006':
+        raw_text = (
+            "In the given figure, let P, Q and R represent the position of a car along a straight road at different instants of time: "
+            "$O = 0\\text{ m}$, $R = 120\\text{ m}$, $Q = 240\\text{ m}$, and $P = 360\\text{ m}$.\n\n"
+            "Match Column I with Column II:\n"
+            "Column I:\n"
+            "(A) Displacement of car moving from O to P\n"
+            "(B) Path length of car moving from O to P and back to Q\n"
+            "(C) Displacement of car moving from O to P and back to Q\n"
+            "(D) Path length of car moving from O to P\n\n"
+            "Column II:\n"
+            "(1) $+360\\text{ m}$\n"
+            "(2) $480\\text{ m}$\n"
+            "(3) $+240\\text{ m}$\n"
+            "(4) $360\\text{ m}$"
+        )
+    elif pw_id == 'PW_PHY_MOTION1D_018':
+        raw_text = (
+            "A particle located at $x = 0$ at time $t = 0$, starts moving along the positive $x$-direction with a velocity $V$ "
+            "that varies as $V \\propto \\sqrt{x}$. The displacement of the particle varies with time as:"
+        )
     cleaned_text = clean_latex(raw_text)
     
     raw_topic = raw_q.get('topic')
@@ -1395,6 +1491,8 @@ def parse_pw_physics_question(raw_q, idx):
         solution = PHYSICAL_WORLD_SOLUTIONS[pw_id]
     elif pw_id in UNITS_MEASUREMENTS_SOLUTIONS:
         solution = UNITS_MEASUREMENTS_SOLUTIONS[pw_id]
+    elif pw_id in MOTION1D_SOLUTIONS:
+        solution = MOTION1D_SOLUTIONS[pw_id]
     else:
         sol_text = raw_q.get('solutionText') or raw_q.get('solution')
         solution = build_solution(std_chapter, topic, "MCQ", correct_key, correct_text, None, cleaned_text, sol_text)
@@ -1429,7 +1527,11 @@ def parse_pw_physics_question(raw_q, idx):
             "wrong": -1
         },
         "solution": solution,
-        "referenceBook": (f"Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch {batch_num}), Q#{raw_q.get('questionNumber', idx - 2812)}" if "UNITS_MEASUREMENTS" in pw_id else f"Physics Wallah - Infinite Practice Class 11, Batch {batch_num}: Physical World, Q#{q_num}"),
+        "referenceBook": (
+            f"Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 1), Q#{raw_q.get('questionNumber', idx - 2871)}" if "MOTION1D" in pw_id
+            else (f"Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch {batch_num}), Q#{raw_q.get('questionNumber', idx - 2812)}" if "UNITS_MEASUREMENTS" in pw_id
+            else f"Physics Wallah - Infinite Practice Class 11, Batch {batch_num}: Physical World, Q#{q_num}")
+        ),
         "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
         "page": 1,
         "examTag": "PW Infinite Practice"

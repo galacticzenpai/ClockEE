@@ -28240,5 +28240,2727 @@
     "accuracy": "%",
     "difficulty": "Medium",
     "solutionText": "Solution\nEasy"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_165",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 165,
+    "statement": "If force (F), velocity (V) and time (T) are taken as fundamental units, then the dimensions of mass are:",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "FVT-1",
+        "isCorrect": false,
+        "studentPercentage": "14.84%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "FVT-2",
+        "isCorrect": false,
+        "studentPercentage": "21.09%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "FV-1 T-1",
+        "isCorrect": false,
+        "studentPercentage": "21.49%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "FV-1 T",
+        "isCorrect": true,
+        "studentPercentage": "42.36%"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "FV-1 T",
+    "accuracy": "42.36%",
+    "difficulty": "Easy",
+    "solutionText": "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n32\n33\n34\n35\n36\n37\n38\n39\n40\n41\n42\n43\n44\n45\n46\n47\n48\n49\n50\n51\n52\n53\n54\n55\n56\n57\n58\n59\n60\n61\n62\n63\n64\n65\n66\n67\n68\n69\n70\n71\n72\n73\n74\n75\n76\n77\n78\n79\n80\n81\n82\n83\n84\n85\n86\n87\n88\n89\n90\nPreviousSave & Next"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_166",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 166,
+    "statement": "The least count of a stop watch is 15 s. The time of 20 oscillations of a pendulum is measured to be 25 s. What is the maximum percentage error in this measurement?\n1\n8%\n8.42% Marked this option\n2\n1%\n7.48% Marked this option\n3\n0.8%\n77.37% Marked this option\n4\n16%\n6.77% Marked this option\n77.33% of students got it right\nSolution\nHard\nShow Video Sol.\nWith least count Δt=0.2 s and a measured time t=25 s,\n\nmax % error = 0.225×100%=0.8%.\n\nHence, the correct choice is 0.8% (Option C).",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "8%",
+        "isCorrect": false,
+        "studentPercentage": "8.42%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "1%",
+        "isCorrect": false,
+        "studentPercentage": "7.48%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "0.8%",
+        "isCorrect": true,
+        "studentPercentage": "77.37%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "16%",
+        "isCorrect": false,
+        "studentPercentage": "6.77%"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "0.8%",
+    "accuracy": "77.33% of students got it right",
+    "difficulty": "Hard",
+    "solutionText": "Solution\nHard\nShow Video Sol.\nWith least count Δt=0.2 s and a measured time t=25 s,\n\nmax % error = 0.225×100%=0.8%.\n\nHence, the correct choice is 0.8% (Option C)."
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_167",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 167,
+    "statement": "According to Maxwell-distribution law, the probability function representing the ratio of molecules at a particular velocity to the total number of molecules is given by :-  f(v)=k1m2πkT234πv2emv22KT where m is the mass of the molecule, v is the velocity of the molecule, T is the temperature, k and k1are constants. The dimensional formula of k1 is :",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "[L2 T−2]",
+        "isCorrect": false,
+        "studentPercentage": "8.16%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "[L1 T−1 K−3/2]",
+        "isCorrect": false,
+        "studentPercentage": "17.57%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "[L1 T−1 K+3/2]",
+        "isCorrect": true,
+        "studentPercentage": "68.32%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "[L2 T−1 K+3/2]",
+        "isCorrect": false,
+        "studentPercentage": "6.18%"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "[L1 T−1 K+3/2]",
+    "accuracy": "68.12% of students got it right",
+    "difficulty": "Hard",
+    "solutionText": "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n32\n33\n34\n35\n36\n37\n38\n39\n40\n41\n42\n43\n44\n45\n46\n47\n48\n49\n50\n51\n52\n53\n54\n55\n56\n57\n58\n59\n60\n61\n62\n63\n64\n65\n66\n67\n68\n69\n70\n71\n72\n73\n74\n75\n76\n77\n78\n79\n80\n81\n82\n83\n84\n85\n86\n87\n88\n89\n90"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_168",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 168,
+    "statement": "Planck's constant (h), speed of light in vacuum (c) and Newtons gravitational constant (G) are three fundamental constants. Which of the following combinations of these has the dimension of length?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "hcG",
+        "isCorrect": false,
+        "studentPercentage": "13.17%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Gc h3/2",
+        "isCorrect": false,
+        "studentPercentage": "11.97%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "hGc3/2",
+        "isCorrect": true,
+        "studentPercentage": "67.61%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "hGc5/2",
+        "isCorrect": false,
+        "studentPercentage": "7.28%"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "hGc3/2",
+    "accuracy": "67.59% of students got it right",
+    "difficulty": "Hard",
+    "solutionText": "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n32\n33\n34\n35\n36\n37\n38\n39\n40\n41\n42\n43\n44\n45\n46\n47\n48\n49\n50\n51\n52\n53\n54\n55\n56\n57\n58\n59\n60\n61\n62\n63\n64\n65\n66\n67\n68\n69\n70\n71\n72\n73\n74\n75\n76\n77\n78\n79\n80\n81\n82\n83\n84\n85\n86\n87\n88\n89\n90"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_169",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 169,
+    "statement": "The length of a cylinder is measured with a metre rod having least count 0.1 cm. Its diameter is measured with vernier callipers having least count 0.01 cm. Given the length is 5.0 cm. and radius is 2.00 cm. The percentage error in the calculated value of volume will be -",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "2%",
+        "isCorrect": false,
+        "studentPercentage": "19.73%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "1%",
+        "isCorrect": false,
+        "studentPercentage": "20.71%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "3%",
+        "isCorrect": true,
+        "studentPercentage": "48.64%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "4%",
+        "isCorrect": false,
+        "studentPercentage": "10.91%"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "3%",
+    "accuracy": "50.0%",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nEasy"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_170",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 170,
+    "statement": "The area of a sheet of length 10.2 cm and width 6.8 cm addressed upto proper number of significant figures is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "69.36 cm2",
+        "isCorrect": false,
+        "studentPercentage": "17.67%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "69.4 cm2",
+        "isCorrect": false,
+        "studentPercentage": "34.3%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "69 cm2",
+        "isCorrect": true,
+        "studentPercentage": "40.9%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "70 cm2",
+        "isCorrect": false,
+        "studentPercentage": "7.32%"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "69 cm2",
+    "accuracy": "50.0%",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nEasy\nShow Video Sol.\n\n\nCalculate the raw area:\n\n10.2 cm×6.8 cm=69.36 cm2.\n\n\nDetermine significant figures:\n\n\n\n10.2 cm has 3 significant figures.\n\n\n\n6.8 cm has 2 significant figures.\n\n\n\nThe final area should be expressed to 2 significant figures, since that is the fewest in the measurements.\n\n\n\nRound 69.36 cm² to 2 significant figures:\n\n69.36 cm2 → 69 cm2.\n\n\nAnswer : 69 cm²."
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_171",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 171,
+    "statement": "Kinetic energy (K) depends upon momentum (p) and mass (m) of a body as Kαpamb",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "a=1;b=1",
+        "isCorrect": false,
+        "studentPercentage": "14.86%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "a=2;b=−1",
+        "isCorrect": true,
+        "studentPercentage": "61.86%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "a =2;b=1",
+        "isCorrect": false,
+        "studentPercentage": "15.95%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "a=1;b=2",
+        "isCorrect": false,
+        "studentPercentage": "7.37%"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "a=2;b=−1",
+    "accuracy": "50.0%",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nEasy"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_172",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 172,
+    "statement": "The number of significant zeroes present in the measured value 0.020040 is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Five",
+        "isCorrect": false,
+        "studentPercentage": "49.77%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Two",
+        "isCorrect": false,
+        "studentPercentage": "9.66%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "One",
+        "isCorrect": false,
+        "studentPercentage": "4.83%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Three",
+        "isCorrect": true,
+        "studentPercentage": "35.78%"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "Three",
+    "accuracy": "35.74% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "Solution\nEasy"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_173",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 173,
+    "statement": "If v=γpρ, then the dimensions of γ are ( p is pressure, ρ is density and v is speed of sound has their usual dimension) -",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "M0 L0 T0",
+        "isCorrect": true,
+        "studentPercentage": "52.55%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "M0 L0 T−1",
+        "isCorrect": false,
+        "studentPercentage": "26.82%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "M1 L0 T0",
+        "isCorrect": false,
+        "studentPercentage": "11.29%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "M0 L1 T0",
+        "isCorrect": false,
+        "studentPercentage": "9.36%"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "M0 L0 T0",
+    "accuracy": "52.68% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "Solution\nEasy"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_174",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 174,
+    "statement": "The dimension equation for magnetic flux is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "ML2 T−2I−1",
+        "isCorrect": true,
+        "studentPercentage": "50.14% Marked this option"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "ML2 T−2I−2",
+        "isCorrect": false,
+        "studentPercentage": "25.14% Marked this option"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "ML−2 T−2 T−1",
+        "isCorrect": false,
+        "studentPercentage": "17.08% Marked this option"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "ML−2 T−2I−1",
+        "isCorrect": false,
+        "studentPercentage": "7.55% Marked this option"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "ML2 T−2I−1",
+    "accuracy": "50.09% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n32\n33\n34\n35\n36\n37\n38\n39\n40\n41\n42\n43\n44\n45\n46\n47\n48\n49\n50\n51\n52\n53\n54\n55\n56\n57\n58\n59\n60\n61\n62\n63\n64\n65\n66\n67\n68\n69\n70\n71\n72\n73\n74\n75\n76\n77\n78\n79\n80\n81\n82\n83\n84\n85\n86\n87\n88\n89\n90\nPreviousSave & Next"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_175",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 175,
+    "statement": "Very large distances such as the distance of a Planet or a star from Earth can be measured by",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Spectrograph",
+        "isCorrect": false,
+        "studentPercentage": "12.96% Marked this option"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Millikan's oil drop method",
+        "isCorrect": false,
+        "studentPercentage": "5.53% Marked this option"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Parallax method",
+        "isCorrect": true,
+        "studentPercentage": "57.49% Marked this option"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "All of these",
+        "isCorrect": false,
+        "studentPercentage": "24.15% Marked this option"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "Parallax method",
+    "accuracy": "57.42% of students got it right",
+    "difficulty": "Medium",
+    "solutionText": "The parallax method is used to determine very large distances (for example, the distance of a planet or star from Earth).\n\nHence, the correct option is Parallax method."
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_176",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 176,
+    "statement": "Given: Force =α density +β3. What are the dimensions of α,β ?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "ML−2 T−2,ML−1/3",
+        "isCorrect": false,
+        "studentPercentage": "12.29% Marked this option"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "M2 L4 T−2,M−1/3 L−1",
+        "isCorrect": false,
+        "studentPercentage": "18.46% Marked this option"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "M2 L−2 T−2,M1/3 L−1",
+        "isCorrect": true,
+        "studentPercentage": "48.26% Marked this option"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "M2 L−2 T−2,ML−3",
+        "isCorrect": false,
+        "studentPercentage": "20.92% Marked this option"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "M2 L−2 T−2,M1/3 L−1",
+    "accuracy": "48.12% of students got it right",
+    "difficulty": "Medium",
+    "solutionText": "(C)"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_177",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 177,
+    "statement": "Given that the displacement of an oscillating particle is given by y=Asin(Bx+Ct+D). The dimensional formula for (ABCD) is:",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "[M0 L−1 T0]",
+        "isCorrect": false,
+        "studentPercentage": "10.94% Marked this option"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "[M0 L0 T−1]",
+        "isCorrect": true,
+        "studentPercentage": "52.17% Marked this option"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "[M0 L−1 T−1]",
+        "isCorrect": false,
+        "studentPercentage": "20.97% Marked this option"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "[M0 L0 T0]",
+        "isCorrect": false,
+        "studentPercentage": "15.85% Marked this option"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "[M0 L0 T−1]",
+    "accuracy": "51.68% of students got it right",
+    "difficulty": "Medium",
+    "solutionText": "Identify dimensions:\n\n\n\ny is displacement ⇒ A has dimension [L].\n\n\n\nInside sin(Bx+Ct+D), each term must be dimensionless.\n  ⟹  Bx dimensionless ⇒B:[L−1].\n  ⟹  Ct dimensionless ⇒C:[T−1].\n  ⟹  D is also dimensionless.\n\n\n\n\n\nCompute (A B C D) dimensions:\n\n[A B C D]=[L] [L−1] [T−1] [1]=[T−1].\n\n\nAnswer : [M0L0T−1]."
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_178",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 178,
+    "statement": "If the random error in the arithmetic mean of 50 observations is α, then the random error in the arithmetic mean of 150 observations would be:",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "α",
+        "isCorrect": true,
+        "studentPercentage": "9.09% Marked this option"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "3α",
+        "isCorrect": false,
+        "studentPercentage": "27.27% Marked this option"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "α3",
+        "isCorrect": true,
+        "studentPercentage": "63.64% Marked this option"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "2α",
+        "isCorrect": false,
+        "studentPercentage": "0% Marked this option"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "α",
+    "accuracy": "63.64% of students got it right",
+    "difficulty": "Hard",
+    "solutionText": "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n32\n33\n34\n35\n36\n37\n38\n39\n40\n41\n42\n43\n44\n45\n46\n47\n48\n49\n50\n51\n52\n53\n54\n55\n56\n57\n58\n59\n60\n61\n62\n63\n64\n65\n66\n67\n68\n69\n70\n71\n72\n73\n74\n75\n76\n77\n78\n79\n80\n81\n82\n83\n84\n85\n86\n87\n88\n89\n90\nPreviousSave & Next"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_179",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 179,
+    "statement": "The dimensions ML−1 T−2 may correspond to",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Work done by a force",
+        "isCorrect": false,
+        "studentPercentage": "11.87% Marked this option"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Linear momentum",
+        "isCorrect": false,
+        "studentPercentage": "13.04% Marked this option"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Pressure",
+        "isCorrect": true,
+        "studentPercentage": "65.66% Marked this option"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Energy per unit area",
+        "isCorrect": false,
+        "studentPercentage": "9.16% Marked this option"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "Pressure",
+    "accuracy": "65.6% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n32\n33\n34\n35\n36\n37\n38\n39\n40\n41\n42\n43\n44\n45\n46\n47\n48\n49\n50\n51\n52\n53\n54\n55\n56\n57\n58\n59\n60\n61\n62\n63\n64\n65\n66\n67\n68\n69\n70\n71\n72\n73\n74\n75\n76\n77\n78\n79\n80\n81\n82\n83\n84\n85\n86\n87\n88\n89\n90\nPreviousSave & Next"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_180",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 180,
+    "statement": "A sextant is used to measure",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "area of hill",
+        "isCorrect": false,
+        "studentPercentage": "21.82% Marked this option"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "height of an object",
+        "isCorrect": true,
+        "studentPercentage": "46.87% Marked this option"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "breadth of a tower",
+        "isCorrect": false,
+        "studentPercentage": "15.85% Marked this option"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "volume of the building.",
+        "isCorrect": false,
+        "studentPercentage": "15.36% Marked this option"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "height of an object",
+    "accuracy": "46.87% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n32\n33\n34\n35\n36\n37\n38\n39\n40\n41\n42\n43\n44\n45\n46\n47\n48\n49\n50\n51\n52\n53\n54\n55\n56\n57\n58\n59\n60\n61\n62\n63\n64\n65\n66\n67\n68\n69\n70\n71\n72\n73\n74\n75\n76\n77\n78\n79\n80\n81\n82\n83\n84\n85\n86\n87\n88\n89\n90\nPreviousSave & Next"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_181",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 181,
+    "statement": "Force F is given in terms of time t  and distance x by F =AsinCt+BcosDx. Then the dimensions of AB and CD are given by",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "MLT−2,M0 L0 T−1",
+        "isCorrect": false,
+        "studentPercentage": "50% Marked this option"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "MLT−2,M0 L−1 T0",
+        "isCorrect": false,
+        "studentPercentage": "0% Marked this option"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "M0 L0 T0,M0 L1 T−1",
+        "isCorrect": true,
+        "studentPercentage": "50% Marked this option"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "M0 L1 T−1,M0 L0 T0",
+        "isCorrect": false,
+        "studentPercentage": "0% Marked this option"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "M0 L0 T0,M0 L1 T−1",
+    "accuracy": "50% of students got it right",
+    "difficulty": "Hard",
+    "solutionText": "(3)"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_182",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 182,
+    "statement": "For a cubical block, error in measurement of sides is ±1% and error in measurement of mass is ±2%, then maximum possible error in density is -",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "1%",
+        "isCorrect": false,
+        "studentPercentage": "10.37% Marked this option"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "5%",
+        "isCorrect": true,
+        "studentPercentage": "51.89% Marked this option"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "3%",
+        "isCorrect": false,
+        "studentPercentage": "27.39% Marked this option"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "7%",
+        "isCorrect": false,
+        "studentPercentage": "10.37% Marked this option"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "5%",
+    "accuracy": "51.97% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n32\n33\n34\n35\n36\n37\n38\n39\n40\n41\n42\n43\n44\n45\n46\n47\n48\n49\n50\n51\n52\n53\n54\n55\n56\n57\n58\n59\n60\n61\n62\n63\n64\n65\n66\n67\n68\n69\n70\n71\n72\n73\n74\n75\n76\n77\n78\n79\n80\n81\n82\n83\n84\n85\n86\n87\n88\n89\n90\nPreviousSave & Next"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_183",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 183,
+    "statement": "E,m,L,G denote energy, mass, angular momentum & gravitation constant respectively. The dimensions of EL2m5G2 will be that of\n1\nAngle\n69.33% Marked this option\n2\nLength\n14.39% Marked this option\n3\nMass\n12.09% Marked this option\n4\nTime\n5.75% Marked this option\n9.56% of students got it right\nSolution\nMedium",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Angle",
+        "isCorrect": true,
+        "studentPercentage": "69.33% Marked this option"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Length",
+        "isCorrect": false,
+        "studentPercentage": "14.39% Marked this option"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Mass",
+        "isCorrect": false,
+        "studentPercentage": "12.09% Marked this option"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Time",
+        "isCorrect": false,
+        "studentPercentage": "5.75% Marked this option"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "Angle",
+    "accuracy": "50.0%",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nMedium"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_184",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 184,
+    "statement": "The relative error in the measurement of the side of a cube is 0.027. The relative error in the measurement of its volume is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "0.027",
+        "isCorrect": false,
+        "studentPercentage": "16.67% Marked this option"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "0.054",
+        "isCorrect": false,
+        "studentPercentage": "0% Marked this option"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "0.081",
+        "isCorrect": true,
+        "studentPercentage": "83.33% Marked this option"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "0.046",
+        "isCorrect": false,
+        "studentPercentage": "0% Marked this option"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "0.081",
+    "accuracy": "83.33% of students got it right",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nMedium\nShow Video Sol.\nFor a cube, V=a3. Therefore, ΔVV=3Δaa. ΔVV=3(0.027)=0.081.\n\nHence, option (C)."
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_185",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 185,
+    "statement": "Directions: Each of these questions contain two statements, Assertion and Reason. Each of these questions also has four alternative choices, only one of which is the correct answer. You have to select one of the codes (a), (b), (c) and (d) given below.\n\nAssertion: In the equation momentum, P= mass  area x, the dimensional formula of x is LT-2.\n\nReason: Quantities with different dimensions can be multiplied.",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Assertion is correct, reason is correct; reason is a correct explanation for assertion.",
+        "isCorrect": false,
+        "studentPercentage": "10.81% Marked this option"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Assertion is correct, reason is correct; reason is not a correct explanation for assertion",
+        "isCorrect": false,
+        "studentPercentage": "8.27% Marked this option"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Assertion is correct, reason is incorrect",
+        "isCorrect": false,
+        "studentPercentage": "8.54% Marked this option"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Assertion is incorrect, reason is correct.",
+        "isCorrect": true,
+        "studentPercentage": "72.62% Marked this option"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "Assertion is incorrect, reason is correct.",
+    "accuracy": "72.5% of students got it right",
+    "difficulty": "Hard",
+    "solutionText": "Solution\nHard\nShow Video Sol.\nAssertion Check\n\nMomentum, P  =  massarea×x.\n\n\nMomentum P has dimensions [MLT−1].\n\nmassarea has dimensions [ML−2].\n\n\nTherefore,\n\n[x]=[MLT−1][ML−2]=[L3T−1],\n\nwhereas the assertion claims [LT−2].\nHence, the assertion is incorrect.\n\nReason Check\n“Quantities with different dimensions can be multiplied.”\nThis is true; there is no restriction on multiplying or dividing quantities of different dimensions.\n\nThus, Assertion is incorrect and Reason is correct."
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_186",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 186,
+    "statement": "Calculate the dimensional formula of energy from the equation E=12mv2",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "[M0 L2 T2]",
+        "isCorrect": false,
+        "studentPercentage": "5.78% Marked this option"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "[M1 L2 T−2]",
+        "isCorrect": true,
+        "studentPercentage": "76.79% Marked this option"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "[M0 L2 T−2]",
+        "isCorrect": false,
+        "studentPercentage": "13.87% Marked this option"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "[M0 L−2 T−2]",
+        "isCorrect": false,
+        "studentPercentage": "3.56% Marked this option"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "[M1 L2 T−2]",
+    "accuracy": "76.5% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "Solution\nEasy"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_187",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 187,
+    "statement": "The time dependence of physical quantity P is given by P=P0e-αt2+βt+γ, where α, β, γ are constants and their dimensions are given by (where t is time) –",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "M0 L0 T–2, M0 L0 T–1, M0 L0 T0",
+        "isCorrect": true,
+        "studentPercentage": "84.21% Marked this option"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "M0 L–1 T–2, M0 L0 T–1, M0 L0 T",
+        "isCorrect": false,
+        "studentPercentage": "8.7% Marked this option"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "M0 L0 T–1, M L T–2, M0 L0 T–1",
+        "isCorrect": false,
+        "studentPercentage": "5.42% Marked this option"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "M L T, M L T0, M0 L0 T0",
+        "isCorrect": false,
+        "studentPercentage": "1.7% Marked this option"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "M0 L0 T–2, M0 L0 T–1, M0 L0 T0",
+    "accuracy": "84.18% of students got it right",
+    "difficulty": "Hard",
+    "solutionText": "Solution\nHard\nShow Video Sol.\nP=P0e-αt2+βt+γ\n\nExponent of e is dimensionless quantity.\n\n-αt2+βt+γ=(M0L0T0)αt2=M0L0T0α=M0L0T0T2,   α=M0L0T-2\n\nβt=M0L0T0\n\nβ=M0L0T0T,   β=M0L0T-1γ=M0L0T0"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_188",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 188,
+    "statement": "The dimensions of B22μ0, where B is magnetic field and μ0 is the magnetic permeability of vacuum, is\n\n[JEE Main 2020, 7 Jan (Shift 2)]",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "MLT−2",
+        "isCorrect": false,
+        "studentPercentage": "28.57% Marked this option"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "ML−1 T−2",
+        "isCorrect": true,
+        "studentPercentage": "71.43% Marked this option"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "ML2 T−1",
+        "isCorrect": false,
+        "studentPercentage": "0% Marked this option"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "ML2 T−2",
+        "isCorrect": false,
+        "studentPercentage": "0% Marked this option"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "ML−1 T−2",
+    "accuracy": "71.43% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "Solution\nEasy"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_189",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 189,
+    "statement": "With the usual notation, the equation tanθ=rgv2 said to give the angle of banking θ is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Numerical correct only",
+        "isCorrect": false,
+        "studentPercentage": "50% Marked this option"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Dimensionally correct only",
+        "isCorrect": true,
+        "studentPercentage": "0% Marked this option"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Both numerical & dimensionally correct",
+        "isCorrect": false,
+        "studentPercentage": "50% Marked this option"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Neither numerical nor dimensionally correct",
+        "isCorrect": false,
+        "studentPercentage": "0% Marked this option"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "Dimensionally correct only",
+    "accuracy": "0% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "Solution\nEasy"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_190",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 190,
+    "statement": "The equation of a wave is given by y=Asin ω xv-t\nwhere x is the position of a particle ω is the angular\nvelocity and v is the linear velocity. The dimension of \nt is:",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "LT",
+        "isCorrect": false,
+        "studentPercentage": "13.51% Marked this option"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "T",
+        "isCorrect": true,
+        "studentPercentage": "56.18% Marked this option"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "T-1",
+        "isCorrect": false,
+        "studentPercentage": "25.37% Marked this option"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "T2",
+        "isCorrect": false,
+        "studentPercentage": "4.94% Marked this option"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "T",
+    "accuracy": "56.18% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "Solution\nEasy\nShow Video Sol.\nGiven,\n\ny=A sin ω(xv-k)\n\nWe know that physical quantities having the same dimensions are added or subtracted.\nTherefore, the dimensions of a should be the same as the dimensions ofxv.\n\n⇒[k]=[xv]\n\n⇒[k]=[L][LT-1]=[T]"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_191",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 191,
+    "statement": "The time dependence of a physical quantity P is given by P=Poexp-αt2, where α is a constant and t is time. The constant α",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "is dimensionless",
+        "isCorrect": false,
+        "studentPercentage": "33.33% Marked this option"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "has dimensions T-2",
+        "isCorrect": true,
+        "studentPercentage": "66.67% Marked this option"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "has dimensions of P",
+        "isCorrect": false,
+        "studentPercentage": "0% Marked this option"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "has dimensions T2",
+        "isCorrect": false,
+        "studentPercentage": "0% Marked this option"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "has dimensions T-2",
+    "accuracy": "66.67% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "Solution\nEasy"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_192",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 192,
+    "statement": "Let [ϵ0] denote the dimensional formula of the permittivity of vacuum. If M=mass,L= length, T= time and A= electric current, then",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "[∈0]=[M−1L−3T4A2]",
+        "isCorrect": true,
+        "studentPercentage": "57.63% Marked this option"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "[ϵ0]=[M−1L2T−1A−2]",
+        "isCorrect": false,
+        "studentPercentage": "22.25% Marked this option"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "[ϵ0]=[M−1 L2 T−1 A]",
+        "isCorrect": false,
+        "studentPercentage": "12.65% Marked this option"
+      },
+      {
+        "optionNumber": 5,
+        "optionText": "[∈0]=[M−1L−3T2A]",
+        "isCorrect": false,
+        "studentPercentage": "7.47% Marked this option"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "[∈0]=[M−1L−3T4A2]",
+    "accuracy": "57.55% of students got it right",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nMedium\nShow Video Sol.\nCoulomb’s law is F=14πε0q2r2.\n\nTherefore, [ε0]=[q2]/([F][r2]).\n\nUsing [q]=AT, [F]=MLT−2, and [r]=L,\n\nwe get [ε0]=M−1L−3T4A2.\n\nHence, option (A)."
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_193",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 193,
+    "statement": "E, m, L, G denote energy, mass, angular momentum & gravitation constant respectively. The dimensions of EL2m5G2 will be that of:",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "angle",
+        "isCorrect": true,
+        "studentPercentage": "66.6% Marked this option"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "length",
+        "isCorrect": false,
+        "studentPercentage": "15.32% Marked this option"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "mass",
+        "isCorrect": false,
+        "studentPercentage": "12% Marked this option"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "time",
+        "isCorrect": false,
+        "studentPercentage": "6.17% Marked this option"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "angle",
+    "accuracy": "66.51% of students got it right",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nMedium"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_194",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 194,
+    "statement": "The dimensions of physical quantity X in the equation force =X Density  is given by:-",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "M1 L4 T−2",
+        "isCorrect": false,
+        "studentPercentage": "6.6% Marked this option"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "M2L−2T−1",
+        "isCorrect": false,
+        "studentPercentage": "12.73% Marked this option"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "M3/2L−1/2T−2",
+        "isCorrect": true,
+        "studentPercentage": "75.66% Marked this option"
+      },
+      {
+        "optionNumber": 5,
+        "optionText": "",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 6,
+        "optionText": "M1L−2T−1",
+        "isCorrect": false,
+        "studentPercentage": "5.05% Marked this option"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "M3/2L−1/2T−2",
+    "accuracy": "75.77% of students got it right",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nMedium\nShow Video Sol.\nGiven F=Xρ, so X=Fρ. Using [F]=MLT−2 and [ρ]=ML−3, [X]=MLT−2×M1/2L−3/2=M3/2L−1/2T−2. Hence option (C)."
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_195",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 195,
+    "statement": "Which of the following ratios express pressure?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Force/Length",
+        "isCorrect": false,
+        "studentPercentage": "19.8% Marked this option"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Energy/Volume",
+        "isCorrect": true,
+        "studentPercentage": "46.8% Marked this option"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Energy/Area",
+        "isCorrect": false,
+        "studentPercentage": "16.15% Marked this option"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "Energy/Volume",
+    "accuracy": "46.71% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "Solution\nEasy"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_196",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 196,
+    "statement": "For Question two statements are given, one labelled Assertion (A) and the other given, one labelled Assertion (A) and the other labelled Reason (R). Select the correct answer to these questions from the codes (a),(b),(c) and (d) as given below : Assertion. Dimensions of R/L and R×C are not the same. Reason. RL and RC, both have dimensions of time.",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "1 Both A and R are true and R is the correct explanation of A.",
+        "isCorrect": true,
+        "studentPercentage": "12.5% Marked this option"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "2 Both A and R are true, but R is not the correct explanation of A.",
+        "isCorrect": false,
+        "studentPercentage": "10.87% Marked this option"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "3 A is false, but R is true.",
+        "isCorrect": false,
+        "studentPercentage": "13.49% Marked this option"
+      }
+    ],
+    "correctOption": "A",
+    "correctAnswer": "1 Both A and R are true and R is the correct explanation of A.",
+    "accuracy": "63.26% of students got it right",
+    "difficulty": "Hard",
+    "solutionText": "Solution\nHard\nShow Video Sol.\nRL has dimensions T−1, while RC has dimensions T. Hence the Assertion is true, but the Reason stating that both have dimensions of time is false. Therefore, the correct option is (D).\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_197",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 197,
+    "statement": "Parsec is a unit of",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "1 Distance",
+        "isCorrect": true,
+        "studentPercentage": "50% Marked this option"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "2 Velocity",
+        "isCorrect": false,
+        "studentPercentage": "0% Marked this option"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "3 Time",
+        "isCorrect": false,
+        "studentPercentage": "50% Marked this option"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "4 Angle",
+        "isCorrect": false,
+        "studentPercentage": "0% Marked this option"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "1 Distance",
+    "accuracy": "0% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "Solution\nEasy\nShow Video Sol.\n(1)\nParsec is the unit of length\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_198",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 198,
+    "statement": "The velocity of a moving particle depends upon time t as v=at+bt+c. Then dimensional formula for b is -",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "1  [M0 L0 T0]",
+        "isCorrect": false,
+        "studentPercentage": "9.21% Marked this option"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "2 [M0 L1 T0]",
+        "isCorrect": true,
+        "studentPercentage": "57.89% Marked this option"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "3 [M0 L1 T−1]",
+        "isCorrect": false,
+        "studentPercentage": "19.74% Marked this option"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "2 [M0 L1 T0]",
+    "accuracy": "58.25% of students got it right",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nMedium\nShow Video Sol.\nGiven v=at+bt+c. Since t+c is meaningful, [c]=T. Also, [at]=[v]=LT−1, so [a]=LT−2. For the second term, [b]/T=LT−1, giving [b]=L. Therefore, option (B) is correct.\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_199",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 199,
+    "statement": "The frequency ν of an oscillating liquid drop may depend upon radius (r) of the drop, density (ρ) of liquid and the surface tension (s) of the liquid as: ν=raρbsc. The values of a, b and c respectively are; [Dimensions of surface tension are MT–2] [JEE Main 2023, 24 Jan (Shift 2)]",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "1 -32,-12,12",
+        "isCorrect": true,
+        "studentPercentage": "66.67% Marked this option"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "2 32,-12,12",
+        "isCorrect": false,
+        "studentPercentage": "33.33% Marked this option"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "3 32,12,-12",
+        "isCorrect": false,
+        "studentPercentage": "0% Marked this option"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "1 -32,-12,12",
+    "accuracy": "66.67% of students got it right",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nMedium\nShow Video Sol.\nT-1 = L-1aM1L-3bMLT-2LcT-1 = Mb+cLa-3bT-2c\nBy equating the powers\nc = 1/2, b = -1/2, a = - 3/2\n1\n2\n3\n4\n5\n6\n7\n8\n9"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_200",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 200,
+    "statement": "A quantity is measured repeatedly many times with an instrument. The readings are shown in figure where T represent true value of the measurement. Which of the following measurement is imprecise but accurate ?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "1",
+        "isCorrect": true,
+        "studentPercentage": "46.04% Marked this option"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "2",
+        "isCorrect": false,
+        "studentPercentage": "17.72% Marked this option"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "3",
+        "isCorrect": false,
+        "studentPercentage": "21.09% Marked this option"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "4",
+        "isCorrect": false,
+        "studentPercentage": "14.96% Marked this option"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "1",
+    "accuracy": "45.92% of students got it right",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nMedium\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_201",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 201,
+    "statement": "Which of the following quantity is unitless?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "1 Velocity gradient",
+        "isCorrect": false,
+        "studentPercentage": "11.88% Marked this option"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "2 Pressure gradient",
+        "isCorrect": false,
+        "studentPercentage": "16.86% Marked this option"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "3 Displacement gradient",
+        "isCorrect": true,
+        "studentPercentage": "64.49% Marked this option"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "4 Force gradient",
+        "isCorrect": false,
+        "studentPercentage": "7.2% Marked this option"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "3 Displacement gradient",
+    "accuracy": "64.49% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "Solution\nEasy\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_202",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 202,
+    "statement": "On the basis of dimensional equation, the maximum number of unknown that can be found is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "1 One",
+        "isCorrect": false,
+        "studentPercentage": "22.2% Marked this option"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "2 Two",
+        "isCorrect": false,
+        "studentPercentage": "19.67% Marked this option"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "3 Three",
+        "isCorrect": true,
+        "studentPercentage": "48.54% Marked this option"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "4 Four",
+        "isCorrect": false,
+        "studentPercentage": "9.58% Marked this option"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "3 Three",
+    "accuracy": "48.5% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "Solution\nEasy\nShow Video Sol.\nUsing dimensional analysis, we compare powers of the fundamental dimensions M,L,T\nSince there are 3 fundamental dimensions (mass, length, time), we can form at most 3 independent equations.\nTherefore, the maximum number of unknowns that can be determined is 3\n1\n2\n3\n4\n5\n6\n7\n8\n9"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_203",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 203,
+    "statement": "The dimension of e24πε0hc, where e, ε0, h and c are electric charge, electric permittivity, Planck's constant and velocity of light in vacuum respectively:",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "1 [M0 L0 T0]",
+        "isCorrect": true,
+        "studentPercentage": "100% Marked this option"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "2 [ML0 T0]",
+        "isCorrect": false,
+        "studentPercentage": "0% Marked this option"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "3 [M0LT0]",
+        "isCorrect": false,
+        "studentPercentage": "0% Marked this option"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "4 [M0 L0 T]",
+        "isCorrect": false,
+        "studentPercentage": "0% Marked this option"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "1 [M0 L0 T0]",
+    "accuracy": "100% of students got it right",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nMedium\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_204",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 204,
+    "statement": "When a wave travels in a medium, the displacement of a particle located at distance x at time t is given by y=asin(bt-cx) where a,b and c are constants of the wave. The dimensions of b/c are same as that of :",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "1 wave velocity",
+        "isCorrect": true,
+        "studentPercentage": "62.92% Marked this option"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "2 wave length",
+        "isCorrect": false,
+        "studentPercentage": "14.83% Marked this option"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "3 wave amplitude",
+        "isCorrect": false,
+        "studentPercentage": "11.43% Marked this option"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "4 wave frequency",
+        "isCorrect": false,
+        "studentPercentage": "10.88% Marked this option"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "1 wave velocity",
+    "accuracy": "62.86% of students got it right",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nMedium\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_205",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 205,
+    "statement": "The dimensional formula for moment of couple is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "1 [ML2 T−2]",
+        "isCorrect": true,
+        "studentPercentage": "50% Marked this option"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "2 [MLT−2]",
+        "isCorrect": false,
+        "studentPercentage": "0% Marked this option"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "3 [ML−1 T−3]",
+        "isCorrect": false,
+        "studentPercentage": "0% Marked this option"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "3 [ML−1 T−3]",
+        "isCorrect": false,
+        "studentPercentage": "0% Marked this option"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "1 [ML2 T−2]",
+    "accuracy": "0% of students got it right",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nMedium\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_206",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 206,
+    "statement": "Dimensional analysis gives :-",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "1  no information about dimensionless constants",
+        "isCorrect": true,
+        "studentPercentage": "40.25% Marked this option"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "2 information about dimensionless constants",
+        "isCorrect": false,
+        "studentPercentage": "14.67% Marked this option"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "3 information about dimensionless constants if quantity does not depend upon more than three variables",
+        "isCorrect": false,
+        "studentPercentage": "33.17% Marked this option"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "4 information about dimensionless constants if quantity depends only upon single variable",
+        "isCorrect": false,
+        "studentPercentage": "12.05% Marked this option"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "1  no information about dimensionless constants",
+    "accuracy": "40.15% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "Solution\nEasy\nShow Video Sol.\nno information about dimensionless constants\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_207",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 207,
+    "statement": "The dimensions of magnetic field in M,L,T and C (coulomb) is given as",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "1 [MLT−1C−1]",
+        "isCorrect": false,
+        "studentPercentage": "24.62% Marked this option"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "2 [MT2C−2]",
+        "isCorrect": false,
+        "studentPercentage": "18.48% Marked this option"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "3 [MT−1C−1]",
+        "isCorrect": true,
+        "studentPercentage": "40.61% Marked this option"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "3 [MT−1C−1]",
+    "accuracy": "40.61% of students got it right",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nMedium\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_208",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 208,
+    "statement": "If force on a particle having uniform circular motion is given by F=MaVbRc. Then what will be the value of  a,b,c ?   (M = mass of particle, V= velocity of particle, R = radius of circle )",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "1 1,1,1",
+        "isCorrect": false,
+        "studentPercentage": "16.61% Marked this option"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "2 2,1,3",
+        "isCorrect": false,
+        "studentPercentage": "12.12% Marked this option"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "3 1,2,−1",
+        "isCorrect": true,
+        "studentPercentage": "68.15% Marked this option"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "3 1,2,−1",
+    "accuracy": "68.1% of students got it right",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nMedium\nShow Video Sol.\n1. The dimensional formula for  F is MLT-2.\n2. The dimensional formula for M is M, V is LT-1 and R is [L].\n3. Then we can equate MLT-2=MaLT-1bLc.\n4. This can also be written as MLT-2=MaLb+cT-b.\n5. Compare the power on both sides. Then, we get a=1, b+c=1 and b=2.\n6. So, c=1-2. Therefore, c=-1.\n7. Thus, the value of a, b, c are 1, 2, -1.\nHence, the correct answer is (3).\n1\n2\n3\n4"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_209",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 209,
+    "statement": "Which of the following pairs of physical quantities have same dimensions?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "1 Force and power",
+        "isCorrect": false,
+        "studentPercentage": "20% Marked this option"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "2 Torque and energy",
+        "isCorrect": true,
+        "studentPercentage": "80% Marked this option"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "3 Torque and power",
+        "isCorrect": false,
+        "studentPercentage": "0% Marked this option"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "4 Force and torque",
+        "isCorrect": false,
+        "studentPercentage": "0% Marked this option"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "2 Torque and energy",
+    "accuracy": "80% of students got it right",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nMedium\nShow Video Sol.\nForce has dimensions [M L T⁻²].\nPower (energy/time) has dimensions [M L² T⁻³].\nTorque = (force) × (lever arm) → dimensions [M L² T⁻²].\nEnergy has dimensions [M L² T⁻²].\nThus, torque and energy share the same dimensions.\n1\n2\n3\n4\n5\n6\n7"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_210",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 210,
+    "statement": "The quantities x=1μ0ε0,y=EB and z=lCR are defined where C-capacitance, R-Resistance, l-length, E-Electric field, B-magnetic field and ε0,μ0,− free space permittivity and permeability respectively. Then [JEE Main 2020, 5 Sep (Shift 2)]",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "1 Only x and y have the same dimension",
+        "isCorrect": false,
+        "studentPercentage": "23.95% Marked this option"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "2 Only x and z have the same dimension",
+        "isCorrect": false,
+        "studentPercentage": "20.66% Marked this option"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "3  x,y and z have the same dimension",
+        "isCorrect": true,
+        "studentPercentage": "48.08% Marked this option"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "3  x,y and z have the same dimension",
+    "accuracy": "48.08% of students got it right",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nMedium\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_211",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 211,
+    "statement": "A normal human eye can see an object making an angle of 1.8∘ at the eye. What is the approximate height of object which can be seen by an eye placed at a distance of 1 m from the object?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "1\n πcm",
+        "isCorrect": true,
+        "studentPercentage": "61.38% Marked this option"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "πcm",
+        "isCorrect": false,
+        "studentPercentage": "61.38% Marked this option"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 5,
+        "optionText": "2\n2πcm",
+        "isCorrect": false,
+        "studentPercentage": "23.81% Marked this option"
+      },
+      {
+        "optionNumber": 6,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 7,
+        "optionText": "2πcm",
+        "isCorrect": false,
+        "studentPercentage": "23.81% Marked this option"
+      },
+      {
+        "optionNumber": 8,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 9,
+        "optionText": "3\n4πcm",
+        "isCorrect": false,
+        "studentPercentage": "11.06% Marked this option"
+      },
+      {
+        "optionNumber": 10,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 11,
+        "optionText": "4πcm",
+        "isCorrect": false,
+        "studentPercentage": "11.06% Marked this option"
+      },
+      {
+        "optionNumber": 12,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 13,
+        "optionText": "4\n3πcm",
+        "isCorrect": false,
+        "studentPercentage": "3.69% Marked this option"
+      },
+      {
+        "optionNumber": 14,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 15,
+        "optionText": "3πcm",
+        "isCorrect": false,
+        "studentPercentage": "3.69% Marked this option"
+      },
+      {
+        "optionNumber": 16,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "1\n πcm",
+    "accuracy": "61.38% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "Solution\nEasy\nShow Video Sol.\nUsing the small‐angle approximation h≈d θ (where θ is in radians):\n\n1.8∘=1.8×π180≈0.0314 rad.\n\nAt d=1 m,\n\nh  ≈  (1 m)(0.0314)=0.0314 m=3.14 cm≈π cm.\n\nHence, the object’s height is about π cm.\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n32\n33\n34\n35\n36\n37\n38\n39\n40\n41\n42\n43\n44\n45\n46\n47\n48\n49\n50\n51\n52\n53\n54\n55\n56\n57\n58\n59\n60\n61\n62\n63\n64\n65\n66\n67\n68\n69\n70\n71\n72\n73\n74\n75\n76\n77\n78\n79\n80\n81\n82\n83\n84\n85\n86\n87\n88\n89\n90\nPrevious"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_212",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 212,
+    "statement": "While performing some experiments, five readings are observed as : 80.0,80.5, 81.0, 81.5 and 82 . Calculate the mean percentage error in these observations.",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "1\n0.74%",
+        "isCorrect": true,
+        "studentPercentage": "45.55% Marked this option"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "0.74%",
+        "isCorrect": false,
+        "studentPercentage": "45.55% Marked this option"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 5,
+        "optionText": "2\n1.74%",
+        "isCorrect": false,
+        "studentPercentage": "26.84% Marked this option"
+      },
+      {
+        "optionNumber": 6,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 7,
+        "optionText": "1.74%",
+        "isCorrect": false,
+        "studentPercentage": "26.84% Marked this option"
+      },
+      {
+        "optionNumber": 8,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 9,
+        "optionText": "3\n0.38%",
+        "isCorrect": false,
+        "studentPercentage": "18.88% Marked this option"
+      },
+      {
+        "optionNumber": 10,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 11,
+        "optionText": "0.38%",
+        "isCorrect": false,
+        "studentPercentage": "18.88% Marked this option"
+      },
+      {
+        "optionNumber": 12,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 13,
+        "optionText": "4\n1.36%",
+        "isCorrect": false,
+        "studentPercentage": "8.72% Marked this option"
+      },
+      {
+        "optionNumber": 14,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 15,
+        "optionText": "1.36%",
+        "isCorrect": false,
+        "studentPercentage": "8.72% Marked this option"
+      },
+      {
+        "optionNumber": 16,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "1\n0.74%",
+    "accuracy": "45.55% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "Solution\nEasy\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n32\n33\n34\n35\n36\n37\n38\n39\n40\n41\n42\n43\n44\n45\n46\n47\n48\n49\n50\n51\n52\n53\n54\n55\n56\n57\n58\n59\n60\n61\n62\n63\n64\n65\n66\n67\n68\n69\n70\n71\n72\n73\n74\n75\n76\n77\n78\n79\n80\n81\n82\n83\n84\n85\n86\n87\n88\n89\n90\nPrevious"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_213",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 213,
+    "statement": "Plancks constant (h), speed of light in vacuum (c) and Newtons gravitational constant (G) are three fundamental constants. Which of the following combinations of these has the dimension of length?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "1\nhcG",
+        "isCorrect": false,
+        "studentPercentage": "17.56% Marked this option"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "hcG",
+        "isCorrect": false,
+        "studentPercentage": "17.56% Marked this option"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 5,
+        "optionText": "2\nGch3/2",
+        "isCorrect": false,
+        "studentPercentage": "13.44% Marked this option"
+      },
+      {
+        "optionNumber": 6,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 7,
+        "optionText": "Gch3/2",
+        "isCorrect": false,
+        "studentPercentage": "13.44% Marked this option"
+      },
+      {
+        "optionNumber": 8,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 9,
+        "optionText": "3\nhGc3/2",
+        "isCorrect": true,
+        "studentPercentage": "60.32% Marked this option"
+      },
+      {
+        "optionNumber": 10,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 11,
+        "optionText": "hGc3/2",
+        "isCorrect": false,
+        "studentPercentage": "60.32% Marked this option"
+      },
+      {
+        "optionNumber": 12,
+        "optionText": "",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 13,
+        "optionText": "4\nhGc5/2",
+        "isCorrect": false,
+        "studentPercentage": "8.65% Marked this option"
+      },
+      {
+        "optionNumber": 14,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 15,
+        "optionText": "hGc5/2",
+        "isCorrect": false,
+        "studentPercentage": "8.65% Marked this option"
+      },
+      {
+        "optionNumber": 16,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "3\nhGc3/2",
+    "accuracy": "60.32% of students got it right",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nMedium\nShow Video Sol.\n[h]=[M1L2T-1]\n\n[c]=[L1T-1]\n\n[G]=[M-1L3T-2]\n\nl∝hxcyGz\n\n[L1]=[M1L2T-1]x[L1T-1]y[M-1L3T-2]z\n\n[M0L1T0]=[Mx-zL2x+y+3zT-x-y-2z]\n\nM: x-z=0⇒x=z\n\nT: -x-y-2z=0\n\nL: 2x+y+3z=1\n\n-x-y-2x=0⇒y=-3x\n\n2x+(-3x)+3x=1\n\n2x=1⇒x=12\n\nz=12, y=-32\n\nl∝h1/2G1/2c3/2=hGc3/2\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n32\n33\n34\n35\n36\n37\n38\n39\n40\n41\n42\n43\n44\n45\n46\n47\n48\n49\n50\n51\n52\n53\n54\n55\n56\n57\n58\n59\n60\n61\n62\n63\n64\n65\n66\n67\n68\n69\n70\n71\n72\n73\n74\n75\n76\n77\n78"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_214",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 214,
+    "statement": "If speed V, area A and force F are chosen as fundamental units, then the dimension of Youngs modulus will be",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "1\n FA−1 V0",
+        "isCorrect": true,
+        "studentPercentage": "100% Marked this option"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "FA−1 V0",
+        "isCorrect": false,
+        "studentPercentage": "100% Marked this option"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 5,
+        "optionText": "2\nFA2 V−1",
+        "isCorrect": false,
+        "studentPercentage": "0% Marked this option"
+      },
+      {
+        "optionNumber": 6,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 7,
+        "optionText": "FA2 V−1",
+        "isCorrect": false,
+        "studentPercentage": "0% Marked this option"
+      },
+      {
+        "optionNumber": 8,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 9,
+        "optionText": "3\n FA2 V−2",
+        "isCorrect": false,
+        "studentPercentage": "0% Marked this option"
+      },
+      {
+        "optionNumber": 10,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 11,
+        "optionText": "FA2 V−2",
+        "isCorrect": false,
+        "studentPercentage": "0% Marked this option"
+      },
+      {
+        "optionNumber": 12,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "1\n FA−1 V0",
+    "accuracy": "100% of students got it right",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nMedium\nShow Video Sol.\nYoung's modulus is force per unit area: Y=FA. Therefore in the fundamental quantities F,A,V, [Y]=[FA−1V0]. Hence option (A).\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n32\n33\n34\n35\n36\n37\n38\n39\n40\n41\n42\n43\n44\n45\n46\n47\n48\n49\n50\n51\n52\n53\n54\n55\n56\n57\n58\n59\n60\n61\n62\n63\n64\n65\n66\n67\n68\n69\n70\n71\n72\n73\n74\n75\n76\n77\n78\n79\n80\n81\n82\n83\n84\n85\n86\n87\n88\n89\n90\nPrevious"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_215",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 215,
+    "statement": "Which of the following is not the unit of time?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "1\nMicro second",
+        "isCorrect": false,
+        "studentPercentage": "6.93% Marked this option"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Micro second",
+        "isCorrect": false,
+        "studentPercentage": "6.93% Marked this option"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "2\nleap year",
+        "isCorrect": false,
+        "studentPercentage": "26.36% Marked this option"
+      },
+      {
+        "optionNumber": 5,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 6,
+        "optionText": "leap year",
+        "isCorrect": false,
+        "studentPercentage": "26.36% Marked this option"
+      },
+      {
+        "optionNumber": 7,
+        "optionText": "3\nLunar month",
+        "isCorrect": false,
+        "studentPercentage": "25.5% Marked this option"
+      },
+      {
+        "optionNumber": 8,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 9,
+        "optionText": "Lunar month",
+        "isCorrect": false,
+        "studentPercentage": "25.5% Marked this option"
+      },
+      {
+        "optionNumber": 10,
+        "optionText": "4\nParallactic second",
+        "isCorrect": true,
+        "studentPercentage": "41.04% Marked this option"
+      },
+      {
+        "optionNumber": 11,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 12,
+        "optionText": "Parallactic second",
+        "isCorrect": false,
+        "studentPercentage": "41.04% Marked this option"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "4\nParallactic second",
+    "accuracy": "41.04% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "Solution\nEasy\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n32\n33\n34\n35\n36\n37\n38\n39\n40\n41\n42\n43\n44\n45\n46\n47\n48\n49\n50\n51\n52\n53\n54\n55\n56\n57\n58\n59\n60\n61\n62\n63\n64\n65\n66\n67\n68\n69\n70\n71\n72\n73\n74\n75\n76\n77\n78\n79\n80\n81\n82\n83\n84\n85\n86\n87\n88\n89\n90\nPrevious"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_216",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 216,
+    "statement": "1 ton equals to",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "1\n100 kg",
+        "isCorrect": false,
+        "studentPercentage": "9.76% Marked this option"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "100 kg",
+        "isCorrect": false,
+        "studentPercentage": "9.76% Marked this option"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "2\n1000 kg",
+        "isCorrect": true,
+        "studentPercentage": "68.29% Marked this option"
+      },
+      {
+        "optionNumber": 5,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 6,
+        "optionText": "1000 kg",
+        "isCorrect": false,
+        "studentPercentage": "68.29% Marked this option"
+      },
+      {
+        "optionNumber": 7,
+        "optionText": "3\n10 kg",
+        "isCorrect": false,
+        "studentPercentage": "7.32% Marked this option"
+      },
+      {
+        "optionNumber": 8,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 9,
+        "optionText": "10 kg",
+        "isCorrect": false,
+        "studentPercentage": "7.32% Marked this option"
+      },
+      {
+        "optionNumber": 10,
+        "optionText": "4\n10000 kg",
+        "isCorrect": false,
+        "studentPercentage": "14.63% Marked this option"
+      },
+      {
+        "optionNumber": 11,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 12,
+        "optionText": "10000 kg",
+        "isCorrect": false,
+        "studentPercentage": "14.63% Marked this option"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "2\n1000 kg",
+    "accuracy": "68.29% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "Solution\nEasy\n1 ton is equivalent to 1000 kilograms.\n\n1 ton = 1000 kg\n\nTherefore, the correct answer is 1000 kg.\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n32\n33\n34\n35\n36\n37\n38\n39\n40\n41\n42\n43\n44\n45\n46\n47\n48\n49\n50\n51\n52\n53\n54\n55\n56\n57\n58\n59\n60\n61\n62\n63\n64\n65\n66\n67\n68\n69\n70\n71\n72\n73\n74\n75\n76\n77\n78\n79\n80\n81\n82\n83\n84\n85\n86\n87\n88\n89\n90\nPrevious"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_217",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 217,
+    "statement": "Which one of the following methods is used to measure distance of a planet or a star from the earth?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "1\nEcho method",
+        "isCorrect": false,
+        "studentPercentage": "7.55% Marked this option"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Echo method",
+        "isCorrect": false,
+        "studentPercentage": "7.55% Marked this option"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "2\nParallax method",
+        "isCorrect": true,
+        "studentPercentage": "67.42% Marked this option"
+      },
+      {
+        "optionNumber": 5,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 6,
+        "optionText": "Parallax method",
+        "isCorrect": false,
+        "studentPercentage": "67.42% Marked this option"
+      },
+      {
+        "optionNumber": 7,
+        "optionText": "3\nTriangulation method",
+        "isCorrect": false,
+        "studentPercentage": "13.31% Marked this option"
+      },
+      {
+        "optionNumber": 8,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 9,
+        "optionText": "Triangulation method",
+        "isCorrect": false,
+        "studentPercentage": "13.31% Marked this option"
+      },
+      {
+        "optionNumber": 10,
+        "optionText": "4\nNone of these",
+        "isCorrect": false,
+        "studentPercentage": "11.86% Marked this option"
+      },
+      {
+        "optionNumber": 11,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 12,
+        "optionText": "None of these",
+        "isCorrect": false,
+        "studentPercentage": "11.86% Marked this option"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "2\nParallax method",
+    "accuracy": "67.32% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "Solution\nEasy\nShow Video Sol.\nFor measuring large astronomical distances (to planets or nearby stars), the parallax method (a form of geometrical triangulation using two observation points) is used. Therefore, the correct choice is Parallax method.\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n32\n33\n34\n35\n36\n37\n38\n39\n40\n41\n42\n43\n44\n45\n46\n47\n48\n49\n50\n51\n52\n53\n54\n55\n56\n57\n58\n59\n60\n61\n62\n63\n64\n65\n66\n67\n68\n69\n70\n71\n72\n73\n74\n75\n76\n77\n78\n79\n80\n81\n82\n83\n84\n85\n86\n87"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_218",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 218,
+    "statement": "Choose the wrong statement:",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "1\nA dimensionally correct equation may be correct",
+        "isCorrect": true,
+        "studentPercentage": "14.72% Marked this option"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "A dimensionally correct equation may be correct",
+        "isCorrect": false,
+        "studentPercentage": "14.72% Marked this option"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "2\nA dimensionally incorrect equation must be incorrect",
+        "isCorrect": false,
+        "studentPercentage": "16.95% Marked this option"
+      },
+      {
+        "optionNumber": 5,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 6,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 7,
+        "optionText": "A dimensionally incorrect equation must be incorrect",
+        "isCorrect": false,
+        "studentPercentage": "16.95% Marked this option"
+      },
+      {
+        "optionNumber": 8,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 9,
+        "optionText": "3\nA dimensionally correct equation may be incorrect",
+        "isCorrect": false,
+        "studentPercentage": "21.34% Marked this option"
+      },
+      {
+        "optionNumber": 10,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 11,
+        "optionText": "A dimensionally correct equation may be incorrect",
+        "isCorrect": false,
+        "studentPercentage": "21.34% Marked this option"
+      },
+      {
+        "optionNumber": 12,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "A",
+    "correctAnswer": "1\nA dimensionally correct equation may be correct",
+    "accuracy": "46.99% of students got it right",
+    "difficulty": "Easy",
+    "solutionText": "Solution\nEasy\nShow Video Sol.\nA dimensionally correct equation may be correct because we do not consider constants under dimensions.\n\nA dimensionally incorrect equation cannot be correct even if we multiply it by constants because constants have no dimensions.\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n32\n33\n34\n35\n36\n37\n38\n39\n40\n41\n42\n43\n44\n45\n46\n47\n48\n49\n50\n51\n52\n53\n54\n55\n56\n57\n58\n59\n60\n61\n62\n63\n64\n65\n66\n67\n68\n69\n70\n71\n72\n73\n74\n75\n76\n77\n78\n79\n80\n81\n82\n83"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_219",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 219,
+    "statement": "A simple pendulum is being used to determine the value of gravitational acceleration g at a certain place. The length of the pendulum is 25.0 cm and a stop- watch with 1 s resolution measures the time taken for 40 oscillations to be 50 s. The accuracy in g is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "1\n2.40%",
+        "isCorrect": false,
+        "studentPercentage": "23.26% Marked this option"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "2.40%",
+        "isCorrect": false,
+        "studentPercentage": "23.26% Marked this option"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 5,
+        "optionText": "2\n5.40%",
+        "isCorrect": false,
+        "studentPercentage": "23.26% Marked this option"
+      },
+      {
+        "optionNumber": 6,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 7,
+        "optionText": "5.40%",
+        "isCorrect": false,
+        "studentPercentage": "23.26% Marked this option"
+      },
+      {
+        "optionNumber": 8,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 9,
+        "optionText": "3\n4.40%",
+        "isCorrect": true,
+        "studentPercentage": "48.84% Marked this option"
+      },
+      {
+        "optionNumber": 10,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 11,
+        "optionText": "4.40%",
+        "isCorrect": false,
+        "studentPercentage": "48.84% Marked this option"
+      },
+      {
+        "optionNumber": 12,
+        "optionText": "",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "",
+    "correctAnswer": "3\n4.40%",
+    "accuracy": "48.84% of students got it right",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nMedium\nIt is given that,\n\n Length of simple pendulum, l=25.0 cm\n\nTime of  40 oscillation, T=50 s\n\nWe know that the time period of simple pendulum is T=2πIg\n\nby  solving it,\n\n⇒T2 =4π2Ig\n\nSo, g=4π2IT2\n\nFrom here the fractional error of g=∆gg=∆II=2∆TT\n\nSo,∆I=0.1cm\n\nand,∆T=1s\n\n⇒∆gg=(0.125.0)+2(150)\n\n=0.044\n\nSo, the accuracy in g=∆gg×100=4.4%\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n32\n33\n34\n35\n36\n37\n38\n39\n40\n41\n42\n43\n44\n45\n46\n47\n48\n49\n50\n51\n52\n53\n5"
   }
 ]

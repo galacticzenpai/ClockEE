@@ -25268,5 +25268,2977 @@
     "videoSolutionUrl": "https://www.youtube.com/embed/u-sn98lWBsI?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=127&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&vf=1",
     "source": "PW Infinite Practice - Class 11 Physics",
     "cohort": "Class 11 JEE"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_091",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 91,
+    "statement": "If E is the electric field intensity and μ0 is the permeability of free space, then the quantity E2/μ0 has the dimensions of :",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "[M2 L3 T−3I2]",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "[MLT−4]",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "[ML3 T−2]",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "[M−1 L2TI−2]",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "B",
+    "correctAnswer": "[MLT−4]",
+    "accuracy": "73.3%",
+    "difficulty": "Easy",
+    "solutionText": "The correct answer is Option B: [MLT−4]."
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_092",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 92,
+    "statement": "Match the columns I and II.",
+    "statementImages": [
+      "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/625481a0-528c-4a7c-a6c6-c894e2d2391f.png"
+    ],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "(A) → (3); (B) → (1); (C)→(2);(D) → (4)",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "(A) → (2); B →(1); (C) →(5); (D) → (4)",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "(A) → (3); (B) → (1); C → (4); (D) → (2)",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "(A) → (2); (B) → (1); C → (3); (D) → (4)",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "A",
+    "correctAnswer": "(A) → (3); (B) → (1); (C)→(2);(D) → (4)",
+    "accuracy": "86.92%",
+    "difficulty": "Easy",
+    "solutionText": "The correct answer is Option A: (A) → (3); (B) → (1); (C)→(2);(D) → (4)."
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_093",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 93,
+    "statement": "The mass and volume of a body are 4.237 g and 2.5 cm3, respectively. The density of the material of the body in correct significant figures is:-",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "1.6048 g cm−3",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "1.69 g cm−3",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "1.7 g cm−3",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "1.695 g cm−3",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "C",
+    "correctAnswer": "1.7 g cm−3",
+    "accuracy": "67.59%",
+    "difficulty": "Easy",
+    "solutionText": "The correct answer is Option C: 1.7 g cm−3."
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_094",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 94,
+    "statement": "One centimetre on the main scale of a vernier callipers is divided into 10 equal parts. If 10 divisions of vernier coincide with 8 small divisions of the main scale, the least count of vernier callipers is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "0.01 cm",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "0.02 cm",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "0.05 cm",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "0.005 cm",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "B",
+    "correctAnswer": "0.02 cm",
+    "accuracy": "60.93%",
+    "difficulty": "Medium",
+    "solutionText": "Show Video Sol.\nOne centimetre is divided into 10 main scale parts, so 1MSD=0.1cm. Given 10VSD=8MSD, 1VSD=0.08cm. Hence least count =1MSD−1VSD=0.1−0.08=0.02cm. Therefore option (B)."
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_095",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 95,
+    "statement": "The smallest division on the main scale of a Vernier calipers is 0.1 cm. Ten divisions of the Vernier scale correspond to nine divisions of the main scale. The figure below on the left shows the reading of this caliper with no gap between its two jaws. The figure on the right shows the reading with a solid sphere held between the jaws. The correct diameter of the sphere is",
+    "statementImages": [
+      "https://d2bps9p1kiy4ka.cloudfront.net/5eb393ee95fab7468a79d189/QBG/1b17b98f-631e-4f29-aaec-dc7824e320e1.jpeg"
+    ],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "3.07 cm",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "3.11 cm",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "3.15 cm",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "3.17 cm",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "C",
+    "correctAnswer": "3.15 cm",
+    "accuracy": "46.04%",
+    "difficulty": "Medium",
+    "solutionText": "will be uploaded soon!"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_096",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 96,
+    "statement": "Even if a physical quantity depends upon three quantities, out of which two are dimensionally same, then the formula cannot be derived by the method of dimensions. This statement",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "May be true",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "May be false",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Must be true",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Must be false",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "B",
+    "correctAnswer": "May be false",
+    "accuracy": "36.16%",
+    "difficulty": "Medium",
+    "solutionText": "The correct answer is Option B: May be false."
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_097",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 97,
+    "statement": "Which of the following sets cannot enter into the list of fundamental quantities in any newly proposed system of units? (a) length, mass and velocity (b) pressure, density and velocity (c) force, velocity and time (d) force, momentum and time",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "a,c",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "b,d",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "only d",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "only a",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "B",
+    "correctAnswer": "b,d",
+    "accuracy": "51.82%",
+    "difficulty": "Medium",
+    "solutionText": "Show Video Sol.\nA valid set of fundamental quantities must be dimensionally independent (no nontrivial product of powers of the quantities should be dimensionless).\n(a) length, mass, velocity: Independent (velocity is L/T, but time is not in the set), so it can serve as a fundamental set.\n(b) pressure, density, velocity: Not independent (for example, pressureρ v2 is dimensionless), so invalid.\n(c) force, velocity, time: Independent, so can serve as a fundamental set.\n(d) force, momentum, time: Not independent (momentum = force × time), so invalid.\nHence, the sets that cannot be fundamental are (b) and (d)."
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_098",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 98,
+    "statement": "The refractive index of water measured by the relation μ= real depth  apparent depth  is found to have values of 1.34,1.38, 1.32 and 1.36; the mean value of refractive index with percentage error is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "A",
+    "correctAnswer": "",
+    "accuracy": "80.79%",
+    "difficulty": "Easy",
+    "solutionText": "The correct answer is Option A: ."
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_099",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 99,
+    "statement": "To estimate g (from g=4π2LT2 ), error in measurement of L is ±2% and error in measurement of T is ±3%. The error in estimated g will be",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "A",
+    "correctAnswer": "",
+    "accuracy": "33.33%",
+    "difficulty": "Hard",
+    "solutionText": "Show Video Sol.\nSince g=4π2LT2, the maximum percentage error is Δgg×100=ΔLL×100+2ΔTT×100=2%+2(3%)=8%.\nTherefore, the error is ±8%.\nHence, the correct answer is A."
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_100",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 100,
+    "statement": "The dimensions of potential are the same as that of:-",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Work.",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Electric field per unit charge.",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Work per unit charge.",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Force per unit charge.",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "C",
+    "correctAnswer": "Work per unit charge.",
+    "accuracy": "36.85%",
+    "difficulty": "Medium",
+    "solutionText": "The correct answer is Option C: Work per unit charge.."
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_101",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 101,
+    "statement": "In a complete rotation, the spindle of a screw gauge advances by 0.5 mm. There are 50 divisions on circular scale. The main scale has 0.5 mm marks. Read the screw gauge shown below in fig (a) and (b).",
+    "statementImages": [
+      "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/exhvxz5vnorbvn2afcyyvs0x3.png"
+    ],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "6.64 mm,6.64 mm",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "6.68 mm,6.25 mm",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "6.64 mm,4.89 mm",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "6.89 mm,6.32 mm",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "C",
+    "correctAnswer": "6.64 mm,4.89 mm",
+    "accuracy": "82.04%",
+    "difficulty": "Easy",
+    "solutionText": "The correct answer is Option C: 6.64 mm,4.89 mm."
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_102",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 102,
+    "statement": "Which of the following is not the name of a physical quantity ?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "kilogram\n48.93% Marked this option",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "impulse\n32.44% Marked this option",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "energy\n9.64% Marked this option",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "density\n9.02% Marked this option",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "A",
+    "correctAnswer": "kilogram\n48.93% Marked this option",
+    "accuracy": "49.11%",
+    "difficulty": "Medium",
+    "solutionText": "The correct answer is Option A: kilogram\n48.93% Marked this option."
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_103",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 103,
+    "statement": "A student performs an experiment for determination of g(=4π2l T2)l≈1 m and he commits an error of Δl. For the experiment takes the time of n oscillations with the stop watch of least count ΔT and he commits a human error of 0.1sec. For which of the following data, the measurement of g will be most accurate?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "8.23% Marked this option",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "10.7% Marked this option",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "7.92% Marked this option",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "73.21% Marked this option",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "D",
+    "correctAnswer": "73.21% Marked this option",
+    "accuracy": "73.24%",
+    "difficulty": "Easy",
+    "solutionText": "The correct answer is Option D: 73.21% Marked this option."
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_104",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 104,
+    "statement": "If P,Q,R are physical quantities, having different dimensions, which of the following combinations can never be a meaningful quantity?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "(P−Q)/R",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "PQ−R",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "PQ/R",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "(PR−Q2)/R",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "A",
+    "correctAnswer": "(P−Q)/R",
+    "accuracy": "78.53%",
+    "difficulty": "Easy",
+    "solutionText": "The correct answer is Option A: (P−Q)/R."
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_105",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 105,
+    "statement": "In this new system, mass will have a dimensional formula given by",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "c12G-12h12",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "c-32G12h12",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "c-52G12h12",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "None of these",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "A",
+    "correctAnswer": "c12G-12h12",
+    "accuracy": "36.15%",
+    "difficulty": "Medium",
+    "solutionText": "The correct answer is Option A: c12G-12h12."
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_106",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 106,
+    "statement": "The least count of the main scale of a screw gauge is 1 mm. The minimum number of divisions on its circular scale required to measure 5μm diameter of a wire is: \n\n \n\n[JEE Main 2019, 12 Jan (Shift 1)]",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "50",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "00",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "00",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "500",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "B",
+    "correctAnswer": "00",
+    "accuracy": "33.33%",
+    "difficulty": "Hard",
+    "solutionText": "The correct answer is Option B: 00."
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_107",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 107,
+    "statement": "The .......................... is a measure of how closed the measured value is to the true value of quantity.",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Precision",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "accuracy",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Error",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "None of these.",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "B",
+    "correctAnswer": "accuracy",
+    "accuracy": "59.62%",
+    "difficulty": "Medium",
+    "solutionText": "The correct answer is Option B: accuracy."
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_108",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 108,
+    "statement": "If the value of resistance is 10.845ohm and the value of current is 3.23amp, the value of potential with significant numbers would be",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "5.0 volt",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": ".50 volt",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "5.029 volt",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "5.030 volt",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "A",
+    "correctAnswer": "5.0 volt",
+    "accuracy": "43.06%",
+    "difficulty": "Medium",
+    "solutionText": "The correct answer is Option A: 5.0 volt."
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_109",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 109,
+    "statement": "Dimensions of ohm are same as (where h is plancks constant and e is charge):-",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "he",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "he2",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "h2e",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "h2e2",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "B",
+    "correctAnswer": "he2",
+    "accuracy": "59.64%",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nMedium\nShow Video Sol.\nResistance has SI dimensions ML2T−3I−2. Now [h]=ML2T−1 and [e]=IT. Hence [he2]=ML2T−1I2T2=ML2T−3I−2, which is the dimension of ohm. Therefore option (B)."
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_110",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 110,
+    "statement": "In electromagnetic theory, the electric and magnetic phenomena are related to each other. Therefore, the dimensions of electric and magnetic quantities must also be related to each other. In the questions below,[E] and [B] stand for dimensions of electric and magnetic fields respectively, while [∈0] and [μ] stand for dimensions of the permittivity and permeability of freespace respectively. [L] and [T] are dimensions of lengthand time respectively. All the quantities are given in SI\n\nThe relationship between [E] & [B] is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "[E] = [B][L][T]",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "[E]=[B] [L-1] [T]",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "[E]=[B] [L] [T-1]",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "[E] = [B] [L-1] [T-1]",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "C",
+    "correctAnswer": "[E]=[B] [L] [T-1]",
+    "accuracy": "47.04%",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nEasy"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_111",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 111,
+    "statement": "In a vernier calipers, one main scale division is x cm and n division of the vernier scale coincide with ( n−1 ) divisions of the main scale. The least count (in cm ) of the calipers is:",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "(n−1n)x",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "(nxn−1)",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "xn",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "(xn−1)",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "C",
+    "correctAnswer": "xn",
+    "accuracy": "66.74%",
+    "difficulty": "Easy",
+    "solutionText": "Solution\nMedium\nShow Video Sol.\n(3)"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_112",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 112,
+    "statement": "Match the Column I (terms or quantities) with Column II (dimensions) and select the correct answer from the codes given below.",
+    "statementImages": [
+      "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/9ff8afb8-96a1-4ac7-96c5-4ca4eda7c30f.PNG"
+    ],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "A-2,B-3,C-4,D-1",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "A-1,B-3,C-4,D-3",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "A-3,B-4,C-1,D-2",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "A-1,B-2,C-3,D-4",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "C",
+    "correctAnswer": "A-3,B-4,C-1,D-2",
+    "accuracy": "85.63%",
+    "difficulty": "Easy",
+    "solutionText": "Solution\nHard"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_113",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 113,
+    "statement": "The unit of Wien's constant  is.",
+    "statementImages": [
+      "https://pw-infinite-practice-mfe.pw.live/static/svg/no-solution.757b530a.svg"
+    ],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Wm-2K-4",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "m-1k-1",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Wm2",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "m-K",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "D",
+    "correctAnswer": "m-K",
+    "accuracy": "9.68%",
+    "difficulty": "Hard",
+    "solutionText": "Solution will be uploaded soon!"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_114",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 114,
+    "statement": "The length of a uniform rod is 100.0 cm and radius is 1.00 cm. If length is measured with a meter rod having least count 1 mm and radius is measured with vernier callipers having least count 0.1 mm, the percentage error in calculated volume of cylinder is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "2.1%",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "3%",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "2.01%",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "3.2%",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "A",
+    "correctAnswer": "2.1%",
+    "accuracy": "40.46%",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nEasy"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_115",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 115,
+    "statement": "When the gap is closed without placing any object in the screw gauge whose least count is 0.005 mm, the 5th division on its circular scale coincides with the reference line on main scale, and when a small sphere is placed reading on main scale advances by 4 divisions, whereas circular scale reading advances by five times to the corresponding reading when no object was placed. There are 200 divisions on the circular scale. The radius of the sphere is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "4.10 mm",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "4.05 mm",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "2.10 mm",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "2.05 mm",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "D",
+    "correctAnswer": "2.05 mm",
+    "accuracy": "26.35%",
+    "difficulty": "Hard",
+    "solutionText": "Solution\nMedium"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_116",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 116,
+    "statement": "Two resistors R1(24±0.5)Ω and R2(8±0.3)Ω are joined in series. The equivalent resistance is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "32±0.33Ω",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "32±0.8Ω",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "32±0.2Ω",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "32±0.5Ω",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "B",
+    "correctAnswer": "32±0.8Ω",
+    "accuracy": "76.99%",
+    "difficulty": "Easy",
+    "solutionText": "Solution\nEasy"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_117",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 117,
+    "statement": "The dimensional formula of mobility is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "[M−1 L2 T−2 A−1]",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "[M−1LT2A]",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "[MLT−1 A0]",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "[M−1L0T2A]",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "D",
+    "correctAnswer": "[M−1L0T2A]",
+    "accuracy": "33.96%",
+    "difficulty": "Hard",
+    "solutionText": "Solution\nEasy"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_118",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 118,
+    "statement": "A physical quantity A is related to four observations a, b,c and d as follows, A=a2 b3cd. The percentage errors of measurement in a, b, c and d are 1%,3%,2% and 2% respectively. What is the percentage error in the measurement of quantity A?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "12%",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "7%",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "5%",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "14%",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "D",
+    "correctAnswer": "14%",
+    "accuracy": "65.56%",
+    "difficulty": "Easy",
+    "solutionText": "Solution\nMedium"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_119",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 119,
+    "statement": "A wire has a mass 0.3±0.003 g, radius 0.5±0.005 mm and length 6±0.06 cm. The maximum percentage error in the measurement of its density is:",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "D",
+    "correctAnswer": "",
+    "accuracy": "0%",
+    "difficulty": "Hard",
+    "solutionText": "Solution\nEasy"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_120",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 120,
+    "statement": "If R and L represents respectively resistance and self-inductance, which of the following combinations has the dimensions of frequency?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "RL",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "LR",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "RL",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "LR",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "A",
+    "correctAnswer": "RL",
+    "accuracy": "15.96%",
+    "difficulty": "Hard",
+    "solutionText": "Solution\nEasy"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_121",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 121,
+    "statement": "If the time period t of the oscillation of a drop of liquid of density d, radius r, vibrating under surface tension s is given by the formula t=r2 b scda/2. It is observed that the time period is directly proportional to ds. The value of b should therefore be:",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "32",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "34",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "23",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "A",
+    "correctAnswer": "32",
+    "accuracy": "50%",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nHard\nShow Video Sol.\nThe given expression may be written as t∝rbsc/2da/4, while observation gives t∝ds=d1/2s−1/2.\n\nHence, a4=12⇒a=2 and c2=−12⇒c=−1.\n\nNow, [d1/2s−1/2]=L−3/2T.\n\nTherefore, rb must contribute L3/2, so b=32. Hence, the correct answer is A."
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_122",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 122,
+    "statement": "By equating a physical quantity with its dimensional formula we get",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "dimensional analysis",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "dimensional equation",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "dimensional formula",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "none of these",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "B",
+    "correctAnswer": "dimensional equation",
+    "accuracy": "41.72%",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nMedium"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_123",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 123,
+    "statement": "The dimensional formula for Planck's constant h and gravitational constant G respectively are :-",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "ML3 T-2,M-1 L2 T-3",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "ML2 T-1,M-1 L3 T-2",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "ML3 T-2,M-1 L2 T2",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "MLT-3,M-1 L3 T-3",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "B",
+    "correctAnswer": "ML2 T-1,M-1 L3 T-2",
+    "accuracy": "73.91%",
+    "difficulty": "Easy",
+    "solutionText": "Solution\nEasy"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_124",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 124,
+    "statement": "The relative density of a metal may be found by hanging a block of the metal from a spring balance and nothing that in air, the balance reads (5.00±0.05)N while in water, it reads (4.00±0.05)N. The relative density would be quoted as:",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "5.00±0.05",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "5.00±11%",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "5.00±0.10",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "5.00±6%",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "B",
+    "correctAnswer": "5.00±11%",
+    "accuracy": "87.23%",
+    "difficulty": "Easy",
+    "solutionText": "Solution\nHard\nShow Video Sol.\n∆DD=∆W1W1 + ∆(W1-W2)W1-W2"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_125",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 125,
+    "statement": "If energy (E), velocity (V) and time (T) are chosen as the fundamental quantities, the dimensional formula of surface tension will be",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "[EV−1 T−2]",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "[EV−2 T−2]",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "[E−2 V−1 T−3]",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "[EV−2 T−1]",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "B",
+    "correctAnswer": "[EV−2 T−2]",
+    "accuracy": "52.88%",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nEasy"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_126",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 126,
+    "statement": "A physical quantity of the dimensions of length that can be formed out of c,G and e24πε0 is [c is velocity of light, G is universal constant of gravitation and e is charge] :-",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "c2Ge24πε01/2",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "1c2e2G4πε01/2",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "1cGe24πε0",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "1c2Ge24πεo1/2",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "D",
+    "correctAnswer": "1c2Ge24πεo1/2",
+    "accuracy": "91.3%",
+    "difficulty": "Easy",
+    "solutionText": "Solution\nHard\nShow Video Sol.\nLet K=e2/(4πε0).\n\nSince Coulomb potential energy is K/r, [K]=ML3T−2. [G]=M−1L3T−2, so [GK]1/2=L3T−2.\n\nAlso, [c2]=L2T−2. Therefore, [GK]1/2/c2 has dimension L.\n\nHence, option (D)."
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_127",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 127,
+    "statement": "Match the columns I and II.\n\nColumn I                            Column II\n\n(A) Practical unit            (1) radian\n(B) Base unit                   (2) light year\n(C) Derived unit              (3) Kg-ms-",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "(A) →(4); (B) →(2);C→(1); (D) →(3)",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "(A) → (2); (B) → (4); C→ (3); (D) → (1)",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "(A) → (3); (B) → (2); C→ (4); (D) → (1)",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "(A) → (2); (B) → (4); C→ (1); (D) → (3)",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "B",
+    "correctAnswer": "(A) → (2); (B) → (4); C→ (3); (D) → (1)",
+    "accuracy": "82.63%",
+    "difficulty": "Easy",
+    "solutionText": "Solution\nHard"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_128",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 128,
+    "statement": "The length of the string of a simple pendulum is measured with a meter scale to be 63.5 cm, the radius of the bob plus the hook is measured with the help of vernier caliper to be 1.65 cm. Select the incorrect statement:-",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Least count of meter scale is 0.1 cm",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Least count of vernier caliper is 0.01 cm",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Effective length of pendulum is 65.1 cm",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Effective length of pendulum is 65.2 cm",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "D",
+    "correctAnswer": "Effective length of pendulum is 65.2 cm",
+    "accuracy": "29.67%",
+    "difficulty": "Hard",
+    "solutionText": "Solution\nMedium"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_129",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 129,
+    "statement": "Diameter of a steel ball is measured using a Vernier callipers which has divisions of 0.1 cm on its main scale (MS) and 10 divisions of its vernier scale(VS) match 9 divisions on the main scale. Three such measurements for a ball are given below:\n\n\nIf the zero error is −0.03 cm, then mean corrected diameter is",
+    "statementImages": [
+      "https://d2bps9p1kiy4ka.cloudfront.net/5eb393ee95fab7468a79d189/154af044-40b3-4521-ace6-b3c45457de39.jpg"
+    ],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "0.52 cm",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "0.59 cm",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "0.56 cm",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "0.53 cm",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "B",
+    "correctAnswer": "0.59 cm",
+    "accuracy": "75.74%",
+    "difficulty": "Easy",
+    "solutionText": "Solution\nHard"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_130",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 130,
+    "statement": "The pitch of a screw gauge is 1 mm and there are 50 divisions on its circular scale. When the two jaws of the screw gauge are in contact with each other, the zero of the circular scale lies 6 division below the line of graduation. When a wire is placed between the jaws, 3 main scale divisions are clearly visible while 31st division on the circular scale coincide with the reference line. The diameter of the wire is:",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "3.62 mm",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "3.50 mm",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "3.5 mm",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "3.74 mm",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "D",
+    "correctAnswer": "3.74 mm",
+    "accuracy": "41.07%",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nMedium\nShow Video Sol.\nzero error = -6×150mm-0.12mm\n\nLeast count = 0.02 mm\n\nScrew gauge reading  = 3 + 31 + 0.02\n\n= 3.62 mm\n\nDiameter of wire = 3.62 – zero error\n\n= 3.62 – (–0.12)\n\n= 3.74 mm"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_131",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 131,
+    "statement": "The SI unit of electric flux is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "NC−1",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "NC−2",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Nm2C−1",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "NCm2",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "D",
+    "correctAnswer": "NCm2",
+    "accuracy": "41.78%",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nEasy"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_132",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 132,
+    "statement": "If ε0 is permittivity of free space, e is charge of proton, G is universal gravitational constant and mp is mass of a proton then the dimensional formula for e24πε0Gmp2 is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "[M1 L1 T−3 A−1]",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "[M0 L0 T0 A0]",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "[M1 L3 T−3 A−1]",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "[M−1L−3 T4A2]",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "B",
+    "correctAnswer": "[M0 L0 T0 A0]",
+    "accuracy": "75.19%",
+    "difficulty": "Easy",
+    "solutionText": "Solution\nHard\nShow Video Sol.\nThe numerator part e2/(4πε0r2) is electrostatic force.\n\nThe denominator part Gmp2/r2 is gravitational force.\n\nTheir ratio is dimensionless.\n\nTherefore, the given expression has dimensions M0L0T0A0.\n\nHence, option (B)."
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_133",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 133,
+    "statement": "If 1 unit of mass =4 kg;1 unit of length =14 m and 1 unit of time = 5 sec, then 1 Joule = x unit of energy in this system where x=?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "100 units",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "0.01 units",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "200 units",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "0.02 units",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "A",
+    "correctAnswer": "100 units",
+    "accuracy": "46.78%",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nEasy"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_134",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 134,
+    "statement": "If the velocity of light c, Plancks constant h and time t are taken as basis of fundamental units, then the dimension of force will change to",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "hc−1t−2",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "hc−1t2",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "hc−1t−1",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "h−1c−1t−2",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "A",
+    "correctAnswer": "hc−1t−2",
+    "accuracy": "41.18%",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nEasy"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_135",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 135,
+    "statement": "If the speed of light (c), acceleration due to gravity (g) and pressure (p) are taken as fundamental units, the dimensions of gravitational constant (G) are –",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "c0gp–3",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "c2g3p–2",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "c0g2p–1",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "c2g2p–2",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "C",
+    "correctAnswer": "c0g2p–1",
+    "accuracy": "84.38%",
+    "difficulty": "Easy",
+    "solutionText": "Solution\nHard\nShow Video Sol.\nG = CX, gY, PZ                     …(i)\n\nG = M–1 L3 T–2           (Gravitational constant)\n\nC = LT–1                    (Speed of Light)\n\ng = LT–2                     (Acceleration due to gravity)\n\nP = ML–1T–2               (Pressure)\n\nPutting all dimensions in equation (i)\n\nM–1L3T–2 = [LT–1]X [LT–2]Y [ML–1T–2]Z\n\nM–1L3T–2  = MZ [L]X + Y – Z [T]–X–2Y–2Z\n\nComparing both sides\n\nM–1 = MZ,  \n\nL3 = LX+Y–Z,               X + Y – Z = 3         …(ii)\n\nT–2 = T–X–2Y–2Z          –X – 2Y – 2Z = – 2\n\n                                         X + 2Y + 2Z = 2           ….(iii)\n\nFrom equation (ii) and (iii)\n\nX+Y-Z=3X+2Y+2Z=2-    -    -   =1    -y-3Z=1        -Y-3(-1)=1-Y+3 = 1-y=-2Y=2\n\nX+Y-Z =3X+2 -(-1) = 3X+2+1=3\n\nX=0G=C0g2P-1"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_136",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 136,
+    "statement": "The velocity of a freely falling body changes as gphq where g is acceleration due to gravity and h is the height. The values of p and  q are :",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "1,12",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "12,12",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "12,1",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "1,1",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "B",
+    "correctAnswer": "12,12",
+    "accuracy": "83.33%",
+    "difficulty": "Easy",
+    "solutionText": "Solution\nEasy\nShow Video Sol.\nLT-1=LT-2pLq"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_137",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 137,
+    "statement": "The frequency of vibrations of a mass m suspended from a spring of spring constant k is given by n = cmx ky, where c is a dimensionless constant. The values of x and y are respectively.",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "x=12,y= 12",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "x=-12,y= -12",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "x=12,y= -12",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "x=-12,y= 12",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "D",
+    "correctAnswer": "x=12,y= 12",
+    "accuracy": "%",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nMedium\nShow Video Sol.\nSpring constant,\n\nK=Fx=MLT-2L=MT-2\n\nC = Dimensionless,              C = M0L0T0\n\nv = Frequency,           v = T–1\n\nv = CMx KY\n\nPutting all dimensions\n\nM0L0T–1 = Mx[MT–2]y\n\nM0L0T–1 = MxMyT–2y\n\nM0L0T–1 = Mx+y T–2y\n\nComparing both side\n\nM0 = Mx+y\n\nT–1 = T–2y\n\nx + y = 0\n\n2y = 1"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_138",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 138,
+    "statement": "The dimensional formula of the pressure gradient is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "M1L−1T−2",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "M1L−2T−2",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "M1L2T−2",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "M1L−1T−3",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "B",
+    "correctAnswer": "M1L−2T−2",
+    "accuracy": "42.86%",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nEasy\n\n\n\nThe pressure gradient can be used to identify which way pressure rises the fastest from a given point.\n\n\n\n\n\nFinding the difference in pressure between two sites and dividing the difference by the distance between the two locations yields the pressure gradient.\n\n\n\n\n\nUneven heating of the earth's surface causes the pressure gradient force, or differential in air pressure.\n\n\n\n\n\nA pressure gradient is a metric unit that is measured in Pascals per meter (Pa/m). To get the size of the pressure gradient, first determine the dimension of pressure, where pressure is defined as the force (F) applied perpendicularly to the surface of an object with an area of (A).\n\n\n\n\n\nP=FA=maA=[M][LT−2][L2]=[M1L−1T−2]\n\n\n\n\n\nBecause pressure gradient is defined as the ratio of pressure change between two points divided by the distance between them, the dimension of pressure gradient will be\n\n\n\n\n\nPressure gradient=PL=[M1L−1T−2][L]=[M1L−2T−2]"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_139",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 139,
+    "statement": "In an experiment, it is required to measure the distance between two points which are between 0.7 m to 0.8 m apart. Which of the following instruments should be used so that the distance can be measured to within an accuracy of 0.001 m?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "A meter rule and a pair of vernier calipers",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "A half-meter rule",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "A meter rule",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "A ten-meter measuring tape",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "C",
+    "correctAnswer": "A meter rule",
+    "accuracy": "%",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nMedium\nShow Video Sol.\nThe required accuracy is 0.001m=1mm, and the distance lies between 0.7m and 0.8m. A metre rule normally has a least count of 1mm and can directly span this distance. Hence a metre rule is sufficient, option (C)."
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_140",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 140,
+    "statement": "The dimensional formula ML-1T-2  is for the quantity",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Force",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Acceleration",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Pressure",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Work",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "C",
+    "correctAnswer": "Pressure",
+    "accuracy": "%",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nEasy"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_141",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 141,
+    "statement": "The formula W=(F+2Ma)vn, where W is the work done, F is the force, M is the mass, a is the acceleration and v is the velocity can be made dimensionally correct for",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "n=0",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "n=1",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "n=−1",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "no value of n",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "D",
+    "correctAnswer": "no value of n",
+    "accuracy": "%",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nEasy"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_142",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 142,
+    "statement": "The mean length of an object is 5 cm. Which of the following measurements is most accurate?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "4.9 cm",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "4.805 cm",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "5.25 cm",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "5.4 cm",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "A",
+    "correctAnswer": "4.9 cm",
+    "accuracy": "%",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nMedium\nShow Video Sol.\n(A)\n\nGiven, Length =5\n\nWe know, accurate value is the value that is closest to the true value.\n\nHere, the closest value to the given length 5 is 4.9\n\nTherefore, 4.9 cm is the correct answer."
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_143",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 143,
+    "statement": "When 1 m,1 kg and 1 min are taken as the fundamental units, the magnitude of the force is 36 units. What will be the value of this force in CGS system?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "105 dyne",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "103 dyne",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "108 dyne",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "104 dyne",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "B",
+    "correctAnswer": "103 dyne",
+    "accuracy": "%",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nMedium\nShow Video Sol.\nForce unit in the given system\nFunit=(1  kg)(1  m)/(1  min)2\n\nConvert to CGS:\n\nFunit=1000  g×100  cm602  s2=100,0003600  dyne=100036  dyne.\n\nActual force\nF=36 Funit=36×100036=1000  dyne=103  dyne."
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_144",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 144,
+    "statement": "Find round off value of x=6.87",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "6",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "6.7",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "6.8",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "6.9",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "D",
+    "correctAnswer": "6.9",
+    "accuracy": "%",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nEasy\nShow Video Sol.\nTypically, if a question asks for a “round off value” without specifying further, we assume rounding to one decimal place or the nearest integer. The provided options suggest rounding to one decimal place, since 6.87 → 6.9."
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_145",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 145,
+    "statement": "The dimensions of surface tension × length are",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "ML0 T−2",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "MLT−2",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "ML−1 T−2",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "ML−2 T−2",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "B",
+    "correctAnswer": "MLT−2",
+    "accuracy": "%",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nEasy"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_146",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 146,
+    "statement": "Which of the following pairs of physical quantities does not have same dimensional formula?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Work and torque",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Angular momentum and Plancks constant",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Tension and surface tension",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Impulse and linear momentum",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "C",
+    "correctAnswer": "Tension and surface tension",
+    "accuracy": "%",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nEasy"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_147",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 147,
+    "statement": "The external and internal diameters of a hollow cylinder are measured to be (4.23±0.01)cm and (3.89±0.01)cm. The thickness of the wall of the cylinder is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "(0.17±0.02)cm",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "(0.34±0.02)cm",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "(0.17±0.01)cm",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "(0.34±0.01)cm",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "B",
+    "correctAnswer": "(0.34±0.02)cm",
+    "accuracy": "%",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nMedium\nShow Video Sol.\n2"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_148",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 148,
+    "statement": "The SI unit of energy is J=kgm2 s−2 that of speed v is ms−1 and of acceleration a is ms−2. Which of the formulae for kinetic energy (K) given below is right formula on the basis of dimensional arguments ( m stands for the mass of the body)?\n\nI. K=m2 v2\n\nII. K=(1/2)mv2\n\nIII. K=ma\n\nIV. K=(3/16)mv3\n\nV. K=12mv2+ma",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "I and II only",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Only II",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "II and IV only",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "I, III and V only",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "B",
+    "correctAnswer": "Only II",
+    "accuracy": "%",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nMedium\nShow Video Sol.\n(2)\n\n(I)   K=m2v2=(kg)2(ms-1)2\n\n         =kg2m2s-2\n\n(II)   K=12mv2=kg(ms-1)2=kgm2s-2\n\n(III)   K=ma=kg(ms-2)=kgms-2\n\n(IV)  K=(316)m v3=kg.(ms-1)3=kgm3s-3\n\n(V)   K=12mv2+ma=kg(ms-1)2+kg(ms-2)\n\n           =kgm2s-2+kgms-2\n\nThe two parts having different dimensions cannot be added.\nBased on dimension arguments, (I),(III), (IV) and (V) are ruled out.\n\nChoices (II) is correct."
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_149",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 149,
+    "statement": "The most precise reading of the mass of an object, among the following is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "20 g",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "20.0 g",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "20.01 g",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "20×10∘g",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "C",
+    "correctAnswer": "20.01 g",
+    "accuracy": "%",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nEasy"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_150",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 150,
+    "statement": "The dimension of calories are",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "ML2 T−2",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "MLT−2",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "ML2 T−1",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "ML2 T−1",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "A",
+    "correctAnswer": "ML2 T−2",
+    "accuracy": "%",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nEasy"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_151",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 151,
+    "statement": "In the determination of Young’s modulus Y=4.MLgπld2 by using Searle’s method, a wire of length L = 2 m and diameter d = 0.5 mm is used. For a load M = 2.5 kg, an extension l = 0.25 mm in the length of the wire is observed. Quantities d and l are measured using a screw gauge and a micrometer, respectively. They have the same pitch of 0.5 mm. The number of divisions on their circular scale is 100. The contributions to the maximum probable error of the Y measurement is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Due to the errors in the measurements of d and l are the same",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Due to the error in the measurement of d is twice that due to the error in the measurement of l",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Due to the error in the measurement of l is twice that due to the error in the measurement of d",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Due to the error in the measurement of d is four times that due to the error in the measurement of l",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "A",
+    "correctAnswer": "Due to the errors in the measurements of d and l are the same",
+    "accuracy": "%",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nMedium"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_152",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 152,
+    "statement": "Plane angle and solid angle have :",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Both units and dimension",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Units but no dimensions",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Dimensions but no units",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "No units and no dimensions",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "B",
+    "correctAnswer": "Units but no dimensions",
+    "accuracy": "%",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nEasy\nShow Video Sol.\nUnits: Plane angle has the SI unit of radian, and solid angle has the SI unit of steradian.\n\nDimensions: They are defined as ratios of similar quantities (lengthlength for plane angle, and areaarea for solid angle), meaning they both have the dimensional formula of [M0L0T0]."
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_153",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 153,
+    "statement": "Temperature can be expressed as a derived quantity in terms of any of the following",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Length and mass",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Mass and time",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Length, mass and time",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "None of these",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "D",
+    "correctAnswer": "None of these",
+    "accuracy": "%",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nEasy\nShow Video Sol.\nTemperature is a base quantity and it cannot be reduced to combinations of length, mass, and time."
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_154",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 154,
+    "statement": "If area (A), velocity (V) and density ( ρ ) are taken as fundamental units, what is the dimensional formula for force?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "[AV2ρ]",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "[A2Vρ]",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "[AV2]",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "[AVρ]",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "A",
+    "correctAnswer": "[AV2ρ]",
+    "accuracy": "%",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nEasy"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_155",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 155,
+    "statement": "Which of the following physical quantites haS unit but does not have dimension?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Strain",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Speed",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Angle",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Height",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "C",
+    "correctAnswer": "Angle",
+    "accuracy": "%",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nEasy\nShow Video Sol.\n\n\nStrain is a ratio of lengths (ΔL / L) and so has no unit and no dimension.\n\n\n\nSpeed has the dimension of length/time.\n\n\n\nAngle is dimensionless but is commonly measured in radians or degrees, which are treated as “units” though they do not carry any physical dimension.\n\n\n\nHeight has the dimension of length.\n\n\n\nHence, the quantity with a “unit” but no dimension is the angle."
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_156",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 156,
+    "statement": "The smallest division on the main scale of a vernier callipers is 1 mm, and 10 vernier divisions coincide with 9 main scale divisions. While measuring the diameter of a sphere, the zero mark of the vernier scale lies between 2.0 and 2.1 cm and the fifth division of the vernier scale coincide with a scale division. Then diameter of the sphere is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "2.05 cm",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "3.05 cm",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "2.50 cm",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "None of these",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "A",
+    "correctAnswer": "2.05 cm",
+    "accuracy": "%",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nMedium"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_157",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 157,
+    "statement": "The number of significant figures in 0.06900 is:",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "5",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "4",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "2",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "3",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "B",
+    "correctAnswer": "4",
+    "accuracy": "%",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nEasy\nShow Video Sol.\n\nAs we know, if the number is less than 1, all non-zero digits are significant.\n\nAny zero after the first non-zero digit is also significant.\n\nAny zero before the first non-zero digit is insignificant.\n\nHence, the significant digit in 0.06900 is 4.\n\nHence, option (B) is correct."
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_158",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 158,
+    "statement": "The dimensions of torque are",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "[MLT−2]",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "[ML2 T−2]",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "[ML2 T−1]",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "[M2 L2 T−2]",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "B",
+    "correctAnswer": "[ML2 T−2]",
+    "accuracy": "%",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nMedium"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_159",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 159,
+    "statement": "The time dependence of a physical quantity P is given by P=P0exp(−αt2), where α is a constant and t is time. The constant α is:-",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Dimensionless",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Has dimensions T−2",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Has dimension of P",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Has dimensions T2",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "B",
+    "correctAnswer": "Has dimensions T−2",
+    "accuracy": "%",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nEasy"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_160",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 160,
+    "statement": "The magnitude of the difference between the individual measurement and true value of the quantity is called",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Absolute error",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Relative error",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Percentage error",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "None of these",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "A",
+    "correctAnswer": "Absolute error",
+    "accuracy": "%",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nMedium"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_161",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 161,
+    "statement": "Dimensional formula of velocity of sound is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "M0LT−2",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "LT0",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "M0LT−1",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "M0L−1T−1",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "C",
+    "correctAnswer": "M0LT−1",
+    "accuracy": "%",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nEasy\nShow Video Sol.\nThe velocity of sound is just a speed, and speed (or velocity) generally has dimensions lengthtime.\n\nTherefore, its dimensions are [M0 L T−1]."
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_162",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 162,
+    "statement": "The force of interaction between two atoms is given by F=αβexp(−x2αkT); where x is the distance, k is the Boltzmann constant and T is temperature and α and β are two constants. The dimension of β is\n\n[JEE Main 2019, 11 Jan (Shift 1)]",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "[MLT−2]",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "[M0 L2 T−4]",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "[M2LT−4]",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "[M2 L2 T−2]",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "C",
+    "correctAnswer": "[M2LT−4]",
+    "accuracy": "%",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nMedium"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_163",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 163,
+    "statement": "If force (F), length (1) and Current (I) and time (T) are taken as bases then the dimensions of ε0 are:-",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "[FL2I2 T−2]",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "[F−1 L2I2 T2]",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "[F−1 L−2 T2I2]",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "[F2 L2 T2I2]",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "C",
+    "correctAnswer": "[F−1 L−2 T2I2]",
+    "accuracy": "%",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nMedium\nShow Video Sol.\nFrom Coulomb's law F=14πε0q2r2, [ε0]=q2FL2. Since q=IT, [ε0]=F−1L−2I2T2. Hence option (C)."
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_164",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions",
+    "questionNumber": 164,
+    "statement": "What is the power of a 100 W bulb in cgs units?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "106erg/s",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "107erg/s",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "109erg/s",
+        "isCorrect": true,
+        "studentPercentage": "25.0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "1011erg/s",
+        "isCorrect": false,
+        "studentPercentage": "25.0%"
+      }
+    ],
+    "correctOption": "C",
+    "correctAnswer": "109erg/s",
+    "accuracy": "%",
+    "difficulty": "Medium",
+    "solutionText": "Solution\nEasy"
   }
 ]

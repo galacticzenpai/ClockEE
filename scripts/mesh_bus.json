@@ -1,0 +1,363 @@
+{
+  "version": "2.0.0",
+  "backbone_orchestrator": "b5f97b16-8c62-47fd-92b6-1c96b5172e19",
+  "signals": [],
+  "locks": {},
+  "active_handoffs": [],
+  "dispatches": [
+    {
+      "id": "disp_1795286381586",
+      "timestamp": "2026-11-21T18:39:41Z",
+      "sender": "Innovation",
+      "sender_id": "37d092f4-06fe-43f4-886a-4070f5b28256",
+      "intended_target": "Planner",
+      "target_id": "7b4415e6-d51f-45cf-9ccd-b3c103323d0e",
+      "priority": "P0",
+      "backbone_status": "ROUTED_BY_CHITTI",
+      "receiver_connector_status": "PENDING_CLAIM",
+      "payload": {
+        "dossier_id": "DOSSIER-INNOVATION-20261122_000500",
+        "dossier_file": "dossiers\\DOSSIER-INNOVATION-20261122_000500.md",
+        "summary": {
+          "total_proposals": 4,
+          "p0_priority": 1,
+          "p1_priority": 2,
+          "p2_priority": 1,
+          "overall_readiness": "PRODUCTION_SPEC_READY"
+        },
+        "proposal_count": 4,
+        "proposals": [
+          {
+            "id": "FEAT-PROP-001",
+            "name": "ChemPulse: Adaptive SRS for Organic & Inorganic Chemistry",
+            "priority": "P0",
+            "target_subsystem": "SRS / Flashcard Engine & Question Bank",
+            "impact_metric": "3.4x retention increase on inorganic trends over 14-day intervals"
+          },
+          {
+            "id": "FEAT-PROP-002",
+            "name": "PercentileRadar: Real-Time Shift Difficulty & Quantile Normalizer",
+            "priority": "P1",
+            "target_subsystem": "Analytics & Mock Engine",
+            "impact_metric": "Reduces mock score variance illusion by 85% across asymmetric difficulty mocks"
+          },
+          {
+            "id": "FEAT-PROP-003",
+            "name": "StreakForge: Micro-Habit Formula Sprint & Boss Fight Engine",
+            "priority": "P1",
+            "target_subsystem": "Gamification & Habit Engine",
+            "impact_metric": "D28 student retention modeled to improve by 48%"
+          },
+          {
+            "id": "FEAT-PROP-004",
+            "name": "Topper Strategy Taxonomy & Advisory Engine (Reels 38/39 & OmniRoute)",
+            "priority": "P2",
+            "target_subsystem": "Mentor & Advisory Integration",
+            "impact_metric": "Averts panic-induced negative marking by up to 22 marks per test"
+          }
+        ]
+      }
+    },
+    {
+      "id": "disp_1795286434262",
+      "timestamp": "2026-11-21T18:40:34Z",
+      "sender": "Q/A Engine",
+      "sender_id": "859110f2-3156-4c22-abb0-2a0253ab82c4",
+      "intended_target": "Backbone (Chitti)",
+      "target_id": "b5f97b16-8c62-47fd-92b6-1c96b5172e19",
+      "priority": "P1",
+      "backbone_status": "ROUTED_BY_CHITTI",
+      "receiver_connector_status": "PENDING_CLAIM",
+      "payload": {
+        "dossier_id": "DOSSIER-QA-20261122_001034",
+        "dossier_file": "dossiers\\DOSSIER-QA-20261122_001034.md",
+        "summary": {
+          "total_questions_harvested": 790,
+          "master_bank_size": 15733,
+          "latex_compliance_rate": "100.0%",
+          "distractor_cognitive_coverage": "74.2%",
+          "ontology_alignment_rate": "100.0%",
+          "priority_next_chapters": [
+            "Circular Motion (Target: 90 Qs \u00b7 Currently 0 Qs)",
+            "Work, Energy and Power (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Center of Mass & System of Particles (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Rotational Dynamics (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Gravitation (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Some Basic Concepts of Chemistry (Target: 90 Qs \u00b7 Currently 0 Qs)",
+            "Structure of Atom (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Chemical Bonding & Molecular Structure (Target: 90 Qs \u00b7 Currently 10 Qs)"
+          ]
+        },
+        "metrics": {
+          "total_harvested": 790,
+          "master_bank_size": 15733,
+          "latex_valid_pct": 100.0,
+          "distractor_coverage_pct": 74.17721518987341,
+          "ontology_aligned_pct": 100.0,
+          "subject_breakdown": {
+            "Physics": 725,
+            "Chemistry": 65
+          },
+          "chapter_breakdown": {
+            "Motion in a Straight Line": 100,
+            "Motion in a Plane": 93,
+            "Laws of Motion": 93,
+            "Work, Energy and Power": 5,
+            "System of Particles and Rotational Motion": 5,
+            "Gravitation": 5,
+            "Mechanical Properties of Fluids": 3,
+            "Mechanical Properties of Solids": 2,
+            "Thermodynamics": 3,
+            "Thermal Properties of Matter": 2,
+            "Oscillations": 3,
+            "Waves": 2,
+            "Structure of Atom": 5,
+            "Chemical Bonding and Molecular Structure": 10,
+            "Chemical Thermodynamics": 10,
+            "Equilibrium": 10,
+            "Redox Reactions": 10,
+            "Organic Chemistry Basics (GOC)": 10,
+            "Hydrocarbons": 10,
+            "Physical World": 114,
+            "Units and Measurements": 295
+          },
+          "priority_chapters": [
+            "Circular Motion (Target: 90 Qs \u00b7 Currently 0 Qs)",
+            "Work, Energy and Power (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Center of Mass & System of Particles (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Rotational Dynamics (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Gravitation (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Some Basic Concepts of Chemistry (Target: 90 Qs \u00b7 Currently 0 Qs)",
+            "Structure of Atom (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Chemical Bonding & Molecular Structure (Target: 90 Qs \u00b7 Currently 10 Qs)"
+          ]
+        }
+      }
+    },
+    {
+      "id": "disp_1795286458677",
+      "timestamp": "2026-11-21T18:40:58Z",
+      "sender": "Q/A Engine",
+      "sender_id": "859110f2-3156-4c22-abb0-2a0253ab82c4",
+      "intended_target": "Backbone (Chitti)",
+      "target_id": "b5f97b16-8c62-47fd-92b6-1c96b5172e19",
+      "priority": "P1",
+      "backbone_status": "ROUTED_BY_CHITTI",
+      "receiver_connector_status": "PENDING_CLAIM",
+      "payload": {
+        "dossier_id": "DOSSIER-QA-20261122_001058",
+        "dossier_file": "dossiers\\DOSSIER-QA-20261122_001058.md",
+        "summary": {
+          "total_questions_harvested": 790,
+          "master_bank_size": 15733,
+          "latex_compliance_rate": "100.0%",
+          "distractor_cognitive_coverage": "80.6%",
+          "ontology_alignment_rate": "100.0%",
+          "priority_next_chapters": [
+            "Circular Motion (Target: 90 Qs \u00b7 Currently 0 Qs)",
+            "Work, Energy and Power (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Center of Mass & System of Particles (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Rotational Dynamics (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Gravitation (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Some Basic Concepts of Chemistry (Target: 90 Qs \u00b7 Currently 0 Qs)",
+            "Structure of Atom (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Chemical Bonding & Molecular Structure (Target: 90 Qs \u00b7 Currently 10 Qs)"
+          ]
+        },
+        "metrics": {
+          "total_harvested": 790,
+          "master_bank_size": 15733,
+          "latex_valid_pct": 100.0,
+          "distractor_coverage_pct": 80.63291139240506,
+          "ontology_aligned_pct": 100.0,
+          "subject_breakdown": {
+            "Physics": 725,
+            "Chemistry": 65
+          },
+          "chapter_breakdown": {
+            "Motion in a Straight Line": 100,
+            "Motion in a Plane": 93,
+            "Laws of Motion": 93,
+            "Work, Energy and Power": 5,
+            "System of Particles and Rotational Motion": 5,
+            "Gravitation": 5,
+            "Mechanical Properties of Fluids": 3,
+            "Mechanical Properties of Solids": 2,
+            "Thermodynamics": 3,
+            "Thermal Properties of Matter": 2,
+            "Oscillations": 3,
+            "Waves": 2,
+            "Structure of Atom": 5,
+            "Chemical Bonding and Molecular Structure": 10,
+            "Chemical Thermodynamics": 10,
+            "Equilibrium": 10,
+            "Redox Reactions": 10,
+            "Organic Chemistry Basics (GOC)": 10,
+            "Hydrocarbons": 10,
+            "Physical World": 114,
+            "Units and Measurements": 295
+          },
+          "priority_chapters": [
+            "Circular Motion (Target: 90 Qs \u00b7 Currently 0 Qs)",
+            "Work, Energy and Power (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Center of Mass & System of Particles (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Rotational Dynamics (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Gravitation (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Some Basic Concepts of Chemistry (Target: 90 Qs \u00b7 Currently 0 Qs)",
+            "Structure of Atom (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Chemical Bonding & Molecular Structure (Target: 90 Qs \u00b7 Currently 10 Qs)"
+          ]
+        }
+      }
+    },
+    {
+      "id": "disp_1795286486564",
+      "timestamp": "2026-11-21T18:41:26Z",
+      "sender": "Q/A Engine",
+      "sender_id": "859110f2-3156-4c22-abb0-2a0253ab82c4",
+      "intended_target": "Backbone (Chitti)",
+      "target_id": "b5f97b16-8c62-47fd-92b6-1c96b5172e19",
+      "priority": "P1",
+      "backbone_status": "ROUTED_BY_CHITTI",
+      "receiver_connector_status": "PENDING_CLAIM",
+      "payload": {
+        "dossier_id": "DOSSIER-QA-20261122_001126",
+        "dossier_file": "dossiers\\DOSSIER-QA-20261122_001126.md",
+        "summary": {
+          "total_questions_harvested": 790,
+          "master_bank_size": 15733,
+          "latex_compliance_rate": "100.0%",
+          "distractor_cognitive_coverage": "99.6%",
+          "ontology_alignment_rate": "100.0%",
+          "priority_next_chapters": [
+            "Circular Motion (Target: 90 Qs \u00b7 Currently 0 Qs)",
+            "Work, Energy and Power (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Center of Mass & System of Particles (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Rotational Dynamics (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Gravitation (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Some Basic Concepts of Chemistry (Target: 90 Qs \u00b7 Currently 0 Qs)",
+            "Structure of Atom (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Chemical Bonding & Molecular Structure (Target: 90 Qs \u00b7 Currently 10 Qs)"
+          ]
+        },
+        "metrics": {
+          "total_harvested": 790,
+          "master_bank_size": 15733,
+          "latex_valid_pct": 100.0,
+          "distractor_coverage_pct": 99.62025316455696,
+          "ontology_aligned_pct": 100.0,
+          "subject_breakdown": {
+            "Physics": 725,
+            "Chemistry": 65
+          },
+          "chapter_breakdown": {
+            "Motion in a Straight Line": 100,
+            "Motion in a Plane": 93,
+            "Laws of Motion": 93,
+            "Work, Energy and Power": 5,
+            "System of Particles and Rotational Motion": 5,
+            "Gravitation": 5,
+            "Mechanical Properties of Fluids": 3,
+            "Mechanical Properties of Solids": 2,
+            "Thermodynamics": 3,
+            "Thermal Properties of Matter": 2,
+            "Oscillations": 3,
+            "Waves": 2,
+            "Structure of Atom": 5,
+            "Chemical Bonding and Molecular Structure": 10,
+            "Chemical Thermodynamics": 10,
+            "Equilibrium": 10,
+            "Redox Reactions": 10,
+            "Organic Chemistry Basics (GOC)": 10,
+            "Hydrocarbons": 10,
+            "Physical World": 114,
+            "Units and Measurements": 295
+          },
+          "priority_chapters": [
+            "Circular Motion (Target: 90 Qs \u00b7 Currently 0 Qs)",
+            "Work, Energy and Power (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Center of Mass & System of Particles (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Rotational Dynamics (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Gravitation (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Some Basic Concepts of Chemistry (Target: 90 Qs \u00b7 Currently 0 Qs)",
+            "Structure of Atom (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Chemical Bonding & Molecular Structure (Target: 90 Qs \u00b7 Currently 10 Qs)"
+          ]
+        }
+      }
+    },
+    {
+      "id": "disp_1795285985756",
+      "timestamp": "2026-11-21T18:33:05Z",
+      "sender": "Simulation",
+      "sender_id": "56a83a63-c595-4bc7-a564-5defc1766715",
+      "intended_target": "Bug Fix",
+      "target_id": "e5ca28e1-5055-4b76-89a8-d37b0b5930e8",
+      "priority": "P2",
+      "backbone_status": "ROUTED_BY_CHITTI",
+      "receiver_connector_status": "PENDING_CLAIM",
+      "payload": {
+        "dossier_id": "DOSSIER-SIM-20261122_000305",
+        "dossier_file": "dossiers\\DOSSIER-SIM-20261122_000305.md",
+        "summary": {
+          "total_bugs": 1,
+          "p0_blockers": 0,
+          "p1_major": 0,
+          "p2_minor": 1,
+          "overall_assessment": "POLISH_ONLY"
+        },
+        "bug_count": 1,
+        "top_bugs": [
+          {
+            "id": "BUG-SIM-001",
+            "severity": "P2",
+            "surface": "Interactive Surface Layer",
+            "summary": "Laws of UX: Fitts's Law & Doherty Threshold"
+          }
+        ]
+      }
+    },
+    {
+      "id": "disp_1795286315540",
+      "timestamp": "2026-11-21T18:38:35Z",
+      "sender": "Simulation",
+      "sender_id": "56a83a63-c595-4bc7-a564-5defc1766715",
+      "intended_target": "Bug Fix",
+      "target_id": "e5ca28e1-5055-4b76-89a8-d37b0b5930e8",
+      "priority": "P2",
+      "backbone_status": "ROUTED_BY_CHITTI",
+      "receiver_connector_status": "PENDING_CLAIM",
+      "payload": {
+        "dossier_id": "DOSSIER-SIM-20261122_000835",
+        "dossier_file": "dossiers\\DOSSIER-SIM-20261122_000835.md",
+        "summary": {
+          "total_bugs": 1,
+          "p0_blockers": 0,
+          "p1_major": 0,
+          "p2_minor": 1,
+          "overall_assessment": "POLISH_ONLY"
+        },
+        "bug_count": 1,
+        "top_bugs": [
+          {
+            "id": "BUG-SIM-001",
+            "severity": "P2",
+            "surface": "Interactive Surface Layer",
+            "summary": "Laws of UX: Fitts's Law & Doherty Threshold"
+          }
+        ]
+      }
+    }
+  ],
+  "connector_bot_status": {
+    "Planner": "ONLINE",
+    "GitHub": "ONLINE",
+    "Main Feature": "ONLINE",
+    "UI/UX": "ONLINE",
+    "Simulation": "ONLINE",
+    "Bug Fix": "ONLINE",
+    "DB / Backend": "ONLINE",
+    "Q/A Engine": "ONLINE",
+    "Innovation": "ONLINE"
+  }
+}

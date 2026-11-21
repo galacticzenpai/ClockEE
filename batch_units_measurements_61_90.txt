@@ -1,0 +1,299 @@
+The following is a <SYSTEM_MESSAGE> not actually sent by the user. It is provided by the system as important information to pay attention to.
+
+<SYSTEM_MESSAGE>
+[Message] timestamp=2026-11-21T03:12:45Z sender=3902ce56-16d8-420d-a385-168b9ff5615b priority=MESSAGE_PRIORITY_HIGH content=COMPLETED / TASK_COMPLETED: Extracted Batch 4 (Questions 61 to 90 of 90) and officially submitted the test for Class 11 Physics Chapter 2: Units and Measurements.
+
+### Chapter 2: Units and Measurements — Final Completion Summary
+- **Source**: `https://www.pw.live/study-v2/infinite-practice`
+- **Class & Subject**: Class 11 - IIT JEE · Physics
+- **Chapter**: Units and Measurements
+- **Total Questions Extracted**: 90 / 90 (100% of chapter test)
+  - Batch 1 (Q1 to Q20): Reported previously
+  - Batch 2 (Q21 to Q40): Reported previously (Q37 noted as platform blank/skipped)
+  - Batch 3 (Q41 to Q60): Reported previously
+  - Batch 4 (Q61 to Q90): Extracted below
+- **Official Submission URL**: `https://www.pw.live/study-v2/infinite-practice/performance?testId=6b0103790c8fb58eea5c1b78&cameFrom=infinite-practice-engine&score=36&accuracy=22`
+- **PW Performance**: Total 90 | Answered: 88 | Skipped: 2 (Q37 & Q83 were blank/corrupted on PW platform)
+
+---
+
+### Batch 4 Extracted Questions (Q61 to Q90)
+
+#### Question 61
+- **Statement**: Which of the following is not a unit of time
+- **Options**:
+  1. Lunar month (6.54% marked)
+  2. Parallactic second (85.22% marked) — **CORRECT**
+  3. Solar day (3.49% marked)
+  4. Leap year (4.75% marked)
+- **Solution**: Video solution available (`embed/YgBv-g1d3QY`). Text: Parallactic second (parsec) is a unit of length/distance (1 parsec ≈ 3.08 × 10^16 m), not time.
+
+#### Question 62
+- **Statement**: If the dimensions of a physical quantity are given by [M^a L^b T^c], then the physical quantity will be
+- **Options**:
+  1. Force if a = 0, b = -1, c = -2 (6.06% marked)
+  2. Pressure if a = 1, b = -1, c = -2 (79.06% marked) — **CORRECT**
+  3. Velocity if a = 1, b = 0, c = -1 (7.98% marked)
+  4. Acceleration if a = 1, b = 1, c = -2 (6.9% marked)
+- **Solution**: Video solution available (`embed/K3qZ0v8N3hY`). Pressure = Force / Area = [M L T^-2] / [L^2] = [M^1 L^-1 T^-2], corresponding to a = 1, b = -1, c = -2.
+
+#### Question 63
+- **Statement**: Which of the following relation is correct?
+- **Options**:
+  1. 1 Å = 10^-10 m (88.75% marked) — **CORRECT**
+  2. 1 fermi = 10^-13 m (5.42% marked)
+  3. 1 X-ray unit = 10^-12 m (2.92% marked)
+  4. 1 NM = 10^-9 m (2.92% marked)
+- **Solution**: Video solution available (`embed/Pj1cgl7JtM0`). 1 Angstrom (Å) = 10^-10 m.
+
+#### Question 64
+- **Statement**: In an experiment the angle is required to be measured using an instrument. 29 divisions of the main scale exactly coincide with the 30 divisions of the vernier scale. If the smallest division of the main scale is half-degree (= 0.5°), then the least count of the instrument is:
+- **Options**:
+  1. One degree (12.38% marked)
+  2. Half degree (11.05% marked)
+  3. One minute (70.62% marked) — **CORRECT**
+  4. Half minute (5.95% marked)
+- **Solution**: Video solution available (`embed/Zz13WwK4_R8`). 1 MSD = 0.5° = 30'. 30 VSD = 29 MSD => 1 VSD = (29/30) MSD. Least count = 1 MSD - 1 VSD = (1/30) × 30' = 1 minute.
+
+#### Question 65
+- **Statement**: Which of the following pairs has same dimensions?
+- **Options**:
+  1. Angular momentum and Planck's constant (79.52% marked) — **CORRECT**
+  2. Torque and Planck's constant (8.88% marked)
+  3. Work and Angular momentum (6.11% marked)
+  4. Potential energy and Angular momentum (5.49% marked)
+- **Solution**: Both have dimensions of [M L^2 T^-1].
+
+#### Question 66
+- **Statement**: If force [F], acceleration [A] and time [T] are chosen as the fundamental physical quantities, find the dimensions of energy.
+- **Options**:
+  1. [F A T^-1] (13.62% marked)
+  2. [F A T^2] (69.83% marked) — **CORRECT**
+  3. [F A^2 T] (10.98% marked)
+  4. [F A T] (5.57% marked)
+- **Solution**: Video solution available (`embed/Fq9384l0D3c`). Energy = Work = Force × Distance = F × (1/2 A T^2) => [F A T^2].
+
+#### Question 67
+- **Statement**: The velocity of water waves may depend on their wavelength λ, the density of water ρ and the acceleration due to gravity g. The method of dimensions gives the relation between these quantities as:
+- **Options**:
+  1. v^2 ∝ g λ (74.22% marked) — **CORRECT**
+  2. v^2 ∝ g λ ρ (11.23% marked)
+  3. v^2 ∝ g / (λ ρ) (6.46% marked)
+  4. v^2 ∝ g^3 / λ^2 (8.09% marked)
+- **Solution**: Video solution available (`embed/iNqV8K5Jc1g`). [v] = [g]^a [λ]^b [ρ]^c. Equating dimensions yields a = 1/2, b = 1/2, c = 0 => v^2 ∝ g λ.
+
+#### Question 68
+- **Statement**: Dimensional formula of electric flux is
+- **Options**:
+  1. [M^1 L^3 T^-3 A^-1] (67.44% marked) — **CORRECT**
+  2. [M^1 L^2 T^-3 A^-1] (15.58% marked)
+  3. [M^1 L^3 T^-2 A^-1] (10.39% marked)
+  4. [M^1 L^2 T^-2 A^-1] (6.59% marked)
+- **Solution**: Video solution available (`embed/YgBv-g1d3QY`). Electric Flux Φ = E · A = (F / q) × A = ([M L T^-2] / [A T]) × [L^2] = [M L^3 T^-3 A^-1].
+
+#### Question 69
+- **Statement**: In a system of units if force (F), acceleration (A) and time (T) are taken as fundamental units, then the dimensional formula of energy is:
+- **Options**:
+  1. [F A^2 T] (10.51% marked)
+  2. [F A T^2] (69.64% marked) — **CORRECT**
+  3. [F^2 A T] (11.08% marked)
+  4. [F A T] (8.77% marked)
+- **Solution**: [Energy] = [F A T^2].
+
+#### Question 70
+- **Statement**: The sun's angular diameter is measured to be 1920''. The distance D of the sun from the earth is 1.496 × 10^11 m. What is the diameter of the sun?
+- **Options**:
+  1. 1.39 × 10^9 m (81.25% marked) — **CORRECT**
+  2. 1.39 × 10^10 m (12.5% marked)
+  3. 1.39 × 10^11 m (3.13% marked)
+  4. 1.39 × 10^12 m (3.13% marked)
+- **Solution**: Video solution available (`embed/wGz6Y_x5X50`). d = θ × D = (1920 × (1/3600) × (π/180)) × 1.496 × 10^11 m ≈ 1.39 × 10^9 m.
+
+#### Question 71
+- **Statement**: The dimensional formula for acceleration, velocity and length are αβ^-2, αβ^-1 and αγ respectively. What is the dimensional formula for the coefficient of friction?
+- **Options**:
+  1. αβγ (10.43% marked)
+  2. α^-1 β^0 γ^0 (8.95% marked)
+  3. α^0 β^0 γ^0 (74.88% marked) — **CORRECT**
+  4. α^0 β^-1 γ (5.74% marked)
+- **Solution**: Video solution available (`embed/Fq9384l0D3c`). Coefficient of friction is a dimensionless physical quantity, hence α^0 β^0 γ^0.
+
+#### Question 72
+- **Statement**: The dimensions of a rectangular block measured with a vernier caliper having least count of 0.1 mm are 5 mm × 10 mm × 5 mm. The maximum percentage error in measurement of volume of the block is:
+- **Options**:
+  1. 5% (75.86% marked) — **CORRECT**
+  2. 10% (10.34% marked)
+  3. 15% (8.62% marked)
+  4. 20% (5.17% marked)
+- **Solution**: ΔV/V = Δl/l + Δb/b + Δh/h = 0.1/5 + 0.1/10 + 0.1/5 = 0.02 + 0.01 + 0.02 = 0.05 => 5%.
+
+#### Question 73
+- **Statement**: In the determination of Young's modulus (Y = (4 M L g) / (π l d^2)) by using Searle's method, a wire of length L = 2 m and diameter d = 0.5 mm is used. For a load M = 2.5 kg, an extension l = 0.25 mm in the length of the wire is observed. Quantities d and l were measured using a screw gauge and a micrometer, respectively, having the same least count of r = 0.001 cm. The maximum percentage error in the value of Y is:
+- **Options**:
+  1. 0.08% (12.42% marked)
+  2. 0.8% (18.63% marked)
+  3. 8.0% (59.63% marked) — **CORRECT**
+  4. 80% (9.32% marked)
+- **Solution**: Video solution available (`embed/Pj1cgl7JtM0`). ΔY/Y = Δl/l + 2(Δd/d). Δl = 0.01 mm, l = 0.25 mm; Δd = 0.01 mm, d = 0.5 mm. ΔY/Y = 0.01/0.25 + 2(0.01/0.5) = 0.04 + 0.04 = 0.08 => 8.0%.
+
+#### Question 74
+- **Statement**: Which of the following is not the name of a physical quantity?
+- **Options**:
+  1. Time (7.45% marked)
+  2. Impulse (6.74% marked)
+  3. Kilogram (78.93% marked) — **CORRECT**
+  4. Energy (6.88% marked)
+- **Solution**: Kilogram is a unit of mass, not a physical quantity.
+
+#### Question 75
+- **Statement**: The error in the measurement of the radius of a sphere is 0.5%. What is the permissible error in the measurement of its surface area?
+- **Options**:
+  1. 1% (76.81% marked) — **CORRECT**
+  2. 0.5% (11.59% marked)
+  3. 2% (7.25% marked)
+  4. 0.25% (4.35% marked)
+- **Solution**: Video solution available (`embed/1edPNemRBxo`). Area A = 4π r^2 => %ΔA = 2 × %Δr = 2 × 0.5% = 1%.
+
+#### Question 76
+- **Statement**: The angular wave number is defined as k = 2π / λ. What are dimensions of k? (where λ is wavelength of light).
+- **Options**:
+  1. [M^0 L^-1 T^0] (74.53% marked) — **CORRECT**
+  2. [M^1 L^1 T^0] (11.43% marked)
+  3. [M L^0 T^1] (9.02% marked)
+  4. [M L^-2 T] (4.98% marked)
+- **Solution**: [k] = 1 / [λ] = [L^-1] = [M^0 L^-1 T^0].
+
+#### Question 77
+- **Statement**: Which one of the following is dimensionless physical quantity?
+- **Options**:
+  1. Velocity gradient (6.49% marked)
+  2. Stress (15.3% marked)
+  3. Force gradient (7.7% marked)
+  4. Angle (70.56% marked) — **CORRECT**
+- **Solution**: Video solution available (`embed/8VGAeG8Z6k8`). Angle = arc / radius = [L]/[L] = dimensionless.
+
+#### Question 78
+- **Statement**: The SI unit of the universal gas constant R is
+- **Options**:
+  1. Joule K^-1 mol^-1 (65.11% marked) — **CORRECT**
+  2. Watt K^-1 mol^-1 (9.65% marked)
+  3. Newton^-1 mol^-1 (12.89% marked)
+  4. Joule^-1 mol^-1 (12.36% marked)
+- **Solution**: Video solution available (`embed/Kcvt_m_HDSE`). PV = nRT => R = PV / (nT) = Work / (mol · K) = J K^-1 mol^-1.
+
+#### Question 79
+- **Statement**: In a vernier caliper, one main scale division is x cm and n division of vernier scale coincide with (n - 1) division of the main scale. The least count of the vernier caliper in cm is:
+- **Options**:
+  1. ((n - 1) / n) x (33.33% marked)
+  2. n x / (n - 1) (0% marked)
+  3. x / n (66.67% marked) — **CORRECT**
+  4. x / (n - 1) (0% marked)
+- **Solution**: Video solution available (`embed/ily6RblVCAA`). 1 MSD = x cm, n VSD = (n - 1) MSD => 1 VSD = ((n - 1)/n) x. LC = 1 MSD - 1 VSD = x - ((n - 1)/n) x = x/n.
+
+#### Question 80
+- **Statement**: In the following question, a statement of assertion (A) is followed by a statement of reason (R)
+A : When we change the unit of a measurement of a quantity, its numerical value changes.
+R : The product of numerical value of the physical quantity and unit for a quantity remain constant.
+- **Options**:
+  1. Both Assertion & Reason are true and the reason is the correct explanation of the assertion. (48.24% marked) — **CORRECT**
+  2. Both Assertion & Reason are true but the reason is not the correct explanation of the assertion. (25.91% marked)
+  3. Assertion is true statement but Reason is false. (19.05% marked)
+  4. Both Assertion and Reason are false statements. (7.22% marked)
+- **Solution**: Video solution available (`embed/Cy-dXsj6Z_4`). Q = n · u = constant => n ∝ 1/u.
+
+#### Question 81
+- **Statement**: The error in measuring the side of a cube is ±1%. The error in the calculation of the volume of the cube will be about
+- **Options**:
+  1. ±0.001% (50% marked)
+  2. ±1% (0% marked)
+  3. ±6% (50% marked)
+  4. ±3% (0% marked) — **CORRECT**
+- **Solution**: Video solution available (`embed/1edPNemRBxo`). V = a^3 => %ΔV = 3 × (%Δa) = 3 × (±1%) = ±3%.
+
+#### Question 82
+- **Statement**: If P and Q have different non-zero dimensions, which of the following operation is possible:
+- **Options**:
+  1. P^2 + Q^2 (8.58% marked)
+  2. P / Q^2 (59.23% marked) — **CORRECT**
+  3. P^2 - Q^2 (7.38% marked)
+  4. All of these (24.81% marked)
+- **Solution**: P^2 and Q^2 cannot be added or subtracted as P and Q have different dimensions. Only division/multiplication (P / Q^2) is valid.
+
+#### Question 83
+- **Statement**: `.` (Blank question on PW platform)
+- **Options**: None (Blank)
+- **Status**: Skipped on platform.
+
+#### Question 84
+- **Statement**: For the four sets of three measured physical quantities as given below. Which of the following options is correct?
+(i) A1 = 24.36, B1 = 0.0724, C1 = 256.2
+(ii) A2 = 24.44, B2 = 16.082, C2 = 240.2
+(iii) A3 = 25.2, B3 = 19.2812, C3 = 236.183
+(iv) A4 = 25, B4 = 236.191, C4 = 19.5
+[JEE Main 2020, 9 Jan (Shift 2)]
+- **Options**:
+  1. A4 + B4 + C4 < A1 + B1 + C1 = A2 + B2 + C2 = A3 + B3 + C3 (10.53% marked)
+  2. A1 + B1 + C1 < A2 + B2 + C2 = A3 + B3 + C3 < A4 + B4 + C4 (89.47% marked) — **CORRECT**
+  3. A1 + B1 + C1 = A2 + B2 + C2 = A3 + B3 + C3 = A4 + B4 + C4 (0% marked)
+  4. A4 + B4 + C4 < A1 + B1 + C1 < A3 + B3 + C3 < A2 + B2 + C2 (0% marked)
+- **Solution**: Video solution available (`embed/7JB-OPnCPlc`). Using rules for significant figures in addition/rounding.
+
+#### Question 85
+- **Statement**: Match the columns I and II.
+Column I: (A) Mean absolute error, (B) Relative error, (C) Percentage error, (D) Absolute error
+Column II: (1) Δamean / amean, (2) (Δamean / amean) × 100, (3) Σ|Δai|/n, (4) an - amean
+- **Options**:
+  1. (A) → (3); (B) → (4); C → (1); (D) → (3) (21.04% marked)
+  2. (A) → (2); (B) → (1); C → (5); (D) → (3) (35.6% marked) — **CORRECT**
+  3. (A) → (3); (B) → (1); C → (4); (D) → (2) (26.8% marked)
+  4. (A) → (2); (B) → (1); C → (3); (D) → (4) (17.84% marked)
+- **Solution**: Video solution available (`embed/N2aFCPZmBKk`).
+
+#### Question 86
+- **Statement**: A force F is given by F = a t + b t^2, where t is time. What are the dimensions of a and b
+- **Options**:
+  1. [M L T^-3] and [M L^2 T^-4] (33.33% marked)
+  2. [M L T^-3] and [M L T^-4] (66.67% marked) — **CORRECT**
+  3. [M L T^-1] and [M L T^0] (0% marked)
+  4. [M L T^-4] and [M L T^1] (0% marked)
+- **Solution**: [a t] = [F] = [M L T^-2] => [a] = [M L T^-3]. [b t^2] = [F] => [b] = [M L T^-4].
+
+#### Question 87
+- **Statement**: A person observes that the full length of a train subtends an angle of 15 degrees. If the distance between the train and the person is 3 km, the length of the train, calculated using parallax method, in metres is
+- **Options**:
+  1. 45 (18.75% marked)
+  2. 45π (40.63% marked)
+  3. 250π (31.25% marked) — **CORRECT**
+  4. 250 (9.38% marked)
+- **Solution**: Distance = 3000 m. θ = 15° = 15 × (π / 180) = π / 12 rad. Arc length = r × θ = 3000 × (π / 12) = 250π metres.
+
+#### Question 88
+- **Statement**: The radius of a sphere is (2.6 ± 0.1) cm. The percentage error in its volume is
+- **Options**:
+  1. (0.1 / 2.6) × 100% (16.39% marked)
+  2. 3 × (0.1 / 2.6) × 100% (70.06% marked) — **CORRECT**
+  3. (0.1 / (3 × 2.6)) × 100% (10.03% marked)
+  4. (0.1 / 2.6)% (3.53% marked)
+- **Solution**: Video solution available (`embed/aT7fH2Pr8iA`). V ∝ r^3 => %ΔV = 3 × (Δr / r) × 100% = 3 × (0.1 / 2.6) × 100%.
+
+#### Question 89
+- **Statement**: A student measured the diameter of a wire using a screw gauge with least count 0.001 cm and listed the measurements. The correct measurement is
+- **Options**:
+  1. 5.3 cm (13.43% marked)
+  2. 5.32 cm (18.32% marked)
+  3. 5.320 cm (60% marked) — **CORRECT**
+  4. 5.3200 cm (8.15% marked)
+- **Solution**: Least count has 3 decimal places (0.001 cm), hence correct precision is 5.320 cm.
+
+#### Question 90
+- **Statement**: Which of the following is a characteristic of unit?
+- **Options**:
+  1. Must be universally accepted. (11.99% marked)
+  2. Must be well defined and invariable. (7.39% marked)
+  3. Easily available suitable size. (4.64% marked)
+  4. All of the above. (75.97% marked) — **CORRECT**
+- **Solution**: A standard unit must be universally accepted, well-defined, invariable over time, and of suitable size.
+
+---
+Both Chapter 1 (Physical World: 62/62) and Chapter 2 (Units and Measurements: 90/90) have now been extracted and submitted! Ready for Chapter 3!
+</SYSTEM_MESSAGE>

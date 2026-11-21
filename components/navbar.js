@@ -208,26 +208,25 @@
             </a>
           </div>
 
-          <!-- Center Nav Links with Dropdowns -->
-          <nav class="hidden lg:flex items-center gap-1 xl:gap-1.5 flex-shrink min-w-0" id="main-nav" aria-label="Master Navigation">
-            <a href="index.html" data-nav="home" class="nav-btn ${activeSec === 'home' ? 'nav-active' : ''}">Home</a>
-            <a href="task.html" data-nav="task" class="nav-btn ${activeSec === 'task' ? 'nav-active' : ''}">Task</a>
-            <a href="today.html" data-nav="today" class="nav-btn ${activeSec === 'today' ? 'nav-active' : ''}">Today</a>
+          <!-- Center Nav Links with Dropdowns (Pruned Clean 5-Section Architecture) -->
+          <nav class="hidden lg:flex items-center gap-1 xl:gap-2 flex-shrink min-w-0" id="main-nav" aria-label="Master Navigation">
+            <a href="index.html" data-nav="home" class="nav-btn ${activeSec === 'home' ? 'nav-active' : ''}">Cockpit</a>
+            <a href="task.html" data-nav="task" class="nav-btn ${activeSec === 'task' ? 'nav-active' : ''}">Tasks &amp; DPP</a>
 
             <!-- Timer Dropdown -->
             <div class="nav-dropdown" data-nav="timer">
               <a href="timer.html" class="nav-btn ${activeSec === 'timer' ? 'nav-active' : ''}">
-                <span>Timer</span> <span class="nav-caret">▼</span>
+                <span>Focus Chamber</span> <span class="nav-caret">▼</span>
               </a>
               <div class="nav-dropdown-menu">
                 <a href="timer.html?mode=drill" class="nav-dropdown-item group">
-                  <div class="w-6 h-6 rounded-md bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center text-cyan-400 group-hover:scale-105 transition">
+                  <div class="w-6 h-6 rounded-md bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400 group-hover:scale-105 transition">
                     <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
                   </div>
                   <div>
-                    <div class="font-bold text-white group-hover:text-cyan-300 transition text-xs flex items-center gap-1.5">
+                    <div class="font-bold text-white group-hover:text-amber-300 transition text-xs flex items-center gap-1.5">
                       <span>Tactical Pace Sprint</span>
-                      <span class="text-[9px] px-1.5 py-0.2 rounded bg-cyan-950 text-cyan-300 border border-cyan-500/30 font-mono">NEW</span>
+                      <span class="text-[9px] px-1.5 py-0.2 rounded bg-amber-950 text-amber-300 border border-amber-500/30 font-mono">NEW</span>
                     </div>
                     <div class="text-[10px] text-slate-400 font-mono">Pace benchmark &amp; lap latency</div>
                   </div>
@@ -244,23 +243,31 @@
               </div>
             </div>
 
-            <!-- Coaching Dropdown -->
+            <!-- Coaching & Syllabus Dropdown -->
             <div class="nav-dropdown" data-nav="coaching">
               <a href="coaching.html" class="nav-btn ${activeSec === 'coaching' ? 'nav-active' : ''}">
-                <span>Coaching</span> <span class="nav-caret">▼</span>
+                <span>Syllabus &amp; Coaching</span> <span class="nav-caret">▼</span>
               </a>
               <div class="nav-dropdown-menu">
                 <a href="coaching.html?sub=syllabus" class="nav-dropdown-item">
                   <svg class="w-3.5 h-3.5 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
                   <span>Syllabus Covered</span>
                 </a>
+                <a href="tracker.html" class="nav-dropdown-item">
+                  <svg class="w-3.5 h-3.5 text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                  <span>75-Chapter Syllabus Matrix</span>
+                </a>
+                <a href="today.html" class="nav-dropdown-item">
+                  <svg class="w-3.5 h-3.5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  <span>Daily Execution Log</span>
+                </a>
                 <a href="coaching.html?sub=tests" class="nav-dropdown-item">
-                  <svg class="w-3.5 h-3.5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                  <svg class="w-3.5 h-3.5 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
                   <span>Test Performance &amp; OCR</span>
                 </a>
-                <a href="coaching.html?sub=logs" class="nav-dropdown-item">
-                  <svg class="w-3.5 h-3.5 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M9 12h6"/><path d="M9 16h6"/></svg>
-                  <span>Personal Question Log</span>
+                <a href="inspiration.html" class="nav-dropdown-item">
+                  <svg class="w-3.5 h-3.5 text-amber-400" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  <span>Dream Vision &amp; Inspiration</span>
                 </a>
               </div>
             </div>
@@ -269,7 +276,7 @@
             <div class="nav-dropdown" data-nav="cbt">
               <a href="cbt_home.html" data-nav="cbt" class="nav-btn ${activeSec === 'cbt' ? 'nav-active' : ''} text-cyan-300">
                 <svg class="w-3.5 h-3.5 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-                <span>CBT Portal</span> <span class="nav-caret">▼</span>
+                <span>CBT Exam Suite</span> <span class="nav-caret">▼</span>
               </a>
               <div class="nav-dropdown-menu">
                 <a href="cbt_home.html" class="nav-dropdown-item">
@@ -298,21 +305,17 @@
                 </a>
               </div>
             </div>
+          </nav>
 
-            <!-- Inspiration Board -->
-            <a href="inspiration.html" data-nav="inspiration" class="nav-btn ${activeSec === 'inspiration' ? 'nav-active' : ''} text-amber-300 hover:text-amber-200" title="Dream Vision & Inspiration Board">
-              <svg class="w-3.5 h-3.5 text-amber-400" viewBox="0 0 24 24" fill="currentColor">
-                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-              </svg>
-              <span>Inspiration</span>
-            </a>
-
-            <!-- Settings / More Dropdown -->
-            <div class="nav-dropdown" data-nav="settings">
-              <a href="settings.html" class="nav-btn ${activeSec === 'settings' ? 'nav-active' : ''}">
-                <span>Settings</span> <span class="nav-caret">▼</span>
+          <!-- Right Status Telemetry & Quick Action Controls -->
+          <div class="nav-right flex items-center gap-2 sm:gap-3 flex-shrink-0">
+            
+            <!-- Quick Settings Dropdown Pill -->
+            <div class="nav-dropdown">
+              <a href="settings.html" class="nav-icon-btn hover:border-amber-400 hover:text-amber-300 min-h-[34px] min-w-[34px]" title="Settings &amp; Preferences">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
               </a>
-              <div class="nav-dropdown-menu">
+              <div class="nav-dropdown-menu" style="min-width: 220px; right: 0; left: auto;">
                 <a href="settings.html" class="nav-dropdown-item">
                   <svg class="w-3.5 h-3.5 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
                   <span>Global Settings</span>
@@ -325,21 +328,13 @@
                   <svg class="w-3.5 h-3.5 text-[#0a84ff]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                   <span>Profile &amp; Identity</span>
                 </a>
-                <a href="tracker.html" class="nav-dropdown-item">
-                  <svg class="w-3.5 h-3.5 text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                  <span>75-Chapter Syllabus Matrix</span>
-                </a>
                 <a href="live_tracker.html" class="nav-dropdown-item">
                   <svg class="w-3.5 h-3.5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
                   <span>Mesh Cockpit &amp; Telemetry</span>
                 </a>
               </div>
             </div>
-          </nav>
 
-          <!-- Right Status Telemetry & Quick Action Controls -->
-          <div class="nav-right flex items-center gap-2 sm:gap-3 flex-shrink-0">
-            
             <!-- Quick Theme Switcher Pill -->
             <div class="nav-dropdown hidden lg:inline-block">
               <button class="px-2.5 py-1 rounded-full bg-white/5 border border-white/10 hover:border-white/25 text-[11px] font-mono text-slate-300 flex items-center gap-1.5 transition cursor-pointer" title="Quick Theme Switcher">
@@ -478,23 +473,59 @@
 
   // Mount Universal Bottom Floating Controls Dock for UI/UX Design System
   function ensureFloatingDock() {
+    // If older overlapping pills exist, hide or wrap them
+    const legacyPill = document.querySelector('button[ref="e49"], .fixed.bottom-4.right-4:not(#clockee-floating-dock)');
     if (document.getElementById('clockee-floating-dock')) return;
+
     const dock = document.createElement('aside');
     dock.id = 'clockee-floating-dock';
-    dock.className = 'clockee-dock fixed bottom-5 right-5 z-40 flex items-center gap-2 p-1.5 rounded-full bg-slate-900/90 backdrop-blur-md border border-slate-700/60 shadow-2xl transition-all';
+    dock.className = 'clockee-dock fixed bottom-5 right-5 z-40 flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#0d111a]/95 backdrop-blur-xl border border-white/[0.12] shadow-2xl transition-all';
     dock.setAttribute('data-dock', 'bottom-right');
     dock.setAttribute('aria-label', 'System Quick Controls');
     dock.innerHTML = `
-      <button id="dock-btn-palette" data-dock-action="palette" class="dock-btn flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold text-slate-300 hover:text-white hover:bg-slate-800 transition" title="Command Palette">
-        <span class="text-[10px] opacity-60">⌘K</span>
-        <span>Palette</span>
+      <button id="dock-btn-palette" onclick="window.toggleCommandPalette ? window.toggleCommandPalette() : (window.dispatchEvent(new KeyboardEvent('keydown', {'key': 'k', 'ctrlKey': true})))" class="dock-pill flex items-center gap-1.5 text-xs font-mono text-slate-300 hover:text-white px-2 py-1 rounded-full transition cursor-pointer" title="Command Palette (Ctrl+K)">
+        <span class="text-amber-400 font-bold">⚡</span>
+        <span class="text-[11px]">Ctrl+K</span>
       </button>
-      <button id="dock-btn-aitutor" data-dock-action="aitutor" class="dock-btn flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold text-cyan-400 hover:text-cyan-300 hover:bg-cyan-950/40 border border-cyan-500/20 transition" title="AI Tutor Assistance">
-        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-        <span>AI Tutor</span>
+      <span class="w-[1px] h-3.5 bg-white/15"></span>
+      <button id="dock-btn-aitutor" onclick="window.toggleSplitScreen ? window.toggleSplitScreen() : (function(){ var d = document.getElementById('split-drawer'); if(d) d.classList.toggle('translate-x-full'); })()" class="dock-pill flex items-center gap-1.5 text-xs font-medium text-slate-300 hover:text-amber-400 px-2 py-1 rounded-full transition cursor-pointer" title="AI Mentor Council">
+        <span>💬</span>
+        <span>AI Mentor</span>
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
       </button>
     `;
     document.body.appendChild(dock);
+
+    // Aggressively suppress redundant loose floating pills across all pages
+    const suppressLegacyPills = () => {
+      const legacySelectors = [
+        '#clockee-chat-floating-pill',
+        '#clockee-cmd-trigger',
+        '#split-toggle',
+        'button[ref="e49"]',
+        'button[ref="e55"]',
+        'button[ref="e45"]',
+        '.fixed.bottom-4.right-4:not(#clockee-floating-dock)',
+        '.fixed.bottom-6.right-6:not(#clockee-floating-dock)'
+      ];
+      legacySelectors.forEach(sel => {
+        document.querySelectorAll(sel).forEach(el => {
+          if (el.id !== 'clockee-floating-dock') {
+            el.style.setProperty('display', 'none', 'important');
+            el.setAttribute('aria-hidden', 'true');
+          }
+        });
+      });
+      document.querySelectorAll('body > button, body > div').forEach(el => {
+        if (el.id !== 'clockee-floating-dock' && (el.className || '').includes('fixed') && (el.className || '').includes('bottom-') && (el.className || '').includes('right-')) {
+          el.style.setProperty('display', 'none', 'important');
+        }
+      });
+    };
+
+    suppressLegacyPills();
+    setTimeout(suppressLegacyPills, 150);
+    setTimeout(suppressLegacyPills, 600);
   }
 
   if (document.readyState === 'loading') {

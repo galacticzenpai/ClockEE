@@ -1,0 +1,67 @@
+{
+  "topology_version": "2.0.0",
+  "coordinator_node": "Backbone (Chitti)",
+  "coordinator_id": "b5f97b16-8c62-47fd-92b6-1c96b5172e19",
+  "nodes": {
+    "Planner": {
+      "conversation_id": "7b4415e6-d51f-45cf-9ccd-b3c103323d0e",
+      "role": "Prompt Enhancement & Spec Planning",
+      "permission": "Read/Plan Only",
+      "code_write": false
+    },
+    "Backbone (Chitti)": {
+      "conversation_id": "b5f97b16-8c62-47fd-92b6-1c96b5172e19",
+      "role": "Central Mesh Orchestrator & Dispatcher",
+      "permission": "Orchestration Core",
+      "code_write": false
+    },
+    "GitHub": {
+      "conversation_id": "d78b401e-4699-42cc-8aad-ed6f2c44c428",
+      "role": "Package Ingestion & CI/CD Deployment",
+      "permission": "CLI/Git Only",
+      "code_write": false
+    },
+    "Main Feature": {
+      "conversation_id": "c3adf94a-9cfa-4a23-b055-c8df8757b041",
+      "role": "Core Feature Implementation (The Star)",
+      "permission": "Full Code Write",
+      "code_write": true
+    },
+    "UI/UX": {
+      "conversation_id": "7da67306-b0d1-425c-9ee4-166365f218d1",
+      "role": "Design System, Responsive Layouts, Polish",
+      "permission": "Full Code Write",
+      "code_write": true
+    },
+    "Simulation": {
+      "conversation_id": "56a83a63-c595-4bc7-a564-5defc1766715",
+      "role": "E2E Browser Testing & Visual UI Audit",
+      "permission": "Test/Audit Only",
+      "code_write": false
+    },
+    "Bug Fix": {
+      "conversation_id": "e5ca28e1-5055-4b76-89a8-d37b0b5930e8",
+      "role": "Autonomous Bug Resolution",
+      "permission": "Full Code Write",
+      "code_write": true
+    },
+    "DB / Backend": {
+      "conversation_id": "e2bd04a9-a20c-4d9a-bfa0-0db7fe390194",
+      "role": "Database, Auth, Migrations & APIs",
+      "permission": "Full Code Write",
+      "code_write": true
+    },
+    "Q/A Engine": {
+      "conversation_id": "859110f2-3156-4c22-abb0-2a0253ab82c4",
+      "role": "PDF Question Extraction & LaTeX OCR",
+      "permission": "Data Only",
+      "code_write": false
+    },
+    "Innovation": {
+      "conversation_id": "37d092f4-06fe-43f4-886a-4070f5b28256",
+      "role": "JEE Trends, Pedagogy & Gamification",
+      "permission": "Research Only",
+      "code_write": false
+    }
+  }
+}

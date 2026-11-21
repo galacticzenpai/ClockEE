@@ -99,7 +99,8 @@
             id: `Q_${qGlobalIndex}`,
             originalMasterId: rawQ.id,
             number: qGlobalIndex,
-            localNumber: j,
+            localNumber: 20 + j,
+            globalIndex: qGlobalIndex - 1,
             subject: subject,
             section: 'B',
             type: 'NUMERICAL'
@@ -123,7 +124,7 @@
       // Section B: 10 Numericals
       for (let j = 1; j <= 10; j++) {
         const qId = `Q_${qGlobalIndex}`;
-        list.push(getSampleNumerical(subject, j, qGlobalIndex, qId));
+        list.push(getSampleNumerical(subject, 20 + j, qGlobalIndex, qId));
         qGlobalIndex++;
       }
     });
@@ -229,10 +230,12 @@
   }
 
   function getSampleNumerical(subject, localNum, globalNum, qId) {
+    const secBNum = localNum <= 10 ? (20 + localNum) : localNum;
     return {
       id: qId,
       number: globalNum,
-      localNumber: localNum,
+      localNumber: secBNum,
+      globalIndex: globalNum - 1,
       subject: subject,
       section: 'B',
       type: 'NUMERICAL',

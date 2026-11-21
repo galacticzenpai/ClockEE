@@ -408,7 +408,7 @@ def process_all_chemistry_questions():
                     extracted_opts.append(opt)
         cleaned_options = [clean_option_text(opt) for opt in extracted_opts] if extracted_opts else []
         
-        if acc_pct is None and opt_correct_acc is not None:
+        if (acc_pct is None or acc_pct == 0.0) and opt_correct_acc is not None and opt_correct_acc > 0:
             acc_pct = opt_correct_acc
         
         # Determine question type

@@ -1,112 +1,135 @@
 /**
  * styles/tokens.css
- * ClockEE OS 2.0 - Universal Design Palette & Token Engine
- * Incorporates Mathongo Cognitive Pacing Standards, Sacred NTA Exam Palette,
- * and 5 Live Switchable Neo-Obsidian Theme Palettes.
- * Zero Blinding Glare | Strictly <= 12px Blur Shadows | APCA Lc >= 75
+ * ClockEE OS 2.0 - Universal Design Palette & Token Engine (Master Redesign)
+ * Conforming strictly to:
+ * - 60-30-10 Obsidian Palette (Zero Blinding Neons)
+ * - APCA Contrast (Lc >= 75)
+ * - Strict Hairline Depth (Zero blur shadows > 12px)
+ * - Concentric Radii Geometry: R_outer = R_inner + Padding
+ * - Sacred NTA 5-State Exam Palette
  */
 
 :root, [data-palette="obsidian"] {
   /* ==========================================================================
-     1. Surface Hierarchy (Apple True Dark OLED Palette - Default Obsidian)
+     1. Surface Hierarchy (60% Deep Noise-Free Pitch Obsidian)
      ========================================================================== */
-  --surface-0: #000000;                  /* True Dark OLED Pitch Canvas */
-  --surface-1: #0a0c10;                  /* Primary System Background */
-  --surface-2: #12151c;                  /* Elevated Cards / Secondary Containers */
-  --surface-3: #1a1e28;                  /* Interactive Panels / Active States */
-  --surface-inset: #06070a;              /* Formula Inset / KaTeX / Code Viewer */
-  --surface-frosted: rgba(10, 12, 16, 0.85);
-  --surface-frosted-elevated: rgba(18, 21, 28, 0.92);
+  --surface-0: #07090e;                  /* Pitch Obsidian Canvas */
+  --surface-1: #0d111a;                  /* Primary Elevated Cards */
+  --surface-2: #141926;                  /* Secondary Container / Hover State */
+  --surface-3: #1c2233;                  /* Active Panels / Interactive States */
+  --surface-inset: #040609;              /* Formula Inset / KaTeX / Code Box */
+  --surface-dock: rgba(13, 17, 26, 0.94);
+  --surface-frosted: rgba(13, 17, 26, 0.88);
+  --surface-frosted-elevated: rgba(20, 25, 38, 0.94);
 
-  /* Text & Typography Hierarchy */
-  --text-primary: #ffffff;
-  --text-secondary: #94a3b8;
-  --text-muted: #64748b;
+  /* ==========================================================================
+     2. Text & Structural Hierarchy (30% High-Contrast Structure)
+     ========================================================================== */
+  --text-primary: #f8fafc;               /* Crisp pure white (APCA Lc >= 90) */
+  --text-secondary: #94a3b8;             /* Slate-400 (APCA Lc >= 75) */
+  --text-muted: #64748b;                 /* Slate-500 (Metadata only, Lc >= 60) */
   --text-inverse: #000000;
 
-  /* Borders & Accents */
   --border-hairline: 1px solid rgba(255, 255, 255, 0.08);
   --border-subtle: 1px solid rgba(255, 255, 255, 0.08);
-  --border-elevated: 1px solid rgba(255, 255, 255, 0.16);
-  --border-strong: 1px solid rgba(255, 255, 255, 0.24);
+  --border-elevated: 1px solid rgba(255, 255, 255, 0.14);
+  --border-strong: 1px solid rgba(255, 255, 255, 0.22);
+  --border-focus: 2px solid #f59e0b;
 
-  --accent-primary: #0a84ff;             /* Apple System Blue */
-  --accent-primary-hover: #0071e3;
-  --accent-cyan: #00f0ff;                /* Telemetry Cyan */
-  --accent-emerald: #30d158;             /* NTA Green / Success */
-  --accent-amber: #ffd60a;               /* NTA Amber / Warning */
-  --accent-coral: #ff453a;               /* NTA Coral / Error */
-  --accent-purple: #bf5af2;              /* Review / Focus */
+  /* ==========================================================================
+     3. 10% Intentional Accent System (Single Focal Accent per View)
+     ========================================================================== */
+  --accent-primary: #f59e0b;             /* Retro Terminal Solar Amber (Default) */
+  --accent-primary-hover: #d97706;
+  --accent-blue: #0284c7;                /* System Blue Alias */
+  --accent-blue-hover: #0369a1;
+  --accent-cta: #0284c7;                 /* NTA Cerulean Blue */
+  --accent-emerald: #10b981;             /* Success / Answered */
+  --accent-amber: #f59e0b;               /* Warning / High Yield */
+  --accent-coral: #ef4444;               /* Error / Negative */
+  --accent-purple: #8b5cf6;              /* Review / Focus */
 
-  --palette-glow: rgba(10, 132, 255, 0.25);
-  --palette-chip-bg: rgba(10, 132, 255, 0.12);
-  --palette-chip-border: rgba(10, 132, 255, 0.3);
+  /* Hairline Depth & Subtle Glow */
+  --shadow-subtle: 0 1px 2px 0 rgba(0, 0, 0, 0.6);
+  --shadow-elevated: 0 4px 12px -2px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.06);
+  --palette-glow: rgba(245, 158, 11, 0.15);
+  --palette-chip-bg: rgba(245, 158, 11, 0.1);
+  --palette-chip-border: rgba(245, 158, 11, 0.25);
+
+  /* Concentric Geometric Radii */
+  --radius-card: 16px;
+  --radius-card-inner: 8px;
+  --radius-control: 8px;
+  --radius-pill: 9999px;
 }
 
-/* 2. Cyber Cyan Theme Palette */
+/* 2. Cyber Cyan Theme Palette (Calibrated, Anti-Glare) */
 [data-palette="cyber"] {
-  --surface-0: #01060c;
-  --surface-1: #040d18;
-  --surface-2: #081726;
-  --surface-3: #0c2136;
-  --surface-inset: #020810;
-  --surface-frosted: rgba(4, 13, 24, 0.88);
-  --surface-frosted-elevated: rgba(8, 23, 38, 0.94);
+  --surface-0: #040810;
+  --surface-1: #08101f;
+  --surface-2: #0f1c33;
+  --surface-3: #162847;
+  --surface-inset: #020408;
+  --surface-dock: rgba(8, 16, 31, 0.94);
+  --surface-frosted: rgba(8, 16, 31, 0.88);
+  --surface-frosted-elevated: rgba(15, 28, 51, 0.94);
 
-  --border-hairline: 1px solid rgba(0, 240, 255, 0.1);
-  --border-subtle: 1px solid rgba(0, 240, 255, 0.12);
-  --border-elevated: 1px solid rgba(0, 240, 255, 0.24);
-  --border-strong: 1px solid rgba(0, 240, 255, 0.36);
+  --border-hairline: 1px solid rgba(56, 189, 248, 0.1);
+  --border-subtle: 1px solid rgba(56, 189, 248, 0.12);
+  --border-elevated: 1px solid rgba(56, 189, 248, 0.22);
+  --border-strong: 1px solid rgba(56, 189, 248, 0.32);
 
-  --accent-primary: #00f0ff;
-  --accent-primary-hover: #00c8d6;
-  --palette-glow: rgba(0, 240, 255, 0.25);
-  --palette-chip-bg: rgba(0, 240, 255, 0.1);
-  --palette-chip-border: rgba(0, 240, 255, 0.3);
+  --accent-primary: #38bdf8;
+  --accent-primary-hover: #0284c7;
+  --palette-glow: rgba(56, 189, 248, 0.15);
+  --palette-chip-bg: rgba(56, 189, 248, 0.1);
+  --palette-chip-border: rgba(56, 189, 248, 0.25);
 }
 
-/* 3. Vapor Violet Theme Palette */
+/* 3. Vapor Violet Theme Palette (Deep Studio Focus) */
 [data-palette="violet"] {
-  --surface-0: #040208;
-  --surface-1: #0a0614;
-  --surface-2: #140d24;
-  --surface-3: #1f1438;
-  --surface-inset: #030106;
-  --surface-frosted: rgba(10, 6, 20, 0.88);
-  --surface-frosted-elevated: rgba(20, 13, 36, 0.94);
+  --surface-0: #06040b;
+  --surface-1: #0c0817;
+  --surface-2: #160f29;
+  --surface-3: #22173d;
+  --surface-inset: #030206;
+  --surface-dock: rgba(12, 8, 23, 0.94);
+  --surface-frosted: rgba(12, 8, 23, 0.88);
+  --surface-frosted-elevated: rgba(22, 15, 41, 0.94);
 
-  --border-hairline: 1px solid rgba(168, 85, 247, 0.12);
-  --border-subtle: 1px solid rgba(168, 85, 247, 0.15);
-  --border-elevated: 1px solid rgba(168, 85, 247, 0.26);
-  --border-strong: 1px solid rgba(168, 85, 247, 0.38);
+  --border-hairline: 1px solid rgba(168, 85, 247, 0.1);
+  --border-subtle: 1px solid rgba(168, 85, 247, 0.12);
+  --border-elevated: 1px solid rgba(168, 85, 247, 0.22);
+  --border-strong: 1px solid rgba(168, 85, 247, 0.32);
 
   --accent-primary: #a855f7;
   --accent-primary-hover: #9333ea;
-  --palette-glow: rgba(168, 85, 247, 0.25);
-  --palette-chip-bg: rgba(168, 85, 247, 0.12);
-  --palette-chip-border: rgba(168, 85, 247, 0.32);
+  --palette-glow: rgba(168, 85, 247, 0.15);
+  --palette-chip-bg: rgba(168, 85, 247, 0.1);
+  --palette-chip-border: rgba(168, 85, 247, 0.25);
 }
 
 /* 4. Matrix Emerald Theme Palette */
 [data-palette="emerald"] {
-  --surface-0: #010603;
-  --surface-1: #040e07;
-  --surface-2: #091a0e;
-  --surface-3: #0f2716;
-  --surface-inset: #020703;
-  --surface-frosted: rgba(4, 14, 7, 0.88);
-  --surface-frosted-elevated: rgba(9, 26, 14, 0.94);
+  --surface-0: #020704;
+  --surface-1: #06110a;
+  --surface-2: #0b1f13;
+  --surface-3: #12301e;
+  --surface-inset: #010402;
+  --surface-dock: rgba(6, 17, 10, 0.94);
+  --surface-frosted: rgba(6, 17, 10, 0.88);
+  --surface-frosted-elevated: rgba(11, 31, 19, 0.94);
 
-  --border-hairline: 1px solid rgba(16, 185, 129, 0.12);
-  --border-subtle: 1px solid rgba(16, 185, 129, 0.15);
-  --border-elevated: 1px solid rgba(16, 185, 129, 0.26);
-  --border-strong: 1px solid rgba(16, 185, 129, 0.38);
+  --border-hairline: 1px solid rgba(16, 185, 129, 0.1);
+  --border-subtle: 1px solid rgba(16, 185, 129, 0.12);
+  --border-elevated: 1px solid rgba(16, 185, 129, 0.22);
+  --border-strong: 1px solid rgba(16, 185, 129, 0.32);
 
   --accent-primary: #10b981;
   --accent-primary-hover: #059669;
-  --palette-glow: rgba(16, 185, 129, 0.25);
-  --palette-chip-bg: rgba(16, 185, 129, 0.12);
-  --palette-chip-border: rgba(16, 185, 129, 0.32);
+  --palette-glow: rgba(16, 185, 129, 0.15);
+  --palette-chip-bg: rgba(16, 185, 129, 0.1);
+  --palette-chip-border: rgba(16, 185, 129, 0.25);
 }
 
 /* 5. Solar Amber Theme Palette */
@@ -116,6 +139,7 @@
   --surface-2: #1c1306;
   --surface-3: #291c09;
   --surface-inset: #050301;
+  --surface-dock: rgba(16, 11, 3, 0.94);
   --surface-frosted: rgba(16, 11, 3, 0.88);
   --surface-frosted-elevated: rgba(28, 19, 6, 0.94);
 
@@ -126,16 +150,18 @@
 
   --accent-primary: #f59e0b;
   --accent-primary-hover: #d97706;
-  --palette-glow: rgba(245, 158, 11, 0.25);
+  --palette-glow: rgba(245, 158, 11, 0.2);
   --palette-chip-bg: rgba(245, 158, 11, 0.12);
-  --palette-chip-border: rgba(245, 158, 11, 0.32);
+  --palette-chip-border: rgba(245, 158, 11, 0.3);
 }
 
-/* NTA 5-State Exam Palette */
+/* ==========================================================================
+   Sacred NTA 5-State Exam Palette
+   ========================================================================== */
 :root {
-  --nta-not-visited-bg: #ffffff;
-  --nta-not-visited-text: #212529;
-  --nta-not-visited-border: #ced4da;
+  --nta-not-visited-bg: #1e293b;
+  --nta-not-visited-text: #f8fafc;
+  --nta-not-visited-border: rgba(255, 255, 255, 0.12);
 
   --nta-not-answered-bg: #dc3545;
   --nta-not-answered-text: #ffffff;
@@ -152,9 +178,34 @@
   --nta-answered-marked-bg: #6f42c1;
   --nta-answered-marked-text: #ffffff;
   --nta-answered-marked-border: #28a745;
+  --nta-answered-marked-indicator: #28a745;
 
   /* Cognitive Pacing Benchmarks (Mathongo Standard) */
   --pace-physics-benchmark: 110s;
   --pace-chemistry-benchmark: 55s;
   --pace-maths-benchmark: 140s;
+}
+
+/* Master Floating Dock Global Classes */
+.clockee-dock {
+  box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+.dock-pill {
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.dock-pill:active {
+  transform: scale(0.96);
+}
+
+/* Global Strict Suppression of Legacy Clashing Floating Pills */
+#clockee-chat-floating-pill,
+#clockee-cmd-trigger,
+#split-toggle,
+.fixed.bottom-4.right-4:not(#clockee-floating-dock),
+.fixed.bottom-6.right-6:not(#clockee-floating-dock) {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+  z-index: -9999 !important;
 }

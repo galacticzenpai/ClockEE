@@ -376,6 +376,12 @@
       if (dot && autoSyncEnabled) dot.className = 'w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse';
 
       try {
+        let resFallback = await fetch('mesh/mesh_tracker_state.json?t=' + Date.now());
+        if (resFallback.ok) {
+          globalData = await resFallback.json();
+          renderAll();
+          return;
+        }
         let res = await fetch('/api/tracker?t=' + Date.now());
         if (!res.ok) throw new Error("API not reachable");
         let data = await res.json();

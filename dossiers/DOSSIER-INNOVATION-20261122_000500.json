@@ -1,0 +1,74 @@
+{
+  "dossier_id": "DOSSIER-INNOVATION-20261122_000500",
+  "created_at": "2026-11-22T00:08:45.000000",
+  "origin_node": "Innovation",
+  "origin_convo_id": "37d092f4-06fe-43f4-886a-4070f5b28256",
+  "broker_node": "Backbone (Chitti)",
+  "broker_convo_id": "b5f97b16-8c62-47fd-92b6-1c96b5172e19",
+  "target_node": "Planner",
+  "target_convo_id": "7b4415e6-d51f-45cf-9ccd-b3c103323d0e",
+  "source_trigger": "Feature Scouting & Pedagogical Taxonomy Handshake",
+  "status": "DISPATCHED_TO_BACKBONE",
+  "summary": {
+    "total_proposals": 4,
+    "p0_priority": 1,
+    "p1_priority": 2,
+    "p2_priority": 1,
+    "overall_readiness": "PRODUCTION_SPEC_READY"
+  },
+  "proposals": [
+    {
+      "id": "FEAT-PROP-001",
+      "name": "ChemPulse: Adaptive SRS for Organic & Inorganic Chemistry",
+      "priority": "P0",
+      "pedagogical_basis": "Anki FSRS Algorithm + Quizlet Learn Mode + Active Recall Scaffolding",
+      "target_subsystem": "SRS / Flashcard Engine & Question Bank",
+      "core_mechanisms": [
+        "Reagent Matrix: Substrate + Reagent -> Reactive Intermediate -> Regioselective Product",
+        "Cloze-Mechanism Cards with tap-to-reveal reactive intermediates",
+        "Exception Hunter: Inorganic trends, flame tests, coordination isomers with spaced decay curve"
+      ],
+      "impact_metric": "3.4x retention increase on inorganic trends over 14-day intervals"
+    },
+    {
+      "id": "FEAT-PROP-002",
+      "name": "PercentileRadar: Real-Time Shift Difficulty & Quantile Normalizer",
+      "priority": "P1",
+      "pedagogical_basis": "NTA 2023-2026 Multi-Shift Score Equating & Psychometric IRT",
+      "target_subsystem": "Analytics & Mock Engine",
+      "core_mechanisms": [
+        "Dynamic Shift-Hardness Normalizer comparing current mock session against hard/easy session archetypes",
+        "Percentile quantile curves mapped from 15,733 question difficulty vectors",
+        "Subject-wise bottleneck attribution (e.g. Maths time sink penalty vs Chem velocity bonus)"
+      ],
+      "impact_metric": "Reduces mock score variance illusion by 85% across asymmetric difficulty mocks"
+    },
+    {
+      "id": "FEAT-PROP-003",
+      "name": "StreakForge: Micro-Habit Formula Sprint & Boss Fight Engine",
+      "priority": "P1",
+      "pedagogical_basis": "Duolingo Streaks + RPG Mistake Vault Remediation Loops",
+      "target_subsystem": "Gamification & Habit Engine",
+      "core_mechanisms": [
+        "90s Daily Formula Sprint (Swipe True/False & Dimensional variable cloze)",
+        "Weekly Mistake Vault Boss Fight: Sunday 20Q re-test generated from past errors",
+        "Forgiving Streak Repair: Complete 5 moderate conceptual problems within 24h to recover lost streak"
+      ],
+      "impact_metric": "D28 student retention modeled to improve by 48%"
+    },
+    {
+      "id": "FEAT-PROP-004",
+      "name": "Topper Strategy Taxonomy & Advisory Engine (Reels 38/39 & OmniRoute)",
+      "priority": "P2",
+      "pedagogical_basis": "Empirical AIR 1-500 Time Allocation Protocol & Distractor Analysis",
+      "target_subsystem": "Mentor & Advisory Integration",
+      "core_mechanisms": [
+        "Two-Pass Exam Protocol: Pass 1 (45m sweep), Pass 2 (75m numericals/derivations), Pass 3 (30m review)",
+        "50-50 Trap Distractor Deconstruction: Systemic trap elimination guidance",
+        "High-Friction Temperament Reset Trigger when dwell time exceeds 180s on single physics problem",
+        "OmniRoute Zero-Cost Multi-Provider Pool (Groq/Cerebras/Gemini/Mistral) for real-time distractor breakdown"
+      ],
+      "impact_metric": "Averts panic-induced negative marking by up to 22 marks per test"
+    }
+  ]
+}

@@ -10,6 +10,36 @@
 })();
 
 /**
+ * ClockEE 2.0 KaTeX Pre-processing & Mathematical Typography Engine (Bug 2.1)
+ */
+window.ClockEEMath = window.ClockEEMath || {
+  sanitize: function(text) {
+    if (!text || typeof text !== 'string') return text || '';
+    const parts = text.split(/(\$\$[\s\S]*?\$\$|\$[^\$\n]+?\$)/g);
+    return parts.map((part, idx) => {
+      if (idx % 2 === 1) return part;
+      return part.replace(/(\\frac\{[^{}]*\}\{[^{}]*\}|\\sqrt(\[[^{}]*\])?\{[^{}]*\}|\\(?:alpha|beta|gamma|delta|epsilon|theta|lambda|mu|nu|pi|rho|sigma|tau|phi|chi|psi|omega|Delta|Omega|times|pm|cdot|approx|neq|leq|geq|infty|rightarrow|to|circ)\b(?:\^\{[^{}]*\}|\^[0-9a-zA-Z]+)?(?:_\{[^{}]*\}|_[0-9a-zA-Z]+)?)/g, '$$$1$$');
+    }).join('');
+  },
+  render: function(element) {
+    if (!element) return;
+    if (typeof renderMathInElement === 'function') {
+      try {
+        renderMathInElement(element, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false }
+          ],
+          throwOnError: false
+        });
+      } catch (err) {
+        console.warn("KaTeX render notice:", err);
+      }
+    }
+  }
+};
+
+/**
  * ClockEE CBT Portal - Shared Core State & Database Management
  * Coordinates ClockEE CBT Portal, Authentic NTA Exam Sandbox, Adaptive Test Generator & ClockEE 2-Way Sync
  */
@@ -777,6 +807,36 @@ function sendToMainControl(simulationResult, mistakeRecords = []) {
         return u?.id || u?.uid || 'user_aspirant';
       } catch(e) { return 'user_aspirant'; }
     })();
+
+/**
+ * ClockEE 2.0 KaTeX Pre-processing & Mathematical Typography Engine (Bug 2.1)
+ */
+window.ClockEEMath = window.ClockEEMath || {
+  sanitize: function(text) {
+    if (!text || typeof text !== 'string') return text || '';
+    const parts = text.split(/(\$\$[\s\S]*?\$\$|\$[^\$\n]+?\$)/g);
+    return parts.map((part, idx) => {
+      if (idx % 2 === 1) return part;
+      return part.replace(/(\\frac\{[^{}]*\}\{[^{}]*\}|\\sqrt(\[[^{}]*\])?\{[^{}]*\}|\\(?:alpha|beta|gamma|delta|epsilon|theta|lambda|mu|nu|pi|rho|sigma|tau|phi|chi|psi|omega|Delta|Omega|times|pm|cdot|approx|neq|leq|geq|infty|rightarrow|to|circ)\b(?:\^\{[^{}]*\}|\^[0-9a-zA-Z]+)?(?:_\{[^{}]*\}|_[0-9a-zA-Z]+)?)/g, '$$$1$$');
+    }).join('');
+  },
+  render: function(element) {
+    if (!element) return;
+    if (typeof renderMathInElement === 'function') {
+      try {
+        renderMathInElement(element, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false }
+          ],
+          throwOnError: false
+        });
+      } catch (err) {
+        console.warn("KaTeX render notice:", err);
+      }
+    }
+  }
+};
 
     // 1. Update master state and user-specific state
     const rawMaster = localStorage.getItem('clockee_v5_master_state') || localStorage.getItem(`clockee_user_state_${activeId}`) || '{}';

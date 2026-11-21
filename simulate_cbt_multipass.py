@@ -36,27 +36,18 @@ def run_pass_1_question_bank():
     if idx == -1:
         return {"status": "FAIL", "error": "CBT_MASTER_QUESTION_BANK declaration not found"}
 
-    book_idx = content.find(book_prefix)
-    if book_idx != -1:
-        qb_str = content[idx + len(prefix):book_idx].strip()
-        if qb_str.endswith(";"):
-            qb_str = qb_str[:-1].strip()
-        book_str = content[book_idx + len(book_prefix):].strip()
-        if book_str.endswith(";"):
-            book_str = book_str[:-1].strip()
-    else:
-        qb_str = content[idx + len(prefix):].strip()
-        if qb_str.endswith(";"):
-            qb_str = qb_str[:-1].strip()
-        book_str = "[]"
-
+    decoder = json.JSONDecoder()
     try:
-        questions = json.loads(qb_str)
+        questions, _ = decoder.raw_decode(content, idx + len(prefix))
     except Exception as e:
         return {"status": "FAIL", "error": f"JSON parse error in CBT_MASTER_QUESTION_BANK: {e}"}
 
+    book_idx = content.find(book_prefix)
     try:
-        books = json.loads(book_str)
+        if book_idx != -1:
+            books, _ = decoder.raw_decode(content, book_idx + len(book_prefix))
+        else:
+            books = []
     except Exception as e:
         return {"status": "FAIL", "error": f"JSON parse error in CBT_BOOK_LOG: {e}"}
 

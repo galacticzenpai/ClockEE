@@ -8,7 +8,6 @@
   function sanitizeMath(text) {
     if (!text || typeof text !== 'string') return '';
 
-    // If text already has well-formed dollar delimiters, return as-is
     let processed = text;
 
     // Detect naked LaTeX blocks lacking delimiters (e.g. \begin{matrix} ... \end{matrix})
@@ -16,9 +15,10 @@
       return `$$${match}$$`;
     });
 
-    // Detect standalone unescaped mathematical fractions e.g. \frac{a}{b} not already inside $ or $$
-    // If not enclosed in $, wrap it
-    processed = processed.replace(/(?<!\$)\\(frac|sqrt|int|sum|prod|times|pm|le|ge|neq|alpha|beta|gamma|theta|mu|pi|lambda|sigma|omega|Delta|Omega)\{([^}]+)\}(?!\$)/g, function(match) {
+    // Detect Greek symbols & mathematical operators lacking $ delimiters
+    // e.g., \rho, \int, \frac, \sqrt, \alpha, \theta, \circ
+    processed = processed.replace(/(?<!\$)\\(rho|int|frac|sqrt|sum|prod|times|pm|le|ge|neq|alpha|beta|gamma|theta|mu|pi|lambda|sigma|omega|Delta|Omega|circ|oint)(?:\b|\{)([\s\S]*?)(?!\$)/g, function(match) {
+      if (match.startsWith('$')) return match;
       return `$${match}$`;
     });
 

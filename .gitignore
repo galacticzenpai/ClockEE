@@ -7,6 +7,13 @@ node_modules/
 # Vercel
 .vercel/
 
+# Agent & Brain Workspace
+.gemini/
+brain/
+
+# Scratch & Temporary files
+temp_*
+
 # Logs & OS
 *.log
 .DS_Store
@@ -18,4 +25,3 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-.vercel

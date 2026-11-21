@@ -121158,5 +121158,865 @@
     "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
     "page": 1,
     "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3081",
+    "originalId": "PW_PHY_NLM_001",
+    "number": 3081,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Newton's Second Law & Constant Force",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 87.03,
+    "text": "A constant force acting on a body of mass 3.0 kg changes its speed from 2.0 m s$^{-1}$ to 3.5 m s$^{-1}$ in 25 s. The direction of the motion of the body remains unchanged. What is the magnitude and direction of the force?",
+    "options": [
+      {
+        "id": "A",
+        "text": "0.18 N, in the direction of motion"
+      },
+      {
+        "id": "B",
+        "text": "0.36 N, in the direction of motion"
+      },
+      {
+        "id": "C",
+        "text": "0.18 N, opposite to the direction of motion"
+      },
+      {
+        "id": "D",
+        "text": "0.36 N, opposite to the direction of motion"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Newton's Second Law & Constant Force\n\n**Step-by-Step Mathematical Derivation**:\n1. **Given Parameters**:\n   - Mass of the body: $m = 3.0\\text{ kg}$\n   - Initial velocity: $u = 2.0\\text{ m/s}$\n   - Final velocity: $v = 3.5\\text{ m/s}$\n   - Time interval: $t = 25\\text{ s}$\n   - Direction of motion remains unchanged.\n\n2. **Calculation of Acceleration**:\n   Using the first kinematic equation for rectilinear motion with constant acceleration:\n   $$a = \\frac{v - u}{t} = \\frac{3.5 - 2.0}{25} = \\frac{1.5}{25} = 0.06\\text{ m/s}^2$$\n\n3. **Determination of Magnitude and Direction of Force**:\n   According to Newton's second law of motion:\n   $$F = ma = (3.0\\text{ kg}) \\times (0.06\\text{ m/s}^2) = 0.18\\text{ N}$$\n   Since the speed of the body increases from $2.0\\text{ m/s}$ to $3.5\\text{ m/s}$ along the original line of travel without reversing, the net acceleration is directed along the velocity vector.\n   Therefore, the applied force acts **in the direction of motion**.\n\n4. **Conclusion**:\n   The magnitude is $0.18\\text{ N}$ and its direction is in the direction of motion, verifying Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 1), Q#1",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3082",
+    "originalId": "PW_PHY_NLM_002",
+    "number": 3082,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Net Force & Motion with Resistance",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 66.83,
+    "text": "A car of mass 1000 kg is moving with a velocity of 10 m/s and is acted upon by a forward force of 1000 N due to engine and retarding force of 500 N due to friction. Its velocity after 10 seconds is",
+    "options": [
+      {
+        "id": "A",
+        "text": "10 m/s"
+      },
+      {
+        "id": "B",
+        "text": "15 m/s"
+      },
+      {
+        "id": "C",
+        "text": "20 m/s"
+      },
+      {
+        "id": "D",
+        "text": "25 m/s"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Net Force & Motion with Resistance\n\n**Step-by-Step Mathematical Derivation**:\n1. **Given Parameters**:\n   - Mass of car: $m = 1000\\text{ kg}$\n   - Initial velocity: $u = 10\\text{ m/s}$\n   - Forward driving force from engine: $F_{\\text{engine}} = 1000\\text{ N}$\n   - Retarding friction force: $f = 500\\text{ N}$\n   - Time duration: $t = 10\\text{ s}$\n\n2. **Net Unbalanced Force and Acceleration**:\n   The net forward force acting on the car along the horizontal axis is:\n   $$F_{\\text{net}} = F_{\\text{engine}} - f = 1000 - 500 = 500\\text{ N}$$\n   Applying Newton's second law ($F_{\\text{net}} = ma$):\n   $$a = \\frac{F_{\\text{net}}}{m} = \\frac{500\\text{ N}}{1000\\text{ kg}} = 0.5\\text{ m/s}^2$$\n\n3. **Velocity after 10 Seconds**:\n   Using the velocity-time relation:\n   $$v = u + at = 10 + (0.5)(10) = 10 + 5 = 15\\text{ m/s}$$\n\n4. **Conclusion**:\n   The velocity after $10\\text{ seconds}$ is $15\\text{ m/s}$, confirming Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 1), Q#2",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3083",
+    "originalId": "PW_PHY_NLM_003",
+    "number": 3083,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Spring Balance Reading & Upward Acceleration",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 56.49,
+    "text": "A spring toy weighing 1 kg on a spring balance suddenly jumps upward. A boy standing near the toy notices that the scale of the balance reads 1.05 kg. In this process the maximum acceleration of the toy is ($g = 10\\text{ m/s}^2$)",
+    "options": [
+      {
+        "id": "A",
+        "text": "0.05 m/s$^2$"
+      },
+      {
+        "id": "B",
+        "text": "0.5 m/s$^2$"
+      },
+      {
+        "id": "C",
+        "text": "5 m/s$^2$"
+      },
+      {
+        "id": "D",
+        "text": "0.25 m/s$^2$"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Spring Balance Reading & Upward Acceleration\n\n**Step-by-Step Mathematical Derivation**:\n1. **Physical Analysis of Spring Balance**:\n   A spring balance measures the upward normal contact force (or spring tension $N$) supporting the object, calibrated in mass units as $m_{\\text{apparent}} = \\frac{N}{g}$.\n\n2. **Dynamic Equation of the Jumping Toy**:\n   - True mass of the toy: $m = 1\\text{ kg}$\n   - Maximum scale reading: $m' = 1.05\\text{ kg}$\n   - Hence, the normal reaction exerted by the balance at the peak of the jump push-off is:\n     $$N = m'g = 1.05g$$\n   Setting up the vertical equation of motion for upward acceleration $a$:\n     $$N - mg = ma$$\n     $$1.05g - 1.0g = 1 \\cdot a \\implies a = 0.05g$$\n\n3. **Numerical Evaluation**:\n   Taking $g = 10\\text{ m/s}^2$:\n   $$a = 0.05 \\times 10 = 0.5\\text{ m/s}^2$$\n\n4. **Conclusion**:\n   The maximum acceleration of the toy is $0.5\\text{ m/s}^2$, verifying Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 1), Q#3",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3084",
+    "originalId": "PW_PHY_NLM_004",
+    "number": 3084,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Newton's Laws Conceptual Matching",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 95.03,
+    "text": "Match Column I with Column II: Column I: (A) Law of inertia, (B) $F = \\frac{dp}{dt}$, (C) Action and reaction, (D) Apparent weight inside accelerating lift Column II: (p) First law of motion, (q) Second law of motion, (r) Third law of motion, (s) Fictive or pseudo force",
+    "options": [
+      {
+        "id": "A",
+        "text": "A-p, B-q, C-r, D-s"
+      },
+      {
+        "id": "B",
+        "text": "A-q, B-p, C-r, D-s"
+      },
+      {
+        "id": "C",
+        "text": "A-p, B-r, C-q, D-s"
+      },
+      {
+        "id": "D",
+        "text": "A-s, B-q, C-r, D-p"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Newton's Laws Conceptual Matching\n\n**Step-by-Step Conceptual Matching**:\n1. **Item (A): Law of Inertia**:\n   - Galileo's concept of inertia, formalised by Newton, states that an object continues in its state of rest or uniform rectilinear motion unless compelled to change that state by an external force. This is **Newton's First Law of Motion** $\\rightarrow$ **(p)**.\n\n2. **Item (B): $F = \\frac{dp}{dt}$**:\n   - The rate of change of linear momentum of a body is directly proportional to the applied force and takes place in the direction of the force. This is the mathematical statement of **Newton's Second Law of Motion** $\\rightarrow$ **(q)**.\n\n3. **Item (C): Action and Reaction**:\n   - To every action there is always an equal and opposite reaction, acting simultaneously on two distinct interacting bodies. This is **Newton's Third Law of Motion** $\\rightarrow$ **(r)**.\n\n4. **Item (D): Apparent Weight inside Accelerating Lift**:\n   - In a non-inertial reference frame (accelerating lift with acceleration $\\vec{a}_0$), Newton's laws are made valid by introducing a **pseudo force (fictive force)** $\\vec{F}_{\\text{pseudo}} = -m\\vec{a}_0$, altering the apparent normal reaction $N = m(g \\pm a_0)$ $\\rightarrow$ **(s)**.\n\n5. **Conclusion**:\n   The correct mapping is **A-p, B-q, C-r, D-s**, corresponding to Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 1), Q#4",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3085",
+    "originalId": "PW_PHY_NLM_005",
+    "number": 3085,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Connected Blocks on Rough Incline",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 66.53,
+    "text": "Two blocks A and B of masses m and 2m respectively are held at rest on a rough inclined plane of inclination $45^\\circ$. The coefficient of friction between block A and plane is $2\\mu$ and that between block B and plane is $\\mu$. When the blocks are released, the acceleration of the combination is",
+    "options": [
+      {
+        "id": "A",
+        "text": "$g(1 - \\mu)/\\sqrt{2}$"
+      },
+      {
+        "id": "B",
+        "text": "$g(1 + \\mu)/3$"
+      },
+      {
+        "id": "C",
+        "text": "$\\frac{g}{\\sqrt{2}}\\left(1 - \\frac{4\\mu}{3}\\right)$"
+      },
+      {
+        "id": "D",
+        "text": "$g(1 - 2\\mu)/3$"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Connected Blocks on Rough Incline\n\n**Step-by-Step Mathematical Derivation**:\n1. **System Geometry and Forces**:\n   - Inclination angle: $\\theta = 45^\\circ \\implies \\sin 45^\\circ = \\cos 45^\\circ = \\frac{1}{\\sqrt{2}}$\n   - Mass of block A: $m_A = m$, friction coefficient $\\mu_A = 2\\mu$\n   - Mass of block B: $m_B = 2m$, friction coefficient $\\mu_B = \\mu$\n   - Since block A (higher friction) is behind or connected to block B (lower friction), the blocks move together as a single combined unit of total mass $M = m + 2m = 3m$.\n\n2. **Gravitational Driving Force Down the Incline**:\n   $$F_g = (m_A + m_B)g\\sin 45^\\circ = 3mg\\left(\\frac{1}{\\sqrt{2}}\\right) = \\frac{3mg}{\\sqrt{2}}$$\n\n3. **Normal Reactions and Frictional Forces**:\n   - For block A: $N_A = mg\\cos 45^\\circ = \\frac{mg}{\\sqrt{2}}$\n     $$f_A = \\mu_A N_A = (2\\mu)\\left(\\frac{mg}{\\sqrt{2}}\\right) = \\frac{2\\mu mg}{\\sqrt{2}}$$\n   - For block B: $N_B = (2m)g\\cos 45^\\circ = \\frac{2mg}{\\sqrt{2}}$\n     $$f_B = \\mu_B N_B = \\mu\\left(\\frac{2mg}{\\sqrt{2}}\\right) = \\frac{2\\mu mg}{\\sqrt{2}}$$\n   - Total opposing friction:\n     $$f_{\\text{total}} = f_A + f_B = \\frac{2\\mu mg}{\\sqrt{2}} + \\frac{2\\mu mg}{\\sqrt{2}} = \\frac{4\\mu mg}{\\sqrt{2}}$$\n\n4. **Acceleration of the Combination**:\n   Applying $F_{\\text{net}} = M a$:\n   $$a = \\frac{F_g - f_{\\text{total}}}{M} = \\frac{\\frac{3mg}{\\sqrt{2}} - \\frac{4\\mu mg}{\\sqrt{2}}}{3m} = \\frac{g}{\\sqrt{2}}\\left(\\frac{3 - 4\\mu}{3}\\right) = \\frac{g}{\\sqrt{2}}\\left(1 - \\frac{4\\mu}{3}\\right)$$\n\n5. **Conclusion**:\n   The acceleration of the combination is $\\frac{g}{\\sqrt{2}}\\left(1 - \\frac{4\\mu}{3}\\right)$, verifying Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 1), Q#5",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3086",
+    "originalId": "PW_PHY_NLM_006",
+    "number": 3086,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Friction vs Applied Force Graph",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 53.64,
+    "text": "A body of mass 2 kg is placed on a rough horizontal surface. A horizontal force F is applied on it. The variation of frictional force f with applied force F is as shown in figure. The limiting friction is 8 N. The coefficient of static friction is ($g = 10\\text{ m/s}^2$):",
+    "options": [
+      {
+        "id": "A",
+        "text": "0.2"
+      },
+      {
+        "id": "B",
+        "text": "0.4"
+      },
+      {
+        "id": "C",
+        "text": "0.5"
+      },
+      {
+        "id": "D",
+        "text": "0.8"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Friction vs Applied Force Graph\n\n**Step-by-Step Mathematical Derivation**:\n1. **Governing Principle of Static Friction**:\n   The limiting friction $f_L$ is the maximum static friction force that opposes the tendency of motion before relative slipping commences. It is related to the normal force $N$ by:\n   $$f_L = \\mu_s N$$\n\n2. **Calculation of Normal Contact Force**:\n   For a mass $m = 2\\text{ kg}$ resting on a horizontal plane with $g = 10\\text{ m/s}^2$:\n   $$N = mg = (2\\text{ kg})(10\\text{ m/s}^2) = 20\\text{ N}$$\n\n3. **Determination of Coefficient of Static Friction $\\mu_s$**:\n   Given limiting friction $f_L = 8\\text{ N}$:\n   $$\\mu_s = \\frac{f_L}{N} = \\frac{8\\text{ N}}{20\\text{ N}} = 0.4$$\n\n4. **Conclusion**:\n   The coefficient of static friction is $0.4$, confirming Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 1), Q#6",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3087",
+    "originalId": "PW_PHY_NLM_007",
+    "number": 3087,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Contact Force Variation with Incline Angle",
+    "difficulty": "Hard",
+    "idealTimeSec": 135,
+    "accuracyPct": 49.63,
+    "text": "A block of mass m is placed on a rough inclined plane of inclination $\\theta$. As the angle $\\theta$ is increased from $0^\\circ$ to $90^\\circ$, the contact force between the block and the incline",
+    "options": [
+      {
+        "id": "A",
+        "text": "remains constant throughout"
+      },
+      {
+        "id": "B",
+        "text": "first increases and then decreases"
+      },
+      {
+        "id": "C",
+        "text": "first remains constant and then decreases"
+      },
+      {
+        "id": "D",
+        "text": "decreases continuously"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Contact Force Variation with Incline Angle\n\n**Step-by-Step Mathematical Derivation**:\n1. **Definition of Contact Force $\\vec{R}$**:\n   The total contact force exerted by an inclined plane on a block is the vector resultant of the normal reaction $\\vec{N}$ and the friction force $\\vec{f}$:\n   $$\\vec{R} = \\vec{N} + \\vec{f} \\implies R = \\sqrt{N^2 + f^2}$$\n\n2. **Case I: Static Regime ($0^\\circ \\le \\theta \\le \\theta_r$)**:\n   - Where $\\theta_r = \\tan^{-1}(\\mu_s)$ is the angle of repose.\n   - The block remains at rest under equilibrium:\n     $$N = mg\\cos\\theta, \\quad f_s = mg\\sin\\theta$$\n   - The resultant contact force is:\n     $$R = \\sqrt{(mg\\cos\\theta)^2 + (mg\\sin\\theta)^2} = mg\\sqrt{\\cos^2\\theta + \\sin^2\\theta} = mg$$\n   - Thus, for all angles up to the angle of repose, $R$ is strictly constant and equal to the true gravitational weight $mg$.\n\n3. **Case II: Kinetic Regime ($\\theta > \\theta_r$)**:\n   - The block slides down the plane, so friction becomes kinetic:\n     $$f_k = \\mu_k N = \\mu_k mg\\cos\\theta$$\n   - The resultant contact force becomes:\n     $$R = \\sqrt{N^2 + f_k^2} = \\sqrt{(mg\\cos\\theta)^2 + (\\mu_k mg\\cos\\theta)^2} = mg\\cos\\theta\\sqrt{1 + \\mu_k^2}$$\n   - As $\\theta$ increases towards $90^\\circ$, $\\cos\\theta$ monotonically decreases towards zero, causing $R$ to decrease continuously.\n\n4. **Conclusion**:\n   As $\\theta$ increases from $0^\\circ$ to $90^\\circ$, the contact force **first remains constant and then decreases**, confirming Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 1), Q#7",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3088",
+    "originalId": "PW_PHY_NLM_008",
+    "number": 3088,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Atwood Machine String Tension",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 78.5,
+    "text": "Two masses $m_1$ and $m_2$ ($m_1 > m_2$) are connected by a light inextensible string passing over a frictionless pulley. When the system is released from rest, the tension in the string is",
+    "options": [
+      {
+        "id": "A",
+        "text": "$\\frac{2m_1 m_2 g}{m_1 + m_2}$"
+      },
+      {
+        "id": "B",
+        "text": "$\\frac{m_1 m_2 g}{m_1 + m_2}$"
+      },
+      {
+        "id": "C",
+        "text": "$\\frac{(m_1 - m_2)g}{m_1 + m_2}$"
+      },
+      {
+        "id": "D",
+        "text": "$\\frac{(m_1 + m_2)g}{2m_1 m_2}$"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Atwood Machine String Tension\n\n**Step-by-Step Mathematical Derivation**:\n1. **Equations of Motion for the Atwood Machine**:\n   Let $m_1 > m_2$. When released from rest, mass $m_1$ accelerates downwards with acceleration $a$, and mass $m_2$ accelerates upwards with the same acceleration $a$.\n   - For mass $m_1$:\n     $$m_1 g - T = m_1 a \\quad \\text{--- (Equation 1)}$$\n   - For mass $m_2$:\n     $$T - m_2 g = m_2 a \\quad \\text{--- (Equation 2)}$$\n\n2. **Determination of Acceleration $a$**:\n   Adding Equations (1) and (2):\n   $$(m_1 - m_2)g = (m_1 + m_2)a \\implies a = \\frac{m_1 - m_2}{m_1 + m_2}g$$\n\n3. **Calculation of String Tension $T$**:\n   Substituting the expression for $a$ into Equation (2):\n   $$T = m_2(g + a) = m_2\\left(g + \\frac{m_1 - m_2}{m_1 + m_2}g\\right)$$\n   $$T = m_2 g\\left(1 + \\frac{m_1 - m_2}{m_1 + m_2}\\right) = m_2 g\\left(\\frac{(m_1 + m_2) + (m_1 - m_2)}{m_1 + m_2}\\right) = \\frac{2m_1 m_2 g}{m_1 + m_2}$$\n\n4. **Conclusion**:\n   The tension in the string is $\\frac{2m_1 m_2 g}{m_1 + m_2}$, verifying Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 1), Q#8",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3089",
+    "originalId": "PW_PHY_NLM_009",
+    "number": 3089,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Contact Force Between Blocks",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 68.39,
+    "text": "Three blocks of masses 2 kg, 3 kg and 5 kg are placed in contact on a smooth horizontal surface as shown in figure. A horizontal force of 10 N is applied on the 2 kg block. The contact force between the 3 kg and 5 kg block is",
+    "options": [
+      {
+        "id": "A",
+        "text": "5 N"
+      },
+      {
+        "id": "B",
+        "text": "8 N"
+      },
+      {
+        "id": "C",
+        "text": "2 N"
+      },
+      {
+        "id": "D",
+        "text": "3 N"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Contact Force Between Blocks\n\n**Step-by-Step Mathematical Derivation**:\n1. **System Parameters**:\n   - Three blocks in contact on a smooth horizontal surface:\n     $$m_1 = 2\\text{ kg}, \\quad m_2 = 3\\text{ kg}, \\quad m_3 = 5\\text{ kg}$$\n   - Applied horizontal external force: $F = 10\\text{ N}$ pushing on block $m_1$.\n\n2. **Common Acceleration of the System**:\n   Since the surface is frictionless and the blocks remain in contact, they accelerate together with common acceleration $a$:\n   $$M_{\\text{total}} = m_1 + m_2 + m_3 = 2 + 3 + 5 = 10\\text{ kg}$$\n   $$a = \\frac{F}{M_{\\text{total}}} = \\frac{10\\text{ N}}{10\\text{ kg}} = 1\\text{ m/s}^2$$\n\n3. **Contact Force Between $3\\text{ kg}$ and $5\\text{ kg}$ Blocks**:\n   Isolating the $5\\text{ kg}$ block ($m_3$) as a free body:\n   The only horizontal force acting on $m_3$ is the normal contact force $N_{23}$ exerted by the $3\\text{ kg}$ block:\n   $$N_{23} = m_3 a = (5\\text{ kg})(1\\text{ m/s}^2) = 5\\text{ N}$$\n\n4. **Conclusion**:\n   The contact force between the $3\\text{ kg}$ and $5\\text{ kg}$ blocks is $5\\text{ N}$, confirming Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 1), Q#9",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3090",
+    "originalId": "PW_PHY_NLM_010",
+    "number": 3090,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Climbing Monkey Rope Tension",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 63.83,
+    "text": "A monkey of mass 20 kg is climbing on a vertical rope with an acceleration of 2 m/s$^2$ in upward direction. If the breaking strength of the rope is 300 N, then the rope will ($g = 10\\text{ m/s}^2$)",
+    "options": [
+      {
+        "id": "A",
+        "text": "break"
+      },
+      {
+        "id": "B",
+        "text": "not break"
+      },
+      {
+        "id": "C",
+        "text": "break only after 10 seconds"
+      },
+      {
+        "id": "D",
+        "text": "cannot be determined"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Climbing Monkey Rope Tension\n\n**Step-by-Step Mathematical Derivation**:\n1. **Given Parameters**:\n   - Mass of monkey: $m = 20\\text{ kg}$\n   - Upward acceleration: $a = 2\\text{ m/s}^2$\n   - Acceleration due to gravity: $g = 10\\text{ m/s}^2$\n   - Breaking strength of the rope: $T_{\\text{break}} = 300\\text{ N}$\n\n2. **Equation of Motion for Upward Climbing**:\n   By Newton's third law, as the monkey pulls the rope downwards, the rope exerts an upward tension force $T$ on the monkey.\n   Applying Newton's second law along the vertical axis:\n   $$T - mg = ma \\implies T = m(g + a)$$\n\n3. **Calculation of Tension**:\n   $$T = 20(10 + 2) = 20 \\times 12 = 240\\text{ N}$$\n\n4. **Comparison with Breaking Strength**:\n   The tension created by the monkey is $240\\text{ N}$.\n   Since $T = 240\\text{ N} < 300\\text{ N} = T_{\\text{break}}$, the rope is well within its safe load limit.\n   Therefore, the rope **will not break**.\n\n5. **Conclusion**:\n   Option **(B)** is the verified correct answer.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 1), Q#10",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3091",
+    "originalId": "PW_PHY_NLM_011",
+    "number": 3091,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Static Friction and Actual Friction Force",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 68.51,
+    "text": "A block of mass 5 kg is lying on a rough horizontal surface. The coefficient of static friction between block and surface is 0.4. A horizontal force of 15 N is applied on the block. The frictional force acting on the block is ($g = 10\\text{ m/s}^2$)",
+    "options": [
+      {
+        "id": "A",
+        "text": "15 N"
+      },
+      {
+        "id": "B",
+        "text": "20 N"
+      },
+      {
+        "id": "C",
+        "text": "10 N"
+      },
+      {
+        "id": "D",
+        "text": "0 N"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Static Friction and Actual Friction Force\n\n**Step-by-Step Mathematical Derivation**:\n1. **Given Parameters**:\n   - Mass of block: $m = 5\\text{ kg}$\n   - Static friction coefficient: $\\mu_s = 0.4$\n   - Applied horizontal force: $F = 15\\text{ N}$\n   - Acceleration due to gravity: $g = 10\\text{ m/s}^2$\n\n2. **Limiting Static Friction Threshold**:\n   Normal reaction on the horizontal floor:\n   $$N = mg = (5\\text{ kg})(10\\text{ m/s}^2) = 50\\text{ N}$$\n   The maximum (limiting) static friction force available is:\n   $$f_L = \\mu_s N = 0.4 \\times 50\\text{ N} = 20\\text{ N}$$\n\n3. **State of Motion and Self-Adjusting Static Friction**:\n   Comparing the applied force with limiting friction:\n   $$F = 15\\text{ N} < f_L = 20\\text{ N}$$\n   Because the applied force does not overcome limiting friction, the block remains completely stationary.\n   Static friction is self-adjusting ($0 \\le f_s \\le f_L$) and develops just enough resistance to balance the applied force:\n   $$f_s = F = 15\\text{ N}$$\n\n4. **Conclusion**:\n   The frictional force acting on the block is $15\\text{ N}$, confirming Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 1), Q#11",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3092",
+    "originalId": "PW_PHY_NLM_012",
+    "number": 3092,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Coefficient of Kinetic Friction",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 77.29,
+    "text": "A block of mass 10 kg is placed on a rough horizontal plane. When a horizontal force of 20 N is applied on it, it moves with constant velocity. The coefficient of kinetic friction is ($g = 10\\text{ m/s}^2$)",
+    "options": [
+      {
+        "id": "A",
+        "text": "0.1"
+      },
+      {
+        "id": "B",
+        "text": "0.2"
+      },
+      {
+        "id": "C",
+        "text": "0.3"
+      },
+      {
+        "id": "D",
+        "text": "0.4"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Coefficient of Kinetic Friction\n\n**Step-by-Step Mathematical Derivation**:\n1. **Given Parameters**:\n   - Mass of block: $m = 10\\text{ kg}$\n   - Applied horizontal pulling force: $F = 20\\text{ N}$\n   - Motion condition: Constant velocity ($v = \\text{constant}$)\n   - Acceleration due to gravity: $g = 10\\text{ m/s}^2$\n\n2. **Equilibrium Condition in Dynamic State**:\n   Since the block moves with uniform (constant) velocity, its acceleration is zero ($a = 0$).\n   According to Newton's first law, the net horizontal force must vanish:\n   $$F_{\\text{net}} = F - f_k = 0 \\implies F = f_k$$\n\n3. **Calculation of Kinetic Friction Coefficient $\\mu_k$**:\n   The kinetic friction is given by $f_k = \\mu_k N$, where normal force is $N = mg = 10 \\times 10 = 100\\text{ N}$.\n   $$\\mu_k = \\frac{F}{mg} = \\frac{20\\text{ N}}{100\\text{ N}} = 0.2$$\n\n4. **Conclusion**:\n   The coefficient of kinetic friction is $0.2$, verifying Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 1), Q#12",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3093",
+    "originalId": "PW_PHY_NLM_013",
+    "number": 3093,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Normal Force Reduction & Sliding Inception",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 50.78,
+    "text": "In the figure shown, horizontal force F1 is applied on a block but the block does not slide. Then as the magnitude of vertical upward force F2 is increased from zero the block begins to slide. The correct statement is",
+    "options": [
+      {
+        "id": "A",
+        "text": "Coefficient of friction decreases"
+      },
+      {
+        "id": "B",
+        "text": "Normal force increases"
+      },
+      {
+        "id": "C",
+        "text": "Maximum value of static frictional force decreases"
+      },
+      {
+        "id": "D",
+        "text": "Horizontal force F1 increases automatically"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Normal Force Reduction & Sliding Inception\n\n**Step-by-Step Conceptual & Mathematical Derivation**:\n1. **Vertical Force Balance**:\n   A block of mass $m$ rests on a rough horizontal surface under an applied horizontal force $F_1$ and an upward vertical force $F_2$.\n   Balancing vertical forces:\n   $$N + F_2 = mg \\implies N = mg - F_2$$\n\n2. **Limiting Static Friction**:\n   The maximum static friction that the floor can supply to prevent sliding is:\n   $$f_{\\max} = \\mu_s N = \\mu_s(mg - F_2)$$\n\n3. **Physical Analysis of the Transition**:\n   - Initially, when $F_2 = 0$, $f_{\\max} = \\mu_s mg > F_1$, so the block remains stationary.\n   - As the upward vertical force $F_2$ is increased from zero, the normal contact force $N$ decreases.\n   - As a consequence of the reduction in normal force, the **maximum value of static frictional force ($f_{\\max}$) decreases**.\n   - Once $F_2$ reaches a value where $f_{\\max}$ drops below $F_1$, the applied horizontal force overcomes limiting friction, and the block begins to slide.\n\n4. **Conclusion**:\n   The correct statement is that the maximum value of static frictional force decreases, confirming Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 1), Q#13",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3094",
+    "originalId": "PW_PHY_NLM_014",
+    "number": 3094,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Block on Accelerating Trolley",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 55.9,
+    "text": "A block of mass 15 kg is placed on a long trolley. The coefficient of friction between the block and trolley is 0.18. The trolley accelerates from rest with 0.5 m/s$^2$ for 20 s. Then what is the friction force acting on the block? [Take $g = 10\\text{ m/s}^2$]",
+    "options": [
+      {
+        "id": "A",
+        "text": "27 N"
+      },
+      {
+        "id": "B",
+        "text": "15 N"
+      },
+      {
+        "id": "C",
+        "text": "7.5 N"
+      },
+      {
+        "id": "D",
+        "text": "3.75 N"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Block on Accelerating Trolley\n\n**Step-by-Step Mathematical Derivation**:\n1. **Given Parameters**:\n   - Mass of block: $m = 15\\text{ kg}$\n   - Coefficient of friction: $\\mu = 0.18$\n   - Acceleration of trolley: $a = 0.5\\text{ m/s}^2$\n   - Duration: $t = 20\\text{ s}$\n   - Gravity: $g = 10\\text{ m/s}^2$\n\n2. **Maximum Available Limiting Friction**:\n   The normal reaction on the block is $N = mg = 15 \\times 10 = 150\\text{ N}$.\n   The maximum static friction force available at the interface is:\n   $$f_L = \\mu N = 0.18 \\times 150 = 27\\text{ N}$$\n\n3. **Required Accelerating Force**:\n   In order for the block to accelerate along with the trolley without slipping, the horizontal force required is:\n   $$F_{\\text{req}} = ma = (15\\text{ kg})(0.5\\text{ m/s}^2) = 7.5\\text{ N}$$\n\n4. **Determination of Actual Friction Force**:\n   Comparing the required force with the limiting friction threshold:\n   $$F_{\\text{req}} = 7.5\\text{ N} < f_L = 27\\text{ N}$$\n   Because the required accelerating force is well below the limiting static friction, no slipping occurs between the block and the trolley.\n   Static friction adjusts itself to provide precisely the required force to accelerate the block:\n   $$f = F_{\\text{req}} = 7.5\\text{ N}$$\n\n5. **Conclusion**:\n   The friction force acting on the block is $7.5\\text{ N}$, confirming Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 1), Q#14",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3095",
+    "originalId": "PW_PHY_NLM_015",
+    "number": 3095,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Apparent Weight in Accelerating Lift",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 69.7,
+    "text": "A man of mass 60 kg is riding in a lift. The weights of the man, when the lift is accelerating upwards and downwards at 2 m/s$^2$ are respectively ($g = 10\\text{ m/s}^2$):",
+    "options": [
+      {
+        "id": "A",
+        "text": "720 N and 480 N"
+      },
+      {
+        "id": "B",
+        "text": "480 N and 720 N"
+      },
+      {
+        "id": "C",
+        "text": "600 N and 600 N"
+      },
+      {
+        "id": "D",
+        "text": "720 N and 600 N"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Apparent Weight in Accelerating Lift\n\n**Step-by-Step Mathematical Derivation**:\n1. **Given Parameters**:\n   - Mass of the man: $m = 60\\text{ kg}$\n   - Magnitude of lift acceleration: $a = 2\\text{ m/s}^2$\n   - Acceleration due to gravity: $g = 10\\text{ m/s}^2$\n\n2. **Case I: Lift Accelerating Upwards ($a = +2\\text{ m/s}^2$)**:\n   In an upward accelerating frame, the pseudo force acts vertically downward: $F_p = ma$.\n   The apparent weight (normal force recorded by scale) is:\n   $$W_1 = m(g + a) = 60(10 + 2) = 60 \\times 12 = 720\\text{ N}$$\n\n3. **Case II: Lift Accelerating Downwards ($a = -2\\text{ m/s}^2$)**:\n   In a downward accelerating frame, the pseudo force acts vertically upward: $F_p = ma$.\n   The apparent weight is:\n   $$W_2 = m(g - a) = 60(10 - 2) = 60 \\times 8 = 480\\text{ N}$$\n\n4. **Conclusion**:\n   The weights are $720\\text{ N}$ and $480\\text{ N}$ respectively, confirming Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 1), Q#15",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3096",
+    "originalId": "PW_PHY_NLM_016",
+    "number": 3096,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Impulse-Momentum Theorem & Contact Time",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 33.47,
+    "text": "A ball of mass 50 g is dropped from a height of 20 m. A boy on the ground hits the ball vertically upwards with a bat with an average force of 200 N, so that it attains a vertical height of 45 m. The time for which the ball remains in contact with the bat is [Take $g = 10\\text{ m/s}^2$]",
+    "options": [
+      {
+        "id": "A",
+        "text": "1/20th of a second"
+      },
+      {
+        "id": "B",
+        "text": "1/40th of a second"
+      },
+      {
+        "id": "C",
+        "text": "1/80th of a second"
+      },
+      {
+        "id": "D",
+        "text": "1/100th of a second"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Impulse-Momentum Theorem & Contact Time\n\n**Step-by-Step Mathematical Derivation**:\n1. **Given Parameters**:\n   - Mass of ball: $m = 50\\text{ g} = 0.05\\text{ kg}$\n   - Drop height: $h_1 = 20\\text{ m}$\n   - Attained rebound height: $h_2 = 45\\text{ m}$\n   - Average hitting force: $F = 200\\text{ N}$\n   - Gravity: $g = 10\\text{ m/s}^2$\n\n2. **Velocities Just Before and After Impact**:\n   - Velocity just before impact (falling freely from $h_1$ under gravity, directed downwards):\n     $$v_1 = -\\sqrt{2gh_1} = -\\sqrt{2 \\times 10 \\times 20} = -\\sqrt{400} = -20\\text{ m/s}$$\n   - Velocity just after impact (attaining height $h_2$, directed upwards):\n     $$v_2 = +\\sqrt{2gh_2} = +\\sqrt{2 \\times 10 \\times 45} = +\\sqrt{900} = +30\\text{ m/s}$$\n\n3. **Change in Linear Momentum (Impulse)**:\n   $$\\Delta p = m(v_2 - v_1) = 0.05\\,[30 - (-20)] = 0.05 \\times 50 = 2.5\\text{ N s}$$\n\n4. **Calculation of Contact Time**:\n   By the impulse-momentum theorem ($J = F_{\\text{avg}} \\Delta t = \\Delta p$):\n   $$\\Delta t = \\frac{\\Delta p}{F} = \\frac{2.5\\text{ N s}}{200\\text{ N}} = \\frac{25}{2000} = \\frac{1}{80}\\text{ s}$$\n\n5. **Conclusion**:\n   The ball remains in contact with the bat for $1/80\\text{th of a second}$, confirming Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 1), Q#16",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3097",
+    "originalId": "PW_PHY_NLM_017",
+    "number": 3097,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Pulley Constraint Relations",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 24.0,
+    "text": "In the pulley-block system shown in figure, strings and pulleys are light and ideal. Select the correct alternative(s):",
+    "options": [
+      {
+        "id": "A",
+        "text": "Acceleration of block A is related to block B by constraint equation"
+      },
+      {
+        "id": "B",
+        "text": "Tension in string connecting block B is half the tension supporting block A"
+      },
+      {
+        "id": "C",
+        "text": "Displacement of A is half that of B"
+      },
+      {
+        "id": "D",
+        "text": "All of the above are correct"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Pulley Constraint Relations\n\n**Step-by-Step Mathematical & Physical Analysis**:\n1. **System Kinematics & Length Constraint**:\n   Consider a standard movable pulley supporting block A with the free end of the string connected to block B passing over a fixed overhead pulley.\n   Let $x_A$ and $x_B$ be the downward vertical displacements of block A and block B from the fixed overhead ceiling.\n   The total length of the inextensible string is:\n   $$L = 2x_A + x_B + \\text{constant}$$\n   Differentiating twice with respect to time $t$:\n   $$2\\ddot{x}_A + \\ddot{x}_B = 0 \\implies 2a_A + a_B = 0 \\implies |a_B| = 2|a_A|$$\n   Thus:\n   - The acceleration of block A is directly related to block B by the kinematic string constraint relation (**Statement A is correct**).\n   - The displacement of block A is half that of block B: $\\Delta x_A = \\frac{1}{2}\\Delta x_B$ (**Statement D is correct**).\n\n2. **Tension and Mechanical Advantage**:\n   - For an ideal massless movable pulley supporting block A, the upward force exerted by the two string segments ($2T$) balances the downward string tension supporting block A ($T_A$):\n     $$T_A = 2T_B \\implies T_B = \\frac{1}{2}T_A$$\n     Thus, the tension in the string connecting block B is half the tension supporting block A (**Statement B is correct**).\n   - Mechanical Advantage ($\\text{MA}$) is defined as the ratio of load supported to effort applied:\n     $$\\text{MA} = \\frac{T_A}{T_B} = \\frac{2T}{T} = 2$$\n     Thus, the mechanical advantage of the movable pulley is 2 (**Statement C is correct**).\n\n3. **Conclusion**:\n   Since statements A, B, and C are all scientifically verified true properties of the ideal pulley-block system, Option **(D)** ('All of the above are correct') is the complete and correct answer.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 1), Q#17",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3098",
+    "originalId": "PW_PHY_NLM_018",
+    "number": 3098,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Inertia & Uniform Straight Motion",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 70.75,
+    "text": "A particle is moving with a constant speed along a straight line path. A force is not required to:",
+    "options": [
+      {
+        "id": "A",
+        "text": "increase its speed"
+      },
+      {
+        "id": "B",
+        "text": "decrease its momentum"
+      },
+      {
+        "id": "C",
+        "text": "change the direction of motion"
+      },
+      {
+        "id": "D",
+        "text": "keep it moving with uniform velocity"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Inertia & Uniform Straight Motion\n\n**Step-by-Step Conceptual Analysis**:\n1. **Newton's First Law of Motion (Law of Inertia)**:\n   Every body perseveres in its state of being at rest or of moving uniformly forward in a straight line, except insofar as it is compelled to change its state by forces impressed upon it.\n\n2. **Evaluation of Options**:\n   - **Increasing speed**: Requires a tangential component of acceleration ($a_t > 0$), which requires a net force parallel to velocity ($F_t = m a_t \\ne 0$).\n   - **Decreasing momentum**: Requires a net retarding force opposing motion ($F = \\frac{dp}{dt} < 0$).\n   - **Changing the direction of motion**: Requires a normal/centripetal component of acceleration ($a_n = \\frac{v^2}{R} \\ne 0$), which requires a transverse force ($F_n = m a_n \\ne 0$).\n   - **Keeping it moving with uniform velocity**: Uniform velocity in a straight line means constant speed and fixed direction, implying acceleration $\\vec{a} = \\frac{d\\vec{v}}{dt} = \\vec{0}$. By Newton's second law, $\\vec{F}_{\\text{net}} = m\\vec{a} = \\vec{0}$. Therefore, **no force is required** to maintain uniform straight-line velocity.\n\n3. **Conclusion**:\n   A force is not required to keep it moving with uniform velocity, verifying Option **(D)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 1), Q#18",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3099",
+    "originalId": "PW_PHY_NLM_019",
+    "number": 3099,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Conservation of Momentum & Newton's Laws",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 45.1,
+    "text": "Choose the correct statement(s) from the following: I. Recoiling of a gun is an application of principle of conservation of linear momentum. II. Explosion of a bomb in mid-air conserves total linear momentum because net external force is zero.",
+    "options": [
+      {
+        "id": "A",
+        "text": "Only I"
+      },
+      {
+        "id": "B",
+        "text": "Only II"
+      },
+      {
+        "id": "C",
+        "text": "Both I and II"
+      },
+      {
+        "id": "D",
+        "text": "Neither I nor II"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Conservation of Momentum & Newton's Laws\n\n**Step-by-Step Conceptual Analysis**:\n1. **Analysis of Statement I (Recoiling of a Gun)**:\n   - Consider the system of gun + bullet. Before firing, the system is at rest: $\\vec{P}_{\\text{initial}} = 0$.\n   - When fired, the burning gunpowder exerts internal forces between the gun and the bullet.\n   - Since no external horizontal force acts on the system:\n     $$\\vec{P}_{\\text{initial}} = \\vec{P}_{\\text{final}} \\implies m_{\\text{bullet}}\\vec{v}_{\\text{bullet}} + M_{\\text{gun}}\\vec{v}_{\\text{recoil}} = 0$$\n     $$\\vec{v}_{\\text{recoil}} = -\\frac{m_{\\text{bullet}}}{M_{\\text{gun}}}\\vec{v}_{\\text{bullet}}$$\n   - Thus, recoil is a direct and standard application of linear momentum conservation $\\implies$ **Statement I is correct**.\n\n2. **Analysis of Statement II (Explosion of a Bomb in Mid-Air)**:\n   - The explosion is driven by internal chemical blast forces that are enormous compared to gravity ($F_{\\text{internal}} \\gg mg$).\n   - Over the infinitesimal explosion duration $\\Delta t \\to 0$, the impulse of gravity is negligible ($\\int mg\\,dt \\approx 0$).\n   - Therefore, the total linear momentum of all fragments immediately after explosion equals the momentum of the intact projectile immediately before explosion:\n     $$\\vec{P}_{\\text{total, before}} = \\vec{P}_{\\text{total, after}}$$\n   - Consequently, the motion of the center of mass continues along its original parabolic path $\\implies$ **Statement II is correct**.\n\n3. **Conclusion**:\n   Both statements I and II are physically correct, verifying Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 1), Q#19",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3100",
+    "originalId": "PW_PHY_NLM_020",
+    "number": 3100,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Self-Adjusting Friction Force",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 65.91,
+    "text": "Which of the following is a self-adjusting force?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Static friction"
+      },
+      {
+        "id": "B",
+        "text": "Kinetic friction"
+      },
+      {
+        "id": "C",
+        "text": "Limiting friction"
+      },
+      {
+        "id": "D",
+        "text": "Rolling friction"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Self-Adjusting Friction Force\n\n**Step-by-Step Conceptual Analysis**:\n1. **Nature of Static Friction**:\n   Static friction is an electro-mechanical reaction force between micro-roughness asperities of two surfaces in contact that opposes the impending relative motion.\n   If an applied tangential force $F$ is exerted on a stationary block:\n   - When $F = 0$, the static friction force is $f_s = 0$.\n   - As $F$ increases, $f_s$ automatically increases in lockstep such that $f_s = F$, ensuring the block remains in static equilibrium.\n   - It adjusts its magnitude continuously from zero up to the limiting threshold: $0 \\le f_s \\le f_L = \\mu_s N$.\n   - It also automatically adjusts its direction to be exactly opposite to the impending direction of slipping.\n   Therefore, **static friction is a self-adjusting force**.\n\n2. **Contrast with Other Frictional Forces**:\n   - **Kinetic friction**: Has a constant magnitude $f_k = \\mu_k N$ once sliding begins, independent of applied force.\n   - **Limiting friction**: Represents a single fixed maximum boundary value $f_L = \\mu_s N$.\n   - **Rolling friction**: Has a fixed characteristic resistive value $f_r = \\mu_r N / R$.\n\n3. **Conclusion**:\n   Static friction is the self-adjusting force, confirming Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 1), Q#20",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
   }
 ]

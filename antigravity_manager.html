@@ -830,7 +830,7 @@
       max-height: 85vh;
       overflow-y: auto;
       padding: 24px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
       display: flex;
       flex-direction: column;
       gap: 16px;
@@ -1598,7 +1598,7 @@
       const cx = BRAIN_COORDINATES.backbone.x;
       const cy = BRAIN_COORDINATES.backbone.y;
 
-      // Draw Synaptic Bezier Pathways and Animated Traveling Particle Orbs
+      // Draw Synaptic Bezier Pathways and Interactive Traveling Neural Orbs
       Object.keys(BRAIN_COORDINATES).forEach(key => {
         if (key === 'backbone') return;
         const coord = BRAIN_COORDINATES[key];
@@ -1621,18 +1621,48 @@
         pathEl.setAttribute('class', 'pulse-vector');
         vectorsGroup.appendChild(pathEl);
 
-        // Moving Message Particle Orb Traveling Between Synapse
-        const particle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-        particle.setAttribute('r', isHeavy ? '4.5' : '3.5');
-        particle.setAttribute('fill', profile.color);
-        particle.setAttribute('opacity', '0.9');
+        // Interactive Neural Message Orb Traveling Along Synaptic Pathway
+        const orbGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+        orbGroup.setAttribute('class', 'neural-orb');
+        orbGroup.style.cursor = 'pointer';
+
+        const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        circle.setAttribute('class', 'pulse-orb');
+        circle.setAttribute('r', isHeavy ? '6' : '5');
+        circle.setAttribute('fill', profile.color);
+        circle.setAttribute('stroke', '#ffffff');
+        circle.setAttribute('stroke-width', '1.2');
+        circle.setAttribute('opacity', '0.95');
 
         const anim = document.createElementNS('http://www.w3.org/2000/svg', 'animateMotion');
         anim.setAttribute('dur', isHeavy ? '1.8s' : (isActive ? '2.8s' : '4.5s'));
         anim.setAttribute('repeatCount', 'indefinite');
         anim.setAttribute('path', pathD);
-        particle.appendChild(anim);
-        vectorsGroup.appendChild(particle);
+        circle.appendChild(anim);
+        orbGroup.appendChild(circle);
+
+        const orbMeta = {
+          senderKey: key,
+          senderTitle: profile.title,
+          senderAvatar: profile.avatar,
+          senderColor: profile.color,
+          receiverKey: 'backbone',
+          receiverTitle: 'Backbone (Chitti)',
+          receiverAvatar: '⚡',
+          type: isHeavy ? 'P0 CRITICAL HANDOFF' : (isActive ? 'STEP TELEMETRY SYNC' : 'HEARTBEAT PING'),
+          excerpt: nodeData.latest_output || `Active neural pulse: ${profile.title} transmitting telemetry to Central Orchestrator.`,
+          timestamp: nodeData.last_active || new Date().toISOString()
+        };
+
+        orbGroup.onmouseenter = (e) => showOrbHud(e, orbMeta);
+        orbGroup.onmousemove = (e) => updateOrbHudPos(e);
+        orbGroup.onmouseleave = () => hideOrbHud();
+        orbGroup.onclick = (e) => {
+          showOrbHud(e, orbMeta);
+          setTimeout(() => showNodeDetailModal(key), 300);
+        };
+
+        vectorsGroup.appendChild(orbGroup);
       });
 
       // Render Jitter-Free Brain Nodes
@@ -1653,7 +1683,6 @@
 
         if (isBackbone) {
           nodeGroup.innerHTML = `
-            <!-- Dedicated Hitbox (Zero Coordinate Jitter) -->
             <circle cx="${coord.x}" cy="${coord.y}" r="${coord.hit_r}" fill="transparent" pointer-events="all" />
             <circle cx="${coord.x}" cy="${coord.y}" r="${coord.r + 8}" fill="none" stroke="#00f0ff" stroke-width="1.2" opacity="0.3" class="packet-pulse" />
             <circle cx="${coord.x}" cy="${coord.y}" r="${coord.r}" fill="#060c18" stroke="#00f0ff" stroke-width="2.5" class="node-circle" />
@@ -1663,7 +1692,6 @@
           `;
         } else {
           nodeGroup.innerHTML = `
-            <!-- Dedicated Hitbox (Zero Coordinate Jitter) -->
             <circle cx="${coord.x}" cy="${coord.y}" r="${coord.hit_r}" fill="transparent" pointer-events="all" />
             <circle cx="${coord.x}" cy="${coord.y}" r="${coord.r + 5}" fill="none" stroke="${profile.color}" stroke-width="1" opacity="${isActive ? '0.35' : '0.1'}" class="${isActive ? 'packet-pulse' : ''}" />
             <circle cx="${coord.x}" cy="${coord.y}" r="${coord.r}" fill="#0b0f19" stroke="${profile.color}" stroke-width="${isHeavy ? 2.5 : 1.8}" class="node-circle" />
@@ -1678,14 +1706,61 @@
     }
 
     // --------------------------------------------------------------------------
-    // 3B. Trello Kanban Board Dynamic Renderer
+    // Floating Neural Message Orb HUD Overlay
+    // --------------------------------------------------------------------------
+
+    function showOrbHud(e, meta) {
+      const hud = document.getElementById('neural-orb-hud');
+      if (!hud) return;
+
+      hud.innerHTML = `
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
+          <span style="font-family: var(--font-mono); font-size: 9px; font-weight: 700; color: ${meta.senderColor}; background: rgba(255,255,255,0.06); padding: 2px 6px; border-radius: 4px; border: 1px solid ${meta.senderColor}44;">
+            ${meta.type}
+          </span>
+          <span class="mono tabular-nums" style="font-size: 9px; color: var(--text-muted);">
+            ${new Date(meta.timestamp).toLocaleTimeString()}
+          </span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+          <span style="font-size: 14px;">${meta.senderAvatar}</span>
+          <span style="font-size: 12px; font-weight: 600; color: #ffffff;">${meta.senderTitle.split(' ')[0]}</span>
+          <span style="color: var(--node-backbone); font-size: 10px;">➔</span>
+          <span style="font-size: 14px;">${meta.receiverAvatar}</span>
+          <span style="font-size: 12px; font-weight: 600; color: #ffffff;">CHITTI</span>
+        </div>
+        <div style="font-size: 11px; color: #cbd5e1; background: rgba(0,0,0,0.4); padding: 6px 8px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.08); line-height: 1.4;">
+          ${escapeHtml(meta.excerpt.slice(0, 140))}${meta.excerpt.length > 140 ? '...' : ''}
+        </div>
+      `;
+
+      hud.style.display = 'block';
+      updateOrbHudPos(e);
+    }
+
+    function updateOrbHudPos(e) {
+      const hud = document.getElementById('neural-orb-hud');
+      if (!hud) return;
+      const x = e.clientX + 16;
+      const y = e.clientY + 16;
+      hud.style.left = `${Math.min(x, window.innerWidth - 340)}px`;
+      hud.style.top = `${Math.min(y, window.innerHeight - 170)}px`;
+    }
+
+    function hideOrbHud() {
+      const hud = document.getElementById('neural-orb-hud');
+      if (hud) hud.style.display = 'none';
+    }
+
+    // --------------------------------------------------------------------------
+    // 3B. Trello Kanban Board Live Sync & Modal Preview
     // --------------------------------------------------------------------------
 
     function renderTrelloKanban() {
       const container = document.getElementById('trello-columns-container');
-      if (!container || !currentMeshState || !currentMeshState.planner) return;
+      if (!container || !currentMeshState) return;
 
-      const kanbanData = currentMeshState.planner.kanban;
+      const kanbanData = currentMeshState.trello_kanban || (currentMeshState.planner && currentMeshState.planner.kanban);
       const lists = (kanbanData && kanbanData.lists) ? kanbanData.lists : [];
 
       const syncEl = document.getElementById('trello-sync-time');
@@ -1713,16 +1788,15 @@
         const cardCount = cards.length;
 
         const cardsMarkup = cards.map(c => {
-          // Label badges
           const labelBadges = (c.labels || []).map(lbl => {
             let tagClass = 'tag-generic';
-            if (lbl.toUpperCase() === 'P0' || lbl.toUpperCase() === 'CRITICAL') tagClass = 'tag-p0';
-            else if (lbl.toUpperCase() === 'P1') tagClass = 'tag-p1';
-            else if (lbl.toUpperCase() === 'P2') tagClass = 'tag-p2';
-            return `<span class="trello-tag ${tagClass}">${lbl}</span>`;
+            const upper = lbl.toUpperCase();
+            if (upper === 'P0' || upper === 'CRITICAL') tagClass = 'tag-p0';
+            else if (upper === 'P1') tagClass = 'tag-p1';
+            else if (upper === 'P2') tagClass = 'tag-p2';
+            return `<span class="trello-tag ${tagClass}">${escapeHtml(lbl)}</span>`;
           }).join('');
 
-          // Checklist count
           const chk = c.checklist || { completed: 0, total: 0 };
           const isChecklistDone = chk.total > 0 && chk.completed === chk.total;
           const checklistMarkup = chk.total > 0 ? `
@@ -1732,18 +1806,17 @@
             </div>
           ` : '<div></div>';
 
-          // Assigned Avatars
           const avatarMarkup = (c.assigned_nodes || []).map(nKey => {
             const p = NODE_PROFILES[nKey] || { color: '#00f0ff', avatar: '👤' };
             return `<div class="trello-avatar-pill" style="border-color:${p.color};" title="${nKey}">${p.avatar}</div>`;
           }).join('');
 
           return `
-            <div class="trello-card">
+            <div class="trello-card" onclick="openTrelloCardModal('${c.id}')">
               <div class="trello-card-labels">
                 ${labelBadges}
               </div>
-              <div class="trello-card-title">${c.title}</div>
+              <div class="trello-card-title">${escapeHtml(c.title)}</div>
               <div class="trello-card-footer">
                 ${checklistMarkup}
                 <div class="trello-avatars">
@@ -1758,7 +1831,7 @@
           <div class="trello-col" id="${col.id}">
             <div class="trello-col-header">
               <div class="trello-col-title">
-                <span>${col.name}</span>
+                <span>${escapeHtml(col.name)}</span>
               </div>
               <span class="trello-col-count tabular-nums">${cardCount}</span>
             </div>
@@ -1768,6 +1841,77 @@
           </div>
         `;
       }).join('');
+    }
+
+    function openTrelloCardModal(cardId) {
+      if (!currentMeshState) return;
+      const kanbanData = currentMeshState.trello_kanban || (currentMeshState.planner && currentMeshState.planner.kanban);
+      if (!kanbanData || !kanbanData.lists) return;
+
+      let foundCard = null;
+      for (const col of kanbanData.lists) {
+        const c = (col.cards || []).find(card => card.id === cardId);
+        if (c) {
+          foundCard = c;
+          break;
+        }
+      }
+      if (!foundCard) return;
+
+      const backdrop = document.getElementById('trello-modal-backdrop');
+      const titleEl = document.getElementById('trello-modal-title');
+      const labelsEl = document.getElementById('trello-modal-labels');
+      const assignedEl = document.getElementById('trello-modal-assigned');
+      const dueEl = document.getElementById('trello-modal-due');
+      const countEl = document.getElementById('trello-modal-checklist-count');
+      const itemsEl = document.getElementById('trello-modal-checklist-items');
+
+      if (titleEl) titleEl.innerText = foundCard.title;
+      if (dueEl) dueEl.innerText = foundCard.due_date || 'Sprint Cadence';
+
+      if (labelsEl) {
+        labelsEl.innerHTML = (foundCard.labels || []).map(lbl => {
+          let tagClass = 'tag-generic';
+          const upper = lbl.toUpperCase();
+          if (upper === 'P0' || upper === 'CRITICAL') tagClass = 'tag-p0';
+          else if (upper === 'P1') tagClass = 'tag-p1';
+          else if (upper === 'P2') tagClass = 'tag-p2';
+          return `<span class="trello-tag ${tagClass}">${escapeHtml(lbl)}</span>`;
+        }).join('');
+      }
+
+      if (assignedEl) {
+        assignedEl.innerHTML = (foundCard.assigned_nodes || []).map(nKey => {
+          const p = NODE_PROFILES[nKey] || { color: '#00f0ff', avatar: '👤', title: nKey };
+          return `<span style="color: ${p.color};">${p.avatar} ${p.title}</span>`;
+        }).join(', ') || 'Unassigned';
+      }
+
+      const chk = foundCard.checklist || { total: 0, completed: 0, items: [] };
+      if (countEl) countEl.innerText = `${chk.completed} of ${chk.total} items completed`;
+
+      if (itemsEl) {
+        if (!chk.items || chk.items.length === 0) {
+          itemsEl.innerHTML = `<div style="font-size: 11px; color: var(--text-muted);">No checklist items in card.</div>`;
+        } else {
+          itemsEl.innerHTML = chk.items.map(item => `
+            <div style="display: flex; align-items: center; gap: 8px; font-size: 12px; color: ${item.done ? '#10b981' : '#f1f5f9'}; background: rgba(255,255,255,0.02); padding: 8px 10px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+              <span>${item.done ? '☑' : '☐'}</span>
+              <span style="${item.done ? 'text-decoration: line-through; opacity: 0.8;' : ''}">${escapeHtml(item.text)}</span>
+            </div>
+          `).join('');
+        }
+      }
+
+      if (backdrop) backdrop.classList.add('open');
+    }
+
+    function closeTrelloCardModal(event) {
+      if (event && event.target !== document.getElementById('trello-modal-backdrop') && !event.target.classList.contains('trello-modal-backdrop')) {
+        return;
+      }
+      const backdrop = document.getElementById('trello-modal-backdrop');
+      if (backdrop) backdrop.classList.remove('open');
     }
 
     // --------------------------------------------------------------------------
@@ -1786,16 +1930,26 @@
               <span class="swarm-lane-id">${sw.id}</span>
               <span class="swarm-lane-status ${isStandby ? 'status-standby' : 'status-active'}">${sw.status}</span>
             </div>
-            <div style="font-size: 13px; font-weight: 600; color: #f8fafc;">${sw.lane}</div>
-            <div style="font-size: 11px; color: var(--text-muted); font-family: var(--font-mono);">${sw.ownership}</div>
+            <div style="font-size: 13px; font-weight: 600; color: #f8fafc;">${escapeHtml(sw.lane)}</div>
+            <div style="font-size: 11px; color: var(--text-muted); font-family: var(--font-mono);">${escapeHtml(sw.ownership)}</div>
           </div>
         `;
       }).join('');
     }
 
     // --------------------------------------------------------------------------
-    // 5. Page 2: Conversation Logs Inspector & Real-Time Filtering
+    // 5. Page 2: Conversation Logs Inspector (50-Step Historical Logs Accordion)
     // --------------------------------------------------------------------------
+
+    function getActionBadgeClass(actionStr) {
+      if (!actionStr) return 'action-default';
+      const a = actionStr.toUpperCase();
+      if (a.includes('TOOL')) return 'action-tool';
+      if (a.includes('OUTBOUND')) return 'action-outbound';
+      if (a.includes('INBOUND')) return 'action-inbound';
+      if (a.includes('SYSTEM')) return 'action-system';
+      return 'action-default';
+    }
 
     function renderConversationLogs() {
       const container = document.getElementById('logs-cards-container');
@@ -1803,6 +1957,46 @@
 
       container.innerHTML = Object.entries(currentMeshState.nodes).map(([key, node]) => {
         const prof = NODE_PROFILES[key] || { color: '#38bdf8', avatar: '🤖', title: node.name };
+        const logs = node.logs_50 || [];
+        const stepCount = logs.length || node.step_count || 1;
+
+        // Step #50: Featured Most Recent Step (Expanded by Default)
+        const latestStep = logs.length > 0 ? logs[logs.length - 1] : {
+          step_number: stepCount,
+          timestamp: node.last_active || new Date().toISOString(),
+          action: 'OUTBOUND: RESPONSE',
+          status: 'DONE',
+          summary: node.latest_output || 'Task execution complete.',
+          payload: node
+        };
+
+        // Steps #1 through #49: Historical Collapsed Accordion
+        const historicalSteps = logs.length > 1 ? logs.slice(0, logs.length - 1) : [];
+
+        const historicalStepsMarkup = historicalSteps.map(s => {
+          return `
+            <div class="step-accordion-item" id="step-item-${key}-${s.step_number}">
+              <div class="step-accordion-header" onclick="toggleSubStep('${key}', ${s.step_number}, event)">
+                <div style="display: flex; align-items: center; gap: 8px; flex: 1; overflow: hidden;">
+                  <span class="mono tabular-nums" style="font-size: 10px; font-weight: 700; color: var(--text-secondary);">#${s.step_number}</span>
+                  <span class="step-action-tag ${getActionBadgeClass(s.action)}">${escapeHtml(s.action)}</span>
+                  <span class="step-summary-truncate">${escapeHtml(s.summary || '')}</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px; flex-shrink: 0;">
+                  <span class="mono tabular-nums" style="font-size: 10px; color: var(--text-muted);">${new Date(s.timestamp).toLocaleTimeString()}</span>
+                  <span class="mono log-arrow-icon" style="font-size: 10px;">▼</span>
+                </div>
+              </div>
+              <div class="step-accordion-body" id="step-body-${key}-${s.step_number}">
+                <div style="font-size: 12px; color: #f1f5f9; padding: 8px; background: rgba(255,255,255,0.02); border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); margin-bottom: 8px; line-height: 1.4;">
+                  ${escapeHtml(s.summary || '')}
+                </div>
+                <pre class="payload-json" style="max-height: 140px;">${escapeHtml(JSON.stringify(s.payload || {}, null, 2))}</pre>
+              </div>
+            </div>
+          `;
+        }).reverse().join('');
+
         return `
           <div class="node-log-card" data-key="${key}" data-title="${node.name}" data-role="${node.role}" data-output="${node.latest_output}" data-convid="${node.conversation_id || ''}">
             <div class="node-log-header" style="border-left-color: ${prof.color};" onclick="toggleLogCard('${key}')">
@@ -1816,22 +2010,53 @@
               <div style="display: flex; align-items: center; gap: 10px;">
                 <span class="node-pill" style="color: ${prof.color};">${node.status}</span>
                 <span class="mono tabular-nums" style="font-size: 11px; color: var(--text-muted);">${node.load}% Load</span>
+                <span class="mono tabular-nums" style="font-size: 11px; color: var(--node-backbone); font-weight: 700;">${stepCount} Steps</span>
                 <span class="mono log-arrow-icon" style="font-size: 12px; color: var(--text-muted);">▼</span>
               </div>
             </div>
 
             <div class="node-log-body" id="log-body-${key}">
-              <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+              <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 8px;">
                 <span class="mono" style="font-size: 10px; color: var(--text-muted);">CONVERSATION ID: ${node.conversation_id || 'N/A'}</span>
-                <span class="mono tabular-nums" style="font-size: 10px; color: var(--text-muted);">ACTIVE: ${new Date(node.last_active).toLocaleTimeString()}</span>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <button onclick="toggleNodeHistory('${key}', event)" class="nav-tab" style="padding: 4px 10px; font-size: 10px; cursor: pointer; border-radius: var(--radius-sm);" id="btn-toggle-hist-${key}">
+                    📜 Expand History (1–${Math.max(1, stepCount - 1)})
+                  </button>
+                  <button onclick="copyNodePayload('${key}', event)" class="nav-tab" style="padding: 4px 10px; font-size: 10px; cursor: pointer; border-radius: var(--radius-sm);">
+                    📋 Copy Node JSON
+                  </button>
+                </div>
               </div>
-              <div style="font-size: 13px; color: #f8fafc; background: rgba(255,255,255,0.03); padding: 10px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); line-height: 1.5;">
-                <strong style="color: var(--node-backbone);">Latest Task Output:</strong> ${node.latest_output}
+
+              <!-- Step #50: Featured Most Recent Step (Expanded by Default) -->
+              <div style="background: rgba(17, 24, 39, 0.7); border: 1px solid var(--border-elevated); border-radius: var(--radius-md); padding: 12px; display: flex; flex-direction: column; gap: 8px;">
+                <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px;">
+                  <div style="display: flex; align-items: center; gap: 6px;">
+                    <span class="mono tabular-nums" style="font-size: 10px; font-weight: 700; color: var(--node-backbone); background: rgba(0, 240, 255, 0.12); padding: 2px 6px; border-radius: 4px; border: 1px solid rgba(0, 240, 255, 0.3);">
+                      STEP #${latestStep.step_number} [LATEST ACTIVE]
+                    </span>
+                    <span class="step-action-tag ${getActionBadgeClass(latestStep.action)}">${latestStep.action}</span>
+                  </div>
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <span class="mono tabular-nums" style="font-size: 10px; color: var(--text-muted);">${new Date(latestStep.timestamp).toLocaleTimeString()}</span>
+                    <span class="mono" style="font-size: 9px; font-weight: 700; color: #10b981; background: rgba(16, 185, 129, 0.15); padding: 2px 5px; border-radius: 4px;">${latestStep.status}</span>
+                  </div>
+                </div>
+
+                <div style="font-size: 13px; color: #ffffff; background: rgba(0, 0, 0, 0.35); padding: 10px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); line-height: 1.5;">
+                  ${escapeHtml(latestStep.summary || node.latest_output || '')}
+                </div>
+
+                <div class="payload-json" style="max-height: 180px;">${escapeHtml(JSON.stringify(latestStep.payload || {}, null, 2))}</div>
               </div>
-              <div style="display: flex; justify-content: flex-end;">
-                <button onclick="copyNodePayload('${key}', event)" class="nav-tab" style="padding: 4px 10px; font-size: 10px; cursor: pointer; border-radius: var(--radius-sm);">Copy Payload JSON</button>
+
+              <!-- Historical Steps Container (#1 to #49, Collapsed by Default) -->
+              <div id="history-container-${key}" style="display: none; flex-direction: column; gap: 6px; margin-top: 4px;">
+                <div class="mono" style="font-size: 10px; color: var(--text-muted); margin-bottom: 2px;">
+                  HISTORICAL EXECUTION TRAIL (STEPS 1 TO ${Math.max(1, stepCount - 1)}) — CLICK ANY STEP TO INSPECT
+                </div>
+                ${historicalStepsMarkup}
               </div>
-              <div class="payload-json">${JSON.stringify(node, null, 2)}</div>
             </div>
           </div>
         `;
@@ -1849,17 +2074,52 @@
       }
     }
 
+    function toggleSubStep(nodeKey, stepNumber, event) {
+      if (event) event.stopPropagation();
+      const body = document.getElementById(`step-body-${nodeKey}-${stepNumber}`);
+      const item = document.getElementById(`step-item-${nodeKey}-${stepNumber}`);
+      if (body) {
+        body.classList.toggle('open');
+        const arrow = item?.querySelector('.log-arrow-icon');
+        if (arrow) arrow.style.transform = body.classList.contains('open') ? 'rotate(180deg)' : 'none';
+      }
+    }
+
+    function toggleNodeHistory(nodeKey, event) {
+      if (event) event.stopPropagation();
+      const container = document.getElementById(`history-container-${nodeKey}`);
+      const btn = document.getElementById(`btn-toggle-hist-${nodeKey}`);
+      if (container) {
+        const isHidden = container.style.display === 'none';
+        container.style.display = isHidden ? 'flex' : 'none';
+        if (btn) {
+          btn.innerText = isHidden ? '📕 Collapse History' : '📜 Expand History';
+        }
+      }
+    }
+
     function toggleAllLogCards(expand) {
       document.querySelectorAll('.node-log-card').forEach(card => {
         const key = card.getAttribute('data-key');
         const body = document.getElementById(`log-body-${key}`);
+        const histContainer = document.getElementById(`history-container-${key}`);
+        const btn = document.getElementById(`btn-toggle-hist-${key}`);
+
         if (body) {
           if (expand) {
             body.classList.add('open');
             card.classList.add('open-card');
+            if (histContainer) histContainer.style.display = 'flex';
+            if (btn) btn.innerText = '📕 Collapse History';
+            card.querySelectorAll('.step-accordion-body').forEach(sb => sb.classList.add('open'));
+            card.querySelectorAll('.log-arrow-icon').forEach(ar => ar.style.transform = 'rotate(180deg)');
           } else {
             body.classList.remove('open');
             card.classList.remove('open-card');
+            if (histContainer) histContainer.style.display = 'none';
+            if (btn) btn.innerText = '📜 Expand History';
+            card.querySelectorAll('.step-accordion-body').forEach(sb => sb.classList.remove('open'));
+            card.querySelectorAll('.log-arrow-icon').forEach(ar => ar.style.transform = 'none');
           }
         }
       });
@@ -1870,7 +2130,7 @@
       const q = (input?.value || '').trim().toLowerCase();
       let visibleCount = 0;
       const cards = document.querySelectorAll('.node-log-card');
-      
+
       cards.forEach(card => {
         const title = (card.getAttribute('data-title') || '').toLowerCase();
         const role = (card.getAttribute('data-role') || '').toLowerCase();
@@ -1934,7 +2194,7 @@
     }
 
     // --------------------------------------------------------------------------
-    // 6. Page 3: Gravity Chat with LocalStorage Message Persistence
+    // 6. Page 3: Gravity Chat with LocalStorage Message Persistence (15 Channels)
     // --------------------------------------------------------------------------
 
     function getStoredCustomMessages() {
@@ -1952,7 +2212,6 @@
       const stateMsgs = (currentMeshState.chat_messages && currentMeshState.chat_messages[activeChannel]) || [];
       const customMsgs = getStoredCustomMessages().filter(m => !m.channel || m.channel === activeChannel);
 
-      // Merge and deduplicate messages
       const seen = new Set();
       const allMsgs = [];
       [...stateMsgs, ...customMsgs].forEach(m => {
@@ -1967,7 +2226,7 @@
       if (allMsgs.length === 0) {
         container.innerHTML = `
           <div style="text-align: center; padding: 48px 20px; color: var(--text-muted); font-size: 13px;">
-            <span>💬 No transmissions recorded yet in #${activeChannel}. Be the first to broadcast.</span>
+            <span>💬 Channel #${activeChannel} is primed. Transmit the first message below.</span>
           </div>
         `;
         return;
@@ -1982,12 +2241,12 @@
             </div>
             <div class="msg-content-block">
               <div class="msg-meta">
-                <span class="msg-sender" style="color: ${prof.color};">${m.sender}</span>
-                <span class="msg-role-tag" style="background: rgba(255,255,255,0.06); color: var(--text-secondary);">${m.sender_node}</span>
+                <span class="msg-sender" style="color: ${prof.color};">${escapeHtml(m.sender)}</span>
+                <span class="msg-role-tag" style="background: rgba(255,255,255,0.06); color: var(--text-secondary);">${escapeHtml(m.sender_node)}</span>
                 <span class="msg-time mono tabular-nums">${new Date(m.timestamp).toLocaleTimeString()}</span>
               </div>
               <div class="msg-text-bubble">
-                ${m.content}
+                ${escapeHtml(m.content)}
               </div>
             </div>
           </div>
@@ -2032,12 +2291,20 @@
       input.focus();
     }
 
+    function escapeHtml(str) {
+      if (typeof str !== 'string') return '';
+      return str.replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+    }
+
     // --------------------------------------------------------------------------
     // 7. Startup Initialization
     // --------------------------------------------------------------------------
 
     window.addEventListener('DOMContentLoaded', () => {
-      // Restore active channel button state
       const initialBtn = document.getElementById(`chan-${activeChannel}`);
       if (initialBtn) {
         document.querySelectorAll('.channel-btn').forEach(b => b.classList.remove('active'));

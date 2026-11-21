@@ -6,7 +6,7 @@ window.renderClockEESidebar = function() {
   const weekday = now.toLocaleDateString("en-US", { weekday: "long" });
   const fullDate = now.toLocaleDateString("en-US", { day: "numeric", month: "short", year: "numeric" });
   const s = window.getState ? window.getState() : {};
-  const year = (s.jeeDate || "2028-05-17").slice(0, 4) || "2028";
+  const year = (s.jeeDate || "2026-05-17").slice(0, 4) || "2026";
   const quotes = [
     "“Consistency is the DNA of IIT-JEE mastery.”",
     "“Hard work beats talent when talent doesn’t work hard.”",

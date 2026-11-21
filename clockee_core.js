@@ -34,7 +34,7 @@ window.handleSupabaseOAuthCallback = function() {
               email: userEmail,
               name: userName,
               pfp: userAvatar,
-              role: "JEE 2028 Aspirant",
+              role: "JEE 2026 Aspirant",
               provider: "google",
               authTime: Date.now()
             };
@@ -87,7 +87,7 @@ window.checkAuthGuard = function() {
         uid: "guest_" + Date.now().toString(36),
         email: "aspirant@clockee.app",
         name: "Aspirant Commander",
-        role: "JEE 2028 Cadet (Guest)",
+        role: "JEE 2026 Cadet (Guest)",
         isGuest: true,
         authTime: Date.now()
       };
@@ -330,7 +330,7 @@ const CLOCKEE_ENV = (typeof window !== "undefined" && window.CLOCKEE_ENV) || {};
 const DEFAULT_STATE = {
   profile: {
     name: "JEE Aspirant",
-    subtitle: "JEE 2028 Workspace",
+    subtitle: "JEE 2026 Workspace",
     pfp: "https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Aspirant",
     accent: "#00f2fe"
   },
@@ -341,7 +341,7 @@ const DEFAULT_STATE = {
     Maths: 30,
     hours: 6.0
   },
-  jeeDate: "2028-05-17",
+  jeeDate: "2026-05-17",
   nextMilestone: {
     date: "2026-11-15",
     title: "Phase Major Test #01 (Physics & Chemistry)"
@@ -483,6 +483,15 @@ window.APP_STATE = (function() {
     console.warn("Storage parse error, using default state", e);
   }
   return { ...DEFAULT_STATE };
+})();
+
+// Reactive Target Cohort Year (Dynamic JEE Year)
+window.CLOCKEE_TARGET_YEAR = (function() {
+  try {
+    const s = window.APP_STATE || DEFAULT_STATE;
+    if (s && s.jeeDate) return s.jeeDate.slice(0, 4);
+  } catch (e) {}
+  return "2026";
 })();
 
 window.saveState = function() {
@@ -821,7 +830,7 @@ window.renderClockEESidebar = function() {
   const weekday = now.toLocaleDateString("en-US", { weekday: "long" });
   const fullDate = now.toLocaleDateString("en-US", { day: "numeric", month: "short", year: "numeric" });
   const s = window.getState ? window.getState() : {};
-  const year = (s.jeeDate || "2028-05-17").slice(0, 4) || "2028";
+  const year = (s.jeeDate || "2026-05-17").slice(0, 4) || "2026";
   const quotes = [
     "“Consistency is the DNA of IIT-JEE mastery.”",
     "“Hard work beats talent when talent doesn’t work hard.”",
@@ -1167,7 +1176,7 @@ window.initSidebar = function() {
   const todayHrs = window.getHoursToday();
 
   document.querySelectorAll("[data-profile-name]").forEach(el => el.textContent = profile.name || "JEE Aspirant");
-  document.querySelectorAll("[data-profile-subtitle]").forEach(el => el.textContent = profile.subtitle || "JEE 2028 Workspace");
+  document.querySelectorAll("[data-profile-subtitle]").forEach(el => el.textContent = profile.subtitle || "JEE 2026 Workspace");
   const activeAvatar = profile.pfp || DEFAULT_STATE.profile.pfp;
   document.querySelectorAll("[data-profile-avatar]").forEach(el => {
     el.src = activeAvatar;
@@ -1186,7 +1195,7 @@ window.initSidebar = function() {
   const fullDateEl = document.getElementById("sidebar-today-full-date");
   if (fullDateEl) fullDateEl.textContent = now.toLocaleDateString("en-US", { day: "numeric", month: "short", year: "numeric" });
 
-  const year = (s.jeeDate || "2028-05-17").slice(0, 4) || "2028";
+  const year = (s.jeeDate || "2026-05-17").slice(0, 4) || "2026";
   const badgeText = document.getElementById("sidebar-jee-badge-text");
   if (badgeText) badgeText.textContent = `JEE ${year}`;
 
@@ -1418,7 +1427,7 @@ window.getUsersList = function() {
     console.warn("User registry parse error", e);
   }
   const defaultUsers = [
-    { id: "user_aspirant", name: "JEE Aspirant", subtitle: "JEE 2028 Workspace", role: "JEE 2028 Aspirant", pfp: "https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Aspirant", active: true, createdAt: new Date().toISOString().slice(0, 10) }
+    { id: "user_aspirant", name: "JEE Aspirant", subtitle: "JEE 2026 Workspace", role: "JEE 2026 Aspirant", pfp: "https://api.dicebear.com/7.x/bottts-neutral/svg?seed=Aspirant", active: true, createdAt: new Date().toISOString().slice(0, 10) }
   ];
   localStorage.setItem("clockee_multi_users", JSON.stringify(defaultUsers));
   return defaultUsers;
@@ -1465,7 +1474,7 @@ window.createUserProfile = function(name, role, subtitle) {
   const newUser = {
     id,
     name,
-    subtitle: subtitle || "JEE 2028 Workspace",
+    subtitle: subtitle || "JEE 2026 Workspace",
     role: role || "Aspirant",
     pfp: `https://api.dicebear.com/7.x/bottts-neutral/svg?seed=${encodeURIComponent(name)}`,
     active: false,
@@ -1490,7 +1499,7 @@ window.resetToFreshSlot = function() {
           return u?.name || "JEE Aspirant";
         } catch(e) { return "JEE Aspirant"; }
       })(),
-      subtitle: s.profile?.subtitle || "JEE 2028 Workspace",
+      subtitle: s.profile?.subtitle || "JEE 2026 Workspace",
       pfp: s.profile?.pfp || DEFAULT_STATE.profile.pfp
     },
     questionLogs: [],
@@ -1500,7 +1509,7 @@ window.resetToFreshSlot = function() {
         title: "Rotational Dynamics Module 1 Numericals",
         subject: "Physics",
         list: "PW Modules & Practice Sheets",
-        inbox: "JEE 2028",
+        inbox: "JEE 2026",
         tags: ["#physics", "#rotational_dynamics"],
         priority: "high",
         dueDate: window.getTodayStr(),
@@ -1512,7 +1521,7 @@ window.resetToFreshSlot = function() {
         title: "Chemical Equilibrium DPP Sprint",
         subject: "Chemistry",
         list: "PW DPPs & Daily Sprints",
-        inbox: "JEE 2028",
+        inbox: "JEE 2026",
         tags: ["#chemistry", "#equilibrium"],
         priority: "medium",
         dueDate: window.getTodayStr(),
@@ -1526,7 +1535,7 @@ window.resetToFreshSlot = function() {
         type: "revision",
         isRevision: true,
         list: "Revision & Formula Autopsy",
-        inbox: "JEE 2028",
+        inbox: "JEE 2026",
         tags: ["#maths", "#revision"],
         priority: "high",
         dueDate: window.getTodayStr(),
@@ -1541,7 +1550,7 @@ window.resetToFreshSlot = function() {
 
   window.APP_STATE = fresh;
   window.saveState();
-  window.showToast("✨ Pristine Fresh JEE 2028 Data Slot Initialized!", "success");
+  window.showToast("✨ Pristine Fresh JEE 2026 Data Slot Initialized!", "success");
   setTimeout(() => location.reload(), 450);
 };
 
@@ -1702,7 +1711,7 @@ window.syncTickTickTasks = async function() {
       subject: "Physics", 
       source: "ticktick",
       list: "PW Modules & Practice Sheets", 
-      inbox: "JEE 2028", 
+      inbox: "JEE 2026", 
       tags: ["#physics", "#mechanics", "#ticktick"], 
       priority: "high", 
       dueDate: today, 
@@ -1716,7 +1725,7 @@ window.syncTickTickTasks = async function() {
       subject: "Chemistry", 
       source: "ticktick",
       list: "PW DPPs & Daily Sprints", 
-      inbox: "JEE 2028", 
+      inbox: "JEE 2026", 
       tags: ["#chemistry", "#bonding", "#vsepr"], 
       priority: "high", 
       dueDate: today, 
@@ -2336,7 +2345,7 @@ window.ClockEEChatNetwork = (function() {
             role: "assistant",
             mentor: "council",
             mentorName: "All-Mentors Council",
-            content: "🌟 **Welcome to the ClockEE JEE 2028 Connected AI Council!**\n\nEvery chat across **all open windows, tabs, and pages** is now linked together in real-time.\n\n⚡ **Simultaneous Mode Active:** When you ask a question in this Council, your **Physics, Chemistry, and Mathematics mentors will analyze and respond in parallel simultaneously**!\n\nSwitch to individual mentors anytime above, or open ClockEE in multiple tabs to see instantaneous cross-window synchronization.",
+            content: "🌟 **Welcome to the ClockEE JEE 2026 Connected AI Council!**\n\nEvery chat across **all open windows, tabs, and pages** is now linked together in real-time.\n\n⚡ **Simultaneous Mode Active:** When you ask a question in this Council, your **Physics, Chemistry, and Mathematics mentors will analyze and respond in parallel simultaneously**!\n\nSwitch to individual mentors anytime above, or open ClockEE in multiple tabs to see instantaneous cross-window synchronization.",
             timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
           }
         ],
@@ -3901,7 +3910,7 @@ window.initGlobalProfileMenu = function() {
       if (raw) user = JSON.parse(raw);
     } catch(e) {}
     if (!user) {
-      user = window.getUsersList().find(u => u.active) || { name: "JEE Aspirant", role: "JEE 2028 Aspirant", id: "user_aspirant" };
+      user = window.getUsersList().find(u => u.active) || { name: "JEE Aspirant", role: "JEE 2026 Aspirant", id: "user_aspirant" };
     }
 
     const s = window.getState ? window.getState() : {};
@@ -3919,7 +3928,7 @@ window.initGlobalProfileMenu = function() {
 
     // If guest, enforce clean guest profile fields
     const displayName = isGuest ? "Guest Aspirant" : (user.name || "JEE Aspirant");
-    const displayRole = isGuest ? "Guest Sandbox Session" : (user.role || "JEE 2028 Aspirant");
+    const displayRole = isGuest ? "Guest Sandbox Session" : (user.role || "JEE 2026 Aspirant");
     // Strictly synchronize avatar with active page avatar and global state profile
     const activeNavImg = document.querySelector("#navAvatarImg") || document.querySelector("[data-profile-avatar]");
     const activePfp = s.profile?.pfp || (activeNavImg && activeNavImg.src ? activeNavImg.src : null) || user.pfp || DEFAULT_STATE.profile.pfp;
@@ -4019,7 +4028,7 @@ window.enforceRolePermissions = function() {
   } catch(e) {}
   if (!user) {
     const list = window.getUsersList();
-    user = list.find(u => u.active) || { role: "JEE 2028 Aspirant" };
+    user = list.find(u => u.active) || { role: "JEE 2026 Aspirant" };
   }
 
   const s = window.getState ? window.getState() : {};
@@ -5424,7 +5433,7 @@ if (document.readyState === "complete" || document.readyState === "interactive")
           {
             badge: "Step 1 of 8 • Cockpit HUD",
             title: "Tactical JEE Advanced Countdown",
-            desc: "Tracks exact days, hours, and seconds to JEE Advanced 2028 with milestone progress and target study cadence.",
+            desc: "Tracks exact days, hours, and seconds to JEE Advanced 2026 with milestone progress and target study cadence.",
             targetSelector: "#jee-countdown-title, .countdown-timer, #hero-countdown",
             speech: "Welcome to ClockEE Cockpit! Your high-velocity command center! ⏰",
             actionHint: "Tap below to test milestone chime!",
@@ -5822,7 +5831,7 @@ if (document.readyState === "complete" || document.readyState === "interactive")
           {
             badge: "Step 1 of 4 • Identity & Goals",
             title: "Profile & Examination Target",
-            desc: "Configure your target exam year (JEE 2028), target dream college (IIT Bombay), and personalize your avatar.",
+            desc: "Configure your target exam year (JEE 2026), target dream college (IIT Bombay), and personalize your avatar.",
             targetSelector: "#sec-identity, #profile-settings, .settings-identity-card",
             speech: "Set your target examination date and candidate identity! 👤",
             actionHint: "Review your profile parameters!",
@@ -6322,7 +6331,7 @@ if (document.readyState === "complete" || document.readyState === "interactive")
             <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(0,240,255,0.2);border-radius:16px;padding:14px;">
               <div style="font-size:20px;margin-bottom:6px;">⏱️</div>
               <h4 style="font-size:13px;font-weight:700;margin:0 0 4px 0;">1. Cockpit HUD</h4>
-              <p style="font-size:11px;color:#94a3b8;margin:0 0 10px 0;">JEE 2028 Countdown & Solvers</p>
+              <p style="font-size:11px;color:#94a3b8;margin:0 0 10px 0;">JEE 2026 Countdown & Solvers</p>
               <a href="index.html?tour=true" style="font-size:11px;color:#00f0ff;text-decoration:none;font-weight:700;">Start Cockpit →</a>
             </div>
 

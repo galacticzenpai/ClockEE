@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+  <script src="js/math_renderer.js"></script>
 
   <style>
     :root {
@@ -299,18 +300,22 @@
       document.getElementById('active-tier-tag').innerText = `Leitner Tier ${m.tier}`;
 
       const qBox = document.getElementById('blind-question-text');
-      qBox.innerHTML = m.text;
-      document.getElementById('solution-text').innerHTML = m.solution;
+      qBox.innerHTML = window.ClockEEMath ? ClockEEMath.sanitize(m.text) : m.text;
+      document.getElementById('solution-text').innerHTML = window.ClockEEMath ? ClockEEMath.sanitize(m.solution) : m.solution;
       document.getElementById('solution-reveal-box').classList.add('hidden');
       document.getElementById('user-resolve-input').value = '';
 
-      renderMathInElement(qBox, {
-        delimiters: [
-          { left: '$$', right: '$$', display: true },
-          { left: '$', right: '$', display: false }
-        ],
-        throwOnError: false
-      });
+      if (window.ClockEEMath) {
+        ClockEEMath.render(qBox);
+      } else if (typeof renderMathInElement === 'function') {
+        renderMathInElement(qBox, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false }
+          ],
+          throwOnError: false
+        });
+      }
     }
 
     function renderQueue() {
@@ -344,13 +349,17 @@
       document.getElementById('solution-reveal-box').classList.remove('hidden');
 
       const solBox = document.getElementById('solution-text');
-      renderMathInElement(solBox, {
-        delimiters: [
-          { left: '$$', right: '$$', display: true },
-          { left: '$', right: '$', display: false }
-        ],
-        throwOnError: false
-      });
+      if (window.ClockEEMath) {
+        ClockEEMath.render(solBox);
+      } else if (typeof renderMathInElement === 'function') {
+        renderMathInElement(solBox, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false }
+          ],
+          throwOnError: false
+        });
+      }
     }
 
     function promoteCard() {

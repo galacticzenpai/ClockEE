@@ -374,7 +374,7 @@
         </div>
         <div>
           <label class="text-[10px] text-gray-400 uppercase font-bold block mb-1">Subtitle / Goal</label>
-          <input type="text" id="settings-subtitle" value="JEE 2028 Workspace" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl px-3 py-2 text-xs outline-none focus:border-cyan-400">
+          <input type="text" id="settings-subtitle" value="JEE 2026 Workspace" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl px-3 py-2 text-xs outline-none focus:border-cyan-400">
         </div>
       </div>
       <div>
@@ -492,7 +492,7 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
       <div>
         <label class="text-[10px] text-gray-400 uppercase font-bold block mb-1">Target JEE Advanced Date</label>
-        <input type="date" id="settings-jee-date" value="2028-05-17" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl px-3 py-2 text-xs outline-none focus:border-indigo-500">
+        <input type="date" id="settings-jee-date" value="2026-05-17" class="w-full bg-gray-900 border border-gray-700 text-white rounded-xl px-3 py-2 text-xs outline-none focus:border-indigo-500">
       </div>
       <div>
         <label class="text-[10px] text-gray-400 uppercase font-bold block mb-1">Target Daily Study Hours</label>
@@ -592,7 +592,7 @@
   <div id="sec-data" class="glass-card p-5 border border-white/10 flex items-center justify-between flex-wrap gap-4">
     <div>
       <div class="text-xs font-bold text-white">Data Portability &amp; Fresh Data Slot</div>
-      <div class="text-[11px] text-gray-400">Export backup JSON, restore state, or reset to a clean JEE 2028 starting slate.</div>
+      <div class="text-[11px] text-gray-400">Export backup JSON, restore state, or reset to a clean JEE 2026 starting slate.</div>
     </div>
     <div class="flex gap-2 flex-wrap">
       <button onclick="exportBackupJSON()" class="px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-xl text-xs font-bold transition">
@@ -771,9 +771,9 @@
   function initSettings() {
     const s = window.getState();
     document.getElementById('settings-name').value = s.profile?.name || 'JEE Aspirant';
-    document.getElementById('settings-subtitle').value = s.profile?.subtitle || 'JEE 2028 Workspace';
+    document.getElementById('settings-subtitle').value = s.profile?.subtitle || 'JEE 2026 Workspace';
     document.getElementById('settings-accent').value = s.profile?.accent || '#6366f1';
-    document.getElementById('settings-jee-date').value = s.jeeDate || '2028-05-17';
+    document.getElementById('settings-jee-date').value = s.jeeDate || '2026-05-17';
 
     document.getElementById('goal-hours').value = s.dailyGoals?.hours || 6.0;
     document.getElementById('goal-physics').value = s.dailyGoals?.Physics || 30;
@@ -806,7 +806,7 @@
         geminiInput.disabled = true;
       }
       if (firebaseInput) {
-        # ignored = '';
+        // ignored
         firebaseInput.placeholder = '🔒 Cloud Database Locked in Guest Sandbox Mode';
         firebaseInput.disabled = true;
       }
@@ -820,7 +820,7 @@
         geminiInput.disabled = false;
       }
       if (firebaseInput) {
-        # ignored = s.apiKeys?.cloudUrl || (window.CLOCKEE_ENV?.FIREBASE_CONFIG?.databaseURL || '');
+        // ignored
         firebaseInput.disabled = false;
       }
     }

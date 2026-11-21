@@ -281,10 +281,10 @@
               <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
             </div>
             <div>
-              <h2 id="jee-countdown-title" class="text-base sm:text-lg font-black text-white tracking-tight tabular-nums mono">Target: JEE 2028</h2>
+              <h2 id="jee-countdown-title" class="text-base sm:text-lg font-black text-white tracking-tight tabular-nums mono">Target: JEE 2026</h2>
             </div>
           </div>
-          <span class="text-xs font-mono font-bold px-3 py-1 rounded-full bg-[#0a84ff]/15 text-[#0a84ff] border border-white/10" id="jee-target-date-label">May 17, 2028</span>
+          <span class="text-xs font-mono font-bold px-3 py-1 rounded-full bg-[#0a84ff]/15 text-[#0a84ff] border border-white/10" id="jee-target-date-label">May 17, 2026</span>
         </div>
         
         <!-- Individual Countdown Boxes Grid (Months, Total Weeks, Days) -->
@@ -313,7 +313,7 @@
             </div>
             <div>
               <h3 class="text-xs font-black uppercase tracking-widest text-slate-200">Daily Mission &amp; High-Yield Focus Sprint</h3>
-              <p class="text-[11px] text-slate-400 font-medium" id="daily-mission-subtitle">Current target mastery for JEE 2028</p>
+              <p class="text-[11px] text-slate-400 font-medium" id="daily-mission-subtitle">Current target mastery for JEE 2026</p>
             </div>
           </div>
           <div class="flex items-center gap-2">
@@ -598,18 +598,19 @@
   </div>
 </div>
 
-  <!-- Floating Action Triggers -->
-  <div class="fixed bottom-4 right-4 z-40 flex items-center gap-2">
-    <a href="design_palette.html" id="clockee-palette-floating-pill" class="btn-tactile px-3 py-2 rounded-full bg-[var(--surface-2,#12151c)]/90 border border-white/10 hover:border-purple-400/50 text-purple-300 hover:text-white text-xs font-bold shadow-sm backdrop-blur-xl flex items-center gap-1.5 transition cursor-pointer" title="Open Living Design Palette Showcase">
+  <!-- Floating Controls Semantic Dock (Structure 3.1) -->
+  <aside id="clockee-floating-dock" class="clockee-dock fixed bottom-4 right-4 z-40 flex items-center gap-2" data-dock="bottom-right" aria-label="System Quick Controls">
+    <a href="design_palette.html" id="dock-btn-palette" class="dock-btn-palette btn-tactile px-3 py-2 rounded-full bg-[var(--surface-2,#12151c)]/90 border border-white/10 hover:border-purple-400/50 text-purple-300 hover:text-white text-xs font-bold shadow-sm backdrop-blur-xl flex items-center gap-1.5 transition cursor-pointer" title="Open Living Design Palette Showcase (Ctrl+K)">
       <svg class="w-3.5 h-3.5 text-purple-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
-      <span class="hidden sm:inline">Design Palette</span>
+      <span class="hidden sm:inline">Palette</span>
+      <kbd class="hidden md:inline-block px-1.5 py-0.5 text-[9px] font-mono bg-black/40 border border-white/10 rounded text-slate-400">Ctrl+K</kbd>
     </a>
 
-    <button onclick="window.toggleSplitScreen ? window.toggleSplitScreen() : (function(){ var d = document.getElementById('split-drawer'); if (d) d.classList.toggle('translate-x-full'); })()" id="clockee-chat-floating-pill" class="btn-tactile px-3.5 py-2 rounded-full bg-[var(--surface-1,#0a0c10)]/90 border border-white/10 hover:border-blue-400/50 text-slate-300 hover:text-white text-xs font-bold shadow-sm backdrop-blur-xl flex items-center gap-2 transition cursor-pointer">
+    <button onclick="window.toggleSplitScreen ? window.toggleSplitScreen() : (function(){ var d = document.getElementById('split-drawer'); if (d) d.classList.toggle('translate-x-full'); })()" id="dock-btn-aitutor" class="dock-btn-aitutor btn-tactile px-3.5 py-2 rounded-full bg-[var(--surface-1,#0a0c10)]/90 border border-white/10 hover:border-blue-400/50 text-slate-300 hover:text-white text-xs font-bold shadow-sm backdrop-blur-xl flex items-center gap-2 transition cursor-pointer" title="Toggle AI Study Companion">
       <span class="w-2 h-2 rounded-full bg-[var(--accent-primary,#0a84ff)] animate-pulse"></span>
-      <span>AI TUTOR</span>
+      <span>AI Tutor</span>
     </button>
-  </div>
+  </aside>
 
   <!-- Home Page Reactive Engine -->
   <script>
@@ -617,13 +618,13 @@
 
     function tickCountdown() {
       const s = window.getState ? window.getState() : {};
-      const targetStr = s.jeeDate || '2028-05-17';
+      const targetStr = s.jeeDate || '2026-05-17';
       const targetDate = new Date(targetStr + 'T06:00:00');
       const now = new Date();
       const diff = targetDate - now;
 
       // Dynamic JEE Year
-      const year = targetStr.slice(0, 4) || '2028';
+      const year = s.targetCohort || targetStr.slice(0, 4) || '2026';
       const titleEl = document.getElementById('jee-countdown-title');
       if (titleEl) titleEl.textContent = `Target: JEE ${year}`;
       const subEl = document.getElementById('daily-mission-subtitle');
@@ -662,7 +663,7 @@
       if (elDays) elDays.textContent = String(totalDays);
 
       const elLabel = document.getElementById('jee-target-date-label');
-      if (elLabel) elLabel.textContent = s.jeeDate || 'May 17, 2028';
+      if (elLabel) elLabel.textContent = s.jeeDate || 'May 17, 2026';
     }
 
     function updateDailyProgress() {

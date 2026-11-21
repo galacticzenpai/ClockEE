@@ -63,7 +63,7 @@
       <div>
         <div class="flex items-center gap-2.5">
           <span class="inline-block w-2.5 h-2.5 rounded-sm bg-sky-400"></span>
-          <span class="text-xs font-bold tracking-widest text-sky-400 uppercase mono">JEE 2026 // FLIGHT COCKPIT</span>
+          <span id="tracker-cohort-tag" class="text-xs font-bold tracking-widest text-sky-400 uppercase mono">JEE 2026 // FLIGHT COCKPIT</span>
         </div>
         <h1 class="text-2xl md:text-3xl font-extrabold text-white tracking-tight mt-1">Syllabus & Mastery Matrix</h1>
         <p class="text-sm text-slate-400 mt-1">75-Chapter PCM Precision Tracker with 3-Tier Verification (Theory, Examples, PYQs)</p>
@@ -278,6 +278,16 @@
     let highWeightageOnly = false;
 
     function init() {
+      const targetYear = (window.CLOCKEE_TARGET_YEAR || (function() {
+        try {
+          const s = JSON.parse(localStorage.getItem('clockee_v5_master_state') || '{}');
+          return (s.jeeDate ? s.jeeDate.slice(0, 4) : '2026');
+        } catch(e) { return '2026'; }
+      })());
+      document.title = `JEE ${targetYear} // Mastery Matrix & Syllabus Command Tracker`;
+      const cohortTag = document.getElementById('tracker-cohort-tag');
+      if (cohortTag) cohortTag.innerText = `JEE ${targetYear} // FLIGHT COCKPIT`;
+
       const stored = localStorage.getItem('jee_matrix_progress');
       if (stored) {
         try { userProgress = JSON.parse(stored); } catch(e) { userProgress = {}; }

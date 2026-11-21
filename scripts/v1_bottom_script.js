@@ -3,13 +3,13 @@
 
     function tickCountdown() {
       const s = window.getState ? window.getState() : {};
-      const targetStr = s.jeeDate || '2028-05-17';
+      const targetStr = s.jeeDate || '2026-05-17';
       const targetDate = new Date(targetStr + 'T06:00:00');
       const now = new Date();
       const diff = targetDate - now;
 
       // Dynamic JEE Year
-      const year = targetStr.slice(0, 4) || '2028';
+      const year = targetStr.slice(0, 4) || '2026';
       const titleEl = document.getElementById('jee-countdown-title');
       if (titleEl) titleEl.textContent = `Target: JEE ${year}`;
       const subEl = document.getElementById('daily-mission-subtitle');
@@ -49,7 +49,7 @@
       if (elDays) elDays.textContent = String(totalDays);
 
       const elLabel = document.getElementById('jee-target-date-label');
-      if (elLabel) elLabel.textContent = s.jeeDate || 'May 17, 2028';
+      if (elLabel) elLabel.textContent = s.jeeDate || 'May 17, 2026';
     }
 
     function updateDailyProgress() {
@@ -401,7 +401,7 @@
         title: `[Autopsy] Master Error Q#${m.qNum}: ${m.topic || m.chapter || 'Problem'}`,
         subject: m.subject || 'Physics',
         list: 'Revision & Formula Autopsy',
-        inbox: 'JEE 2028',
+        inbox: 'JEE 2026',
         tags: ['#simulation_error', '#autopsy'],
         priority: 'high',
         dueDate: window.getTodayStr(),
@@ -437,7 +437,7 @@
             title: `[Autopsy] Master Error Q#${m.qNum}: ${m.topic || m.chapter || 'Problem'}`,
             subject: m.subject || 'Physics',
             list: 'Revision & Formula Autopsy',
-            inbox: 'JEE 2028',
+            inbox: 'JEE 2026',
             tags: ['#simulation_error', '#autopsy'],
             priority: 'high',
             dueDate: window.getTodayStr(),

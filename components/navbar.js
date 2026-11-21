@@ -209,13 +209,13 @@
           </div>
 
           <!-- Center Nav Links with Dropdowns -->
-          <nav class="hidden md:flex items-center gap-1 sm:gap-1.5" id="main-nav" aria-label="Master Navigation">
-            <a href="index.html" class="nav-btn ${activeSec === 'home' ? 'nav-active' : ''}">Home</a>
-            <a href="task.html" class="nav-btn ${activeSec === 'task' ? 'nav-active' : ''}">Task</a>
-            <a href="today.html" class="nav-btn ${activeSec === 'today' ? 'nav-active' : ''}">Today</a>
+          <nav class="hidden lg:flex items-center gap-1 xl:gap-1.5 flex-shrink min-w-0" id="main-nav" aria-label="Master Navigation">
+            <a href="index.html" data-nav="home" class="nav-btn ${activeSec === 'home' ? 'nav-active' : ''}">Home</a>
+            <a href="task.html" data-nav="task" class="nav-btn ${activeSec === 'task' ? 'nav-active' : ''}">Task</a>
+            <a href="today.html" data-nav="today" class="nav-btn ${activeSec === 'today' ? 'nav-active' : ''}">Today</a>
 
             <!-- Timer Dropdown -->
-            <div class="nav-dropdown">
+            <div class="nav-dropdown" data-nav="timer">
               <a href="timer.html" class="nav-btn ${activeSec === 'timer' ? 'nav-active' : ''}">
                 <span>Timer</span> <span class="nav-caret">▼</span>
               </a>
@@ -245,7 +245,7 @@
             </div>
 
             <!-- Coaching Dropdown -->
-            <div class="nav-dropdown">
+            <div class="nav-dropdown" data-nav="coaching">
               <a href="coaching.html" class="nav-btn ${activeSec === 'coaching' ? 'nav-active' : ''}">
                 <span>Coaching</span> <span class="nav-caret">▼</span>
               </a>
@@ -266,8 +266,8 @@
             </div>
 
             <!-- CBT Portal Dropdown -->
-            <div class="nav-dropdown">
-              <a href="cbt_home.html" class="nav-btn ${activeSec === 'cbt' ? 'nav-active' : ''} text-cyan-300">
+            <div class="nav-dropdown" data-nav="cbt">
+              <a href="cbt_home.html" data-nav="cbt" class="nav-btn ${activeSec === 'cbt' ? 'nav-active' : ''} text-cyan-300">
                 <svg class="w-3.5 h-3.5 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
                 <span>CBT Portal</span> <span class="nav-caret">▼</span>
               </a>
@@ -300,21 +300,15 @@
             </div>
 
             <!-- Inspiration Board -->
-            <a href="inspiration.html" class="nav-btn ${activeSec === 'inspiration' ? 'nav-active' : ''} text-amber-300 hover:text-amber-200" title="Dream Vision & Inspiration Board">
+            <a href="inspiration.html" data-nav="inspiration" class="nav-btn ${activeSec === 'inspiration' ? 'nav-active' : ''} text-amber-300 hover:text-amber-200" title="Dream Vision & Inspiration Board">
               <svg class="w-3.5 h-3.5 text-amber-400" viewBox="0 0 24 24" fill="currentColor">
                 <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
               </svg>
               <span>Inspiration</span>
             </a>
 
-            <!-- Design Palette Showcase (New requested showcase) -->
-            <a href="design_palette.html" class="nav-btn ${activeSec === 'palette' ? 'nav-active' : ''} text-purple-300 hover:text-white" title="ClockEE Design Palette &amp; System Playground">
-              <svg class="w-3.5 h-3.5 text-purple-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
-              <span>Design Palette</span>
-            </a>
-
             <!-- Settings / More Dropdown -->
-            <div class="nav-dropdown">
+            <div class="nav-dropdown" data-nav="settings">
               <a href="settings.html" class="nav-btn ${activeSec === 'settings' ? 'nav-active' : ''}">
                 <span>Settings</span> <span class="nav-caret">▼</span>
               </a>
@@ -323,17 +317,13 @@
                   <svg class="w-3.5 h-3.5 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
                   <span>Global Settings</span>
                 </a>
+                <a href="design_palette.html" class="nav-dropdown-item">
+                  <svg class="w-3.5 h-3.5 text-purple-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+                  <span>Design Palette Playground</span>
+                </a>
                 <a href="settings.html#sec-identity" class="nav-dropdown-item">
                   <svg class="w-3.5 h-3.5 text-[#0a84ff]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                   <span>Profile &amp; Identity</span>
-                </a>
-                <a href="settings.html#sec-aura" class="nav-dropdown-item">
-                  <svg class="w-3.5 h-3.5 text-purple-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/></svg>
-                  <span>Themes &amp; Background</span>
-                </a>
-                <a href="settings.html#sec-goals" class="nav-dropdown-item">
-                  <svg class="w-3.5 h-3.5 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
-                  <span>JEE Examination Goals</span>
                 </a>
                 <a href="tracker.html" class="nav-dropdown-item">
                   <svg class="w-3.5 h-3.5 text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
@@ -341,19 +331,7 @@
                 </a>
                 <a href="live_tracker.html" class="nav-dropdown-item">
                   <svg class="w-3.5 h-3.5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
-                  <span>Mesh Cockpit &amp; Cloud Telemetry</span>
-                </a>
-                <a href="settings.html#sec-apis" class="nav-dropdown-item">
-                  <svg class="w-3.5 h-3.5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                  <span>Connected APIs</span>
-                </a>
-                <a href="settings.html#sec-data" class="nav-dropdown-item">
-                  <svg class="w-3.5 h-3.5 text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
-                  <span>Data Backup &amp; Reset</span>
-                </a>
-                <a href="admin.html" class="nav-dropdown-item">
-                  <svg class="w-3.5 h-3.5 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                  <span>Admin Cockpit</span>
+                  <span>Mesh Cockpit &amp; Telemetry</span>
                 </a>
               </div>
             </div>
@@ -497,4 +475,32 @@
   } else {
     renderNavbar();
   }
+
+  // Mount Universal Bottom Floating Controls Dock for UI/UX Design System
+  function ensureFloatingDock() {
+    if (document.getElementById('clockee-floating-dock')) return;
+    const dock = document.createElement('aside');
+    dock.id = 'clockee-floating-dock';
+    dock.className = 'clockee-dock fixed bottom-5 right-5 z-40 flex items-center gap-2 p-1.5 rounded-full bg-slate-900/90 backdrop-blur-md border border-slate-700/60 shadow-2xl transition-all';
+    dock.setAttribute('data-dock', 'bottom-right');
+    dock.setAttribute('aria-label', 'System Quick Controls');
+    dock.innerHTML = `
+      <button id="dock-btn-palette" data-dock-action="palette" class="dock-btn flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold text-slate-300 hover:text-white hover:bg-slate-800 transition" title="Command Palette">
+        <span class="text-[10px] opacity-60">⌘K</span>
+        <span>Palette</span>
+      </button>
+      <button id="dock-btn-aitutor" data-dock-action="aitutor" class="dock-btn flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold text-cyan-400 hover:text-cyan-300 hover:bg-cyan-950/40 border border-cyan-500/20 transition" title="AI Tutor Assistance">
+        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+        <span>AI Tutor</span>
+      </button>
+    `;
+    document.body.appendChild(dock);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', ensureFloatingDock);
+  } else {
+    ensureFloatingDock();
+  }
+
 })();

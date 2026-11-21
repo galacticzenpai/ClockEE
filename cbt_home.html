@@ -23,7 +23,7 @@
       theme: {
         extend: {
           fontFamily: {
-            sans: ['Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'sans-serif'],
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
             mono: ['JetBrains Mono', 'SF Mono', 'monospace'],
           },
         },
@@ -375,21 +375,21 @@
 
           <div>
             <div class="flex items-center justify-between text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1.5 px-1">
-              <span>Quizrr Mock Tests</span>
+              <span>ClockEE CBT Mock Tests</span>
               <span class="text-[10px] text-slate-400 font-mono">25 Tests</span>
             </div>
             <div class="space-y-0.5">
               <button onclick="selectCategory('Part', this)" class="subrail-btn">
                 <span class="flex items-center gap-2">
                   <span class="w-2 h-2 rounded-full bg-purple-400"></span>
-                  <span>Quizrr Part Test (QPT)</span>
+                  <span>ClockEE CBT Part Test (QPT)</span>
                 </span>
                 <span class="text-[10px] font-mono text-slate-400">10</span>
               </button>
               <button onclick="selectCategory('Full', this)" class="subrail-btn">
                 <span class="flex items-center gap-2">
                   <span class="w-2 h-2 rounded-full bg-rose-400"></span>
-                  <span>Quizrr Full Test (QFT)</span>
+                  <span>ClockEE CBT Full Test (QFT)</span>
                 </span>
                 <span class="text-[10px] font-mono text-slate-400">15</span>
               </button>
@@ -762,36 +762,50 @@
         localStorage.setItem("clockee_current_user", "Candidate");
       }
 
-      // Try loading live cbt_question_bank.json if available
-      fetch('cbt_question_bank.json')
-        .then(res => res.json())
-        .then(data => {
-          if (Array.isArray(data) && data.length > 0) {
-            console.log("✓ Loaded authentic 6,326 question bank");
-            // Map chapters from questions
-            data.forEach(q => {
-              const sub = q.subject || "Physics";
-              const ch = q.chapter || "General";
-              if (!masterChaptersMap[sub]) masterChaptersMap[sub] = {};
-              if (!masterChaptersMap[sub][ch]) masterChaptersMap[sub][ch] = [];
-              masterChaptersMap[sub][ch].push(q);
-              if (sub === "Mathematics") {
-                if (!masterChaptersMap["Maths"]) masterChaptersMap["Maths"] = {};
-                if (!masterChaptersMap["Maths"][ch]) masterChaptersMap["Maths"][ch] = [];
-                masterChaptersMap["Maths"][ch].push(q);
-              } else if (sub === "Maths") {
-                if (!masterChaptersMap["Mathematics"]) masterChaptersMap["Mathematics"] = {};
-                if (!masterChaptersMap["Mathematics"][ch]) masterChaptersMap["Mathematics"][ch] = [];
-                masterChaptersMap["Mathematics"][ch].push(q);
-              }
+      // Populate from window.CBT_MASTER_BANK or fetch live cbt_question_bank.json
+      function ingestBankData(data) {
+        if (Array.isArray(data) && data.length > 0) {
+          console.log(`✓ Ingested ${data.length} authentic questions into CBT Home`);
+          data.forEach(q => {
+            const sub = q.subject || "Physics";
+            const ch = q.chapter || "General";
+            if (!masterChaptersMap[sub]) masterChaptersMap[sub] = {};
+            if (!masterChaptersMap[sub][ch]) masterChaptersMap[sub][ch] = [];
+            masterChaptersMap[sub][ch].push(q);
+            if (sub === "Mathematics") {
+              if (!masterChaptersMap["Maths"]) masterChaptersMap["Maths"] = {};
+              if (!masterChaptersMap["Maths"][ch]) masterChaptersMap["Maths"][ch] = [];
+              masterChaptersMap["Maths"][ch].push(q);
+            } else if (sub === "Maths") {
+              if (!masterChaptersMap["Mathematics"]) masterChaptersMap["Mathematics"] = {};
+              if (!masterChaptersMap["Mathematics"][ch]) masterChaptersMap["Mathematics"][ch] = [];
+              masterChaptersMap["Mathematics"][ch].push(q);
+            }
+          });
+        }
+      }
+
+      try {
+        const memoryBank = window.CBT_MASTER_QUESTION_BANK || window.CBT_MASTER_BANK;
+        if (memoryBank && Array.isArray(memoryBank) && memoryBank.length > 0) {
+          ingestBankData(memoryBank);
+          renderAccordions();
+        } else {
+          fetch('cbt_question_bank.json')
+            .then(res => res.json())
+            .then(data => {
+              ingestBankData(data);
+              renderAccordions();
+            })
+            .catch(err => {
+              console.warn("Live fetch bypassed, using local memory bank / matrix:", err);
+              renderAccordions();
             });
-          }
-          renderAccordions();
-        })
-        .catch(err => {
-          console.warn("Using built-in authentic chapter matrix", err);
-          renderAccordions();
-        });
+        }
+      } catch (err) {
+        console.warn("Question bank ingestion caught exception, rendering fallback catalog:", err);
+        renderAccordions();
+      }
 
       updateVitals();
     });
@@ -849,7 +863,7 @@
       }
     }
 
-    // Render Accordions Frame-by-Frame matching Quizrr standard
+    // Render Accordions Frame-by-Frame matching ClockEE CBT standard
     function renderAccordions() {
       const container = document.getElementById('cbt-accordions-container');
       const chapters = CHAPTER_CATALOG[activeSubject] || CHAPTER_CATALOG.Physics;

@@ -111,6 +111,7 @@
     ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
     ::-webkit-scrollbar-thumb:hover { background: #334155; }
   </style>
+  <script src="js/math_renderer.js"></script>
 </head>
 <body class="flex flex-col h-screen overflow-hidden">
 
@@ -449,6 +450,34 @@
   <script src="scripts/db.js"></script>
   <script src="scripts/cbt-engine.js"></script>
   <script>
+    // Universal KaTeX Pre-processing & Sanitizer (Bug 2.1)
+    window.ClockEEMath = {
+      sanitize: function(text) {
+        if (!text || typeof text !== 'string') return text || '';
+        const parts = text.split(/(\$\$[\s\S]*?\$\$|\$[^\$\n]+?\$)/g);
+        return parts.map((part, idx) => {
+          if (idx % 2 === 1) return part;
+          return part.replace(/(\\frac\{[^{}]*\}\{[^{}]*\}|\\sqrt(\[[^{}]*\])?\{[^{}]*\}|\\(?:alpha|beta|gamma|delta|epsilon|theta|lambda|mu|nu|pi|rho|sigma|tau|phi|chi|psi|omega|Delta|Omega|times|pm|cdot|approx|neq|leq|geq|infty|rightarrow|to|circ)\b(?:\^\{[^{}]*\}|\^[0-9a-zA-Z]+)?(?:_\{[^{}]*\}|_[0-9a-zA-Z]+)?)/g, '$$$1$$');
+        }).join('');
+      },
+      render: function(element) {
+        if (!element) return;
+        if (typeof renderMathInElement === 'function') {
+          try {
+            renderMathInElement(element, {
+              delimiters: [
+                { left: '$$', right: '$$', display: true },
+                { left: '$', right: '$', display: false }
+              ],
+              throwOnError: false
+            });
+          } catch (err) {
+            console.warn("KaTeX render notice:", err);
+          }
+        }
+      }
+    };
+
     let activeQuestion = null;
     let activeResponse = null;
 
@@ -474,8 +503,11 @@
       activeResponse = data.response;
       if (!activeQuestion) return;
 
-      // Meta Titles
-      document.getElementById('current-q-title').innerText = `Question ${activeQuestion.localNumber}`;
+      // Meta Titles & Section B Preserved Numbering (Bug 2.2)
+      const displayNum = (activeQuestion.section === 'B' && activeQuestion.localNumber <= 10)
+        ? (20 + activeQuestion.localNumber)
+        : (activeQuestion.localNumber || (activeQuestion.number || 1));
+      document.getElementById('current-q-title').innerText = `Question ${displayNum}`;
       document.getElementById('current-q-subject').innerText = `${activeQuestion.subject} - Section ${activeQuestion.section}`;
       document.getElementById('current-q-type-badge').innerText = activeQuestion.type === 'MCQ' ? 'Single Choice (MCQ)' : 'Numerical Value';
       
@@ -500,16 +532,21 @@
         secBNotice.classList.add('hidden');
       }
 
-      // Question Text with KaTeX Rendering
+      // Question Text with KaTeX Pre-processing & Sanitizer
       const textContainer = document.getElementById('question-text-container');
-      textContainer.innerHTML = activeQuestion.text;
-      renderMathInElement(textContainer, {
-        delimiters: [
-          { left: '$$', right: '$$', display: true },
-          { left: '$', right: '$', display: false }
-        ],
-        throwOnError: false
-      });
+      const sanitizedText = window.ClockEEMath ? ClockEEMath.sanitize(activeQuestion.text) : activeQuestion.text;
+      textContainer.innerHTML = sanitizedText;
+      if (window.ClockEEMath) {
+        ClockEEMath.render(textContainer);
+      } else if (typeof renderMathInElement === 'function') {
+        renderMathInElement(textContainer, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false }
+          ],
+          throwOnError: false
+        });
+      }
 
       // Section A vs Section B View Toggling
       const secAContainer = document.getElementById('section-a-options-container');
@@ -521,25 +558,30 @@
 
         secAContainer.innerHTML = (activeQuestion.options || []).map(opt => {
           const isSelected = activeResponse && activeResponse.selectedOption === opt.id;
+          const optText = window.ClockEEMath ? ClockEEMath.sanitize(opt.text) : opt.text;
           return `
             <div onclick="selectMCQOption('${opt.id}')" class="option-card p-3.5 rounded-xl cursor-pointer flex items-center gap-3 ${isSelected ? 'selected' : ''}">
               <div class="w-6 h-6 rounded-full border ${isSelected ? 'border-sky-400 bg-sky-500/20 text-sky-300 font-bold' : 'border-slate-700 text-slate-400'} flex items-center justify-center text-xs mono">
                 ${opt.id}
               </div>
               <div class="text-xs md:text-sm text-slate-200 math-opt flex-1">
-                ${opt.text}
+                ${optText}
               </div>
             </div>
           `;
         }).join('');
 
-        renderMathInElement(secAContainer, {
-          delimiters: [
-            { left: '$$', right: '$$', display: true },
-            { left: '$', right: '$', display: false }
-          ],
-          throwOnError: false
-        });
+        if (window.ClockEEMath) {
+          ClockEEMath.render(secAContainer);
+        } else if (typeof renderMathInElement === 'function') {
+          renderMathInElement(secAContainer, {
+            delimiters: [
+              { left: '$$', right: '$$', display: true },
+              { left: '$', right: '$', display: false }
+            ],
+            throwOnError: false
+          });
+        }
 
       } else {
         secAContainer.classList.add('hidden');
@@ -604,14 +646,17 @@
         else if (state === 'ANSWERED_MARKED') badgeClass = 'nta-badge-answered-marked state-answered-marked';
 
         const globalIdx = paletteData.questions.findIndex(item => item.id === q.id);
+        const displayNum = (q.section === 'B' && q.localNumber <= 10) 
+          ? (20 + q.localNumber) 
+          : (q.localNumber || (globalIdx + 1));
 
         return `
           <button 
             onclick="CBTEngine.goToQuestion(${globalIdx})" 
-            title="Question ${q.localNumber} (Section ${q.section})" 
+            title="Question ${displayNum} (Section ${q.section})" 
             class="nta-badge palette-btn ${badgeClass} ${isCurrent ? 'current-question current-active' : ''}"
           >
-            ${q.localNumber}
+            ${displayNum}
           </button>
         `;
       }).join('');

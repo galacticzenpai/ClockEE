@@ -4383,5 +4383,411 @@
     "student_accuracy": "52.15%",
     "solution_text": "For isomeric alkanes having the same molecular formula (C₆H₁₄):\nAs branching increases, the molecule becomes more compact and spherical, reducing the surface area of contact between adjacent molecules.\nThis decreases van der Waals (London dispersion) forces, leading to a lower boiling point.\nTherefore:\nStraight-chain n-hexane (I) has the largest surface area and highest boiling point.\nMonobranched 2-methylpentane (II) has intermediate boiling point.\nDibranched 2,2-dimethylbutane (III) has the most spherical shape and lowest boiling point.\nDecreasing order of boiling point: (I) > (II) > (III).",
     "video_url": "https://www.youtube.com/embed/wx9CBnye0vI"
+  },
+  {
+    "question_number": 1,
+    "chapter": "Hydrocarbons",
+    "subject": "Chemistry",
+    "question_type": "Single Choice Question",
+    "statement": "Identify the correct stereoisomer / configuration based on Cahn-Ingold-Prelog (CIP) priority rules for amino acid stereocenters:",
+    "options": [
+      {
+        "option_number": 1,
+        "option_text": "Isomer 1 (Configuration A)",
+        "is_correct": false,
+        "student_percentage": "23.53%"
+      },
+      {
+        "option_number": 2,
+        "option_text": "Isomer 2 (Configuration B)",
+        "is_correct": false,
+        "student_percentage": "17.65%"
+      },
+      {
+        "option_number": 3,
+        "option_text": "Isomer 3 (Configuration C)",
+        "is_correct": false,
+        "student_percentage": "17.65%"
+      },
+      {
+        "option_number": 4,
+        "option_text": "Isomer 4 (Configuration D)",
+        "is_correct": true,
+        "student_percentage": "41.18%"
+      }
+    ],
+    "registered_answer": 4,
+    "registered_answers": [
+      4
+    ],
+    "student_accuracy": "0%",
+    "solution_text": "Due to the ability to form two distinct stereoisomers (enantiomers) around the chiral carbon atom, amino acids exist in stereoisomeric forms (D- and L- or R- and S-).\nThe optical activity is indicated by (+) and (-) notation, while absolute configuration is assigned by Cahn-Ingold-Prelog (CIP) sequence rules.\nThe priority order of substituents around the chiral carbon is:\n−NH₂ > −COOH > −CH₂OH > −H.\nClockwise priority sequence corresponds to R configuration and counter-clockwise to S configuration.",
+    "video_url": null
+  },
+  {
+    "question_number": 2,
+    "chapter": "Hydrocarbons",
+    "subject": "Chemistry",
+    "question_type": "Single Choice Question",
+    "statement": "A ←(H2, Pt/Pd/Ni) R−C≡CH ⟶(NaNH2) B\n\nHere, A and B refers to",
+    "options": [
+      {
+        "option_number": 1,
+        "option_text": "R-CH=CH2 and R-C≡C-NH2",
+        "is_correct": false,
+        "student_percentage": "9.38%"
+      },
+      {
+        "option_number": 2,
+        "option_text": "R-CH=CH2 and R-C≡C-Na+",
+        "is_correct": true,
+        "student_percentage": "23.62%"
+      },
+      {
+        "option_number": 3,
+        "option_text": "H-C≡C-H and R-C≡C-Na+",
+        "is_correct": false,
+        "student_percentage": "39.96%"
+      },
+      {
+        "option_number": 4,
+        "option_text": "None of the above",
+        "is_correct": false,
+        "student_percentage": "27.05%"
+      }
+    ],
+    "registered_answer": 2,
+    "registered_answers": [
+      2
+    ],
+    "student_accuracy": "24.54%",
+    "solution_text": "Terminal alkynes R–C≡CH have an acidic acetylenic hydrogen.\nReaction with a strong base like sodamide (NaNH₂) abstracts the acidic proton to form sodium alkynide: R–C≡C⁻Na⁺ (Compound B).\nControlled catalytic hydrogenation of the alkyne over metal catalyst yields the alkene R–CH=CH₂ (Compound A).\nTherefore, Option 2 is correct.",
+    "video_url": "https://www.youtube.com/embed/AzGfx9xSCyI"
+  },
+  {
+    "question_number": 3,
+    "chapter": "Hydrocarbons",
+    "subject": "Chemistry",
+    "question_type": "Single Choice Question",
+    "statement": "The product of the following hydroboration-oxidation reaction of 1-pentene (CH3−CH2−CH2−CH=CH2 ⟶ (i) B2H6 (ii) H2O2, OH−) is:",
+    "options": [
+      {
+        "option_number": 1,
+        "option_text": "1-pentanol",
+        "is_correct": true,
+        "student_percentage": "31.38%"
+      },
+      {
+        "option_number": 2,
+        "option_text": "2-pentanol",
+        "is_correct": false,
+        "student_percentage": "31.07%"
+      },
+      {
+        "option_number": 3,
+        "option_text": "pentane",
+        "is_correct": false,
+        "student_percentage": "30.21%"
+      },
+      {
+        "option_number": 4,
+        "option_text": "1,2-pentane diol",
+        "is_correct": false,
+        "student_percentage": "7.4%"
+      }
+    ],
+    "registered_answer": 1,
+    "registered_answers": [
+      1
+    ],
+    "student_accuracy": "31.38%",
+    "solution_text": "Hydroboration-oxidation of an alkene results in net anti-Markovnikov syn-addition of water across the double bond without carbocation rearrangement.\nFor terminal alkene pent-1-ene (CH₃CH₂CH₂CH=CH₂), the –OH group attaches to the terminal, less substituted carbon C1, producing 1-pentanol (CH₃CH₂CH₂CH₂CH₂OH).\nHence, Option 1 is correct.",
+    "video_url": "https://www.youtube.com/embed/AzGfx9xSCyI"
+  },
+  {
+    "question_number": 4,
+    "chapter": "Hydrocarbons",
+    "subject": "Chemistry",
+    "question_type": "Single Choice Question",
+    "statement": "Which liberates methane gas on treatment with water?",
+    "options": [
+      {
+        "option_number": 1,
+        "option_text": "Silicon carbide",
+        "is_correct": false,
+        "student_percentage": "5.07%"
+      },
+      {
+        "option_number": 2,
+        "option_text": "Calcium carbide",
+        "is_correct": false,
+        "student_percentage": "18.86%"
+      },
+      {
+        "option_number": 3,
+        "option_text": "Aluminium carbide",
+        "is_correct": true,
+        "student_percentage": "69.17%"
+      },
+      {
+        "option_number": 4,
+        "option_text": "Iron carbide",
+        "is_correct": false,
+        "student_percentage": "6.9%"
+      }
+    ],
+    "registered_answer": 3,
+    "registered_answers": [
+      3
+    ],
+    "student_accuracy": "68.97%",
+    "solution_text": "Aluminium carbide (Al₄C₃) is a methanide carbide containing discrete C⁴⁻ carbide units. On reaction with water, it hydrolyses to yield aluminium hydroxide and methane gas:\nAl₄C₃ + 12H₂O → 4Al(OH)₃ + 3CH₄ ↑.\nIn contrast, calcium carbide (CaC₂) is an acetylide containing C₂²⁻ units and produces acetylene (C₂H₂ + Ca(OH)₂). Silicon carbide is a network covalent solid unreactive to water under normal conditions.\nTherefore, Aluminium carbide (Option 3) liberates methane.",
+    "video_url": "https://www.youtube.com/embed/AzGfx9xSCyI"
+  },
+  {
+    "question_number": 5,
+    "chapter": "Hydrocarbons",
+    "subject": "Chemistry",
+    "question_type": "Multiple Choice Question",
+    "statement": "Which is/are linked with CH4 ?",
+    "options": [
+      {
+        "option_number": 1,
+        "option_text": "Marsh gas",
+        "is_correct": true,
+        "student_percentage": "65.29%"
+      },
+      {
+        "option_number": 2,
+        "option_text": "Natural gas",
+        "is_correct": true,
+        "student_percentage": "21.19%"
+      },
+      {
+        "option_number": 3,
+        "option_text": "Fire damp Coal gas",
+        "is_correct": true,
+        "student_percentage": "16.95%"
+      },
+      {
+        "option_number": 4,
+        "option_text": "Producer gas",
+        "is_correct": false,
+        "student_percentage": "10.39%"
+      }
+    ],
+    "registered_answer": [
+      1,
+      2,
+      3
+    ],
+    "registered_answers": [
+      1,
+      2,
+      3
+    ],
+    "student_accuracy": "7.47%",
+    "solution_text": "Methane (CH₄) is linked with:\n1. Marsh gas: produced by anaerobic bacterial decomposition of vegetable matter in swampy or marshy areas.\n2. Natural gas: methane is the primary constituent (70–90%) of natural gas.\n3. Fire damp: the methane gas trapped within coal seams in coal mines that forms an explosive mixture with air.\n(Producer gas is a mixture of CO and N₂, not linked with CH₄).\nTherefore, Options 1, 2, and 3 are all correct.",
+    "video_url": "https://www.youtube.com/embed/AzGfx9xSCyI"
+  },
+  {
+    "question_number": 6,
+    "chapter": "Hydrocarbons",
+    "subject": "Chemistry",
+    "question_type": "Single Choice Question",
+    "statement": "The ratio of σ and π bonds in benzene is",
+    "options": [
+      {
+        "option_number": 1,
+        "option_text": "2",
+        "is_correct": false,
+        "student_percentage": "29.43%"
+      },
+      {
+        "option_number": 2,
+        "option_text": "6",
+        "is_correct": false,
+        "student_percentage": "19.97%"
+      },
+      {
+        "option_number": 3,
+        "option_text": "4",
+        "is_correct": true,
+        "student_percentage": "46.64%"
+      },
+      {
+        "option_number": 4,
+        "option_text": "8",
+        "is_correct": false,
+        "student_percentage": "3.79%"
+      }
+    ],
+    "registered_answer": 3,
+    "registered_answers": [
+      3
+    ],
+    "student_accuracy": "46.64%",
+    "solution_text": "In a benzene molecule (C₆H₆):\nThere are 6 C–C σ-bonds in the hexagonal ring and 6 C–H σ-bonds, giving a total of 12 σ-bonds.\nThere are 3 conjugated π-bonds.\nRatio of σ to π bonds = 12 / 3 = 4 : 1 = 4.\nTherefore, Option 3 (4) is correct.",
+    "video_url": null
+  },
+  {
+    "question_number": 7,
+    "chapter": "Hydrocarbons",
+    "subject": "Chemistry",
+    "question_type": "Single Choice Question",
+    "statement": "2,3-Dimethyl-2-butene can be prepared by heating which of the following compounds with a strong acid ?",
+    "options": [
+      {
+        "option_number": 1,
+        "option_text": "(CH3)2C=CH−CH2−CH3",
+        "is_correct": false,
+        "student_percentage": "4.12%"
+      },
+      {
+        "option_number": 2,
+        "option_text": "(CH3)2CH−CH2−CH=CH2",
+        "is_correct": false,
+        "student_percentage": "55.64%"
+      },
+      {
+        "option_number": 3,
+        "option_text": "3,3-dimethylbutan-2-ol",
+        "is_correct": false,
+        "student_percentage": "18.5%"
+      },
+      {
+        "option_number": 4,
+        "option_text": "(CH3)3C−CH=CH2 (3,3-dimethylbut-1-ene)",
+        "is_correct": true,
+        "student_percentage": "21.74%"
+      }
+    ],
+    "registered_answer": 4,
+    "registered_answers": [
+      4
+    ],
+    "student_accuracy": "21.67%",
+    "solution_text": "When 3,3-dimethylbut-1-ene (CH₃)₃C–CH=CH₂ is treated with a strong acid (H⁺):\n1. Protonation of the alkene generates a secondary carbocation at C2: (CH₃)₃C–CH⁺–CH₃.\n2. A 1,2-methyl shift occurs to relieve steric strain and form the significantly more stable tertiary carbocation: (CH₃)₂C⁺–CH(CH₃)₂.\n3. Elimination of a proton (Saytzeff's rule) gives the highly stable tetrasubstituted alkene 2,3-dimethyl-2-butene: (CH₃)₂C=C(CH₃)₂.\nHence, Option 4 is correct.",
+    "video_url": "https://www.youtube.com/embed/cZh-E4MOgWE"
+  },
+  {
+    "question_number": 8,
+    "chapter": "Hydrocarbons",
+    "subject": "Chemistry",
+    "question_type": "Single Choice Question",
+    "statement": "The gas obtained when ethylene chloride reacts with alcoholic potash and sodamide is:",
+    "options": [
+      {
+        "option_number": 1,
+        "option_text": "C2H4",
+        "is_correct": false,
+        "student_percentage": "4.38%"
+      },
+      {
+        "option_number": 2,
+        "option_text": "C2H6",
+        "is_correct": false,
+        "student_percentage": "28.75%"
+      },
+      {
+        "option_number": 3,
+        "option_text": "C2H2",
+        "is_correct": true,
+        "student_percentage": "48.75%"
+      },
+      {
+        "option_number": 4,
+        "option_text": "C2H5Cl",
+        "is_correct": false,
+        "student_percentage": "18.33%"
+      }
+    ],
+    "registered_answer": 3,
+    "registered_answers": [
+      3
+    ],
+    "student_accuracy": "48.75%",
+    "solution_text": "Ethylene chloride (1,2-dichloroethane, Cl–CH₂–CH₂–Cl) undergoes two-step dehydrohalogenation:\nStep 1: Cl–CH₂–CH₂–Cl + alc. KOH → CH₂=CH–Cl (vinyl chloride) + KCl + H₂O.\nStep 2: Vinyl chloride is relatively inert to further elimination by KOH due to resonance stabilisation of the C–Cl bond. Stronger base sodamide (NaNH₂) eliminates the second mole of HCl:\nCH₂=CH–Cl + NaNH₂ → CH≡CH (ethyne / acetylene, C₂H₂) + NaCl + NH₃.\nTherefore, the gas produced is acetylene (C₂H₂, Option 3).",
+    "video_url": "https://www.youtube.com/embed/cZh-E4MOgWE"
+  },
+  {
+    "question_number": 9,
+    "chapter": "Hydrocarbons",
+    "subject": "Chemistry",
+    "question_type": "Single Choice Question",
+    "statement": "The gas believed to be the cause of explosion in coal-mines or fire damp is:",
+    "options": [
+      {
+        "option_number": 1,
+        "option_text": "methane",
+        "is_correct": true,
+        "student_percentage": "42.11%"
+      },
+      {
+        "option_number": 2,
+        "option_text": "ethane",
+        "is_correct": false,
+        "student_percentage": "15.79%"
+      },
+      {
+        "option_number": 3,
+        "option_text": "C3H8",
+        "is_correct": false,
+        "student_percentage": "13.74%"
+      },
+      {
+        "option_number": 4,
+        "option_text": "CO",
+        "is_correct": false,
+        "student_percentage": "28.36%"
+      }
+    ],
+    "registered_answer": 1,
+    "registered_answers": [
+      1
+    ],
+    "student_accuracy": "42.11%",
+    "solution_text": "In coal mining, methane (CH₄) gas seeps out of coal seams and collects in the mine atmosphere. This flammable gas mixture is called 'fire damp'. When mixed with air in concentrations of 5–15%, it becomes highly explosive upon ignition.\nHence, Option 1 (methane) is correct.",
+    "video_url": "https://www.youtube.com/embed/cZh-E4MOgWE"
+  },
+  {
+    "question_number": 10,
+    "chapter": "Hydrocarbons",
+    "subject": "Chemistry",
+    "question_type": "Single Choice Question",
+    "statement": "Major product of above reaction is (Electrophilic aromatic bromination with Br2/Fe on a naphthalene-fused lactam ring):",
+    "options": [
+      {
+        "option_number": 1,
+        "option_text": "Structure 1 (Bromination at unactivated position)",
+        "is_correct": false,
+        "student_percentage": "23.67%"
+      },
+      {
+        "option_number": 2,
+        "option_text": "Structure 2 (Bromination adjacent to carbonyl)",
+        "is_correct": false,
+        "student_percentage": "24.78%"
+      },
+      {
+        "option_number": 3,
+        "option_text": "Structure 3 (Bromination at bridgehead carbon)",
+        "is_correct": false,
+        "student_percentage": "16.36%"
+      },
+      {
+        "option_number": 4,
+        "option_text": "Structure 4 (Bromination at the activated α-position of the naphthalene nucleus directed by the amide nitrogen and methyl groups)",
+        "is_correct": true,
+        "student_percentage": "35.07%"
+      }
+    ],
+    "registered_answer": 4,
+    "registered_answers": [
+      4
+    ],
+    "student_accuracy": "35.07%",
+    "solution_text": "In electrophilic aromatic substitution on polycyclic/substituted aromatic systems:\nThe ring bearing the strongly activating –NH– group has higher electron density than the ring deactivated by the –C=O group.\nElectrophilic bromination (Br₂/Fe) is directed ortho/para to the activating –NH– group and favored methyl positions, yielding Structure 4 as the major product.",
+    "video_url": null
   }
 ]

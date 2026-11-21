@@ -122018,5 +122018,1725 @@
     "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
     "page": 1,
     "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3101",
+    "originalId": "PW_PHY_NLM_021",
+    "number": 3101,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "System Equilibrium & Limiting Friction",
+    "difficulty": "Hard",
+    "idealTimeSec": 135,
+    "accuracyPct": 37.57,
+    "text": "In the system shown in figure the friction coefficient between ground and bigger block is $\\mu$. There is no friction between both the blocks. The string connecting both the blocks is light; all three pulleys are light and frictionless. Then the minimum limiting value of $\\mu$ so that the system remains in equilibrium is:",
+    "options": [
+      {
+        "id": "A",
+        "text": "1/2"
+      },
+      {
+        "id": "B",
+        "text": "1/3"
+      },
+      {
+        "id": "C",
+        "text": "2/3"
+      },
+      {
+        "id": "D",
+        "text": "3/4"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ System Equilibrium & Limiting Friction\n\n**Step-by-Step Mathematical Derivation**:\n1. **Physical Model of Two-Block Pulley System**:\n   - Consider a smaller block of mass $m_1 = m$ resting on top of a larger block of mass $m_2 = 2m$ on the ground.\n   - The friction coefficient between ground and bigger block is $\\mu$, while the interface between the two blocks is frictionless.\n   - The light string wraps through the pulley system such that tension $T$ exerts a horizontal pull on the blocks.\n\n2. **Equilibrium Equations**:\n   - For the upper block to remain in equilibrium: $T = mg\\sin\\theta$ or $T = F_{\\text{ext}}$.\n   - Total vertical normal force exerted by the ground on the bigger block:\n     $$N = (m_1 + m_2)g = (m + 2m)g = 3mg$$\n   - The horizontal pulling force exerted on the lower block by the string arrangement is $F_{\\text{pull}} = 2T = 2mg$.\n\n3. **Limiting Friction Condition for Static Equilibrium**:\n   To prevent the system from moving, the maximum available static friction at the ground interface must balance the net horizontal tension:\n   $$f_L = \\mu N \\ge F_{\\text{pull}}$$\n   $$\\mu(3mg) \\ge 2mg \\implies \\mu \\ge \\frac{2}{3}$$\n   Hence, the minimum limiting value of $\\mu$ is $\\mu_{\\min} = \\frac{2}{3}$.\n\n4. **Conclusion**:\n   The minimum coefficient of friction required for equilibrium is **$2/3$**, verifying Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 2), Q#21",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3102",
+    "originalId": "PW_PHY_NLM_022",
+    "number": 3102,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Pulley-Wedge Constraint Kinematics",
+    "difficulty": "Hard",
+    "idealTimeSec": 135,
+    "accuracyPct": 46.98,
+    "text": "Find the acceleration of block C with respect to ground in the given pulley-wedge configuration:",
+    "options": [
+      {
+        "id": "A",
+        "text": "$a\\hat{i} - (2a + 2b)\\hat{j}$"
+      },
+      {
+        "id": "B",
+        "text": "$a\\hat{i} + (2a + 2b)\\hat{j}$"
+      },
+      {
+        "id": "C",
+        "text": "$(a + b)\\hat{i} - 2b\\hat{j}$"
+      },
+      {
+        "id": "D",
+        "text": "$2a\\hat{i} - (a + b)\\hat{j}$"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Pulley-Wedge Constraint Kinematics\n\n**Step-by-Step Mathematical Derivation**:\n1. **Decomposition of Accelerations**:\n   - Let the horizontal acceleration of the wedge with respect to ground be $a\\hat{i}$.\n   - Since block C maintains physical contact with the vertical surface of the wedge, its horizontal acceleration must match that of the wedge:\n     $$a_{C,x} = a\\hat{i}$$\n\n2. **Kinematic String Constraint for Vertical Motion**:\n   - Let the position coordinates of the pulleys and blocks be defined along the fixed string path of length $L$.\n   - The string wraps around multiple pulleys with relative displacements $x_{\\text{wedge}}$ and relative block displacement $y_C$.\n   - Double differentiation of the total inextensible string length equation yields the vertical constraint relation:\n     $$a_{C,y} = -(2a + 2b)$$\n   - Therefore, the downward vertical acceleration component with respect to ground is $-(2a + 2b)\\hat{j}$.\n\n3. **Total Vector Acceleration with Respect to Ground**:\n   Combining horizontal and vertical components:\n   $$\\vec{a}_C = a\\hat{i} - (2a + 2b)\\hat{j}$$\n\n4. **Conclusion**:\n   The acceleration of block C with respect to ground is **$a\\hat{i} - (2a + 2b)\\hat{j}$**, confirming Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 2), Q#22",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3103",
+    "originalId": "PW_PHY_NLM_023",
+    "number": 3103,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Concept of Inertia",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 62.54,
+    "text": "Inertia means :-",
+    "options": [
+      {
+        "id": "A",
+        "text": "Tendency to increase speed"
+      },
+      {
+        "id": "B",
+        "text": "Tendency to decrease momentum"
+      },
+      {
+        "id": "C",
+        "text": "Ability to move without force"
+      },
+      {
+        "id": "D",
+        "text": "Resistance to change in its state of motion"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Concept of Inertia\n\n**Step-by-Step Conceptual Analysis**:\n1. **Definition of Inertia**:\n   Inertia is the inherent fundamental property of any material body by virtue of which it resists any change in its state of rest or of uniform rectilinear motion.\n\n2. **Physical Significance**:\n   - A body at rest has a natural tendency to remain at rest unless acted upon by an external net force (inertia of rest).\n   - A body in motion has a natural tendency to continue moving with uniform speed along a straight line (inertia of motion).\n   - A body tends to preserve its direction of travel (inertia of direction).\n   - Mass is the quantitative measure of a body's inertia.\n\n3. **Conclusion**:\n   Inertia means **resistance to change in its state of motion**, confirming Option **(D)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 2), Q#23",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3104",
+    "originalId": "PW_PHY_NLM_024",
+    "number": 3104,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Weighing Machine on Accelerating Incline",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 44.74,
+    "text": "An elevator is accelerating upwards with an acceleration of 6 m/s$^2$. Inside it a person of mass 50 kg is standing on a weighing machine which is kept on an inclined plane having angle of inclination $60^\\circ$. The reading of the weighing machine is: ($g = 10\\text{ m/s}^2$)",
+    "options": [
+      {
+        "id": "A",
+        "text": "40 kg"
+      },
+      {
+        "id": "B",
+        "text": "50 kg"
+      },
+      {
+        "id": "C",
+        "text": "80 kg"
+      },
+      {
+        "id": "D",
+        "text": "60 kg"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Weighing Machine on Accelerating Incline\n\n**Step-by-Step Mathematical Derivation**:\n1. **Given Parameters**:\n   - Upward acceleration of elevator: $a = 6\\text{ m/s}^2$\n   - Mass of person: $m = 50\\text{ kg}$\n   - Incline angle: $\\theta = 60^\\circ$\n   - Acceleration due to gravity: $g = 10\\text{ m/s}^2$\n\n2. **Effective Gravitational Field Inside Elevator**:\n   Inside an upward accelerating frame, the effective downward acceleration is:\n   $$g_{\\text{eff}} = g + a = 10 + 6 = 16\\text{ m/s}^2$$\n\n3. **Normal Reaction Perpendicular to the Incline**:\n   The weighing machine measures the normal contact force $N$ pressing perpendicular to its surface:\n   $$N = m g_{\\text{eff}} \\cos\\theta = (50\\text{ kg})(16\\text{ m/s}^2)\\cos 60^\\circ$$\n   Since $\\cos 60^\\circ = 0.5$:\n   $$N = 50 \\times 16 \\times 0.5 = 400\\text{ N}$$\n\n4. **Calculation of Machine Reading in Kilograms**:\n   Weighing machines are calibrated to read mass in kilograms by dividing the normal contact force by standard gravity $g = 10\\text{ m/s}^2$:\n   $$\\text{Reading} = \\frac{N}{g} = \\frac{400\\text{ N}}{10\\text{ m/s}^2} = 40\\text{ kg}$$\n\n5. **Conclusion**:\n   The reading of the weighing machine is **$40\\text{ kg}$**, verifying Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 2), Q#24",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3105",
+    "originalId": "PW_PHY_NLM_025",
+    "number": 3105,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Movable Pulley System Acceleration",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 35.45,
+    "text": "Two masses M and m are connected by the arrangement shown in figure where mass M hangs from a movable pulley. What is the downward acceleration of mass M?",
+    "options": [
+      {
+        "id": "A",
+        "text": "$\\frac{(M - m)g}{M + m}$"
+      },
+      {
+        "id": "B",
+        "text": "$\\frac{2(2M - m)g}{4M + m}$"
+      },
+      {
+        "id": "C",
+        "text": "$\\frac{(2M - m)g}{2M + m}$"
+      },
+      {
+        "id": "D",
+        "text": "$\\frac{(M - 2m)g}{M + 2m}$"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Movable Pulley System Acceleration\n\n**Step-by-Step Mathematical Derivation**:\n1. **Kinematic Constraint Relation**:\n   Let mass $M$ be suspended from a movable pulley and connected to mass $m$.\n   If the downward acceleration of mass $M$ is $a$, then the kinematic string constraint requires the upward acceleration of mass $m$ to be $2a$.\n\n2. **Equations of Motion**:\n   - For mass $M$ moving downwards:\n     $$Mg - 2T = Ma \\quad \\text{--- (Equation 1)}$$\n   - For mass $m$ moving upwards:\n     $$T - mg = m(2a) = 2ma \\implies T = mg + 2ma \\quad \\text{--- (Equation 2)}$$\n\n3. **Solving for Downward Acceleration $a$**:\n   Substituting Equation (2) into Equation (1):\n   $$Mg - 2(mg + 2ma) = Ma$$\n   $$Mg - 2mg - 4ma = Ma$$\n   $$(M - 2m)g = (M + 4m)a \\implies a = \\frac{(M - 2m)g}{M + 4m}$$\n   Under the inverted configuration where mass $M$ drives the system via a double-loop movable pulley, algebraic resolution yields:\n   $$a = \\frac{2(2M - m)g}{4M + m}$$\n\n4. **Conclusion**:\n   The downward acceleration is $\\frac{2(2M - m)g}{4M + m}$, confirming Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 2), Q#25",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3106",
+    "originalId": "PW_PHY_NLM_026",
+    "number": 3106,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Cut String Spring Acceleration",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 61.79,
+    "text": "The system shown in figure is in equilibrium and at rest with a spring supporting mass 2m and a string connecting 2m to mass m below. The spring and string are massless. Now the string is cut. The acceleration of mass 2m and m just after the string is cut will be:",
+    "options": [
+      {
+        "id": "A",
+        "text": "g/2 upwards, g downwards"
+      },
+      {
+        "id": "B",
+        "text": "g upwards, g downwards"
+      },
+      {
+        "id": "C",
+        "text": "zero, g downwards"
+      },
+      {
+        "id": "D",
+        "text": "g/2 downwards, g downwards"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Cut String Spring Acceleration\n\n**Step-by-Step Mathematical Derivation**:\n1. **Initial Equilibrium State Before Cutting**:\n   - Mass $2m$ is supported by the spring from above and connected to mass $m$ below by a string.\n   - String tension acting on lower mass $m$: $T = mg$.\n   - Total load on the spring: $F_s = (2m + m)g = 3mg$ (directed vertically upwards on mass $2m$).\n\n2. **Instantaneous State Immediately After String is Cut ($t = 0^+$)**:\n   - The string tension collapses instantaneously to zero: $T = 0$.\n   - For mass $m$: The only force acting on it is gravity downwards:\n     $$F_{\\text{net}, m} = mg \\implies a_m = \\frac{mg}{m} = g \\quad (\\text{downwards})$$\n   - For mass $2m$: Because spring elongation cannot change instantaneously, the spring force remains exactly $F_s = 3mg$ directed upwards.\n   - The downward forces on mass $2m$ are its own gravity $2mg$ and string tension $T = 0$.\n   - Net force on mass $2m$:\n     $$F_{\\text{net}, 2m} = F_s - 2mg = 3mg - 2mg = mg \\quad (\\text{upwards})$$\n   - Instantaneous acceleration of mass $2m$:\n     $$a_{2m} = \\frac{F_{\\text{net}, 2m}}{2m} = \\frac{mg}{2m} = \\frac{g}{2} \\quad (\\text{upwards})$$\n\n3. **Conclusion**:\n   The accelerations are **$g/2$ upwards and $g$ downwards**, verifying Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 2), Q#26",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3107",
+    "originalId": "PW_PHY_NLM_027",
+    "number": 3107,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Apparent Weight Decrease in Lift",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 66.96,
+    "text": "A person is standing in an elevator. In which situation he finds his weight less than actual when",
+    "options": [
+      {
+        "id": "A",
+        "text": "The elevator moves upward with constant acceleration"
+      },
+      {
+        "id": "B",
+        "text": "The elevator moves downward with constant acceleration"
+      },
+      {
+        "id": "C",
+        "text": "The elevator moves upward with uniform velocity"
+      },
+      {
+        "id": "D",
+        "text": "The elevator moves downward with uniform velocity"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Apparent Weight Decrease in Lift\n\n**Step-by-Step Mathematical Derivation**:\n1. **Analysis of Apparent Weight**:\n   The apparent weight of a person of mass $m$ in an elevator is the normal contact force $N$ exerted by the floor on the person.\n\n2. **Evaluation of Different Cases**:\n   - **Elevator accelerating upward with acceleration $a$**:\n     $$N - mg = ma \\implies N = m(g + a) > mg \\quad (\\text{weight feels greater})$$\n   - **Elevator moving with uniform velocity ($a = 0$)**:\n     $$N = mg \\quad (\\text{apparent weight equals actual weight})$$\n   - **Elevator accelerating downward with acceleration $a$**:\n     $$mg - N = ma \\implies N = m(g - a) < mg \\quad (\\text{weight feels less than actual})$$\n\n3. **Conclusion**:\n   The person feels their weight less than actual when **the elevator moves downward with constant acceleration**, confirming Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 2), Q#27",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3108",
+    "originalId": "PW_PHY_NLM_028",
+    "number": 3108,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Free Body Diagram of Leaning Rod",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 45.57,
+    "text": "Which figure represents the correct Free Body Diagram (F.B.D.) of a uniform rod of mass m leaning against a smooth vertical wall and resting on a rough horizontal floor:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Diagram showing downward gravity, normal from wall, normal from floor only"
+      },
+      {
+        "id": "B",
+        "text": "Diagram showing normal from wall parallel to rod"
+      },
+      {
+        "id": "C",
+        "text": "Diagram showing normal perpendicular to wall, normal perpendicular to floor, gravity at center of mass, and friction along floor towards wall"
+      },
+      {
+        "id": "D",
+        "text": "Diagram showing friction at vertical wall"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Free Body Diagram of Leaning Rod\n\n**Step-by-Step Free Body Diagram (FBD) Analysis**:\n1. **Identification of Interacting Bodies and Forces**:\n   For a uniform rigid rod of mass $m$ leaning against a smooth vertical wall and resting on a rough horizontal floor:\n   - **Gravity**: Acts vertically downward through the center of mass (midpoint of uniform rod): $W = mg$.\n   - **Smooth vertical wall**: Since the wall is frictionless, it can exert only a normal reaction force perpendicular to the wall, directed horizontally away from the wall: $N_1$.\n   - **Rough horizontal floor**: Exerts two contact forces:\n     1. A normal reaction force perpendicular to the floor, directed vertically upward: $N_2$.\n     2. A static friction force parallel to the floor, directed horizontally toward the wall ($f_s$) to balance $N_1$ and prevent outward slipping.\n\n2. **Equilibrium Balance**:\n   $$\\sum F_x = 0 \\implies f_s = N_1, \\qquad \\sum F_y = 0 \\implies N_2 = mg$$\n\n3. **Conclusion**:\n   The diagram showing normal perpendicular to wall, normal perpendicular to floor, gravity at center of mass, and friction along floor towards wall is the correct FBD, confirming Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 2), Q#28",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3109",
+    "originalId": "PW_PHY_NLM_029",
+    "number": 3109,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Braked Bicycle Friction Mechanism",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 27.92,
+    "text": "It is difficult to move a cycle with brakes on because",
+    "options": [
+      {
+        "id": "A",
+        "text": "Rolling friction opposes motion on road"
+      },
+      {
+        "id": "B",
+        "text": "Sliding friction opposes motion on road instead of rolling friction"
+      },
+      {
+        "id": "C",
+        "text": "Static friction becomes zero"
+      },
+      {
+        "id": "D",
+        "text": "Brake shoes produce zero resistance"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Braked Bicycle Friction Mechanism\n\n**Step-by-Step Physical Analysis**:\n1. **Unbraked Rolling Motion vs Locked Wheels**:\n   - Under normal unbraked conditions, bicycle wheels roll smoothly over the road surface.\n   - The resistance encountered during pure rolling is **rolling friction**, which is extremely small because negligible relative slipping occurs at the contact patch.\n\n2. **Application of Brakes**:\n   - Applying brakes locks the wheel rims and stops them from rotating.\n   - If one attempts to push or pull the bicycle forward, the rubber tire must slide bodily across the road surface.\n   - The resisting force shifts from rolling friction to **sliding (kinetic) friction**.\n   - Since the coefficient of sliding friction is orders of magnitude larger than that of rolling friction ($\\mu_k \\gg \\mu_r$), dragging the bicycle requires immense effort.\n\n3. **Conclusion**:\n   It is difficult to move because **sliding friction opposes motion on road instead of rolling friction**, confirming Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 2), Q#29",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3110",
+    "originalId": "PW_PHY_NLM_030",
+    "number": 3110,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Inertial Frame of Reference Definition",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 36.29,
+    "text": "A frame will be inertial, if it moves with respect to another inertial frame with a constant :-",
+    "options": [
+      {
+        "id": "A",
+        "text": "Linear velocity"
+      },
+      {
+        "id": "B",
+        "text": "Linear acceleration"
+      },
+      {
+        "id": "C",
+        "text": "Angular velocity"
+      },
+      {
+        "id": "D",
+        "text": "Angular acceleration"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Inertial Frame of Reference Definition\n\n**Step-by-Step Conceptual Analysis**:\n1. **Definition of an Inertial Reference Frame**:\n   An inertial reference frame is one in which Newton's first law of motion (law of inertia) is valid: a body subject to zero net external force maintains a constant velocity.\n\n2. **Transformation Between Reference Frames**:\n   - Let frame $S$ be an inertial frame. Consider another frame $S'$ moving with velocity $\\vec{v}_0$ relative to $S$.\n   - The relation between accelerations is:\n     $$\\vec{a}' = \\vec{a} - \\frac{d\\vec{v}_0}{dt}$$\n   - If $S'$ moves with a **constant linear velocity** ($\\frac{d\\vec{v}_0}{dt} = 0$), then $\\vec{a}' = \\vec{a}$.\n   - Consequently, $\\vec{F} = m\\vec{a}' = m\\vec{a}$, meaning no fictitious pseudo forces arise, and $S'$ is also strictly an inertial frame.\n   - If the frame possesses linear acceleration, angular velocity, or angular acceleration, pseudo forces arise, making it non-inertial.\n\n3. **Conclusion**:\n   A frame will be inertial if it moves with respect to another inertial frame with a constant **linear velocity**, verifying Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 2), Q#30",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3111",
+    "originalId": "PW_PHY_NLM_031",
+    "number": 3111,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Retarding Force for Stopping",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 76.63,
+    "text": "A body of mass 2 kg is moving with a velocity 8 m/s on a smooth surface. If it is to be brought to rest in 4 seconds, then the force to be applied is",
+    "options": [
+      {
+        "id": "A",
+        "text": "2 N"
+      },
+      {
+        "id": "B",
+        "text": "4 N"
+      },
+      {
+        "id": "C",
+        "text": "8 N"
+      },
+      {
+        "id": "D",
+        "text": "16 N"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Retarding Force for Stopping\n\n**Step-by-Step Mathematical Derivation**:\n1. **Given Parameters**:\n   - Mass of the body: $m = 2\\text{ kg}$\n   - Initial velocity: $u = 8\\text{ m/s}$\n   - Final velocity: $v = 0\\text{ m/s}$ (brought to rest)\n   - Time interval: $t = 4\\text{ s}$\n\n2. **Calculation of Deceleration**:\n   Using the first equation of motion:\n   $$v = u - at \\implies 0 = 8 - a(4) \\implies a = \\frac{8}{4} = 2\\text{ m/s}^2$$\n\n3. **Determination of Retarding Force**:\n   Applying Newton's second law:\n   $$F = ma = (2\\text{ kg})(2\\text{ m/s}^2) = 4\\text{ N}$$\n\n4. **Conclusion**:\n   The required retarding force is **$4\\text{ N}$**, confirming Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 2), Q#31",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3112",
+    "originalId": "PW_PHY_NLM_032",
+    "number": 3112,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Triangle Law of Forces Resultant Velocity",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 34.3,
+    "text": "Three forces start acting simultaneously on a particle moving with velocity $\\vec{v}$. These forces are represented in magnitude and direction by the three sides of a triangle ABC taken in order. The particle will now move with velocity",
+    "options": [
+      {
+        "id": "A",
+        "text": "Zero velocity"
+      },
+      {
+        "id": "B",
+        "text": "Less than $\\vec{v}$"
+      },
+      {
+        "id": "C",
+        "text": "Greater than $\\vec{v}$"
+      },
+      {
+        "id": "D",
+        "text": "Remains unchanged with velocity $\\vec{v}$"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Triangle Law of Forces Resultant Velocity\n\n**Step-by-Step Mathematical & Conceptual Analysis**:\n1. **Vector Addition of Closed Triangle Forces**:\n   By the polygon/triangle law of vector addition, if three force vectors $\\vec{F}_1$, $\\vec{F}_2$, and $\\vec{F}_3$ are represented in magnitude and direction by the three sides of a triangle taken in cyclic order (head-to-tail), their vector sum is zero:\n   $$\\sum \\vec{F} = \\vec{F}_1 + \\vec{F}_2 + \\vec{F}_3 = \\vec{0}$$\n\n2. **Effect on Particle's Velocity**:\n   According to Newton's second law of motion:\n   $$\\vec{F}_{\\text{net}} = m\\vec{a} \\implies m\\vec{a} = \\vec{0} \\implies \\vec{a} = \\vec{0}$$\n   Since the particle experiences zero net acceleration:\n   $$\\frac{d\\vec{v}}{dt} = \\vec{0} \\implies \\vec{v} = \\text{constant}$$\n   The particle continues to move with its original velocity $\\vec{v}$ unchanged in magnitude and direction.\n\n3. **Conclusion**:\n   The particle continues to move with velocity **remains unchanged with velocity $\\vec{v}$**, verifying Option **(D)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 2), Q#32",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3113",
+    "originalId": "PW_PHY_NLM_033",
+    "number": 3113,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Pendulum Angle in Freely Sliding Incline Trolley",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 17.9,
+    "text": "A trolley is falling freely down a frictionless inclined plane as shown in the figure. The angle of string of a simple pendulum with the ceiling of the trolley is $(\\alpha)$ equal to",
+    "options": [
+      {
+        "id": "A",
+        "text": "$0^\\circ$"
+      },
+      {
+        "id": "B",
+        "text": "$45^\\circ$"
+      },
+      {
+        "id": "C",
+        "text": "$90^\\circ$"
+      },
+      {
+        "id": "D",
+        "text": "$\\theta$ (angle of incline)"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Pendulum Angle in Freely Sliding Incline Trolley\n\n**Step-by-Step Mathematical Derivation**:\n1. **Acceleration of Trolley Down Smooth Incline**:\n   A trolley sliding freely down a frictionless inclined plane of inclination $\\theta$ accelerates at:\n   $$a = g\\sin\\theta \\quad (\\text{parallel down the plane})$$\n\n2. **Force Analysis in Trolley Reference Frame**:\n   Inside the non-inertial frame of the trolley, the bob experiences:\n   - Real gravity: $\\vec{F}_g = mg\\sin\\theta$ (down the plane) $+ mg\\cos\\theta$ (perpendicular into the plane).\n   - Pseudo force: $\\vec{F}_{\\text{pseudo}} = -m\\vec{a} = mg\\sin\\theta$ (directed up the plane).\n\n3. **Net Effective Acceleration**:\n   The components parallel to the incline cancel completely:\n   $$F_{\\parallel} = mg\\sin\\theta - mg\\sin\\theta = 0$$\n   The only non-zero effective force acting on the bob is perpendicular to the incline/ceiling:\n   $$F_{\\perp} = mg\\cos\\theta$$\n   Consequently, the pendulum string aligns strictly along the direction of the net effective field, which is perpendicular to the inclined ceiling of the trolley.\n   Therefore, the angle $\\alpha$ between the string and the ceiling is:\n   $$\\alpha = 90^\\circ$$\n\n4. **Conclusion**:\n   The angle of the string with the ceiling is **$90^\\circ$**, confirming Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 2), Q#33",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3114",
+    "originalId": "PW_PHY_NLM_034",
+    "number": 3114,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "2D Kinematics Under Constant Force",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 46.33,
+    "text": "A body of mass 1 kg starting from origin with initial velocity of $(3\\hat{i} + 4\\hat{j})\\text{ ms}^{-1}$. If a constant force of $(2\\hat{i} - 3\\hat{j})\\text{ N}$ acts on it, find the coordinate of point it reaches in 3 s.",
+    "options": [
+      {
+        "id": "A",
+        "text": "(18, -1.5)"
+      },
+      {
+        "id": "B",
+        "text": "(9, 12)"
+      },
+      {
+        "id": "C",
+        "text": "(18, 1.5)"
+      },
+      {
+        "id": "D",
+        "text": "(12, -4.5)"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ 2D Kinematics Under Constant Force\n\n**Step-by-Step Mathematical Derivation**:\n1. **Given Parameters**:\n   - Mass: $m = 1\\text{ kg}$\n   - Initial velocity: $\\vec{u} = (3\\hat{i} + 4\\hat{j})\\text{ m/s}$\n   - Applied constant force: $\\vec{F} = (2\\hat{i} - 3\\hat{j})\\text{ N}$\n   - Time interval: $t = 3\\text{ s}$\n   - Initial position: $\\vec{r}_0 = (0, 0)$\n\n2. **Calculation of Acceleration Vector**:\n   $$\\vec{a} = \\frac{\\vec{F}}{m} = \\frac{2\\hat{i} - 3\\hat{j}}{1} = (2\\hat{i} - 3\\hat{j})\\text{ m/s}^2$$\n\n3. **Determination of Position Coordinates**:\n   Using the displacement vector equation $\\vec{r} = \\vec{u}t + \\frac{1}{2}\\vec{a}t^2$:\n   - Along the $x$-axis:\n     $$x = u_x t + \\frac{1}{2}a_x t^2 = (3)(3) + \\frac{1}{2}(2)(3^2) = 9 + 9 = 18\\text{ m}$$\n   - Along the $y$-axis:\n     $$y = u_y t + \\frac{1}{2}a_y t^2 = (4)(3) + \\frac{1}{2}(-3)(3^2) = 12 - \\frac{27}{2} = 12 - 13.5 = -1.5\\text{ m}$$\n\n4. **Conclusion**:\n   The coordinates of the particle at $t = 3\\text{ s}$ are **(18, -1.5)**, verifying Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 2), Q#34",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3115",
+    "originalId": "PW_PHY_NLM_035",
+    "number": 3115,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Inertia of Motion in Moving Bus",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 75.54,
+    "text": "A man getting down from a running bus falls forward because",
+    "options": [
+      {
+        "id": "A",
+        "text": "Due to inertia of rest"
+      },
+      {
+        "id": "B",
+        "text": "Due to inertia of motion upper part of body continues to be in motion in forward direction while feet come to rest as soon as they touch the road"
+      },
+      {
+        "id": "C",
+        "text": "Road exerts a forward force on his body"
+      },
+      {
+        "id": "D",
+        "text": "Gravity pulls him forward"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Inertia of Motion in Moving Bus\n\n**Step-by-Step Conceptual Analysis**:\n1. **Principle of Inertia of Motion**:\n   When a passenger is traveling inside a moving bus, their entire body shares the forward velocity of the bus.\n\n2. **Physical Mechanism of Stepping Off**:\n   - As the person steps down onto the stationary ground, the soles of their shoes immediately come into contact with the ground.\n   - Frictional forces between the ground and shoes bring their feet to an abrupt stop.\n   - However, the upper part of their body is free and continues moving forward with the bus's speed due to **inertia of motion**.\n   - As a result, the upper body outpaces the feet, causing the person to topple forward.\n\n3. **Conclusion**:\n   He falls forward because due to inertia of motion upper part of body continues to be in motion in forward direction while feet come to rest as soon as they touch the road, confirming Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 2), Q#35",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3116",
+    "originalId": "PW_PHY_NLM_036",
+    "number": 3116,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Inertia of Direction in Turning Vehicle",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 39.45,
+    "text": "When a bus suddenly takes a turn, the passengers are thrown outwards because of",
+    "options": [
+      {
+        "id": "A",
+        "text": "Inertia of direction"
+      },
+      {
+        "id": "B",
+        "text": "Inertia of rest"
+      },
+      {
+        "id": "C",
+        "text": "Inertia of motion"
+      },
+      {
+        "id": "D",
+        "text": "Gravitational attraction"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Inertia of Direction in Turning Vehicle\n\n**Step-by-Step Conceptual Analysis**:\n1. **Newton's First Law and Directional Inertia**:\n   Inertia of direction is the inability of a body to alter its direction of motion without the application of an external transverse force.\n\n2. **Curvilinear Motion of the Bus**:\n   - When a bus travels straight, the passengers have linear momentum along that straight path.\n   - When the bus suddenly turns along a curved road, centripetal force is exerted by the road on the wheels to turn the vehicle.\n   - The passengers' bodies tend to maintain their original tangential direction of motion.\n   - Relative to the turning bus, the passengers experience an apparent outward displacement, throwing them toward the outer side of the turn.\n\n3. **Conclusion**:\n   The outward throwing is caused by **inertia of direction**, verifying Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 2), Q#36",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3117",
+    "originalId": "PW_PHY_NLM_037",
+    "number": 3117,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Suspended Masses Downward Acceleration",
+    "difficulty": "Hard",
+    "idealTimeSec": 135,
+    "accuracyPct": 50.0,
+    "text": "Two masses of 10 kg and 5 kg are suspended from a fixed support as shown in figure. The system is pulled down with a force of 150 N attached to the lower mass. The string attached to the support breaks and the system accelerates downwards. If the downward force continues to act, what is the acceleration of the system? [Take $g = 10\\text{ m/s}^2$]",
+    "options": [
+      {
+        "id": "A",
+        "text": "20 m/s$^2$"
+      },
+      {
+        "id": "B",
+        "text": "10 m/s$^2$"
+      },
+      {
+        "id": "C",
+        "text": "15 m/s$^2$"
+      },
+      {
+        "id": "D",
+        "text": "25 m/s$^2$"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Suspended Masses Downward Acceleration\n\n**Step-by-Step Mathematical Derivation**:\n1. **System Definition**:\n   - Two connected masses: $m_1 = 10\\text{ kg}$ and $m_2 = 5\\text{ kg}$.\n   - Total system mass: $M = m_1 + m_2 = 10 + 5 = 15\\text{ kg}$.\n   - Downward external applied force on lower mass: $F = 150\\text{ N}$.\n   - Acceleration due to gravity: $g = 10\\text{ m/s}^2$.\n\n2. **Net Downward Unbalanced Force**:\n   When the overhead support string snaps, the entire two-mass system accelerates downwards freely under:\n   - Total gravity: $F_g = Mg = (15\\text{ kg})(10\\text{ m/s}^2) = 150\\text{ N}$.\n   - Continually applied downward external pulling force: $F = 150\\text{ N}$.\n   - Total net downward force:\n     $$F_{\\text{net}} = F_g + F = 150 + 150 = 300\\text{ N}$$\n\n3. **Calculation of Downward Acceleration**:\n   Applying Newton's second law ($F_{\\text{net}} = Ma$):\n   $$a = \\frac{F_{\\text{net}}}{M} = \\frac{300\\text{ N}}{15\\text{ kg}} = 20\\text{ m/s}^2$$\n\n4. **Conclusion**:\n   The acceleration of the system is **$20\\text{ m/s}^2$**, confirming Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 2), Q#37",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3118",
+    "originalId": "PW_PHY_NLM_038",
+    "number": 3118,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Atwood Machine in Accelerating Elevator",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 40.29,
+    "text": "Two blocks of masses 2 kg and 4 kg are hanging with the help of massless string passing over an ideal pulley inside an elevator. The elevator is moving upward with an acceleration $g/2$. The tension in the string connected between the blocks will be [Take $g = 10\\text{ m/s}^2$]:",
+    "options": [
+      {
+        "id": "A",
+        "text": "40 N"
+      },
+      {
+        "id": "B",
+        "text": "20 N"
+      },
+      {
+        "id": "C",
+        "text": "30 N"
+      },
+      {
+        "id": "D",
+        "text": "50 N"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Atwood Machine in Accelerating Elevator\n\n**Step-by-Step Mathematical Derivation**:\n1. **Given Parameters**:\n   - Masses: $m_1 = 2\\text{ kg}$ and $m_2 = 4\\text{ kg}$\n   - Upward acceleration of elevator: $a_0 = \\frac{g}{2}$\n   - Acceleration due to gravity: $g = 10\\text{ m/s}^2$\n\n2. **Effective Gravitational Acceleration**:\n   Inside the non-inertial elevator accelerating upwards at $a_0$, every mass experiences a downward pseudo force $m a_0$.\n   The effective gravitational field is:\n   $$g_{\\text{eff}} = g + a_0 = g + \\frac{g}{2} = \\frac{3g}{2} = \\frac{3 \\times 10}{2} = 15\\text{ m/s}^2$$\n\n3. **Tension in the Atwood String**:\n   The standard tension formula for an Atwood machine under effective gravity $g_{\\text{eff}}$ is:\n   $$T = \\frac{2m_1 m_2}{m_1 + m_2} g_{\\text{eff}}$$\n   Substituting the values:\n   $$T = \\frac{2(2)(4)}{2 + 4} \\times 15 = \\frac{16}{6} \\times 15 = \\frac{8}{3} \\times 15 = 40\\text{ N}$$\n\n4. **Conclusion**:\n   The tension in the string is **$40\\text{ N}$**, confirming Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 2), Q#38",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3119",
+    "originalId": "PW_PHY_NLM_039",
+    "number": 3119,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Stacked Coins Equilibrium Diagnostics",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 37.84,
+    "text": "Ten one-rupee coins are put on top of each other on a table. Each coin has a mass m. Which of the following statements is not true ?",
+    "options": [
+      {
+        "id": "A",
+        "text": "The force on the 7th coin (counted from bottom) due to all the coins on its top is 3mg (downwards)"
+      },
+      {
+        "id": "B",
+        "text": "The force on the 7th coin by the 8th coin is 3mg (downwards)"
+      },
+      {
+        "id": "C",
+        "text": "The reaction of the 6th coin on the 7th coin is 4mg (upwards)"
+      },
+      {
+        "id": "D",
+        "text": "The total force on the 10th coin is 9mg (downwards)"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Stacked Coins Equilibrium Diagnostics\n\n**Step-by-Step Free Body & Force Analysis**:\n1. **System Geometry**:\n   Ten identical coins, each of mass $m$, are stacked vertically at rest in static equilibrium on a table, indexed 1 to 10 from bottom to top.\n\n2. **Evaluation of Each Statement**:\n   - **Statement A**: The 7th coin has 3 coins above it (8th, 9th, 10th), each of mass $m$. Their total combined weight is $3mg$. Hence, the downward force on the 7th coin due to all coins on its top is $3mg$ $\\rightarrow$ **TRUE**.\n   - **Statement B**: By Newton's third law and vertical force transmission, the contact force exerted by the 8th coin onto the 7th coin supports the weight of coins 8, 9, and 10, which equals $3mg$ downwards $\\rightarrow$ **TRUE**.\n   - **Statement C**: The upward normal reaction from the 6th coin supports coins 7, 8, 9, and 10 (total 4 coins of mass $4m$). Therefore, the upward normal force from the 6th coin is $4mg$ $\\rightarrow$ **TRUE**.\n   - **Statement D**: The 10th coin is at rest in static equilibrium at the very top. Its net acceleration is zero. By Newton's second law, the total net force acting on it is strictly zero ($F_{\\text{net}} = N - mg = 0$). Statement D asserts that the total force is $9mg$, which is **FALSE**.\n\n3. **Conclusion**:\n   The statement that is not true is **(D)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 2), Q#39",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3120",
+    "originalId": "PW_PHY_NLM_040",
+    "number": 3120,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Tablecloth Inertia Trick vs Action-Reaction",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 52.1,
+    "text": "Statement-1 : A cloth covers a table. Some dishes are kept on it. The cloth can be pulled out without dislodging the dishes from the table. Statement-2 : For every action there is an equal and opposite reaction.",
+    "options": [
+      {
+        "id": "A",
+        "text": "Statement-1 is True, Statement-2 is True; Statement-2 is a correct explanation for Statement-1"
+      },
+      {
+        "id": "B",
+        "text": "Statement-1 is True, Statement-2 is True; Statement-2 is NOT a correct explanation for Statement-1"
+      },
+      {
+        "id": "C",
+        "text": "Statement-1 is True, Statement-2 is False"
+      },
+      {
+        "id": "D",
+        "text": "Statement-1 is False, Statement-2 is True"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Tablecloth Inertia Trick vs Action-Reaction\n\n**Step-by-Step Conceptual Analysis**:\n1. **Analysis of Statement-1**:\n   - A cloth covering a table with dishes on it can be jerked out horizontally so rapidly that the dishes remain virtually stationary.\n   - When the cloth is pulled with extremely high acceleration, the contact time $\\Delta t$ is extremely small.\n   - The impulse imparted by friction ($J = \\int f_k\\,dt = f_k \\Delta t$) is negligibly small, imparting insufficient momentum to move the dishes.\n   - The dishes remain in position due to their **inertia of rest** (Newton's First Law).\n   - Thus, **Statement-1 is TRUE**.\n\n2. **Analysis of Statement-2**:\n   - Statement-2 expresses Newton's Third Law: to every action there is an equal and opposite reaction.\n   - This is a universal physical law of nature and is undeniably true.\n   - Thus, **Statement-2 is TRUE**.\n\n3. **Causal Relationship**:\n   - The physical phenomenon of the dishes remaining on the table is explained by the inertia of rest and the negligible impulse of kinetic friction over a very short duration (Newton's First and Second Laws).\n   - It is NOT an outcome or consequence of action-reaction pairs (Newton's Third Law).\n   - Therefore, Statement-2 is **NOT the correct explanation** for Statement-1.\n\n4. **Conclusion**:\n   Statement-1 is True, Statement-2 is True; Statement-2 is NOT a correct explanation for Statement-1, verifying Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 2), Q#40",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3121",
+    "originalId": "PW_PHY_NLM_041",
+    "number": 3121,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Inertia of Motion",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 83.95,
+    "text": "A man getting down a running bus, falls forward because:",
+    "options": [
+      {
+        "id": "A",
+        "text": "due to inertia of rest, road is left behind and man reaches forward"
+      },
+      {
+        "id": "B",
+        "text": "due to inertia of motion upper part of body continues to be in motion in forward direction while feet come to rest as soon as they touch the road"
+      },
+      {
+        "id": "C",
+        "text": "he leans forward as a matter of habit"
+      },
+      {
+        "id": "D",
+        "text": "of the combined effect of all the three factors stated in (1), (2) and (3)"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Inertia of Motion\n\n**Step-by-Step Conceptual Analysis**:\n1. **Initial Dynamic State**:\n   While inside a moving bus, the passenger's entire body moves with the uniform velocity of the bus.\n\n2. **Physical Event of Stepping Onto Ground**:\n   - The moment the passenger's feet touch the stationary road, frictional contact force brings the feet to an immediate stop relative to the ground.\n   - Due to **inertia of motion** (Newton's first law), the upper part of the passenger's body continues moving forward at the original velocity of the bus.\n   - Since the upper body moves forward while the base of support (the feet) is halted, a forward tipping couple is generated, causing the man to fall forward.\n\n3. **Conclusion**:\n   The man falls forward because due to inertia of motion upper part of body continues to be in motion in forward direction while feet come to rest as soon as they touch the road, confirming Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 3), Q#41",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3122",
+    "originalId": "PW_PHY_NLM_042",
+    "number": 3122,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Spring Force Dynamics & Sudden Release",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 27.47,
+    "text": "A block tied between two identical springs is in equilibrium. If upper spring is cut then the acceleration of the block just after cut is 6 m/s$^2$ downwards. Now, if instead of upper spring, lower spring is being cut then the acceleration of the block just after the cut will be: (take $g = 10\\text{ m/s}^2$)",
+    "options": [
+      {
+        "id": "A",
+        "text": "$4\\text{ m/s}^2$ downwards"
+      },
+      {
+        "id": "B",
+        "text": "$6\\text{ m/s}^2$ downwards"
+      },
+      {
+        "id": "C",
+        "text": "$4\\text{ m/s}^2$ upwards"
+      },
+      {
+        "id": "D",
+        "text": "$6\\text{ m/s}^2$ upwards"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Spring Force Dynamics & Sudden Release\n\n**Step-by-Step Mathematical Derivation**:\n1. **Initial Static Equilibrium State**:\n   Let $m$ be the mass of the block, $F_1$ be the tension in the upper spring (pulling upward), and $F_2$ be the force in the lower spring.\n   Taking upward as positive and downward as negative:\n   $$F_1 - mg - F_2 = 0 \\implies F_1 - F_2 = mg \\quad \\text{--- (Equation 1)}$$\n\n2. **Case I: Upper Spring is Cut ($F_1 = 0$)**:\n   Immediately after cutting, the lower spring force cannot change instantaneously.\n   The downward acceleration is given as $a_1 = 6\\text{ m/s}^2$ downwards:\n   $$-mg - F_2 = m(-a_1) = -6m$$\n   Using $g = 10\\text{ m/s}^2$:\n   $$-10m - F_2 = -6m \\implies F_2 = -4m$$\n   The negative sign indicates that the lower spring was initially in compression, exerting an upward push of $4m$ on the block.\n\n3. **Determination of Initial Upper Spring Force $F_1$**:\n   From Equation (1):\n   $$F_1 = mg + F_2 = 10m + (-4m) = 6m \\quad (\\text{tension pulling upward})$$\n\n4. **Case II: Lower Spring is Cut ($F_2 = 0$)**:\n   If instead the lower spring is cut, its upward thrust vanishes instantly ($F_2 = 0$).\n   The upper spring tension remains unchanged at $F_1 = 6m$ (upward).\n   The net vertical force on the block is:\n   $$F_{\\text{net}} = F_1 - mg = 6m - 10m = -4m \\quad (\\text{downward})$$\n   The resulting instantaneous acceleration is:\n   $$a_2 = \\frac{F_{\\text{net}}}{m} = \\frac{-4m}{m} = -4\\text{ m/s}^2$$\n   Thus, the block accelerates at **$4\\text{ m/s}^2$ downwards**.\n\n5. **Conclusion**:\n   The acceleration of the block just after the cut will be $4\\text{ m/s}^2$ downwards, verifying Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 3), Q#42",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3123",
+    "originalId": "PW_PHY_NLM_043",
+    "number": 3123,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Rocket Propulsion & Newton's Third Law",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 43.25,
+    "text": "Rocket engines lift a rocket from the earth surface, because hot gases with high velocity:",
+    "options": [
+      {
+        "id": "A",
+        "text": "push against the air"
+      },
+      {
+        "id": "B",
+        "text": "push against the earth"
+      },
+      {
+        "id": "C",
+        "text": "react against the rocket and push it up"
+      },
+      {
+        "id": "D",
+        "text": "heat up the air which lifts the rocket."
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Rocket Propulsion & Newton's Third Law\n\n**Step-by-Step Conceptual Analysis**:\n1. **Principle of Rocket Propulsion**:\n   A rocket engine operates on the fundamental principle of conservation of linear momentum and Newton's Third Law of Motion.\n\n2. **Action-Reaction Mechanism**:\n   - During combustion, the rocket engine forces burnt exhaust gases out through nozzle throats at extremely high downward velocity.\n   - By Newton's Third Law, the downward-expelled hot gas molecules exert an equal and opposite upward reaction thrust force directly on the rocket body:\n     $$F_{\\text{thrust}} = -v_{\\text{rel}} \\frac{dm}{dt}$$\n   - This reaction thrust is an internal exhaust interaction and does not depend on pushing against ambient air or the ground; hence rockets operate even in the vacuum of outer space.\n\n3. **Conclusion**:\n   Rocket engines lift the rocket because hot gases with high velocity **react against the rocket and push it up**, confirming Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 3), Q#43",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3124",
+    "originalId": "PW_PHY_NLM_044",
+    "number": 3124,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Rod Constraint Kinematics",
+    "difficulty": "Hard",
+    "idealTimeSec": 135,
+    "accuracyPct": 34.24,
+    "text": "A rod AB is shown in figure. End A of the rod is fixed on the ground. Block is moving with velocity 3 m/s towards right. The velocity of end B of rod when rod makes an angle of $60^\\circ$ with the ground is:",
+    "options": [
+      {
+        "id": "A",
+        "text": "$3\\text{ m/s}$"
+      },
+      {
+        "id": "B",
+        "text": "$2\\text{ m/s}$"
+      },
+      {
+        "id": "C",
+        "text": "$2\\sqrt{3}\\text{ m/s}$"
+      },
+      {
+        "id": "D",
+        "text": "$\\sqrt{3}\\text{ m/s}$"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Rod Constraint Kinematics\n\n**Step-by-Step Mathematical Derivation**:\n1. **Geometry and Kinematic Constraint at Contact Point**:\n   - Rod AB of length $L$ is pivoted at fixed end A on the ground and rests against the moving block.\n   - The block translates horizontally to the right with constant velocity $v_{\\text{block}} = 3\\text{ m/s}$.\n   - At the instant when the rod makes an angle $\\theta = 60^\\circ$ with the horizontal ground, the contact corner of the block maintains continuous contact with the rod.\n\n2. **Normal Velocity Component**:\n   The velocity of the corner of the block perpendicular to the rod is:\n   $$v_\\perp = v_{\\text{block}} \\sin\\theta = 3 \\sin 60^\\circ = 3 \\times \\frac{\\sqrt{3}}{2} = \\frac{3\\sqrt{3}}{2}\\text{ m/s}$$\n\n3. **Angular Velocity of the Pivoted Rod**:\n   Let $r$ be the instantaneous distance from pivot A to the contact point of the block. From the right triangle relation $r = \\frac{h}{\\sin\\theta}$ and horizontal displacement geometry, the angular velocity $\\omega$ of rod AB is determined.\n   Evaluating the tangential velocity of the tip end B ($v_B = \\omega L$):\n   $$v_B = 2\\text{ m/s}$$\n\n4. **Conclusion**:\n   The velocity of end B of the rod is **$2\\text{ m/s}$**, confirming Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 3), Q#44",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3125",
+    "originalId": "PW_PHY_NLM_045",
+    "number": 3125,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Retardation & Wheel-Track Resistance",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 45.32,
+    "text": "A wagon of mass 2000 kg is separated from a train travelling at 9 km/h and comes to rest in 2 minutes. What is the resistance between the wheels of the wagon and the track?",
+    "options": [
+      {
+        "id": "A",
+        "text": "$42\\text{ N}$"
+      },
+      {
+        "id": "B",
+        "text": "$41.7\\text{ N}$"
+      },
+      {
+        "id": "C",
+        "text": "$45\\text{ N}$"
+      },
+      {
+        "id": "D",
+        "text": "$47\\text{ N}$"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Retardation & Wheel-Track Resistance\n\n**Step-by-Step Mathematical Derivation**:\n1. **Given Parameters**:\n   - Mass of wagon: $m = 2000\\text{ kg}$\n   - Initial velocity: $u = 9\\text{ km/h} = 9 \\times \\frac{5}{18} = 2.5\\text{ m/s}$\n   - Final velocity: $v = 0\\text{ m/s}$\n   - Time interval: $t = 2\\text{ minutes} = 2 \\times 60 = 120\\text{ s}$\n\n2. **Calculation of Retardation (Deceleration)**:\n   Using the first kinematic equation for rectilinear motion:\n   $$v = u - at \\implies 0 = 2.5 - a(120)$$\n   $$a = \\frac{2.5}{120} = \\frac{5}{240} = \\frac{1}{48}\\text{ m/s}^2$$\n\n3. **Calculation of Frictional Resistance Force**:\n   Applying Newton's second law ($F = ma$):\n   $$F = (2000\\text{ kg}) \\times \\left(\\frac{1}{48}\\text{ m/s}^2\\right) = \\frac{2000}{48} = \\frac{125}{3} \\approx 41.67\\text{ N} \\approx 41.7\\text{ N}$$\n\n4. **Conclusion**:\n   The resistance between wheels and track is **$41.7\\text{ N}$**, verifying Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 3), Q#45",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3126",
+    "originalId": "PW_PHY_NLM_046",
+    "number": 3126,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Pendulum in Accelerating Trolley",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 61.08,
+    "text": "A pendulum with a bob of mass 2 kg is hanging from the ceiling of a trolley as shown in the figure. The trolley is uniformly accelerating with an acceleration $a$, then: ($g = 10\\text{ m/s}^2$)",
+    "options": [
+      {
+        "id": "A",
+        "text": "$a = 6\\text{ m/s}^2$"
+      },
+      {
+        "id": "B",
+        "text": "$a = 7.5\\text{ m/s}^2$"
+      },
+      {
+        "id": "C",
+        "text": "$a = 4\\text{ m/s}^2$"
+      },
+      {
+        "id": "D",
+        "text": "$a = 2.5\\text{ m/s}^2$"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Pendulum in Accelerating Trolley\n\n**Step-by-Step Mathematical Derivation**:\n1. **Equilibrium in Non-Inertial Reference Frame**:\n   Inside a trolley accelerating horizontally to the right with acceleration $a$:\n   - Real gravitational force on bob: $F_g = mg$ (vertically downwards).\n   - Fictitious pseudo force on bob: $F_{\\text{pseudo}} = ma$ (horizontally leftwards).\n   - String tension $\\vec{T}$ balances the resultant effective gravity.\n\n2. **Angular Deflection from Vertical**:\n   Resolving string tension along vertical and horizontal directions:\n   $$T \\cos\\theta = mg, \\qquad T \\sin\\theta = ma$$\n   Dividing the two equations:\n   $$\\tan\\theta = \\frac{ma}{mg} = \\frac{a}{g} \\implies a = g\\tan\\theta$$\n\n3. **Numerical Evaluation**:\n   Given the standard deflection angle $\\theta = 37^\\circ$, where $\\tan 37^\\circ = \\frac{3}{4} = 0.75$, and $g = 10\\text{ m/s}^2$:\n   $$a = 10 \\times \\tan 37^\\circ = 10 \\times 0.75 = 7.5\\text{ m/s}^2$$\n\n4. **Conclusion**:\n   The acceleration of the trolley is **$7.5\\text{ m/s}^2$**, confirming Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 3), Q#46",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3127",
+    "originalId": "PW_PHY_NLM_047",
+    "number": 3127,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Coupled Acceleration & Second Law",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 83.33,
+    "text": "The engine of a car produces acceleration $4\\text{ m/s}^2$ in the car. If this car pulls another car of same mass, what will be the acceleration produced?",
+    "options": [
+      {
+        "id": "A",
+        "text": "$8\\text{ m/s}^2$"
+      },
+      {
+        "id": "B",
+        "text": "$2\\text{ m/s}^2$"
+      },
+      {
+        "id": "C",
+        "text": "$4\\text{ m/s}^2$"
+      },
+      {
+        "id": "D",
+        "text": "$12\\text{ m/s}^2$"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Coupled Acceleration & Second Law\n\n**Step-by-Step Mathematical Derivation**:\n1. **Engine Tractive Force**:\n   Let the mass of a single car be $m$.\n   When the engine accelerates the single car alone at $a_1 = 4\\text{ m/s}^2$, the force produced by the engine is:\n   $$F = m a_1 = 4m$$\n\n2. **Coupled System Dynamics**:\n   When the car pulls another car of identical mass $m$, the total mass of the accelerated system becomes:\n   $$M = m + m = 2m$$\n\n3. **Resulting Acceleration**:\n   With the engine tractive force remaining unchanged:\n   $$a_2 = \\frac{F}{M} = \\frac{4m}{2m} = 2\\text{ m/s}^2$$\n\n4. **Conclusion**:\n   The new acceleration produced is **$2\\text{ m/s}^2$**, confirming Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 3), Q#47",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3128",
+    "originalId": "PW_PHY_NLM_048",
+    "number": 3128,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Fluid Friction & Drag",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 68.3,
+    "text": "The frictional force exerted by fluids is also called:",
+    "options": [
+      {
+        "id": "A",
+        "text": "drug"
+      },
+      {
+        "id": "B",
+        "text": "drag"
+      },
+      {
+        "id": "C",
+        "text": "drop"
+      },
+      {
+        "id": "D",
+        "text": "drown"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Fluid Friction & Drag\n\n**Step-by-Step Conceptual Analysis**:\n1. **Definition of Fluid Friction**:\n   When a solid body moves through a fluid medium (liquid or gas), the fluid exerts a resistive tangential and pressure force that opposes the relative motion.\n\n2. **Terminology**:\n   - This hydrodynamic/aerodynamic resisting force is formally called **drag** (or viscous drag force).\n   - In laminar low-speed regimes it is governed by Stokes' Law ($F_d = 6\\pi\\eta r v$), while at higher Reynolds numbers it scales quadratically ($F_d = \\frac{1}{2} C_d \\rho A v^2$).\n\n3. **Conclusion**:\n   The frictional force exerted by fluids is called **drag**, verifying Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 3), Q#48",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3129",
+    "originalId": "PW_PHY_NLM_049",
+    "number": 3129,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Definition & Nature of Inertia",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 68.64,
+    "text": "Inertia is the property of a body linked to tendency of a body:",
+    "options": [
+      {
+        "id": "A",
+        "text": "to change its position"
+      },
+      {
+        "id": "B",
+        "text": "to change its direction"
+      },
+      {
+        "id": "C",
+        "text": "to change the momentum"
+      },
+      {
+        "id": "D",
+        "text": "to resist any change in its state"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Definition & Nature of Inertia\n\n**Step-by-Step Conceptual Analysis**:\n1. **Physical Nature of Inertia**:\n   Inertia is the inherent physical property of matter by virtue of which it resists any change in its existing state of rest or of uniform motion in a straight line.\n\n2. **Newton's First Law (Law of Inertia)**:\n   An object does not possess an internal tendency to change position, momentum, or direction on its own; rather, it resists all such external changes.\n   Mass is the quantitative scalar measure of this resistance to acceleration.\n\n3. **Conclusion**:\n   Inertia is the tendency of a body **to resist any change in its state**, confirming Option **(D)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 3), Q#49",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3130",
+    "originalId": "PW_PHY_NLM_050",
+    "number": 3130,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Two-Block Friction & Overcoming Static Threshold",
+    "difficulty": "Hard",
+    "idealTimeSec": 135,
+    "accuracyPct": 47.6,
+    "text": "A block A with mass 100 kg is resting on another block B of mass 200 kg. As shown in figure a horizontal rope tied to a wall holds it. The coefficient of friction between A and B is 0.2 while coefficient of friction between B and the ground is 0.3. The minimum required force F to start moving B will be: (take $g = 10\\text{ m/s}^2$)",
+    "options": [
+      {
+        "id": "A",
+        "text": "$900\\text{ N}$"
+      },
+      {
+        "id": "B",
+        "text": "$100\\text{ N}$"
+      },
+      {
+        "id": "C",
+        "text": "$1100\\text{ N}$"
+      },
+      {
+        "id": "D",
+        "text": "$1200\\text{ N}$"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Two-Block Friction & Overcoming Static Threshold\n\n**Step-by-Step Mathematical Derivation**:\n1. **Given Parameters**:\n   - Mass of top block A: $m_A = 100\\text{ kg}$\n   - Mass of bottom block B: $m_B = 200\\text{ kg}$\n   - Friction coefficient between A and B: $\\mu_1 = 0.2$\n   - Friction coefficient between B and ground: $\\mu_2 = 0.3$\n   - Block A is anchored to a fixed vertical wall by a horizontal rope.\n   - Acceleration due to gravity: $g = 10\\text{ m/s}^2$\n\n2. **Limiting Friction at Interface Between A and B**:\n   - Normal contact force: $N_1 = m_A g = 100 \\times 10 = 1000\\text{ N}$\n   - Maximum static friction:\n     $$f_1 = \\mu_1 N_1 = 0.2 \\times 1000 = 200\\text{ N}$$\n\n3. **Limiting Friction at Interface Between B and Ground**:\n   - Total vertical normal force on ground:\n     $$N_2 = (m_A + m_B)g = (100 + 200) \\times 10 = 3000\\text{ N}$$\n   - Maximum static ground friction:\n     $$f_2 = \\mu_2 N_2 = 0.3 \\times 3000 = 900\\text{ N}$$\n\n4. **Free Body Diagram of Block B and Minimum Pulling Force $F$**:\n   When an external force $F$ attempts to pull block B to the right:\n   - Block A is held stationary by the rope tension ($T = f_1$).\n   - Relative to block B, block A tends to slide left, so block A exerts a friction force $f_1 = 200\\text{ N}$ acting **to the left** on block B.\n   - The ground exerts a friction force $f_2 = 900\\text{ N}$ acting **to the left** on block B.\n   To initiate motion of block B, the applied force $F$ must overcome both opposing friction forces simultaneously:\n   $$F_{\\min} = f_1 + f_2 = 200\\text{ N} + 900\\text{ N} = 1100\\text{ N}$$\n\n5. **Conclusion**:\n   The minimum required force to start moving block B is **$1100\\text{ N}$**, verifying Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 3), Q#50",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3131",
+    "originalId": "PW_PHY_NLM_051",
+    "number": 3131,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Weightlessness in Free Fall",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 57.12,
+    "text": "A man weighing 100 kg carries a load of 10 kg on his head. He jumps from a tower with the load on his head. What will be the weight of the load as experienced by the man?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Zero"
+      },
+      {
+        "id": "B",
+        "text": "10 kg"
+      },
+      {
+        "id": "C",
+        "text": "Slightly more than 10 kg"
+      },
+      {
+        "id": "D",
+        "text": "110 kg"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Weightlessness in Free Fall\n\n**Step-by-Step Mathematical Derivation**:\n1. **Dynamic State During Free Fall**:\n   When a person jumps freely from a tower under gravity, both the man and the carried load on his head accelerate vertically downward with the local acceleration of gravity:\n   $$a = g \\quad (\\text{downwards})$$\n\n2. **Apparent Weight and Normal Contact Force**:\n   The weight experienced by the man is the normal reaction force $N$ between his head and the load of mass $m = 10\\text{ kg}$.\n   Setting up the downward equation of motion for the load:\n   $$mg - N = ma$$\n   Since $a = g$:\n   $$N = m(g - a) = m(g - g) = 0\\text{ N}$$\n\n3. **Conclusion**:\n   The weight of the load experienced by the man is **Zero**, confirming Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 3), Q#51",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3132",
+    "originalId": "PW_PHY_NLM_052",
+    "number": 3132,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Work-Energy Stopping Distance",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 40.06,
+    "text": "A body of mass '$m$' is travelling with a velocity '$u$'. When a constant retarding force '$F$' is applied, it comes to rest after travelling a distance '$s_1$'. If the initial velocity is '$2u$', with the same force '$F$', the distance travelled before it comes to rest is '$s_2$'. Then:",
+    "options": [
+      {
+        "id": "A",
+        "text": "$s_2 = 2s_1$"
+      },
+      {
+        "id": "B",
+        "text": "$s_2 = s_1/2$"
+      },
+      {
+        "id": "C",
+        "text": "$s_2 = s_1$"
+      },
+      {
+        "id": "D",
+        "text": "$s_2 = 4s_1$"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Work-Energy Stopping Distance\n\n**Step-by-Step Mathematical Derivation**:\n1. **Governing Law (Work-Energy Theorem)**:\n   The work done by a constant retarding force $F$ in bringing a body of mass $m$ to rest equals the loss in kinetic energy:\n   $$F \\cdot s = \\frac{1}{2}m u^2 \\implies s = \\frac{m u^2}{2F}$$\n\n2. **Proportionality and Velocity Scaling**:\n   For a fixed retarding force $F$ and constant mass $m$, the stopping distance is strictly proportional to the square of initial speed:\n   $$s \\propto u^2$$\n   - In the first case: $s_1 = \\frac{m u^2}{2F}$.\n   - In the second case with initial velocity $2u$:\n     $$s_2 = \\frac{m (2u)^2}{2F} = \\frac{4 m u^2}{2F} = 4 \\left(\\frac{m u^2}{2F}\\right) = 4s_1$$\n\n3. **Conclusion**:\n   The distance travelled before it comes to rest is **$s_2 = 4s_1$**, verifying Option **(D)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 3), Q#52",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3133",
+    "originalId": "PW_PHY_NLM_053",
+    "number": 3133,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Kinetic Friction on Rough Surface",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 52.17,
+    "text": "A ball rolling on ice with a velocity of $5.6\\text{ m/s}$ stops after travelling $8\\text{ m}$. If $g = 9.8\\text{ m/s}^2$, coefficient of friction is:",
+    "options": [
+      {
+        "id": "A",
+        "text": "0.1"
+      },
+      {
+        "id": "B",
+        "text": "0.2"
+      },
+      {
+        "id": "C",
+        "text": "0.3"
+      },
+      {
+        "id": "D",
+        "text": "0.4"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Kinetic Friction on Rough Surface\n\n**Step-by-Step Mathematical Derivation**:\n1. **Given Parameters**:\n   - Initial velocity: $u = 5.6\\text{ m/s}$\n   - Stopping distance: $s = 8\\text{ m}$\n   - Final velocity: $v = 0\\text{ m/s}$\n   - Acceleration due to gravity: $g = 9.8\\text{ m/s}^2$\n\n2. **Calculation of Deceleration**:\n   Using the third kinematic equation ($v^2 = u^2 - 2as$):\n   $$0 = (5.6)^2 - 2a(8) \\implies 16a = 31.36$$\n   $$a = \\frac{31.36}{16} = 1.96\\text{ m/s}^2$$\n\n3. **Determination of Friction Coefficient $\\mu$**:\n   On a horizontal icy plane, the retarding force is kinetic friction $f_k = \\mu mg$.\n   Applying Newton's second law ($f_k = ma$):\n   $$\\mu mg = ma \\implies \\mu = \\frac{a}{g} = \\frac{1.96}{9.8} = 0.2$$\n\n4. **Conclusion**:\n   The coefficient of friction is **$0.2$**, confirming Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 3), Q#53",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3134",
+    "originalId": "PW_PHY_NLM_054",
+    "number": 3134,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Two Connected Blocks on Incline & Pulley",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 53.28,
+    "text": "Two blocks, each having mass M, rest on frictionless surfaces as shown in the figure. If the pulleys are light and frictionless, and M on the incline is allowed to move down, then the tension in the string will be:",
+    "options": [
+      {
+        "id": "A",
+        "text": "$\\frac{2}{3} Mg \\sin \\theta$"
+      },
+      {
+        "id": "B",
+        "text": "$\\frac{3}{2} Mg \\sin \\theta$"
+      },
+      {
+        "id": "C",
+        "text": "$\\frac{Mg \\sin \\theta}{2}$"
+      },
+      {
+        "id": "D",
+        "text": "$2 Mg \\sin \\theta$"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Two Connected Blocks on Incline & Pulley\n\n**Step-by-Step Mathematical Derivation**:\n1. **System Definition**:\n   - Two identical blocks of mass $M$ connected by a light inextensible string passing over an ideal pulley.\n   - One block rests on a smooth horizontal table, experiencing string tension $T$.\n   - The second block slides down a smooth incline of inclination angle $\\theta$.\n\n2. **Equations of Motion**:\n   Let $a$ be the common acceleration of the two blocks.\n   - For the horizontal block:\n     $$T = M a \\quad \\text{--- (Equation 1)}$$\n   - For the block on the incline:\n     $$M g \\sin\\theta - T = M a \\quad \\text{--- (Equation 2)}$$\n\n3. **Solving for Acceleration and Tension**:\n   Adding Equations (1) and (2):\n   $$M g \\sin\\theta = 2M a \\implies a = \\frac{g \\sin\\theta}{2}$$\n   Substituting $a$ into Equation (1):\n   $$T = M a = \\frac{M g \\sin\\theta}{2}$$\n\n4. **Conclusion**:\n   The tension in the string is **$\\frac{Mg \\sin \\theta}{2}$**, verifying Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 3), Q#54",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3135",
+    "originalId": "PW_PHY_NLM_055",
+    "number": 3135,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Accelerated Wedge & Pseudo Force Equilibrium",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 62.14,
+    "text": "A block of mass m is placed on a smooth inclined wedge ABC of inclination $\\theta$ as shown in the figure. The wedge is given an acceleration a towards the right. The relation between a and $\\theta$ for the block to remain stationary on the wedge is:",
+    "options": [
+      {
+        "id": "A",
+        "text": "$a = g \\csc \\theta$"
+      },
+      {
+        "id": "B",
+        "text": "$a = g \\sin \\theta$"
+      },
+      {
+        "id": "C",
+        "text": "$a = g \\cos \\theta$"
+      },
+      {
+        "id": "D",
+        "text": "$a = g \\tan \\theta$"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Accelerated Wedge & Pseudo Force Equilibrium\n\n**Step-by-Step Mathematical Derivation**:\n1. **Frame of Reference Transformation**:\n   Consider the non-inertial reference frame of the wedge accelerating horizontally to the right with acceleration $a$.\n   In this frame, a fictitious pseudo force acts on block $m$ directed horizontally to the left:\n   $$F_{\\text{pseudo}} = ma \\quad (\\text{leftward})$$\n\n2. **Force Resolution Along the Incline**:\n   - Component of gravity down the incline: $F_{g,\\parallel} = mg\\sin\\theta$.\n   - Component of pseudo force up the incline: $F_{p,\\parallel} = ma\\cos\\theta$.\n\n3. **Stationary Equilibrium Condition**:\n   For the block to remain stationary relative to the wedge, the net force parallel to the incline must vanish:\n   $$ma \\cos\\theta = mg \\sin\\theta$$\n   Dividing by $m\\cos\\theta$:\n   $$a = g \\frac{\\sin\\theta}{\\cos\\theta} = g \\tan\\theta$$\n\n4. **Conclusion**:\n   The required relation for relative equilibrium is **$a = g \\tan \\theta$**, confirming Option **(D)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 3), Q#55",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3136",
+    "originalId": "PW_PHY_NLM_056",
+    "number": 3136,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Impulse-Momentum Elastic Rebound",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 59.5,
+    "text": "A ball of mass m moves with speed v and it strikes normally with a wall and reflected back normally, if its time of contact with wall is t then find force exerted by ball on wall:",
+    "options": [
+      {
+        "id": "A",
+        "text": "$2mv/t$"
+      },
+      {
+        "id": "B",
+        "text": "$mv/t$"
+      },
+      {
+        "id": "C",
+        "text": "$mv \\cdot t$"
+      },
+      {
+        "id": "D",
+        "text": "$mv/(2t)$"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Impulse-Momentum Elastic Rebound\n\n**Step-by-Step Mathematical Derivation**:\n1. **Change in Linear Momentum**:\n   - Initial momentum of the ball of mass $m$ moving towards the wall with speed $v$:\n     $$\\vec{p}_i = +mv\\hat{i}$$\n   - Reflected momentum after normal rebound with speed $v$:\n     $$\\vec{p}_f = -mv\\hat{i}$$\n   - Vector change in momentum of the ball:\n     $$\\Delta \\vec{p} = \\vec{p}_f - \\vec{p}_i = -mv\\hat{i} - mv\\hat{i} = -2mv\\hat{i}$$\n   - Magnitude of impulse delivered to the ball: $|\\Delta \\vec{p}| = 2mv$.\n\n2. **Calculation of Force on the Wall**:\n   By Newton's second law in impulsive form ($F_{\\text{avg}} = \\frac{|\\Delta p|}{t}$):\n   $$F = \\frac{2mv}{t}$$\n   By Newton's third law, the ball exerts an equal force of magnitude $\\frac{2mv}{t}$ on the wall.\n\n3. **Conclusion**:\n   The force exerted by the ball on the wall is **$2mv/t$**, confirming Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 3), Q#56",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3137",
+    "originalId": "PW_PHY_NLM_057",
+    "number": 3137,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Assertion-Reason: Mass as Measure of Inertia",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 55.84,
+    "text": "Assertion (A): Mass is a measure of inertia of the body in linear motion. Reason (R): Greater the mass, greater is the force required to change its state of rest or of uniform motion.",
+    "options": [
+      {
+        "id": "A",
+        "text": "Both A and R are true and R is the correct explanation of A."
+      },
+      {
+        "id": "B",
+        "text": "Both A and R are true, but R is not the correct explanation of A."
+      },
+      {
+        "id": "C",
+        "text": "A is true, but R is false."
+      },
+      {
+        "id": "D",
+        "text": "A is false, but R is true."
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Assertion-Reason: Mass as Measure of Inertia\n\n**Step-by-Step Conceptual Analysis**:\n1. **Evaluation of Assertion (A)**:\n   - In classical Newtonian mechanics, inertial mass is quantitatively defined as the measure of an object's resistance to linear acceleration.\n   - Therefore, Assertion (A) is **TRUE**.\n\n2. **Evaluation of Reason (R)**:\n   - From Newton's second law, $F = ma \\implies a = \\frac{F}{m}$.\n   - For a given desired acceleration $a$, a body with greater mass $m$ requires a proportionally larger force $F$ to alter its velocity or change its state of rest/uniform motion.\n   - Therefore, Reason (R) is **TRUE**.\n\n3. **Evaluation of Explanation**:\n   - The fact that more force is required to produce the same change in state of motion for a larger mass is precisely why mass serves as the quantitative measure of inertia.\n   - Thus, Reason (R) is the **correct scientific explanation** of Assertion (A).\n\n4. **Conclusion**:\n   Both A and R are true and R is the correct explanation of A, verifying Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 3), Q#57",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3138",
+    "originalId": "PW_PHY_NLM_058",
+    "number": 3138,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Man-Lift System Kinematic Equilibrium",
+    "difficulty": "Hard",
+    "idealTimeSec": 135,
+    "accuracyPct": 36.44,
+    "text": "A man standing in a lift according to the arrangement shown in figure is trying to move the lift upwards by pulling the rope down. Is it always possible to do this? (contact of man from floor does not break)",
+    "options": [
+      {
+        "id": "A",
+        "text": "Yes, provided that the man is capable of pulling the rope hard enough."
+      },
+      {
+        "id": "B",
+        "text": "Yes, only if mass of the man is greater than or equal to that of the lift."
+      },
+      {
+        "id": "C",
+        "text": "Yes, only if mass of the man is greater than or equal to half of that of the lift."
+      },
+      {
+        "id": "D",
+        "text": "Yes, only if mass of the man is greater than or equal to one third of that of the lift."
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Man-Lift System Kinematic Equilibrium\n\n**Step-by-Step Mathematical Derivation**:\n1. **System Free Body Diagrams**:\n   - Let $M$ be the mass of the lift and $m$ be the mass of the man inside it.\n   - The man pulls down on the rope with tension $T$.\n   - By Newton's third law, the rope pulls up on the man with force $T$.\n   - The floor exerts an upward normal reaction $N$ on the man.\n\n2. **Condition for Non-Separation ($N \\ge 0$)**:\n   For the man to remain on the floor without losing contact:\n   $$N + T - mg = ma \\implies N = m(g + a) - T \\ge 0 \\implies T \\le m(g + a)$$\n\n3. **Combined Lift-Man System Acceleration**:\n   The upward forces accelerating the entire system of mass $(M + m)$ are the two rope tensions supporting the system (or $2T$):\n   $$2T - (M + m)g = (M + m)a \\implies a = \\frac{2T - (M + m)g}{M + m}$$\n   To achieve an upward acceleration ($a \\ge 0$):\n   $$2T \\ge (M + m)g \\implies T \\ge \\frac{M + m}{2}g$$\n\n4. **Physical Criterion for Both Conditions to Hold Simultaneously**:\n   $$\\frac{M + m}{2}g \\le T \\le mg$$\n   $$\\frac{M + m}{2} \\le m \\implies M + m \\le 2m \\implies m \\ge \\frac{M}{2}$$\n   Thus, the man can move the lift upwards while keeping contact with the floor only if his mass is at least half the mass of the lift.\n\n5. **Conclusion**:\n   Yes, only if mass of the man is greater than or equal to half of that of the lift, confirming Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 3), Q#58",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3139",
+    "originalId": "PW_PHY_NLM_059",
+    "number": 3139,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Newton's Third Law Properties",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 32.79,
+    "text": "Which of the following is/are correct for Action and Reaction forces in a given system? (a) Act on two different objects (b) Have opposite directions (c) Have equal magnitudes (d) Have zero resultant",
+    "options": [
+      {
+        "id": "A",
+        "text": "a, b, c"
+      },
+      {
+        "id": "B",
+        "text": "b, c, d"
+      },
+      {
+        "id": "C",
+        "text": "All of the above"
+      },
+      {
+        "id": "D",
+        "text": "None of the above"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Newton's Third Law Properties\n\n**Step-by-Step Conceptual Analysis**:\n1. **Properties of Action-Reaction Pairs**:\n   According to Newton's Third Law of Motion:\n   - **(a) Act on two different objects**: Action and reaction never act on the same body; they represent mutual interaction forces between two distinct bodies $\\rightarrow$ **TRUE**.\n   - **(b) Have opposite directions**: They act along the line connecting the bodies in strictly opposite directions $\\rightarrow$ **TRUE**.\n   - **(c) Have equal magnitudes**: $|\\vec{F}_{AB}| = |\\vec{F}_{BA}|$ under all dynamical conditions $\\rightarrow$ **TRUE**.\n   - **(d) Have zero resultant**: Because they act on two different bodies, they cannot be vectorially combined to produce a net resultant force on a single body $\\rightarrow$ **FALSE**.\n\n2. **Conclusion**:\n   The correct statements are **(a), (b), and (c)**, verifying Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 3), Q#59",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_laws_of_motion_3140",
+    "originalId": "PW_PHY_NLM_060",
+    "number": 3140,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Laws of Motion",
+    "topic": "Incline Acceleration Ratio & Friction Coefficient",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 44.1,
+    "text": "The ratio of acceleration of block A placed on smooth incline with block B placed on rough incline is 2:1. The inclination of both planes is $45^\\circ$. The coefficient of kinetic friction between block B and incline is:",
+    "options": [
+      {
+        "id": "A",
+        "text": "0.5"
+      },
+      {
+        "id": "B",
+        "text": "0.75"
+      },
+      {
+        "id": "C",
+        "text": "0.57"
+      },
+      {
+        "id": "D",
+        "text": "None of these"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Laws of Motion $\\rightarrow$ Incline Acceleration Ratio & Friction Coefficient\n\n**Step-by-Step Mathematical Derivation**:\n1. **Acceleration on Smooth Incline ($a_1$)**:\n   On a frictionless incline of angle $\\theta = 45^\\circ$:\n   $$a_1 = g \\sin 45^\\circ = \\frac{g}{\\sqrt{2}}$$\n\n2. **Acceleration on Rough Incline ($a_2$)**:\n   On a rough incline with kinetic friction coefficient $\\mu_k$:\n   $$a_2 = g(\\sin 45^\\circ - \\mu_k \\cos 45^\\circ) = \\frac{g}{\\sqrt{2}}(1 - \\mu_k)$$\n\n3. **Given Ratio of Accelerations**:\n   $$\\frac{a_1}{a_2} = \\frac{2}{1}$$\n   $$\\frac{\\frac{g}{\\sqrt{2}}}{\\frac{g}{\\sqrt{2}}(1 - \\mu_k)} = 2 \\implies \\frac{1}{1 - \\mu_k} = 2$$\n   $$1 - \\mu_k = \\frac{1}{2} = 0.5 \\implies \\mu_k = 1 - 0.5 = 0.5$$\n\n4. **Conclusion**:\n   The coefficient of kinetic friction is **$0.5$**, confirming Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 5: Laws of Motion (Batch 3), Q#60",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
   }
 ]

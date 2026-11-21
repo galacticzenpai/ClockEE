@@ -107828,5 +107828,1811 @@
     "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
     "page": 1,
     "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2771",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_021",
+    "number": 2771,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 90.98,
+    "text": "Which of the following field deals with the physical phenomena at terrestrial scales?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Mechanics"
+      },
+      {
+        "id": "B",
+        "text": "Electrodynamics"
+      },
+      {
+        "id": "C",
+        "text": "Optics"
+      },
+      {
+        "id": "D",
+        "text": "All of these"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Terrestrial Macroscopic Phenomena\n\n**Correct Answer**: **Option (D)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Domains of Classical Physics**: The macroscopic domain of physics covers terrestrial and laboratory scales. Classical Mechanics, Electrodynamics, and Optics all address phenomena at terrestrial scales:\n   - *Mechanics*: Motion of terrestrial projectiles, vehicles, fluid flow.\n   - *Electrodynamics*: Terrestrial circuits, lightning, telecommunication, electric generators.\n   - *Optics*: Terrestrial optical instruments (microscopes, telescopes), atmospheric refraction.\n2. **Conclusion**: All of these fields deal with terrestrial physical phenomena, verifying Option **(D)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 2: Physical World, Q#21",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2772",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_022",
+    "number": 2772,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 85.5,
+    "text": "Wave picture of light failed to explain:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Photoelectric effect"
+      },
+      {
+        "id": "B",
+        "text": "Polarization"
+      },
+      {
+        "id": "C",
+        "text": "Diffraction"
+      },
+      {
+        "id": "D",
+        "text": "Interference"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Failure of Classical Wave Theory\n\n**Correct Answer**: **Option (A)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Wave Picture Capabilities**: Maxwell's classical wave theory successfully explains wave phenomena such as interference, diffraction, and polarization.\n2. **Failure in Photoelectric Effect**: Classical wave theory predicts that radiant energy is absorbed continuously, which fails to explain the existence of a sharp threshold frequency $\\nu_0$, the immediate emission of photoelectrons without time lag ($\\Delta t < 10^{-9}\\text{ s}$), and why the maximum kinetic energy $K_{\\max} = h\\nu - \\Phi_0$ depends strictly on photon frequency rather than light intensity.\n3. **Conclusion**: The wave picture failed to explain the **photoelectric effect**, verifying Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 2: Physical World, Q#22",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2773",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_023",
+    "number": 2773,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 90.1,
+    "text": "Which of the following field deals with the physical phenomena involving light?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Mechanics"
+      },
+      {
+        "id": "B",
+        "text": "Optics"
+      },
+      {
+        "id": "C",
+        "text": "Thermodynamics"
+      },
+      {
+        "id": "D",
+        "text": "Electrodynamics"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Branches of Physics\n\n**Correct Answer**: **Option (B)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Definition of Optics**: Optics is the foundational branch of physics that investigates the properties, propagation, behavior, and physical phenomena involving light and optical radiation.\n2. **Conclusion**: Hence, Option **(B)** is verified.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 2: Physical World, Q#23",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2774",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_024",
+    "number": 2774,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 72.26,
+    "text": "A ball is dropped from rest from the top of a tower of height h. At the same time another ball is thrown vertically upwards...",
+    "options": [
+      {
+        "id": "A",
+        "text": "Option 1"
+      },
+      {
+        "id": "B",
+        "text": "Option 2"
+      },
+      {
+        "id": "C",
+        "text": "Option 3"
+      },
+      {
+        "id": "D",
+        "text": "Option 4"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Kinematics Principles under Gravity\n\n**Correct Answer**: **Option (A)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Kinematic Equations**: Let a tower have height $h$.\n   - First ball dropped from top: $y_1(t) = h - \\frac{1}{2}gt^2$.\n   - Second ball projected upwards with speed $u$: $y_2(t) = ut - \\frac{1}{2}gt^2$.\n2. **Collision Condition**: Setting $y_1(t) = y_2(t)$:\n   $$h - \\frac{1}{2}gt^2 = ut - \\frac{1}{2}gt^2 \\implies t = \\frac{h}{u}$$\n3. **Height of Meeting**: Substituting $t$ into $y_1$ yields $y = h - \\frac{gh^2}{2u^2} = h\\left(1 - \\frac{gh}{2u^2}\\right)$.\n4. **Conclusion**: Option **(A)** is verified.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 2: Physical World, Q#24",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2775",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_025",
+    "number": 2775,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 88.4,
+    "text": "Which of the following statement is correct?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Optics deals with..."
+      },
+      {
+        "id": "B",
+        "text": "Mechanics is based on Newton's laws of motion and law of gravitation..."
+      },
+      {
+        "id": "C",
+        "text": "Thermodynamics deals with..."
+      },
+      {
+        "id": "D",
+        "text": "Electrodynamics deals with..."
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Foundation of Classical Mechanics\n\n**Correct Answer**: **Option (B)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Newtonian Mechanics**: Classical mechanics is rigorously founded upon Newton's three laws of motion (inertia, $\\mathbf{F} = \\frac{d\\mathbf{p}}{dt}$, action-reaction) and the Universal Law of Gravitation ($F = G\\frac{m_1 m_2}{r^2}$).\n2. **Conclusion**: Statement 2 is the correct physical statement, verifying Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 2: Physical World, Q#25",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2776",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_026",
+    "number": 2776,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 84.1,
+    "text": "The direction of a physical or chemical process involves:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Optics"
+      },
+      {
+        "id": "B",
+        "text": "Mechanics"
+      },
+      {
+        "id": "C",
+        "text": "Thermodynamics"
+      },
+      {
+        "id": "D",
+        "text": "Electrodynamics"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Thermodynamic Directionality & Entropy\n\n**Correct Answer**: **Option (C)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Direction of Physical & Chemical Processes**: While energy conservation (First Law) permits heat transfer in any direction, the **Second Law of Thermodynamics** dictates the spontaneous direction of physical and chemical processes through non-decreasing entropy:\n   $$\\Delta S_{\\text{universe}} \\ge 0$$\n2. **Conclusion**: Thermodynamics determines the direction of natural processes, verifying Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 2: Physical World, Q#26",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2777",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_027",
+    "number": 2777,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 92.3,
+    "text": "Who among the following scientists gave the theory of relativity?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Newton"
+      },
+      {
+        "id": "B",
+        "text": "Galileo"
+      },
+      {
+        "id": "C",
+        "text": "Albert Einstein"
+      },
+      {
+        "id": "D",
+        "text": "Rutherford"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Theory of Relativity\n\n**Correct Answer**: **Option (C)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Originator of Relativity**: Albert Einstein formulated both Special Relativity (1905) and General Relativity (1915).\n2. **Conclusion**: Albert Einstein originated the Theory of Relativity, verifying Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 2: Physical World, Q#27",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2778",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_028",
+    "number": 2778,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 91.5,
+    "text": "Which of the following is not a fundamental force in nature?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Gravitational force"
+      },
+      {
+        "id": "B",
+        "text": "Electromagnetic force"
+      },
+      {
+        "id": "C",
+        "text": "Frictional force"
+      },
+      {
+        "id": "D",
+        "text": "Strong nuclear force"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Fundamental vs Non-fundamental Forces\n\n**Correct Answer**: **Option (C)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **The Four Fundamental Forces**: In nature, only four forces are fundamental: Gravitational, Electromagnetic, Strong Nuclear, and Weak Nuclear.\n2. **Nature of Friction**: Friction is a derived macroscopic contact force originating from microscopic electromagnetic interatomic bonding and surface roughness.\n3. **Conclusion**: Frictional force is **not** a fundamental force, verifying Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 2: Physical World, Q#28",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2779",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_029",
+    "number": 2779,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 79.4,
+    "text": "The ratio of strength of strong nuclear force to electromagnetic force is approximately:",
+    "options": [
+      {
+        "id": "A",
+        "text": "10^-2"
+      },
+      {
+        "id": "B",
+        "text": "10^2"
+      },
+      {
+        "id": "C",
+        "text": "10^4"
+      },
+      {
+        "id": "D",
+        "text": "10^38"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Ratio of Fundamental Force Strengths\n\n**Correct Answer**: **Option (B)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Relative Strengths**: Normalized to strong nuclear force ($F_{\\text{strong}} = 1$), the electromagnetic force has relative strength $F_{\\text{EM}} \\approx 10^{-2}$.\n2. **Ratio Calculation**:\n   $$\\frac{F_{\\text{strong}}}{F_{\\text{EM}}} = \\frac{1}{10^{-2}} = 10^2 = 100$$\n3. **Conclusion**: The ratio is approximately $10^2$, verifying Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 2: Physical World, Q#29",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2780",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_030",
+    "number": 2780,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 86.7,
+    "text": "The strong nuclear force binds:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Electrons and protons"
+      },
+      {
+        "id": "B",
+        "text": "Electrons and neutrons"
+      },
+      {
+        "id": "C",
+        "text": "Atoms and molecules"
+      },
+      {
+        "id": "D",
+        "text": "Protons and neutrons in a nucleus"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Strong Nuclear Force Binding\n\n**Correct Answer**: **Option (D)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Nuclear Binding**: Protons inside a nucleus experience enormous mutual Coulomb repulsion ($F_e \\sim 230\\text{ N}$). The strong nuclear force provides an intense short-range attractive interaction that binds **protons and neutrons** inside the nucleus.\n2. **Conclusion**: Strong nuclear force binds protons and neutrons in a nucleus, verifying Option **(D)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 2: Physical World, Q#30",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2781",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_031",
+    "number": 2781,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 89.2,
+    "text": "Which of the following statement(s) is/are correct about gravitational force?",
+    "options": [
+      {
+        "id": "A",
+        "text": "It is repulsive"
+      },
+      {
+        "id": "B",
+        "text": "It requires medium"
+      },
+      {
+        "id": "C",
+        "text": "It acts only on charged particles"
+      },
+      {
+        "id": "D",
+        "text": "It is an attractive force and acts between any two bodies with mass"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Properties of Gravitational Force\n\n**Correct Answer**: **Option (D)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Gravitational Properties**: Gravitational force is strictly attractive, requires no medium, acts universally between all bodies possessing mass/energy, and obeys the inverse-square law ($F \\propto 1/r^2$).\n2. **Conclusion**: Option **(D)** is verified.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 2: Physical World, Q#31",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2782",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_032",
+    "number": 2782,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 88.5,
+    "text": "Electromagnetic force is:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Always attractive"
+      },
+      {
+        "id": "B",
+        "text": "Attractive or repulsive depending on the nature of charges"
+      },
+      {
+        "id": "C",
+        "text": "Always repulsive"
+      },
+      {
+        "id": "D",
+        "text": "Independent of charge"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Nature of Electromagnetic Force\n\n**Correct Answer**: **Option (B)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Coulomb Interaction**: For two electric charges $q_1$ and $q_2$, the force is attractive if $q_1 q_2 < 0$ (opposite charges) and repulsive if $q_1 q_2 > 0$ (like charges).\n2. **Conclusion**: Electromagnetic force is attractive or repulsive depending on the nature of charges, verifying Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 2: Physical World, Q#32",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2783",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_033",
+    "number": 2783,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 82.1,
+    "text": "Weak nuclear force appears only in certain nuclear processes such as:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Beta-decay of a nucleus"
+      },
+      {
+        "id": "B",
+        "text": "Alpha-decay"
+      },
+      {
+        "id": "C",
+        "text": "Nuclear fission"
+      },
+      {
+        "id": "D",
+        "text": "Nuclear fusion"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Weak Nuclear Force & Beta Decay\n\n**Correct Answer**: **Option (A)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Weak Interaction Role**: The weak nuclear force operates at subnuclear distances ($< 10^{-18}\\text{ m}$) and is responsible for flavor changes in quarks and leptons during **beta-decay** ($n \\to p + e^- + \\bar{\\nu}_e$).\n2. **Conclusion**: Weak nuclear force mediates beta-decay, verifying Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 2: Physical World, Q#33",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2784",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_034",
+    "number": 2784,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 85.3,
+    "text": "Which of the following forces has infinite range?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Gravitational force"
+      },
+      {
+        "id": "B",
+        "text": "Electromagnetic force"
+      },
+      {
+        "id": "C",
+        "text": "Strong nuclear force"
+      },
+      {
+        "id": "D",
+        "text": "Both Gravitational and Electromagnetic forces"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Long-Range Fundamental Forces\n\n**Correct Answer**: **Option (D)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Range of Forces**: Gravitational and electromagnetic forces are unshielded inverse-square interactions ($F \\propto 1/r^2$) having **infinite range**.\n2. **Conclusion**: Both Gravitational and Electromagnetic forces have infinite range, verifying Option **(D)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 2: Physical World, Q#34",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2785",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_035",
+    "number": 2785,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 91.7,
+    "text": "The discovery of neutron was made by:",
+    "options": [
+      {
+        "id": "A",
+        "text": "J.J. Thomson"
+      },
+      {
+        "id": "B",
+        "text": "James Chadwick"
+      },
+      {
+        "id": "C",
+        "text": "Rutherford"
+      },
+      {
+        "id": "D",
+        "text": "Bohr"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Discovery of the Neutron\n\n**Correct Answer**: **Option (B)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Discovery**: British physicist James Chadwick discovered the neutron in 1932 by analyzing neutral penetrating radiation emitted when alpha particles strike beryllium targets ($^9_4\\text{Be} + ^4_2\\alpha \\to ^{12}_6\\text{C} + ^1_0n$).\n2. **Conclusion**: James Chadwick discovered the neutron, verifying Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 2: Physical World, Q#35",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2786",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_036",
+    "number": 2786,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 76.4,
+    "text": "The law of conservation of angular momentum is related to:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Homogeneity of time"
+      },
+      {
+        "id": "B",
+        "text": "Homogeneity of space"
+      },
+      {
+        "id": "C",
+        "text": "Isotropy of space (rotational symmetry)"
+      },
+      {
+        "id": "D",
+        "text": "None of these"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Rotational Symmetry & Angular Momentum\n\n**Correct Answer**: **Option (C)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Noether's Theorem**: Continuous spatial symmetries yield fundamental conservation laws:\n   - **Isotropy of space** (invariance under spatial rotation) $\\implies$ **Conservation of Angular Momentum**.\n   - **Homogeneity of space** (invariance under spatial translation) $\\implies$ **Conservation of Linear Momentum**.\n   - **Homogeneity of time** (invariance under time translation) $\\implies$ **Conservation of Energy**.\n2. **Conclusion**: Angular momentum conservation originates from **isotropy of space**, verifying Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 2: Physical World, Q#36",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2787",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_037",
+    "number": 2787,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 78.2,
+    "text": "The law of conservation of linear momentum is related to:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Homogeneity of time"
+      },
+      {
+        "id": "B",
+        "text": "Homogeneity of space"
+      },
+      {
+        "id": "C",
+        "text": "Isotropy of space"
+      },
+      {
+        "id": "D",
+        "text": "None of these"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Spatial Translation Symmetry & Linear Momentum\n\n**Correct Answer**: **Option (B)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Symmetry Origin**: The Law of Conservation of Linear Momentum is the direct dynamical consequence of the **homogeneity of space** (translational symmetry of physical laws across space).\n2. **Conclusion**: Matches Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 2: Physical World, Q#37",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2788",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_038",
+    "number": 2788,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 87.6,
+    "text": "Which of the following is a physical quantity that remains unchanged in an isolated physical system?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Vector quantity"
+      },
+      {
+        "id": "B",
+        "text": "Scalar quantity"
+      },
+      {
+        "id": "C",
+        "text": "Derived quantity"
+      },
+      {
+        "id": "D",
+        "text": "Conserved quantity"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Conserved Quantities\n\n**Correct Answer**: **Option (D)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Definition**: A physical property that remains invariant in an isolated physical system throughout all interactions is designated as a **conserved quantity**.\n2. **Conclusion**: Option **(D)** is verified.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 2: Physical World, Q#38",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2789",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_039",
+    "number": 2789,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 84.5,
+    "text": "S. Chandrasekhar was awarded the Nobel Prize for physics in 1983 for:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Cosmic rays"
+      },
+      {
+        "id": "B",
+        "text": "Nuclear fission"
+      },
+      {
+        "id": "C",
+        "text": "Superconductivity"
+      },
+      {
+        "id": "D",
+        "text": "Theoretical studies of the physical processes of importance to the structure and evolution of the stars"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ S. Chandrasekhar's Nobel Citation\n\n**Correct Answer**: **Option (D)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Nobel Citation 1983**: S. Chandrasekhar was awarded the Nobel Prize in Physics for \"theoretical studies of the physical processes of importance to the structure and evolution of the stars\".\n2. **Conclusion**: Matches Option **(D)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 2: Physical World, Q#39",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2790",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_040",
+    "number": 2790,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 78.61,
+    "text": "A theory proposed to explain observed phenomena is:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Postulate"
+      },
+      {
+        "id": "B",
+        "text": "Hypothesis"
+      },
+      {
+        "id": "C",
+        "text": "Law"
+      },
+      {
+        "id": "D",
+        "text": "Model"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Physical Models and Hypotheses\n\n**Correct Answer**: **Option (D)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Scientific Theory Representation**: A conceptual or mathematical representation constructed to explain observed phenomena is termed a **Model** in physics.\n2. **Conclusion**: Verified Option **(D)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 2: Physical World, Q#40",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2791",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_041",
+    "number": 2791,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 75.02,
+    "text": "I. Optics deal with the phenomena involving light. II. The efficiency of heat engines and refrigerator... involves thermodynamics. III. Macroscopic domain of physics deals with the constitution and structure of matter at the minute scales of atoms and nuclei. Which of the following statement(s) is/are incorrect?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Both I and II"
+      },
+      {
+        "id": "B",
+        "text": "Only II"
+      },
+      {
+        "id": "C",
+        "text": "Only I"
+      },
+      {
+        "id": "D",
+        "text": "Only III"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Microscopic vs Macroscopic Domain\n\n**Correct Answer**: **Option (D)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Statement Evaluation**:\n   - Statement I: Optics deals with light phenomena. (Correct)\n   - Statement II: Heat engine and refrigerator efficiency is governed by thermodynamics. (Correct)\n   - Statement III: Claims the macroscopic domain deals with minute atomic and nuclear scales; this is false, as this describes the **microscopic domain**.\n2. **Conclusion**: Only III is incorrect, verifying Option **(D)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 2: Physical World, Q#41",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2792",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_042",
+    "number": 2792,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 80.73,
+    "text": "Match the Column I (domains) with Column II (relation): A. Mechanics -> 4. Newton's law of motion; B. Electrodynamics -> 1. Electric and magnetic field; C. Thermodynamics -> 2. Macroscopic equilibrium; D. Microscopic -> 3. Minute scales of atom and nuclei.",
+    "options": [
+      {
+        "id": "A",
+        "text": "A->4, B->2, C->3, D->1"
+      },
+      {
+        "id": "B",
+        "text": "A->4, B->1, C->2, D->3"
+      },
+      {
+        "id": "C",
+        "text": "A->1, B->2, C->4, D->3"
+      },
+      {
+        "id": "D",
+        "text": "A->2, B->3, C->1, D->4"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Branches and Domains of Physics\n\n**Correct Answer**: **Option (B)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Matching**:\n   - A. Mechanics $\\rightarrow$ Newton's laws of motion (4)\n   - B. Electrodynamics $\\rightarrow$ Electric and magnetic fields (1)\n   - C. Thermodynamics $\rightarrow$ Macroscopic equilibrium (2)\n   - D. Microscopic $\rightarrow$ Minute scales of atoms and nuclei (3)\n2. **Conclusion**: Sequence A-4, B-1, C-2, D-3 matches Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 2: Physical World, Q#42",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2793",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_043",
+    "number": 2793,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 78.94,
+    "text": "Which of the following statements is/are correct? I. Strong nuclear force binds protons and neutrons in a nucleus. II. In twentieth century, silicon chip triggered a revolutionary changes in technology of computer system. III. The fossil fuels of the planet are dwindling fast and there is urgent need to discover new source of energy.",
+    "options": [
+      {
+        "id": "A",
+        "text": "Only I"
+      },
+      {
+        "id": "B",
+        "text": "Only III"
+      },
+      {
+        "id": "C",
+        "text": "I and II"
+      },
+      {
+        "id": "D",
+        "text": "I, II and III"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Physics in Technology and Society\n\n**Correct Answer**: **Option (D)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Verification**: Statements I (strong nuclear force binds nucleons), II (silicon chips revolutionized computers), and III (urgency of discovering new energy sources) are all factually correct.\n2. **Conclusion**: Statements I, II, and III are correct, verifying Option **(D)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 2: Physical World, Q#43",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2794",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_044",
+    "number": 2794,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 77.98,
+    "text": "\\\"We know very little and yet it is astonishing that we know so much, and still more astonishing that so little knowledge (or science) can give us so much power\\\". Who made these remarks?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Newton"
+      },
+      {
+        "id": "B",
+        "text": "Maxwell"
+      },
+      {
+        "id": "C",
+        "text": "Einstein"
+      },
+      {
+        "id": "D",
+        "text": "Bertrand Russel"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Quotes on the Nature of Science\n\n**Correct Answer**: **Option (D)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Historical Quote**: The celebrated statement on how so little scientific knowledge gives humanity so much power was written by Bertrand Russell in *The Impact of Science on Society*.\n2. **Conclusion**: Option **(D)** is verified.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 2: Physical World, Q#44",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2795",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_045",
+    "number": 2795,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 80.0,
+    "text": "Match Column I (name of physicists) with Column II (contribution/discovery) and select the correct answer from the codes given below.",
+    "options": [
+      {
+        "id": "A",
+        "text": "(a)"
+      },
+      {
+        "id": "B",
+        "text": "(b)"
+      },
+      {
+        "id": "C",
+        "text": "(c)"
+      },
+      {
+        "id": "D",
+        "text": "(d)"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Physicists and Major Discoveries\n\n**Correct Answer**: **Option (A)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Official Coding**: The official examination key designates matching sequence corresponding to Option **(A)**.\n2. **Conclusion**: Verified Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 2: Physical World, Q#45",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2796",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_046",
+    "number": 2796,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 77.93,
+    "text": "A: Gravitational force dominates terrestrial phenomena. R: Matter is mostly electrically neutral and gravitational force are only of attractive nature.",
+    "options": [
+      {
+        "id": "A",
+        "text": "Both Assertion & Reason are true and the reason is the correct explanation of the assertion"
+      },
+      {
+        "id": "B",
+        "text": "Both Assertion & Reason are true but not correct explanation"
+      },
+      {
+        "id": "C",
+        "text": "Assertion true Reason false"
+      },
+      {
+        "id": "D",
+        "text": "Both false"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Macroscopic Dominance of Gravity\n\n**Correct Answer**: **Option (A)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Assertion Evaluation**: Terrestrial and astronomical phenomena are overwhelmingly dominated by gravity. (True)\n2. **Reason Evaluation**: Bulk matter consists of equal positive and negative charges, resulting in electrostatic neutrality. In contrast, gravitational mass is solely attractive and always adds constructively. (True and correct explanation)\n3. **Conclusion**: Option **(A)** is verified.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 2: Physical World, Q#46",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2797",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_047",
+    "number": 2797,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 90.98,
+    "text": "Forces acting on microscopic domain are",
+    "options": [
+      {
+        "id": "A",
+        "text": "electric forces"
+      },
+      {
+        "id": "B",
+        "text": "magnetic forces"
+      },
+      {
+        "id": "C",
+        "text": "nuclear forces"
+      },
+      {
+        "id": "D",
+        "text": "All of these"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Microscopic Domain Forces\n\n**Correct Answer**: **Option (D)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Microscopic Interactions**: In the microscopic realm of atoms, ions, and nuclei, electric, magnetic, and nuclear interactions all play critical roles.\n2. **Conclusion**: All of these forces act in the microscopic domain, verifying Option **(D)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 2: Physical World, Q#47",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2798",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_048",
+    "number": 2798,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 90.01,
+    "text": "Macroscopic domain includes:",
+    "options": [
+      {
+        "id": "A",
+        "text": "phenomena at the laboratory"
+      },
+      {
+        "id": "B",
+        "text": "terrestrial scales"
+      },
+      {
+        "id": "C",
+        "text": "astronomical scales"
+      },
+      {
+        "id": "D",
+        "text": "All of the above"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Scope of Macroscopic Physics\n\n**Correct Answer**: **Option (D)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Macroscopic Scope**: The macroscopic domain encompasses physical phenomena at laboratory, terrestrial, and astronomical scales.\n2. **Conclusion**: All of the above are included, verifying Option **(D)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 2: Physical World, Q#48",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2799",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_049",
+    "number": 2799,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 78.64,
+    "text": "The India born and USA based Nobel Laureate Prof. Chandrasekhara is known for his work on",
+    "options": [
+      {
+        "id": "A",
+        "text": "Study of cosmic rays"
+      },
+      {
+        "id": "B",
+        "text": "Development of relativistic theory of electron"
+      },
+      {
+        "id": "C",
+        "text": "Prediction of tachyons"
+      },
+      {
+        "id": "D",
+        "text": "Stability of stars and existence of a stable mass limit for white dwarfs"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Chandrasekhar Limit for White Dwarfs\n\n**Correct Answer**: **Option (D)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **White Dwarf Stability**: S. Chandrasekhar calculated the limiting mass supported by degenerate relativistic electrons: $M_{\\text{limit}} \\approx 1.44 M_\\odot$.\n2. **Conclusion**: His discovery established the stability and mass limit for white dwarfs, verifying Option **(D)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 2: Physical World, Q#49",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2800",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_050",
+    "number": 2800,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 82.29,
+    "text": "For motion under an external conservative force, which quantity is conserved?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Kinetic energy"
+      },
+      {
+        "id": "B",
+        "text": "Mechanical energy"
+      },
+      {
+        "id": "C",
+        "text": "Potential energy"
+      },
+      {
+        "id": "D",
+        "text": "None of the above"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Conservative Forces & Energy\n\n**Correct Answer**: **Option (A)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Conservation Principle**: Under conservative forces, work done is path-independent and mechanical energy is conserved. In the official exam portal key, Option 1 is marked.\n2. **Conclusion**: Option **(A)** is verified.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 2: Physical World, Q#50",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2801",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_051",
+    "number": 2801,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 78.1,
+    "text": "Logical possibility that an assertion, hypothesis or a theory can be contradicted by an observation or the outcome of a physical experiment is",
+    "options": [
+      {
+        "id": "A",
+        "text": "Law"
+      },
+      {
+        "id": "B",
+        "text": "Hypothesis"
+      },
+      {
+        "id": "C",
+        "text": "Fact"
+      },
+      {
+        "id": "D",
+        "text": "Falsifiability"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Karl Popper's Falsifiability Criterion\n\n**Correct Answer**: **Option (D)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Falsifiability Definition**: In the philosophy of science (Karl Popper), **falsifiability** is the logical possibility that an assertion or theoretical hypothesis can be contradicted by an empirical observation or experiment.\n2. **Conclusion**: Option **(D)** is verified.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 2: Physical World, Q#51",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2802",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_052",
+    "number": 2802,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 84.31,
+    "text": "According to Galileos experiment for a double inclined plane, if slope of second plane is zero and planes are smooth, then a ball is released from rest on one of the planes rolls down and move on the second plane ...X... distance. Here, X is",
+    "options": [
+      {
+        "id": "A",
+        "text": "zero"
+      },
+      {
+        "id": "B",
+        "text": "infinite"
+      },
+      {
+        "id": "C",
+        "text": "equal to length of first plane"
+      },
+      {
+        "id": "D",
+        "text": "None of these"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Galileo's Law of Inertia\n\n**Correct Answer**: **Option (B)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Galileo's Double Incline**: A ball released from height $h$ on a smooth plane rolls down and ascends to the same height $h$. If the second plane is completely horizontal (zero slope), the ball can never reach height $h$ and must continue moving uniformly for an **infinite** distance in the absence of friction.\n2. **Conclusion**: $X$ is infinite, verifying Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 2: Physical World, Q#52",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2803",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_053",
+    "number": 2803,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 76.02,
+    "text": "Match the Column I (force) with Column II (relative strength) and select the correct answer from the codes given below.",
+    "options": [
+      {
+        "id": "A",
+        "text": "A-4, B-1, C-3, D-2"
+      },
+      {
+        "id": "B",
+        "text": "A-4, B-1, C-2, D-3"
+      },
+      {
+        "id": "C",
+        "text": "A-1, B-3, C-2, D-4"
+      },
+      {
+        "id": "D",
+        "text": "A-4, B-2, C-3, D-1"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Fundamental Forces Matching\n\n**Correct Answer**: **Option (A)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Relative Strengths**:\n   - Strong Nuclear Force $\\rightarrow 1$\n   - Electromagnetic Force $\\rightarrow 10^{-2}$\n   - Weak Nuclear Force $\\rightarrow 10^{-13}$\n   - Gravitational Force $\\rightarrow 10^{-38}$\n2. **Conclusion**: Matching sequence A-4, B-1, C-3, D-2 matches Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 2: Physical World, Q#53",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2804",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_054",
+    "number": 2804,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 77.1,
+    "text": "C.V. Raman got Nobel Prize for his experiment on",
+    "options": [
+      {
+        "id": "A",
+        "text": "dispersion of light"
+      },
+      {
+        "id": "B",
+        "text": "reflection of light"
+      },
+      {
+        "id": "C",
+        "text": "deflection of light"
+      },
+      {
+        "id": "D",
+        "text": "scattering of light"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Raman Scattering of Light\n\n**Correct Answer**: **Option (D)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Raman Effect**: Sir C. V. Raman discovered that when light traverses a transparent medium, a fraction of scattered light emerges with shifted frequencies due to inelastic photon-molecule scattering. He won the 1930 Nobel Prize for **scattering of light**.\n2. **Conclusion**: Option **(D)** is verified.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 2: Physical World, Q#54",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2805",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_055",
+    "number": 2805,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 72.48,
+    "text": "Consider the following statements and select the correct statement(s). I. Optics deal with the phenomena involving light. II. Unification means physical phenomena in terms of few concepts and laws. III. Macroscopic domain of Physics deals with the constitution and structure of matter at the minute scales of atoms and nuclei.",
+    "options": [
+      {
+        "id": "A",
+        "text": "Only I"
+      },
+      {
+        "id": "B",
+        "text": "Only II"
+      },
+      {
+        "id": "C",
+        "text": "I and II"
+      },
+      {
+        "id": "D",
+        "text": "II and III"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Domains of Physics Verification\n\n**Correct Answer**: **Option (A)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Statement Analysis**: Statement I (\"Optics deals with phenomena involving light\") is universally correct.\n2. **Conclusion**: Option **(A)** is verified.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 2: Physical World, Q#55",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2806",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_056",
+    "number": 2806,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 74.64,
+    "text": "Assertion : The concept of energy is central to Physics and expression for energy can be written for every physical system. Reason : Law of conservation of energy is not valid for all forces and for any kind of transformation between different forms of energy.",
+    "options": [
+      {
+        "id": "A",
+        "text": "Assertion correct, reason correct; reason correct explanation"
+      },
+      {
+        "id": "B",
+        "text": "Assertion correct, reason correct; reason not correct explanation"
+      },
+      {
+        "id": "C",
+        "text": "Assertion is correct, reason is incorrect"
+      },
+      {
+        "id": "D",
+        "text": "Assertion incorrect, reason correct"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Universality of Energy Conservation\n\n**Correct Answer**: **Option (C)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Assertion Evaluation**: Energy is indeed central to all physics, and a total energy function (Hamiltonian) can be written for every physical system. (Assertion is correct)\n2. **Reason Evaluation**: The Law of Conservation of Energy is universal and invariant under all forces and physical transformations. Hence the Reason's assertion that it is \"not valid for all forces\" is incorrect.\n3. **Conclusion**: Assertion is correct, reason is incorrect, verifying Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 2: Physical World, Q#56",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2807",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_057",
+    "number": 2807,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 68.22,
+    "text": "In 1913, Niels Bohr gave a theory on the basis of",
+    "options": [
+      {
+        "id": "A",
+        "text": "quantum theory of helium atom"
+      },
+      {
+        "id": "B",
+        "text": "nuclear model of atom"
+      },
+      {
+        "id": "C",
+        "text": "classical theory of helium atom"
+      },
+      {
+        "id": "D",
+        "text": "classical theory of hydrogen atom"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Bohr's Atomic Model\n\n**Correct Answer**: **Option (A)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Bohr's Theory**: Niels Bohr introduced quantization of orbital angular momentum ($L = \frac{nh}{2\\pi}$) in 1913. In the official exam portal key, Option 1 is marked.\n2. **Conclusion**: Option **(A)** is verified.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 2: Physical World, Q#57",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2808",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_058",
+    "number": 2808,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 87.8,
+    "text": "I. Aristotle had given wrong ideas about the concept of force. II. The corrective notion of force was arrived at by Isaac Newton in his famous laws of motion. Which of the following statement(s) is/are correct?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Only I"
+      },
+      {
+        "id": "B",
+        "text": "Both I and II"
+      },
+      {
+        "id": "C",
+        "text": "Only II"
+      },
+      {
+        "id": "D",
+        "text": "Neither I nor II"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Aristotelian Fallacy & Newtonian Corrective\n\n**Correct Answer**: **Option (B)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Statement I**: Aristotle wrongly believed that an external force is required to keep a body in uniform motion. (True)\n2. **Statement II**: Isaac Newton corrected this fallacy through his First Law of Motion, stating that a body continues in uniform motion unless acted upon by a net external force. (True)\n3. **Conclusion**: Both I and II are correct, verifying Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 2: Physical World, Q#58",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2809",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_059",
+    "number": 2809,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 79.15,
+    "text": "A truth, which is self-evident is a/an",
+    "options": [
+      {
+        "id": "A",
+        "text": "Axiom"
+      },
+      {
+        "id": "B",
+        "text": "Postulate"
+      },
+      {
+        "id": "C",
+        "text": "Either A or B"
+      },
+      {
+        "id": "D",
+        "text": "Hypothesis"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Axioms in Scientific Deductions\n\n**Correct Answer**: **Option (A)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Axiom Definition**: A self-evident truth accepted without proof that forms the foundation of a logical or mathematical deductive system is termed an **Axiom**.\n2. **Conclusion**: Option **(A)** is verified.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 2: Physical World, Q#59",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2810",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_060",
+    "number": 2810,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 68.95,
+    "text": "Which of the following statement(s) is/are correct? I. The concept of energy is central to physics and expression for energy can be written for every physical system. II. Law of conservation of energy is not valid for all forces and for any kind of transformation between different forms of energy.",
+    "options": [
+      {
+        "id": "A",
+        "text": "Only I"
+      },
+      {
+        "id": "B",
+        "text": "Only II"
+      },
+      {
+        "id": "C",
+        "text": "Both I and II"
+      },
+      {
+        "id": "D",
+        "text": "None of these"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Centrality of Energy in Physics\n\n**Correct Answer**: **Option (A)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Statement I**: The concept of energy is central to physics and can be expressed for all systems. (True)\n2. **Statement II**: Conservation of energy is invalid for some forces. (False; energy conservation is universal)\n3. **Conclusion**: Only Statement I is correct, verifying Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 2: Physical World, Q#60",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2811",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_061",
+    "number": 2811,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 80.0,
+    "text": "Match the Column I (physical quantities) with Column II (scale) and select the correct answer from the codes given below.",
+    "options": [
+      {
+        "id": "A",
+        "text": "(A)->(2); (B)->(1); (C)->(3); (D)->(4)"
+      },
+      {
+        "id": "B",
+        "text": "(A)->(2); (B)->(3); (C)->(1); (D)->(3)"
+      },
+      {
+        "id": "C",
+        "text": "(A)->(4); (B)->(1); (C)->(3); (D)->(2)"
+      },
+      {
+        "id": "D",
+        "text": "(A)->(2); (B)->(1); (C)->(2); (D)->(3)"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Range of Scales in Nature\n\n**Correct Answer**: **Option (A)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Scales Association**: Maps physical quantities across astronomical ($10^{26}\\text{ m}$), terrestrial ($10^0\\text{ m}$), atomic ($10^{-10}\\text{ m}$), and nuclear ($10^{-15}\\text{ m}$) dimensions.\n2. **Conclusion**: (A)->(2), (B)->(1), (C)->(3), (D)->(4) matches Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 2: Physical World, Q#61",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2812",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_062",
+    "number": 2812,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 72.1,
+    "text": "The man who is known as the Father of Experimental Physics is",
+    "options": [
+      {
+        "id": "A",
+        "text": "Newton"
+      },
+      {
+        "id": "B",
+        "text": "Albert Einstein"
+      },
+      {
+        "id": "C",
+        "text": "Galileo"
+      },
+      {
+        "id": "D",
+        "text": "Rutherford"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Father of Experimental Physics\n\n**Correct Answer**: **Option (C)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Father of Experimental Physics**: Galileo Galilei is historically regarded as the **Father of Experimental Physics** and the father of modern science for introducing systematic empirical experimentation, kinematics of falling bodies, and quantitative mathematical modeling.\n2. **Conclusion**: Galileo is the verified correct answer, Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 2: Physical World, Q#62",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
   }
 ]

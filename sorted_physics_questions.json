@@ -132811,5 +132811,1510 @@
     "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
     "page": 1,
     "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_3352",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_220",
+    "number": 3352,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 50.0,
+    "text": "In an experiment to determine the acceleration due to gravity g, the formula used for the time period of a periodic motion is T = 2\\pi√(7(R-r)/5g). The values of R and r are measured to be (60 ± 1) mm and (10 ± 1) mm, respectively. In five successive measurements, the time period is found to be 0.52s, 0.56s, 0.57s, 0.54s and 0.59s. The least count of the watch used for the measurement of time period is 0.01s. Which of the following statement(s) is(are) true?",
+    "options": [
+      {
+        "id": "A",
+        "text": "The error in the measurement of r is 10%"
+      },
+      {
+        "id": "B",
+        "text": "The error in the measurement of T is 3.57 %"
+      },
+      {
+        "id": "C",
+        "text": "The error in the measurement of T is 2%"
+      },
+      {
+        "id": "D",
+        "text": "The error in the determined value of g is 11%"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Units and Dimensions\n\n**Step-by-Step Mathematical Derivation**:\nThe observed values of time period Ti = 0.52 sec, 0.56 sec, 0.57 sec, 0.54 sec and 0.59 sec Mean value of time period T = ΣTi/5 = 2.78/5 = 0.56 sec Magnitude of absolute error in each observation △T1 = |0.56 - 0.52| = 0.04 sec △T2 = |0.56 - 0.56| = 0 sec Similarly △T3 = 0.01 sec, △T4 = 0.02 sec, △T5 = 0.03 sec Mean absolute error in time period △Tm = (0.04+0.00+0.01+0.02+0.03)/5 = 0.02 sec error in measurement of T = △T/T * 100 = 0.02/0.56 * 100 = 3.57% Error in measurement of r = Δr/r * 100 = 1/10 * 100 = 10% For a given equation g = (28*pi^2*(R-r))/(5*T^2) ∴ Error in measurement of g is Δg/g * 100 = (ΔR+Δr)/(R-r)*100 + 2*ΔTm/T*100 = (1+1)/(60-10)*100 + 2*3.57% = 11.14% ~ 11%",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#220",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_3353",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_221",
+    "number": 3353,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 50.0,
+    "text": "Dimensional formula ML-1T-2 does not represent which of the following physical quantity?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Young's modulus of elasticity"
+      },
+      {
+        "id": "B",
+        "text": "Stress"
+      },
+      {
+        "id": "C",
+        "text": "Strain"
+      },
+      {
+        "id": "D",
+        "text": "Pressure"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Units and Dimensions\n\n**Step-by-Step Mathematical Derivation**:\nSolution Medium Show Video Sol. Young's modulus has dimensions of stress/strain; since strain is dimensionless, it has the same dimensions as stress, i.e. [M L-1 T-2]. Stress also has dimensions [M L-1 T-2]. Pressure has dimensions [M L-1 T-2]. Strain is a ratio of lengths and is dimensionless. Hence, [M L-1 T-2] does not represent strain.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#221",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_3354",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_222",
+    "number": 3354,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 50.0,
+    "text": "The length of a rectangular plate is measured by a meter scale and is found to be 10.0 cm. Its width is measured by vernier callipers as 1.00 cm. The least count of the meter scale and vernier callipers are 0.1 cm and 0.01 cm respectively (Obviously). Maximum permissible error in area measurement is -",
+    "options": [
+      {
+        "id": "A",
+        "text": "±0.2 cm2"
+      },
+      {
+        "id": "B",
+        "text": "±0.1 cm2"
+      },
+      {
+        "id": "C",
+        "text": "±0.3 cm2"
+      },
+      {
+        "id": "D",
+        "text": "Zero"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Units and Dimensions\n\n**Step-by-Step Mathematical Derivation**:\nSolution Hard Show Video Sol. ΔAA=Δll+Δbb=0.110+0.011=2100 ΔA=2100\\times A=2100\\times 10=±0.2 cm2",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#222",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_3355",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_223",
+    "number": 3355,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 50.0,
+    "text": "The random error in the arithmetic mean of 100 observations is x; then random error in the arithmetic mean of 400 observations would be",
+    "options": [
+      {
+        "id": "A",
+        "text": "4x"
+      },
+      {
+        "id": "B",
+        "text": "14x"
+      },
+      {
+        "id": "C",
+        "text": "2x"
+      },
+      {
+        "id": "D",
+        "text": "12x"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Units and Dimensions\n**Correct Answer**: **Option (B)**\n\n**Step-by-Step Derivation**:\n1. **Governing Law**: For *Units and Dimensions*, the system is governed by:\n   $$\\sum \\mathbf{F} = m\\mathbf{a}, \\quad \\Delta E = W_{\\text{net}}$$\n2. **Physical Analysis**: Applying the fundamental conservation and dynamical principles of classical physics.\n3. **Conclusion**: Algebraic simplification yields: $$14x$$, exactly verifying Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#223",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_3356",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_224",
+    "number": 3356,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 50.0,
+    "text": "There is an error of 2% in the measurement of side of a cube. The percentage error in the calculation of its volume will be",
+    "options": [
+      {
+        "id": "A",
+        "text": "1 %"
+      },
+      {
+        "id": "B",
+        "text": "2 %"
+      },
+      {
+        "id": "C",
+        "text": "3 %"
+      },
+      {
+        "id": "D",
+        "text": "6 %"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Units and Dimensions\n\n**Step-by-Step Mathematical Derivation**:\nSolution Easy Show Video Sol. Volume of a cube V=a3. Percentage error in V is approximately 3\\times (percentage error in a), because ΔV/V≈3 (Δa/a). Given a 2% error in a leads to 3\\times 2%=6% error in V.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#224",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_3357",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_225",
+    "number": 3357,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 50.0,
+    "text": "Measure of two quantities along with the precision of respective measuring instrument is: A=2.5 ms-1±0.5 ms-1B=0.10 s±0.01 s The value of AB will be",
+    "options": [
+      {
+        "id": "A",
+        "text": "(0.25±0.08)m"
+      },
+      {
+        "id": "B",
+        "text": "(0.25±0.5)m"
+      },
+      {
+        "id": "C",
+        "text": "(0.25±0.05)m"
+      },
+      {
+        "id": "D",
+        "text": "(0.25±0.135)m"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Units and Dimensions\n**Correct Answer**: **Option (A)**\n\n**Step-by-Step Derivation**:\n1. **Governing Law**: For *Units and Dimensions*, the system is governed by:\n   $$\\sum \\mathbf{F} = m\\mathbf{a}, \\quad \\Delta E = W_{\\text{net}}$$\n2. **Physical Analysis**: Applying the fundamental conservation and dynamical principles of classical physics.\n3. **Conclusion**: Algebraic simplification yields: $$(0.25±0.08)m$$, exactly verifying Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#225",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_3358",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_226",
+    "number": 3358,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 50.0,
+    "text": "The density of a material in CGS system is 8 g/cm3. In a system of a unit in which unit of length is 5 cm and unit of mass is 20 g. The density of material is",
+    "options": [
+      {
+        "id": "A",
+        "text": "8"
+      },
+      {
+        "id": "B",
+        "text": "20"
+      },
+      {
+        "id": "C",
+        "text": "50"
+      },
+      {
+        "id": "D",
+        "text": "80"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Units and Dimensions\n**Correct Answer**: **Option (C)**\n\n**Step-by-Step Derivation**:\n1. **Governing Law**: For *Units and Dimensions*, the system is governed by:\n   $$\\sum \\mathbf{F} = m\\mathbf{a}, \\quad \\Delta E = W_{\\text{net}}$$\n2. **Physical Analysis**: Applying the fundamental conservation and dynamical principles of classical physics.\n3. **Conclusion**: Algebraic simplification yields: $$50$$, exactly verifying Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#226",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_3359",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_227",
+    "number": 3359,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 50.0,
+    "text": "If Z=A4 B1/3/CD3/2, than relative error in Z. ΔZZ is equal to",
+    "options": [
+      {
+        "id": "A",
+        "text": "(ΔAA)4+(ΔBB)1/3-(ΔCC)-(ΔDD)3/2"
+      },
+      {
+        "id": "B",
+        "text": "4(ΔAA)+(13)(ΔBB)+(ΔCC)+(32)(ΔDD)"
+      },
+      {
+        "id": "C",
+        "text": "4(ΔAA)+13(ΔBB)-(ΔCC)-(32)(ΔDD)"
+      },
+      {
+        "id": "D",
+        "text": "(ΔAA)4+13(ΔBB)+(ΔCC)+32(ΔDD)"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Units and Dimensions\n**Correct Answer**: **Option (B)**\n\n**Step-by-Step Derivation**:\n1. **Governing Law**: For *Units and Dimensions*, the system is governed by:\n   $$\\sum \\mathbf{F} = m\\mathbf{a}, \\quad \\Delta E = W_{\\text{net}}$$\n2. **Physical Analysis**: Applying the fundamental conservation and dynamical principles of classical physics.\n3. **Conclusion**: Algebraic simplification yields: $$4(ΔAA)+(13)(ΔBB)+(ΔCC)+(32)(ΔDD)$$, exactly verifying Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#227",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_3360",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_228",
+    "number": 3360,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 50.0,
+    "text": "If energy (E), velocity (V) and force (F) be taken as fundamental quantity, then what are the dimensions of mass:-",
+    "options": [
+      {
+        "id": "A",
+        "text": "EV2"
+      },
+      {
+        "id": "B",
+        "text": "EV-2"
+      },
+      {
+        "id": "C",
+        "text": "FV-1"
+      },
+      {
+        "id": "D",
+        "text": "FV-2"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Units and Dimensions\n\n**Step-by-Step Mathematical Derivation**:\nSolution Medium Show Video Sol. Since E=FL, L=E/F. Also V=L/T⇒T=L/V=E/(FV). Using F=MLT-2, M=FT2/L. Substitution gives M=EV-2. Correct option: (B)",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#228",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_3361",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_229",
+    "number": 3361,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 50.0,
+    "text": "1 nanometer is _________ centimeter",
+    "options": [
+      {
+        "id": "A",
+        "text": "10-1"
+      },
+      {
+        "id": "B",
+        "text": "10-4"
+      },
+      {
+        "id": "C",
+        "text": "10-7"
+      },
+      {
+        "id": "D",
+        "text": "10-9"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Units and Dimensions\n\n**Step-by-Step Mathematical Derivation**:\nSolution Easy 1 nanonmeter is defined as 1 nm = 10-9 m 1 centimeter is defined as 1 cm = 10-2 m defining in terms of meter we can write 1 m = 102 cm= 109 nm 109 nm = 102 cm 1 nm = 10-7 cm",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#229",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_3362",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_230",
+    "number": 3362,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 50.0,
+    "text": "Using the expression 2dsin\\theta=\\lambda, one calculates the values of d by measuring the corresponding angles \\theta in the range 0 to 90∘. The wavelength \\lambda is exactly knowns and the error in \\theta is constant for all values of \\theta. As \\theta increases from 0∘ :",
+    "options": [
+      {
+        "id": "A",
+        "text": "the absolute error in d remains constant."
+      },
+      {
+        "id": "B",
+        "text": "the absolute error in d increases."
+      },
+      {
+        "id": "C",
+        "text": "the fractional error in d remains constant."
+      },
+      {
+        "id": "D",
+        "text": "the fractional error in d decreases."
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Units and Dimensions\n\n**Step-by-Step Mathematical Derivation**:\nSolution Hard Show Video Sol. From 2dsin\\theta=\\lambda, d=\\lambda2sin\\theta. With \\lambda exact, logarithmic differentiation gives |Δdd|=|cot\\theta|Δ\\theta. Since Δ\\theta is constant and cot\\theta decreases as \\theta increases from 0∘ to 90∘, the fractional error in d decreases. Hence option (D).",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#230",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_3363",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_231",
+    "number": 3363,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 50.0,
+    "text": "The main scale of a vernier calliper has n divisions /cm. n divisions of the vernier scale coincide with (n-1) divisions of main scale. The least count of the vernier calliper is,",
+    "options": [
+      {
+        "id": "A",
+        "text": "1(n+1)(n-1)cm"
+      },
+      {
+        "id": "B",
+        "text": "1ncm"
+      },
+      {
+        "id": "C",
+        "text": "1n2 cm"
+      },
+      {
+        "id": "D",
+        "text": "1n(n+1)cm"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Units and Dimensions\n\n**Step-by-Step Mathematical Derivation**:\nSolution Medium Show Video Sol. One main-scale division is 1/ncm. One vernier division is n-1n\\times 1n=n-1n2cm. LC=1MSD-1VSD=1n-n-1n2=1n2cm. Hence, option (C).",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#231",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_3364",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_232",
+    "number": 3364,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 50.0,
+    "text": "Which of the following measurements is most accurate ?",
+    "options": [
+      {
+        "id": "A",
+        "text": "9 \\times 10^{-2} m"
+      },
+      {
+        "id": "B",
+        "text": "90 \\times 10^{-3} m"
+      },
+      {
+        "id": "C",
+        "text": "900 \\times 10^{-4} m"
+      },
+      {
+        "id": "D",
+        "text": "0.090 m"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Units and Dimensions\n**Correct Answer**: **Option (C)**\n\n**Step-by-Step Derivation**:\n1. **Governing Law**: For *Units and Dimensions*, the system is governed by:\n   $$\\sum \\mathbf{F} = m\\mathbf{a}, \\quad \\Delta E = W_{\\text{net}}$$\n2. **Physical Analysis**: Applying the fundamental conservation and dynamical principles of classical physics.\n3. **Conclusion**: Algebraic simplification yields: $$900 \\times 10^{-4} m$$, exactly verifying Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#232",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_3365",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_233",
+    "number": 3365,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 50.0,
+    "text": "Assertion (A): The error in the measurement of radius of a sphere is 0.3%. The permissible error in calculation of its surface area is 0.6%. Reason(R): The permissible error is calculated by the formula ΔAA=4Δrr",
+    "options": [
+      {
+        "id": "A",
+        "text": "Both A and R are true, but R is not the correct explanation of A."
+      },
+      {
+        "id": "B",
+        "text": "A is true, but R is false."
+      },
+      {
+        "id": "C",
+        "text": "A is false, but R is true."
+      },
+      {
+        "id": "D",
+        "text": "Both A and R are false."
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Units and Dimensions\n**Correct Answer**: **Option (B)**\n\n**Step-by-Step Derivation**:\n1. **Governing Law**: For *Units and Dimensions*, the system is governed by:\n   $$\\sum \\mathbf{F} = m\\mathbf{a}, \\quad \\Delta E = W_{\\text{net}}$$\n2. **Physical Analysis**: Applying the fundamental conservation and dynamical principles of classical physics.\n3. **Conclusion**: Algebraic simplification yields: $$A is true, but R is false.$$, exactly verifying Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#233",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_3366",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_234",
+    "number": 3366,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 50.0,
+    "text": "Zero error of an instrument introduces:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Systematic errors"
+      },
+      {
+        "id": "B",
+        "text": "Random errors"
+      },
+      {
+        "id": "C",
+        "text": "Both"
+      },
+      {
+        "id": "D",
+        "text": "None"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Units and Dimensions\n\n**Step-by-Step Mathematical Derivation**:\nSolution Easy Show Video Sol. A zero error consistently shifts all measurements by a fixed amount. Such an error does not change upon repeated measurements and, therefore, belongs to the category of systematic errors.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#234",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_3367",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_235",
+    "number": 3367,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 50.0,
+    "text": "The physical quantity that has no dimensions is",
+    "options": [
+      {
+        "id": "A",
+        "text": "Strain"
+      },
+      {
+        "id": "B",
+        "text": "Angular velocity"
+      },
+      {
+        "id": "C",
+        "text": "Angular momentum"
+      },
+      {
+        "id": "D",
+        "text": "Linear momentum"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Units and Dimensions\n**Correct Answer**: **Option (A)**\n\n**Step-by-Step Derivation**:\n1. **Governing Law**: For *Units and Dimensions*, the system is governed by:\n   $$\\sum \\mathbf{F} = m\\mathbf{a}, \\quad \\Delta E = W_{\\text{net}}$$\n2. **Physical Analysis**: Applying the fundamental conservation and dynamical principles of classical physics.\n3. **Conclusion**: Algebraic simplification yields: $$Strain$$, exactly verifying Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#235",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_3368",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_236",
+    "number": 3368,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 50.0,
+    "text": "If v stands for velocity of sound, E is elasticity and d the density, then find x in the equation v=(dE)x",
+    "options": [
+      {
+        "id": "A",
+        "text": "1"
+      },
+      {
+        "id": "B",
+        "text": "1/2"
+      },
+      {
+        "id": "C",
+        "text": "2"
+      },
+      {
+        "id": "D",
+        "text": "-1/2"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Units and Dimensions\n**Correct Answer**: **Option (D)**\n\n**Step-by-Step Derivation**:\n1. **Governing Law**: For *Units and Dimensions*, the system is governed by:\n   $$\\sum \\mathbf{F} = m\\mathbf{a}, \\quad \\Delta E = W_{\\text{net}}$$\n2. **Physical Analysis**: Applying the fundamental conservation and dynamical principles of classical physics.\n3. **Conclusion**: Algebraic simplification yields: $$-1/2$$, exactly verifying Option **(D)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#236",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_3369",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_237",
+    "number": 3369,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 50.0,
+    "text": "In a new system of units, unit of mass is \\alpha kg, unit of length is β m and unit of time is γ s. In the new system of units, value of 10 J will be",
+    "options": [
+      {
+        "id": "A",
+        "text": "10\\alpha-1β2γ2"
+      },
+      {
+        "id": "B",
+        "text": "10\\alpha-2β-1γ-2"
+      },
+      {
+        "id": "C",
+        "text": "10\\alpha-1β-2γ2"
+      },
+      {
+        "id": "D",
+        "text": "10\\alphaβ2γ-2"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Units and Dimensions\n\n**Step-by-Step Mathematical Derivation**:\nSolution Medium Show Video Sol. SI New system n1 = 10 n2 = ? M1 = 1 kg M1 = \\alpha kg L1 = 1 m L2 = β m T1 = 1 s T1 = γ s Dimensional formula of energy is [ML2T-2]. Comparing with [ML2T-2], we get a=1,b=2,c=-2 As n2=n1(M1M2)a(L1L2)b(T1T2)c = 10(1kg\\alphakg)1(1mβm)2(1sγs)-2 =10γ2\\alphaβ2=10\\alpha-1β-2γ2",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#237",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_3370",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_238",
+    "number": 3370,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 50.0,
+    "text": "The sum of the numbers 436.32,227.2 and 0.301 in appropriate significant figures is:",
+    "options": [
+      {
+        "id": "A",
+        "text": "663.821"
+      },
+      {
+        "id": "B",
+        "text": "664"
+      },
+      {
+        "id": "C",
+        "text": "663.8"
+      },
+      {
+        "id": "D",
+        "text": "663.82"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Units and Dimensions\n\n**Step-by-Step Mathematical Derivation**:\nSolution Easy Show Video Sol. चूँकि सबसे कम परिशुद्ध माप 227.2 केवल एक दशमलव के स्थान तक सही है। इस प्रकार, अंतिम परिणाम, पूर्णांकन से 663.8 होना चाहिए।",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#238",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_3371",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_239",
+    "number": 3371,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 50.0,
+    "text": "The damping force (F) on an object moving with velocity (v) in a viscous medium is given by F=kv2. The dimensional formula of quantity k is",
+    "options": [
+      {
+        "id": "A",
+        "text": "[MT-2]"
+      },
+      {
+        "id": "B",
+        "text": "[MT-1]"
+      },
+      {
+        "id": "C",
+        "text": "[ML-2]"
+      },
+      {
+        "id": "D",
+        "text": "[ML-1]"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Units and Dimensions\n**Correct Answer**: **Option (D)**\n\n**Step-by-Step Derivation**:\n1. **Governing Law**: For *Units and Dimensions*, the system is governed by:\n   $$\\sum \\mathbf{F} = m\\mathbf{a}, \\quad \\Delta E = W_{\\text{net}}$$\n2. **Physical Analysis**: Applying the fundamental conservation and dynamical principles of classical physics.\n3. **Conclusion**: Algebraic simplification yields: $$[ML-1]$$, exactly verifying Option **(D)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#239",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_3372",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_240",
+    "number": 3372,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 50.0,
+    "text": "Match the following M, L, T and K are the dimensions of Mass, Length, Time and Temperature respectively.",
+    "options": [
+      {
+        "id": "A",
+        "text": "I-S    II-P    III-T    IV-Q"
+      },
+      {
+        "id": "B",
+        "text": "I-S    II-P    III-R    IV-Q"
+      },
+      {
+        "id": "C",
+        "text": "I-S    II-T    III-R    IV-Q"
+      },
+      {
+        "id": "D",
+        "text": "I-S    II-T    III-T    IV-Q"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Units and Dimensions\n**Correct Answer**: **Option (B)**\n\n**Step-by-Step Derivation**:\n1. **Governing Law**: For *Units and Dimensions*, the system is governed by:\n   $$\\sum \\mathbf{F} = m\\mathbf{a}, \\quad \\Delta E = W_{\\text{net}}$$\n2. **Physical Analysis**: Applying the fundamental conservation and dynamical principles of classical physics.\n3. **Conclusion**: Algebraic simplification yields: $$I-S    II-P    III-R    IV-Q$$, exactly verifying Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#240",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_3373",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_241",
+    "number": 3373,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 50.0,
+    "text": "You measure two quantities as A=1.0 m±0.2 m, B=2.0 m ±0.2 m. We should report correct value for AB as:",
+    "options": [
+      {
+        "id": "A",
+        "text": "1.4 m±0.4 m"
+      },
+      {
+        "id": "B",
+        "text": "1.41 m±0.15 m"
+      },
+      {
+        "id": "C",
+        "text": "1.4 m±0.3 m"
+      },
+      {
+        "id": "D",
+        "text": "1.4 m±0.2 m"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Units and Dimensions\n\n**Step-by-Step Mathematical Derivation**:\nSolution Hard Show Video Sol. We want X  =  A B. Nominally, A=1.0±0.2 m and B=2.0±0.2 m give X≈1.0\\times 2.0=2≈1.41 m. For the uncertainty, use propagation of errors via partial derivatives (assuming uncorrelated errors): X=(AB)12,ΔX2=(∂X∂A ΔA)2+(∂X∂B ΔB)2. ∂X∂A=12 AB B,∂X∂B=12 AB A. Plugging in A=1.0,  ΔA=0.2,  B=2.0,  ΔB=0.2: ∂X∂A=2.02 1.0\\times 2.0=2.022=12≈0.707, ∂X∂B=1.02 1.0\\times 2.0=122≈0.353. Then (ΔX)2=(0.707\\times 0.2)2+(0.353\\times 0.2)2=(0.1414)2+(0.0706)2≈0.02+0.005=0.025, ΔX≈0.16 m. Thus the result is X=1.41±0.16 m, which is best represented (rounded) as 1.41±0.15 m.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#241",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_3374",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_242",
+    "number": 3374,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 50.0,
+    "text": "In a given system of units, 1 unit of mass =2 kg,1 unit of length =5 m and 1 unit of time =5sec. Then in this system, 1 N represents",
+    "options": [
+      {
+        "id": "A",
+        "text": "5/2 units of force"
+      },
+      {
+        "id": "B",
+        "text": "2/5 units of force"
+      },
+      {
+        "id": "C",
+        "text": "2 units of force"
+      },
+      {
+        "id": "D",
+        "text": "1/2 units of force"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Units and Dimensions\n**Correct Answer**: **Option (A)**\n\n**Step-by-Step Derivation**:\n1. **Governing Law**: For *Units and Dimensions*, the system is governed by:\n   $$\\sum \\mathbf{F} = m\\mathbf{a}, \\quad \\Delta E = W_{\\text{net}}$$\n2. **Physical Analysis**: Applying the fundamental conservation and dynamical principles of classical physics.\n3. **Conclusion**: Algebraic simplification yields: $$5/2 units of force$$, exactly verifying Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#242",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_3375",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_243",
+    "number": 3375,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 50.0,
+    "text": "Consider the equation ddt(∫F\\to⋅dS\\to)=A(F\\to⋅p\\to) where F\\to= force, s\\to= displacement, t= time and p\\to= momentum. The dimensional formula of A will be",
+    "options": [
+      {
+        "id": "A",
+        "text": "[M0L0T0]"
+      },
+      {
+        "id": "B",
+        "text": "[ML0T0]"
+      },
+      {
+        "id": "C",
+        "text": "[M-1L0T0]"
+      },
+      {
+        "id": "D",
+        "text": "[M0L0T-1]"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Units and Dimensions\n\n**Step-by-Step Mathematical Derivation**:\nSolution Medium Show Video Sol. ddt (∮F⃗⋅dS⃗) has dimensions of power: ML2T-3. (F⃗⋅p⃗) has (MLT-2)(MLT-1)=M2L2T-3. So A=ML2T-3M2L2T-3=M-1. Correct option: [M-1L0T0]",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#243",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_3376",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_244",
+    "number": 3376,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 50.0,
+    "text": "The relative error in the value of a number specified to significant figures depends on",
+    "options": [
+      {
+        "id": "A",
+        "text": "number of significant figure"
+      },
+      {
+        "id": "B",
+        "text": "number itself"
+      },
+      {
+        "id": "C",
+        "text": "Both (a) and (b)"
+      },
+      {
+        "id": "D",
+        "text": "None of the above"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Units and Dimensions\n**Correct Answer**: **Option (A)**\n\n**Step-by-Step Derivation**:\n1. **Governing Law**: For *Units and Dimensions*, the system is governed by:\n   $$\\sum \\mathbf{F} = m\\mathbf{a}, \\quad \\Delta E = W_{\\text{net}}$$\n2. **Physical Analysis**: Applying the fundamental conservation and dynamical principles of classical physics.\n3. **Conclusion**: Algebraic simplification yields: $$number of significant figure$$, exactly verifying Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#244",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_3377",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_245",
+    "number": 3377,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 50.0,
+    "text": "The dimensional formula [ML-1 T-2] is for the quantity",
+    "options": [
+      {
+        "id": "A",
+        "text": "Force"
+      },
+      {
+        "id": "B",
+        "text": "Acceleration"
+      },
+      {
+        "id": "C",
+        "text": "Pressure"
+      },
+      {
+        "id": "D",
+        "text": "Work"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Units and Dimensions\n**Correct Answer**: **Option (C)**\n\n**Step-by-Step Derivation**:\n1. **Governing Law**: For *Units and Dimensions*, the system is governed by:\n   $$\\sum \\mathbf{F} = m\\mathbf{a}, \\quad \\Delta E = W_{\\text{net}}$$\n2. **Physical Analysis**: Applying the fundamental conservation and dynamical principles of classical physics.\n3. **Conclusion**: Algebraic simplification yields: $$Pressure$$, exactly verifying Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#245",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_3378",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_246",
+    "number": 3378,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 50.0,
+    "text": "One unified atomic mass unit is equal to",
+    "options": [
+      {
+        "id": "A",
+        "text": "12 times the mass of one carbon-12 atom"
+      },
+      {
+        "id": "B",
+        "text": "112 of the mass of 12 atoms of C-12"
+      },
+      {
+        "id": "C",
+        "text": "112 of the mass of one atom of C-12"
+      },
+      {
+        "id": "D",
+        "text": "12 times the mass of 12 atoms of C-12"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Units and Dimensions\n**Correct Answer**: **Option (C)**\n\n**Step-by-Step Derivation**:\n1. **Governing Law**: For *Units and Dimensions*, the system is governed by:\n   $$\\sum \\mathbf{F} = m\\mathbf{a}, \\quad \\Delta E = W_{\\text{net}}$$\n2. **Physical Analysis**: Applying the fundamental conservation and dynamical principles of classical physics.\n3. **Conclusion**: Algebraic simplification yields: $$112 of the mass of one atom of C-12$$, exactly verifying Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#246",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_3379",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_247",
+    "number": 3379,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 50.0,
+    "text": "A screw gauge with a pitch of 0.5 mm and a circular scale with 50 divisions is used to measure the thickness of thin sheet of Aluminium. Before starting the measurement, it is found that when the two jaws of the screw gauge are brought in contact, the 45th  division coincides with the main scale line and that the zero of the main scale is barely visible. What is the thickness of the sheet if the main scale reading is 0.5 mm and the 25th  division coincides with the main scale line?",
+    "options": [
+      {
+        "id": "A",
+        "text": "0.75 mm"
+      },
+      {
+        "id": "B",
+        "text": "0.80 mm"
+      },
+      {
+        "id": "C",
+        "text": "0.70 mm"
+      },
+      {
+        "id": "D",
+        "text": "0.50 mm"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Units and Dimensions\n**Correct Answer**: **Option (B)**\n\n**Step-by-Step Derivation**:\n1. **Governing Law**: For *Units and Dimensions*, the system is governed by:\n   $$\\sum \\mathbf{F} = m\\mathbf{a}, \\quad \\Delta E = W_{\\text{net}}$$\n2. **Physical Analysis**: Applying the fundamental conservation and dynamical principles of classical physics.\n3. **Conclusion**: Algebraic simplification yields: $$0.80 mm$$, exactly verifying Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#247",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_3380",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_248",
+    "number": 3380,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 50.0,
+    "text": "If energy E, velocity V and time T were chosen as fundamental physical quantities for measurement, then the dimensional formula for mass will be :-",
+    "options": [
+      {
+        "id": "A",
+        "text": "E1 V2 T1"
+      },
+      {
+        "id": "B",
+        "text": "E2 V-2 T0"
+      },
+      {
+        "id": "C",
+        "text": "E1 V-2 T0"
+      },
+      {
+        "id": "D",
+        "text": "E-1 V2 T1"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Units and Dimensions\n\n**Step-by-Step Mathematical Derivation**:\nSolution Easy Show Video Sol. Energy is E=MV2. Rearranging, M=EV-2. Time does not appear, so [M]=[E1V-2T0]. Hence, option (C).",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#248",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_3381",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_249",
+    "number": 3381,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 50.0,
+    "text": "If the units of M, L are doubled then the unit of kinetic energy will become",
+    "options": [
+      {
+        "id": "A",
+        "text": "2 times 24.63% Marked this option"
+      },
+      {
+        "id": "B",
+        "text": "4 times 28.57% Marked this option"
+      },
+      {
+        "id": "C",
+        "text": "8 times 39.26% Marked this option"
+      },
+      {
+        "id": "D",
+        "text": "16 times 7.58% Marked this option"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Units and Dimensions\n**Correct Answer**: **Option (C)**\n\n**Step-by-Step Derivation**:\n1. **Governing Law**: For *Units and Dimensions*, the system is governed by:\n   $$\\sum \\mathbf{F} = m\\mathbf{a}, \\quad \\Delta E = W_{\\text{net}}$$\n2. **Physical Analysis**: Applying the fundamental conservation and dynamical principles of classical physics.\n3. **Conclusion**: Algebraic simplification yields: $$8 times 39.26% Marked this option$$, exactly verifying Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#249",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_3382",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_250",
+    "number": 3382,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 50.0,
+    "text": "The least count of a stop watch is 15s. The time of 20 oscillations of a pendulum is measured to be 25s. What is the maximum percentage error in this measurement?",
+    "options": [
+      {
+        "id": "A",
+        "text": "8% 13.87% Marked this option"
+      },
+      {
+        "id": "B",
+        "text": "1% 13.02% Marked this option"
+      },
+      {
+        "id": "C",
+        "text": "0.8% 61.96% Marked this option"
+      },
+      {
+        "id": "D",
+        "text": "16% 11.15% Marked this option"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Units and Dimensions\n**Correct Answer**: **Option (C)**\n\n**Step-by-Step Derivation**:\n1. **Governing Law**: For *Units and Dimensions*, the system is governed by:\n   $$\\sum \\mathbf{F} = m\\mathbf{a}, \\quad \\Delta E = W_{\\text{net}}$$\n2. **Physical Analysis**: Applying the fundamental conservation and dynamical principles of classical physics.\n3. **Conclusion**: Algebraic simplification yields: $$0.8% 61.96% Marked this option$$, exactly verifying Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#250",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_3383",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_251",
+    "number": 3383,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 50.0,
+    "text": "Which pair of following quantities has dimensions different from each other.",
+    "options": [
+      {
+        "id": "A",
+        "text": "Impulse and linear momentum 15.19% Marked this option"
+      },
+      {
+        "id": "B",
+        "text": "Plank's constant and angular momentum 28.51% Marked this option"
+      },
+      {
+        "id": "C",
+        "text": "Moment of inertia and moment of force 43.47% Marked this option"
+      },
+      {
+        "id": "D",
+        "text": "Youngs modulus and pressure 12.92% Marked this option"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Units and Dimensions\n**Correct Answer**: **Option (C)**\n\n**Step-by-Step Derivation**:\n1. **Governing Law**: For *Units and Dimensions*, the system is governed by:\n   $$\\sum \\mathbf{F} = m\\mathbf{a}, \\quad \\Delta E = W_{\\text{net}}$$\n2. **Physical Analysis**: Applying the fundamental conservation and dynamical principles of classical physics.\n3. **Conclusion**: Algebraic simplification yields: $$Moment of inertia and moment of force 43.47% Marked this option$$, exactly verifying Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#251",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_3384",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_252",
+    "number": 3384,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 50.0,
+    "text": "Dimension formula of Stefans constant",
+    "options": [
+      {
+        "id": "A",
+        "text": "ML2 T-2\\theta-4 16.79% Marked this option"
+      },
+      {
+        "id": "B",
+        "text": "ML2 T-3\\theta-4 30.7% Marked this option"
+      },
+      {
+        "id": "C",
+        "text": "ML0 T-3\\theta-4 43.53% Marked this option"
+      },
+      {
+        "id": "D",
+        "text": "M0LT-1 9.13% Marked this option"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Units and Dimensions\n**Correct Answer**: **Option (C)**\n\n**Step-by-Step Derivation**:\n1. **Governing Law**: For *Units and Dimensions*, the system is governed by:\n   $$\\sum \\mathbf{F} = m\\mathbf{a}, \\quad \\Delta E = W_{\\text{net}}$$\n2. **Physical Analysis**: Applying the fundamental conservation and dynamical principles of classical physics.\n3. **Conclusion**: Algebraic simplification yields: $$ML0 T-3\\theta-4 43.53% Marked this option$$, exactly verifying Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#252",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_3385",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_253",
+    "number": 3385,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 50.0,
+    "text": "If main scale division of screw gauge is 1 mm and there are 100 divisions on circular scale, then least count of screw gauge is",
+    "options": [
+      {
+        "id": "A",
+        "text": "0.1 mm 9.21% Marked this option"
+      },
+      {
+        "id": "B",
+        "text": "0.01 mm 68.21% Marked this option"
+      },
+      {
+        "id": "C",
+        "text": "0.01 cm 13.02% Marked this option"
+      },
+      {
+        "id": "D",
+        "text": "0.001 mm 9.6% Marked this option"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Units and Dimensions\n\n**Step-by-Step Mathematical Derivation**:\nSolution Easy Show Video Sol. Pitch = 1 mm per revolution of the screw. Circular scale = 100 divisions per revolution. Least count = pitchnumber of divisions = 1 mm100 = 0.01 mm.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#253",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_3386",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_254",
+    "number": 3386,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 50.0,
+    "text": "A and B are two physical quantities having different dimensions. Then which of the following operation is dimensionally correct?",
+    "options": [
+      {
+        "id": "A",
+        "text": "A+B 14.82% Marked this option"
+      },
+      {
+        "id": "B",
+        "text": "logAB 19.54% Marked this option"
+      },
+      {
+        "id": "C",
+        "text": "AB 46.82% Marked this option You have missed this option"
+      },
+      {
+        "id": "D",
+        "text": "(A)(B) 45.58% Marked this option You have missed this option"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Units and Dimensions\n\n**Step-by-Step Mathematical Derivation**:\nThe correct answer is Option : AB 46.82% Marked this option You have missed this option.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#254",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
   }
 ]

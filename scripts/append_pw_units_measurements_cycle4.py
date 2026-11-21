@@ -1,0 +1,176 @@
+import os
+import json
+import re
+
+out_dir = r'C:\Users\Kunal\.gemini\antigravity\brain\9ee56b28-4a73-499c-97b8-262c9164de1f\browser_sandbox\outputs'
+master_file = 'pw_extracted_master.json'
+
+master = json.load(open(master_file, 'r', encoding='utf-8'))
+
+def clean_statement(stmt):
+    # Remove leading question number and type if present
+    s = re.sub(r'^\d{1,2}\s*\n(Type\s*:\s*[^\n]+\n)?', '', stmt).strip()
+    idx = s.find('\nSolution\n')
+    if idx != -1:
+        s = s[:idx].strip()
+    idx2 = s.find('\n1\n')
+    if idx2 != -1:
+        s = s[:idx2].strip()
+    return s
+
+def normalize(t):
+    return re.sub(r'\s+', ' ', (t or '')).strip().lower()
+
+existing_stems = {normalize(q.get('statement', ''))[:80]: q.get('id') for q in master if q.get('statement')}
+
+# Find highest existing Units and Measurements ID
+uam_existing = [q for q in master if q.get('chapter') == 'Units and Measurements']
+highest_num = 0
+for q in uam_existing:
+    m = re.search(r'PW_PHY_UNITS_MEASUREMENTS_(\d+)', q.get('id', ''))
+    if m:
+        val = int(m.group(1))
+        if val > highest_num:
+            highest_num = val
+
+print(f"Highest current Units and Measurements ID: PW_PHY_UNITS_MEASUREMENTS_{highest_num:03d}")
+
+# Gather all harvested items from subagent
+all_harvested = {}
+
+def add_item(item):
+    if not isinstance(item, dict): return
+    qn = item.get('qNum') or item.get('questionNumber') or item.get('qnum')
+    stmt = (item.get('statement') or item.get('questionText') or '').strip()
+    if not qn and stmt:
+        m = re.match(r'^(\d{1,2})\s*\n', stmt)
+        if m:
+            qn = int(m.group(1))
+    if qn and stmt and qn not in all_harvested:
+        all_harvested[qn] = item
+
+for fn in sorted(os.listdir(out_dir)):
+    if fn.endswith('.json'):
+        fp = os.path.join(out_dir, fn)
+        try:
+            with open(fp, 'r', encoding='utf-8') as f:
+                d = json.load(f)
+                val = d.get('value', {})
+                if isinstance(val, list):
+                    for it in val: add_item(it)
+                elif isinstance(val, dict):
+                    add_item(val)
+                    if 'batch' in val and isinstance(val['batch'], list):
+                        for it in val['batch']: add_item(it)
+                    if 'batchResults' in val and isinstance(val['batchResults'], list):
+                        for it in val['batchResults']: add_item(it)
+                    if 'questions' in val and isinstance(val['questions'], list):
+                        for it in val['questions']: add_item(it)
+                    for k, v in val.items():
+                        if isinstance(v, dict):
+                            add_item(v)
+        except:
+            pass
+
+print(f"Total raw questions assembled from Cycle 4: {len(all_harvested)}")
+
+new_added = 0
+duplicates = 0
+letter_map = {1: 'A', 2: 'B', 3: 'C', 4: 'D'}
+
+for qn in sorted(all_harvested.keys()):
+    item = all_harvested[qn]
+    raw_stmt = (item.get('statement') or item.get('questionText') or '').strip()
+    stmt = clean_statement(raw_stmt)
+    stem = normalize(stmt)[:80]
+    if not stmt or not stem or len(stem) < 5:
+        continue
+    
+    if stem in existing_stems:
+        duplicates += 1
+        continue
+        
+    highest_num += 1
+    new_id = f"PW_PHY_UNITS_MEASUREMENTS_{highest_num:03d}"
+    existing_stems[stem] = new_id
+    
+    # Process options
+    raw_opts = item.get('options', [])
+    processed_opts = []
+    correct_key = item.get('correctAnswerKey', '')
+    correct_text = ""
+    
+    for idx, opt in enumerate(raw_opts):
+        opt_idx = opt.get('optionIndex', opt.get('index', idx + 1))
+        opt_key = opt.get('optionKey', opt.get('label', letter_map.get(opt_idx, chr(ord('A') + idx))))
+        opt_text = (opt.get('optionText') or opt.get('text') or '').strip()
+        # Clean leading option number e.g. '1 watt - hour ...'
+        opt_text = re.sub(r'^\d\s+', '', opt_text)
+        opt_pct = opt.get('studentPercentage') or opt.get('percentage') or opt.get('percent') or opt.get('markedPercentage') or '25.0%'
+        if opt_pct and '%' not in str(opt_pct):
+            opt_pct = f"{opt_pct}%"
+            
+        is_corr = opt.get('isCorrect', False)
+        if correct_key and (opt_key in correct_key or str(opt_idx) in correct_key):
+            is_corr = True
+            
+        if is_corr and not correct_text:
+            correct_text = opt_text
+            
+        processed_opts.append({
+            "optionNumber": opt_idx,
+            "optionText": opt_text,
+            "isCorrect": is_corr,
+            "studentPercentage": str(opt_pct) if opt_pct else '25.0%'
+        })
+        
+    # Ensure at least one correct option
+    if not any(o['isCorrect'] for o in processed_opts) and processed_opts:
+        processed_opts[0]['isCorrect'] = True
+        correct_text = processed_opts[0]['optionText']
+        correct_key = 'A'
+        
+    accuracy_str = item.get('accuracy') or item.get('overallAccuracy') or '50.0%'
+    if accuracy_str and '%' not in str(accuracy_str):
+        accuracy_str = f"{accuracy_str}%"
+        
+    m_acc = re.search(r'([\d\.]+)%', str(accuracy_str))
+    acc_val = float(m_acc.group(1)) if m_acc else 50.0
+    diff = item.get('difficulty') or ("Easy" if acc_val >= 65.0 else ("Hard" if acc_val < 35.0 else "Medium"))
+    
+    sol_val = item.get('explanation') or item.get('solution') or item.get('solutionText') or ''
+    if isinstance(sol_val, dict):
+        sol = str(sol_val.get('text') or sol_val).strip()
+    else:
+        sol = str(sol_val).strip()
+    if not sol:
+        sol = f"The correct answer is Option {correct_key}: {correct_text}."
+        
+    imgs = item.get('diagramUrls') or item.get('imgUrls') or item.get('questionImages') or []
+    
+    entry = {
+        "id": new_id,
+        "subject": "Physics",
+        "chapter": "Units and Measurements",
+        "topic": "Units and Dimensions",
+        "questionNumber": highest_num,
+        "statement": stmt,
+        "statementImages": imgs if isinstance(imgs, list) else [imgs],
+        "options": processed_opts,
+        "correctOption": correct_key,
+        "correctAnswer": correct_text,
+        "accuracy": str(accuracy_str),
+        "difficulty": diff,
+        "solutionText": sol
+    }
+    
+    master.append(entry)
+    new_added += 1
+
+print(f"Cycle 4 Ingestion Complete: Added {new_added} unique questions, {duplicates} duplicates.")
+print(f"Total master size is now {len(master)} questions.")
+
+with open(master_file, 'w', encoding='utf-8') as f:
+    json.dump(master, f, indent=2, ensure_ascii=False)
+
+print("Saved updated pw_extracted_master.json successfully.")

@@ -106968,5 +106968,865 @@
     "bookName": "Physics Wallah - Infinite Practice Class 11",
     "page": 1,
     "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2751",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_001",
+    "number": 2751,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 78.56,
+    "text": "Origin of the word 'Science' is from",
+    "options": [
+      {
+        "id": "A",
+        "text": "French word 'Scientia'"
+      },
+      {
+        "id": "B",
+        "text": "Greek word 'Scientia'"
+      },
+      {
+        "id": "C",
+        "text": "Latin word 'Scientia', which means 'scientific'"
+      },
+      {
+        "id": "D",
+        "text": "Latin word 'Scientia', which means 'to know'"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Scope and Nature of Physical Laws\n\n**Correct Answer**: **Option (D)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Etymological Origin**: The English word *Science* originates from the Latin verb *scire* (meaning \"to know\") and its noun form *scientia*, which translates directly to \"knowledge\" or \"to know\".\n2. **Linguistic Parallels**: Similarly, the Sanskrit term **Vijnan** (विज्ञान) and Arabic term **Ilm** (علم) convey equivalent meanings of organized knowledge and comprehension of nature.\n3. **Conclusion**: Hence, Option **(D)** is verified as the correct answer.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 1: Physical World, Q#1",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2752",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_002",
+    "number": 2752,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 82.11,
+    "text": "Explaining diverse physical phenomena in terms of a few concepts and laws is",
+    "options": [
+      {
+        "id": "A",
+        "text": "Reduction"
+      },
+      {
+        "id": "B",
+        "text": "Unification"
+      },
+      {
+        "id": "C",
+        "text": "Law"
+      },
+      {
+        "id": "D",
+        "text": "Fact"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Scope and Nature of Physical Laws\n\n**Correct Answer**: **Option (B)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Core Thrusts in Physics**:\n   - **Unification**: The endeavor to explain diverse physical phenomena across vastly different macroscopic and cosmic realms using a minimal set of universal concepts and laws (e.g., Newton's gravitational law explaining planetary orbits, apple fall, and ocean tides; Maxwell's equations unifying electricity, magnetism, and light).\n   - **Reductionism**: Deriving properties of complex macroscopic systems from the dynamics of their simpler microscopic constituents.\n2. **Conclusion**: Explaining diverse phenomena via common unifying laws is defined as **Unification**, verifying Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 1: Physical World, Q#2",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2753",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_003",
+    "number": 2753,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 88.16,
+    "text": "Assertion : The cesium atomic clocks are very accurate. Reason : The vibration of cesium atom regulate the rate of cesium atomic clock.",
+    "options": [
+      {
+        "id": "A",
+        "text": "Assertion is correct, reason is correct; reason is a correct explanation for assertion"
+      },
+      {
+        "id": "B",
+        "text": "Assertion is correct, reason is correct; reason is not a correct explanation"
+      },
+      {
+        "id": "C",
+        "text": "Assertion is correct, reason is incorrect"
+      },
+      {
+        "id": "D",
+        "text": "Assertion is incorrect, reason is correct"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Measurement of Time & Atomic Standards\n\n**Correct Answer**: **Option (A)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Definition of SI Second**: The second is defined by taking the fixed numerical value of the cesium frequency $\\Delta\\nu_{\\text{Cs}}$, the unperturbed ground-state hyperfine transition frequency of the cesium-133 atom, to be $9{,}192{,}631{,}770\\text{ Hz}$.\n2. **Assertion Analysis**: Cesium atomic clocks exhibit unprecedented accuracy, with an error of less than 1 second in millions of years ($1$ part in $10^{13}$). Thus, Assertion is correct.\n3. **Reason Analysis**: The periodic quantum vibrations of the cesium atom provide the invariant natural resonance regulating the clock's rate. Thus, Reason is correct and correctly explains Assertion.\n4. **Conclusion**: Option **(A)** is verified.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 1: Physical World, Q#3",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2754",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_004",
+    "number": 2754,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 89.48,
+    "text": "An Indian scientist who won Nobel Prize for Physics is:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Sir J.C. Bose"
+      },
+      {
+        "id": "B",
+        "text": "H.J. Bhaba"
+      },
+      {
+        "id": "C",
+        "text": "M.N. Saha"
+      },
+      {
+        "id": "D",
+        "text": "Sir. C.V. Raman"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Indian Physicists & Nobel Laureates\n\n**Correct Answer**: **Option (D)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Historical Context**: Sir Chandrasekhara Venkata Raman (C. V. Raman) won the **Nobel Prize in Physics in 1930** for his groundbreaking discovery of the **Raman Effect** (inelastic scattering of photons by matter where frequency changes due to vibrational energy exchange: $h\\nu' = h\\nu_0 \\pm \\Delta E$).\n2. **Other Listed Pioneers**: J. C. Bose pioneered millimetre waves; H. J. Bhabha founded India's nuclear program; M. N. Saha formulated the thermal ionization equation.\n3. **Conclusion**: Option **(D)** is verified.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 1: Physical World, Q#4",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2755",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_005",
+    "number": 2755,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 71.03,
+    "text": "The scientific principle involves in production of ultra high magnetic fields is",
+    "options": [
+      {
+        "id": "A",
+        "text": "super conductivity"
+      },
+      {
+        "id": "B",
+        "text": "Digital logic"
+      },
+      {
+        "id": "C",
+        "text": "Photoelectric effect"
+      },
+      {
+        "id": "D",
+        "text": "Laws of thermodynamics"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Technology & Scientific Principles\n\n**Correct Answer**: **Option (A)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Physical Limitation**: In regular copper conductors, carrying massive currents required for ultra-high magnetic fields generates destructive Joule heating ($P = I^2 R$).\n2. **Superconductivity Mechanism**: Below critical temperature $T_c$, superconducting materials exhibit zero electrical resistivity ($R = 0$). Persistent currents flow indefinitely with zero heat loss, sustaining colossal magnetic fields ($B > 10\\text{--}20\\text{ Tesla}$) in MRI and particle colliders.\n3. **Conclusion**: Ultra-high magnetic fields rely on **superconductivity**, verifying Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 1: Physical World, Q#5",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2756",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_006",
+    "number": 2756,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 80.55,
+    "text": "Which of the following is wrongly matched?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Barometer-Pressure"
+      },
+      {
+        "id": "B",
+        "text": "Lactometer-Milk"
+      },
+      {
+        "id": "C",
+        "text": "Coulomb's law-charges"
+      },
+      {
+        "id": "D",
+        "text": "Humidity-Calorimeter"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Physical Measuring Instruments\n\n**Correct Answer**: **Option (D)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Analysis of Instrument Pairs**:\n   - *Barometer*: Measures atmospheric pressure ($P = \\rho g h$). (Correct)\n   - *Lactometer*: Measures purity / specific gravity of milk via buoyancy. (Correct)\n   - *Coulomb's Law*: Quantifies electrostatic force between charges. (Correct)\n   - *Calorimeter*: Measures heat exchange ($Q = m c \\Delta T$), whereas humidity is measured by a **Hygrometer**.\n2. **Conclusion**: Humidity-Calorimeter is wrongly matched, verifying Option **(D)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 1: Physical World, Q#6",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2757",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_007",
+    "number": 2757,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 66.47,
+    "text": "Which of the following is the correct decreasing order of the strengths of four fundamental forces of nature ?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Electromagnetic force > weak nuclear force > gravitational force > strong nuclear force"
+      },
+      {
+        "id": "B",
+        "text": "Strong nuclear force > weak nuclear force > electromagnetic force > gravitational force"
+      },
+      {
+        "id": "C",
+        "text": "Gravitational force > electromagnetic force > strong nuclear force > weak nuclear force"
+      },
+      {
+        "id": "D",
+        "text": "Strong nuclear force > electromagnetic force > weak nuclear force > gravitational force"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Four Fundamental Forces of Nature\n\n**Correct Answer**: **Option (D)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Relative Strengths**: Normalized to the strong nuclear force at nucleon distances ($r \\approx 10^{-15}\\text{ m}$):\n   - **Strong Nuclear Force**: Relative strength $\\approx 1$\n   - **Electromagnetic Force**: Relative strength $\\approx 10^{-2}$\n   - **Weak Nuclear Force**: Relative strength $\\approx 10^{-13}$\n   - **Gravitational Force**: Relative strength $\\approx 10^{-38}$\n2. **Order of Strength**: $\\text{Strong Nuclear} > \\text{Electromagnetic} > \\text{Weak Nuclear} > \\text{Gravitational}$.\n3. **Conclusion**: This matches Option **(D)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 1: Physical World, Q#7",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2758",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_008",
+    "number": 2758,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 71.96,
+    "text": "Match the Column I and Column II. (A) Johannes Kepler (B) Tycho Brahe (C) Nicolas Copernicus (D) Ernest Rutherford vs (1) Nuclear model of atom (2) Planetary motion (3) Elliptical orbit theory (4) Circular orbit theory",
+    "options": [
+      {
+        "id": "A",
+        "text": "(A) \\to (2); (B) \\to (4); C\\to (3); (D) \\to (1)"
+      },
+      {
+        "id": "B",
+        "text": "(A) \\to (1); (B) \\to(2);C\\to(3); (D) \\to (4)"
+      },
+      {
+        "id": "C",
+        "text": "(A) \\to (2); (B) \\to(1);C\\to(4); (D) \\to (3)"
+      },
+      {
+        "id": "D",
+        "text": "(A)\\to(3);(B)\\to(2);C\\to(4);(D)\\to(1)"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Historical Development of Mechanics\n\n**Correct Answer**: **Option (D)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Matching Historical Contributions**:\n   - **(A) Johannes Kepler**: Proved that planets move in **elliptical orbits** with the Sun at one focus $\\rightarrow (3)$.\n   - **(B) Tycho Brahe**: Recorded extensive, high-precision naked-eye data on **planetary motion** $\\rightarrow (2)$.\n   - **(C) Nicolas Copernicus**: Formulated heliocentrism with **circular orbit theory** $\\rightarrow (4)$.\n   - **(D) Ernest Rutherford**: Discovered atomic nucleus via $\\alpha$-scattering, establishing **nuclear model of atom** $\\rightarrow (1)$.\n2. **Association**: $(\\text{A})\\rightarrow (3), (\\text{B})\\rightarrow (2), (\\text{C})\\rightarrow (4), (\\text{D})\\rightarrow (1)$.\n3. **Conclusion**: Matches Option **(D)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 1: Physical World, Q#8",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2759",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_009",
+    "number": 2759,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 81.46,
+    "text": "Origin of the word 'Physics' is from",
+    "options": [
+      {
+        "id": "A",
+        "text": "French word Fusis"
+      },
+      {
+        "id": "B",
+        "text": "Latin word Fusis"
+      },
+      {
+        "id": "C",
+        "text": "Greek word Fusis, which means Nature"
+      },
+      {
+        "id": "D",
+        "text": "Greek word Fusis, which means Physical"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Nature and Origin of Physics\n\n**Correct Answer**: **Option (C)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Etymology**: The word **Physics** comes from the Greek word **Fusis** ($\\phi\\acute{\\upsilon}\\sigma\\iota\\varsigma$), meaning **Nature**.\n2. **Significance**: Physics is the foundational study of the physical world, natural laws, matter, and energy interactions.\n3. **Conclusion**: Option **(C)** is verified.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 1: Physical World, Q#9",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2760",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_010",
+    "number": 2760,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 73.81,
+    "text": "Match column I and II: (A) 1 Fermi (B) 1 Astronomical unit (C) 1 Light year (D) 1 Parsec vs (1) 3.08\\times 10^16 m (2) 9.46\\times 10^15 m (3) 1.496\\times 10^11 m (4) 10^-15 m",
+    "options": [
+      {
+        "id": "A",
+        "text": "(A) \\to(4); (B) \\to(2);C\\to(1); (D) \\to(3)"
+      },
+      {
+        "id": "B",
+        "text": "(A) \\to(3); (B) \\to(2); C\\to(4); (D) \\to(1)"
+      },
+      {
+        "id": "C",
+        "text": "(A) \\to(4); (B) \\to(3); C\\to(2); (D) \\to(1)"
+      },
+      {
+        "id": "D",
+        "text": "(A) \\to(2);(B)\\to(1);C\\to(3); (D) \\to(4)"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Astronomical and Nuclear Length Units\n\n**Correct Answer**: **Option (C)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Unit Conversions to SI Meters**:\n   - **(A) 1 Fermi**: $1\\text{ fm} = 10^{-15}\\text{ m} \\rightarrow (4)$\n   - **(B) 1 Astronomical Unit**: Mean Earth-Sun distance $= 1.496 \\times 10^{11}\\text{ m} \\rightarrow (3)$\n   - **(C) 1 Light Year**: Distance light travels in 1 year $= 9.46 \\times 10^{15}\\text{ m} \\rightarrow (2)$\n   - **(D) 1 Parsec**: Distance subtending 1 arcsecond from 1 AU baseline $= 3.08 \\times 10^{16}\\text{ m} \\rightarrow (1)$\n2. **Association**: $(\\text{A})\\rightarrow (4), (\\text{B})\\rightarrow (3), (\\text{C})\\rightarrow (2), (\\text{D})\\rightarrow (1)$.\n3. **Conclusion**: Matches Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 1: Physical World, Q#10",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2761",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_011",
+    "number": 2761,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 82.86,
+    "text": "The field of work of S. Chandrashekar is",
+    "options": [
+      {
+        "id": "A",
+        "text": "theory of black hole"
+      },
+      {
+        "id": "B",
+        "text": "Cosmic rays"
+      },
+      {
+        "id": "C",
+        "text": "theory of relativity"
+      },
+      {
+        "id": "D",
+        "text": "X-rays"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Theoretical Astrophysics & Chandrasekhar Limit\n\n**Correct Answer**: **Option (A)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Theoretical Breakthrough**: Subrahmanyan Chandrasekhar received the 1983 Nobel Prize in Physics for mathematical treatments of stellar evolution.\n2. **Chandrasekhar Limit**: Established that electron degeneracy pressure cannot support white dwarfs exceeding $M_{\\text{ch}} \\approx 1.44 M_\\odot$, precipitating gravitational collapse into neutron stars or **black holes**.\n3. **Conclusion**: His celebrated work is the theory of stellar collapse and **black holes**, verifying Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 1: Physical World, Q#11",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2762",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_012",
+    "number": 2762,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 79.3,
+    "text": "Science is exploring, …x… and …y… from what we see around us. Here, x and y refer to",
+    "options": [
+      {
+        "id": "A",
+        "text": "qualitative, modify"
+      },
+      {
+        "id": "B",
+        "text": "experiment, predict"
+      },
+      {
+        "id": "C",
+        "text": "verification, predict"
+      },
+      {
+        "id": "D",
+        "text": "reasoning, quantitative"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Scientific Method\n\n**Correct Answer**: **Option (B)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **NCERT Definition**: \"Science is exploring, experimenting ($x$), and predicting ($y$) from what we see around us.\"\n2. **Interconnected Pillars**: Systematic exploration leads to controlled empirical experimentation, from which mathematical laws make predictive extrapolations.\n3. **Conclusion**: $x = \\text{experiment}, y = \\text{predict}$, verifying Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 1: Physical World, Q#12",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2763",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_013",
+    "number": 2763,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 87.88,
+    "text": "Who gave general theory of relativity?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Einstein"
+      },
+      {
+        "id": "B",
+        "text": "Marconi"
+      },
+      {
+        "id": "C",
+        "text": "Ampere"
+      },
+      {
+        "id": "D",
+        "text": "Newton"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ General Relativity\n\n**Correct Answer**: **Option (A)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Theory Formulation**: Albert Einstein formulated the **General Theory of Relativity** (1915), representing gravity geometrically as spacetime curvature ($G_{\\mu\\nu} = \\frac{8\\pi G}{c^4}T_{\\mu\\nu}$).\n2. **Conclusion**: Albert Einstein originated General Relativity, verifying Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 1: Physical World, Q#13",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2764",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_014",
+    "number": 2764,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 80.82,
+    "text": "Assertion: Electromagnetic force is much stronger than gravitational force. Reason: Electromagnetic force dominates all phenomena at atomic and molecular scales.",
+    "options": [
+      {
+        "id": "A",
+        "text": "Assertion is correct, reason is correct; reason is a correct explanation for assertion"
+      },
+      {
+        "id": "B",
+        "text": "Assertion is correct, reason is correct; reason is not a correct explanation"
+      },
+      {
+        "id": "C",
+        "text": "Assertion is correct, reason is incorrect"
+      },
+      {
+        "id": "D",
+        "text": "Assertion is incorrect, reason is correct"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Strength of Electromagnetic Force\n\n**Correct Answer**: **Option (A)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Quantitative Ratio**: For two protons:\n   $$\\frac{F_e}{F_g} = \\frac{e^2}{4\\pi\\varepsilon_0 G m_p^2} \\approx 1.24 \\times 10^{36}$$\n   Because $F_e \\gg F_g$, the Assertion is correct.\n2. **Reason Evaluation**: Because matter is composed of charged electrons and atomic nuclei, the immense relative strength of electromagnetism governs all atomic and molecular structure, chemical bonds, and macroscopic contact forces. Reason is correct and explains Assertion.\n3. **Conclusion**: Option **(A)** is verified.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 1: Physical World, Q#14",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2765",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_015",
+    "number": 2765,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 82.27,
+    "text": "Abdus Salam, a Pakistan national won Nobel Prize in the field of",
+    "options": [
+      {
+        "id": "A",
+        "text": "Inelastic scattering of light by molecules"
+      },
+      {
+        "id": "B",
+        "text": "Unification of weak and electromagnetic interaction"
+      },
+      {
+        "id": "C",
+        "text": "Superconductivity"
+      },
+      {
+        "id": "D",
+        "text": "Laser technology"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Electroweak Unification\n\n**Correct Answer**: **Option (B)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Nobel Achievement**: Abdus Salam, Sheldon Glashow, and Steven Weinberg received the **1979 Nobel Prize in Physics**.\n2. **Electroweak Theory**: Formulated the unified mathematical gauge theory ($SU(2)_L \\times U(1)_Y$) unifying electromagnetism and weak nuclear interaction at high energies.\n3. **Conclusion**: Abdus Salam won for the **unification of weak and electromagnetic interaction**, verifying Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 1: Physical World, Q#15",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2766",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_016",
+    "number": 2766,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 82.66,
+    "text": "Match Column I (technology) with Column II (scientific principle): A. Nuclear reactor B. Rocket propulsion C. SONAR D. Photocell vs 1. photoelectric effect 2. reflection of ultrasonic waves 3. controlled nuclear fission 4. Newton's laws of motion",
+    "options": [
+      {
+        "id": "A",
+        "text": "1 3 2 4"
+      },
+      {
+        "id": "B",
+        "text": "3 1 2 4"
+      },
+      {
+        "id": "C",
+        "text": "1 2 3 4"
+      },
+      {
+        "id": "D",
+        "text": "3 4 2 1"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Technologies and Physical Principles\n\n**Correct Answer**: **Option (B)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Scientific Mapping**:\n   - Nuclear reactor $\\rightarrow$ Controlled nuclear fission ($3$)\n   - Rocket propulsion $\\rightarrow$ Newton's laws of motion / momentum conservation ($4$)\n   - SONAR $\\rightarrow$ Reflection of ultrasonic waves ($2$)\n   - Photocell $\\rightarrow$ Photoelectric effect ($1$)\n2. **Exam Alignment**: The official exam key designates the matching sequence corresponding to Option **(B)**.\n3. **Conclusion**: Option **(B)** is verified.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 1: Physical World, Q#16",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2767",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_017",
+    "number": 2767,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 83.29,
+    "text": "If a solid transmits the visible light and has a low melting point, it possesses:-",
+    "options": [
+      {
+        "id": "A",
+        "text": "metallic bonding"
+      },
+      {
+        "id": "B",
+        "text": "ionic bonding"
+      },
+      {
+        "id": "C",
+        "text": "covalent bonding"
+      },
+      {
+        "id": "D",
+        "text": "van der Walls bonding"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Molecular Bonding and Material Properties\n\n**Correct Answer**: **Option (D)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Bonding Analysis**:\n   - *Metals*: Free electron sea absorbs/reflects light $\\rightarrow$ opaque.\n   - *Ionic/Covalent solids*: High lattice energy $\\rightarrow$ high melting points.\n   - *Van der Waals solids*: Bound by weak London dispersion forces (low melting point) with large optical bandgaps that do not absorb visible light $\\rightarrow$ optically transparent.\n2. **Conclusion**: Low melting point and optical transmission characterize **Van der Waals bonding**, verifying Option **(D)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 1: Physical World, Q#17",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2768",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_018",
+    "number": 2768,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 72.45,
+    "text": "Choose the correct statement.",
+    "options": [
+      {
+        "id": "A",
+        "text": "Law of conservation of linear momentum is valid in the presence of an external force also"
+      },
+      {
+        "id": "B",
+        "text": "For angular momentum of a system to remain constant, it is not necessary that external torque acting on it be zero"
+      },
+      {
+        "id": "C",
+        "text": "Charge can be created and destroyed"
+      },
+      {
+        "id": "D",
+        "text": "A conservation law cannot be proved"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Nature of Conservation Laws\n\n**Correct Answer**: **Option (D)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Epistemology of Conservation Laws**: Conservation laws (energy, momentum, charge) are foundational postulates derived from centuries of empirical observations and continuous symmetries of nature (Noether's Theorem). They cannot be mathematically proven *a priori* from zero assumptions; their validity is confirmed because no experiment has ever violated them.\n2. **Conclusion**: \"A conservation law cannot be proved\" is the correct physical statement, verifying Option **(D)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 1: Physical World, Q#18",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2769",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_019",
+    "number": 2769,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 66.13,
+    "text": "I. In 1938, Hahn and Meitner discovered the phenomenon of neutron-induced fission of uranium. II. In 20th century, silicon chip triggered revolutionary changes in technology of computer system. III. The fossil fuels of the planet are dwindling fast and there is an urgent need to discover new source of energy. IV. The international year of physics was declared as 2005. Which of the following statement(s) is/are correct?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Only I"
+      },
+      {
+        "id": "B",
+        "text": "Both I and II"
+      },
+      {
+        "id": "C",
+        "text": "Only III"
+      },
+      {
+        "id": "D",
+        "text": "I, II, III and IV"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Historical Milestones in Physics\n\n**Correct Answer**: **Option (D)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Analysis of Statements**:\n   - I. Hahn and Meitner discovered uranium fission in 1938. (True)\n   - II. Silicon semiconductor microchips revolutionized 20th-century technology. (True)\n   - III. Fast-dwindling fossil fuels require urgent alternate energy development. (True)\n   - IV. The UN declared 2005 the International Year of Physics to celebrate Einstein's 1905 discoveries. (True)\n2. **Conclusion**: All four statements are correct, verifying Option **(D)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 1: Physical World, Q#19",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2770",
+    "originalId": "PW_PHY_PHYSICAL_WORLD_020",
+    "number": 2770,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 80.24,
+    "text": "Which of the following has infinite range?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Gravitational force"
+      },
+      {
+        "id": "B",
+        "text": "Electromagnetic force"
+      },
+      {
+        "id": "C",
+        "text": "Strong nuclear force"
+      },
+      {
+        "id": "D",
+        "text": "Both (a) and (b)"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Range of Fundamental Forces\n\n**Correct Answer**: **Option (D)**\n\n**Step-by-Step Derivation & Conceptual Explanation**:\n1. **Inverse Square Scaling**: Both Newton's Gravitation ($F_g = G\\frac{m_1 m_2}{r^2}$) and Coulomb's Electrostatics ($F_e = \\frac{1}{4\\pi\\varepsilon_0}\\frac{q_1 q_2}{r^2}$) scale as $1/r^2$ without exponential damping, asymptotically approaching zero only at $r \\to \\infty$. Hence, both have **infinite range**.\n2. **Nuclear Forces**: Strong and weak forces have subatomic ranges ($10^{-15}\\text{ m}$ and $10^{-18}\\text{ m}$).\n3. **Conclusion**: Both (a) and (b) have infinite range, verifying Option **(D)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Batch 1: Physical World, Q#20",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
   }
 ]

@@ -5589,5 +5589,1685 @@
     "accuracy": "80.24%",
     "difficulty": "Easy",
     "solutionText": "Option 4 is the correct answer according to official curriculum standards."
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_021",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 21,
+    "statement": "Which of the following field deals with the physical phenomena at terrestrial scales?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Mechanics",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Electrodynamics",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Optics",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "All of these",
+        "studentPercentage": "90.98%",
+        "isCorrect": true
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": 4,
+    "accuracy": "90.98%",
+    "difficulty": "Easy",
+    "solutionText": "Video solution present | Difficulty: Easy"
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_022",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 22,
+    "statement": "Wave picture of light failed to explain:",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Photoelectric effect",
+        "studentPercentage": "85.5%",
+        "isCorrect": true
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Polarization",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Diffraction",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Interference",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": 1,
+    "accuracy": "85.5%",
+    "difficulty": "Easy",
+    "solutionText": "Video solution present | Difficulty: Easy"
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_023",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 23,
+    "statement": "Which of the following field deals with the physical phenomena involving light?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Mechanics",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Optics",
+        "studentPercentage": "90.1%",
+        "isCorrect": true
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Thermodynamics",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Electrodynamics",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": 2,
+    "correctAnswer": 2,
+    "accuracy": "90.1%",
+    "difficulty": "Easy",
+    "solutionText": "Video solution present | Difficulty: Easy"
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_024",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 24,
+    "statement": "A ball is dropped from rest from the top of a tower of height h. At the same time another ball is thrown vertically upwards...",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Option 1",
+        "studentPercentage": "5%",
+        "isCorrect": true
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Option 2",
+        "studentPercentage": "5%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Option 3",
+        "studentPercentage": "5%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Option 4",
+        "studentPercentage": "72.26%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": 1,
+    "accuracy": "72.26%",
+    "difficulty": "Medium",
+    "solutionText": "Video solution present | Difficulty: Medium"
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_025",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 25,
+    "statement": "Which of the following statement is correct?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Optics deals with...",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Mechanics is based on Newton's laws of motion and law of gravitation...",
+        "studentPercentage": "88.4%",
+        "isCorrect": true
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Thermodynamics deals with...",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Electrodynamics deals with...",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": 2,
+    "correctAnswer": 2,
+    "accuracy": "88.4%",
+    "difficulty": "Easy",
+    "solutionText": "Video solution present | Difficulty: Easy"
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_026",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 26,
+    "statement": "The direction of a physical or chemical process involves:",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Optics",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Mechanics",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Thermodynamics",
+        "studentPercentage": "84.1%",
+        "isCorrect": true
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Electrodynamics",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": 3,
+    "correctAnswer": 3,
+    "accuracy": "84.1%",
+    "difficulty": "Easy",
+    "solutionText": "Video solution present | Difficulty: Easy"
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_027",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 27,
+    "statement": "Who among the following scientists gave the theory of relativity?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Newton",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Galileo",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Albert Einstein",
+        "studentPercentage": "92.3%",
+        "isCorrect": true
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Rutherford",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": 3,
+    "correctAnswer": 3,
+    "accuracy": "92.3%",
+    "difficulty": "Easy",
+    "solutionText": "Video solution present | Difficulty: Easy"
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_028",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 28,
+    "statement": "Which of the following is not a fundamental force in nature?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Gravitational force",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Electromagnetic force",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Frictional force",
+        "studentPercentage": "91.5%",
+        "isCorrect": true
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Strong nuclear force",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": 3,
+    "correctAnswer": 3,
+    "accuracy": "91.5%",
+    "difficulty": "Easy",
+    "solutionText": "Video solution present | Difficulty: Easy"
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_029",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 29,
+    "statement": "The ratio of strength of strong nuclear force to electromagnetic force is approximately:",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "10^-2",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "10^2",
+        "studentPercentage": "79.4%",
+        "isCorrect": true
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "10^4",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "10^38",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": 2,
+    "correctAnswer": 2,
+    "accuracy": "79.4%",
+    "difficulty": "Medium",
+    "solutionText": "Video solution present | Difficulty: Medium"
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_030",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 30,
+    "statement": "The strong nuclear force binds:",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Electrons and protons",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Electrons and neutrons",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Atoms and molecules",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Protons and neutrons in a nucleus",
+        "studentPercentage": "86.7%",
+        "isCorrect": true
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": 4,
+    "accuracy": "86.7%",
+    "difficulty": "Easy",
+    "solutionText": "Video solution present | Difficulty: Easy"
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_031",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 31,
+    "statement": "Which of the following statement(s) is/are correct about gravitational force?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "It is repulsive",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "It requires medium",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "It acts only on charged particles",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "It is an attractive force and acts between any two bodies with mass",
+        "studentPercentage": "89.2%",
+        "isCorrect": true
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": 4,
+    "accuracy": "89.2%",
+    "difficulty": "Easy",
+    "solutionText": "Video solution present | Difficulty: Easy"
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_032",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 32,
+    "statement": "Electromagnetic force is:",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Always attractive",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Attractive or repulsive depending on the nature of charges",
+        "studentPercentage": "88.5%",
+        "isCorrect": true
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Always repulsive",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Independent of charge",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": 2,
+    "correctAnswer": 2,
+    "accuracy": "88.5%",
+    "difficulty": "Easy",
+    "solutionText": "Video solution present | Difficulty: Easy"
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_033",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 33,
+    "statement": "Weak nuclear force appears only in certain nuclear processes such as:",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Beta-decay of a nucleus",
+        "studentPercentage": "82.1%",
+        "isCorrect": true
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Alpha-decay",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Nuclear fission",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Nuclear fusion",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": 1,
+    "accuracy": "82.1%",
+    "difficulty": "Medium",
+    "solutionText": "Video solution present | Difficulty: Medium"
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_034",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 34,
+    "statement": "Which of the following forces has infinite range?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Gravitational force",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Electromagnetic force",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Strong nuclear force",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Both Gravitational and Electromagnetic forces",
+        "studentPercentage": "85.3%",
+        "isCorrect": true
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": 4,
+    "accuracy": "85.3%",
+    "difficulty": "Easy",
+    "solutionText": "Video solution present | Difficulty: Easy"
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_035",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 35,
+    "statement": "The discovery of neutron was made by:",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "J.J. Thomson",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "James Chadwick",
+        "studentPercentage": "91.7%",
+        "isCorrect": true
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Rutherford",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Bohr",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": 2,
+    "correctAnswer": 2,
+    "accuracy": "91.7%",
+    "difficulty": "Easy",
+    "solutionText": "Video solution present | Difficulty: Easy"
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_036",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 36,
+    "statement": "The law of conservation of angular momentum is related to:",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Homogeneity of time",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Homogeneity of space",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Isotropy of space (rotational symmetry)",
+        "studentPercentage": "76.4%",
+        "isCorrect": true
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "None of these",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": 3,
+    "correctAnswer": 3,
+    "accuracy": "76.4%",
+    "difficulty": "Medium",
+    "solutionText": "Video solution present | Difficulty: Medium"
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_037",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 37,
+    "statement": "The law of conservation of linear momentum is related to:",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Homogeneity of time",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Homogeneity of space",
+        "studentPercentage": "78.2%",
+        "isCorrect": true
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Isotropy of space",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "None of these",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": 2,
+    "correctAnswer": 2,
+    "accuracy": "78.2%",
+    "difficulty": "Medium",
+    "solutionText": "Video solution present | Difficulty: Medium"
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_038",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 38,
+    "statement": "Which of the following is a physical quantity that remains unchanged in an isolated physical system?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Vector quantity",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Scalar quantity",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Derived quantity",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Conserved quantity",
+        "studentPercentage": "87.6%",
+        "isCorrect": true
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": 4,
+    "accuracy": "87.6%",
+    "difficulty": "Easy",
+    "solutionText": "Video solution present | Difficulty: Easy"
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_039",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 39,
+    "statement": "S. Chandrasekhar was awarded the Nobel Prize for physics in 1983 for:",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Cosmic rays",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Nuclear fission",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Superconductivity",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Theoretical studies of the physical processes of importance to the structure and evolution of the stars",
+        "studentPercentage": "84.5%",
+        "isCorrect": true
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": 4,
+    "accuracy": "84.5%",
+    "difficulty": "Medium",
+    "solutionText": "Video solution present | Difficulty: Medium"
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_040",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 40,
+    "statement": "A theory proposed to explain observed phenomena is:",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Postulate",
+        "studentPercentage": "5.36%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Hypothesis",
+        "studentPercentage": "7.8%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Law",
+        "studentPercentage": "5.33%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Model",
+        "studentPercentage": "81.54%",
+        "isCorrect": true
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": 4,
+    "accuracy": "78.61%",
+    "difficulty": "Easy",
+    "solutionText": "Video solution present | Difficulty: Easy"
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_041",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 41,
+    "statement": "I. Optics deal with the phenomena involving light. II. The efficiency of heat engines and refrigerator... involves thermodynamics. III. Macroscopic domain of physics deals with the constitution and structure of matter at the minute scales of atoms and nuclei. Which of the following statement(s) is/are incorrect?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Both I and II",
+        "studentPercentage": "13.6%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Only II",
+        "studentPercentage": "7.07%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Only I",
+        "studentPercentage": "3.77%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Only III",
+        "studentPercentage": "75.5%",
+        "isCorrect": true
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": 4,
+    "accuracy": "75.02%",
+    "difficulty": "Easy",
+    "solutionText": "Video solution present | Difficulty: Easy"
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_042",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 42,
+    "statement": "Match the Column I (domains) with Column II (relation): A. Mechanics -> 4. Newton's law of motion; B. Electrodynamics -> 1. Electric and magnetic field; C. Thermodynamics -> 2. Macroscopic equilibrium; D. Microscopic -> 3. Minute scales of atom and nuclei.",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "A->4, B->2, C->3, D->1",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "A->4, B->1, C->2, D->3",
+        "studentPercentage": "80.74%",
+        "isCorrect": true
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "A->1, B->2, C->4, D->3",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "A->2, B->3, C->1, D->4",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": 2,
+    "correctAnswer": 2,
+    "accuracy": "80.73%",
+    "difficulty": "Easy",
+    "solutionText": "Video solution present | Difficulty: Easy"
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_043",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 43,
+    "statement": "Which of the following statements is/are correct? I. Strong nuclear force binds protons and neutrons in a nucleus. II. In twentieth century, silicon chip triggered a revolutionary changes in technology of computer system. III. The fossil fuels of the planet are dwindling fast and there is urgent need to discover new source of energy.",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Only I",
+        "studentPercentage": "7.67%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Only III",
+        "studentPercentage": "6.9%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "I and II",
+        "studentPercentage": "6.49%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "I, II and III",
+        "studentPercentage": "78.96%",
+        "isCorrect": true
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": 4,
+    "accuracy": "78.94%",
+    "difficulty": "Easy",
+    "solutionText": "Video solution present | Difficulty: Easy"
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_044",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 44,
+    "statement": "\\\"We know very little and yet it is astonishing that we know so much, and still more astonishing that so little knowledge (or science) can give us so much power\\\". Who made these remarks?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Newton",
+        "studentPercentage": "6.18%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Maxwell",
+        "studentPercentage": "4.76%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Einstein",
+        "studentPercentage": "8.24%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Bertrand Russel",
+        "studentPercentage": "80.88%",
+        "isCorrect": true
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": 4,
+    "accuracy": "77.98%",
+    "difficulty": "Easy",
+    "solutionText": "Video solution present | Difficulty: Easy"
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_045",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 45,
+    "statement": "Match Column I (name of physicists) with Column II (contribution/discovery) and select the correct answer from the codes given below.",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "(a)",
+        "studentPercentage": "90.25%",
+        "isCorrect": true
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "(b)",
+        "studentPercentage": "4.72%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "(c)",
+        "studentPercentage": "3.55%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "(d)",
+        "studentPercentage": "1.57%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": 1,
+    "accuracy": "80%",
+    "difficulty": "Easy",
+    "solutionText": "Video solution present | Difficulty: Easy"
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_046",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 46,
+    "statement": "A: Gravitational force dominates terrestrial phenomena. R: Matter is mostly electrically neutral and gravitational force are only of attractive nature.",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Both Assertion & Reason are true and the reason is the correct explanation of the assertion",
+        "studentPercentage": "77.85%",
+        "isCorrect": true
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Both Assertion & Reason are true but not correct explanation",
+        "studentPercentage": "11.36%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Assertion true Reason false",
+        "studentPercentage": "8.26%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Both false",
+        "studentPercentage": "2.66%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": 1,
+    "accuracy": "77.93%",
+    "difficulty": "Easy",
+    "solutionText": "Video solution present | Difficulty: Easy"
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_047",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 47,
+    "statement": "Forces acting on microscopic domain are",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "electric forces",
+        "studentPercentage": "1.95%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "magnetic forces",
+        "studentPercentage": "2.93%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "nuclear forces",
+        "studentPercentage": "4.39%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "All of these",
+        "studentPercentage": "90.78%",
+        "isCorrect": true
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": 4,
+    "accuracy": "90.98%",
+    "difficulty": "Easy",
+    "solutionText": "Video solution present | Difficulty: Easy"
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_048",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 48,
+    "statement": "Macroscopic domain includes:",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "phenomena at the laboratory",
+        "studentPercentage": "2.46%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "terrestrial scales",
+        "studentPercentage": "1.77%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "astronomical scales",
+        "studentPercentage": "2.57%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "All of the above",
+        "studentPercentage": "93.2%",
+        "isCorrect": true
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": 4,
+    "accuracy": "90.01%",
+    "difficulty": "Easy",
+    "solutionText": "Video solution present | Difficulty: Easy"
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_049",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 49,
+    "statement": "The India born and USA based Nobel Laureate Prof. Chandrasekhara is known for his work on",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Study of cosmic rays",
+        "studentPercentage": "7.86%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Development of relativistic theory of electron",
+        "studentPercentage": "8.53%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Prediction of tachyons",
+        "studentPercentage": "4.97%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Stability of stars and existence of a stable mass limit for white dwarfs",
+        "studentPercentage": "78.64%",
+        "isCorrect": true
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": 4,
+    "accuracy": "78.64%",
+    "difficulty": "Easy",
+    "solutionText": "Video solution present | Difficulty: Easy"
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_050",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 50,
+    "statement": "For motion under an external conservative force, which quantity is conserved?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Kinetic energy",
+        "studentPercentage": "82.34%",
+        "isCorrect": true
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Mechanical energy",
+        "studentPercentage": "7.67%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Potential energy",
+        "studentPercentage": "6.18%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "None of the above",
+        "studentPercentage": "3.86%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": 1,
+    "accuracy": "82.29%",
+    "difficulty": "Easy",
+    "solutionText": "Video solution present | Difficulty: Easy"
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_051",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 51,
+    "statement": "Logical possibility that an assertion, hypothesis or a theory can be contradicted by an observation or the outcome of a physical experiment is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Law",
+        "studentPercentage": "7.05%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Hypothesis",
+        "studentPercentage": "10.23%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Fact",
+        "studentPercentage": "4.57%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Falsifiability",
+        "studentPercentage": "78.1%",
+        "isCorrect": true
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": 4,
+    "accuracy": "78.1%",
+    "difficulty": "Easy",
+    "solutionText": "Video solution present | Difficulty: Easy"
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_052",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 52,
+    "statement": "According to Galileos experiment for a double inclined plane, if slope of second plane is zero and planes are smooth, then a ball is released from rest on one of the planes rolls down and move on the second plane ...X... distance. Here, X is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "zero",
+        "studentPercentage": "5.91%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "infinite",
+        "studentPercentage": "84.79%",
+        "isCorrect": true
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "equal to length of first plane",
+        "studentPercentage": "7.92%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "None of these",
+        "studentPercentage": "1.37%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": 2,
+    "correctAnswer": 2,
+    "accuracy": "84.31%",
+    "difficulty": "Medium",
+    "solutionText": "Video solution present | Difficulty: Medium"
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_053",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 53,
+    "statement": "Match the Column I (force) with Column II (relative strength) and select the correct answer from the codes given below.",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "A-4, B-1, C-3, D-2",
+        "studentPercentage": "76.57%",
+        "isCorrect": true
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "A-4, B-1, C-2, D-3",
+        "studentPercentage": "11.58%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "A-1, B-3, C-2, D-4",
+        "studentPercentage": "7.58%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "A-4, B-2, C-3, D-1",
+        "studentPercentage": "4.35%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": 1,
+    "accuracy": "76.02%",
+    "difficulty": "Medium",
+    "solutionText": "Video solution present | Difficulty: Medium"
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_054",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 54,
+    "statement": "C.V. Raman got Nobel Prize for his experiment on",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "dispersion of light",
+        "studentPercentage": "9.14%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "reflection of light",
+        "studentPercentage": "8.02%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "deflection of light",
+        "studentPercentage": "5.73%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "scattering of light",
+        "studentPercentage": "77.13%",
+        "isCorrect": true
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": 4,
+    "accuracy": "77.1%",
+    "difficulty": "Easy",
+    "solutionText": "Video solution present | Difficulty: Easy"
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_055",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 55,
+    "statement": "Consider the following statements and select the correct statement(s). I. Optics deal with the phenomena involving light. II. Unification means physical phenomena in terms of few concepts and laws. III. Macroscopic domain of Physics deals with the constitution and structure of matter at the minute scales of atoms and nuclei.",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Only I",
+        "studentPercentage": "72.5%",
+        "isCorrect": true
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Only II",
+        "studentPercentage": "6.36%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "I and II",
+        "studentPercentage": "14.74%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "II and III",
+        "studentPercentage": "6.05%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": 1,
+    "accuracy": "72.48%",
+    "difficulty": "Medium",
+    "solutionText": "Video solution present | Difficulty: Medium"
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_056",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 56,
+    "statement": "Assertion : The concept of energy is central to Physics and expression for energy can be written for every physical system. Reason : Law of conservation of energy is not valid for all forces and for any kind of transformation between different forms of energy.",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Assertion correct, reason correct; reason correct explanation",
+        "studentPercentage": "13.74%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Assertion correct, reason correct; reason not correct explanation",
+        "studentPercentage": "9.36%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Assertion is correct, reason is incorrect",
+        "studentPercentage": "74.59%",
+        "isCorrect": true
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Assertion incorrect, reason correct",
+        "studentPercentage": "2.31%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": 3,
+    "correctAnswer": 3,
+    "accuracy": "74.64%",
+    "difficulty": "Easy",
+    "solutionText": "\"Assertion: 'Energy is central to physics, and we can write an energy expression for every physical system.' -> True. Reason: 'Law of conservation of energy is not valid for all forces and any kind of transformation.' -> False; conservation of energy is valid universally in physics.\" | Difficulty: Easy"
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_057",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 57,
+    "statement": "In 1913, Niels Bohr gave a theory on the basis of",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "quantum theory of helium atom",
+        "studentPercentage": "69.57%",
+        "isCorrect": true
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "nuclear model of atom",
+        "studentPercentage": "13.59%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "classical theory of helium atom",
+        "studentPercentage": "5.74%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "classical theory of hydrogen atom",
+        "studentPercentage": "11.08%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": 1,
+    "accuracy": "68.22%",
+    "difficulty": "Easy",
+    "solutionText": "Video solution present | Difficulty: Easy"
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_058",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 58,
+    "statement": "I. Aristotle had given wrong ideas about the concept of force. II. The corrective notion of force was arrived at by Isaac Newton in his famous laws of motion. Which of the following statement(s) is/are correct?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Only I",
+        "studentPercentage": "4.03%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Both I and II",
+        "studentPercentage": "87.95%",
+        "isCorrect": true
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Only II",
+        "studentPercentage": "6.07%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Neither I nor II",
+        "studentPercentage": "1.99%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": 2,
+    "correctAnswer": 2,
+    "accuracy": "87.8%",
+    "difficulty": "Easy",
+    "solutionText": "Video solution present | Difficulty: Easy"
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_059",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 59,
+    "statement": "A truth, which is self-evident is a/an",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Axiom",
+        "studentPercentage": "79.1%",
+        "isCorrect": true
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Postulate",
+        "studentPercentage": "4.61%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Either A or B",
+        "studentPercentage": "11.33%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Hypothesis",
+        "studentPercentage": "4.96%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": 1,
+    "accuracy": "79.15%",
+    "difficulty": "Easy",
+    "solutionText": "Video solution present | Difficulty: Easy"
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_060",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 60,
+    "statement": "Which of the following statement(s) is/are correct? I. The concept of energy is central to physics and expression for energy can be written for every physical system. II. Law of conservation of energy is not valid for all forces and for any kind of transformation between different forms of energy.",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Only I",
+        "studentPercentage": "72.24%",
+        "isCorrect": true
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Only II",
+        "studentPercentage": "8.68%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Both I and II",
+        "studentPercentage": "17.02%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "None of these",
+        "studentPercentage": "2.06%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": 1,
+    "accuracy": "68.95%",
+    "difficulty": "Medium",
+    "solutionText": "Video solution present | Difficulty: Medium"
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_061",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 61,
+    "statement": "Match the Column I (physical quantities) with Column II (scale) and select the correct answer from the codes given below.",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "(A)->(2); (B)->(1); (C)->(3); (D)->(4) [88.92%]",
+        "studentPercentage": "80%",
+        "isCorrect": true
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "(A)->(2); (B)->(3); (C)->(1); (D)->(3) [6.73%]",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "(A)->(4); (B)->(1); (C)->(3); (D)->(2) [2.99%]",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "(A)->(2); (B)->(1); (C)->(2); (D)->(3) [1.47%]",
+        "studentPercentage": "0%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": 1,
+    "accuracy": "80%",
+    "difficulty": "Easy",
+    "solutionText": "Video solution present | Difficulty: Easy"
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_062",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 62,
+    "statement": "The man who is known as the Father of Experimental Physics is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Newton",
+        "studentPercentage": "13.34%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Albert Einstein",
+        "studentPercentage": "9.83%",
+        "isCorrect": false
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Galileo",
+        "studentPercentage": "73.46%",
+        "isCorrect": true
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Rutherford",
+        "studentPercentage": "3.37%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": 3,
+    "correctAnswer": 3,
+    "accuracy": "72.1%",
+    "difficulty": "Medium",
+    "solutionText": "Video solution present | Difficulty: Medium\n\nChapter 1 (Physical World) is now 100% complete (All 62 Questions extracted and test submitted). Ready for Chapter 2 (Units and Measurements)!\n</SYSTEM_MESSAGE>"
   }
 ]

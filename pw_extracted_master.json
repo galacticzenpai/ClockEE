@@ -8896,5 +8896,861 @@
     "difficulty": "Easy",
     "solutionText": "Option 3 is the correct answer according to official curriculum standards and dimensional consistency.",
     "videoUrl": "https://www.youtube.com/embed/kuvRsmFeoAk"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_041",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 41,
+    "statement": "The potential energy u of a particle varies with distance x from a fixed origin as u = A√x / (x + B), where A and B are constants. The dimensions of A and B are respectively",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "[ML^(5/2) T^-2], [L]",
+        "isCorrect": true,
+        "studentPercentage": "59.36%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "[MLT^-2], [L^2]",
+        "isCorrect": false,
+        "studentPercentage": "19.33%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "[L], [ML^(3/2) T^-2]",
+        "isCorrect": false,
+        "studentPercentage": "16.97%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "[L^2], [MLT^-2]",
+        "isCorrect": false,
+        "studentPercentage": "4.34%"
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": 1,
+    "accuracy": "59.36%",
+    "difficulty": "Medium",
+    "solutionText": "Option 1 is the correct answer according to official curriculum standards and dimensional consistency.",
+    "videoUrl": "https://www.youtube.com/embed/UDilUAqO6RI"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_042",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 42,
+    "statement": "Which of the following is not a physical quantity?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Time",
+        "isCorrect": false,
+        "studentPercentage": "3.63%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Current",
+        "isCorrect": false,
+        "studentPercentage": "3.56%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Hotness",
+        "isCorrect": true,
+        "studentPercentage": "90.22%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Temperature",
+        "isCorrect": false,
+        "studentPercentage": "2.65%"
+      }
+    ],
+    "correctOption": 3,
+    "correctAnswer": 3,
+    "accuracy": "90.22%",
+    "difficulty": "Easy",
+    "solutionText": "Option 3 is the correct answer according to official curriculum standards and dimensional consistency.",
+    "videoUrl": ""
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_043",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 43,
+    "statement": "If C is the capacitance of the capacitor, V is the potential difference, the energy stored in a capacitor is given by E = 1/2 CV^2. The power of time in dimension of CV^2 is:",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 2,
+        "optionText": "The power of time in dimension of CV^2 is:\"\n- **Options**:",
+        "isCorrect": false,
+        "studentPercentage": "0%"
+      },
+      {
+        "optionNumber": 1,
+        "optionText": "−2",
+        "isCorrect": true,
+        "studentPercentage": "50.54%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "2",
+        "isCorrect": false,
+        "studentPercentage": "29.21%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "1",
+        "isCorrect": false,
+        "studentPercentage": "14.37%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "−1",
+        "isCorrect": false,
+        "studentPercentage": "5.88%"
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": 1,
+    "accuracy": "0%",
+    "difficulty": "Easy",
+    "solutionText": "Option 1 is the correct answer according to official curriculum standards and dimensional consistency.",
+    "videoUrl": ""
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_044",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 44,
+    "statement": "A physical quantity X is given by X = 2k^3 l^2 / (m √n). The percentage error in the measurements of k, l, m and n are 1%, 2%, 3% and 4% respectively. The value of X is uncertain by",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "8%",
+        "isCorrect": false,
+        "studentPercentage": "33.33%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "10%",
+        "isCorrect": false,
+        "studentPercentage": "0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "12%",
+        "isCorrect": true,
+        "studentPercentage": "33.33%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "None",
+        "isCorrect": false,
+        "studentPercentage": "33.33%"
+      }
+    ],
+    "correctOption": 3,
+    "correctAnswer": 3,
+    "accuracy": "33.33%",
+    "difficulty": "Medium",
+    "solutionText": "Option 3 is the correct answer according to official curriculum standards and dimensional consistency.",
+    "videoUrl": "https://www.youtube.com/embed/EsF7YkD9w7M"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_045",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 45,
+    "statement": "The pair of the quantities having same dimensions is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Displacement, velocity",
+        "isCorrect": false,
+        "studentPercentage": "11.85%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Time, frequency",
+        "isCorrect": false,
+        "studentPercentage": "12.92%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Wavelength, focal length",
+        "isCorrect": true,
+        "studentPercentage": "69.21%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Force, acceleration",
+        "isCorrect": false,
+        "studentPercentage": "6.04%"
+      }
+    ],
+    "correctOption": 3,
+    "correctAnswer": 3,
+    "accuracy": "69.21%",
+    "difficulty": "Easy",
+    "solutionText": "Option 3 is the correct answer according to official curriculum standards and dimensional consistency.",
+    "videoUrl": "https://www.youtube.com/embed/hmd3afJtM-8"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_046",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 46,
+    "statement": "Match List-I with List-II. Choose the correct answer from the options given below: [JEE Main 2021, 27 Jul (Shift 2)]",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "A-III, B-II, C-IV, D-I",
+        "isCorrect": true,
+        "studentPercentage": "57.81%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "A-III, B-IV, C-II, D-I",
+        "isCorrect": false,
+        "studentPercentage": "19.08%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "A-IV, B-II, C-III, D-I",
+        "isCorrect": false,
+        "studentPercentage": "16.75%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "A-IV, B-III, C-II, D-I",
+        "isCorrect": false,
+        "studentPercentage": "6.44%"
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": 1,
+    "accuracy": "57.81%",
+    "difficulty": "Medium",
+    "solutionText": "Option 1 is the correct answer according to official curriculum standards and dimensional consistency.",
+    "videoUrl": ""
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_047",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 47,
+    "statement": "Which of the following combinations of three different physical quantities P,Q,R can never be a meaningful quantity ?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "PQ-R",
+        "isCorrect": false,
+        "studentPercentage": "42.86%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "PQR",
+        "isCorrect": false,
+        "studentPercentage": "0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "(P-Q)R",
+        "isCorrect": true,
+        "studentPercentage": "57.14%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "PR-Q2QR",
+        "isCorrect": false,
+        "studentPercentage": "0%"
+      }
+    ],
+    "correctOption": 3,
+    "correctAnswer": 3,
+    "accuracy": "57.14%",
+    "difficulty": "Medium",
+    "solutionText": "Option 3 is the correct answer according to official curriculum standards and dimensional consistency.",
+    "videoUrl": "https://www.youtube.com/embed/O3rFrhLndM0"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_048",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 48,
+    "statement": "The smallest division on the main scale of a Venire callipers is 0.1 cm. Ten divisions of the Vernier scale correspond to nine divisions of the main scale. The figure below on the left shows the reading of this calliper with no gap between its two jaws. The figure on the right shows the reading with a solid sphere held between the jaws. The correct diameter of the sphere is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 0,
+        "optionText": "1 cm. Ten divisions of the Vernier scale correspond to nine divisions of the main scale. The figure below on the left shows the reading of this calliper with no gap between its two jaws. The figure on the right shows the reading with a solid sphere held between the jaws. The correct diameter of the sphere is\"\n- **Options**:",
+        "isCorrect": false,
+        "studentPercentage": "0%"
+      },
+      {
+        "optionNumber": 1,
+        "optionText": "3.07 cm",
+        "isCorrect": false,
+        "studentPercentage": "23.02%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "3.11 cm",
+        "isCorrect": false,
+        "studentPercentage": "26.91%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "3.15 cm",
+        "isCorrect": true,
+        "studentPercentage": "40.13%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "3.17 cm",
+        "isCorrect": false,
+        "studentPercentage": "10.07%"
+      }
+    ],
+    "correctOption": 3,
+    "correctAnswer": 3,
+    "accuracy": "26.91%",
+    "difficulty": "Medium",
+    "solutionText": "Option 3 is the correct answer according to official curriculum standards and dimensional consistency.",
+    "videoUrl": ""
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_049",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 49,
+    "statement": "Three of the fundamental constants of physics are the universal gravitational constant, G = 6.7 × 10–11 m3kg–1s–2, the speed of light, c = 3.0 × 108 m/s, and planck's constant, h = 6.6 × 10–34 kg m2s–1.",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 6,
+        "optionText": "7 × 10–11 m3kg–1s–2, the speed of light, c = 3.0 × 108 m/s, and planck's constant, h = 6.6 × 10–34 kg m2s–1.\"\n- **Options**:",
+        "isCorrect": false,
+        "studentPercentage": "0%"
+      },
+      {
+        "optionNumber": 1,
+        "optionText": "3.0 eV",
+        "isCorrect": true,
+        "studentPercentage": "43.95%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "4.5 eV",
+        "isCorrect": false,
+        "studentPercentage": "30.12%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "2.10 eV",
+        "isCorrect": false,
+        "studentPercentage": "18.42%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "3.95 eV",
+        "isCorrect": false,
+        "studentPercentage": "7.57%"
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": 1,
+    "accuracy": "0%",
+    "difficulty": "Medium",
+    "solutionText": "Option 1 is the correct answer according to official curriculum standards and dimensional consistency.",
+    "videoUrl": ""
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_050",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 50,
+    "statement": "1/2 ε0 E^2 has dimension same as which of the following qualities (where ρ, E, J, ε0 & t represent resistivity, Electric field, current density, permitivity & time respectively) :-",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "JE",
+        "isCorrect": false,
+        "studentPercentage": "16.8%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "E^2 ρ t",
+        "isCorrect": true,
+        "studentPercentage": "57.69%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "0 ρ J",
+        "isCorrect": false,
+        "studentPercentage": "12.83%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "ε0 ρ J t",
+        "isCorrect": false,
+        "studentPercentage": "12.65%"
+      }
+    ],
+    "correctOption": 2,
+    "correctAnswer": 2,
+    "accuracy": "57.69%",
+    "difficulty": "Medium",
+    "solutionText": "Option 2 is the correct answer according to official curriculum standards and dimensional consistency.",
+    "videoUrl": "https://www.youtube.com/embed/611DB5tQ-QA"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_051",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 51,
+    "statement": "The density of a material in CGS system is 8 g/cm^3. In a system of a unit in which unit of length is 5 cm and unit of mass is 20 g. The density of material is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 3,
+        "optionText": "In a system of a unit in which unit of length is 5 cm and unit of mass is 20 g. The density of material is\"\n- **Options**:",
+        "isCorrect": false,
+        "studentPercentage": "0%"
+      },
+      {
+        "optionNumber": 1,
+        "optionText": "8",
+        "isCorrect": false,
+        "studentPercentage": "13.58%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "20",
+        "isCorrect": false,
+        "studentPercentage": "21.16%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "50",
+        "isCorrect": true,
+        "studentPercentage": "60.58%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "80",
+        "isCorrect": false,
+        "studentPercentage": "7.49%"
+      }
+    ],
+    "correctOption": 3,
+    "correctAnswer": 3,
+    "accuracy": "21.16%",
+    "difficulty": "Easy",
+    "solutionText": "Option 3 is the correct answer according to official curriculum standards and dimensional consistency.",
+    "videoUrl": "https://www.youtube.com/embed/gz2ubnUsSlg"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_052",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 52,
+    "statement": "Match the columns I and II. Column I: (A) Practical unit, (B) Base unit, (C) Derived unit, (D) Complementary unit. Column II: (1) radian, (2) light year, (3) Kg-ms-1, (4) second",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "(A) → (4); (B) → (2); C → (1); (D) → (3)",
+        "isCorrect": false,
+        "studentPercentage": "7.47%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "(A) → (2); (B) → (4); C → (3); (D) → (1)",
+        "isCorrect": true,
+        "studentPercentage": "82.61%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "(A) → (3); (B) → (2); C → (4); (D) → (1)",
+        "isCorrect": false,
+        "studentPercentage": "6.51%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "(A) → (2); (B) → (4); C → (1); (D) → (3)",
+        "isCorrect": false,
+        "studentPercentage": "3.5%"
+      }
+    ],
+    "correctOption": 2,
+    "correctAnswer": 2,
+    "accuracy": "82.61%",
+    "difficulty": "Easy",
+    "solutionText": "Option 2 is the correct answer according to official curriculum standards and dimensional consistency.",
+    "videoUrl": "https://www.youtube.com/embed/jQHGTJ9LB4U"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_053",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 53,
+    "statement": "Select the pair whose dimensions are same.",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Pressure and stress",
+        "isCorrect": true,
+        "studentPercentage": "69.15%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Stress and strain",
+        "isCorrect": false,
+        "studentPercentage": "15.38%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Pressure and force",
+        "isCorrect": false,
+        "studentPercentage": "9.96%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Power and force",
+        "isCorrect": false,
+        "studentPercentage": "5.55%"
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": 1,
+    "accuracy": "69.15%",
+    "difficulty": "Easy",
+    "solutionText": "Option 1 is the correct answer according to official curriculum standards and dimensional consistency.",
+    "videoUrl": ""
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_054",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 54,
+    "statement": "The dimension of 1 / √(ε0 μ0) is that of:",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Velocity",
+        "isCorrect": true,
+        "studentPercentage": "51.26%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Time",
+        "isCorrect": false,
+        "studentPercentage": "9.81%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Capacitance",
+        "isCorrect": false,
+        "studentPercentage": "34.31%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Distance",
+        "isCorrect": false,
+        "studentPercentage": "4.7%"
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": 1,
+    "accuracy": "51.26%",
+    "difficulty": "Easy",
+    "solutionText": "Option 1 is the correct answer according to official curriculum standards and dimensional consistency.",
+    "videoUrl": ""
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_055",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 55,
+    "statement": "If L = 2.331 cm, B = 2.1 cm, then L + B =",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 2,
+        "optionText": "331 cm, B = 2.1 cm, then L + B =\"\n- **Options**:",
+        "isCorrect": false,
+        "studentPercentage": "0%"
+      },
+      {
+        "optionNumber": 1,
+        "optionText": "4.4 cm",
+        "isCorrect": true,
+        "studentPercentage": "59.38%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "4 cm",
+        "isCorrect": false,
+        "studentPercentage": "5.36%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "4.43 cm",
+        "isCorrect": false,
+        "studentPercentage": "10.27%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "4.431 cm",
+        "isCorrect": false,
+        "studentPercentage": "24.9%"
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": 1,
+    "accuracy": "0%",
+    "difficulty": "Easy",
+    "solutionText": "Option 1 is the correct answer according to official curriculum standards and dimensional consistency.",
+    "videoUrl": "https://www.youtube.com/embed/JckBXUQXvBI"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_056",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 56,
+    "statement": "Planck's constant (h), speed of light in vacuum (c) and Newton's gravitational constant (G) are three fundamental constants, which of the following combinations of these has the dimension of length?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "√(hc / G)",
+        "isCorrect": false,
+        "studentPercentage": "16.01%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "√(G / h^(3/2))",
+        "isCorrect": false,
+        "studentPercentage": "14.09%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "√(hG / c^(5/2))",
+        "isCorrect": false,
+        "studentPercentage": "24.22%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "√(hG / c^(3/2))",
+        "isCorrect": true,
+        "studentPercentage": "46.1%"
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": 4,
+    "accuracy": "46.1%",
+    "difficulty": "Medium",
+    "solutionText": "Option 4 is the correct answer according to official curriculum standards and dimensional consistency.",
+    "videoUrl": "https://www.youtube.com/embed/GOQihL69jrQ"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_057",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 57,
+    "statement": "The distance moved by the screw of a screw gauge is 2 mm in four rotations and there are 50 divisions on its cap. When nothing is put between its jaws, 30th division of circular scale coincides with reference line, with zero of circular scale lying above the reference line. When a plate is placed between the jaws, main scale reads 2 divisions and circular scale reads 20 divisions. Thickness of plate is:",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "0.9 mm",
+        "isCorrect": false,
+        "studentPercentage": "50.68%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "1.2 mm",
+        "isCorrect": false,
+        "studentPercentage": "11.78%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "1.4 mm",
+        "isCorrect": true,
+        "studentPercentage": "31.99%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "1.5 mm",
+        "isCorrect": false,
+        "studentPercentage": "5.54%"
+      }
+    ],
+    "correctOption": 3,
+    "correctAnswer": 3,
+    "accuracy": "31.99%",
+    "difficulty": "Medium",
+    "solutionText": "Option 3 is the correct answer according to official curriculum standards and dimensional consistency.",
+    "videoUrl": ""
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_058",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 58,
+    "statement": "The pressure P and volume V of a gas are related as PV^(3/2) = K where K is a constant. The percentage increase in the pressure for a decrease of 0.5% in the volume is:",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 0,
+        "optionText": "5% in the volume is:\"\n- **Options**:",
+        "isCorrect": false,
+        "studentPercentage": "0%"
+      },
+      {
+        "optionNumber": 1,
+        "optionText": "−0.75%",
+        "isCorrect": false,
+        "studentPercentage": "9.3%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "0.75%",
+        "isCorrect": true,
+        "studentPercentage": "78.12%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "1.50%",
+        "isCorrect": false,
+        "studentPercentage": "9.87%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "−1.50%",
+        "isCorrect": false,
+        "studentPercentage": "2.75%"
+      }
+    ],
+    "correctOption": 2,
+    "correctAnswer": 2,
+    "accuracy": "9.3%",
+    "difficulty": "Medium",
+    "solutionText": "Option 2 is the correct answer according to official curriculum standards and dimensional consistency.",
+    "videoUrl": "https://www.youtube.com/embed/fL3CrGu88kE"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_059",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 59,
+    "statement": "Match the following. M, L, T and K are the dimensions of Mass, Length, Time and Temperature respectively.",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "I-S   II-P   III-T   IV-Q",
+        "isCorrect": false,
+        "studentPercentage": "6.51%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "I-S   II-P   III-R   IV-Q",
+        "isCorrect": true,
+        "studentPercentage": "87.51%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "I-S   II-T   III-R   IV-Q",
+        "isCorrect": false,
+        "studentPercentage": "4.87%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "I-S   II-T   III-T   IV-Q",
+        "isCorrect": false,
+        "studentPercentage": "1.27%"
+      }
+    ],
+    "correctOption": 2,
+    "correctAnswer": 2,
+    "accuracy": "87.51%",
+    "difficulty": "Medium",
+    "solutionText": "Option 2 is the correct answer according to official curriculum standards and dimensional consistency.",
+    "videoUrl": "https://www.youtube.com/embed/zrrufAaUb5o"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_060",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 60,
+    "statement": "Which of the following is not a physical quantity?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Time",
+        "isCorrect": false,
+        "studentPercentage": "5.68%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Current",
+        "isCorrect": false,
+        "studentPercentage": "4.92%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Hotness",
+        "isCorrect": true,
+        "studentPercentage": "87.13%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Temperature \n\n---\nCurrent progress: 60 of 90 questions extracted for Chapter 2. Ready to continue with Questions 61 through 90 upon follow-up.\n</SYSTEM_MESSAGE>",
+        "isCorrect": false,
+        "studentPercentage": "2.37%"
+      }
+    ],
+    "correctOption": 3,
+    "correctAnswer": 3,
+    "accuracy": "87.13%",
+    "difficulty": "Easy",
+    "solutionText": "Option 3 is the correct answer according to official curriculum standards and dimensional consistency.",
+    "videoUrl": ""
   }
 ]

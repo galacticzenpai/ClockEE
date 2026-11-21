@@ -21603,5 +21603,1330 @@
     "videoSolutionUrl": "https://www.youtube.com/embed/hI1oJtMm5ew",
     "source": "PW Infinite Practice - Class 11 Physics",
     "cohort": "Class 11 JEE"
+  },
+  {
+    "id": "PW_PHY_NLM_061",
+    "subject": "Physics",
+    "chapter": "Laws of Motion",
+    "topic": "Tension in Hanging Heavy Rope",
+    "questionNumber": 61,
+    "questionType": "Single Choice Question",
+    "statement": "A rope of length L and mass M is hanging from a rigid support.The tension in the rope at a distance x from the rigid support is :- 1 Mg 16.09% Marked this option 2 (L−xL)Mg 50.34% Marked this option 3 (LL−x)Mg 18.45% Marked this option 4 xLMg 15.01% Marked this option 50.54% of students got it right Solution Easy",
+    "diagramUrl": "",
+    "options": [
+      {
+        "id": "A",
+        "text": "Mg",
+        "percentage": "16.09%",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "(L−xL)Mg",
+        "percentage": "50.34%",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "(LL−x)Mg",
+        "percentage": "18.45%",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "xLMg",
+        "percentage": "15.01%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": "B",
+    "correctAnswer": "(L−xL)Mg",
+    "accuracy": "50.34%",
+    "accuracyPct": 50.34,
+    "difficulty": "Medium",
+    "solutionText": "A rope of length L and mass M is hanging from a rigid support.The tension in the rope at a distance x from the rigid support is :- Solution Easy",
+    "videoSolutionUrl": "https://www.youtube.com/embed/Ky5BZydop3c?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=83&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&vf=1",
+    "source": "PW Infinite Practice - Class 11 Physics",
+    "cohort": "Class 11 JEE"
+  },
+  {
+    "id": "PW_PHY_NLM_062",
+    "subject": "Physics",
+    "chapter": "Laws of Motion",
+    "topic": "Apparent Weight & Normal Reaction in Lift",
+    "questionNumber": 62,
+    "questionType": "Single Choice Question",
+    "statement": "A block of mass m kg is kept on a weighing machine in an elevator. If the elevator is retarding upward by a ms−2, the reading of weighing machine is (in kgf) 1 mg 7.85% Marked this option 2 m(g−a) 33.05% Marked this option 3 m(1−ag) 24.26% Marked this option 4 m(g+a) 34.99% Marked this option 24.26% of students got it right Solution Easy",
+    "diagramUrl": "",
+    "options": [
+      {
+        "id": "A",
+        "text": "mg",
+        "percentage": "7.85%",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "m(g−a)",
+        "percentage": "33.05%",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "m(1−ag)",
+        "percentage": "24.26%",
+        "isCorrect": true
+      },
+      {
+        "id": "D",
+        "text": "m(g+a)",
+        "percentage": "34.99%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": "C",
+    "correctAnswer": "m(1−ag)",
+    "accuracy": "24.26%",
+    "accuracyPct": 24.26,
+    "difficulty": "Hard",
+    "solutionText": "A block of mass m kg is kept on a weighing machine in an elevator. If the elevator is retarding upward by a ms−2, the reading of weighing machine is (in kgf) Solution Easy",
+    "videoSolutionUrl": "https://www.youtube.com/embed/ci5Od0t3DL4?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=85&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&vf=1",
+    "source": "PW Infinite Practice - Class 11 Physics",
+    "cohort": "Class 11 JEE"
+  },
+  {
+    "id": "PW_PHY_NLM_063",
+    "subject": "Physics",
+    "chapter": "Laws of Motion",
+    "topic": "Impulse from Force-Time Graph",
+    "questionNumber": 63,
+    "questionType": "Single Choice Question",
+    "statement": "Force-time graph for the motion of a body is shown in figure. Change in linear momentum between 0 to 8 s is 1 Zero 73.43% Marked this option 2 4 N−s 15.94% Marked this option 3 8 N−s 7.97% Marked this option 4 None 2.66% Marked this option 23.91% of students got it right Solution Medium Show Video Sol. Given: Force-time graph To find: Change in linear momentum from t=0 to t=8 s Relevant formula from NCERT: Δp=Impulse=∫F dt=Area under F-t graph From the graph: Area from 0 to 4 s is positive and symmetric Area from 4 to 8 s is negative and symmetric Positive area = Negative area So, total impulse (net area) = 0⇒Δp=0",
+    "diagramUrl": "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/19n7a7r2w2mvawtncmgvgodnl.png",
+    "options": [
+      {
+        "id": "A",
+        "text": "Zero",
+        "percentage": "73.43%",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "4 N−s",
+        "percentage": "15.94%",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "8 N−s",
+        "percentage": "7.97%",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "None",
+        "percentage": "2.66%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": "A",
+    "correctAnswer": "Zero",
+    "accuracy": "73.43%",
+    "accuracyPct": 73.43,
+    "difficulty": "Easy",
+    "solutionText": "Force-time graph for the motion of a body is shown in figure. Change in linear momentum between 0 to 8 s is Solution Medium Show Video Sol. Given: Force-time graph To find: Change in linear momentum from t=0 to t=8 s  Relevant formula from NCERT:  Δp=Impulse=∫F dt=Area under F-t graph  From the graph:    Area from 0 to 4 s is positive and symmetric    Area from 4 to 8 s is negative and symmetric    Positive area = Negative area    So, total impulse (net area) = 0⇒Δp=0",
+    "videoSolutionUrl": null,
+    "source": "PW Infinite Practice - Class 11 Physics",
+    "cohort": "Class 11 JEE"
+  },
+  {
+    "id": "PW_PHY_NLM_064",
+    "subject": "Physics",
+    "chapter": "Laws of Motion",
+    "topic": "Free Body Diagram of Leaning Rod",
+    "questionNumber": 64,
+    "questionType": "Single Choice Question",
+    "statement": "Which figure represents the correct F.B.D. of rod of mass m as shown in figure : 1 25.42% Marked this option 2 20.34% Marked this option 3 48.85% Marked this option 4 None of these 5.28% Marked this option 49.25% of students got it right Solution Easy",
+    "diagramUrl": "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/6qr04m04505mu579s85e3er4u.JPG",
+    "options": [
+      {
+        "id": "A",
+        "text": "1\n25.42% Marked this option",
+        "percentage": "25.42%",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "2\n20.34% Marked this option",
+        "percentage": "20.34%",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "3\n48.85% Marked this option",
+        "percentage": "48.85%",
+        "isCorrect": true
+      },
+      {
+        "id": "D",
+        "text": "None of these",
+        "percentage": "5.28%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": "C",
+    "correctAnswer": "3\n48.85% Marked this option",
+    "accuracy": "48.85%",
+    "accuracyPct": 48.85,
+    "difficulty": "Medium",
+    "solutionText": "Which figure represents the correct F.B.D. of rod of mass m as shown in figure : Solution Easy",
+    "videoSolutionUrl": "https://www.youtube.com/embed/MD9BWeCNOso?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=87&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&vf=1",
+    "source": "PW Infinite Practice - Class 11 Physics",
+    "cohort": "Class 11 JEE"
+  },
+  {
+    "id": "PW_PHY_NLM_065",
+    "subject": "Physics",
+    "chapter": "Laws of Motion",
+    "topic": "Two-Block System & Friction Threshold",
+    "questionNumber": 65,
+    "questionType": "Single Choice Question",
+    "statement": "Two blocks A and B are as shown in figure. The minimum horizontal force F applied to the block B for which slipping begins between B and ground is : 1 20 N 12.07% Marked this option 2 120 N 23.15% Marked this option 3 150 N 52.75% Marked this option 4 170 N 12.12% Marked this option 52.7% of students got it right Solution Hard",
+    "diagramUrl": "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/75ca3e8a-c9d6-48a8-a3ad-bfba99d8caee.png",
+    "options": [
+      {
+        "id": "A",
+        "text": "20 N",
+        "percentage": "12.07%",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "120 N",
+        "percentage": "23.15%",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "150 N",
+        "percentage": "52.75%",
+        "isCorrect": true
+      },
+      {
+        "id": "D",
+        "text": "170 N",
+        "percentage": "12.12%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": "C",
+    "correctAnswer": "150 N",
+    "accuracy": "52.75%",
+    "accuracyPct": 52.75,
+    "difficulty": "Medium",
+    "solutionText": "Two blocks A and B are as shown in figure.   The minimum horizontal force F applied to the block B for which slipping begins between B and ground is : Solution Hard",
+    "videoSolutionUrl": "https://www.youtube.com/embed/QCjBSmegtf0?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=89&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&vf=1",
+    "source": "PW Infinite Practice - Class 11 Physics",
+    "cohort": "Class 11 JEE"
+  },
+  {
+    "id": "PW_PHY_NLM_066",
+    "subject": "Physics",
+    "chapter": "Laws of Motion",
+    "topic": "Maximum Force for Accelerating Block System",
+    "questionNumber": 66,
+    "questionType": "Single Choice Question",
+    "statement": "In the given arrangement the maximum value of F for which there is no relative motion between the blocks 1 μm1g 21.45% Marked this option 2 μ(m1+m2)g 29.27% Marked this option 3 μm1g(m1m2+1) 37.27% Marked this option 4 Zero 12.55% Marked this option 37.09% of students got it right Solution Hard Show Video Sol. If there is no slipping, both blocks accelerate at a=F/(m1+m2). The lower block is accelerated only by friction, so m2a≤μm1g. Therefore Fmax=μm1g(m1+m2m2)=μm1g(m1m2+1). Hence (C).",
+    "diagramUrl": "https://penpencil-static-content.s3.ap-south-1.amazonaws.com/5eb393ee95fab7468a79d189/gkbzf3k1vbixs049uh7wq4skt.png",
+    "options": [
+      {
+        "id": "A",
+        "text": "μm1g",
+        "percentage": "21.45%",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "μ(m1+m2)g",
+        "percentage": "29.27%",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "μm1g(m1m2+1)",
+        "percentage": "37.27%",
+        "isCorrect": true
+      },
+      {
+        "id": "D",
+        "text": "Zero",
+        "percentage": "12.55%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": "C",
+    "correctAnswer": "μm1g(m1m2+1)",
+    "accuracy": "37.27%",
+    "accuracyPct": 37.27,
+    "difficulty": "Medium",
+    "solutionText": "In the given arrangement the maximum value of F for which there is no relative motion between the blocks Solution Hard Show Video Sol. If there is no slipping, both blocks accelerate at a=F/(m1+m2). The lower block is accelerated only by friction, so m2a≤μm1g. Therefore Fmax=μm1g(m1+m2m2)=μm1g(m1m2+1). Hence (C).",
+    "videoSolutionUrl": "https://www.youtube.com/embed/h6eggtwqWe0?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=91&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&vf=1",
+    "source": "PW Infinite Practice - Class 11 Physics",
+    "cohort": "Class 11 JEE"
+  },
+  {
+    "id": "PW_PHY_NLM_067",
+    "subject": "Physics",
+    "chapter": "Laws of Motion",
+    "topic": "Tension in Accelerated String Systems",
+    "questionNumber": 67,
+    "questionType": "Single Choice Question",
+    "statement": "Two blocks of masses m1 and m2 are connected as shown in the figure. The acceleration of the block m2 is 1 m2gm1+m2 54.72% Marked this option 2 m1gm1+m2 20.38% Marked this option 3 4m2g−m1gm1+m2 15.09% Marked this option 4 m2gm1+4m2 10.94% Marked this option 22.26% of students got it right Solution Medium Show Video Sol. Let a = accn of m1 accn of pulley = a+02=a2 If acceleration of m2 = b Then 0+b2=a2 Hence a = b T = m1 a, m2g – T = m2 a ∴ a=m2gm1+m2",
+    "diagramUrl": "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/5q06e486y5n6aqmcond3iitr2.png",
+    "options": [
+      {
+        "id": "A",
+        "text": "m2gm1+m2",
+        "percentage": "54.72%",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "m1gm1+m2",
+        "percentage": "20.38%",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "4m2g−m1gm1+m2",
+        "percentage": "15.09%",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "m2gm1+4m2",
+        "percentage": "10.94%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": "A",
+    "correctAnswer": "m2gm1+m2",
+    "accuracy": "54.72%",
+    "accuracyPct": 54.72,
+    "difficulty": "Medium",
+    "solutionText": "Two blocks of masses m1 and m2 are connected as shown in the figure. The acceleration of the block m2 is Solution Medium Show Video Sol. Let a = accn of m1 accn of pulley = a+02=a2  If acceleration of m2 = b  Then 0+b2=a2  Hence a = b  T = m1 a, m2g – T = m2 a  ∴ a=m2gm1+m2",
+    "videoSolutionUrl": null,
+    "source": "PW Infinite Practice - Class 11 Physics",
+    "cohort": "Class 11 JEE"
+  },
+  {
+    "id": "PW_PHY_NLM_068",
+    "subject": "Physics",
+    "chapter": "Laws of Motion",
+    "topic": "Movable Pulley Dynamic Acceleration",
+    "questionNumber": 68,
+    "questionType": "Single Choice Question",
+    "statement": "Type : Multiple Choice Question An arrangement of the masses and pulleys is shown in the figure. Strings connecting masses A and B with pulleys are horizontal and all pulleys and strings are light. Friction coefficient between the surface and the block B is 0.2 and between blocks A and B is 0.7. The system is released from rest. (use g=10 m/s2 ) 1 The magnitude of acceleration of the system is 2 m/s2 and there is no slipping between block A and block B. 50% Marked this option 2 The magnitude of friction force between block A and block B is 42 N. 50% Marked this option 3 Acceleration of block C is 1 m/s2 downwards. 25% Marked this option 4 Tension in the string connecting block B and block D is 12 N. 50% Marked this option You have missed this option 25% of students got it right Solution Hard Show Video Sol. For block C 60 – T = 6a      ……………(1) For Block D T ′ – 10 = a      …………….(2) Assume block A & B as a system, making FBD. (we can neglect the internal friction force between A and B . T−T'−f'=(6+3)a ⇒T−T'−0.2(6+3)g=9a ⇒T−T'=1.8g+9a……..(3) From eqn. (1) and (2) and (3) we get 6g−6a−(g+a)=T−T' i.e 6g−6a−g−a=1.8g+9a( from (3)) ⇒5g−7a=1.8g+9a ⇒a=2 m/s2 Now, for block A, T – f = 6 × a From eq. (1), 6(g−a)−f=6a 6×10−12×2=f ⇒f=36N Maximum friction force that can act between block A and block B =μ(mg)=0.7×(6×10)=42N=fmax Since, f<fmax, so both the blocks will move together without slipping. Hence our assumption was correct.",
+    "diagramUrl": "https://d2bps9p1kiy4ka.cloudfront.net/5eb393ee95fab7468a79d189/2d9f2e06-340a-410c-ae50-f04cef8a50cf.png",
+    "options": [],
+    "correctOption": null,
+    "correctAnswer": "",
+    "accuracy": "40.00%",
+    "accuracyPct": 40.0,
+    "difficulty": "Medium",
+    "solutionText": "An arrangement of the masses and pulleys is shown in the figure. Strings connecting masses A and B with pulleys are horizontal and all pulleys and strings are light. Friction coefficient between the surface and the block B is 0.2 and between blocks A and B is 0.7. The system is released from rest. (use g=10 m/s2 )",
+    "videoSolutionUrl": "https://www.youtube.com/embed/kyyojsGboAg?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=93&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&vf=1",
+    "source": "PW Infinite Practice - Class 11 Physics",
+    "cohort": "Class 11 JEE"
+  },
+  {
+    "id": "PW_PHY_NLM_069",
+    "subject": "Physics",
+    "chapter": "Laws of Motion",
+    "topic": "Stacked Coins Normal Contact Forces",
+    "questionNumber": 69,
+    "questionType": "Single Choice Question",
+    "statement": "Ten one rupees coins are put on top of each other on a table. Each coin has a mass m kg., then the force on the 7th  coin (counted from the bottom) due to all the coins on its top :- 1 3mg 50.32% Marked this option 2 7mg 32.41% Marked this option 3 2mg 11.37% Marked this option 4 5mg 5.83% Marked this option 50.25% of students got it right Solution Easy",
+    "diagramUrl": "",
+    "options": [
+      {
+        "id": "A",
+        "text": "3mg",
+        "percentage": "50.32%",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "7mg",
+        "percentage": "32.41%",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "2mg",
+        "percentage": "11.37%",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "5mg",
+        "percentage": "5.83%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": "A",
+    "correctAnswer": "3mg",
+    "accuracy": "50.32%",
+    "accuracyPct": 50.32,
+    "difficulty": "Medium",
+    "solutionText": "Ten one rupees coins are put on top of each other on a table. Each coin has a mass m kg., then the force on the 7th  coin (counted from the bottom) due to all the coins on its top :- Solution Easy",
+    "videoSolutionUrl": "https://www.youtube.com/embed/8QyVpVnn_Bg?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=95&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&vf=1",
+    "source": "PW Infinite Practice - Class 11 Physics",
+    "cohort": "Class 11 JEE"
+  },
+  {
+    "id": "PW_PHY_NLM_070",
+    "subject": "Physics",
+    "chapter": "Laws of Motion",
+    "topic": "Direction of Friction Force on Moving Athlete",
+    "questionNumber": 70,
+    "questionType": "Single Choice Question",
+    "statement": "A hockey player is moving northward and suddenly turns westward with the same speed to avoid an opponent. The force that acts on the player is: 1 Frictional force along westward 23.06% Marked this option 2 Muscle force along southward 14.88% Marked this option 3 Frictional force along south-West 50.52% Marked this option 4 Muscle force along south-West 11.74% Marked this option 50.73% of students got it right Solution Easy",
+    "diagramUrl": "",
+    "options": [
+      {
+        "id": "A",
+        "text": "Frictional force along westward",
+        "percentage": "23.06%",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "Muscle force along southward",
+        "percentage": "14.88%",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "Frictional force along south-West",
+        "percentage": "50.52%",
+        "isCorrect": true
+      },
+      {
+        "id": "D",
+        "text": "Muscle force along south-West",
+        "percentage": "11.74%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": "C",
+    "correctAnswer": "Frictional force along south-West",
+    "accuracy": "50.52%",
+    "accuracyPct": 50.52,
+    "difficulty": "Medium",
+    "solutionText": "A hockey player is moving northward and suddenly turns westward with the same speed to avoid an opponent. The force that acts on the player is: Solution Easy",
+    "videoSolutionUrl": "https://www.youtube.com/embed/WkexYjXvDbw?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=97&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&vf=1",
+    "source": "PW Infinite Practice - Class 11 Physics",
+    "cohort": "Class 11 JEE"
+  },
+  {
+    "id": "PW_PHY_NLM_071",
+    "subject": "Physics",
+    "chapter": "Laws of Motion",
+    "topic": "Normal Reaction in Accelerating Elevator",
+    "questionNumber": 71,
+    "questionType": "Single Choice Question",
+    "statement": "A body of mass m is placed on the floor of a lift. If the lift falls freely and the body is pulled horizontally, then the frictional force offered by the body is (μs= coefficient of static friction, μk= coefficient of kinetic friction): 1 μsmg 10.53% Marked this option 2 μkmg 26.32% Marked this option 3 zero 57.89% Marked this option 4 mg 5.26% Marked this option 57.89% of students got it right Solution Medium",
+    "diagramUrl": "",
+    "options": [
+      {
+        "id": "A",
+        "text": "μsmg",
+        "percentage": "10.53%",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "μkmg",
+        "percentage": "26.32%",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "zero",
+        "percentage": "57.89%",
+        "isCorrect": true
+      },
+      {
+        "id": "D",
+        "text": "mg",
+        "percentage": "5.26%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": "C",
+    "correctAnswer": "zero",
+    "accuracy": "57.89%",
+    "accuracyPct": 57.89,
+    "difficulty": "Easy",
+    "solutionText": "A body of mass m is placed on the floor of a lift. If the lift falls freely and the body is pulled horizontally, then the frictional force offered by the body is (μs= coefficient of static friction, μk= coefficient of kinetic friction): Solution Medium",
+    "videoSolutionUrl": "https://www.youtube.com/embed/VwKIcXTSITE?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=99&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&vf=1",
+    "source": "PW Infinite Practice - Class 11 Physics",
+    "cohort": "Class 11 JEE"
+  },
+  {
+    "id": "PW_PHY_NLM_072",
+    "subject": "Physics",
+    "chapter": "Laws of Motion",
+    "topic": "Three Connected Masses & String Tensions",
+    "questionNumber": 72,
+    "questionType": "Single Choice Question",
+    "statement": "Three blocks with masses m,2 m and 3 m are connected by strings, as shown in the figure. After an upward force F is applied on block m, the masses moves upward at constant speed v. What is the net force on the block of mass 2 m ? ( g is the acceleration due to gravity) 1 6mg 23.33% Marked this option 2 zero 47.88% Marked this option 3 2mg 16.06% Marked this option 4 3mg 13.03% Marked this option 47.88% of students got it right Solution Easy",
+    "diagramUrl": "https://static.pw.live/5eb393ee95fab7468a79d189/QBG/a3238ad0-8a52-4a24-b62f-18793d6ed1f1.png",
+    "options": [
+      {
+        "id": "A",
+        "text": "6mg",
+        "percentage": "23.33%",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "zero",
+        "percentage": "47.88%",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "2mg",
+        "percentage": "16.06%",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "3mg",
+        "percentage": "13.03%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": "B",
+    "correctAnswer": "zero",
+    "accuracy": "47.88%",
+    "accuracyPct": 47.88,
+    "difficulty": "Medium",
+    "solutionText": "Three blocks with masses m,2 m and 3 m are connected by strings, as shown in the figure. After an upward force F is applied on block m, the masses moves upward at constant speed v. What is the net force on the block of mass 2 m ? ( g is the acceleration due to gravity) Solution Easy",
+    "videoSolutionUrl": null,
+    "source": "PW Infinite Practice - Class 11 Physics",
+    "cohort": "Class 11 JEE"
+  },
+  {
+    "id": "PW_PHY_NLM_073",
+    "subject": "Physics",
+    "chapter": "Laws of Motion",
+    "topic": "Spring Force vs String Cut Accelerations",
+    "questionNumber": 73,
+    "questionType": "Single Choice Question",
+    "statement": "Two blocks A and B of masses 3 m and m respectively are connected by a massless and inextensible string. The whole system is suspended by a massless spring as shown in figure. The magnitudes of acceleration of A and B immediately after the string is cut, are respectively: 1 g,g3 50% Marked this option 2 g,g 0% Marked this option 3 g3,g3 0% Marked this option 4 g3,g 50% Marked this option 50% of students got it right Solution Medium",
+    "diagramUrl": "https://penpencil-static-content.s3.ap-south-1.amazonaws.com/5eb393ee95fab7468a79d189/zyms4jlrk9yqpz5rgg1j3023t.png",
+    "options": [
+      {
+        "id": "A",
+        "text": "g,g3",
+        "percentage": "50%",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "g,g",
+        "percentage": "0%",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "g3,g3",
+        "percentage": "0%",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "g3,g",
+        "percentage": "50%",
+        "isCorrect": true
+      }
+    ],
+    "correctOption": "D",
+    "correctAnswer": "g3,g",
+    "accuracy": "50.00%",
+    "accuracyPct": 50.0,
+    "difficulty": "Medium",
+    "solutionText": "Two blocks A and B of masses 3 m and m respectively are connected by a massless and inextensible string. The whole system is suspended by a massless spring as shown in figure. The magnitudes of acceleration of A and B immediately after the string is cut, are respectively: Solution Medium",
+    "videoSolutionUrl": "https://www.youtube.com/embed/NLf3FHsih80?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=101&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&vf=1",
+    "source": "PW Infinite Practice - Class 11 Physics",
+    "cohort": "Class 11 JEE"
+  },
+  {
+    "id": "PW_PHY_NLM_074",
+    "subject": "Physics",
+    "chapter": "Laws of Motion",
+    "topic": "Horizontal Table & Hanging Block Acceleration",
+    "questionNumber": 74,
+    "questionType": "Single Choice Question",
+    "statement": "A block A of mass m1 rests on a horizontal table. A light string connected to it passes over a frictionless pulley at the edge of table and from its other end another block B of mass m2 is suspended. The coefficient of kinetic friction between the block and the table is μk. When the block A is sliding on the table, the tension in the string is 1 (m2−μkm1)g(m1+m2) 16.71% Marked this option 2 m1 m2(1+μk)g(m1+m2) 48.62% Marked this option 3 m1 m2(1−μk)g(m1+m2) 26.06% Marked this option 4 (m2+μkm1)g(m1+m2) 8.61% Marked this option 48.71% of students got it right Solution Hard",
+    "diagramUrl": "",
+    "options": [
+      {
+        "id": "A",
+        "text": "(m2−μkm1)g(m1+m2)",
+        "percentage": "16.71%",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "m1 m2(1+μk)g(m1+m2)",
+        "percentage": "48.62%",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "m1 m2(1−μk)g(m1+m2)",
+        "percentage": "26.06%",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "(m2+μkm1)g(m1+m2)",
+        "percentage": "8.61%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": "B",
+    "correctAnswer": "m1 m2(1+μk)g(m1+m2)",
+    "accuracy": "48.62%",
+    "accuracyPct": 48.62,
+    "difficulty": "Medium",
+    "solutionText": "A block A of mass m1 rests on a horizontal table. A light string connected to it passes over a frictionless pulley at the edge of table and from its other end another block B of mass m2 is suspended. The coefficient of kinetic friction between the block and the table is μk. When the block A is sliding on the table, the tension in the string is Solution Hard",
+    "videoSolutionUrl": "https://www.youtube.com/embed/eQaUt3vamF8?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=103&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&vf=1",
+    "source": "PW Infinite Practice - Class 11 Physics",
+    "cohort": "Class 11 JEE"
+  },
+  {
+    "id": "PW_PHY_NLM_075",
+    "subject": "Physics",
+    "chapter": "Laws of Motion",
+    "topic": "Kinematics & Acceleration of Block System",
+    "questionNumber": 75,
+    "questionType": "Single Choice Question",
+    "statement": "If block A has a velocity of 0.6 m/s to the right, determine the velocity of block B. 1 1.8 m/s in downward direction. 51.04% Marked this option 2 1.8 m/s in upward direction. 14.58% Marked this option 3 0.6 m/s in downward direction. 28.13% Marked this option 4 0.6 m/s in upward direction. 6.25% Marked this option 51.04% of students got it right Solution Medium",
+    "diagramUrl": "https://static.pw.live/5eb393ee95fab7468a79d189/QBG/cbe6e3ea-c56a-47c3-91b7-637ffef58ada.png",
+    "options": [
+      {
+        "id": "A",
+        "text": "1.8 m/s in downward direction.",
+        "percentage": "51.04%",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "1.8 m/s in upward direction.",
+        "percentage": "14.58%",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "0.6 m/s in downward direction.",
+        "percentage": "28.13%",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "0.6 m/s in upward direction.",
+        "percentage": "6.25%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": "A",
+    "correctAnswer": "1.8 m/s in downward direction.",
+    "accuracy": "51.04%",
+    "accuracyPct": 51.04,
+    "difficulty": "Medium",
+    "solutionText": "If block A has a velocity of 0.6 m/s to the right, determine the velocity of block B. Solution Medium",
+    "videoSolutionUrl": null,
+    "source": "PW Infinite Practice - Class 11 Physics",
+    "cohort": "Class 11 JEE"
+  },
+  {
+    "id": "PW_PHY_NLM_076",
+    "subject": "Physics",
+    "chapter": "Laws of Motion",
+    "topic": "Static & Kinetic Friction Threshold",
+    "questionNumber": 76,
+    "questionType": "Single Choice Question",
+    "statement": "A block of mass 2 kg is placed on the floor. The coefficient of static friction is 0.4 . Force of 2.8 N is applied on the block. The force of friction between the block and the floor is 1 2.8 N 63.5% Marked this option 2 8.0 N 21.53% Marked this option 3 2.0 N 6.2% Marked this option 4 zero 8.76% Marked this option 63.5% of students got it right Solution Medium Show Video Sol. Given: Mass m=2 kg Coefficient of static friction μs=0.4 Applied force F=2.8 N Normal force: N=mg=2×9.8=19.6 N Maximum static friction: fmax=μs×N=0.4×19.6=7.84 N Since the applied force (2.8 N) is less than the maximum static friction (7.84 N), ➡ the block does not move ➡ and the frictional force = applied force (i.e., 2.8 N)",
+    "diagramUrl": "",
+    "options": [
+      {
+        "id": "A",
+        "text": "2.8 N",
+        "percentage": "63.5%",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "8.0 N",
+        "percentage": "21.53%",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "2.0 N",
+        "percentage": "6.2%",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "zero",
+        "percentage": "8.76%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": "A",
+    "correctAnswer": "2.8 N",
+    "accuracy": "63.50%",
+    "accuracyPct": 63.5,
+    "difficulty": "Easy",
+    "solutionText": "A block of mass 2 kg is placed on the floor. The coefficient of static friction is 0.4 . Force of 2.8 N is applied on the block. The force of friction between the block and the floor is Solution Medium Show Video Sol.   Given:    Mass m=2 kg    Coefficient of static friction μs=0.4    Applied force F=2.8 N      Normal force: N=mg=2×9.8=19.6 N    Maximum static friction: fmax=μs×N=0.4×19.6=7.84 N    Since the applied force (2.8 N) is less than the maximum static friction (7.84 N), ➡ the block does not move ➡ and the frictional force = applied force (i.e., 2.8 N)",
+    "videoSolutionUrl": null,
+    "source": "PW Infinite Practice - Class 11 Physics",
+    "cohort": "Class 11 JEE"
+  },
+  {
+    "id": "PW_PHY_NLM_077",
+    "subject": "Physics",
+    "chapter": "Laws of Motion",
+    "topic": "Limiting Friction & External Pull",
+    "questionNumber": 77,
+    "questionType": "Single Choice Question",
+    "statement": "A block of mass M placed on rough surface of coefficient of friction equal to 3 . If F is the (4/5) of the minimum force required to just move. Find out the force exerted by ground on the block. 1 2.6Mg 76.92% Marked this option 2 Mg 15.38% Marked this option 3 4Mg 7.69% Marked this option 4 3.4Mg 0% Marked this option 76.92% of students got it right Solution Hard",
+    "diagramUrl": "https://penpencil-static-content.s3.ap-south-1.amazonaws.com/5eb393ee95fab7468a79d189/69s4a2r2orcievci52y0p9nfi.png",
+    "options": [
+      {
+        "id": "A",
+        "text": "2.6Mg",
+        "percentage": "76.92%",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "Mg",
+        "percentage": "15.38%",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "4Mg",
+        "percentage": "7.69%",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "3.4Mg",
+        "percentage": "0%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": "A",
+    "correctAnswer": "2.6Mg",
+    "accuracy": "76.92%",
+    "accuracyPct": 76.92,
+    "difficulty": "Easy",
+    "solutionText": "A block of mass M placed on rough surface of coefficient of friction equal to 3 . If F is the (4/5) of the minimum force required to just move. Find out the force exerted by ground on the block. Solution Hard",
+    "videoSolutionUrl": "https://www.youtube.com/embed/iIaMk71XCnU?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=105&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&vf=1",
+    "source": "PW Infinite Practice - Class 11 Physics",
+    "cohort": "Class 11 JEE"
+  },
+  {
+    "id": "PW_PHY_NLM_078",
+    "subject": "Physics",
+    "chapter": "Laws of Motion",
+    "topic": "Pulley System String Tension",
+    "questionNumber": 78,
+    "questionType": "Single Choice Question",
+    "statement": "For the arrangement shown in the figure, the tension is the string is given by 1 mg2 14.24% Marked this option 2 mg 61.46% Marked this option 3 3mg2 15.28% Marked this option 4 2mg 9.03% Marked this option 60.07% of students got it right Solution Easy",
+    "diagramUrl": "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/6rnln0k0jox0pcdjxqsf59btz.png",
+    "options": [
+      {
+        "id": "A",
+        "text": "mg2",
+        "percentage": "14.24%",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "mg",
+        "percentage": "61.46%",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "3mg2",
+        "percentage": "15.28%",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "2mg",
+        "percentage": "9.03%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": "B",
+    "correctAnswer": "mg",
+    "accuracy": "61.46%",
+    "accuracyPct": 61.46,
+    "difficulty": "Easy",
+    "solutionText": "For the arrangement shown in the figure, the tension is the string is given by Solution Easy",
+    "videoSolutionUrl": null,
+    "source": "PW Infinite Practice - Class 11 Physics",
+    "cohort": "Class 11 JEE"
+  },
+  {
+    "id": "PW_PHY_NLM_079",
+    "subject": "Physics",
+    "chapter": "Laws of Motion",
+    "topic": "Kinematic Constraint of Interconnected Blocks",
+    "questionNumber": 79,
+    "questionType": "Single Choice Question",
+    "statement": "If block A has a velocity of 0.6 m/s to the right. Determine the velocity of block B. 1 1.8 m/s in downward direction 43.43% Marked this option 2 1.8 m/s in upward direction 23.43% Marked this option 3 0.6 m/s in downward direction 29.71% Marked this option 4 0.6 m/s in upward direction 4% Marked this option 43.43% of students got it right Solution Medium",
+    "diagramUrl": "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/oqqahh6g3mk1j94wlp0b5rl5x.png",
+    "options": [
+      {
+        "id": "A",
+        "text": "1.8 m/s in downward direction",
+        "percentage": "43.43%",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "1.8 m/s in upward direction",
+        "percentage": "23.43%",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "0.6 m/s in downward direction",
+        "percentage": "29.71%",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "0.6 m/s in upward direction",
+        "percentage": "4%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": "A",
+    "correctAnswer": "1.8 m/s in downward direction",
+    "accuracy": "43.43%",
+    "accuracyPct": 43.43,
+    "difficulty": "Medium",
+    "solutionText": "If block A has a velocity of 0.6 m/s to the right. Determine the velocity of block B. Solution Medium",
+    "videoSolutionUrl": null,
+    "source": "PW Infinite Practice - Class 11 Physics",
+    "cohort": "Class 11 JEE"
+  },
+  {
+    "id": "PW_PHY_NLM_080",
+    "subject": "Physics",
+    "chapter": "Laws of Motion",
+    "topic": "Equilibrium State & Net Unbalanced Force",
+    "questionNumber": 80,
+    "questionType": "Single Choice Question",
+    "statement": "When an object is in equilibrium state, then 1 It must be at rest 7.62% Marked this option 2 No force is acting on it 10.86% Marked this option 3 Its net acceleration must be zero 40.52% Marked this option 4 All of these 41.17% Marked this option 40.68% of students got it right Solution Easy",
+    "diagramUrl": "",
+    "options": [
+      {
+        "id": "A",
+        "text": "It must be at rest",
+        "percentage": "7.62%",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "No force is acting on it",
+        "percentage": "10.86%",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "Its net acceleration must be zero",
+        "percentage": "40.52%",
+        "isCorrect": true
+      },
+      {
+        "id": "D",
+        "text": "All of these",
+        "percentage": "41.17%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": "C",
+    "correctAnswer": "Its net acceleration must be zero",
+    "accuracy": "40.52%",
+    "accuracyPct": 40.52,
+    "difficulty": "Medium",
+    "solutionText": "When an object is in equilibrium state, then Solution Easy",
+    "videoSolutionUrl": "https://www.youtube.com/embed/LoY507AZ9YY?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=107&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&vf=1",
+    "source": "PW Infinite Practice - Class 11 Physics",
+    "cohort": "Class 11 JEE"
+  },
+  {
+    "id": "PW_PHY_NLM_081",
+    "subject": "Physics",
+    "chapter": "Laws of Motion",
+    "topic": "Equilibrium of Light String with Suspended Weights",
+    "questionNumber": 81,
+    "questionType": "Single Choice Question",
+    "statement": "Type : Match The Following A light string ABCDE whose extremity A is fixed, has weights W1 and W2 attached to it at B and C. It passes round a small smooth peg at D carrying a weight of 300 N at the free end E as shown in figure. If in the equilibrium position, BC is horizontal and AB and CD make 150∘ and 120∘ with CB. Match the columns : 1 A-IV, B-I, C-II, D-III 20.85% Marked this option 2 A-II, B-I, C-IV, D-III 51.65% Marked this option 3 A-III, B-IV, C-I, D-III 20.32% Marked this option 4 A-IV, B-III, C-I, D-II 8.01% Marked this option 51.44% of students got it right Solution Hard Show Video Sol. At C Forces: TBC (horizontal), the 300 N tension at 120° above horizontal, and W2 (vertical). Horizontal: TBC=300cos120∘=150 N. Vertical: W2=300sin120∘=300×(32)≈260 N. At B Forces: TAB at 150° above horizontal, TBC=150 N (horizontal), and W1 (vertical). Horizontal: TABcos150∘+150=0  ⟹  TAB≈173 N. Vertical: W1=TABsin150∘≈173×12=86.5≈87 N. Match (A) : TAB=173 N,    (B) : TBC=150 N, (C) : W1=87 N,    (D) : W2=260 N.",
+    "diagramUrl": "https://static.pw.live/5eb393ee95fab7468a79d189/QBG/c9fd11a3-6c7e-41e3-b360-31b451f36cad.png",
+    "options": [
+      {
+        "id": "A",
+        "text": "A-IV, B-I, C-II, D-III",
+        "percentage": "20.85%",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "A-II, B-I, C-IV, D-III",
+        "percentage": "51.65%",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "A-III, B-IV, C-I, D-III",
+        "percentage": "20.32%",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "A-IV, B-III, C-I, D-II",
+        "percentage": "8.01%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": "B",
+    "correctAnswer": "A-II, B-I, C-IV, D-III",
+    "accuracy": "51.65%",
+    "accuracyPct": 51.65,
+    "difficulty": "Medium",
+    "solutionText": "A light string ABCDE whose extremity A is fixed, has weights W1 and W2 attached to it at B and C. It passes round a small smooth peg at D carrying a weight of 300 N at the free end E as shown in figure. If in the equilibrium position, BC is horizontal and AB and CD make 150∘ and 120∘ with CB. Match the columns : Solution Hard Show Video Sol. At C  Forces: TBC (horizontal), the 300 N tension at 120° above horizontal, and W2 (vertical).  Horizontal: TBC=300cos120∘=150 N.  Vertical: W2=300sin120∘=300×(32)≈260 N.  At B  Forces: TAB at 150° above horizontal,  TBC=150 N (horizontal), and W1 (vertical).  Horizontal: TABcos150∘+150=0  ⟹  TAB≈173 N.  Vertical: W1=TABsin150∘≈173×12=86.5≈87 N.  Match  (A) : TAB=173 N,    (B) : TBC=150 N,   (C) : W1=87 N,    (D) : W2=260 N.",
+    "videoSolutionUrl": "https://www.youtube.com/embed/gkCjXI64Hzg?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=109&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&vf=1",
+    "source": "PW Infinite Practice - Class 11 Physics",
+    "cohort": "Class 11 JEE"
+  },
+  {
+    "id": "PW_PHY_NLM_082",
+    "subject": "Physics",
+    "chapter": "Laws of Motion",
+    "topic": "Kinematics under Time-Varying Force Vector",
+    "questionNumber": 82,
+    "questionType": "Single Choice Question",
+    "statement": "A particle of mass 0.3 kg is subjected to a force F=−kx with k=15 N/m. What will be its initial acceleration if it is released from a point 20 cm away from the origin: 1 5 m/s2 13.55% Marked this option 2 10 m/s2 64.52% Marked this option 3 3 m/s2 16.45% Marked this option 4 15 m/s2 5.81% Marked this option 64.19% of students got it right Solution Medium Show Video Sol. Given: Mass m=0.3 kg Force F=−kx, with k=15 N/m Displacement x=20 cm=0.2 m Relevant formula: F=ma=−kx⇒a=−kxm=−15×0.20.3=−30.3=−10 m/s2 Magnitude of acceleration = 10 m/s2",
+    "diagramUrl": "",
+    "options": [
+      {
+        "id": "A",
+        "text": "5 m/s2",
+        "percentage": "13.55%",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "10 m/s2",
+        "percentage": "64.52%",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "3 m/s2",
+        "percentage": "16.45%",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "15 m/s2",
+        "percentage": "5.81%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": "B",
+    "correctAnswer": "10 m/s2",
+    "accuracy": "64.52%",
+    "accuracyPct": 64.52,
+    "difficulty": "Easy",
+    "solutionText": "A particle of mass 0.3 kg is subjected to a force F=−kx with k=15 N/m. What will be its initial acceleration if it is released from a point 20 cm away from the origin: Solution Medium Show Video Sol. Given:  Mass m=0.3 kg  Force F=−kx, with k=15 N/m  Displacement x=20 cm=0.2 m  Relevant formula:  F=ma=−kx⇒a=−kxm=−15×0.20.3=−30.3=−10 m/s2  Magnitude of acceleration = 10 m/s2",
+    "videoSolutionUrl": null,
+    "source": "PW Infinite Practice - Class 11 Physics",
+    "cohort": "Class 11 JEE"
+  },
+  {
+    "id": "PW_PHY_NLM_083",
+    "subject": "Physics",
+    "chapter": "Laws of Motion",
+    "topic": "Coupled Masses Friction & Minimum Force to Hold",
+    "questionNumber": 83,
+    "questionType": "Single Choice Question",
+    "statement": "Two masses m1=5 kg and m2=10 kg, connected by an inextensible string over a frictionless pulley, are moving as shown in the figure. The coefficient of friction of horizontal surface is 0.15. The minimum weight m that should be put on top of m2 to stop the motion is : 1 23.3kg 49.71% Marked this option 2 43.3kg 24.43% Marked this option 3 10.3kg 18.68% Marked this option 4 18.3kg 7.47% Marked this option 49.14% of students got it right Solution Medium Show Video Sol. To completely stop the downward motion of mass m1, the maximum static friction force acting on the horizontal surface must be greater than or equal to the tension created by m1. Condition for equilibrium: fstatic≥T Where: Tension, T=m1g Frictional force, fstatic=μN=μ(m2+m)g Equating the forces: μ(m2+m)g≥m1g μ(m2+m)≥m1 Substituting the given values (m1=5 kg, m2=10 kg, μ=0.15): 0.15(10+m)≥5 10+m≥50.15 10+m≥33.33 m≥23.33 kg Conclusion The minimum mass required to stop the motion is mathematically 23.33 kg.",
+    "diagramUrl": "https://static.pw.live/5eb393ee95fab7468a79d189/QBG/40c8be3d-0863-423b-afb5-882c3715afde.png",
+    "options": [
+      {
+        "id": "A",
+        "text": "1",
+        "percentage": "49.71%",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "2",
+        "percentage": "24.43%",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "3",
+        "percentage": "18.68%",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "4",
+        "percentage": "7.47%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": "A",
+    "correctAnswer": "1",
+    "accuracy": "49.71%",
+    "accuracyPct": 49.71,
+    "difficulty": "Medium",
+    "solutionText": "To completely stop the downward motion of mass m1, the maximum static friction force acting on the horizontal surface must be greater than or equal to the tension created by m1.  Condition for equilibrium: fstatic≥T  Where:  Tension, T=m1g  Frictional force, fstatic=μN=μ(m2+m)g  Equating the forces: μ(m2+m)g≥m1g μ(m2+m)≥m1  Substituting the given values (m1=5 kg, m2=10 kg, μ=0.15): 0.15(10+m)≥5 10+m≥50.15 10+m≥33.33 m≥23.33 kg   Conclusion  The minimum mass required to stop the motion is mathematically 23.33 kg.",
+    "videoSolutionUrl": "https://www.youtube.com/embed/qa3_aSGpafI?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=111&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&vf=1",
+    "source": "PW Infinite Practice - Class 11 Physics",
+    "cohort": "Class 11 JEE"
+  },
+  {
+    "id": "PW_PHY_NLM_084",
+    "subject": "Physics",
+    "chapter": "Laws of Motion",
+    "topic": "Contact Force between Accelerating Adjacent Blocks",
+    "questionNumber": 84,
+    "questionType": "Single Choice Question",
+    "statement": "Two blocks of masses 2 kg and 1 kg are in contact with each other on a frictionless table. When a horizontal force of 3.0 N is applied to the block of mass 2 kg, the value of the force of contact between the two blocks is:",
+    "diagramUrl": "",
+    "options": [
+      {
+        "id": "A",
+        "text": "4 N",
+        "percentage": "14.62%",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "3 N",
+        "percentage": "33.78%",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "5 N",
+        "percentage": "14.52%",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "1 N",
+        "percentage": "36.97%",
+        "isCorrect": true
+      }
+    ],
+    "correctOption": "D",
+    "correctAnswer": "1 N",
+    "accuracy": "36.97%",
+    "accuracyPct": 36.97,
+    "difficulty": "Medium",
+    "solutionText": "Two blocks of masses 2 kg and 1 kg in contact. Horizontal force F = 3.0 N applied to 2 kg block. Common acceleration a = F / (m1 + m2) = 3.0 / (2 + 1) = 1.0 m/s^2. Contact force on 1 kg block = m2 * a = 1 kg * 1.0 m/s^2 = 1.0 N.",
+    "videoSolutionUrl": "",
+    "source": "PW Infinite Practice - Class 11 Physics",
+    "cohort": "Class 11 JEE"
+  },
+  {
+    "id": "PW_PHY_NLM_085",
+    "subject": "Physics",
+    "chapter": "Laws of Motion",
+    "topic": "Dynamometer Reading between Two Accelerated Blocks",
+    "questionNumber": 85,
+    "questionType": "Single Choice Question",
+    "statement": "A dynamometer D is attached to two blocks of masses 6 kg and 4 kg as shown in the figure. The reading of the dynamometer is 1 18 N 23.65% Marked this option 2 28 N 25.34% Marked this option 3 38 N 42.91% Marked this option 4 48 N 9.46% Marked this option 42.23% of students got it right Solution Easy Show Video Sol. 50 - F = 6a F - 30 = 4a 50 - 30=10a a = 2 m/s2 F - 30 = 4(2) F = 38 N",
+    "diagramUrl": "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/c28kgy8m62b9j13ju7xrs2g58.png",
+    "options": [
+      {
+        "id": "A",
+        "text": "1",
+        "percentage": "23.65%",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "2",
+        "percentage": "25.34%",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "3",
+        "percentage": "42.91%",
+        "isCorrect": true
+      },
+      {
+        "id": "D",
+        "text": "4",
+        "percentage": "9.46%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": "C",
+    "correctAnswer": "3",
+    "accuracy": "42.91%",
+    "accuracyPct": 42.91,
+    "difficulty": "Medium",
+    "solutionText": "50 - F = 6a F - 30 = 4a  50 - 30=10a a = 2 m/s2 F - 30 = 4(2)  F = 38 N",
+    "videoSolutionUrl": "",
+    "source": "PW Infinite Practice - Class 11 Physics",
+    "cohort": "Class 11 JEE"
+  },
+  {
+    "id": "PW_PHY_NLM_086",
+    "subject": "Physics",
+    "chapter": "Laws of Motion",
+    "topic": "Equilibrium Position in Rotating Hemispherical Bowl",
+    "questionNumber": 86,
+    "questionType": "Single Choice Question",
+    "statement": "A small mass of 10 g lies in a hemispherical bowl of radius 0.5 m at a height of 0.1 m from the bottom of the bowl. The mass will be in equilibrium if the bowl rotates at an angular speed of 1 103rad/s 21.92% Marked this option 2 103rad/s 27.4% Marked this option 3 5rad/s 34.25% Marked this option 4 None of these 16.44% Marked this option 34.25% of students got it right Solution Medium",
+    "diagramUrl": "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/88l0enj51ll3po4u4lbr4pvac.png",
+    "options": [
+      {
+        "id": "A",
+        "text": "1",
+        "percentage": "21.92%",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "2",
+        "percentage": "27.4%",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "3",
+        "percentage": "34.25%",
+        "isCorrect": true
+      },
+      {
+        "id": "D",
+        "text": "4",
+        "percentage": "16.44%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": "C",
+    "correctAnswer": "3",
+    "accuracy": "34.25%",
+    "accuracyPct": 34.25,
+    "difficulty": "Hard",
+    "solutionText": "",
+    "videoSolutionUrl": "",
+    "source": "PW Infinite Practice - Class 11 Physics",
+    "cohort": "Class 11 JEE"
+  },
+  {
+    "id": "PW_PHY_NLM_087",
+    "subject": "Physics",
+    "chapter": "Laws of Motion",
+    "topic": "Acceleration from 3D Force Vector on Mass",
+    "questionNumber": 87,
+    "questionType": "Single Choice Question",
+    "statement": "A force vector applied on a mass is represented as F→=6i^-8j^+10k^ and accelerates with 1 m/s2. What will be the mass of the body 1 102 kg 70.66% Marked this option 2 210 kg 16.05% Marked this option 3 10 kg 9.96% Marked this option 4 20 kg 3.69% Marked this option 70.66% of students got it right Solution Easy",
+    "diagramUrl": "",
+    "options": [
+      {
+        "id": "A",
+        "text": "1",
+        "percentage": "70.66%",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "2",
+        "percentage": "16.05%",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "3",
+        "percentage": "9.96%",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "4",
+        "percentage": "3.69%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": "A",
+    "correctAnswer": "1",
+    "accuracy": "70.66%",
+    "accuracyPct": 70.66,
+    "difficulty": "Easy",
+    "solutionText": "",
+    "videoSolutionUrl": "",
+    "source": "PW Infinite Practice - Class 11 Physics",
+    "cohort": "Class 11 JEE"
+  },
+  {
+    "id": "PW_PHY_NLM_088",
+    "subject": "Physics",
+    "chapter": "Laws of Motion",
+    "topic": "Impulse & Average Force during Ball Impact",
+    "questionNumber": 88,
+    "questionType": "Single Choice Question",
+    "statement": "A 150 g tennis ball coming at a speed of 40 m/s is hit straight back by a bat to a speed of 60 m/s. The magnitude of the average force F on the ball, when it is in contact for 5 ms with the bat is: 1 2500 N 8.15% Marked this option 2 3000 N 78.54% Marked this option 3 3500 N 9.35% Marked this option 4 4000 N 3.95% Marked this option 78.54% of students got it right Solution Easy Show Video Sol. Given: Mass m=150 g=0.15 kg Initial velocity u=40 m/s, final velocity v=−60 m/s (since direction reverses) Time t=5 ms=0.005 s Step 1: Use impulse-momentum theorem F=m(v−u)t=0.15(−60−40)0.005=0.15×(−100)0.005=−150.005=−3000 N Magnitude of force = 3000 N",
+    "diagramUrl": "",
+    "options": [
+      {
+        "id": "A",
+        "text": "1",
+        "percentage": "8.15%",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "2",
+        "percentage": "78.54%",
+        "isCorrect": true
+      },
+      {
+        "id": "C",
+        "text": "3",
+        "percentage": "9.35%",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "4",
+        "percentage": "3.95%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": "B",
+    "correctAnswer": "2",
+    "accuracy": "78.54%",
+    "accuracyPct": 78.54,
+    "difficulty": "Easy",
+    "solutionText": "Given:    Mass m=150 g=0.15 kg    Initial velocity u=40 m/s, final velocity v=−60 m/s (since direction reverses)    Time t=5 ms=0.005 s    Step 1: Use impulse-momentum theorem  F=m(v−u)t=0.15(−60−40)0.005=0.15×(−100)0.005=−150.005=−3000 N  Magnitude of force = 3000 N",
+    "videoSolutionUrl": "",
+    "source": "PW Infinite Practice - Class 11 Physics",
+    "cohort": "Class 11 JEE"
+  },
+  {
+    "id": "PW_PHY_NLM_089",
+    "subject": "Physics",
+    "chapter": "Laws of Motion",
+    "topic": "Equilibrium & Acceleration on Smooth Incline",
+    "questionNumber": 89,
+    "questionType": "Single Choice Question",
+    "statement": "In the fig. mass M=10 g. is placed on an inclined plane. In order to keep it at rest, the value of mass m will be: 1 5 g 55.87% Marked this option 2 103g 32.38% Marked this option 3 0.10 g 9.52% Marked this option 4 3g 2.22% Marked this option 55.87% of students got it right Solution Easy",
+    "diagramUrl": "https://d2bps9p1kiy4ka.cloudfront.net/5b09189f7285894d9130ccd0/fv880nsm6fpycjsch434kotmu.png",
+    "options": [
+      {
+        "id": "A",
+        "text": "1",
+        "percentage": "55.87%",
+        "isCorrect": true
+      },
+      {
+        "id": "B",
+        "text": "2",
+        "percentage": "32.38%",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "3",
+        "percentage": "9.52%",
+        "isCorrect": false
+      },
+      {
+        "id": "D",
+        "text": "4",
+        "percentage": "2.22%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": "A",
+    "correctAnswer": "1",
+    "accuracy": "55.87%",
+    "accuracyPct": 55.87,
+    "difficulty": "Easy",
+    "solutionText": "",
+    "videoSolutionUrl": "",
+    "source": "PW Infinite Practice - Class 11 Physics",
+    "cohort": "Class 11 JEE"
+  },
+  {
+    "id": "PW_PHY_NLM_090",
+    "subject": "Physics",
+    "chapter": "Laws of Motion",
+    "topic": "Tension in Connected Mass System on Incline",
+    "questionNumber": 90,
+    "questionType": "Single Choice Question",
+    "statement": "Two blocks, each having mass M, rest on frictionless surfaces as shown in the figure. If the pulleys are light and frictionless, and M on the incline is allowed to move down, then the tension in the string will be: 1 23 Mgsinθ 16.82% Marked this option 2 32 Mgsinθ 20.45% Marked this option 3 12 Mgsinθ 47.91% Marked this option 4 2 Mgsinθ 14.18% Marked this option 47.91% of students got it right Solution Easy",
+    "diagramUrl": "https://penpencil-static-content.s3.ap-south-1.amazonaws.com/5eb393ee95fab7468a79d189/fjenl9gp7hsyqh0554zziscfv.png",
+    "options": [
+      {
+        "id": "A",
+        "text": "1",
+        "percentage": "16.82%",
+        "isCorrect": false
+      },
+      {
+        "id": "B",
+        "text": "2",
+        "percentage": "20.45%",
+        "isCorrect": false
+      },
+      {
+        "id": "C",
+        "text": "3",
+        "percentage": "47.91%",
+        "isCorrect": true
+      },
+      {
+        "id": "D",
+        "text": "4",
+        "percentage": "14.18%",
+        "isCorrect": false
+      }
+    ],
+    "correctOption": "C",
+    "correctAnswer": "3",
+    "accuracy": "47.91%",
+    "accuracyPct": 47.91,
+    "difficulty": "Medium",
+    "solutionText": "",
+    "videoSolutionUrl": "",
+    "source": "PW Infinite Practice - Class 11 Physics",
+    "cohort": "Class 11 JEE"
   }
 ]

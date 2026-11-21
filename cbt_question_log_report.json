@@ -1,33 +1,33 @@
 {
   "summary": {
-    "totalQuestions": 12843,
+    "totalQuestions": 13458,
     "totalSubjects": 3,
-    "overallAverageAccuracy": 48.65,
-    "sectionA_MCQ": 8937,
-    "sectionB_NAT": 3906,
-    "easyCount": 3799,
-    "mediumCount": 4817,
-    "hardCount": 4227
+    "overallAverageAccuracy": 48.63,
+    "sectionA_MCQ": 9374,
+    "sectionB_NAT": 4084,
+    "easyCount": 3971,
+    "mediumCount": 5064,
+    "hardCount": 4423
   },
   "subjectBreakdown": {
-    "Physics": 6370,
-    "Chemistry": 2150,
-    "Maths": 4323
+    "Physics": 6727,
+    "Chemistry": 2208,
+    "Maths": 4523
   },
   "difficultyBreakdown": {
-    "Hard": 4227,
-    "Medium": 4817,
-    "Easy": 3799
+    "Hard": 4423,
+    "Medium": 5064,
+    "Easy": 3971
   },
   "sectionBreakdown": {
-    "A": 8937,
-    "B": 3906
+    "A": 9374,
+    "B": 4084
   },
   "sourceBreakdown": {
-    "JEE Main PYQs": 4767,
-    "JEE Advanced PYQs": 4435,
-    "HC Verma Concepts of Physics": 2414,
-    "Physics Wallah Infinite Practice": 1227
+    "JEE Main PYQs": 4858,
+    "JEE Advanced PYQs": 4691,
+    "HC Verma Concepts of Physics": 2589,
+    "Physics Wallah Infinite Practice": 1320
   },
   "books": [
     {
@@ -35,24 +35,24 @@
       "title": "Physics Wallah Infinite Practice - Class 11 Chemistry",
       "subject": "Chemistry",
       "category": "PW Infinite Practice",
-      "totalQuestions": 179,
+      "totalQuestions": 186,
       "totalAttempted": 0,
       "chapters": [
         {
           "chapterName": "Chemical Thermodynamics",
-          "totalQuestions": 51,
+          "totalQuestions": 53,
           "attemptedCount": 0,
           "completedIds": []
         },
         {
           "chapterName": "Redox Reactions",
-          "totalQuestions": 48,
+          "totalQuestions": 50,
           "attemptedCount": 0,
           "completedIds": []
         },
         {
           "chapterName": "Hydrocarbons",
-          "totalQuestions": 44,
+          "totalQuestions": 46,
           "attemptedCount": 0,
           "completedIds": []
         },
@@ -82,7 +82,7 @@
         },
         {
           "chapterName": "Thermodynamics",
-          "totalQuestions": 1,
+          "totalQuestions": 2,
           "attemptedCount": 0,
           "completedIds": []
         }
@@ -93,119 +93,89 @@
       "title": "JEE Main & Advanced 11th Chemistry Authentic PYQ Bank",
       "subject": "Chemistry",
       "category": "PYQs",
-      "totalQuestions": 1971,
+      "totalQuestions": 2022,
       "totalAttempted": 0,
       "chapters": [
         {
           "chapterName": "Organic Chemistry Basics (GOC)",
-          "totalQuestions": 277,
+          "totalQuestions": 290,
           "attemptedCount": 0,
           "completedIds": []
         },
         {
           "chapterName": "Chemical Bonding & Molecular Structure",
-          "totalQuestions": 270,
-          "attemptedCount": 0,
-          "completedIds": []
-        },
-        {
-          "chapterName": "Chemical & Ionic Equilibrium",
-          "totalQuestions": 233,
+          "totalQuestions": 282,
           "attemptedCount": 0,
           "completedIds": []
         },
         {
           "chapterName": "Hydrocarbons",
-          "totalQuestions": 227,
+          "totalQuestions": 238,
+          "attemptedCount": 0,
+          "completedIds": []
+        },
+        {
+          "chapterName": "Chemical & Ionic Equilibrium",
+          "totalQuestions": 235,
           "attemptedCount": 0,
           "completedIds": []
         },
         {
           "chapterName": "Structure of Atom",
-          "totalQuestions": 218,
+          "totalQuestions": 224,
           "attemptedCount": 0,
           "completedIds": []
         },
         {
           "chapterName": "Thermodynamics",
-          "totalQuestions": 212,
+          "totalQuestions": 214,
           "attemptedCount": 0,
           "completedIds": []
         },
         {
           "chapterName": "Some Basic Concepts of Chemistry",
-          "totalQuestions": 139,
+          "totalQuestions": 140,
           "attemptedCount": 0,
           "completedIds": []
         },
         {
           "chapterName": "p-Block Elements (Group 13 & 14)",
-          "totalQuestions": 109,
+          "totalQuestions": 115,
           "attemptedCount": 0,
           "completedIds": []
         },
         {
           "chapterName": "Classification of Elements & Periodicity",
-          "totalQuestions": 98,
+          "totalQuestions": 102,
           "attemptedCount": 0,
           "completedIds": []
         },
         {
           "chapterName": "Redox Reactions",
-          "totalQuestions": 80,
+          "totalQuestions": 84,
           "attemptedCount": 0,
           "completedIds": []
         },
         {
           "chapterName": "States of Matter",
-          "totalQuestions": 61,
+          "totalQuestions": 62,
           "attemptedCount": 0,
           "completedIds": []
         },
         {
           "chapterName": "s-Block Elements",
-          "totalQuestions": 33,
-          "attemptedCount": 0,
-          "completedIds": []
-        },
-        {
-          "chapterName": "P-Block Elements",
-          "totalQuestions": 4,
-          "attemptedCount": 0,
-          "completedIds": []
-        },
-        {
-          "chapterName": "Periodic Classification",
-          "totalQuestions": 3,
+          "totalQuestions": 34,
           "attemptedCount": 0,
           "completedIds": []
         },
         {
           "chapterName": "Atomic Structure",
-          "totalQuestions": 2,
-          "attemptedCount": 0,
-          "completedIds": []
-        },
-        {
-          "chapterName": "Nomenclature, G.O.C, Isomerism",
-          "totalQuestions": 2,
-          "attemptedCount": 0,
-          "completedIds": []
-        },
-        {
-          "chapterName": "Chemical Bonding",
           "totalQuestions": 1,
           "attemptedCount": 0,
           "completedIds": []
         },
         {
-          "chapterName": "Chemical Equilibrium",
-          "totalQuestions": 1,
-          "attemptedCount": 0,
-          "completedIds": []
-        },
-        {
-          "chapterName": "Hydrocarbon",
+          "chapterName": "Periodic Classification",
           "totalQuestions": 1,
           "attemptedCount": 0,
           "completedIds": []
@@ -217,66 +187,66 @@
       "title": "JEE Main & Advanced 11th Maths Authentic PYQ Bank",
       "subject": "Maths",
       "category": "PYQs",
-      "totalQuestions": 4323,
+      "totalQuestions": 4523,
       "totalAttempted": 0,
       "chapters": [
         {
           "chapterName": "Sequences & Series",
-          "totalQuestions": 982,
+          "totalQuestions": 1038,
           "attemptedCount": 0,
           "completedIds": []
         },
         {
           "chapterName": "Complex Numbers & Quadratic Equations",
-          "totalQuestions": 932,
+          "totalQuestions": 976,
           "attemptedCount": 0,
           "completedIds": []
         },
         {
           "chapterName": "Binomial Theorem",
-          "totalQuestions": 644,
+          "totalQuestions": 680,
           "attemptedCount": 0,
           "completedIds": []
         },
         {
           "chapterName": "Matrices & Determinants",
-          "totalQuestions": 468,
+          "totalQuestions": 478,
           "attemptedCount": 0,
           "completedIds": []
         },
         {
           "chapterName": "Probability",
-          "totalQuestions": 427,
+          "totalQuestions": 441,
           "attemptedCount": 0,
           "completedIds": []
         },
         {
           "chapterName": "Inverse Trigonometric Functions",
-          "totalQuestions": 314,
+          "totalQuestions": 334,
           "attemptedCount": 0,
           "completedIds": []
         },
         {
           "chapterName": "Permutations & Combinations",
-          "totalQuestions": 258,
+          "totalQuestions": 266,
           "attemptedCount": 0,
           "completedIds": []
         },
         {
           "chapterName": "Trigonometric Ratios & Identities",
-          "totalQuestions": 154,
+          "totalQuestions": 162,
           "attemptedCount": 0,
           "completedIds": []
         },
         {
           "chapterName": "Trigonometric Equations",
-          "totalQuestions": 95,
+          "totalQuestions": 97,
           "attemptedCount": 0,
           "completedIds": []
         },
         {
           "chapterName": "Basic Mathematics & Logarithm",
-          "totalQuestions": 43,
+          "totalQuestions": 45,
           "attemptedCount": 0,
           "completedIds": []
         },
@@ -293,24 +263,24 @@
       "title": "Physics Wallah Infinite Practice - Class 11 Physics",
       "subject": "Physics",
       "category": "PW Infinite Practice",
-      "totalQuestions": 1048,
+      "totalQuestions": 1134,
       "totalAttempted": 0,
       "chapters": [
         {
           "chapterName": "Units & Measurements",
-          "totalQuestions": 325,
+          "totalQuestions": 351,
+          "attemptedCount": 0,
+          "completedIds": []
+        },
+        {
+          "chapterName": "Laws of Motion",
+          "totalQuestions": 189,
           "attemptedCount": 0,
           "completedIds": []
         },
         {
           "chapterName": "Kinematics",
           "totalQuestions": 188,
-          "attemptedCount": 0,
-          "completedIds": []
-        },
-        {
-          "chapterName": "Laws of Motion",
-          "totalQuestions": 128,
           "attemptedCount": 0,
           "completedIds": []
         },
@@ -346,7 +316,7 @@
         },
         {
           "chapterName": "System of Particles and Rotational Motion",
-          "totalQuestions": 7,
+          "totalQuestions": 6,
           "attemptedCount": 0,
           "completedIds": []
         },
@@ -429,42 +399,42 @@
       "title": "JEE Main & Advanced 11th Physics Authentic PYQ Bank",
       "subject": "Physics",
       "category": "PYQs",
-      "totalQuestions": 2908,
+      "totalQuestions": 3004,
       "totalAttempted": 0,
       "chapters": [
         {
           "chapterName": "Thermodynamics & KTG",
-          "totalQuestions": 571,
+          "totalQuestions": 594,
           "attemptedCount": 0,
           "completedIds": []
         },
         {
           "chapterName": "Rotational Dynamics",
-          "totalQuestions": 428,
+          "totalQuestions": 439,
           "attemptedCount": 0,
           "completedIds": []
         },
         {
           "chapterName": "Units & Measurements",
-          "totalQuestions": 402,
+          "totalQuestions": 423,
           "attemptedCount": 0,
           "completedIds": []
         },
         {
           "chapterName": "Laws of Motion",
-          "totalQuestions": 354,
+          "totalQuestions": 374,
           "attemptedCount": 0,
           "completedIds": []
         },
         {
           "chapterName": "Gravitation",
-          "totalQuestions": 312,
+          "totalQuestions": 327,
           "attemptedCount": 0,
           "completedIds": []
         },
         {
           "chapterName": "Oscillations & Waves",
-          "totalQuestions": 311,
+          "totalQuestions": 314,
           "attemptedCount": 0,
           "completedIds": []
         },
@@ -476,7 +446,7 @@
         },
         {
           "chapterName": "Kinematics",
-          "totalQuestions": 187,
+          "totalQuestions": 190,
           "attemptedCount": 0,
           "completedIds": []
         },
@@ -493,36 +463,36 @@
       "title": "HC Verma - Concepts of Physics Vol 1",
       "subject": "Physics",
       "category": "Reference Books",
-      "totalQuestions": 1186,
+      "totalQuestions": 1264,
       "totalAttempted": 0,
       "chapters": [
         {
           "chapterName": "Units & Measurements",
-          "totalQuestions": 329,
+          "totalQuestions": 357,
           "attemptedCount": 0,
           "completedIds": []
         },
         {
           "chapterName": "Mechanical Properties of Solids & Fluids",
-          "totalQuestions": 253,
+          "totalQuestions": 271,
           "attemptedCount": 0,
           "completedIds": []
         },
         {
           "chapterName": "Rotational Dynamics",
-          "totalQuestions": 248,
+          "totalQuestions": 266,
           "attemptedCount": 0,
           "completedIds": []
         },
         {
           "chapterName": "Optics",
-          "totalQuestions": 174,
+          "totalQuestions": 184,
           "attemptedCount": 0,
           "completedIds": []
         },
         {
           "chapterName": "Kinematics",
-          "totalQuestions": 58,
+          "totalQuestions": 62,
           "attemptedCount": 0,
           "completedIds": []
         },
@@ -557,42 +527,42 @@
       "title": "HC Verma - Concepts of Physics Vol 2",
       "subject": "Physics",
       "category": "Reference Books",
-      "totalQuestions": 1228,
+      "totalQuestions": 1325,
       "totalAttempted": 0,
       "chapters": [
         {
           "chapterName": "Modern Physics",
-          "totalQuestions": 440,
+          "totalQuestions": 483,
           "attemptedCount": 0,
           "completedIds": []
         },
         {
           "chapterName": "Electromagnetic Induction & AC",
-          "totalQuestions": 208,
+          "totalQuestions": 224,
           "attemptedCount": 0,
           "completedIds": []
         },
         {
           "chapterName": "Semiconductors & Electronic Devices",
-          "totalQuestions": 196,
+          "totalQuestions": 212,
           "attemptedCount": 0,
           "completedIds": []
         },
         {
           "chapterName": "Thermodynamics & KTG",
-          "totalQuestions": 166,
+          "totalQuestions": 176,
           "attemptedCount": 0,
           "completedIds": []
         },
         {
           "chapterName": "Magnetism & Magnetic Effects of Current",
-          "totalQuestions": 97,
+          "totalQuestions": 103,
           "attemptedCount": 0,
           "completedIds": []
         },
         {
           "chapterName": "Current Electricity",
-          "totalQuestions": 90,
+          "totalQuestions": 96,
           "attemptedCount": 0,
           "completedIds": []
         },

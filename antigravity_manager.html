@@ -366,21 +366,184 @@
       to { stroke-dashoffset: -1000; }
     }
 
+    /* Anti-Glitch SVG Node Hover (Zero Scale Transform to eliminate bounding jitter) */
     .node-group {
       cursor: pointer;
-      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .node-group:hover {
-      transform: scale(1.08);
     }
 
     .node-circle {
-      transition: all 0.2s ease;
+      transition: stroke-width 0.2s ease, filter 0.2s ease, stroke 0.2s ease;
     }
 
     .node-group:hover .node-circle {
-      filter: drop-shadow(0 0 12px currentColor);
+      stroke-width: 3.2px !important;
+      filter: drop-shadow(0 4px 10px rgba(0, 240, 255, 0.45));
+    }
+
+    /* Trello Kanban Board 4-Column Layout */
+    .trello-board-container {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .trello-header-strip {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 20px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+    }
+
+    .trello-columns-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      align-items: start;
+    }
+
+    @media (max-width: 1200px) {
+      .trello-columns-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .trello-columns-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .trello-col {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-height: 480px;
+    }
+
+    .trello-col-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .trello-col-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .trello-col-count {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: var(--radius-full);
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-secondary);
+    }
+
+    .trello-cards-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .trello-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+    }
+
+    .trello-card:hover {
+      border-color: var(--border-elevated);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.7);
+    }
+
+    .trello-card-labels {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .trello-tag {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: var(--radius-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .tag-p0 { background: rgba(239, 68, 68, 0.18); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.35); }
+    .tag-p1 { background: rgba(245, 158, 11, 0.18); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.35); }
+    .tag-p2 { background: rgba(59, 130, 246, 0.18); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.35); }
+    .tag-generic { background: rgba(255, 255, 255, 0.08); color: #cbd5e1; border: 1px solid rgba(255, 255, 255, 0.12); }
+
+    .trello-card-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #ffffff;
+      line-height: 1.4;
+    }
+
+    .trello-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-top: 4px;
+      padding-top: 6px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .trello-checklist-badge {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .trello-checklist-badge.done {
+      color: #10b981;
+    }
+
+    .trello-avatars {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .trello-avatar-pill {
+      width: 20px;
+      height: 20px;
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     /* Swarm Telemetry Grid */
@@ -564,6 +727,116 @@
     }
     .packet-pulse {
       animation: packetPulseGlow 1.8s infinite ease-in-out;
+    }
+
+    /* 50-Step Historical Logs Accordion UX */
+    .step-accordion-item {
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      margin-bottom: 6px;
+      overflow: hidden;
+      background: rgba(11, 15, 25, 0.7);
+      transition: border-color 0.15s ease;
+    }
+    .step-accordion-item:hover {
+      border-color: var(--border-elevated);
+    }
+    .step-accordion-header {
+      padding: 8px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      user-select: none;
+      background: rgba(17, 24, 39, 0.5);
+      gap: 10px;
+    }
+    .step-accordion-header:hover {
+      background: rgba(31, 41, 55, 0.6);
+    }
+    .step-accordion-body {
+      padding: 10px 14px;
+      background: var(--bg-base);
+      border-top: 1px solid var(--border-subtle);
+      display: none;
+    }
+    .step-accordion-body.open {
+      display: block !important;
+    }
+    .step-action-tag {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: var(--radius-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+    .action-tool { background: rgba(59, 130, 246, 0.18); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
+    .action-outbound { background: rgba(16, 185, 129, 0.18); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+    .action-inbound { background: rgba(245, 158, 11, 0.18); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+    .action-system { background: rgba(168, 85, 247, 0.18); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); }
+    .action-default { background: rgba(255, 255, 255, 0.08); color: var(--text-secondary); border: 1px solid var(--border-subtle); }
+    .step-summary-truncate {
+      font-size: 11px;
+      color: var(--text-secondary);
+      max-width: 460px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Dynamic Message Orb Payloads HUD (Zero-Glare Floating Glass) */
+    .neural-orb-hud {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      pointer-events: none;
+      width: 320px;
+      background: rgba(11, 15, 25, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(0, 240, 255, 0.4);
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+      color: #ffffff;
+      transition: opacity 0.15s ease;
+    }
+
+    /* Trello Modal Dialog */
+    .trello-modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(3, 7, 18, 0.75);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .trello-modal-backdrop.open {
+      display: flex;
+    }
+    .trello-modal {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-elevated);
+      border-radius: var(--radius-lg);
+      max-width: 580px;
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 24px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .trello-card {
+      cursor: pointer;
     }
 
     /* ==========================================================================
@@ -789,6 +1062,10 @@
         <span>💬</span>
         <span>Gravity Chat</span>
       </button>
+      <button class="nav-tab" onclick="switchView('trello')" id="tab-trello">
+        <span>📋</span>
+        <span>Trello Kanban</span>
+      </button>
     </nav>
 
     <!-- Telemetry Status -->
@@ -849,14 +1126,14 @@
         <div class="cockpit-card" style="padding: 16px; display: flex; flex-direction: column;">
           <div class="card-title" style="justify-content: space-between;">
             <div style="display: flex; align-items: center; gap: 8px;">
-              <span>🌐</span>
-              <span>10-Node Antigravity Radial Mesh Map</span>
+              <span>🧠</span>
+              <span>10-Node Neural Brain Bilateral Topology</span>
             </div>
-            <span class="mono" style="font-size: 11px; color: var(--node-backbone);">Live Vector Telemetry</span>
+            <span class="mono" style="font-size: 11px; color: var(--node-backbone);">Synaptic Bezier Mesh • Jitter-Free</span>
           </div>
 
           <div class="mindmap-wrapper">
-            <svg id="mesh-svg-canvas" class="mindmap-svg" viewBox="0 0 800 540">
+            <svg id="mesh-svg-canvas" class="mindmap-svg" viewBox="0 0 900 600">
               <defs>
                 <filter id="glow-cyan" x="-20%" y="-20%" width="140%" height="140%">
                   <feGaussianBlur stdDeviation="8" result="blur" />
@@ -926,20 +1203,70 @@
       
       <div class="gravity-chat-layout">
         
-        <!-- Channels Sidebar -->
-        <aside class="chat-channels-sidebar">
-          <div class="channel-header">Mesh Channels</div>
+        <!-- Channels Sidebar (15 Community & Conversation Channels) -->
+        <aside class="chat-channels-sidebar" style="overflow-y: auto; max-height: 720px;">
+          <div class="channel-header">Community Hub</div>
           <button class="channel-btn active" onclick="switchChannel('all-hands')" id="chan-all-hands">
             <span>📢</span>
             <span>#all-hands</span>
+          </button>
+          <button class="channel-btn" onclick="switchChannel('connector_synapse')" id="chan-connector_synapse">
+            <span>⚡</span>
+            <span>#connector_synapse</span>
           </button>
           <button class="channel-btn" onclick="switchChannel('delegates-lounge')" id="chan-delegates-lounge">
             <span>☕</span>
             <span>#delegates-lounge</span>
           </button>
           <button class="channel-btn" onclick="switchChannel('p1-staggered-handoffs')" id="chan-p1-staggered-handoffs">
-            <span>⚡</span>
+            <span>🤝</span>
             <span>#p1-staggered-handoffs</span>
+          </button>
+          <button class="channel-btn" onclick="switchChannel('random_memes')" id="chan-random_memes">
+            <span>🎲</span>
+            <span>#random_memes</span>
+          </button>
+
+          <div class="channel-header" style="margin-top: 10px;">Swarm Conversations</div>
+          <button class="channel-btn" onclick="switchChannel('grp_backbone')" id="chan-grp_backbone">
+            <span>⚡</span>
+            <span>#grp_backbone</span>
+          </button>
+          <button class="channel-btn" onclick="switchChannel('grp_planner')" id="chan-grp_planner">
+            <span>🗺️</span>
+            <span>#grp_planner</span>
+          </button>
+          <button class="channel-btn" onclick="switchChannel('grp_ui')" id="chan-grp_ui">
+            <span>🎨</span>
+            <span>#grp_ui</span>
+          </button>
+          <button class="channel-btn" onclick="switchChannel('grp_feature')" id="chan-grp_feature">
+            <span>🛠️</span>
+            <span>#grp_feature</span>
+          </button>
+          <button class="channel-btn" onclick="switchChannel('grp_db')" id="chan-grp_db">
+            <span>🗄️</span>
+            <span>#grp_db</span>
+          </button>
+          <button class="channel-btn" onclick="switchChannel('grp_qa')" id="chan-grp_qa">
+            <span>📐</span>
+            <span>#grp_qa</span>
+          </button>
+          <button class="channel-btn" onclick="switchChannel('grp_bugfix')" id="chan-grp_bugfix">
+            <span>🩹</span>
+            <span>#grp_bugfix</span>
+          </button>
+          <button class="channel-btn" onclick="switchChannel('grp_github')" id="chan-grp_github">
+            <span>🐙</span>
+            <span>#grp_github</span>
+          </button>
+          <button class="channel-btn" onclick="switchChannel('grp_engine')" id="chan-grp_engine">
+            <span>⚙️</span>
+            <span>#grp_engine</span>
+          </button>
+          <button class="channel-btn" onclick="switchChannel('grp_innovation')" id="chan-grp_innovation">
+            <span>💡</span>
+            <span>#grp_innovation</span>
           </button>
         </aside>
 
@@ -966,7 +1293,77 @@
       </div>
 
     </section>
+
+    <!-- ==========================================================================
+         PAGE 4: TRELLO KANBAN // COZY STUDY & BUILD HAVEN
+         ========================================================================== -->
+    <section id="view-trello" class="cockpit-view">
+      <div class="trello-board-container">
+        
+        <!-- Trello Board Header Bar -->
+        <div class="trello-header-strip">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <span style="font-size: 20px;">☕</span>
+            <div>
+              <div style="font-size: 15px; font-weight: 700; color: #ffffff;" id="trello-board-title">ClockEE 2.0 — Cozy Study &amp; Build Haven</div>
+              <div style="font-size: 11px; color: var(--text-secondary); margin-top: 2px;">
+                <span>Live Trello Webhook Mirror</span> • 
+                <a href="https://trello.com/b/uVFypAtK/clockee-20-cozy-study-build-haven" target="_blank" rel="noopener" style="color: var(--node-backbone); text-decoration: none;">Open Board ↗</a>
+              </div>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <div class="mono" style="font-size: 11px; color: var(--text-muted);">
+              Synced: <span id="trello-sync-time" style="color: var(--text-secondary); font-weight: 600;">--:--:--</span>
+            </div>
+            <button onclick="fetchMeshState()" class="mono" style="padding: 6px 12px; background: rgba(255,255,255,0.06); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); color: #ffffff; cursor: pointer; font-size: 11px;">
+              🔄 Refresh
+            </button>
+          </div>
+        </div>
+
+        <!-- 4 Kanban Columns Grid -->
+        <div class="trello-columns-grid" id="trello-columns-container">
+          <!-- Dynamically Rendered by renderTrelloKanban() -->
+        </div>
+
+      </div>
+    </section>
   </main>
+
+  <!-- Floating Neural Message Orb HUD Overlay -->
+  <div id="neural-orb-hud" class="neural-orb-hud"></div>
+
+  <!-- Interactive Trello Card Detail Modal -->
+  <div id="trello-modal-backdrop" class="trello-modal-backdrop" onclick="closeTrelloCardModal(event)">
+    <div class="trello-modal" onclick="event.stopPropagation()">
+      <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;">
+        <div>
+          <div id="trello-modal-labels" style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px;"></div>
+          <div id="trello-modal-title" style="font-size: 16px; font-weight: 700; color: #ffffff;"></div>
+        </div>
+        <button onclick="closeTrelloCardModal()" style="background: none; border: none; color: var(--text-muted); font-size: 18px; cursor: pointer;">✕</button>
+      </div>
+
+      <div style="display: flex; align-items: center; justify-content: space-between; font-size: 12px; color: var(--text-secondary); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); padding: 10px 0;">
+        <div>Assigned: <span id="trello-modal-assigned" style="color: #ffffff; font-weight: 600;"></span></div>
+        <div>Due: <span id="trello-modal-due" class="mono tabular-nums" style="color: var(--node-feature);"></span></div>
+      </div>
+
+      <div>
+        <div style="font-size: 13px; font-weight: 600; color: #ffffff; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between;">
+          <span>Checklist Progress</span>
+          <span id="trello-modal-checklist-count" class="mono" style="font-size: 11px; color: var(--node-backbone);"></span>
+        </div>
+        <div id="trello-modal-checklist-items" style="display: flex; flex-direction: column; gap: 6px;"></div>
+      </div>
+
+      <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 8px;">
+        <a id="trello-modal-open-link" href="https://trello.com/b/uVFypAtK/clockee-20-cozy-study-build-haven" target="_blank" rel="noopener" class="nav-tab" style="padding: 6px 14px; font-size: 11px; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">Open in Trello ↗</a>
+        <button onclick="closeTrelloCardModal()" class="nav-tab" style="padding: 6px 14px; font-size: 11px; cursor: pointer;">Close</button>
+      </div>
+    </div>
+  </div>
 
   <script>
     // ==========================================================================
@@ -1018,14 +1415,26 @@
 
       const nameMap = {
         'all-hands': { name: '#all-hands', icon: '📢' },
+        'connector_synapse': { name: '#connector_synapse', icon: '⚡' },
         'delegates-lounge': { name: '#delegates-lounge', icon: '☕' },
-        'p1-staggered-handoffs': { name: '#p1-staggered-handoffs', icon: '⚡' }
+        'p1-staggered-handoffs': { name: '#p1-staggered-handoffs', icon: '🤝' },
+        'random_memes': { name: '#random_memes', icon: '🎲' },
+        'grp_backbone': { name: '#grp_backbone (Chitti)', icon: '⚡' },
+        'grp_planner': { name: '#grp_planner (Archon)', icon: '🗺️' },
+        'grp_ui': { name: '#grp_ui (Aura)', icon: '🎨' },
+        'grp_feature': { name: '#grp_feature (Apex)', icon: '🛠️' },
+        'grp_db': { name: '#grp_db (Vault)', icon: '🗄️' },
+        'grp_qa': { name: '#grp_qa (Helios)', icon: '📐' },
+        'grp_bugfix': { name: '#grp_bugfix (Scalpel)', icon: '🩹' },
+        'grp_github': { name: '#grp_github (Scribe)', icon: '🐙' },
+        'grp_engine': { name: '#grp_engine (Sentinel)', icon: '⚙️' },
+        'grp_innovation': { name: '#grp_innovation (Nova)', icon: '💡' }
       };
 
       const titleEl = document.getElementById('active-channel-name');
       const iconEl = document.getElementById('active-channel-icon');
-      if (titleEl && nameMap[chanKey]) titleEl.innerText = nameMap[chanKey].name;
-      if (iconEl && nameMap[chanKey]) iconEl.innerText = nameMap[chanKey].icon;
+      if (titleEl) titleEl.innerText = nameMap[chanKey] ? nameMap[chanKey].name : `#${chanKey}`;
+      if (iconEl) iconEl.innerText = nameMap[chanKey] ? nameMap[chanKey].icon : '💬';
 
       renderChatMessages();
     }
@@ -1123,11 +1532,60 @@
 
       // 6. Gravity Chat
       renderChatMessages();
+
+      // 7. Trello Kanban
+      renderTrelloKanban();
     }
 
     // --------------------------------------------------------------------------
     // 3. Interactive Radial SVG Mind Map with Data Packet Pulses
     // --------------------------------------------------------------------------
+
+    // --------------------------------------------------------------------------
+    // 3. Bilateral Human Brain Mesh Topology & Jitter-Free Synaptic Bezier Paths
+    // --------------------------------------------------------------------------
+
+    const BRAIN_COORDINATES = {
+      // Corpus Callosum / Center Transceiver
+      backbone:        { x: 450, y: 320, hemisphere: "center", r: 32, hit_r: 44, label: "Backbone (Chitti)", role: "Corpus Callosum" },
+      // Superior Sagittal Bridge
+      qa_engine:       { x: 450, y: 110, hemisphere: "bridge", r: 22, hit_r: 34, label: "QA Engine (Helios)", role: "Sensory Bridge" },
+      // Left Hemisphere - Analytical / Logic / Systems
+      planner:         { x: 200, y: 140, hemisphere: "left",   r: 22, hit_r: 34, label: "Planner (Archon)", role: "Prefrontal Logic" },
+      db_backend:      { x: 120, y: 290, hemisphere: "left",   r: 22, hit_r: 34, label: "DB / Backend (Vault)", role: "Hippocampus Memory" },
+      bug_fix:         { x: 170, y: 440, hemisphere: "left",   r: 22, hit_r: 34, label: "Bug Fix (Scalpel)", role: "Immune System" },
+      simulation:      { x: 280, y: 510, hemisphere: "left",   r: 22, hit_r: 34, label: "Simulation (Sentinel)", role: "Parietal Verifier" },
+      // Right Hemisphere - Creative / Synthesis / UI / Edge
+      ui_ux:           { x: 700, y: 140, hemisphere: "right",  r: 22, hit_r: 34, label: "UI/UX (Aura)", role: "Visual Cortex" },
+      innovation:      { x: 780, y: 290, hemisphere: "right",  r: 22, hit_r: 34, label: "Innovation (Nova)", role: "Temporal Synthesis" },
+      feature_builder: { x: 730, y: 440, hemisphere: "right",  r: 22, hit_r: 34, label: "Feature Builder (Apex)", role: "Motor Execution" },
+      github:          { x: 620, y: 510, hemisphere: "right",  r: 22, hit_r: 34, label: "GitHub (Scribe)", role: "Frontal Action" }
+    };
+
+    function getSynapticBezierPath(cx, cy, nx, ny, hemisphere) {
+      const dx = nx - cx;
+      const dy = ny - cy;
+      let cp1x, cp1y, cp2x, cp2y;
+
+      if (hemisphere === "left") {
+        cp1x = cx + dx * 0.35 + 20;
+        cp1y = cy + dy * 0.15 - 15;
+        cp2x = cx + dx * 0.75 - 10;
+        cp2y = cy + dy * 0.85 + 10;
+      } else if (hemisphere === "right") {
+        cp1x = cx + dx * 0.35 - 20;
+        cp1y = cy + dy * 0.15 - 15;
+        cp2x = cx + dx * 0.75 + 10;
+        cp2y = cy + dy * 0.85 + 10;
+      } else {
+        cp1x = cx - 25;
+        cp1y = cy + dy * 0.45;
+        cp2x = cx + 25;
+        cp2y = cy + dy * 0.75;
+      }
+
+      return `M ${cx} ${cy} C ${cp1x.toFixed(1)} ${cp1y.toFixed(1)}, ${cp2x.toFixed(1)} ${cp2y.toFixed(1)}, ${nx} ${ny}`;
+    }
 
     function renderRadialSvgMindMap() {
       const vectorsGroup = document.getElementById('svg-vectors-group');
@@ -1137,84 +1595,179 @@
       vectorsGroup.innerHTML = '';
       nodesGroup.innerHTML = '';
 
-      const centerX = 400;
-      const centerY = 270;
-      const radiusX = 260;
-      const radiusY = 190;
+      const cx = BRAIN_COORDINATES.backbone.x;
+      const cy = BRAIN_COORDINATES.backbone.y;
 
-      // Center Node: Backbone (Chitti)
-      const centerNode = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-      centerNode.setAttribute('class', 'node-group');
-      centerNode.style.cursor = 'pointer';
-      centerNode.setAttribute('title', 'Backbone (Chitti) // Central Orchestrator');
-      centerNode.onclick = () => showNodeDetailModal('backbone');
-
-      centerNode.innerHTML = `
-        <circle cx="${centerX}" cy="${centerY}" r="40" fill="#060c18" stroke="#00f0ff" stroke-width="2.5" filter="url(#glow-cyan)" />
-        <circle cx="${centerX}" cy="${centerY}" r="30" fill="rgba(0, 240, 255, 0.12)" />
-        <circle cx="${centerX}" cy="${centerY}" r="44" fill="none" stroke="#00f0ff" stroke-width="1" opacity="0.3" class="packet-pulse" />
-        <text x="${centerX}" y="${centerY - 4}" text-anchor="middle" font-size="16" fill="#00f0ff">⚡</text>
-        <text x="${centerX}" y="${centerY + 14}" text-anchor="middle" font-size="10" font-family="JetBrains Mono" font-weight="700" fill="#ffffff">CHITTI</text>
-      `;
-      nodesGroup.appendChild(centerNode);
-
-      // Orbiting 9 Nodes
-      const orbitKeys = Object.keys(NODE_PROFILES).filter(k => k !== 'backbone');
-      const totalOrbit = orbitKeys.length;
-
-      orbitKeys.forEach((key, idx) => {
-        const angle = (idx / totalOrbit) * (2 * Math.PI) - (Math.PI / 2);
-        const nodeX = centerX + radiusX * Math.cos(angle);
-        const nodeY = centerY + radiusY * Math.sin(angle);
-        const profile = NODE_PROFILES[key];
-
-        const nodeData = (currentMeshState.nodes && currentMeshState.nodes[key]) || {};
+      // Draw Synaptic Bezier Pathways and Animated Traveling Particle Orbs
+      Object.keys(BRAIN_COORDINATES).forEach(key => {
+        if (key === 'backbone') return;
+        const coord = BRAIN_COORDINATES[key];
+        const profile = NODE_PROFILES[key] || { color: '#38bdf8', avatar: '⚡', title: key };
+        const nodeData = (currentMeshState && currentMeshState.nodes && currentMeshState.nodes[key]) || {};
         const loadVal = nodeData.load || 20;
         const isActive = (nodeData.status === 'ONLINE' || nodeData.status === 'ACTIVE');
         const isHeavy = loadVal > 35;
 
-        // Animated Vector Transmission Line
-        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-        line.setAttribute('x1', centerX);
-        line.setAttribute('y1', centerY);
-        line.setAttribute('x2', nodeX);
-        line.setAttribute('y2', nodeY);
-        line.setAttribute('stroke', profile.color);
-        line.setAttribute('stroke-width', isHeavy ? '2.2' : '1.5');
-        line.setAttribute('stroke-opacity', isHeavy ? '0.65' : '0.35');
-        line.setAttribute('stroke-dasharray', isHeavy ? '4 2' : '6 4');
-        line.setAttribute('class', 'pulse-vector');
-        vectorsGroup.appendChild(line);
+        const pathD = getSynapticBezierPath(cx, cy, coord.x, coord.y, coord.hemisphere);
 
-        // Animated SVG Data Packet moving between Node and Backbone
-        const packet = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-        packet.setAttribute('r', isHeavy ? '4' : '3');
-        packet.setAttribute('fill', profile.color);
-        packet.setAttribute('opacity', '0.9');
+        // Synaptic Path Vector
+        const pathEl = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        pathEl.setAttribute('d', pathD);
+        pathEl.setAttribute('fill', 'none');
+        pathEl.setAttribute('stroke', profile.color);
+        pathEl.setAttribute('stroke-width', isHeavy ? '2.4' : '1.5');
+        pathEl.setAttribute('stroke-opacity', isHeavy ? '0.75' : '0.40');
+        pathEl.setAttribute('stroke-dasharray', isHeavy ? '4 2' : '6 4');
+        pathEl.setAttribute('class', 'pulse-vector');
+        vectorsGroup.appendChild(pathEl);
+
+        // Moving Message Particle Orb Traveling Between Synapse
+        const particle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        particle.setAttribute('r', isHeavy ? '4.5' : '3.5');
+        particle.setAttribute('fill', profile.color);
+        particle.setAttribute('opacity', '0.9');
 
         const anim = document.createElementNS('http://www.w3.org/2000/svg', 'animateMotion');
-        anim.setAttribute('dur', isHeavy ? '1.4s' : (isActive ? '2.4s' : '4s'));
+        anim.setAttribute('dur', isHeavy ? '1.8s' : (isActive ? '2.8s' : '4.5s'));
         anim.setAttribute('repeatCount', 'indefinite');
-        anim.setAttribute('path', `M ${nodeX} ${nodeY} L ${centerX} ${centerY}`);
-        packet.appendChild(anim);
-        vectorsGroup.appendChild(packet);
-
-        // Orbital Node Element
-        const orbNode = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-        orbNode.setAttribute('class', 'node-group');
-        orbNode.style.cursor = 'pointer';
-        orbNode.setAttribute('title', `Click to inspect ${profile.title}`);
-        orbNode.onclick = () => showNodeDetailModal(key);
-
-        orbNode.innerHTML = `
-          <circle cx="${nodeX}" cy="${nodeY}" r="${isHeavy ? 24 : 22}" fill="#0b0f19" stroke="${profile.color}" stroke-width="${isHeavy ? 2.5 : 1.8}" class="node-circle" />
-          <circle cx="${nodeX}" cy="${nodeY}" r="28" fill="none" stroke="${profile.color}" stroke-width="1" opacity="${isActive ? '0.4' : '0.1'}" class="${isActive ? 'packet-pulse' : ''}" />
-          <text x="${nodeX}" y="${nodeY + 5}" text-anchor="middle" font-size="12">${profile.avatar}</text>
-          <text x="${nodeX}" y="${nodeY + 36}" text-anchor="middle" font-size="10" font-family="Inter" font-weight="600" fill="#f8fafc">${profile.title.split(' ')[0]}</text>
-          <text x="${nodeX}" y="${nodeY + 48}" text-anchor="middle" font-size="8" font-family="JetBrains Mono" font-weight="700" fill="${profile.color}">${loadVal}% LOAD</text>
-        `;
-        nodesGroup.appendChild(orbNode);
+        anim.setAttribute('path', pathD);
+        particle.appendChild(anim);
+        vectorsGroup.appendChild(particle);
       });
+
+      // Render Jitter-Free Brain Nodes
+      Object.keys(BRAIN_COORDINATES).forEach(key => {
+        const coord = BRAIN_COORDINATES[key];
+        const profile = NODE_PROFILES[key] || { color: '#00f0ff', avatar: '⚡', title: key };
+        const isBackbone = (key === 'backbone');
+        const nodeData = (currentMeshState && currentMeshState.nodes && currentMeshState.nodes[key]) || {};
+        const loadVal = nodeData.load || (isBackbone ? 42 : 20);
+        const isActive = (nodeData.status === 'ONLINE' || nodeData.status === 'ACTIVE');
+        const isHeavy = loadVal > 35;
+
+        const nodeGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+        nodeGroup.setAttribute('class', 'node-group');
+        nodeGroup.setAttribute('id', `node-elem-${key}`);
+        nodeGroup.setAttribute('title', `${coord.label} // ${coord.role}`);
+        nodeGroup.onclick = () => showNodeDetailModal(key);
+
+        if (isBackbone) {
+          nodeGroup.innerHTML = `
+            <!-- Dedicated Hitbox (Zero Coordinate Jitter) -->
+            <circle cx="${coord.x}" cy="${coord.y}" r="${coord.hit_r}" fill="transparent" pointer-events="all" />
+            <circle cx="${coord.x}" cy="${coord.y}" r="${coord.r + 8}" fill="none" stroke="#00f0ff" stroke-width="1.2" opacity="0.3" class="packet-pulse" />
+            <circle cx="${coord.x}" cy="${coord.y}" r="${coord.r}" fill="#060c18" stroke="#00f0ff" stroke-width="2.5" class="node-circle" />
+            <circle cx="${coord.x}" cy="${coord.y}" r="${coord.r - 8}" fill="rgba(0, 240, 255, 0.12)" pointer-events="none" />
+            <text x="${coord.x}" y="${coord.y - 4}" text-anchor="middle" font-size="16" fill="#00f0ff" pointer-events="none">⚡</text>
+            <text x="${coord.x}" y="${coord.y + 14}" text-anchor="middle" font-size="10" font-family="JetBrains Mono" font-weight="700" fill="#ffffff" pointer-events="none">CHITTI</text>
+          `;
+        } else {
+          nodeGroup.innerHTML = `
+            <!-- Dedicated Hitbox (Zero Coordinate Jitter) -->
+            <circle cx="${coord.x}" cy="${coord.y}" r="${coord.hit_r}" fill="transparent" pointer-events="all" />
+            <circle cx="${coord.x}" cy="${coord.y}" r="${coord.r + 5}" fill="none" stroke="${profile.color}" stroke-width="1" opacity="${isActive ? '0.35' : '0.1'}" class="${isActive ? 'packet-pulse' : ''}" />
+            <circle cx="${coord.x}" cy="${coord.y}" r="${coord.r}" fill="#0b0f19" stroke="${profile.color}" stroke-width="${isHeavy ? 2.5 : 1.8}" class="node-circle" />
+            <text x="${coord.x}" y="${coord.y + 5}" text-anchor="middle" font-size="12" pointer-events="none">${profile.avatar}</text>
+            <text x="${coord.x}" y="${coord.y + 36}" text-anchor="middle" font-size="10" font-family="Inter" font-weight="600" fill="#f8fafc" pointer-events="none">${profile.title.split(' ')[0]}</text>
+            <text x="${coord.x}" y="${coord.y + 48}" text-anchor="middle" font-size="8" font-family="JetBrains Mono" font-weight="700" fill="${profile.color}" pointer-events="none">${loadVal}% LOAD</text>
+          `;
+        }
+
+        nodesGroup.appendChild(nodeGroup);
+      });
+    }
+
+    // --------------------------------------------------------------------------
+    // 3B. Trello Kanban Board Dynamic Renderer
+    // --------------------------------------------------------------------------
+
+    function renderTrelloKanban() {
+      const container = document.getElementById('trello-columns-container');
+      if (!container || !currentMeshState || !currentMeshState.planner) return;
+
+      const kanbanData = currentMeshState.planner.kanban;
+      const lists = (kanbanData && kanbanData.lists) ? kanbanData.lists : [];
+
+      const syncEl = document.getElementById('trello-sync-time');
+      if (syncEl) {
+        const syncDate = kanbanData?.synced_at ? new Date(kanbanData.synced_at) : new Date();
+        syncEl.innerText = syncDate.toLocaleTimeString();
+      }
+
+      const boardTitleEl = document.getElementById('trello-board-title');
+      if (boardTitleEl && kanbanData?.board_name) {
+        boardTitleEl.innerText = kanbanData.board_name;
+      }
+
+      if (lists.length === 0) {
+        container.innerHTML = `
+          <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: var(--text-muted); font-size: 13px;">
+            <span>📋 Trello Kanban lists synchronizing...</span>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = lists.map(col => {
+        const cards = col.cards || [];
+        const cardCount = cards.length;
+
+        const cardsMarkup = cards.map(c => {
+          // Label badges
+          const labelBadges = (c.labels || []).map(lbl => {
+            let tagClass = 'tag-generic';
+            if (lbl.toUpperCase() === 'P0' || lbl.toUpperCase() === 'CRITICAL') tagClass = 'tag-p0';
+            else if (lbl.toUpperCase() === 'P1') tagClass = 'tag-p1';
+            else if (lbl.toUpperCase() === 'P2') tagClass = 'tag-p2';
+            return `<span class="trello-tag ${tagClass}">${lbl}</span>`;
+          }).join('');
+
+          // Checklist count
+          const chk = c.checklist || { completed: 0, total: 0 };
+          const isChecklistDone = chk.total > 0 && chk.completed === chk.total;
+          const checklistMarkup = chk.total > 0 ? `
+            <div class="trello-checklist-badge ${isChecklistDone ? 'done' : ''}">
+              <span>✓</span>
+              <span>${chk.completed}/${chk.total}</span>
+            </div>
+          ` : '<div></div>';
+
+          // Assigned Avatars
+          const avatarMarkup = (c.assigned_nodes || []).map(nKey => {
+            const p = NODE_PROFILES[nKey] || { color: '#00f0ff', avatar: '👤' };
+            return `<div class="trello-avatar-pill" style="border-color:${p.color};" title="${nKey}">${p.avatar}</div>`;
+          }).join('');
+
+          return `
+            <div class="trello-card">
+              <div class="trello-card-labels">
+                ${labelBadges}
+              </div>
+              <div class="trello-card-title">${c.title}</div>
+              <div class="trello-card-footer">
+                ${checklistMarkup}
+                <div class="trello-avatars">
+                  ${avatarMarkup}
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+
+        return `
+          <div class="trello-col" id="${col.id}">
+            <div class="trello-col-header">
+              <div class="trello-col-title">
+                <span>${col.name}</span>
+              </div>
+              <span class="trello-col-count tabular-nums">${cardCount}</span>
+            </div>
+            <div class="trello-cards-list">
+              ${cardsMarkup}
+            </div>
+          </div>
+        `;
+      }).join('');
     }
 
     // --------------------------------------------------------------------------

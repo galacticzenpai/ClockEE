@@ -7269,5 +7269,823 @@
     "accuracy": "72.1%",
     "difficulty": "Medium",
     "solutionText": "Video solution present | Difficulty: Medium\n\nChapter 1 (Physical World) is now 100% complete (All 62 Questions extracted and test submitted). Ready for Chapter 2 (Units and Measurements)!\n</SYSTEM_MESSAGE>"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_001",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Significant Figures",
+    "questionNumber": 1,
+    "statement": "Value of (28.7)³ / (0.0125) with due regard to significant figures is:",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "280.7",
+        "isCorrect": false,
+        "studentPercentage": "20.5%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "2807",
+        "isCorrect": false,
+        "studentPercentage": "15.2%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "2.81 × 10^5",
+        "isCorrect": true,
+        "studentPercentage": "25.1%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "2.8 × 10^5",
+        "isCorrect": false,
+        "studentPercentage": "39.2%"
+      }
+    ],
+    "correctOption": 3,
+    "correctAnswer": 3,
+    "accuracy": "25.1%",
+    "difficulty": "Easy",
+    "solutionText": "In multiplication and division, the result should have the same number of significant figures as the least precise term."
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_002",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 2,
+    "statement": "Three measurements are made as 18.425 cm,7.21 cm  and 5.0 cm. The addition should be written as",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "30.635 cm",
+        "isCorrect": false,
+        "studentPercentage": "24.41%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "30.64 cm",
+        "isCorrect": false,
+        "studentPercentage": "15%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "30.63 cm",
+        "isCorrect": false,
+        "studentPercentage": "9.95%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "30.6 cm",
+        "isCorrect": true,
+        "studentPercentage": "50.6%"
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": 4,
+    "accuracy": "50.6%",
+    "difficulty": "Easy",
+    "solutionText": "Option 4 is the correct answer according to official curriculum standards.",
+    "videoUrl": "https://www.youtube.com/embed/x9lssOUohP0?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=5&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&gporigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Fcohort-selection&vf=1"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_003",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 3,
+    "statement": "Which of the following does not have the dimensions of time ?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "RC",
+        "isCorrect": false,
+        "studentPercentage": "16.19%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "RL",
+        "isCorrect": true,
+        "studentPercentage": "39.79%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "LR",
+        "isCorrect": false,
+        "studentPercentage": "16.12%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "LC",
+        "isCorrect": false,
+        "studentPercentage": "27.99%"
+      }
+    ],
+    "correctOption": 2,
+    "correctAnswer": 2,
+    "accuracy": "39.79%",
+    "difficulty": "Easy",
+    "solutionText": "Option 2 is the correct answer according to official curriculum standards.",
+    "videoUrl": "https://www.youtube.com/embed/x9lssOUohP0?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=5&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&gporigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Fcohort-selection&vf=1"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_005",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Error Analysis",
+    "questionNumber": 5,
+    "statement": "You measure two quantities as A = 1.0 m ± 0.2 m , B = 2.0 m ± 0.2 m. We should report correct value for √(AB) as:",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "1.4 m ± 0.4 m",
+        "isCorrect": false,
+        "studentPercentage": "12.5%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "1.41 m ± 0.15 m",
+        "isCorrect": false,
+        "studentPercentage": "10.2%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "1.4 m ± 0.3 m",
+        "isCorrect": false,
+        "studentPercentage": "10.9%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "1.4 m ± 0.2 m",
+        "isCorrect": true,
+        "studentPercentage": "66.38%"
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": 4,
+    "accuracy": "66.38%",
+    "difficulty": "Hard",
+    "solutionText": "Z = √(AB) = √(1.0 × 2.0) = 1.414 m. Fractional error ΔZ/Z = 1/2(ΔA/A + ΔB/B) = 1/2(0.2/1.0 + 0.2/2.0) = 0.15. Thus ΔZ = 1.414 × 0.15 = 0.212 m ≈ 0.2 m. Therefore Z = 1.4 m ± 0.2 m."
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_006",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 6,
+    "statement": "If speed of light (c), acceleration due to gravity (g) and pressure (P) are taken as fundamental units, the dimensions of gravitational constant (G) are:",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "c0 gP−3",
+        "isCorrect": false,
+        "studentPercentage": "9.09%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "c2 g3P−2",
+        "isCorrect": false,
+        "studentPercentage": "9.09%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "c0 g2P−1",
+        "isCorrect": true,
+        "studentPercentage": "81.82%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "c2 g2P−2",
+        "isCorrect": false,
+        "studentPercentage": "0%"
+      }
+    ],
+    "correctOption": 3,
+    "correctAnswer": 3,
+    "accuracy": "81.82%",
+    "difficulty": "Easy",
+    "solutionText": "Option 3 is the correct answer according to official curriculum standards.",
+    "videoUrl": ""
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_007",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 7,
+    "statement": "L,C and R represent the physical quantities inductance, capacitance and resistance respectively. The combinations that have the dimensions of  frequency are:",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "RC",
+        "isCorrect": false,
+        "studentPercentage": "19%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "LR",
+        "isCorrect": false,
+        "studentPercentage": "24.89%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "1L.R",
+        "isCorrect": false,
+        "studentPercentage": "27.07%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "1CR",
+        "isCorrect": true,
+        "studentPercentage": "29.09%"
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": 4,
+    "accuracy": "29.09%",
+    "difficulty": "Easy",
+    "solutionText": "Option 4 is the correct answer according to official curriculum standards.",
+    "videoUrl": ""
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_008",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 8,
+    "statement": "The significant figures of the number 6.0023 are:",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "1",
+        "isCorrect": false,
+        "studentPercentage": "3.61%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "5",
+        "isCorrect": true,
+        "studentPercentage": "79.94%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "4",
+        "isCorrect": false,
+        "studentPercentage": "8.28%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "2",
+        "isCorrect": false,
+        "studentPercentage": "4.67%"
+      }
+    ],
+    "correctOption": 2,
+    "correctAnswer": 2,
+    "accuracy": "79.94%",
+    "difficulty": "Easy",
+    "solutionText": "Option 2 is the correct answer according to official curriculum standards.",
+    "videoUrl": ""
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_009",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 9,
+    "statement": "Force(F) and density(d) are related as F=αβ+d then dimensions of α are",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "[M3/2 L−1/2 T−2]",
+        "isCorrect": true,
+        "studentPercentage": "76.8%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "[M3/2 L1/2 T2]",
+        "isCorrect": false,
+        "studentPercentage": "8.36%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "[M3/2L−1/2T2]",
+        "isCorrect": false,
+        "studentPercentage": "10.57%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "[M−3/2 L−1/2 T2]",
+        "isCorrect": false,
+        "studentPercentage": "4.37%"
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": 1,
+    "accuracy": "76.8%",
+    "difficulty": "Easy",
+    "solutionText": "Option 1 is the correct answer according to official curriculum standards.",
+    "videoUrl": "https://www.youtube.com/embed/Ic14GM8A1rM?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=11&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&gporigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Fcohort-selection&vf=1"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_010",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 10,
+    "statement": "A student measured the diameter of a wire using a screw gauge with least count 0.001 cm and listed the measurements. The correct measurement is -",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "5.3 cm",
+        "isCorrect": false,
+        "studentPercentage": "1.56%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "5.32 cm",
+        "isCorrect": false,
+        "studentPercentage": "3.13%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "5.320 cm",
+        "isCorrect": true,
+        "studentPercentage": "95.31%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "5.3200 cm",
+        "isCorrect": false,
+        "studentPercentage": "0%"
+      }
+    ],
+    "correctOption": 3,
+    "correctAnswer": 3,
+    "accuracy": "95.31%",
+    "difficulty": "Easy",
+    "solutionText": "Option 3 is the correct answer according to official curriculum standards.",
+    "videoUrl": "https://www.youtube.com/embed/SZcWnwgcwPE?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=13&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&gporigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Fcohort-selection&vf=1"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_011",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 11,
+    "statement": "The viscosity η of a gas depends on the long-range attractive part of the intermolecular force, which varies with molecular separation r according to F=μr–n where n is a number and m is a constant. If η is a function of mass m of the molecules, their mean speed v and the constant μ, then which of following is correct",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "η∝mn+1vn+3μn–2",
+        "isCorrect": false,
+        "studentPercentage": "5.41%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "η∝mn+1n−1vn+3n−1μ−2n−1",
+        "isCorrect": true,
+        "studentPercentage": "91.89%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "η∝mnv–nμ–2",
+        "isCorrect": false,
+        "studentPercentage": "2.7%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "η∝ mvμ–n",
+        "isCorrect": false,
+        "studentPercentage": "0%"
+      }
+    ],
+    "correctOption": 2,
+    "correctAnswer": 2,
+    "accuracy": "91.89%",
+    "difficulty": "Medium",
+    "solutionText": "Option 2 is the correct answer according to official curriculum standards.",
+    "videoUrl": "https://www.youtube.com/embed/7x7xULAjAfw?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=15&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&gporigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Fcohort-selection&vf=1"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_012",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 12,
+    "statement": "A student measured the diameter of a small steel ball using a screw gauge of least count 0.001 cm. The main scale reading is 5 mm and zero of circular scale division coincides with 25 divisions above the reference level. If screw gauge has a zero error of -0.004 cm, the correct diameter of the ball is :-",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "0.521 cm",
+        "isCorrect": false,
+        "studentPercentage": "9.11%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "0.525 cm",
+        "isCorrect": false,
+        "studentPercentage": "11.76%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "0.053 cm",
+        "isCorrect": false,
+        "studentPercentage": "7.61%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "0.529 cm",
+        "isCorrect": true,
+        "studentPercentage": "71.57%"
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": 4,
+    "accuracy": "71.57%",
+    "difficulty": "Easy",
+    "solutionText": "Option 4 is the correct answer according to official curriculum standards.",
+    "videoUrl": "https://www.youtube.com/embed/8B2txTT0H6w?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=17&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&gporigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Fcohort-selection&vf=1"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_013",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 13,
+    "statement": "In a circular vernier callipers value of 1MSD is 1′ and 30th vernier division coincide with 29th MSD. calculate least count of instrument.",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "1′′",
+        "isCorrect": false,
+        "studentPercentage": "77.27%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "1'",
+        "isCorrect": false,
+        "studentPercentage": "0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "2'",
+        "isCorrect": false,
+        "studentPercentage": "3.03%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "2\"",
+        "isCorrect": true,
+        "studentPercentage": "19.7%"
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": 4,
+    "accuracy": "19.7%",
+    "difficulty": "Medium",
+    "solutionText": "Option 4 is the correct answer according to official curriculum standards.",
+    "videoUrl": "https://www.youtube.com/embed/knhQOS25CK4?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=19&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&gporigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Fcohort-selection&vf=1"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_014",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 14,
+    "statement": "If dimension of critical velocity vc, of liquid flowing through a tube is expressed as ηxρyrz, where η, ρ and r the coefficient of viscosity of liquid, density of liquid and radius of the tube respectively, then the values of x,y and z are given by :",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "1,1,1",
+        "isCorrect": false,
+        "studentPercentage": "1.56%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "1,-1,-1",
+        "isCorrect": true,
+        "studentPercentage": "95.31%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "-1,-1,1",
+        "isCorrect": false,
+        "studentPercentage": "3.13%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "-1,-1,-1",
+        "isCorrect": false,
+        "studentPercentage": "0%"
+      }
+    ],
+    "correctOption": 2,
+    "correctAnswer": 2,
+    "accuracy": "95.31%",
+    "difficulty": "Easy",
+    "solutionText": "Option 2 is the correct answer according to official curriculum standards.",
+    "videoUrl": "https://www.youtube.com/embed/UDX2tiIhE5k?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=21&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&gporigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Fcohort-selection&vf=1"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_015",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 15,
+    "statement": "Which of the following is not one of the seven fundamental SI units?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Henry",
+        "isCorrect": true,
+        "studentPercentage": "86.09%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Ampere",
+        "isCorrect": false,
+        "studentPercentage": "3.91%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Candela",
+        "isCorrect": false,
+        "studentPercentage": "6.2%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Mole",
+        "isCorrect": false,
+        "studentPercentage": "3.78%"
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": 1,
+    "accuracy": "86.09%",
+    "difficulty": "Easy",
+    "solutionText": "Option 1 is the correct answer according to official curriculum standards.",
+    "videoUrl": ""
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_016",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 16,
+    "statement": "If we compare 3 units : millimeter, kilogram and micro second. Which unit is largest?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "millimeter",
+        "isCorrect": false,
+        "studentPercentage": "4.21%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "microsecond",
+        "isCorrect": false,
+        "studentPercentage": "5.9%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "kilogram",
+        "isCorrect": false,
+        "studentPercentage": "29.53%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "the units are not comparable",
+        "isCorrect": true,
+        "studentPercentage": "60.4%"
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": 4,
+    "accuracy": "60.4%",
+    "difficulty": "Easy",
+    "solutionText": "Option 4 is the correct answer according to official curriculum standards.",
+    "videoUrl": ""
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_017",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 17,
+    "statement": "The dimensionally correct expression for the resistance R among the following is\n\n[P= electric power, I= electric current, t= time, V= voltage and E= electric energy]",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "R=PI",
+        "isCorrect": false,
+        "studentPercentage": "12.79%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "R=El2t",
+        "isCorrect": true,
+        "studentPercentage": "46.13%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "R=V2P",
+        "isCorrect": false,
+        "studentPercentage": "20.77%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "R=VI",
+        "isCorrect": false,
+        "studentPercentage": "20.33%"
+      }
+    ],
+    "correctOption": 2,
+    "correctAnswer": 2,
+    "accuracy": "46.13%",
+    "difficulty": "Easy",
+    "solutionText": "Option 2 is the correct answer according to official curriculum standards.",
+    "videoUrl": "https://www.youtube.com/embed/HCMZZfKdXJc?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=23&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&gporigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Fcohort-selection&vf=1"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_018",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 18,
+    "statement": "A student measured the diameter of a small steel ball using a screw gauge of least count 0.001 cm. The main scale reading is 5 mm and zero of circular scale division coincides with 25 divisions above the reference level. If screw gauge has a zero error of -0.004 cm, the correct diameter of the ball is :-",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "0.521 cm",
+        "isCorrect": false,
+        "studentPercentage": "5.29%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "0.525 cm",
+        "isCorrect": false,
+        "studentPercentage": "6.96%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "0.053 cm",
+        "isCorrect": false,
+        "studentPercentage": "4.61%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "0.529 cm",
+        "isCorrect": true,
+        "studentPercentage": "83.2%"
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": 4,
+    "accuracy": "83.2%",
+    "difficulty": "Easy",
+    "solutionText": "Option 4 is the correct answer according to official curriculum standards.",
+    "videoUrl": "https://www.youtube.com/embed/8B2txTT0H6w?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=25&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&gporigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Fcohort-selection&vf=1"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_019",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 19,
+    "statement": "An unknown quantity α is expressed as α=2maβlog(1+2βℓma) where m= mass, a = acceleration, l= length. The unit of α should be:",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "meter",
+        "isCorrect": true,
+        "studentPercentage": "68.02%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "m/s",
+        "isCorrect": false,
+        "studentPercentage": "12.17%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "m/s2",
+        "isCorrect": false,
+        "studentPercentage": "16.83%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "s−1",
+        "isCorrect": false,
+        "studentPercentage": "2.52%"
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": 1,
+    "accuracy": "68.02%",
+    "difficulty": "Easy",
+    "solutionText": "Option 1 is the correct answer according to official curriculum standards.",
+    "videoUrl": "https://www.youtube.com/embed/OziWbn0me3g?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=27&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&gporigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Fcohort-selection&vf=1"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_020",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 20,
+    "statement": "A wire has a mass (0.3±0.003)g, radius (0.5±0.005)mm and length (6±0.06)cm. The maximum percentage error in the measurement of its density is-",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "1",
+        "isCorrect": false,
+        "studentPercentage": "8.09%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "2",
+        "isCorrect": false,
+        "studentPercentage": "11.47%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "3",
+        "isCorrect": false,
+        "studentPercentage": "14.13%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "4",
+        "isCorrect": true,
+        "studentPercentage": "66.32%"
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": 4,
+    "accuracy": "66.32%",
+    "difficulty": "Easy",
+    "solutionText": "Option 4 is the correct answer according to official curriculum standards.",
+    "videoUrl": "https://www.youtube.com/embed/1UYqhLiM34E?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=29&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&gporigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Fcohort-selection&vf=1"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_004",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Dimensional Analysis / Wave Equation",
+    "questionNumber": 4,
+    "statement": "The equation of a wave is given by Y=Asinωxv-k where ω is the angular velocity and v is the linear velocity. The dimensions of k is:",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "[LT]",
+        "isCorrect": false,
+        "studentPercentage": "16.23%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "[T]",
+        "isCorrect": true,
+        "studentPercentage": "51.66%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "T-1",
+        "isCorrect": false,
+        "studentPercentage": "27.12%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "T2",
+        "isCorrect": false,
+        "studentPercentage": "5.04%"
+      }
+    ],
+    "correctOption": 2,
+    "correctAnswer": 2,
+    "accuracy": "51.66%",
+    "difficulty": "Hard",
+    "solutionText": "In Y = A sin ω(x/v - k), the argument of the sine function must be dimensionless. Thus [ω(x/v - k)] = [1]. Since [ω] = [T^-1], [x/v] = [L / (LT^-1)] = [T]. For subtraction to be dimensionally valid, [k] = [x/v] = [T].",
+    "videoUrl": "https://www.youtube.com/embed/hZ71o9nYKiM?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=9&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&gporigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Fcohort-selection&vf=1"
   }
 ]

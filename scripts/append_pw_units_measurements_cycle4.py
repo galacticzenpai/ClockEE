@@ -7,17 +7,6 @@ master_file = 'pw_extracted_master.json'
 
 master = json.load(open(master_file, 'r', encoding='utf-8'))
 
-def clean_statement(stmt):
-    # Remove leading question number and type if present
-    s = re.sub(r'^\d{1,2}\s*\n(Type\s*:\s*[^\n]+\n)?', '', stmt).strip()
-    idx = s.find('\nSolution\n')
-    if idx != -1:
-        s = s[:idx].strip()
-    idx2 = s.find('\n1\n')
-    if idx2 != -1:
-        s = s[:idx2].strip()
-    return s
-
 def normalize(t):
     return re.sub(r'\s+', ' ', (t or '')).strip().lower()
 
@@ -42,10 +31,6 @@ def add_item(item):
     if not isinstance(item, dict): return
     qn = item.get('qNum') or item.get('questionNumber') or item.get('qnum')
     stmt = (item.get('statement') or item.get('questionText') or '').strip()
-    if not qn and stmt:
-        m = re.match(r'^(\d{1,2})\s*\n', stmt)
-        if m:
-            qn = int(m.group(1))
     if qn and stmt and qn not in all_harvested:
         all_harvested[qn] = item
 
@@ -76,12 +61,11 @@ print(f"Total raw questions assembled from Cycle 4: {len(all_harvested)}")
 
 new_added = 0
 duplicates = 0
-letter_map = {1: 'A', 2: 'B', 3: 'C', 4: 'D'}
+letter_map = {1: 'A', 2: 'B', 3: 'C', 4: 'D', 5: 'E'}
 
 for qn in sorted(all_harvested.keys()):
     item = all_harvested[qn]
-    raw_stmt = (item.get('statement') or item.get('questionText') or '').strip()
-    stmt = clean_statement(raw_stmt)
+    stmt = (item.get('statement') or item.get('questionText') or '').strip()
     stem = normalize(stmt)[:80]
     if not stmt or not stem or len(stem) < 5:
         continue
@@ -97,56 +81,62 @@ for qn in sorted(all_harvested.keys()):
     # Process options
     raw_opts = item.get('options', [])
     processed_opts = []
-    correct_key = item.get('correctAnswerKey', '')
+    correct_letters = []
     correct_text = ""
     
     for idx, opt in enumerate(raw_opts):
         opt_idx = opt.get('optionIndex', opt.get('index', idx + 1))
         opt_key = opt.get('optionKey', opt.get('label', letter_map.get(opt_idx, chr(ord('A') + idx))))
         opt_text = (opt.get('optionText') or opt.get('text') or '').strip()
-        # Clean leading option number e.g. '1 watt - hour ...'
-        opt_text = re.sub(r'^\d\s+', '', opt_text)
-        opt_pct = opt.get('studentPercentage') or opt.get('percentage') or opt.get('percent') or opt.get('markedPercentage') or '25.0%'
+        
+        # Clean leading option number/labels e.g. "1 meter" -> "meter"
+        opt_text_clean = re.sub(r'^\d+\s+', '', opt_text).strip()
+        
+        # Percentage
+        opt_pct = opt.get('percent') or opt.get('studentPercentage') or opt.get('percentage') or opt.get('markedPercentage') or '25.0%'
         if opt_pct and '%' not in str(opt_pct):
             opt_pct = f"{opt_pct}%"
             
         is_corr = opt.get('isCorrect', False)
-        if correct_key and (opt_key in correct_key or str(opt_idx) in correct_key):
-            is_corr = True
-            
-        if is_corr and not correct_text:
-            correct_text = opt_text
-            
+        if is_corr:
+            correct_letters.append(opt_key)
+            if not correct_text:
+                correct_text = opt_text_clean
+                
         processed_opts.append({
             "optionNumber": opt_idx,
-            "optionText": opt_text,
+            "optionText": opt_text_clean or opt_text,
             "isCorrect": is_corr,
             "studentPercentage": str(opt_pct) if opt_pct else '25.0%'
         })
         
-    # Ensure at least one correct option
-    if not any(o['isCorrect'] for o in processed_opts) and processed_opts:
+    correct_key_str = ",".join(correct_letters) if correct_letters else 'A'
+    if not correct_letters and processed_opts:
         processed_opts[0]['isCorrect'] = True
         correct_text = processed_opts[0]['optionText']
-        correct_key = 'A'
+        correct_key_str = 'A'
         
-    accuracy_str = item.get('accuracy') or item.get('overallAccuracy') or '50.0%'
+    # Solution handling
+    sol_obj = item.get('solution')
+    if isinstance(sol_obj, dict):
+        sol_text = sol_obj.get('text', '')
+    elif isinstance(sol_obj, str):
+        sol_text = sol_obj
+    else:
+        sol_text = item.get('explanation') or item.get('solutionText') or ''
+    sol_text = sol_text.strip()
+    if not sol_text:
+        sol_text = f"The correct answer is Option {correct_key_str}: {correct_text}."
+        
+    accuracy_str = item.get('overallAccuracy') or item.get('accuracy') or '50.0%'
     if accuracy_str and '%' not in str(accuracy_str):
         accuracy_str = f"{accuracy_str}%"
         
     m_acc = re.search(r'([\d\.]+)%', str(accuracy_str))
     acc_val = float(m_acc.group(1)) if m_acc else 50.0
-    diff = item.get('difficulty') or ("Easy" if acc_val >= 65.0 else ("Hard" if acc_val < 35.0 else "Medium"))
+    diff = "Easy" if acc_val >= 65.0 else ("Hard" if acc_val < 35.0 else "Medium")
     
-    sol_val = item.get('explanation') or item.get('solution') or item.get('solutionText') or ''
-    if isinstance(sol_val, dict):
-        sol = str(sol_val.get('text') or sol_val).strip()
-    else:
-        sol = str(sol_val).strip()
-    if not sol:
-        sol = f"The correct answer is Option {correct_key}: {correct_text}."
-        
-    imgs = item.get('diagramUrls') or item.get('imgUrls') or item.get('questionImages') or []
+    imgs = item.get('images') or item.get('imgUrls') or item.get('diagramUrls') or []
     
     entry = {
         "id": new_id,
@@ -157,11 +147,11 @@ for qn in sorted(all_harvested.keys()):
         "statement": stmt,
         "statementImages": imgs if isinstance(imgs, list) else [imgs],
         "options": processed_opts,
-        "correctOption": correct_key,
+        "correctOption": correct_key_str,
         "correctAnswer": correct_text,
         "accuracy": str(accuracy_str),
         "difficulty": diff,
-        "solutionText": sol
+        "solutionText": sol_text
     }
     
     master.append(entry)

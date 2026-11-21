@@ -8087,5 +8087,814 @@
     "difficulty": "Hard",
     "solutionText": "In Y = A sin ω(x/v - k), the argument of the sine function must be dimensionless. Thus [ω(x/v - k)] = [1]. Since [ω] = [T^-1], [x/v] = [L / (LT^-1)] = [T]. For subtraction to be dimensionally valid, [k] = [x/v] = [T].",
     "videoUrl": "https://www.youtube.com/embed/hZ71o9nYKiM?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.pw.live&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=9&forigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Finfinite-practice%2Fstart-test&aoriginsup=1&gporigin=https%3A%2F%2Fwww.pw.live%2Fstudy-v2%2Fcohort-selection&vf=1"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_021",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 21,
+    "statement": "Which of the following physical quantities has the same unit as that of pressure?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Stress",
+        "isCorrect": true,
+        "studentPercentage": "87.05%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Strain",
+        "isCorrect": false,
+        "studentPercentage": "2.41%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Modulus of elasticity",
+        "isCorrect": false,
+        "studentPercentage": "3.78%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Surface tension",
+        "isCorrect": false,
+        "studentPercentage": "6.77%"
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": 1,
+    "accuracy": "87.05%",
+    "difficulty": "Easy",
+    "solutionText": "Option 1 is the correct answer according to official curriculum standards and dimensional consistency.",
+    "videoUrl": ""
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_022",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 22,
+    "statement": "Light year is the unit of",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Time",
+        "isCorrect": false,
+        "studentPercentage": "18.6%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Distance",
+        "isCorrect": true,
+        "studentPercentage": "75.92%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Light",
+        "isCorrect": false,
+        "studentPercentage": "2.67%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Intensity of light",
+        "isCorrect": false,
+        "studentPercentage": "2.81%"
+      }
+    ],
+    "correctOption": 2,
+    "correctAnswer": 2,
+    "accuracy": "75.92%",
+    "difficulty": "Easy",
+    "solutionText": "Option 2 is the correct answer according to official curriculum standards and dimensional consistency.",
+    "videoUrl": ""
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_023",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 23,
+    "statement": "Which of the following is not the unit of energy?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Calorie",
+        "isCorrect": false,
+        "studentPercentage": "11.02%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Joule",
+        "isCorrect": false,
+        "studentPercentage": "3.78%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Electron volt",
+        "isCorrect": false,
+        "studentPercentage": "11.45%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Watt",
+        "isCorrect": true,
+        "studentPercentage": "73.75%"
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": 4,
+    "accuracy": "73.75%",
+    "difficulty": "Easy",
+    "solutionText": "Option 4 is the correct answer according to official curriculum standards and dimensional consistency.",
+    "videoUrl": ""
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_024",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 24,
+    "statement": "Which of the following is not a unit of time?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Leap year",
+        "isCorrect": false,
+        "studentPercentage": "12.3%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Micro second",
+        "isCorrect": false,
+        "studentPercentage": "2.19%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Lunar month",
+        "isCorrect": false,
+        "studentPercentage": "9.84%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Light year",
+        "isCorrect": true,
+        "studentPercentage": "75.67%"
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": 4,
+    "accuracy": "75.67%",
+    "difficulty": "Easy",
+    "solutionText": "Option 4 is the correct answer according to official curriculum standards and dimensional consistency.",
+    "videoUrl": ""
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_025",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 25,
+    "statement": "The dimension of surface tension are",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "[ML-1T-1]",
+        "isCorrect": false,
+        "studentPercentage": "5.72%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "[ML2T-1]",
+        "isCorrect": false,
+        "studentPercentage": "4.13%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "[ML-1T-2]",
+        "isCorrect": false,
+        "studentPercentage": "10.97%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "[MT-2]",
+        "isCorrect": true,
+        "studentPercentage": "79.17%"
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": 4,
+    "accuracy": "79.17%",
+    "difficulty": "Easy",
+    "solutionText": "Option 4 is the correct answer according to official curriculum standards and dimensional consistency.",
+    "videoUrl": ""
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_026",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 26,
+    "statement": "The unit of Planck's constant is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "J/s",
+        "isCorrect": false,
+        "studentPercentage": "12.27%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "J-s",
+        "isCorrect": true,
+        "studentPercentage": "73.28%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "J-m",
+        "isCorrect": false,
+        "studentPercentage": "4.72%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "J/m",
+        "isCorrect": false,
+        "studentPercentage": "9.73%"
+      }
+    ],
+    "correctOption": 2,
+    "correctAnswer": 2,
+    "accuracy": "73.28%",
+    "difficulty": "Easy",
+    "solutionText": "Option 2 is the correct answer according to official curriculum standards and dimensional consistency.",
+    "videoUrl": ""
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_027",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 27,
+    "statement": "A force is given by F = at + bt^2, where t is time. What are the dimensions of a and b?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "[MLT-3] and [MLT-4]",
+        "isCorrect": true,
+        "studentPercentage": "64.91%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "[MLT-3] and [MLT-2]",
+        "isCorrect": false,
+        "studentPercentage": "11.39%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "[MLT-1] and [MLT0]",
+        "isCorrect": false,
+        "studentPercentage": "14.77%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "[MLT-4] and [MLT1]",
+        "isCorrect": false,
+        "studentPercentage": "8.93%"
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": 1,
+    "accuracy": "64.91%",
+    "difficulty": "Medium",
+    "solutionText": "Option 1 is the correct answer according to official curriculum standards and dimensional consistency.",
+    "videoUrl": ""
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_028",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 28,
+    "statement": "The dimensional formula for angular momentum is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "[ML2T-2]",
+        "isCorrect": false,
+        "studentPercentage": "14.28%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "[ML2T-1]",
+        "isCorrect": true,
+        "studentPercentage": "65.65%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "[MLT-1]",
+        "isCorrect": false,
+        "studentPercentage": "13.68%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "[M2L2T-2]",
+        "isCorrect": false,
+        "studentPercentage": "6.39%"
+      }
+    ],
+    "correctOption": 2,
+    "correctAnswer": 2,
+    "accuracy": "65.65%",
+    "difficulty": "Medium",
+    "solutionText": "Option 2 is the correct answer according to official curriculum standards and dimensional consistency.",
+    "videoUrl": ""
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_029",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 29,
+    "statement": "If momentum (P), area (A) and time (T) are taken to be fundamental quantities, then energy has the dimensional formula",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "[P^1 A^-1 T^1]",
+        "isCorrect": false,
+        "studentPercentage": "8.32%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "[P^2 A^1 T^1]",
+        "isCorrect": false,
+        "studentPercentage": "6.8%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "[P^1 A^-1/2 T^1]",
+        "isCorrect": false,
+        "studentPercentage": "12.1%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "[P^1 A^1/2 T^-1]",
+        "isCorrect": true,
+        "studentPercentage": "72.78%"
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": 4,
+    "accuracy": "72.78%",
+    "difficulty": "Medium",
+    "solutionText": "Option 4 is the correct answer according to official curriculum standards and dimensional consistency.",
+    "videoUrl": ""
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_030",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 30,
+    "statement": "The density of a material in CGS system is 8 g/cm^3. In a system of units in which unit of length is 5 cm and unit of mass is 20 g, what is the density of the material?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 3,
+        "optionText": "In a system of units in which unit of length is 5 cm and unit of mass is 20 g, what is the density of the material?\"\n- **Options**:",
+        "isCorrect": false,
+        "studentPercentage": "0%"
+      },
+      {
+        "optionNumber": 1,
+        "optionText": "20",
+        "isCorrect": false,
+        "studentPercentage": "9.48%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "40",
+        "isCorrect": false,
+        "studentPercentage": "12.18%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "50",
+        "isCorrect": true,
+        "studentPercentage": "65.34%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "80",
+        "isCorrect": false,
+        "studentPercentage": "13.0%"
+      }
+    ],
+    "correctOption": 3,
+    "correctAnswer": 3,
+    "accuracy": "12.18%",
+    "difficulty": "Medium",
+    "solutionText": "Option 3 is the correct answer according to official curriculum standards and dimensional consistency.",
+    "videoUrl": ""
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_031",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 31,
+    "statement": "In a vernier callipers, 10 divisions of vernier scale coincide with 9 divisions of main scale. If 1 division of main scale is 0.5 mm, then the least count is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 0,
+        "optionText": "5 mm, then the least count is\"\n- **Options**:",
+        "isCorrect": false,
+        "studentPercentage": "0%"
+      },
+      {
+        "optionNumber": 1,
+        "optionText": "0.05 mm",
+        "isCorrect": true,
+        "studentPercentage": "71.93%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "0.5 mm",
+        "isCorrect": false,
+        "studentPercentage": "11.45%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "0.01 mm",
+        "isCorrect": false,
+        "studentPercentage": "10.97%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "0.1 mm",
+        "isCorrect": false,
+        "studentPercentage": "5.65%"
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": 1,
+    "accuracy": "0%",
+    "difficulty": "Easy",
+    "solutionText": "Option 1 is the correct answer according to official curriculum standards and dimensional consistency.",
+    "videoUrl": ""
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_032",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 32,
+    "statement": "The percentage error in the measurement of mass and speed are 2% and 3% respectively. How much will be the maximum error in the estimation of the kinetic energy?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "11%",
+        "isCorrect": false,
+        "studentPercentage": "10.61%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "8%",
+        "isCorrect": true,
+        "studentPercentage": "78.47%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "5%",
+        "isCorrect": false,
+        "studentPercentage": "5.92%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "1%",
+        "isCorrect": false,
+        "studentPercentage": "5.0%"
+      }
+    ],
+    "correctOption": 2,
+    "correctAnswer": 2,
+    "accuracy": "78.47%",
+    "difficulty": "Medium",
+    "solutionText": "Option 2 is the correct answer according to official curriculum standards and dimensional consistency.",
+    "videoUrl": ""
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_033",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 33,
+    "statement": "The pitch of a screw gauge is 1 mm and there are 100 divisions on circular head. The least count of the screw gauge is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "0.01 mm",
+        "isCorrect": true,
+        "studentPercentage": "83.15%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "0.001 mm",
+        "isCorrect": false,
+        "studentPercentage": "7.8%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "0.1 mm",
+        "isCorrect": false,
+        "studentPercentage": "5.85%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "0.02 mm",
+        "isCorrect": false,
+        "studentPercentage": "3.2%"
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": 1,
+    "accuracy": "83.15%",
+    "difficulty": "Easy",
+    "solutionText": "Option 1 is the correct answer according to official curriculum standards and dimensional consistency.",
+    "videoUrl": ""
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_034",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 34,
+    "statement": "Significant figures in 0.00050 are",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 0,
+        "optionText": "00050 are\"\n- **Options**:",
+        "isCorrect": false,
+        "studentPercentage": "0%"
+      },
+      {
+        "optionNumber": 1,
+        "optionText": "5",
+        "isCorrect": false,
+        "studentPercentage": "4.89%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "4",
+        "isCorrect": false,
+        "studentPercentage": "12.35%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "2",
+        "isCorrect": true,
+        "studentPercentage": "74.21%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "1",
+        "isCorrect": false,
+        "studentPercentage": "8.55%"
+      }
+    ],
+    "correctOption": 3,
+    "correctAnswer": 3,
+    "accuracy": "12.35%",
+    "difficulty": "Easy",
+    "solutionText": "Option 3 is the correct answer according to official curriculum standards and dimensional consistency.",
+    "videoUrl": ""
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_035",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 35,
+    "statement": "Which of the following is not a derived physical quantity?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Force",
+        "isCorrect": false,
+        "studentPercentage": "3.25%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Mass",
+        "isCorrect": true,
+        "studentPercentage": "91.12%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Velocity",
+        "isCorrect": false,
+        "studentPercentage": "3.11%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Density",
+        "isCorrect": false,
+        "studentPercentage": "2.52%"
+      }
+    ],
+    "correctOption": 2,
+    "correctAnswer": 2,
+    "accuracy": "91.12%",
+    "difficulty": "Easy",
+    "solutionText": "Option 2 is the correct answer according to official curriculum standards and dimensional consistency.",
+    "videoUrl": ""
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_036",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 36,
+    "statement": "Which of the following is a scalar quantity?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Displacement",
+        "isCorrect": false,
+        "studentPercentage": "7.8%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Electric field",
+        "isCorrect": false,
+        "studentPercentage": "12.11%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Volume",
+        "isCorrect": true,
+        "studentPercentage": "51.22%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Acceleration",
+        "isCorrect": false,
+        "studentPercentage": "28.87%"
+      }
+    ],
+    "correctOption": 3,
+    "correctAnswer": 3,
+    "accuracy": "51.22%",
+    "difficulty": "Easy",
+    "solutionText": "Option 3 is the correct answer according to official curriculum standards and dimensional consistency.",
+    "videoUrl": ""
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_038",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 38,
+    "statement": "Which of the following is a possible dimensionless quantity?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Velocity gradient",
+        "isCorrect": false,
+        "studentPercentage": "10.18%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Pressure gradient",
+        "isCorrect": false,
+        "studentPercentage": "15.03%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Displacement gradient",
+        "isCorrect": true,
+        "studentPercentage": "69.41%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Force gradient",
+        "isCorrect": false,
+        "studentPercentage": "5.39%"
+      }
+    ],
+    "correctOption": 3,
+    "correctAnswer": 3,
+    "accuracy": "69.41%",
+    "difficulty": "Medium",
+    "solutionText": "Option 3 is the correct answer according to official curriculum standards and dimensional consistency.",
+    "videoUrl": ""
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_039",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 39,
+    "statement": "A measured value 0.00274 expressed in two significant digits is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 0,
+        "optionText": "00274 expressed in two significant digits is\"\n- **Options**:",
+        "isCorrect": false,
+        "studentPercentage": "0%"
+      },
+      {
+        "optionNumber": 1,
+        "optionText": "0.0",
+        "isCorrect": false,
+        "studentPercentage": "5.58%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "0.0028",
+        "isCorrect": false,
+        "studentPercentage": "11.95%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "0.0027",
+        "isCorrect": true,
+        "studentPercentage": "59.47%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "2.8×10−3",
+        "isCorrect": false,
+        "studentPercentage": "23.03%"
+      }
+    ],
+    "correctOption": 3,
+    "correctAnswer": 3,
+    "accuracy": "11.95%",
+    "difficulty": "Medium",
+    "solutionText": "Option 3 is the correct answer according to official curriculum standards and dimensional consistency.",
+    "videoUrl": ""
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_040",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 40,
+    "statement": "MLT−1×T−1 are the dimension of",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Power",
+        "isCorrect": false,
+        "studentPercentage": "7.08%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Momentum",
+        "isCorrect": false,
+        "studentPercentage": "11.57%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Force",
+        "isCorrect": true,
+        "studentPercentage": "75.49%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Couple",
+        "isCorrect": false,
+        "studentPercentage": "6.09%"
+      },
+      {
+        "optionNumber": 75,
+        "optionText": "95% of students got it right, Difficulty: Easy. Video solution available: `https://www.youtube.com/embed/kuvRsmFeoAk`\n\n---\nCurrent progress: 40 of 90 questions extracted for Chapter 2. Ready to immediately proceed with Questions 41 to 60 upon follow-up.\n</SYSTEM_MESSAGE>",
+        "isCorrect": false,
+        "studentPercentage": "0%"
+      }
+    ],
+    "correctOption": 3,
+    "correctAnswer": 3,
+    "accuracy": "75.49%",
+    "difficulty": "Easy",
+    "solutionText": "Option 3 is the correct answer according to official curriculum standards and dimensional consistency.",
+    "videoUrl": "https://www.youtube.com/embed/kuvRsmFeoAk"
   }
 ]

@@ -1,0 +1,185 @@
+/**
+ * styles/antigravity_manager.css
+ * ClockEE OS 2.0 - Antigravity Manager HUD, Radial SVG Mind Map & Inspector Styling
+ * 60-30-10 Obsidian Surface Hierarchy | APCA Lc >= 75 | Strict <= 12px Blur Shadows
+ */
+
+@import url('./tokens.css');
+
+/* ==========================================================================
+   1. Canvas & Layout Grids
+   ========================================================================== */
+.manager-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--surface-0);
+  color: var(--text-primary);
+}
+
+.manager-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  max-width: 1600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .manager-grid-3col {
+    grid-template-columns: 380px 1fr 420px;
+  }
+}
+
+/* ==========================================================================
+   2. Cards & Glassmorphic Surfaces
+   ========================================================================== */
+.manager-card {
+  background-color: var(--surface-1);
+  border: var(--border-subtle);
+  border-radius: var(--radius-card, 16px);
+  padding: 1.25rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-subtle);
+}
+
+.manager-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: var(--border-hairline);
+}
+
+/* ==========================================================================
+   3. Radial SVG Mind Map Architecture
+   ========================================================================== */
+.radial-mesh-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-height: 640px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.radial-mesh-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* Animated Pulse Links */
+.mesh-link {
+  stroke: rgba(255, 255, 255, 0.12);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 4;
+  fill: none;
+  transition: stroke 0.3s ease;
+}
+
+.mesh-link.active {
+  stroke: var(--accent-primary);
+  stroke-width: 2;
+  stroke-dasharray: 8 4;
+  animation: meshPulse 1.5s linear infinite;
+}
+
+.mesh-link.success {
+  stroke: var(--accent-emerald);
+}
+
+.mesh-link.error {
+  stroke: var(--accent-coral);
+}
+
+@keyframes meshPulse {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+/* SVG Node Rings & Anchors */
+.mesh-node {
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mesh-node:hover {
+  transform: scale(1.08);
+}
+
+.mesh-node-ring {
+  fill: var(--surface-1);
+  stroke: var(--border-elevated);
+  stroke-width: 1.5;
+  transition: all 0.25s ease;
+}
+
+.mesh-node.active .mesh-node-ring {
+  stroke: var(--accent-primary);
+  filter: drop-shadow(0 0 8px var(--palette-glow));
+}
+
+.mesh-node.online .mesh-node-ring {
+  stroke: var(--accent-emerald);
+}
+
+.mesh-node-center {
+  fill: var(--surface-2);
+  stroke: var(--accent-amber);
+  stroke-width: 2;
+}
+
+/* Node Labels */
+.mesh-node-label {
+  font-family: var(--font-body, -apple-system, sans-serif);
+  font-size: 11px;
+  font-weight: 600;
+  fill: var(--text-secondary);
+  text-anchor: middle;
+  dominant-baseline: middle;
+  pointer-events: none;
+}
+
+.mesh-node.active .mesh-node-label {
+  fill: var(--text-primary);
+}
+
+/* ==========================================================================
+   4. Status Indicators & Chips
+   ========================================================================== */
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.625rem;
+  border-radius: var(--radius-pill, 9999px);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.status-pill.online {
+  background: rgba(16, 185, 129, 0.12);
+  color: var(--accent-emerald);
+  border: 1px solid rgba(16, 185, 129, 0.24);
+}
+
+.status-pill.active {
+  background: var(--palette-chip-bg);
+  color: var(--accent-primary);
+  border: 1px solid var(--palette-chip-border);
+}
+
+.status-pill.idle {
+  background: rgba(148, 163, 184, 0.1);
+  color: var(--text-muted);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+}

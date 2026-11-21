@@ -8,6 +8,16 @@
 simulation_error_report.json
 planning_agent_prompt.md
 GITHUB_SYNC_GUIDE.md
+mesh/
+mesh_registry.json
+dossiers/
+antigravity_manager.html
+styles/antigravity_manager.css
+scripts/generate_manager_state.py
+scripts/serve_antigravity_cockpit.py
+scripts/test_antigravity_manager.js
+scripts/trello_labels_config.json
+
 
 # Local SQLite databases & lockfiles
 clockee.db

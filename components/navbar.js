@@ -163,7 +163,7 @@
     if (path.includes('coaching')) return 'coaching';
     if (path.includes('cbt') || path.includes('mistakes') || path.includes('notebooks') || path.includes('reference')) return 'cbt';
     if (path.includes('inspiration')) return 'inspiration';
-    if (path.includes('settings') || path.includes('admin') || path.includes('live_tracker') || path.includes('tracker')) return 'settings';
+    if (path.includes('settings') || path.includes('admin')) return 'settings';
     return 'home';
   }
 
@@ -210,7 +210,7 @@
 
           <!-- Center Nav Links with Dropdowns (Pruned Clean 5-Section Architecture) -->
           <nav class="hidden lg:flex items-center gap-1 xl:gap-2 flex-shrink min-w-0" id="main-nav" aria-label="Master Navigation">
-            <a href="index.html" data-nav="home" class="nav-btn ${activeSec === 'home' ? 'nav-active' : ''}">Cockpit</a>
+            <a href="index.html" data-nav="home" class="nav-btn ${activeSec === 'home' ? 'nav-active' : ''}">Dashboard</a>
             <a href="task.html" data-nav="task" class="nav-btn ${activeSec === 'task' ? 'nav-active' : ''}">Tasks &amp; DPP</a>
 
             <!-- Timer Dropdown -->
@@ -328,10 +328,6 @@
                   <svg class="w-3.5 h-3.5 text-[#0a84ff]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                   <span>Profile &amp; Identity</span>
                 </a>
-                <a href="live_tracker.html" class="nav-dropdown-item">
-                  <svg class="w-3.5 h-3.5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
-                  <span>Mesh Cockpit &amp; Telemetry</span>
-                </a>
               </div>
             </div>
 
@@ -367,13 +363,13 @@
             </div>
 
             <!-- Live Edge Connection Status Pill -->
-            <a href="live_tracker.html" id="edge-connection-pill" class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-950/60 border border-emerald-500/40 text-[11px] font-mono font-bold text-emerald-400 hover:border-emerald-400 transition" title="Connected to Vercel Edge &amp; Supabase Cloud Mesh">
+            <div id="edge-connection-pill" class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-950/60 border border-emerald-500/40 text-[11px] font-mono font-bold text-emerald-400" title="Connected to Vercel Edge &amp; Supabase Cloud">
               <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
               <span>EDGE LIVE</span>
-            </a>
+            </div>
 
             <!-- Tour Launcher -->
-            <button id="btnNavTourCockpit" class="hidden md:inline-flex px-2.5 py-1 rounded-full bg-cyan-950/80 border border-cyan-400/50 text-cyan-300 hover:bg-cyan-900 text-xs font-black items-center gap-1.5 transition cursor-pointer" onclick="window.showCockpitTourMenu ? window.showCockpitTourMenu() : alert('Tour initialized')" title="Open Interactive Cockpit Tour Menu">
+            <button id="btnNavTourCockpit" class="hidden md:inline-flex px-2.5 py-1 rounded-full bg-cyan-950/80 border border-cyan-400/50 text-cyan-300 hover:bg-cyan-900 text-xs font-black items-center gap-1.5 transition cursor-pointer" onclick="window.showCockpitTourMenu ? window.showCockpitTourMenu() : alert('Tour initialized')" title="Open Interactive Tour Menu">
               <span class="animate-pulse">🚀</span>
               <span>Tour</span>
             </button>

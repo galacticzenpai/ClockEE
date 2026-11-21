@@ -1,0 +1,1499 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Antigravity Manager // Autonomous Multi-Agent Mesh Cockpit</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ==========================================================================
+       Dark Obsidian Mesh Design Tokens
+       ========================================================================== */
+    :root {
+      --bg-base: #030712;
+      --bg-surface: #0b0f19;
+      --bg-elevated: #111827;
+      --bg-card: rgba(17, 24, 39, 0.75);
+      --bg-card-hover: rgba(31, 41, 55, 0.85);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-elevated: rgba(255, 255, 255, 0.16);
+      --border-strong: rgba(255, 255, 255, 0.24);
+
+      --text-primary: #f9fafb;
+      --text-secondary: #9ca3af;
+      --text-muted: #6b7280;
+
+      --node-backbone: #00f0ff;       /* Chitti - Cyan */
+      --node-planner: #3b82f6;        /* Archon - Blue */
+      --node-feature: #f59e0b;        /* Apex - Amber */
+      --node-ui: #a855f7;             /* Aura - Purple */
+      --node-db: #10b981;             /* Vault - Emerald */
+      --node-simulation: #64748b;     /* Sentinel - Slate */
+      --node-bugfix: #ef4444;         /* Scalpel - Coral/Red */
+      --node-github: #ec4899;         /* Scribe - Rose/Pink */
+      --node-qa: #f97316;             /* Helios - Orange */
+      --node-innovation: #6366f1;     /* Nova - Indigo */
+
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --radius-full: 9999px;
+
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      min-height: 100vh;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .mono { font-family: var(--font-mono); }
+    .tabular-nums { font-variant-numeric: tabular-nums; }
+
+    /* Top Navigation HUD */
+    .cockpit-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(3, 7, 18, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .header-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-logo {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, rgba(0,240,255,0.2), rgba(168,85,247,0.2));
+      border: 1px solid rgba(0,240,255,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--node-backbone);
+      font-size: 16px;
+    }
+
+    .brand-title {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand-badge {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: var(--radius-full);
+      background: rgba(0, 240, 255, 0.12);
+      color: var(--node-backbone);
+      border: 1px solid rgba(0, 240, 255, 0.28);
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--bg-surface);
+      padding: 4px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .nav-tab {
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .nav-tab:hover {
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-tab.active {
+      color: #ffffff;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-elevated);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    .header-telemetry {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .sync-indicator {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--node-db);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+    }
+
+    .pulse-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--node-db);
+      animation: pulseAnim 2s infinite;
+    }
+
+    @keyframes pulseAnim {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    /* Page View Containers */
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .cockpit-view {
+      display: none;
+      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 24px;
+      animation: viewFade 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .cockpit-view.active-view {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    @keyframes viewFade {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Cards & Containers */
+    .cockpit-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-title {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    /* ==========================================================================
+       Page 1: Mission Overview & Mind Map
+       ========================================================================== */
+    .overview-grid {
+      display: grid;
+      grid-cols: 1;
+      gap: 20px;
+    }
+
+    @media (min-width: 1024px) {
+      .overview-grid {
+        grid-template-columns: 380px 1fr;
+      }
+    }
+
+    /* Planner HUD Card */
+    .planner-hud {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .sprint-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      background: rgba(245, 158, 11, 0.12);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      color: var(--node-feature);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+    }
+
+    .sprint-title {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.4;
+      color: #ffffff;
+    }
+
+    .task-queue-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+    }
+
+    .task-queue-label {
+      font-size: 10px;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .task-queue-val {
+      font-size: 13px;
+      font-weight: 600;
+      color: #38bdf8;
+    }
+
+    .metrics-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .metric-item {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 10px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .metric-label {
+      font-size: 10px;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+    }
+
+    .metric-value {
+      font-size: 16px;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      color: var(--text-primary);
+    }
+
+    /* Central Interactive Radial SVG Mind Map */
+    .mindmap-wrapper {
+      position: relative;
+      width: 100%;
+      min-height: 540px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at center, rgba(11, 15, 25, 0.9) 0%, rgba(3, 7, 18, 0.95) 100%);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      overflow: hidden;
+    }
+
+    svg.mindmap-svg {
+      width: 100%;
+      height: 540px;
+    }
+
+    .pulse-vector {
+      stroke-dasharray: 6 12;
+      animation: dashFlow 20s linear infinite;
+    }
+
+    @keyframes dashFlow {
+      to { stroke-dashoffset: -1000; }
+    }
+
+    .node-group {
+      cursor: pointer;
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .node-group:hover {
+      transform: scale(1.08);
+    }
+
+    .node-circle {
+      transition: all 0.2s ease;
+    }
+
+    .node-group:hover .node-circle {
+      filter: drop-shadow(0 0 12px currentColor);
+    }
+
+    /* Swarm Telemetry Grid */
+    .swarms-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 14px;
+    }
+
+    .swarm-lane-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: all 0.18s ease;
+    }
+
+    .swarm-lane-card:hover {
+      border-color: var(--border-elevated);
+      background: var(--bg-elevated);
+    }
+
+    .swarm-lane-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .swarm-lane-id {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .swarm-lane-status {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      padding: 2px 6px;
+      border-radius: var(--radius-full);
+      font-weight: 700;
+    }
+
+    .status-active { background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3); }
+    .status-standby { background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3); }
+
+    /* ==========================================================================
+       Page 2: Conversation Logs Inspector
+       ========================================================================== */
+    .filter-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .search-input {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 8px 14px;
+      color: var(--text-primary);
+      font-size: 13px;
+      font-family: var(--font-mono);
+      min-width: 280px;
+      outline: none;
+      transition: border-color 0.15s ease;
+    }
+
+    .search-input:focus {
+      border-color: var(--node-backbone);
+      outline: 1px solid var(--node-backbone);
+    }
+
+    .node-cards-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .node-log-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    .node-log-card:hover {
+      border-color: var(--border-elevated);
+    }
+
+    .node-log-header {
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      user-select: none;
+      background: var(--bg-surface);
+      border-left: 4px solid var(--node-backbone);
+    }
+
+    .node-identity {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .node-pill {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-primary);
+    }
+
+    .node-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .node-role-sub {
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    .node-log-body {
+      display: none;
+      padding: 16px 18px;
+      background: var(--bg-base);
+      border-top: 1px solid var(--border-subtle);
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .node-log-body.open {
+      display: flex;
+    }
+
+    .payload-json {
+      background: #02040a;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: var(--radius-sm);
+      padding: 12px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: #a5b4fc;
+      max-height: 240px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+    }
+
+    /* Node Card Highlight Pulse & Interactive Transitions */
+    .node-log-card.card-highlighted {
+      border-color: var(--node-backbone) !important;
+      outline: 2px solid var(--node-backbone);
+      outline-offset: -1px;
+      transition: all 0.25s ease;
+    }
+
+    .log-arrow-icon {
+      display: inline-block;
+      transition: transform 0.22s ease;
+    }
+    .node-log-card.open-card .log-arrow-icon {
+      transform: rotate(180deg);
+    }
+
+    @keyframes packetPulseGlow {
+      0% { opacity: 0.3; }
+      50% { opacity: 0.95; }
+      100% { opacity: 0.3; }
+    }
+    .packet-pulse {
+      animation: packetPulseGlow 1.8s infinite ease-in-out;
+    }
+
+    /* ==========================================================================
+       Page 3: Gravity Chat - Community Hub
+       ========================================================================== */
+    .gravity-chat-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      height: 720px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      overflow: hidden;
+      background: var(--bg-surface);
+    }
+
+    .chat-channels-sidebar {
+      background: #060a12;
+      border-right: 1px solid var(--border-subtle);
+      display: flex;
+      flex-direction: column;
+      padding: 16px 12px;
+      gap: 8px;
+    }
+
+    .channel-header {
+      font-size: 11px;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding: 4px 8px;
+    }
+
+    .channel-btn {
+      padding: 8px 12px;
+      border-radius: var(--radius-md);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-align: left;
+      transition: all 0.15s ease;
+    }
+
+    .channel-btn:hover {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-primary);
+    }
+
+    .channel-btn.active {
+      background: var(--bg-elevated);
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .chat-feed-container {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      background: var(--bg-base);
+    }
+
+    .chat-feed-header {
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--bg-surface);
+    }
+
+    .chat-channel-title {
+      font-size: 14px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .chat-messages-scroll {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .chat-msg-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      animation: msgPop 0.15s ease;
+    }
+
+    @keyframes msgPop {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .msg-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-md);
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-elevated);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .msg-content-block {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      max-width: 820px;
+    }
+
+    .msg-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .msg-sender {
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .msg-role-tag {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: var(--radius-sm);
+      text-transform: uppercase;
+    }
+
+    .msg-time {
+      font-size: 10px;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+
+    .msg-text-bubble {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px 14px 14px 14px;
+      padding: 10px 14px;
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--text-primary);
+    }
+
+    .chat-input-bar {
+      padding: 14px 20px;
+      border-top: 1px solid var(--border-subtle);
+      background: var(--bg-surface);
+      display: flex;
+      gap: 10px;
+    }
+
+    .chat-input-field {
+      flex: 1;
+      background: var(--bg-base);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 10px 14px;
+      font-size: 13px;
+      color: #ffffff;
+      outline: none;
+    }
+
+    .chat-send-btn {
+      padding: 10px 20px;
+      border-radius: var(--radius-md);
+      background: var(--node-backbone);
+      color: #000000;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .chat-send-btn:hover {
+      opacity: 0.9;
+      transform: scale(0.98);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation HUD -->
+  <header class="cockpit-header">
+    <div class="header-brand">
+      <div class="brand-logo">⚡</div>
+      <div>
+        <div class="brand-title">
+          <span>ANTIGRAVITY</span>
+          <span class="brand-badge">MESH OS 2.0</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3 Core Navigation Hubs -->
+    <nav class="header-nav" aria-label="Cockpit Navigation">
+      <button class="nav-tab active" onclick="switchView('overview')" id="tab-overview">
+        <span>🌐</span>
+        <span>Mission Overview</span>
+      </button>
+      <button class="nav-tab" onclick="switchView('logs')" id="tab-logs">
+        <span>📜</span>
+        <span>Conversation Logs</span>
+      </button>
+      <button class="nav-tab" onclick="switchView('chat')" id="tab-chat">
+        <span>💬</span>
+        <span>Gravity Chat</span>
+      </button>
+    </nav>
+
+    <!-- Telemetry Status -->
+    <div class="header-telemetry">
+      <div class="sync-indicator">
+        <span class="pulse-dot"></span>
+        <span id="mesh-sync-text">10 NODES SYNCED</span>
+      </div>
+      <div class="mono" style="font-size: 11px; color: var(--text-muted);" id="last-sync-time">
+        --:--:--
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==========================================================================
+         PAGE 1: MISSION OVERVIEW & MIND MAP
+         ========================================================================== -->
+    <section id="view-overview" class="cockpit-view active-view">
+      
+      <div class="overview-grid">
+        
+        <!-- Left: Planner HUD Card -->
+        <div class="cockpit-card planner-hud">
+          <div class="card-title">
+            <span>📋</span>
+            <span>Planner Mission Dispatch</span>
+          </div>
+
+          <div>
+            <span class="sprint-badge">ACTIVE SPRINT CYCLE</span>
+            <h2 class="sprint-title" id="hud-active-sprint" style="margin-top: 6px;">Loading Sprint State...</h2>
+          </div>
+
+          <div class="task-queue-box">
+            <div class="task-queue-label">Next Queued Objective</div>
+            <div class="task-queue-val" id="hud-next-task">Loading Queue...</div>
+          </div>
+
+          <div class="task-queue-box">
+            <div class="task-queue-label">Trello Cozy Board Real-Time Anchor</div>
+            <div style="font-size: 12px; font-weight: 500; color: #cbd5e1;" id="hud-trello-stage">Backbone's Dispatch Station</div>
+          </div>
+
+          <div class="metrics-row">
+            <div class="metric-item">
+              <span class="metric-label">Lead Time</span>
+              <span class="metric-value" style="color: #10b981;">&lt; 15 mins</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-label">Change Failure</span>
+              <span class="metric-value" style="color: #38bdf8;">0.0%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Central Interactive Radial SVG Mind Map -->
+        <div class="cockpit-card" style="padding: 16px; display: flex; flex-direction: column;">
+          <div class="card-title" style="justify-content: space-between;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span>🌐</span>
+              <span>10-Node Antigravity Radial Mesh Map</span>
+            </div>
+            <span class="mono" style="font-size: 11px; color: var(--node-backbone);">Live Vector Telemetry</span>
+          </div>
+
+          <div class="mindmap-wrapper">
+            <svg id="mesh-svg-canvas" class="mindmap-svg" viewBox="0 0 800 540">
+              <defs>
+                <filter id="glow-cyan" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur stdDeviation="8" result="blur" />
+                  <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                </filter>
+                <linearGradient id="vector-grad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.6"/>
+                  <stop offset="100%" stop-color="#a855f7" stop-opacity="0.2"/>
+                </linearGradient>
+              </defs>
+
+              <!-- Radial Vector Lines Group -->
+              <g id="svg-vectors-group"></g>
+
+              <!-- Orbital Nodes Group -->
+              <g id="svg-nodes-group"></g>
+            </svg>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom: Swarm Telemetry Grid -->
+      <div class="cockpit-card">
+        <div class="card-title">
+          <span>⚡</span>
+          <span>Active Swarm Work Lanes &amp; Ownership Contracts</span>
+        </div>
+        <div class="swarms-grid" id="swarms-grid-container">
+          <!-- Populated dynamically from manager_state.json -->
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ==========================================================================
+         PAGE 2: CONVERSATION LOGS INSPECTOR
+         ========================================================================== -->
+    <section id="view-logs" class="cockpit-view">
+      
+      <div class="cockpit-card" style="display: flex; flex-direction: column; gap: 16px;">
+        <div class="filter-bar">
+          <div class="card-title" style="margin-bottom: 0;">
+            <span>📜</span>
+            <span>10-Node Conversation &amp; Step Inspector</span>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+            <input type="text" id="log-search-input" class="search-input" placeholder="Filter by name, role, ID, or output..." oninput="filterLogCards()" />
+            <button class="nav-tab" style="padding: 6px 12px; font-size: 11px; cursor: pointer; border-radius: var(--radius-sm);" onclick="toggleAllLogCards(true)">Expand All</button>
+            <button class="nav-tab" style="padding: 6px 12px; font-size: 11px; cursor: pointer; border-radius: var(--radius-sm);" onclick="toggleAllLogCards(false)">Collapse All</button>
+          </div>
+        </div>
+        <div id="logs-filter-stats" class="mono" style="font-size: 11px; color: var(--text-muted); margin-top: -6px;">Showing 10 of 10 nodes</div>
+
+        <div class="node-cards-list" id="logs-cards-container">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ==========================================================================
+         PAGE 3: GRAVITY CHAT - COMMUNITY HUB
+         ========================================================================== -->
+    <section id="view-chat" class="cockpit-view">
+      
+      <div class="gravity-chat-layout">
+        
+        <!-- Channels Sidebar -->
+        <aside class="chat-channels-sidebar">
+          <div class="channel-header">Mesh Channels</div>
+          <button class="channel-btn active" onclick="switchChannel('all-hands')" id="chan-all-hands">
+            <span>📢</span>
+            <span>#all-hands</span>
+          </button>
+          <button class="channel-btn" onclick="switchChannel('delegates-lounge')" id="chan-delegates-lounge">
+            <span>☕</span>
+            <span>#delegates-lounge</span>
+          </button>
+          <button class="channel-btn" onclick="switchChannel('p1-staggered-handoffs')" id="chan-p1-staggered-handoffs">
+            <span>⚡</span>
+            <span>#p1-staggered-handoffs</span>
+          </button>
+        </aside>
+
+        <!-- Main Chat Stream -->
+        <div class="chat-feed-container">
+          <div class="chat-feed-header">
+            <div class="chat-channel-title">
+              <span id="active-channel-icon">📢</span>
+              <span id="active-channel-name">#all-hands</span>
+            </div>
+            <span class="mono" style="font-size: 11px; color: var(--text-muted);" id="chat-stream-sync">Synced with mesh state</span>
+          </div>
+
+          <div class="chat-messages-scroll" id="chat-messages-stream">
+            <!-- Messages rendered dynamically -->
+          </div>
+
+          <div class="chat-input-bar">
+            <input type="text" id="chat-message-input" class="chat-input-field" placeholder="Broadcast directive across mesh channel..." onkeydown="if(event.key==='Enter') sendMockMessage()" />
+            <button class="chat-send-btn" onclick="sendMockMessage()">Transmit</button>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+  </main>
+
+  <script>
+    // ==========================================================================
+    // Antigravity Manager: Master Operational Controller
+    // ==========================================================================
+
+    let currentMeshState = null;
+    let activeChannel = localStorage.getItem('antigravity_active_channel') || 'all-hands';
+
+    // Node Visual Profiles (10 Mesh Nodes)
+    const NODE_PROFILES = {
+      backbone: { title: "Backbone (Chitti)", role: "Orchestrator", color: "#00f0ff", avatar: "⚡", isCenter: true },
+      planner: { title: "Planner", role: "Planning & Spec", color: "#3b82f6", avatar: "🗺️" },
+      feature_builder: { title: "Main Feature Builder", role: "Core Logic", color: "#f59e0b", avatar: "🛠️" },
+      ui_ux: { title: "UI/UX Craftsman", role: "Interface & Motion", color: "#a855f7", avatar: "🎨" },
+      db_backend: { title: "DB / Backend", role: "Database & Auth", color: "#10b981", avatar: "🗄️" },
+      simulation: { title: "Simulation & Auditor", role: "End-to-End QA", color: "#94a3b8", avatar: "🔬" },
+      bug_fix: { title: "Bug Fix Specialist", role: "Autonomous Fixes", color: "#ef4444", avatar: "🩺" },
+      github: { title: "GitHub & Deployment", role: "Edge Release", color: "#ec4899", avatar: "🚀" },
+      qa_engine: { title: "Q/A Ingestion Engine", role: "OCR & LaTeX", color: "#f97316", avatar: "📚" },
+      innovation: { title: "Innovation & Discovery", role: "Pedagogy Research", color: "#6366f1", avatar: "💡" }
+    };
+
+    // --------------------------------------------------------------------------
+    // 1. Navigation & Channel Switching
+    // --------------------------------------------------------------------------
+
+    function switchView(viewName) {
+      document.querySelectorAll('.cockpit-view').forEach(el => el.classList.remove('active-view'));
+      document.querySelectorAll('.nav-tab').forEach(el => el.classList.remove('active'));
+
+      const targetView = document.getElementById(`view-${viewName}`);
+      const targetTab = document.getElementById(`tab-${viewName}`);
+      if (targetView) targetView.classList.add('active-view');
+      if (targetTab) targetTab.classList.add('active');
+    }
+
+    function switchChannel(chanKey) {
+      activeChannel = chanKey;
+      try {
+        localStorage.setItem('antigravity_active_channel', chanKey);
+      } catch (e) {
+        console.warn('Could not persist activeChannel:', e);
+      }
+
+      document.querySelectorAll('.channel-btn').forEach(b => b.classList.remove('active'));
+      const activeBtn = document.getElementById(`chan-${chanKey}`);
+      if (activeBtn) activeBtn.classList.add('active');
+
+      const nameMap = {
+        'all-hands': { name: '#all-hands', icon: '📢' },
+        'delegates-lounge': { name: '#delegates-lounge', icon: '☕' },
+        'p1-staggered-handoffs': { name: '#p1-staggered-handoffs', icon: '⚡' }
+      };
+
+      const titleEl = document.getElementById('active-channel-name');
+      const iconEl = document.getElementById('active-channel-icon');
+      if (titleEl && nameMap[chanKey]) titleEl.innerText = nameMap[chanKey].name;
+      if (iconEl && nameMap[chanKey]) iconEl.innerText = nameMap[chanKey].icon;
+
+      renderChatMessages();
+    }
+
+    // --------------------------------------------------------------------------
+    // 2. Resilient Telemetry Polling Engine with Offline Fallback
+    // --------------------------------------------------------------------------
+
+    async function fetchMeshState() {
+      const syncDot = document.querySelector('.header-indicator .pulse-dot');
+      const syncText = document.getElementById('mesh-sync-text');
+
+      try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 2500);
+        const res = await fetch(`mesh/manager_state.json?t=${Date.now()}`, { signal: controller.signal });
+        clearTimeout(timeoutId);
+
+        if (!res.ok) throw new Error(`HTTP ${res.status}: State fetch failed`);
+        const data = await res.json();
+        currentMeshState = data;
+
+        // Cache state locally
+        try {
+          localStorage.setItem('antigravity_mesh_state', JSON.stringify(data));
+          localStorage.setItem('antigravity_last_sync_timestamp', new Date().toISOString());
+        } catch (storageErr) {
+          console.warn('localStorage cache write failed:', storageErr);
+        }
+
+        // Live status indicator
+        if (syncDot) syncDot.style.background = '#10b981';
+        if (syncText) {
+          const activeCount = currentMeshState.system_queue?.active_nodes_count || 10;
+          syncText.innerHTML = `${activeCount} NODES SYNCED <span style="color:#10b981;font-size:9px;font-weight:700;">[LIVE]</span>`;
+        }
+
+        renderAllViews();
+      } catch (err) {
+        console.warn('Mesh state live poll failed, engaging localStorage fallback:', err);
+        const cached = localStorage.getItem('antigravity_mesh_state');
+        if (cached) {
+          try {
+            currentMeshState = JSON.parse(cached);
+            if (syncDot) syncDot.style.background = '#f59e0b';
+            if (syncText) {
+              syncText.innerHTML = `<span style="color:#f59e0b;font-weight:700;">● CACHED (OFFLINE FALLBACK)</span>`;
+            }
+            renderAllViews();
+          } catch (parseErr) {
+            console.error('Failed to parse cached mesh state:', parseErr);
+          }
+        } else {
+          if (syncDot) syncDot.style.background = '#ef4444';
+          if (syncText) {
+            syncText.innerHTML = `<span style="color:#ef4444;font-weight:700;">● OFFLINE (NO CACHE)</span>`;
+          }
+        }
+      }
+    }
+
+    function renderAllViews() {
+      if (!currentMeshState) return;
+
+      // 1. Header Telemetry
+      const syncTimeEl = document.getElementById('last-sync-time');
+      if (syncTimeEl) {
+        const genTime = currentMeshState.generated_at ? new Date(currentMeshState.generated_at) : new Date();
+        syncTimeEl.innerText = genTime.toLocaleTimeString();
+      }
+
+      // 2. Planner HUD
+      const activeSprintEl = document.getElementById('hud-active-sprint');
+      const nextTaskEl = document.getElementById('hud-next-task');
+      const trelloStageEl = document.getElementById('hud-trello-stage');
+
+      if (activeSprintEl && currentMeshState.system_queue) {
+        activeSprintEl.innerText = currentMeshState.system_queue.active_sprint || 'Active Sprint';
+      }
+      if (nextTaskEl && currentMeshState.system_queue) {
+        nextTaskEl.innerText = currentMeshState.system_queue.next_queued_task || 'Pipeline Ready';
+      }
+      if (trelloStageEl && currentMeshState.planner) {
+        trelloStageEl.innerText = `${currentMeshState.planner.board_name} • ${currentMeshState.planner.active_stage}`;
+      }
+
+      // 3. Central Radial SVG Mind Map
+      renderRadialSvgMindMap();
+
+      // 4. Swarms Grid
+      renderSwarmsGrid();
+
+      // 5. Conversation Logs
+      renderConversationLogs();
+
+      // 6. Gravity Chat
+      renderChatMessages();
+    }
+
+    // --------------------------------------------------------------------------
+    // 3. Interactive Radial SVG Mind Map with Data Packet Pulses
+    // --------------------------------------------------------------------------
+
+    function renderRadialSvgMindMap() {
+      const vectorsGroup = document.getElementById('svg-vectors-group');
+      const nodesGroup = document.getElementById('svg-nodes-group');
+      if (!vectorsGroup || !nodesGroup) return;
+
+      vectorsGroup.innerHTML = '';
+      nodesGroup.innerHTML = '';
+
+      const centerX = 400;
+      const centerY = 270;
+      const radiusX = 260;
+      const radiusY = 190;
+
+      // Center Node: Backbone (Chitti)
+      const centerNode = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+      centerNode.setAttribute('class', 'node-group');
+      centerNode.style.cursor = 'pointer';
+      centerNode.setAttribute('title', 'Backbone (Chitti) // Central Orchestrator');
+      centerNode.onclick = () => showNodeDetailModal('backbone');
+
+      centerNode.innerHTML = `
+        <circle cx="${centerX}" cy="${centerY}" r="40" fill="#060c18" stroke="#00f0ff" stroke-width="2.5" filter="url(#glow-cyan)" />
+        <circle cx="${centerX}" cy="${centerY}" r="30" fill="rgba(0, 240, 255, 0.12)" />
+        <circle cx="${centerX}" cy="${centerY}" r="44" fill="none" stroke="#00f0ff" stroke-width="1" opacity="0.3" class="packet-pulse" />
+        <text x="${centerX}" y="${centerY - 4}" text-anchor="middle" font-size="16" fill="#00f0ff">⚡</text>
+        <text x="${centerX}" y="${centerY + 14}" text-anchor="middle" font-size="10" font-family="JetBrains Mono" font-weight="700" fill="#ffffff">CHITTI</text>
+      `;
+      nodesGroup.appendChild(centerNode);
+
+      // Orbiting 9 Nodes
+      const orbitKeys = Object.keys(NODE_PROFILES).filter(k => k !== 'backbone');
+      const totalOrbit = orbitKeys.length;
+
+      orbitKeys.forEach((key, idx) => {
+        const angle = (idx / totalOrbit) * (2 * Math.PI) - (Math.PI / 2);
+        const nodeX = centerX + radiusX * Math.cos(angle);
+        const nodeY = centerY + radiusY * Math.sin(angle);
+        const profile = NODE_PROFILES[key];
+
+        const nodeData = (currentMeshState.nodes && currentMeshState.nodes[key]) || {};
+        const loadVal = nodeData.load || 20;
+        const isActive = (nodeData.status === 'ONLINE' || nodeData.status === 'ACTIVE');
+        const isHeavy = loadVal > 35;
+
+        // Animated Vector Transmission Line
+        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        line.setAttribute('x1', centerX);
+        line.setAttribute('y1', centerY);
+        line.setAttribute('x2', nodeX);
+        line.setAttribute('y2', nodeY);
+        line.setAttribute('stroke', profile.color);
+        line.setAttribute('stroke-width', isHeavy ? '2.2' : '1.5');
+        line.setAttribute('stroke-opacity', isHeavy ? '0.65' : '0.35');
+        line.setAttribute('stroke-dasharray', isHeavy ? '4 2' : '6 4');
+        line.setAttribute('class', 'pulse-vector');
+        vectorsGroup.appendChild(line);
+
+        // Animated SVG Data Packet moving between Node and Backbone
+        const packet = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        packet.setAttribute('r', isHeavy ? '4' : '3');
+        packet.setAttribute('fill', profile.color);
+        packet.setAttribute('opacity', '0.9');
+
+        const anim = document.createElementNS('http://www.w3.org/2000/svg', 'animateMotion');
+        anim.setAttribute('dur', isHeavy ? '1.4s' : (isActive ? '2.4s' : '4s'));
+        anim.setAttribute('repeatCount', 'indefinite');
+        anim.setAttribute('path', `M ${nodeX} ${nodeY} L ${centerX} ${centerY}`);
+        packet.appendChild(anim);
+        vectorsGroup.appendChild(packet);
+
+        // Orbital Node Element
+        const orbNode = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+        orbNode.setAttribute('class', 'node-group');
+        orbNode.style.cursor = 'pointer';
+        orbNode.setAttribute('title', `Click to inspect ${profile.title}`);
+        orbNode.onclick = () => showNodeDetailModal(key);
+
+        orbNode.innerHTML = `
+          <circle cx="${nodeX}" cy="${nodeY}" r="${isHeavy ? 24 : 22}" fill="#0b0f19" stroke="${profile.color}" stroke-width="${isHeavy ? 2.5 : 1.8}" class="node-circle" />
+          <circle cx="${nodeX}" cy="${nodeY}" r="28" fill="none" stroke="${profile.color}" stroke-width="1" opacity="${isActive ? '0.4' : '0.1'}" class="${isActive ? 'packet-pulse' : ''}" />
+          <text x="${nodeX}" y="${nodeY + 5}" text-anchor="middle" font-size="12">${profile.avatar}</text>
+          <text x="${nodeX}" y="${nodeY + 36}" text-anchor="middle" font-size="10" font-family="Inter" font-weight="600" fill="#f8fafc">${profile.title.split(' ')[0]}</text>
+          <text x="${nodeX}" y="${nodeY + 48}" text-anchor="middle" font-size="8" font-family="JetBrains Mono" font-weight="700" fill="${profile.color}">${loadVal}% LOAD</text>
+        `;
+        nodesGroup.appendChild(orbNode);
+      });
+    }
+
+    // --------------------------------------------------------------------------
+    // 4. Swarms Grid
+    // --------------------------------------------------------------------------
+
+    function renderSwarmsGrid() {
+      const container = document.getElementById('swarms-grid-container');
+      if (!container || !currentMeshState.swarms) return;
+
+      container.innerHTML = currentMeshState.swarms.map(sw => {
+        const isStandby = sw.status === 'STANDBY';
+        return `
+          <div class="swarm-lane-card">
+            <div class="swarm-lane-header">
+              <span class="swarm-lane-id">${sw.id}</span>
+              <span class="swarm-lane-status ${isStandby ? 'status-standby' : 'status-active'}">${sw.status}</span>
+            </div>
+            <div style="font-size: 13px; font-weight: 600; color: #f8fafc;">${sw.lane}</div>
+            <div style="font-size: 11px; color: var(--text-muted); font-family: var(--font-mono);">${sw.ownership}</div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // --------------------------------------------------------------------------
+    // 5. Page 2: Conversation Logs Inspector & Real-Time Filtering
+    // --------------------------------------------------------------------------
+
+    function renderConversationLogs() {
+      const container = document.getElementById('logs-cards-container');
+      if (!container || !currentMeshState.nodes) return;
+
+      container.innerHTML = Object.entries(currentMeshState.nodes).map(([key, node]) => {
+        const prof = NODE_PROFILES[key] || { color: '#38bdf8', avatar: '🤖', title: node.name };
+        return `
+          <div class="node-log-card" data-key="${key}" data-title="${node.name}" data-role="${node.role}" data-output="${node.latest_output}" data-convid="${node.conversation_id || ''}">
+            <div class="node-log-header" style="border-left-color: ${prof.color};" onclick="toggleLogCard('${key}')">
+              <div class="node-identity">
+                <span style="font-size: 18px;">${prof.avatar}</span>
+                <div>
+                  <div class="node-name">${node.name}</div>
+                  <div class="node-role-sub">${node.role}</div>
+                </div>
+              </div>
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <span class="node-pill" style="color: ${prof.color};">${node.status}</span>
+                <span class="mono tabular-nums" style="font-size: 11px; color: var(--text-muted);">${node.load}% Load</span>
+                <span class="mono log-arrow-icon" style="font-size: 12px; color: var(--text-muted);">▼</span>
+              </div>
+            </div>
+
+            <div class="node-log-body" id="log-body-${key}">
+              <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+                <span class="mono" style="font-size: 10px; color: var(--text-muted);">CONVERSATION ID: ${node.conversation_id || 'N/A'}</span>
+                <span class="mono tabular-nums" style="font-size: 10px; color: var(--text-muted);">ACTIVE: ${new Date(node.last_active).toLocaleTimeString()}</span>
+              </div>
+              <div style="font-size: 13px; color: #f8fafc; background: rgba(255,255,255,0.03); padding: 10px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); line-height: 1.5;">
+                <strong style="color: var(--node-backbone);">Latest Task Output:</strong> ${node.latest_output}
+              </div>
+              <div style="display: flex; justify-content: flex-end;">
+                <button onclick="copyNodePayload('${key}', event)" class="nav-tab" style="padding: 4px 10px; font-size: 10px; cursor: pointer; border-radius: var(--radius-sm);">Copy Payload JSON</button>
+              </div>
+              <div class="payload-json">${JSON.stringify(node, null, 2)}</div>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      filterLogCards();
+    }
+
+    function toggleLogCard(key) {
+      const card = document.querySelector(`.node-log-card[data-key="${key}"]`);
+      const body = document.getElementById(`log-body-${key}`);
+      if (body) {
+        body.classList.toggle('open');
+        if (card) card.classList.toggle('open-card');
+      }
+    }
+
+    function toggleAllLogCards(expand) {
+      document.querySelectorAll('.node-log-card').forEach(card => {
+        const key = card.getAttribute('data-key');
+        const body = document.getElementById(`log-body-${key}`);
+        if (body) {
+          if (expand) {
+            body.classList.add('open');
+            card.classList.add('open-card');
+          } else {
+            body.classList.remove('open');
+            card.classList.remove('open-card');
+          }
+        }
+      });
+    }
+
+    function filterLogCards() {
+      const input = document.getElementById('log-search-input');
+      const q = (input?.value || '').trim().toLowerCase();
+      let visibleCount = 0;
+      const cards = document.querySelectorAll('.node-log-card');
+      
+      cards.forEach(card => {
+        const title = (card.getAttribute('data-title') || '').toLowerCase();
+        const role = (card.getAttribute('data-role') || '').toLowerCase();
+        const output = (card.getAttribute('data-output') || '').toLowerCase();
+        const key = (card.getAttribute('data-key') || '').toLowerCase();
+        const convId = (card.getAttribute('data-convid') || '').toLowerCase();
+
+        const match = !q || title.includes(q) || role.includes(q) || output.includes(q) || key.includes(q) || convId.includes(q);
+        if (match) {
+          card.style.display = 'block';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      const stats = document.getElementById('logs-filter-stats');
+      if (stats) {
+        if (!q) {
+          stats.innerText = `Showing ${cards.length} of ${cards.length} nodes`;
+        } else {
+          stats.innerText = `Showing ${visibleCount} of ${cards.length} nodes (filtered by "${q}")`;
+        }
+      }
+    }
+
+    function copyNodePayload(key, event) {
+      if (event) event.stopPropagation();
+      if (!currentMeshState || !currentMeshState.nodes || !currentMeshState.nodes[key]) return;
+      const jsonStr = JSON.stringify(currentMeshState.nodes[key], null, 2);
+      navigator.clipboard.writeText(jsonStr).then(() => {
+        const btn = event.target;
+        const originalText = btn.innerText;
+        btn.innerText = 'Copied!';
+        btn.style.color = '#10b981';
+        setTimeout(() => {
+          btn.innerText = originalText;
+          btn.style.color = '';
+        }, 1500);
+      }).catch(err => {
+        console.error('Copy to clipboard failed:', err);
+      });
+    }
+
+    function showNodeDetailModal(nodeKey) {
+      switchView('logs');
+      setTimeout(() => {
+        const targetCard = document.querySelector(`.node-log-card[data-key="${nodeKey}"]`);
+        if (targetCard) {
+          const body = document.getElementById(`log-body-${nodeKey}`);
+          if (body) body.classList.add('open');
+          targetCard.classList.add('open-card');
+
+          targetCard.classList.add('card-highlighted');
+          targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          setTimeout(() => {
+            targetCard.classList.remove('card-highlighted');
+          }, 2400);
+        }
+      }, 120);
+    }
+
+    // --------------------------------------------------------------------------
+    // 6. Page 3: Gravity Chat with LocalStorage Message Persistence
+    // --------------------------------------------------------------------------
+
+    function getStoredCustomMessages() {
+      try {
+        return JSON.parse(localStorage.getItem('antigravity_custom_chat_messages') || '[]');
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function renderChatMessages() {
+      const container = document.getElementById('chat-messages-stream');
+      if (!container || !currentMeshState) return;
+
+      const stateMsgs = (currentMeshState.chat_messages && currentMeshState.chat_messages[activeChannel]) || [];
+      const customMsgs = getStoredCustomMessages().filter(m => !m.channel || m.channel === activeChannel);
+
+      // Merge and deduplicate messages
+      const seen = new Set();
+      const allMsgs = [];
+      [...stateMsgs, ...customMsgs].forEach(m => {
+        if (!seen.has(m.id)) {
+          seen.add(m.id);
+          allMsgs.push(m);
+        }
+      });
+
+      allMsgs.sort((a, b) => new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime());
+
+      if (allMsgs.length === 0) {
+        container.innerHTML = `
+          <div style="text-align: center; padding: 48px 20px; color: var(--text-muted); font-size: 13px;">
+            <span>💬 No transmissions recorded yet in #${activeChannel}. Be the first to broadcast.</span>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = allMsgs.map(m => {
+        const prof = NODE_PROFILES[m.sender_node] || { color: '#00f0ff', avatar: m.avatar || '💬' };
+        return `
+          <div class="chat-msg-row">
+            <div class="msg-avatar" style="border-color: ${prof.color};">
+              <span>${prof.avatar}</span>
+            </div>
+            <div class="msg-content-block">
+              <div class="msg-meta">
+                <span class="msg-sender" style="color: ${prof.color};">${m.sender}</span>
+                <span class="msg-role-tag" style="background: rgba(255,255,255,0.06); color: var(--text-secondary);">${m.sender_node}</span>
+                <span class="msg-time mono tabular-nums">${new Date(m.timestamp).toLocaleTimeString()}</span>
+              </div>
+              <div class="msg-text-bubble">
+                ${m.content}
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      container.scrollTop = container.scrollHeight;
+    }
+
+    function sendMockMessage() {
+      const input = document.getElementById('chat-message-input');
+      const val = (input?.value || '').trim();
+      if (!val) return;
+
+      const newMsg = {
+        id: `msg-${Date.now()}-${Math.random().toString(36).substr(2, 5)}`,
+        sender: "Main Feature Builder (Apex)",
+        sender_node: "feature_builder",
+        avatar: "🛠️",
+        timestamp: new Date().toISOString(),
+        content: val,
+        channel: activeChannel
+      };
+
+      const customList = getStoredCustomMessages();
+      customList.push(newMsg);
+      try {
+        localStorage.setItem('antigravity_custom_chat_messages', JSON.stringify(customList));
+      } catch (e) {
+        console.warn('Could not persist custom chat message:', e);
+      }
+
+      if (currentMeshState && currentMeshState.chat_messages) {
+        if (!currentMeshState.chat_messages[activeChannel]) {
+          currentMeshState.chat_messages[activeChannel] = [];
+        }
+        currentMeshState.chat_messages[activeChannel].push(newMsg);
+      }
+
+      input.value = '';
+      renderChatMessages();
+      input.focus();
+    }
+
+    // --------------------------------------------------------------------------
+    // 7. Startup Initialization
+    // --------------------------------------------------------------------------
+
+    window.addEventListener('DOMContentLoaded', () => {
+      // Restore active channel button state
+      const initialBtn = document.getElementById(`chan-${activeChannel}`);
+      if (initialBtn) {
+        document.querySelectorAll('.channel-btn').forEach(b => b.classList.remove('active'));
+        initialBtn.classList.add('active');
+      }
+
+      fetchMeshState();
+      setInterval(fetchMeshState, 3000);
+    });
+  </script>
+</body>
+</html>

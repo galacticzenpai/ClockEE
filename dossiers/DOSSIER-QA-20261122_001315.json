@@ -1,0 +1,70 @@
+{
+  "dossier_id": "DOSSIER-QA-20261122_001315",
+  "timestamp": "2026-11-22T00:13:15.874670",
+  "origin_node": "Q/A Engine",
+  "origin_id": "859110f2-3156-4c22-abb0-2a0253ab82c4",
+  "target_node": "Backbone (Chitti)",
+  "target_id": "b5f97b16-8c62-47fd-92b6-1c96b5172e19",
+  "trigger_source": "Connector-QA Execution",
+  "metrics": {
+    "total_harvested": 790,
+    "master_bank_size": 15733,
+    "latex_valid_pct": 99.87341772151899,
+    "distractor_coverage_pct": 100.0,
+    "ontology_aligned_pct": 100.0,
+    "subject_breakdown": {
+      "Physics": 725,
+      "Chemistry": 65
+    },
+    "chapter_breakdown": {
+      "Motion in a Straight Line": 100,
+      "Motion in a Plane": 93,
+      "Laws of Motion": 93,
+      "Work, Energy and Power": 5,
+      "System of Particles and Rotational Motion": 5,
+      "Gravitation": 5,
+      "Mechanical Properties of Fluids": 3,
+      "Mechanical Properties of Solids": 2,
+      "Thermodynamics": 3,
+      "Thermal Properties of Matter": 2,
+      "Oscillations": 3,
+      "Waves": 2,
+      "Structure of Atom": 5,
+      "Chemical Bonding and Molecular Structure": 10,
+      "Chemical Thermodynamics": 10,
+      "Equilibrium": 10,
+      "Redox Reactions": 10,
+      "Organic Chemistry Basics (GOC)": 10,
+      "Hydrocarbons": 10,
+      "Physical World": 114,
+      "Units and Measurements": 295
+    },
+    "priority_chapters": [
+      "Circular Motion (Target: 90 Qs \u00b7 Currently 0 Qs)",
+      "Work, Energy and Power (Target: 90 Qs \u00b7 Currently 5 Qs)",
+      "Center of Mass & System of Particles (Target: 90 Qs \u00b7 Currently 5 Qs)",
+      "Rotational Dynamics (Target: 90 Qs \u00b7 Currently 5 Qs)",
+      "Gravitation (Target: 90 Qs \u00b7 Currently 5 Qs)",
+      "Some Basic Concepts of Chemistry (Target: 90 Qs \u00b7 Currently 0 Qs)",
+      "Structure of Atom (Target: 90 Qs \u00b7 Currently 5 Qs)",
+      "Chemical Bonding & Molecular Structure (Target: 90 Qs \u00b7 Currently 10 Qs)"
+    ]
+  },
+  "summary": {
+    "total_questions_harvested": 790,
+    "master_bank_size": 15733,
+    "latex_compliance_rate": "99.9%",
+    "distractor_cognitive_coverage": "100.0%",
+    "ontology_alignment_rate": "100.0%",
+    "priority_next_chapters": [
+      "Circular Motion (Target: 90 Qs \u00b7 Currently 0 Qs)",
+      "Work, Energy and Power (Target: 90 Qs \u00b7 Currently 5 Qs)",
+      "Center of Mass & System of Particles (Target: 90 Qs \u00b7 Currently 5 Qs)",
+      "Rotational Dynamics (Target: 90 Qs \u00b7 Currently 5 Qs)",
+      "Gravitation (Target: 90 Qs \u00b7 Currently 5 Qs)",
+      "Some Basic Concepts of Chemistry (Target: 90 Qs \u00b7 Currently 0 Qs)",
+      "Structure of Atom (Target: 90 Qs \u00b7 Currently 5 Qs)",
+      "Chemical Bonding & Molecular Structure (Target: 90 Qs \u00b7 Currently 10 Qs)"
+    ]
+  }
+}

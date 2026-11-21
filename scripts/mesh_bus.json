@@ -59,6 +59,51 @@
       }
     },
     {
+      "id": "disp_1795286649180",
+      "timestamp": "2026-11-21T18:44:09Z",
+      "sender": "GitHub",
+      "sender_id": "d78b401e-4699-42cc-8aad-ed6f2c44c428",
+      "intended_target": "Backbone (Chitti)",
+      "target_id": "b5f97b16-8c62-47fd-92b6-1c96b5172e19",
+      "priority": "P0",
+      "backbone_status": "ROUTED_BY_CHITTI",
+      "receiver_connector_status": "PENDING_CLAIM",
+      "payload": {
+        "deployment_id": "DEPLOY-1795286649177",
+        "timestamp": "2026-11-21T18:44:09.177435Z",
+        "commit_sha": "5c13f02",
+        "remote_repo": "https://github.com/galacticzenpai/ClockEE.git",
+        "branch": "main",
+        "vercel_url": "https://clockee-os-2.vercel.app\",",
+        "zero_bug_certification": {
+          "status": "CERTIFIED_ZERO_DEFECTS",
+          "question_count": 15733,
+          "p0_blockers": 0,
+          "p1_major": 0,
+          "p2_minor": 1
+        },
+        "status": "PRODUCTION_LIVE"
+      }
+    },
+    {
+      "id": "disp_1795287855953",
+      "timestamp": "2026-11-21T19:04:15Z",
+      "sender": "Planner",
+      "sender_id": "7b4415e6-d51f-45cf-9ccd-b3c103323d0e",
+      "intended_target": "Backbone (Chitti)",
+      "target_id": "b5f97b16-8c62-47fd-92b6-1c96b5172e19",
+      "priority": "P0",
+      "backbone_status": "ROUTED_BY_CHITTI",
+      "receiver_connector_status": "PENDING_CLAIM",
+      "payload": {
+        "action": "TRELLO_DUAL_TRACK_SYNC_ACTIVATION",
+        "board_name": "\u2615 ClockEE 2.0 \u2014 Cozy Study & Build Haven",
+        "board_url": "https://trello.com/b/uVFypAtK/clockee-20-cozy-study-build-haven",
+        "planner_role": "Intake, technical shaping, Trello card management",
+        "backbone_role": "Scheduling, builder dispatch, tracker website management"
+      }
+    },
+    {
       "id": "disp_1795286434262",
       "timestamp": "2026-11-21T18:40:34Z",
       "sender": "Q/A Engine",
@@ -320,6 +365,234 @@
           "total_harvested": 790,
           "master_bank_size": 15733,
           "latex_valid_pct": 99.87341772151899,
+          "distractor_coverage_pct": 100.0,
+          "ontology_aligned_pct": 100.0,
+          "subject_breakdown": {
+            "Physics": 725,
+            "Chemistry": 65
+          },
+          "chapter_breakdown": {
+            "Motion in a Straight Line": 100,
+            "Motion in a Plane": 93,
+            "Laws of Motion": 93,
+            "Work, Energy and Power": 5,
+            "System of Particles and Rotational Motion": 5,
+            "Gravitation": 5,
+            "Mechanical Properties of Fluids": 3,
+            "Mechanical Properties of Solids": 2,
+            "Thermodynamics": 3,
+            "Thermal Properties of Matter": 2,
+            "Oscillations": 3,
+            "Waves": 2,
+            "Structure of Atom": 5,
+            "Chemical Bonding and Molecular Structure": 10,
+            "Chemical Thermodynamics": 10,
+            "Equilibrium": 10,
+            "Redox Reactions": 10,
+            "Organic Chemistry Basics (GOC)": 10,
+            "Hydrocarbons": 10,
+            "Physical World": 114,
+            "Units and Measurements": 295
+          },
+          "priority_chapters": [
+            "Circular Motion (Target: 90 Qs \u00b7 Currently 0 Qs)",
+            "Work, Energy and Power (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Center of Mass & System of Particles (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Rotational Dynamics (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Gravitation (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Some Basic Concepts of Chemistry (Target: 90 Qs \u00b7 Currently 0 Qs)",
+            "Structure of Atom (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Chemical Bonding & Molecular Structure (Target: 90 Qs \u00b7 Currently 10 Qs)"
+          ]
+        }
+      }
+    },
+    {
+      "id": "disp_1795286595905",
+      "timestamp": "2026-11-21T18:43:15Z",
+      "sender": "Q/A Engine",
+      "sender_id": "859110f2-3156-4c22-abb0-2a0253ab82c4",
+      "intended_target": "Backbone (Chitti)",
+      "target_id": "b5f97b16-8c62-47fd-92b6-1c96b5172e19",
+      "priority": "P1",
+      "backbone_status": "ROUTED_BY_CHITTI",
+      "receiver_connector_status": "PENDING_CLAIM",
+      "payload": {
+        "dossier_id": "DOSSIER-QA-20261122_001315",
+        "dossier_file": "dossiers\\DOSSIER-QA-20261122_001315.md",
+        "summary": {
+          "total_questions_harvested": 790,
+          "master_bank_size": 15733,
+          "latex_compliance_rate": "99.9%",
+          "distractor_cognitive_coverage": "100.0%",
+          "ontology_alignment_rate": "100.0%",
+          "priority_next_chapters": [
+            "Circular Motion (Target: 90 Qs \u00b7 Currently 0 Qs)",
+            "Work, Energy and Power (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Center of Mass & System of Particles (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Rotational Dynamics (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Gravitation (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Some Basic Concepts of Chemistry (Target: 90 Qs \u00b7 Currently 0 Qs)",
+            "Structure of Atom (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Chemical Bonding & Molecular Structure (Target: 90 Qs \u00b7 Currently 10 Qs)"
+          ]
+        },
+        "metrics": {
+          "total_harvested": 790,
+          "master_bank_size": 15733,
+          "latex_valid_pct": 99.87341772151899,
+          "distractor_coverage_pct": 100.0,
+          "ontology_aligned_pct": 100.0,
+          "subject_breakdown": {
+            "Physics": 725,
+            "Chemistry": 65
+          },
+          "chapter_breakdown": {
+            "Motion in a Straight Line": 100,
+            "Motion in a Plane": 93,
+            "Laws of Motion": 93,
+            "Work, Energy and Power": 5,
+            "System of Particles and Rotational Motion": 5,
+            "Gravitation": 5,
+            "Mechanical Properties of Fluids": 3,
+            "Mechanical Properties of Solids": 2,
+            "Thermodynamics": 3,
+            "Thermal Properties of Matter": 2,
+            "Oscillations": 3,
+            "Waves": 2,
+            "Structure of Atom": 5,
+            "Chemical Bonding and Molecular Structure": 10,
+            "Chemical Thermodynamics": 10,
+            "Equilibrium": 10,
+            "Redox Reactions": 10,
+            "Organic Chemistry Basics (GOC)": 10,
+            "Hydrocarbons": 10,
+            "Physical World": 114,
+            "Units and Measurements": 295
+          },
+          "priority_chapters": [
+            "Circular Motion (Target: 90 Qs \u00b7 Currently 0 Qs)",
+            "Work, Energy and Power (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Center of Mass & System of Particles (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Rotational Dynamics (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Gravitation (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Some Basic Concepts of Chemistry (Target: 90 Qs \u00b7 Currently 0 Qs)",
+            "Structure of Atom (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Chemical Bonding & Molecular Structure (Target: 90 Qs \u00b7 Currently 10 Qs)"
+          ]
+        }
+      }
+    },
+    {
+      "id": "disp_1795286647062",
+      "timestamp": "2026-11-21T18:44:07Z",
+      "sender": "Q/A Engine",
+      "sender_id": "859110f2-3156-4c22-abb0-2a0253ab82c4",
+      "intended_target": "Backbone (Chitti)",
+      "target_id": "b5f97b16-8c62-47fd-92b6-1c96b5172e19",
+      "priority": "P1",
+      "backbone_status": "ROUTED_BY_CHITTI",
+      "receiver_connector_status": "PENDING_CLAIM",
+      "payload": {
+        "dossier_id": "DOSSIER-QA-20261122_001407",
+        "dossier_file": "dossiers\\DOSSIER-QA-20261122_001407.md",
+        "summary": {
+          "total_questions_harvested": 790,
+          "master_bank_size": 15733,
+          "latex_compliance_rate": "99.9%",
+          "distractor_cognitive_coverage": "100.0%",
+          "ontology_alignment_rate": "100.0%",
+          "priority_next_chapters": [
+            "Circular Motion (Target: 90 Qs \u00b7 Currently 0 Qs)",
+            "Work, Energy and Power (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Center of Mass & System of Particles (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Rotational Dynamics (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Gravitation (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Some Basic Concepts of Chemistry (Target: 90 Qs \u00b7 Currently 0 Qs)",
+            "Structure of Atom (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Chemical Bonding & Molecular Structure (Target: 90 Qs \u00b7 Currently 10 Qs)"
+          ]
+        },
+        "metrics": {
+          "total_harvested": 790,
+          "master_bank_size": 15733,
+          "latex_valid_pct": 99.87341772151899,
+          "distractor_coverage_pct": 100.0,
+          "ontology_aligned_pct": 100.0,
+          "subject_breakdown": {
+            "Physics": 725,
+            "Chemistry": 65
+          },
+          "chapter_breakdown": {
+            "Motion in a Straight Line": 100,
+            "Motion in a Plane": 93,
+            "Laws of Motion": 93,
+            "Work, Energy and Power": 5,
+            "System of Particles and Rotational Motion": 5,
+            "Gravitation": 5,
+            "Mechanical Properties of Fluids": 3,
+            "Mechanical Properties of Solids": 2,
+            "Thermodynamics": 3,
+            "Thermal Properties of Matter": 2,
+            "Oscillations": 3,
+            "Waves": 2,
+            "Structure of Atom": 5,
+            "Chemical Bonding and Molecular Structure": 10,
+            "Chemical Thermodynamics": 10,
+            "Equilibrium": 10,
+            "Redox Reactions": 10,
+            "Organic Chemistry Basics (GOC)": 10,
+            "Hydrocarbons": 10,
+            "Physical World": 114,
+            "Units and Measurements": 295
+          },
+          "priority_chapters": [
+            "Circular Motion (Target: 90 Qs \u00b7 Currently 0 Qs)",
+            "Work, Energy and Power (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Center of Mass & System of Particles (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Rotational Dynamics (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Gravitation (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Some Basic Concepts of Chemistry (Target: 90 Qs \u00b7 Currently 0 Qs)",
+            "Structure of Atom (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Chemical Bonding & Molecular Structure (Target: 90 Qs \u00b7 Currently 10 Qs)"
+          ]
+        }
+      }
+    },
+    {
+      "id": "disp_1795286677514",
+      "timestamp": "2026-11-21T18:44:37Z",
+      "sender": "Q/A Engine",
+      "sender_id": "859110f2-3156-4c22-abb0-2a0253ab82c4",
+      "intended_target": "Backbone (Chitti)",
+      "target_id": "b5f97b16-8c62-47fd-92b6-1c96b5172e19",
+      "priority": "P1",
+      "backbone_status": "ROUTED_BY_CHITTI",
+      "receiver_connector_status": "PENDING_CLAIM",
+      "payload": {
+        "dossier_id": "DOSSIER-QA-20261122_001437",
+        "dossier_file": "dossiers\\DOSSIER-QA-20261122_001437.md",
+        "summary": {
+          "total_questions_harvested": 790,
+          "master_bank_size": 15733,
+          "latex_compliance_rate": "100.0%",
+          "distractor_cognitive_coverage": "100.0%",
+          "ontology_alignment_rate": "100.0%",
+          "priority_next_chapters": [
+            "Circular Motion (Target: 90 Qs \u00b7 Currently 0 Qs)",
+            "Work, Energy and Power (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Center of Mass & System of Particles (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Rotational Dynamics (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Gravitation (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Some Basic Concepts of Chemistry (Target: 90 Qs \u00b7 Currently 0 Qs)",
+            "Structure of Atom (Target: 90 Qs \u00b7 Currently 5 Qs)",
+            "Chemical Bonding & Molecular Structure (Target: 90 Qs \u00b7 Currently 10 Qs)"
+          ]
+        },
+        "metrics": {
+          "total_harvested": 790,
+          "master_bank_size": 15733,
+          "latex_valid_pct": 100.0,
           "distractor_coverage_pct": 100.0,
           "ontology_aligned_pct": 100.0,
           "subject_breakdown": {

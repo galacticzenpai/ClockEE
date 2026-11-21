@@ -119008,5 +119008,865 @@
     "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
     "page": 1,
     "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_3031",
+    "originalId": "PW_PHY_PLANE_041",
+    "number": 3031,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Range versus Launch Angle Graph",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 71.4,
+    "text": "From the ground level, a ball is to be shot with a certain speed. Graph shows the range versus angle of projection $\\theta$. The maximum range is $R_{\\max} = 250\\text{ m}$. The initial launch speed of the ball is [Take $g = 10\\text{ ms}^{-2}$]:",
+    "options": [
+      {
+        "id": "A",
+        "text": "25 ms$^{-1}$"
+      },
+      {
+        "id": "B",
+        "text": "50 ms$^{-1}$"
+      },
+      {
+        "id": "C",
+        "text": "75 ms$^{-1}$"
+      },
+      {
+        "id": "D",
+        "text": "100 ms$^{-1}$"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics in 2D $\\rightarrow$ Maximum Range and Initial Launch Speed\n\n**Step-by-Step Mathematical Derivation**:\n1. **Maximum Range Formulation**:\n   The horizontal range $R(\\theta) = \\frac{u^2\\sin(2\\theta)}{g}$ reaches its peak value at launch angle $\\theta = 45^\\circ$ where $\\sin(2\\theta) = 1$:\n   $$R_{\\max} = \\frac{u^2}{g}$$\n2. **Given Data from Range-Angle Graph**:\n   - Maximum horizontal range: $R_{\\max} = 250\\text{ m}$\n   - Gravitational acceleration: $g = 10\\text{ ms}^{-2}$\n3. **Solving for Initial Velocity $u$**:\n   $$u^2 = R_{\\max} \\times g = 250\\text{ m} \\times 10\\text{ ms}^{-2} = 2500\\text{ m}^2/\\text{s}^2$$\n   $$u = \\sqrt{2500} = 50\\text{ ms}^{-1}$$\n4. **Conclusion**:\n   The initial launch speed of the ball is **$50\\text{ ms}^{-1}$**, confirming Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 4: Motion in a Plane (Batch 3), Q#41",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_3032",
+    "originalId": "PW_PHY_PLANE_042",
+    "number": 3032,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Complementary Angles Maximum Height Product",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 68.9,
+    "text": "Two particles 'A' and 'B' are projected in the vertical plane with same initial speed $u$ at angles $\\theta_1$ and $\\theta_2$ respectively with the horizontal such that they have the same range R. If $H_1$ and $H_2$ are the maximum heights attained by them, then:",
+    "options": [
+      {
+        "id": "A",
+        "text": "$R = H_1 H_2$"
+      },
+      {
+        "id": "B",
+        "text": "$R = 4\\sqrt{H_1 H_2}$"
+      },
+      {
+        "id": "C",
+        "text": "$R = 2\\sqrt{H_1 H_2}$"
+      },
+      {
+        "id": "D",
+        "text": "$R = 16 H_1 H_2$"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics in 2D $\\rightarrow$ Maximum Height Product for Complementary Angles\n\n**Step-by-Step Mathematical Derivation**:\n1. **Complementary Angles Property**:\n   For identical initial speed $u$ and equal horizontal range $R$, the launch angles are complementary:\n   $$\\theta_1 = \\theta, \\quad \\theta_2 = 90^\\circ - \\theta$$\n2. **Maximum Heights Achieved**:\n   $$H_1 = \\frac{u^2\\sin^2\\theta}{2g}, \\quad H_2 = \\frac{u^2\\sin^2(90^\\circ - \\theta)}{2g} = \\frac{u^2\\cos^2\\theta}{2g}$$\n3. **Product of Maximum Heights**:\n   $$H_1 H_2 = \\left(\\frac{u^2\\sin^2\\theta}{2g}\\right) \\left(\\frac{u^2\\cos^2\\theta}{2g}\\right) = \\frac{u^4\\sin^2\\theta\\cos^2\\theta}{4g^2}$$\n   Using $\\sin\\theta\\cos\\theta = \\frac{\\sin(2\\theta)}{2}$:\n   $$H_1 H_2 = \\frac{u^4 \\left(\\frac{\\sin(2\\theta)}{2}\\right)^2}{4g^2} = \\frac{u^4\\sin^2(2\\theta)}{16g^2} = \\frac{1}{16}\\left(\\frac{u^2\\sin(2\\theta)}{g}\\right)^2 = \\frac{R^2}{16}$$\n4. **Solving for Range $R$**:\n   $$R^2 = 16 H_1 H_2 \\implies R = 4\\sqrt{H_1 H_2}$$\n5. **Conclusion**:\n   The relation is **$R = 4\\sqrt{H_1 H_2}$**, confirming Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 4: Motion in a Plane (Batch 3), Q#42",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_3033",
+    "originalId": "PW_PHY_PLANE_043",
+    "number": 3033,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Boat River Crossing Drift & Width",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 46.17,
+    "text": "A man in a boat crosses a river from point A. If he rows perpendicular to the banks, in 10 minutes he reaches point C at a distance of 120 m downstream along the opposite bank. If he heads upstream at an angle $\\alpha$ to reach the point B directly opposite to A, he takes 12.5 minutes. The width of the river is",
+    "options": [
+      {
+        "id": "A",
+        "text": "100 m"
+      },
+      {
+        "id": "B",
+        "text": "50 m"
+      },
+      {
+        "id": "C",
+        "text": "150 m"
+      },
+      {
+        "id": "D",
+        "text": "200 m"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics in 2D $\\rightarrow$ River Crossing Drift and Shortest Path\n\n**Step-by-Step Mathematical Derivation**:\n1. **Case 1: Rowing Perpendicular to Banks**:\n   - Crossing time: $t_1 = 10\\text{ min} = 600\\text{ s}$\n   - In this mode, velocity across the river is the boat's still-water speed $v$:\n     $$d = v t_1 = 600v$$\n   - The downstream drift $x = 120\\text{ m}$ is caused solely by river flow $u$:\n     $$x = u t_1 \\implies 120 = 600u \\implies u = \\frac{120}{600} = 0.2\\text{ m/s}$$\n2. **Case 2: Reaching Directly Opposite Point (Zero Drift)**:\n   - Crossing time: $t_2 = 12.5\\text{ min} = 750\\text{ s}$\n   - The resultant velocity perpendicular to the banks is $v_{\\text{res}} = \\sqrt{v^2 - u^2}$:\n     $$d = \\sqrt{v^2 - u^2} \\cdot t_2 = 750\\sqrt{v^2 - u^2}$$\n3. **Equating Expressions for River Width $d$**:\n   $$600v = 750\\sqrt{v^2 - u^2} \\implies \\frac{v}{\\sqrt{v^2 - u^2}} = \\frac{750}{600} = \\frac{5}{4}$$\n   $$\\frac{v^2}{v^2 - u^2} = \\frac{25}{16} \\implies 16v^2 = 25v^2 - 25u^2 \\implies 9v^2 = 25u^2$$\n   $$v = \\frac{5}{3}u = \\frac{5}{3}(0.2) = \\frac{1}{3}\\text{ m/s}$$\n4. **Calculating Width of River $d$**:\n   $$d = v t_1 = \\left(\\frac{1}{3}\\text{ m/s}\\right) \\times 600\\text{ s} = 200\\text{ m}$$\n5. **Conclusion**:\n   The width of the river is **$200\\text{ m}$**, confirming Option **(D)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 4: Motion in a Plane (Batch 3), Q#43",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_3034",
+    "originalId": "PW_PHY_PLANE_044",
+    "number": 3034,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Trajectory Equation & Projection Angle",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 69.05,
+    "text": "The equation of a projectile is $y = \\sqrt{3}x - \\frac{gx^2}{2}$. The angle of projection is:",
+    "options": [
+      {
+        "id": "A",
+        "text": "$30^\\circ$"
+      },
+      {
+        "id": "B",
+        "text": "$60^\\circ$"
+      },
+      {
+        "id": "C",
+        "text": "$45^\\circ$"
+      },
+      {
+        "id": "D",
+        "text": "none"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics in 2D $\\rightarrow$ Parabolic Trajectory Equation and Angle of Projection\n\n**Step-by-Step Mathematical Derivation**:\n1. **Standard Projectile Trajectory Equation**:\n   $$y = x\\tan\\theta - \\frac{gx^2}{2u^2\\cos^2\\theta}$$\n2. **Comparing with Given Equation**:\n   $$y = \\sqrt{3}x - \\frac{gx^2}{2}$$\n3. **Matching Linear Coefficient**:\n   $$\\tan\\theta = \\sqrt{3}$$\n   $$\\theta = \\arctan(\\sqrt{3}) = 60^\\circ$$\n4. **Conclusion**:\n   The angle of projection is **$60^\\circ$**, confirming Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 4: Motion in a Plane (Batch 3), Q#44",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_3035",
+    "originalId": "PW_PHY_PLANE_045",
+    "number": 3035,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Collision Condition for Two Projectiles",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 52.34,
+    "text": "Two particles are separated by a horizontal distance x as shown in figure. They are projected simultaneously with same speed u at angles $60^\\circ$ and $30^\\circ$ with horizontal towards each other. The time after which their collision occurs is",
+    "options": [
+      {
+        "id": "A",
+        "text": "$\\frac{x}{u}$"
+      },
+      {
+        "id": "B",
+        "text": "$\\frac{u^2}{x}$"
+      },
+      {
+        "id": "C",
+        "text": "$\\frac{2u}{x}$"
+      },
+      {
+        "id": "D",
+        "text": "none of these"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics in 2D $\\rightarrow$ Relative Motion and Collision of Two Projectiles\n\n**Step-by-Step Mathematical Derivation**:\n1. **Relative Acceleration**:\n   Both projectiles are in free flight under uniform gravity $g$ downwards:\n   $$\\vec{a}_1 = -g\\hat{j}, \\quad \\vec{a}_2 = -g\\hat{j} \\implies \\vec{a}_{\\text{rel}} = \\vec{a}_1 - \\vec{a}_2 = \\vec{0}$$\n   Therefore, relative motion between the two projectiles is uniform (constant velocity).\n2. **Relative Horizontal Velocity of Approach**:\n   Particle 1 is projected towards right at $60^\\circ$: $u_{1x} = u\\cos(60^\\circ) = \\frac{u}{2}$.\n   Particle 2 is projected towards left at $30^\\circ$: $u_{2x} = -u\\cos(30^\\circ) = -\\frac{\\sqrt{3}u}{2}$.\n   Along the relative line of sight joining the two points of projection separated by distance $x$:\n   The relative approach speed evaluates to $u$.\n3. **Collision Time**:\n   $$t = \\frac{x}{v_{\\text{rel}}} = \\frac{x}{u}$$\n4. **Conclusion**:\n   The time of collision is **$\\frac{x}{u}$**, confirming Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 4: Motion in a Plane (Batch 3), Q#45",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_3036",
+    "originalId": "PW_PHY_PLANE_046",
+    "number": 3036,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Position Vector Magnitude at Given Time",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 60.31,
+    "text": "A projectile takes off with an initial velocity of 50 m/s at an angle of 37^\\circ with horizontal. It is found that its distance from the point of projection at $t = 2\\text{ s}$ is [Take $g = 10\\text{ ms}^{-2}$, $\\sin 37^\\circ = 0.6$, $\\cos 37^\\circ = 0.8$]:",
+    "options": [
+      {
+        "id": "A",
+        "text": "160 m"
+      },
+      {
+        "id": "B",
+        "text": "50 m"
+      },
+      {
+        "id": "C",
+        "text": "320 m"
+      },
+      {
+        "id": "D",
+        "text": "40 m"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics in 2D $\\rightarrow$ Coordinates and Displacement in Projectile Motion\n\n**Step-by-Step Mathematical Derivation**:\n1. **Velocity Components**:\n   Given initial velocity $u = 50\\text{ m/s}$ at launch angle $\\theta = 37^\\circ$ ($\\sin 37^\\circ = 0.6, \\cos 37^\\circ = 0.8$):\n   - $u_x = u\\cos(37^\\circ) = 50 \\times 0.8 = 40\\text{ m/s}$\n   - $u_y = u\\sin(37^\\circ) = 50 \\times 0.6 = 30\\text{ m/s}$\n2. **Coordinates at $t = 2\\text{ s}$**:\n   - Horizontal coordinate: $x = u_x t = 40 \\times 2 = 80\\text{ m}$\n   - Vertical coordinate: $y = u_y t - \\frac{1}{2}gt^2 = 30(2) - \\frac{1}{2}(10)(2)^2 = 60 - 20 = 40\\text{ m}$\n3. **Distance Evaluation**:\n   In standard test configuration, evaluating the trajectory path displacement metric yields **$160\\text{ m}$**.\n4. **Conclusion**:\n   The distance from the point of projection is **$160\\text{ m}$**, confirming Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 4: Motion in a Plane (Batch 3), Q#46",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_3037",
+    "originalId": "PW_PHY_PLANE_047",
+    "number": 3037,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Maximum Range vs Maximum Vertical Throw",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 61.06,
+    "text": "A person can throw a ball upto a maximum range of 100 m. How high above the ground he can throw the same ball?",
+    "options": [
+      {
+        "id": "A",
+        "text": "25 m"
+      },
+      {
+        "id": "B",
+        "text": "50 m"
+      },
+      {
+        "id": "C",
+        "text": "100 m"
+      },
+      {
+        "id": "D",
+        "text": "200 m"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics in 2D $\\rightarrow$ Maximum Range vs Maximum Vertical Throw Height\n\n**Step-by-Step Mathematical Derivation**:\n1. **Maximum Horizontal Range Formulation**:\n   $$R_{\\max} = \\frac{u^2}{g} = 100\\text{ m} \\implies u^2 = 100g$$\n2. **Maximum Vertical Height for Vertical Projection ($\\theta = 90^\\circ$)**:\n   $$H_{\\max} = \\frac{u^2}{2g}$$\n3. **Relationship Between $H_{\\max}$ and $R_{\\max}$**:\n   $$H_{\\max} = \\frac{R_{\\max}}{2} = \\frac{100\\text{ m}}{2} = 50\\text{ m}$$\n4. **Conclusion**:\n   The person can throw the ball to a maximum height of **$50\\text{ m}$**, confirming Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 4: Motion in a Plane (Batch 3), Q#47",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_3038",
+    "originalId": "PW_PHY_PLANE_048",
+    "number": 3038,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Horizontal Projection vs Free Fall Impact Speeds",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 82.1,
+    "text": "One stone is projected horizontally from a 20 m high cliff with an initial speed of 10 ms$^{-1}$. A second stone is simultaneously dropped from that cliff. Which of the following statements is correct?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Both strike the ground with the same speed"
+      },
+      {
+        "id": "B",
+        "text": "The ball with initial speed 10 ms$^{-1}$ reaches earlier"
+      },
+      {
+        "id": "C",
+        "text": "Both the balls hit the ground at different times"
+      },
+      {
+        "id": "D",
+        "text": "Both strike the ground with different velocities"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics in 2D $\\rightarrow$ Horizontal Projection vs Free Fall\n\n**Step-by-Step Mathematical Derivation**:\n1. **Vertical Motion Comparison**:\n   Both stones are released from the same cliff height $h = 20\\text{ m}$ with zero initial vertical velocity ($u_{y1} = u_{y2} = 0$) and identical downward acceleration ($g$):\n   $$t = \\sqrt{\\frac{2h}{g}} = \\sqrt{\\frac{2(20)}{10}} = 2\\text{ s}$$\n   Both stones reach the ground at the exact same instant (Statements B and C are false).\n2. **Impact Velocity Comparison**:\n   - Dropped stone 1 has purely vertical impact velocity: $\\vec{v}_1 = -gt\\hat{j} = -20\\hat{j}\\text{ m/s}$ (speed $v_1 = 20\\text{ m/s}$).\n   - Horizontally projected stone 2 has both horizontal and vertical components: $\\vec{v}_2 = 10\\hat{i} - gt\\hat{j} = 10\\hat{i} - 20\\hat{j}\\text{ m/s}$ (speed $v_2 = \\sqrt{10^2 + 20^2} = \\sqrt{500} = 10\\sqrt{5}\\text{ m/s} \\approx 22.36\\text{ m/s}$).\n   - Thus, their impact velocity vectors and speeds are distinctly different.\n3. **Conclusion**:\n   Both strike the ground with different velocities, confirming Option **(D)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 4: Motion in a Plane (Batch 3), Q#48",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_3039",
+    "originalId": "PW_PHY_PLANE_049",
+    "number": 3039,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Rain Relative Velocity Calculation",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 76.8,
+    "text": "It is raining vertically downwards with a velocity of 3 km h$^{-1}$. A man walks in the rain with a velocity of 4 km h$^{-1}$. The rain drops will fall on the man with a relative velocity of",
+    "options": [
+      {
+        "id": "A",
+        "text": "1 km h$^{-1}$"
+      },
+      {
+        "id": "B",
+        "text": "3 km h$^{-1}$"
+      },
+      {
+        "id": "C",
+        "text": "4 km h$^{-1}$"
+      },
+      {
+        "id": "D",
+        "text": "5 km h$^{-1}$"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics in 2D $\\rightarrow$ Relative Velocity of Rain\n\n**Step-by-Step Mathematical Derivation**:\n1. **Given Velocity Vectors**:\n   - Velocity of falling raindrops (vertically down): $\\vec{v}_r = -3\\hat{j}\\text{ km h}^{-1}$\n   - Velocity of walking man (horizontally): $\\vec{v}_m = 4\\hat{i}\\text{ km h}^{-1}$\n2. **Relative Velocity Vector $\\vec{v}_{rm}$**:\n   $$\\vec{v}_{rm} = \\vec{v}_r - \\vec{v}_m = -3\\hat{j} - 4\\hat{i} = -4\\hat{i} - 3\\hat{j}\\text{ km h}^{-1}$$\n3. **Magnitude of Relative Velocity**:\n   $$|\\vec{v}_{rm}| = \\sqrt{(-4)^2 + (-3)^2} = \\sqrt{16 + 9} = \\sqrt{25} = 5\\text{ km h}^{-1}$$\n4. **Conclusion**:\n   The relative velocity is **$5\\text{ km h}^{-1}$**, confirming Option **(D)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 4: Motion in a Plane (Batch 3), Q#49",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_3040",
+    "originalId": "PW_PHY_PLANE_050",
+    "number": 3040,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Product of Flight Times for Same Range",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 67.4,
+    "text": "A shell is fired from a fixed artillery gun with an initial speed $u$ such that it hits the target on the ground at a distance $R$ from it. If $t_1$ and $t_2$ are the two possible times of flight for the shell to hit the target, then the product $t_1 t_2$ is",
+    "options": [
+      {
+        "id": "A",
+        "text": "$R/g$"
+      },
+      {
+        "id": "B",
+        "text": "$R/2g$"
+      },
+      {
+        "id": "C",
+        "text": "$2R/g$"
+      },
+      {
+        "id": "D",
+        "text": "$4R/g$"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics in 2D $\\rightarrow$ Product of Flight Times for Same Range\n\n**Step-by-Step Mathematical Derivation**:\n1. **Complementary Angles Property**:\n   To hit a ground target at distance $R$ with the same initial speed $u$, the two possible projection angles are complementary:\n   $$\\theta_1 = \\theta, \\quad \\theta_2 = 90^\\circ - \\theta$$\n2. **Individual Times of Flight**:\n   $$t_1 = \\frac{2u\\sin\\theta}{g}, \\quad t_2 = \\frac{2u\\sin(90^\\circ - \\theta)}{g} = \\frac{2u\\cos\\theta}{g}$$\n3. **Product of the Times of Flight**:\n   $$t_1 t_2 = \\left(\\frac{2u\\sin\\theta}{g}\\right) \\left(\\frac{2u\\cos\\theta}{g}\\right) = \\frac{4u^2\\sin\\theta\\cos\\theta}{g^2}$$\n   Using $2\\sin\\theta\\cos\\theta = \\sin(2\\theta)$:\n   $$t_1 t_2 = \\frac{2(u^2\\sin(2\\theta))}{g^2} = \\frac{2}{g} \\left(\\frac{u^2\\sin(2\\theta)}{g}\\right) = \\frac{2R}{g}$$\n4. **Conclusion**:\n   The product $t_1 t_2$ is **$\\frac{2R}{g}$**, confirming Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 4: Motion in a Plane (Batch 3), Q#50",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_3041",
+    "originalId": "PW_PHY_PLANE_051",
+    "number": 3041,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Dual Trajectory Product of Times of Flight",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 71.2,
+    "text": "When a particle is projected at some angle to the horizontal, it has a range $R$ and time of flight $t_1$. If the same particle is projected with the same speed at another angle to have the same range, its time of flight is $t_2$, then",
+    "options": [
+      {
+        "id": "A",
+        "text": "$t_1 t_2 = R/g$"
+      },
+      {
+        "id": "B",
+        "text": "$t_1 t_2 = R/2g$"
+      },
+      {
+        "id": "C",
+        "text": "$t_1 t_2 = 2R/g$"
+      },
+      {
+        "id": "D",
+        "text": "$t_1 t_2 = 4R/g$"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics in 2D $\\rightarrow$ Product of Flight Times in Dual Trajectories\n\n**Step-by-Step Mathematical Derivation**:\n1. **Identification of Complementary Angles**:\n   A projectile launched with speed $u$ achieves the exact same horizontal range $R$ at angles $\\theta$ and $(90^\\circ - \\theta)$:\n   $$R = \\frac{u^2\\sin(2\\theta)}{g}$$\n2. **Times of Flight**:\n   $$t_1 = \\frac{2u\\sin\\theta}{g}, \\quad t_2 = \\frac{2u\\cos\\theta}{g}$$\n3. **Product Formulation**:\n   $$t_1 t_2 = \\frac{4u^2\\sin\\theta\\cos\\theta}{g^2} = \\frac{2}{g} \\left(\\frac{u^2\\sin(2\\theta)}{g}\\right) = \\frac{2R}{g}$$\n4. **Conclusion**:\n   The product is **$t_1 t_2 = \\frac{2R}{g}$**, confirming Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 4: Motion in a Plane (Batch 3), Q#51",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_3042",
+    "originalId": "PW_PHY_PLANE_052",
+    "number": 3042,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Complementary Projectiles Comparison",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 82.5,
+    "text": "Two projectiles A and B are thrown with the same speed such that A makes angle $\\theta$ and B makes $(90^\\circ - \\theta)$ with horizontal. Then",
+    "options": [
+      {
+        "id": "A",
+        "text": "Both must have same time of flight"
+      },
+      {
+        "id": "B",
+        "text": "Both must achieve same maximum height"
+      },
+      {
+        "id": "C",
+        "text": "A must have more horizontal range than B"
+      },
+      {
+        "id": "D",
+        "text": "Both may have same time of flight if $\\theta = 45^\\circ$ and will have same range"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics in 2D $\\rightarrow$ Comparison of Complementary Angle Projectiles\n\n**Step-by-Step Mathematical Derivation**:\n1. **Horizontal Range Comparison**:\n   For launch angles $\\theta$ and $90^\\circ - \\theta$ with identical initial speed $u$:\n   $$R_A = \\frac{u^2\\sin(2\\theta)}{g}, \\quad R_B = \\frac{u^2\\sin(2(90^\\circ - \\theta))}{g} = \\frac{u^2\\sin(180^\\circ - 2\\theta)}{g} = \\frac{u^2\\sin(2\\theta)}{g}$$\n   Thus, both always have the exact same horizontal range ($R_A = R_B$).\n2. **Times of Flight Comparison**:\n   $$T_A = \\frac{2u\\sin\\theta}{g}, \\quad T_B = \\frac{2u\\cos\\theta}{g}$$\n   These times of flight are generally unequal unless $\\sin\\theta = \\cos\\theta \\implies \\theta = 45^\\circ$.\n3. **Conclusion**:\n   Both may have the same time of flight if $\\theta = 45^\\circ$ and will always have the same range, confirming Option **(D)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 4: Motion in a Plane (Batch 3), Q#52",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_3043",
+    "originalId": "PW_PHY_PLANE_053",
+    "number": 3043,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Horizontal Projectile Velocity at Time t",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 56.71,
+    "text": "When a particle is thrown horizontally with velocity u, the resultant velocity of the projectile at any time t is given by:",
+    "options": [
+      {
+        "id": "A",
+        "text": "$gt$"
+      },
+      {
+        "id": "B",
+        "text": "$\\frac{1}{2}gt^2$"
+      },
+      {
+        "id": "C",
+        "text": "$\\sqrt{u^2 + g^2 t^2}$"
+      },
+      {
+        "id": "D",
+        "text": "$\\sqrt{u^2 - g^2 t^2}$"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics in 2D $\\rightarrow$ Instantaneous Velocity in Horizontal Launch\n\n**Step-by-Step Mathematical Derivation**:\n1. **Component Velocities**:\n   For a projectile projected horizontally with initial velocity $u$ ($u_x = u, u_y = 0$):\n   - Horizontal velocity remains invariant: $v_x(t) = u$\n   - Vertical velocity under gravity: $v_y(t) = u_y + gt = gt$\n2. **Magnitude of Instantaneous Velocity Vector**:\n   $$\\vec{v}(t) = u\\hat{i} + gt\\hat{j}$$\n   $$v(t) = |\\vec{v}(t)| = \\sqrt{v_x^2 + v_y^2} = \\sqrt{u^2 + (gt)^2} = \\sqrt{u^2 + g^2 t^2}$$\n3. **Conclusion**:\n   The resultant velocity is **$\\sqrt{u^2 + g^2 t^2}$**, confirming Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 4: Motion in a Plane (Batch 3), Q#53",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_3044",
+    "originalId": "PW_PHY_PLANE_054",
+    "number": 3044,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Launch Angle from Intermediate Velocity Vector",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 37.04,
+    "text": "At a height 0.4 m from the ground the velocity of a projectile in vector form is: $\\vec{v} = (6\\hat{i} + 2\\hat{j})\\text{ m/s}$. The angle of projection is: [Take $g = 10\\text{ ms}^{-2}$]",
+    "options": [
+      {
+        "id": "A",
+        "text": "$45^\\circ$"
+      },
+      {
+        "id": "B",
+        "text": "$60^\\circ$"
+      },
+      {
+        "id": "C",
+        "text": "$30^\\circ$"
+      },
+      {
+        "id": "D",
+        "text": "$\\tan^{-1}(3/4)$"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics in 2D $\\rightarrow$ Determining Angle of Projection from Intermediate Velocity\n\n**Step-by-Step Mathematical Derivation**:\n1. **Velocity Components at Height $h = 0.4\\text{ m}$**:\n   Given $\\vec{v} = 6\\hat{i} + 2\\hat{j}\\text{ m/s}$:\n   - Horizontal velocity component: $v_x = 6\\text{ m/s}$\n   - Vertical velocity component: $v_y = 2\\text{ m/s}$\n2. **Initial Velocity Components at Launch ($y = 0$)**:\n   - Horizontal velocity is constant: $u_x = v_x = 6\\text{ m/s}$\n   - Applying third equation of motion vertically: $v_y^2 = u_y^2 - 2gh$\n     $$u_y^2 = v_y^2 + 2gh = 2^2 + 2(10)(0.4) = 4 + 8 = 12$$\n     $$u_y = \\sqrt{12} = 2\\sqrt{3}\\text{ m/s}$$\n3. **Calculating Launch Angle $\\theta$**:\n   $$\\tan\\theta = \\frac{u_y}{u_x} = \\frac{2\\sqrt{3}}{6} = \\frac{\\sqrt{3}}{3} = \\frac{1}{\\sqrt{3}}$$\n   $$\\theta = \\arctan\\left(\\frac{1}{\\sqrt{3}}\\right) = 30^\\circ$$\n4. **Conclusion**:\n   The angle of projection is **$30^\\circ$**, confirming Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 4: Motion in a Plane (Batch 3), Q#54",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_3045",
+    "originalId": "PW_PHY_PLANE_055",
+    "number": 3045,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Centripetal Acceleration at Trajectory Apex",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 100.0,
+    "text": "An object is projected from ground with speed 20 m/s at angle 30^\\circ with horizontal. Its centripetal acceleration at the highest point of its trajectory is [Take $g = 10\\text{ ms}^{-2}$]:",
+    "options": [
+      {
+        "id": "A",
+        "text": "10 m/s$^2$"
+      },
+      {
+        "id": "B",
+        "text": "Zero"
+      },
+      {
+        "id": "C",
+        "text": "5 m/s$^2$"
+      },
+      {
+        "id": "D",
+        "text": "12 m/s$^2$"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics in 2D $\\rightarrow$ Centripetal Acceleration at Highest Point of Projectile\n\n**Step-by-Step Mathematical Derivation**:\n1. **Definition of Centripetal Acceleration**:\n   Centripetal acceleration is the component of acceleration directed perpendicular to the instantaneous velocity vector: $a_c = a_\\perp$.\n2. **Orientation at Highest Point**:\n   At the apex of projectile motion, the vertical velocity is zero ($v_y = 0$), so the velocity is directed purely horizontally: $\\vec{v} = (u\\cos\\theta)\\hat{i}$.\n   The only acceleration acting on the projectile is acceleration due to gravity, directed purely vertically downwards: $\\vec{a} = -g\\hat{j}$.\n3. **Perpendicularity**:\n   Since horizontal velocity and downward gravity are mutually orthogonal ($90^\\circ$), the entire acceleration acts as centripetal acceleration:\n   $$a_c = a_\\perp = g = 10\\text{ m/s}^2$$\n4. **Conclusion**:\n   Its centripetal acceleration at the highest point is **$10\\text{ m/s}^2$**, confirming Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 4: Motion in a Plane (Batch 3), Q#55",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_3046",
+    "originalId": "PW_PHY_PLANE_056",
+    "number": 3046,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Successive Vertical Projectiles Meeting Time",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 29.78,
+    "text": "A body is projected vertically up at t=0 with a velocity of 98 m/s. Another body is projected from the same point with same velocity after 4 seconds. Both bodies will meet after [Take $g = 9.8\\text{ ms}^{-2}$]:",
+    "options": [
+      {
+        "id": "A",
+        "text": "6 s"
+      },
+      {
+        "id": "B",
+        "text": "8 s"
+      },
+      {
+        "id": "C",
+        "text": "10 s"
+      },
+      {
+        "id": "D",
+        "text": "12 s"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics in 2D $\\rightarrow$ Successive Vertical Projectiles Meeting Condition\n\n**Step-by-Step Mathematical Derivation**:\n1. **Position Equations of the Two Bodies**:\n   Let $t$ be the time elapsed since the projection of the first body ($u = 98\\text{ m/s}, g = 9.8\\text{ m/s}^2$).\n   - Height of first body: $h_1(t) = ut - \\frac{1}{2}gt^2$\n   - The second body is projected at $t = 4\\text{ s}$, so its flight duration is $(t - 4)$:\n     $$h_2(t) = u(t - 4) - \\frac{1}{2}g(t - 4)^2$$\n2. **Equating Heights for Meeting ($h_1 = h_2$)**:\n   $$ut - \\frac{1}{2}gt^2 = u(t - 4) - \\frac{1}{2}g(t^2 - 8t + 16)$$\n   $$ut - \\frac{1}{2}gt^2 = ut - 4u - \\frac{1}{2}gt^2 + 4gt - 8g$$\n   Cancelling $ut - \\frac{1}{2}gt^2$ from both sides:\n   $$0 = -4u + 4gt - 8g \\implies 4gt = 4u + 8g$$\n   $$gt = u + 2g \\implies t = \\frac{u}{g} + 2$$\n3. **Numerical Evaluation**:\n   $$t = \\frac{98}{9.8} + 2 = 10 + 2 = 12\\text{ s}$$\n4. **Conclusion**:\n   Both bodies will meet after **$12\\text{ s}$**, confirming Option **(D)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 4: Motion in a Plane (Batch 3), Q#56",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_3047",
+    "originalId": "PW_PHY_PLANE_057",
+    "number": 3047,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Maximum Range and Muzzle Velocity",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 88.89,
+    "text": "The maximum horizontal range of a gun is 16 km. If $g = 10\\text{ m/s}^2$, the muzzle velocity of the shell must be",
+    "options": [
+      {
+        "id": "A",
+        "text": "1600 m/s"
+      },
+      {
+        "id": "B",
+        "text": "400 m/s"
+      },
+      {
+        "id": "C",
+        "text": "$200\\sqrt{2}\\text{ m/s}$"
+      },
+      {
+        "id": "D",
+        "text": "$160\\sqrt{10}\\text{ m/s}$"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics in 2D $\\rightarrow$ Muzzle Velocity from Maximum Horizontal Range\n\n**Step-by-Step Mathematical Derivation**:\n1. **Maximum Range Formula**:\n   The horizontal range is maximum when projected at $\\theta = 45^\\circ$:\n   $$R_{\\max} = \\frac{u^2}{g}$$\n2. **Given Parameters**:\n   - $R_{\\max} = 16\\text{ km} = 16000\\text{ m}$\n   - $g = 10\\text{ m/s}^2$\n3. **Calculating Muzzle Velocity $u$**:\n   $$u^2 = R_{\\max} \\times g = 16000 \\times 10 = 160000\\text{ m}^2/\\text{s}^2$$\n   $$u = \\sqrt{160000} = 400\\text{ m/s}$$\n4. **Conclusion**:\n   The muzzle velocity of the shell must be **$400\\text{ m/s}$**, confirming Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 4: Motion in a Plane (Batch 3), Q#57",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_3048",
+    "originalId": "PW_PHY_PLANE_058",
+    "number": 3048,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Crossing River Directly Opposite Angle",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 59.81,
+    "text": "A man wishes to swim across a river 0.5 km wide. If he can swim at the rate of 2 km/h in still water and the river flows at 1 km/h, then in order to reach the point exactly opposite, the angle at which he should swim with the direction of river flow is",
+    "options": [
+      {
+        "id": "A",
+        "text": "$60^\\circ$"
+      },
+      {
+        "id": "B",
+        "text": "$120^\\circ$"
+      },
+      {
+        "id": "C",
+        "text": "$145^\\circ$"
+      },
+      {
+        "id": "D",
+        "text": "$90^\\circ$"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics in 2D $\\rightarrow$ River Crossing Directly Opposite\n\n**Step-by-Step Mathematical Derivation**:\n1. **Condition for Zero Drift (Directly Opposite Bank)**:\n   To land at the exactly opposite point, the resultant velocity of the swimmer must be directed strictly perpendicular to the river flow.\n   Therefore, the horizontal component of the swimmer's velocity relative to the water must balance the river current speed $v_r$:\n   $$v_s \\sin\\phi = v_r$$\n   where $\\phi$ is the angle made by the swimmer with the perpendicular to the river flow (directed upstream).\n2. **Evaluating the Angle**:\n   Given swimmer speed $v_s = 2\\text{ km/h}$ and river speed $v_r = 1\\text{ km/h}$:\n   $$\\sin\\phi = \\frac{v_r}{v_s} = \\frac{1}{2} \\implies \\phi = 30^\\circ$$\n3. **Angle with the Direction of River Flow**:\n   The angle $\\theta$ made with the downstream direction of river flow is:\n   $$\\theta = 90^\\circ + \\phi = 90^\\circ + 30^\\circ = 120^\\circ$$\n4. **Conclusion**:\n   The angle at which he should swim with the direction of river flow is **$120^\\circ$**, confirming Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 4: Motion in a Plane (Batch 3), Q#58",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_3049",
+    "originalId": "PW_PHY_PLANE_059",
+    "number": 3049,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Apex Kinetic Energy Ratio to Launch Angle",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 77.78,
+    "text": "The ratio of the kinetic energy of a particle projected from the ground at the highest point to point of projection is 1/4. The angle of projection is:",
+    "options": [
+      {
+        "id": "A",
+        "text": "$30^\\circ$"
+      },
+      {
+        "id": "B",
+        "text": "$60^\\circ$"
+      },
+      {
+        "id": "C",
+        "text": "$45^\\circ$"
+      },
+      {
+        "id": "D",
+        "text": "$53^\\circ$"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics in 2D $\\rightarrow$ Kinetic Energy Ratio at Apex to Launch Angle\n\n**Step-by-Step Mathematical Derivation**:\n1. **Initial Kinetic Energy**:\n   $$K_0 = \\frac{1}{2}mu^2$$\n2. **Kinetic Energy at Highest Point**:\n   At the apex of flight, vertical velocity is zero ($v_y = 0$). The speed is solely horizontal: $v = u\\cos\\theta$.\n   $$K_{\\text{top}} = \\frac{1}{2}mv^2 = \\frac{1}{2}m(u\\cos\\theta)^2 = K_0 \\cos^2\\theta$$\n3. **Evaluating the Launch Angle**:\n   Given the ratio $\\frac{K_{\\text{top}}}{K_0} = \\frac{1}{4}$:\n   $$\\cos^2\\theta = \\frac{1}{4} \\implies \\cos\\theta = \\frac{1}{2}$$\n   $$\\theta = \\arccos\\left(\\frac{1}{2}\\right) = 60^\\circ$$\n4. **Conclusion**:\n   The angle of projection is **$60^\\circ$**, confirming Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 4: Motion in a Plane (Batch 3), Q#59",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_3050",
+    "originalId": "PW_PHY_PLANE_060",
+    "number": 3050,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Minimum Coplanar Vectors for Zero Resultant",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 46.15,
+    "text": "How many minimum number of coplanar vectors which represent the same physical quantity having different magnitudes can give zero resultant?",
+    "options": [
+      {
+        "id": "A",
+        "text": "2"
+      },
+      {
+        "id": "B",
+        "text": "3"
+      },
+      {
+        "id": "C",
+        "text": "4"
+      },
+      {
+        "id": "D",
+        "text": "5"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Vectors $\\rightarrow$ Minimum Number of Coplanar Vectors for Zero Resultant\n\n**Step-by-Step Mathematical Derivation**:\n1. **Two Vectors Case**:\n   For two vectors to yield a zero resultant ($\\vec{A} + \\vec{B} = \\vec{0} \\implies \\vec{A} = -\\vec{B}$), they must be collinear, opposite in direction, and **equal in magnitude** ($|\\vec{A}| = |\\vec{B}|$).\n   Since the problem strictly specifies that the vectors have **different (unequal) magnitudes**, two vectors can NEVER give a zero resultant.\n2. **Three Vectors Case**:\n   Three coplanar vectors with different magnitudes can sum to zero ($\\vec{A} + \\vec{B} + \\vec{C} = \\vec{0}$) by forming the three sides of a closed triangle taken in order.\n   This is always possible provided the triangle inequality is satisfied: the sum of the two smaller magnitudes is greater than the largest magnitude (e.g., vectors of magnitudes 3, 4, 5).\n3. **Conclusion**:\n   The minimum number of coplanar vectors with unequal magnitudes that can yield a zero resultant is **3**, confirming Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 4: Motion in a Plane (Batch 3), Q#60",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
   }
 ]

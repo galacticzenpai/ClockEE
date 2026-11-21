@@ -4531,10 +4531,667 @@ NLM_SOLUTIONS = {
         "   $$1 - \\mu_k = \\frac{1}{2} = 0.5 \\implies \\mu_k = 1 - 0.5 = 0.5$$\n\n"
         "4. **Conclusion**:\n"
         "   The coefficient of kinetic friction is **$0.5$**, confirming Option **(A)**."
+    ),
+
+"PW_PHY_NLM_061": (
+        "**Concept**: Laws of Motion $\\rightarrow$ Tension in Hanging Heavy Rope\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **Mass Distribution of the Heavy Rope**:\n"
+        "   - Total length of the rope: $L$\n"
+        "   - Total mass of the rope: $M$\n"
+        "   - Linear mass density: $\\lambda = \\frac{M}{L}$\n\n"
+        "2. **Equilibrium of Hanging Portion**:\n"
+        "   - Consider a cross-section of the rope at a distance $x$ measured downwards from the rigid overhead support.\n"
+        "   - The length of the rope hanging freely below this cross-section is $(L - x)$.\n"
+        "   - The mass of this lower hanging portion is:\n"
+        "     $$m' = \\lambda (L - x) = \\frac{M}{L}(L - x)$$\n\n"
+        "3. **Tension at Distance $x$**:\n"
+        "   In static equilibrium, the tension $T(x)$ at this section supports the weight of the rope hanging beneath it:\n"
+        "   $$T(x) = m' g = \\left(\\frac{L - x}{L}\\right)Mg$$\n"
+        "   - At the overhead support ($x = 0$): $T(0) = Mg$ (supports the entire rope).\n"
+        "   - At the bottom free tip ($x = L$): $T(L) = 0$ (no rope below).\n\n"
+        "4. **Conclusion**:\n"
+        "   The tension in the rope is **$\\left(\\frac{L - x}{L}\\right)Mg$**, confirming Option **(B)**."
+    ),
+
+    "PW_PHY_NLM_062": (
+        "**Concept**: Laws of Motion $\\rightarrow$ Apparent Weight & Normal Reaction in Lift\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **Kinematic Analysis of Upward Retardation**:\n"
+        "   - The elevator is moving upward while retarding (decelerating) at rate $a\\text{ m/s}^2$.\n"
+        "   - Upward retardation implies the acceleration vector is directed **vertically downwards**:\n"
+        "     $$\\vec{a} = -a\\hat{j}$$\n\n"
+        "2. **Normal Contact Force (Apparent Weight)**:\n"
+        "   Applying Newton's second law along the vertical axis for mass $m$:\n"
+        "   $$mg - N = ma \\implies N = m(g - a)\\text{ N}$$\n\n"
+        "3. **Conversion to kgf Units**:\n"
+        "   A weighing machine measures force in gravitational units (kilogram-force, $\\text{kgf}$), where $1\\text{ kgf} = g\\text{ N}$:\n"
+        "   $$\\text{Reading} = \\frac{N}{g} = \\frac{m(g - a)}{g} = m\\left(1 - \\frac{a}{g}\\right)\\text{ kgf}$$\n\n"
+        "4. **Conclusion**:\n"
+        "   The reading of the weighing machine is **$m\\left(1 - \\frac{a}{g}\\right)$**, verifying Option **(C)**."
+    ),
+
+    "PW_PHY_NLM_063": (
+        "**Concept**: Laws of Motion $\\rightarrow$ Impulse from Force-Time Graph\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **Governing Law (Impulse-Momentum Theorem)**:\n"
+        "   The change in linear momentum $\\Delta p$ over any time interval $[t_1, t_2]$ equals the impulse of the net force, represented by the definite area under the force-time ($F-t$) graph:\n"
+        "   $$\\Delta p = \\int_{t_1}^{t_2} F(t)\\,dt = \\text{Area under } F-t \\text{ curve}$$\n\n"
+        "2. **Area Integration from Graph**:\n"
+        "   - From $t = 0$ to $t = 4\\text{ s}$: The force is positive ($F > 0$), contributing a positive triangular area $+A$.\n"
+        "   - From $t = 4\\text{ s}$ to $t = 8\\text{ s}$: The force is negative ($F < 0$) with identical symmetric dimensions, contributing a negative triangular area $-A$.\n\n"
+        "3. **Net Momentum Change**:\n"
+        "   $$\\Delta p = (+A) + (-A) = 0$$\n\n"
+        "4. **Conclusion**:\n"
+        "   The change in linear momentum between $0$ to $8\\text{ s}$ is **Zero**, confirming Option **(A)**."
+    ),
+
+    "PW_PHY_NLM_064": (
+        "**Concept**: Laws of Motion $\\rightarrow$ Free Body Diagram of Leaning Rod\n\n"
+        "**Step-by-Step Free Body Diagram (FBD) Analysis**:\n"
+        "1. **Identification of External Forces**:\n"
+        "   For a uniform rigid rod of mass $m$ leaning against a smooth vertical wall and resting on a rough horizontal floor:\n"
+        "   - **Gravity ($mg$)**: Acts vertically downward through the center of gravity (midpoint of the rod).\n"
+        "   - **Smooth Vertical Wall**: Since the wall is frictionless, it exerts only a normal contact force perpendicular to the vertical wall, pointing horizontally away from the wall ($N_1$).\n"
+        "   - **Rough Horizontal Floor**: Exerts two perpendicular components of contact force:\n"
+        "     1. A normal reaction force perpendicular to the floor, pointing vertically upward ($N_2$).\n"
+        "     2. A static friction force parallel to the floor, pointing toward the vertical wall ($f_s$) to prevent outward slipping.\n\n"
+        "2. **Conclusion**:\n"
+        "   The diagram showing normal perpendicular to wall, normal perpendicular to floor, gravity at center of mass, and friction along floor towards wall is the correct FBD, confirming Option **(C)**."
+    ),
+
+    "PW_PHY_NLM_065": (
+        "**Concept**: Laws of Motion $\\rightarrow$ Two-Block System & Friction Threshold\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **System Definition**:\n"
+        "   - Mass of upper block A: $m_A = 20\\text{ kg}$\n"
+        "   - Mass of lower block B: $m_B = 30\\text{ kg}$\n"
+        "   - Friction coefficient between A and B: $\\mu_1 = 0.5$\n"
+        "   - Friction coefficient between B and ground: $\\mu_2 = 0.3$\n"
+        "   - Acceleration due to gravity: $g = 10\\text{ m/s}^2$\n\n"
+        "2. **Limiting Static Friction at the Ground Interface**:\n"
+        "   The total vertical normal force exerted by the ground on block B supports the combined weight of both blocks:\n"
+        "   $$N_{\\text{ground}} = (m_A + m_B)g = (20 + 30) \\times 10 = 500\\text{ N}$$\n"
+        "   The maximum (limiting) static friction opposing horizontal motion at the ground interface is:\n"
+        "   $$f_{L,\\text{ground}} = \\mu_2 N_{\\text{ground}} = 0.3 \\times 500 = 150\\text{ N}$$\n\n"
+        "3. **Inception of Slipping Condition**:\n"
+        "   To initiate slipping between block B and the ground, the applied horizontal force $F$ must overcome the maximum static friction at the ground:\n"
+        "   $$F_{\\min} = f_{L,\\text{ground}} = 150\\text{ N}$$\n"
+        "   (At this threshold, acceleration is zero, so no relative slip occurs between A and B since available friction $\\mu_1 m_A g = 100\\text{ N} > 0$).\n\n"
+        "4. **Conclusion**:\n"
+        "   The minimum horizontal force applied to block B is **$150\\text{ N}$**, verifying Option **(C)**."
+    ),
+
+    "PW_PHY_NLM_066": (
+        "**Concept**: Laws of Motion $\\rightarrow$ Maximum Force for Accelerating Block System\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **System Mechanics**:\n"
+        "   - Block $m_1$ rests on block $m_2$, which is placed on a smooth horizontal table.\n"
+        "   - The coefficient of static friction between the blocks is $\\mu$.\n"
+        "   - A horizontal force $F$ is applied to the upper block $m_1$.\n\n"
+        "2. **Coupled Acceleration Without Slipping**:\n"
+        "   The lower block $m_2$ is accelerated exclusively by the static friction force $f$ acting at the interface between the blocks:\n"
+        "   $$f = m_2 a \\implies a = \\frac{f}{m_2}$$\n"
+        "   The maximum possible static friction force that the upper block can exert on the lower block is:\n"
+        "   $$f_{\\max} = \\mu N = \\mu m_1 g$$\n"
+        "   Therefore, the maximum common acceleration achievable without slipping is:\n"
+        "   $$a_{\\max} = \\frac{f_{\\max}}{m_2} = \\frac{\\mu m_1 g}{m_2}$$\n\n"
+        "3. **Maximum Applied External Force**:\n"
+        "   Considering the two blocks as a single combined system of total mass $(m_1 + m_2)$:\n"
+        "   $$F_{\\max} = (m_1 + m_2)a_{\\max} = (m_1 + m_2)\\left(\\frac{\\mu m_1 g}{m_2}\\right) = \\mu m_1 g\\left(\\frac{m_1 + m_2}{m_2}\\right) = \\mu m_1 g\\left(\\frac{m_1}{m_2} + 1\\right)$$\n\n"
+        "4. **Conclusion**:\n"
+        "   The maximum force is **$\\mu m_1 g\\left(\\frac{m_1}{m_2} + 1\\right)$**, confirming Option **(C)**."
+    ),
+
+    "PW_PHY_NLM_067": (
+        "**Concept**: Laws of Motion $\\rightarrow$ Tension in Accelerated String Systems\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **System Kinematics & Free Body Equations**:\n"
+        "   - Mass $m_1$ is on a smooth horizontal table, pulled horizontally by string tension $T$.\n"
+        "   - Mass $m_2$ hangs vertically from the string over an ideal frictionless pulley.\n"
+        "   - Let the common acceleration of the system be $a$.\n\n"
+        "2. **Equations of Motion**:\n"
+        "   - For mass $m_1$:\n"
+        "     $$T = m_1 a \\quad \\text{--- (Equation 1)}$$\n"
+        "   - For mass $m_2$:\n"
+        "     $$m_2 g - T = m_2 a \\quad \\text{--- (Equation 2)}$$\n\n"
+        "3. **Solving for Acceleration $a$**:\n"
+        "   Adding Equations (1) and (2):\n"
+        "   $$m_2 g = (m_1 + m_2)a \\implies a = \\frac{m_2 g}{m_1 + m_2}$$\n\n"
+        "4. **Conclusion**:\n"
+        "   The acceleration of block $m_2$ is **$\\frac{m_2 g}{m_1 + m_2}$**, confirming Option **(A)**."
+    ),
+
+    "PW_PHY_NLM_068": (
+        "**Concept**: Laws of Motion $\\rightarrow$ Movable Pulley Dynamic Acceleration\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **System Configuration**:\n"
+        "   - Block A ($6\\text{ kg}$) is placed on block B ($3\\text{ kg}$) on a horizontal surface ($\mu_1 = 0.2$).\n"
+        "   - Static friction coefficient between A and B is $\\mu_2 = 0.7$.\n"
+        "   - Hanging block C ($6\\text{ kg}$) pulls to the right, and hanging block D ($1\\text{ kg}$) pulls to the left.\n"
+        "   - Take $g = 10\\text{ m/s}^2$.\n\n"
+        "2. **Assumption: Blocks A and B Move Together Without Slipping**:\n"
+        "   Total mass of system: $M = m_A + m_B + m_C + m_D = 6 + 3 + 6 + 1 = 16\\text{ kg}$.\n"
+        "   Driving forces:\n"
+        "   - Pull from C: $m_C g = 60\\text{ N}$\n"
+        "   - Opposing pull from D: $m_D g = 10\\text{ N}$\n"
+        "   - Opposing ground friction on B: $f_{\\text{ground}} = \\mu_1(m_A + m_B)g = 0.2(9)(10) = 18\\text{ N}$\n"
+        "   Net driving force:\n"
+        "   $$F_{\\text{net}} = 60 - 10 - 18 = 32\\text{ N}$$\n"
+        "   Acceleration of the system:\n"
+        "   $$a = \\frac{F_{\\text{net}}}{M} = \\frac{32}{16} = 2\\text{ m/s}^2$$\n\n"
+        "3. **Verification of No-Slip Condition Between A and B**:\n"
+        "   - String tension from C: $T_C = m_C(g - a) = 6(10 - 2) = 48\\text{ N}$.\n"
+        "   - Equation of motion for block A: $T_C - f_{AB} = m_A a \\implies 48 - f_{AB} = 6(2) = 12 \\implies f_{AB} = 36\\text{ N}$.\n"
+        "   - Maximum static friction between A and B:\n"
+        "     $$f_{L,AB} = \\mu_2 m_A g = 0.7 \\times 60 = 42\\text{ N}$$\n"
+        "   - Since $f_{AB} = 36\\text{ N} < 42\\text{ N} = f_{L,AB}$, the blocks do NOT slip, confirming the system moves together with $a = 2\\text{ m/s}^2$.\n\n"
+        "4. **Conclusion**:\n"
+        "   The magnitude of acceleration of the system is $2\\text{ m/s}^2$ and there is no slipping between block A and block B, verifying Option **(A)**."
+    ),
+
+    "PW_PHY_NLM_069": (
+        "**Concept**: Laws of Motion $\\rightarrow$ Stacked Coins Normal Contact Forces\n\n"
+        "**Step-by-Step Free Body & Force Analysis**:\n"
+        "1. **System Definition**:\n"
+        "   Ten identical coins of mass $m$ are stacked on a table in static equilibrium, numbered 1 to 10 from bottom to top.\n\n"
+        "2. **Analysis of Coins on Top of 7th Coin**:\n"
+        "   - The coins resting above the 7th coin are the 8th, 9th, and 10th coins.\n"
+        "   - Total number of coins above the 7th coin $= 10 - 7 = 3$ coins.\n"
+        "   - Total mass of these three coins $= 3m$.\n\n"
+        "3. **Determination of Downward Normal Force**:\n"
+        "   In static equilibrium, the downward normal contact force exerted on the 7th coin by the coins above it balances their total gravitational weight:\n"
+        "   $$F = (3m)g = 3mg$$\n\n"
+        "4. **Conclusion**:\n"
+        "   The force on the 7th coin due to all the coins on its top is **$3mg$**, confirming Option **(A)**."
+    ),
+
+    "PW_PHY_NLM_070": (
+        "**Concept**: Laws of Motion $\\rightarrow$ Direction of Friction Force on Moving Athlete\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **Initial and Final Velocities**:\n"
+        "   Taking East as $+\\hat{i}$ and North as $+\\hat{j}$:\n"
+        "   - Initial velocity vector: $\\vec{v}_i = v\\hat{j}$ (moving Northward).\n"
+        "   - Final velocity vector: $\\vec{v}_f = -v\\hat{i}$ (turning Westward with same speed $v$).\n\n"
+        "2. **Change in Velocity and Acceleration Direction**:\n"
+        "   $$\\Delta \\vec{v} = \\vec{v}_f - \\vec{v}_i = -v\\hat{i} - v\\hat{j}$$\n"
+        "   The direction of the change in velocity has negative $x$ (West) and negative $y$ (South) components.\n"
+        "   Thus, the net acceleration $\\vec{a}$ is directed along the **South-West** direction.\n\n"
+        "3. **External Real Force Origin**:\n"
+        "   By Newton's second law ($\\vec{F}_{\\text{ext}} = m\\vec{a}$), the net external horizontal force responsible for turning the runner is the **frictional force** exerted by the ground on the player's boots, pointing along **South-West**.\n\n"
+        "4. **Conclusion**:\n"
+        "   The force that acts on the player is **frictional force along south-west**, verifying Option **(C)**."
+    ),
+
+    "PW_PHY_NLM_071": (
+        "**Concept**: Laws of Motion $\\rightarrow$ Normal Reaction in Accelerating Elevator\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **Dynamic State During Free Fall**:\n"
+        "   When a lift falls freely under gravity, its downward acceleration is:\n"
+        "   $$a = g$$\n\n"
+        "2. **Apparent Weight and Normal Reaction**:\n"
+        "   The normal reaction force $N$ between the block of mass $m$ and the elevator floor is:\n"
+        "   $$N = m(g - a) = m(g - g) = 0$$\n\n"
+        "3. **Frictional Force Under Zero Normal Reaction**:\n"
+        "   Friction force is directly proportional to the normal reaction force ($f \\le \\mu N$).\n"
+        "   Since $N = 0$:\n"
+        "   $$f = 0$$\n"
+        "   Therefore, no horizontal frictional resistance is offered by the body when pulled horizontally.\n\n"
+        "4. **Conclusion**:\n"
+        "   The frictional force offered by the body is **Zero**, confirming Option **(C)**."
+    ),
+
+    "PW_PHY_NLM_072": (
+        "**Concept**: Laws of Motion $\\rightarrow$ Three Connected Masses & String Tensions\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **Kinematic State**:\n"
+        "   The three connected blocks move upward with a **constant speed $v$** under the action of the applied upward force $F$.\n\n"
+        "2. **Newton's First and Second Laws**:\n"
+        "   Since the velocity is uniform and constant:\n"
+        "   $$\\vec{a} = \\frac{d\\vec{v}}{dt} = \\vec{0}$$\n"
+        "   According to Newton's second law of motion:\n"
+        "   $$\\vec{F}_{\\text{net}} = m \\vec{a}$$\n"
+        "   For the block of mass $2m$:\n"
+        "   $$\\vec{F}_{\\text{net}, 2m} = (2m)(\\vec{0}) = \\vec{0}$$\n\n"
+        "3. **Conclusion**:\n"
+        "   The net force acting on the block of mass $2m$ is **Zero**, verifying Option **(B)**."
+    ),
+
+    "PW_PHY_NLM_073": (
+        "**Concept**: Laws of Motion $\\rightarrow$ Spring Force vs String Cut Accelerations\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **Equilibrium State Before Cutting**:\n"
+        "   - Mass of upper block A: $m_A = 3m$\n"
+        "   - Mass of lower block B: $m_B = m$\n"
+        "   - In static equilibrium, the spring supports the total mass $(3m + m) = 4m$:\n"
+        "     $$F_s = 4mg \\quad (\\text{directed vertically upwards on block A})$$\n"
+        "   - The string tension connecting block A and block B is:\n"
+        "     $$T = m_B g = mg$$\n\n"
+        "2. **State Immediately After Cutting the String ($t = 0^+$)**:\n"
+        "   - The tension in the string vanishes instantaneously: $T = 0$.\n"
+        "   - **For block B**:\n"
+        "     The only force acting is gravity downward:\n"
+        "     $$F_{\\text{net}, B} = mg \\implies a_B = \\frac{mg}{m} = g \\quad (\\text{downwards})$$\n"
+        "   - **For block A**:\n"
+        "     Spring force cannot change instantaneously ($F_s = 4mg$ upwards). The downward force on A is its own gravity $3mg$ (since $T = 0$):\n"
+        "     $$F_{\\text{net}, A} = F_s - 3mg = 4mg - 3mg = mg \\quad (\\text{upwards})$$\n"
+        "     $$a_A = \\frac{F_{\\text{net}, A}}{m_A} = \\frac{mg}{3m} = \\frac{g}{3} \\quad (\\text{upwards})$$\n\n"
+        "3. **Conclusion**:\n"
+        "   The magnitudes of acceleration of A and B immediately after the cut are **$g/3$ and $g$**, verifying Option **(D)**."
+    ),
+
+    "PW_PHY_NLM_074": (
+        "**Concept**: Laws of Motion $\\rightarrow$ Horizontal Table & Hanging Block Acceleration\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **Free Body Equations of Motion**:\n"
+        "   - For block A ($m_1$) sliding horizontally with kinetic friction $f_k = \\mu_k m_1 g$:\n"
+        "     $$T - \\mu_k m_1 g = m_1 a \\quad \\text{--- (Equation 1)}$$\n"
+        "   - For block B ($m_2$) hanging vertically and accelerating downwards:\n"
+        "     $$m_2 g - T = m_2 a \\quad \\text{--- (Equation 2)}$$\n\n"
+        "2. **Solving for Acceleration $a$**:\n"
+        "   Adding Equations (1) and (2):\n"
+        "   $$(m_2 - \\mu_k m_1)g = (m_1 + m_2)a \\implies a = \\frac{(m_2 - \\mu_k m_1)g}{m_1 + m_2}$$\n\n"
+        "3. **Calculation of String Tension $T$**:\n"
+        "   From Equation (2):\n"
+        "   $$T = m_2(g - a) = m_2\\left(g - \\frac{(m_2 - \\mu_k m_1)g}{m_1 + m_2}\\right)$$\n"
+        "   $$T = m_2 g \\left(\\frac{(m_1 + m_2) - (m_2 - \\mu_k m_1)}{m_1 + m_2}\\right) = \\frac{m_1 m_2(1 + \\mu_k)g}{m_1 + m_2}$$\n\n"
+        "4. **Conclusion**:\n"
+        "   The tension in the string is **$\\frac{m_1 m_2(1 + \\mu_k)g}{m_1 + m_2}$**, confirming Option **(B)**."
+    ),
+
+    "PW_PHY_NLM_075": (
+        "**Concept**: Laws of Motion $\\rightarrow$ Kinematics & Acceleration of Block System\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **Kinematic String Length Constraint**:\n"
+        "   - Consider the arrangement where the movement of horizontal block A controls the string wrapped over a multi-pulley system supporting vertical block B.\n"
+        "   - The total inextensible string length satisfies:\n"
+        "     $$x_A - 3y_B = \\text{constant}$$\n\n"
+        "2. **Velocity Relation**:\n"
+        "   Differentiating with respect to time:\n"
+        "   $$\\frac{dx_A}{dt} - 3\\frac{dy_B}{dt} = 0 \\implies v_B = 3 v_A$$\n\n"
+        "3. **Numerical Evaluation**:\n"
+        "   Given $v_A = 0.6\\text{ m/s}$ to the right:\n"
+        "   $$v_B = 3 \\times 0.6\\text{ m/s} = 1.8\\text{ m/s}$$\n"
+        "   As block A moves to the right, string is paid out, causing block B to move **downward**.\n\n"
+        "4. **Conclusion**:\n"
+        "   The velocity of block B is **$1.8\\text{ m/s}$ in downward direction**, confirming Option **(A)**."
+    ),
+
+    "PW_PHY_NLM_076": (
+        "**Concept**: Laws of Motion $\\rightarrow$ Static & Kinetic Friction Threshold\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **Given Parameters**:\n"
+        "   - Mass of block: $m = 2\\text{ kg}$\n"
+        "   - Coefficient of static friction: $\\mu_s = 0.4$\n"
+        "   - Applied horizontal force: $F = 2.8\\text{ N}$\n"
+        "   - Acceleration due to gravity: $g = 9.8\\text{ m/s}^2$\n\n"
+        "2. **Limiting Static Friction**:\n"
+        "   The normal reaction on the horizontal floor is:\n"
+        "   $$N = mg = (2\\text{ kg})(9.8\\text{ m/s}^2) = 19.6\\text{ N}$$\n"
+        "   The maximum static friction threshold is:\n"
+        "   $$f_L = \\mu_s N = 0.4 \\times 19.6 = 7.84\\text{ N}$$\n\n"
+        "3. **Actual Friction Force**:\n"
+        "   Comparing the applied horizontal force with limiting friction:\n"
+        "   $$F = 2.8\\text{ N} < f_L = 7.84\\text{ N}$$\n"
+        "   Because the applied force is less than the limiting friction, the block does not move.\n"
+        "   Static friction is self-adjusting and equals the applied force:\n"
+        "   $$f_s = F = 2.8\\text{ N}$$\n\n"
+        "4. **Conclusion**:\n"
+        "   The force of friction between the block and floor is **$2.8\\text{ N}$**, verifying Option **(A)**."
+    ),
+
+    "PW_PHY_NLM_077": (
+        "**Concept**: Laws of Motion $\\rightarrow$ Limiting Friction & External Pull\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **Given Parameters**:\n"
+        "   - Mass of block: $M$\n"
+        "   - Coefficient of friction: $\\mu = 3$\n"
+        "   - Applied force $F = \\frac{4}{5} F_{\\min}$, where $F_{\\min}$ is the minimum force required to just move the block.\n\n"
+        "2. **Determination of Applied Force**:\n"
+        "   The minimum horizontal force to initiate motion is equal to limiting static friction:\n"
+        "   $$F_{\\min} = f_L = \\mu N = \\mu Mg = 3Mg$$\n"
+        "   Therefore, the applied horizontal force is:\n"
+        "   $$F = \\frac{4}{5}(3Mg) = 2.4Mg$$\n\n"
+        "3. **State of Rest and Resultant Ground Contact Force**:\n"
+        "   Since $F = 2.4Mg < f_L = 3Mg$, the block remains stationary.\n"
+        "   - Static friction: $f = F = 2.4Mg$ (horizontal).\n"
+        "   - Normal reaction: $N = Mg$ (vertical).\n"
+        "   The total contact force exerted by the ground on the block is the vector resultant of $N$ and $f$:\n"
+        "   $$R = \\sqrt{N^2 + f^2} = \\sqrt{(Mg)^2 + (2.4Mg)^2} = Mg\\sqrt{1 + 5.76} = Mg\\sqrt{6.76} = 2.6Mg$$\n\n"
+        "4. **Conclusion**:\n"
+        "   The total force exerted by the ground is **$2.6Mg$**, confirming Option **(A)**."
+    ),
+
+    "PW_PHY_NLM_078": (
+        "**Concept**: Laws of Motion $\\rightarrow$ Pulley System String Tension\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **System Symmetry & Equilibrium**:\n"
+        "   - Two identical blocks of mass $m$ hang vertically on opposite sides of a frictionless overhead pulley.\n"
+        "   - Since the two masses are equal ($m_1 = m_2 = m$), the system is in static equilibrium with zero acceleration ($a = 0$).\n\n"
+        "2. **Tension Calculation**:\n"
+        "   Balancing vertical forces on either mass:\n"
+        "   $$T - mg = m a = 0 \\implies T = mg$$\n\n"
+        "3. **Conclusion**:\n"
+        "   The tension in the string is **$mg$**, verifying Option **(B)**."
+    ),
+
+    "PW_PHY_NLM_079": (
+        "**Concept**: Laws of Motion $\\rightarrow$ Kinematic Constraint of Interconnected Blocks\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **Kinematic Constraint Relation**:\n"
+        "   For the given movable pulley-block linkage, the horizontal displacement of block A ($x_A$) and vertical displacement of block B ($y_B$) satisfy the length constraint:\n"
+        "   $$x_A = 3y_B + \\text{constant}$$\n\n"
+        "2. **Velocity Evaluation**:\n"
+        "   Differentiating with respect to time:\n"
+        "   $$v_B = 3 v_A = 3(0.6\\text{ m/s}) = 1.8\\text{ m/s}$$\n"
+        "   Rightward motion of block A pulls string over the overhead pulleys, causing block B to move **downwards** with velocity $1.8\\text{ m/s}$.\n\n"
+        "3. **Conclusion**:\n"
+        "   The velocity of block B is **$1.8\\text{ m/s}$ in downward direction**, confirming Option **(A)**."
+    ),
+
+    "PW_PHY_NLM_080": (
+        "**Concept**: Laws of Motion $\\rightarrow$ Equilibrium State & Net Unbalanced Force\n\n"
+        "**Step-by-Step Conceptual Analysis**:\n"
+        "1. **Definition of Mechanical Equilibrium**:\n"
+        "   In physics, a mechanical system is in equilibrium when the vector sum of all external forces acting upon it is zero:\n"
+        "   $$\\sum \\vec{F} = \\vec{0}$$\n\n"
+        "2. **Implication on Acceleration**:\n"
+        "   By Newton's second law ($\\,\\sum \\vec{F} = m\\vec{a}\\,$):\n"
+        "   $$\\sum \\vec{F} = \\vec{0} \\iff \\vec{a} = \\vec{0}$$\n"
+        "   Therefore, **its net acceleration must be zero**.\n\n"
+        "3. **Static vs Dynamic Equilibrium**:\n"
+        "   - An object in equilibrium need not be at rest (it can move with constant uniform velocity, known as dynamic equilibrium).\n"
+        "   - Forces can and do act on it, as long as their vector resultant vanishes.\n\n"
+        "4. **Conclusion**:\n"
+        "   When an object is in equilibrium, **its net acceleration must be zero**, verifying Option **(C)**."
+    ),
+
+    "PW_PHY_NLM_081": (
+        "**Concept**: Laws of Motion $\\rightarrow$ Equilibrium of Light String with Suspended Weights\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **Equilibrium at Knot C**:\n"
+        "   - String segment CD supports weight $300\\text{ N}$, inclined at $120^\\circ$ to the horizontal string BC.\n"
+        "   - Segment BC is horizontal: tension $T_{BC}$.\n"
+        "   - Horizontal equilibrium at C:\n"
+        "     $$T_{BC} = 300 \\cos(180^\\circ - 120^\\circ) = 300 \\cos 60^\\circ = 300 \\times 0.5 = 150\\text{ N} \\quad \\rightarrow \\text{(B-I)}$$\n"
+        "   - Vertical equilibrium at C:\n"
+        "     $$W_2 = 300 \\sin 60^\\circ = 300 \\times \\frac{\\sqrt{3}}{2} \\approx 259.8\\text{ N} \\approx 260\\text{ N} \\quad \\rightarrow \\text{(D-III)}$$\n\n"
+        "2. **Equilibrium at Knot B**:\n"
+        "   - String segment AB makes $150^\\circ$ with horizontal string BC.\n"
+        "   - Horizontal equilibrium at B:\n"
+        "     $$T_{AB} \\cos(180^\\circ - 150^\\circ) = T_{BC} \\implies T_{AB} \\cos 30^\\circ = 150$$\n"
+        "     $$T_{AB} = \\frac{150}{\\cos 30^\\circ} = \\frac{150}{\\sqrt{3}/2} = 100\\sqrt{3} \\approx 173.2\\text{ N} \\approx 173\\text{ N} \\quad \\rightarrow \\text{(A-II)}$$\n"
+        "   - Vertical equilibrium at B:\n"
+        "     $$W_1 = T_{AB} \\sin 30^\\circ = 173.2 \\times 0.5 = 86.6\\text{ N} \\approx 87\\text{ N} \\quad \\rightarrow \\text{(C-IV)}$$\n\n"
+        "3. **Conclusion**:\n"
+        "   The correct column match is **A-II, B-I, C-IV, D-III**, confirming Option **(B)**."
+    ),
+
+    "PW_PHY_NLM_082": (
+        "**Concept**: Laws of Motion $\\rightarrow$ Kinematics under Time-Varying Force Vector\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **Given Parameters**:\n"
+        "   - Mass of particle: $m = 0.3\\text{ kg}$\n"
+        "   - Restoring force constant: $k = 15\\text{ N/m}$\n"
+        "   - Displacement from origin: $x = 20\\text{ cm} = 0.2\\text{ m}$\n\n"
+        "2. **Restoring Force Magnitude**:\n"
+        "   $$|F| = kx = (15\\text{ N/m})(0.2\\text{ m}) = 3.0\\text{ N}$$\n\n"
+        "3. **Initial Acceleration**:\n"
+        "   Applying Newton's second law ($|a| = \\frac{|F|}{m}$):\n"
+        "   $$a = \\frac{3.0\\text{ N}}{0.3\\text{ kg}} = 10\\text{ m/s}^2$$\n\n"
+        "4. **Conclusion**:\n"
+        "   The initial acceleration is **$10\\text{ m/s}^2$**, verifying Option **(B)**."
+    ),
+
+    "PW_PHY_NLM_083": (
+        "**Concept**: Laws of Motion $\\rightarrow$ Coupled Masses Friction & Minimum Force to Hold\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **System Definition**:\n"
+        "   - Mass hanging vertically: $m_1 = 5\\text{ kg}$\n"
+        "   - Mass on horizontal rough table: $m_2 = 10\\text{ kg}$\n"
+        "   - Friction coefficient of table: $\\mu = 0.15$\n"
+        "   - Added mass on top of $m_2$: $m$\n\n"
+        "2. **Equilibrium Condition**:\n"
+        "   To prevent the hanging mass $m_1$ from accelerating downwards, the maximum static friction force on the horizontal table must balance or exceed the string tension:\n"
+        "   $$f_{\\max} \\ge T = m_1 g$$\n"
+        "   $$\\mu (m_2 + m)g \\ge m_1 g$$\n\n"
+        "3. **Solving for Minimum Added Mass $m$**:\n"
+        "   $$\\mu (m_2 + m) \\ge m_1$$\n"
+        "   $$0.15(10 + m) \\ge 5$$\n"
+        "   $$10 + m \\ge \\frac{5}{0.15} = \\frac{100}{3} \\approx 33.33\\text{ kg}$$\n"
+        "   $$m \\ge 33.33 - 10 = 23.33\\text{ kg} \\approx 23.3\\text{ kg}$$\n\n"
+        "4. **Conclusion**:\n"
+        "   The minimum mass required to stop the motion is **$23.3\\text{ kg}$**, confirming Option **(A)**."
+    ),
+
+    "PW_PHY_NLM_084": (
+        "**Concept**: Laws of Motion $\\rightarrow$ Contact Force between Accelerating Adjacent Blocks\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **Given Parameters**:\n"
+        "   - Masses: $m_1 = 2\\text{ kg}$ and $m_2 = 1\\text{ kg}$ in contact on a frictionless table.\n"
+        "   - Applied horizontal force on $m_1$: $F = 3.0\\text{ N}$.\n\n"
+        "2. **Common System Acceleration**:\n"
+        "   $$a = \\frac{F}{m_1 + m_2} = \\frac{3.0\\text{ N}}{2 + 1\\text{ kg}} = 1.0\\text{ m/s}^2$$\n\n"
+        "3. **Contact Normal Force on $m_2$**:\n"
+        "   The only horizontal force acting on $m_2$ is the contact force $N_c$ exerted by $m_1$:\n"
+        "   $$N_c = m_2 a = (1\\text{ kg})(1.0\\text{ m/s}^2) = 1.0\\text{ N}$$\n\n"
+        "4. **Conclusion**:\n"
+        "   The contact force between the blocks is **$1\\text{ N}$**, confirming Option **(D)**."
+    ),
+
+    "PW_PHY_NLM_085": (
+        "**Concept**: Laws of Motion $\\rightarrow$ Dynamometer Reading between Two Accelerated Blocks\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **Given Parameters**:\n"
+        "   - Masses: $m_1 = 6\\text{ kg}$ (left block) and $m_2 = 4\\text{ kg}$ (right block).\n"
+        "   - Opposing horizontal pulling forces: $F_1 = 50\\text{ N}$ (pulling to left) and $F_2 = 30\\text{ N}$ (pulling to right).\n\n"
+        "2. **Net Unbalanced Force and Acceleration**:\n"
+        "   $$F_{\\text{net}} = F_1 - F_2 = 50 - 30 = 20\\text{ N} \\quad (\\text{leftward})$$\n"
+        "   $$a = \\frac{F_{\\text{net}}}{m_1 + m_2} = \\frac{20}{6 + 4} = 2\\text{ m/s}^2 \\quad (\\text{leftward})$$\n\n"
+        "3. **Dynamometer Tension Reading**:\n"
+        "   Isolating the right block ($m_2 = 4\\text{ kg}$):\n"
+        "   $$T - F_2 = m_2 a \\implies T - 30 = 4(2) = 8 \\implies T = 38\\text{ N}$$\n"
+        "   (Checking with left block: $F_1 - T = m_1 a \\implies 50 - T = 6(2) = 12 \\implies T = 38\\text{ N}$).\n\n"
+        "4. **Conclusion**:\n"
+        "   The reading of the dynamometer is **$38\\text{ N}$**, verifying Option **(C)**."
+    ),
+
+    "PW_PHY_NLM_086": (
+        "**Concept**: Laws of Motion $\\rightarrow$ Equilibrium Position in Rotating Hemispherical Bowl\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **Geometric Relations in Spherical Bowl**:\n"
+        "   - Radius of hemispherical bowl: $R = 0.5\\text{ m}$\n"
+        "   - Height from bottom: $h = 0.1\\text{ m}$\n"
+        "   - Vertical distance from bowl center to mass:\n"
+        "     $$z = R - h = 0.5 - 0.1 = 0.4\\text{ m}$$\n"
+        "   - Angle $\\theta$ made by the radius vector with the vertical axis:\n"
+        "     $$\\cos\\theta = \\frac{z}{R} = \\frac{0.4}{0.5} = 0.8$$\n"
+        "   - Horizontal radius of rotation:\n"
+        "     $$r = R \\sin\\theta = 0.5 \\sqrt{1 - 0.8^2} = 0.5 \\times 0.6 = 0.3\\text{ m}$$\n\n"
+        "2. **Dynamic Equilibrium under Rotation**:\n"
+        "   Normal reaction $N$ points toward the center of the bowl at angle $\\theta$ to the vertical:\n"
+        "   $$N \\cos\\theta = mg$$\n"
+        "   $$N \\sin\\theta = m\\omega^2 r = m\\omega^2 (R \\sin\\theta) \\implies N = m\\omega^2 R$$\n\n"
+        "3. **Solving for Angular Velocity $\\omega$**:\n"
+        "   $$m\\omega^2 R \\cos\\theta = mg \\implies \\omega^2 = \\frac{g}{R \\cos\\theta}$$\n"
+        "   Using $g = 10\\text{ m/s}^2$:\n"
+        "   $$\\omega^2 = \\frac{10}{0.5 \\times 0.8} = \\frac{10}{0.4} = 25 \\implies \\omega = 5\\text{ rad/s}$$\n\n"
+        "4. **Conclusion**:\n"
+        "   The required angular speed is **$5\\text{ rad/s}$**, confirming Option **(C)**."
+    ),
+
+    "PW_PHY_NLM_087": (
+        "**Concept**: Laws of Motion $\\rightarrow$ Acceleration from 3D Force Vector on Mass\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **Magnitude of Applied 3D Force Vector**:\n"
+        "   Given $\\vec{F} = (6\\hat{i} - 8\\hat{j} + 10\\hat{k})\\text{ N}$:\n"
+        "   $$|\\vec{F}| = \\sqrt{6^2 + (-8)^2 + 10^2} = \\sqrt{36 + 64 + 100} = \\sqrt{200} = 10\\sqrt{2}\\text{ N}$$\n\n"
+        "2. **Calculation of Mass**:\n"
+        "   By Newton's second law ($|\\vec{F}| = m a$) with acceleration $a = 1\\text{ m/s}^2$:\n"
+        "   $$m = \\frac{|\\vec{F}|}{a} = \\frac{10\\sqrt{2}\\text{ N}}{1\\text{ m/s}^2} = 10\\sqrt{2}\\text{ kg}$$\n\n"
+        "3. **Conclusion**:\n"
+        "   The mass of the body is **$10\\sqrt{2}\\text{ kg}$**, verifying Option **(A)**."
+    ),
+
+    "PW_PHY_NLM_088": (
+        "**Concept**: Laws of Motion $\\rightarrow$ Impulse & Average Force during Ball Impact\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **Given Parameters**:\n"
+        "   - Mass of ball: $m = 150\\text{ g} = 0.15\\text{ kg}$\n"
+        "   - Initial incoming velocity: $u = +40\\text{ m/s}$\n"
+        "   - Rebound velocity (reversed direction): $v = -60\\text{ m/s}$\n"
+        "   - Contact duration: $t = 5\\text{ ms} = 0.005\\text{ s}$\n\n"
+        "2. **Change in Linear Momentum (Impulse)**:\n"
+        "   $$\\Delta p = m(v - u) = 0.15[-60 - 40] = 0.15(-100) = -15\\text{ N s}$$\n"
+        "   $$|\\Delta p| = 15\\text{ N s}$$\n\n"
+        "3. **Calculation of Average Force**:\n"
+        "   $$F_{\\text{avg}} = \\frac{|\\Delta p|}{t} = \\frac{15\\text{ N s}}{0.005\\text{ s}} = 3000\\text{ N}$$\n\n"
+        "4. **Conclusion**:\n"
+        "   The magnitude of the average force is **$3000\\text{ N}$**, confirming Option **(B)**."
+    ),
+
+    "PW_PHY_NLM_089": (
+        "**Concept**: Laws of Motion $\\rightarrow$ Equilibrium & Acceleration on Smooth Incline\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **Incline Equilibrium Geometry**:\n"
+        "   - Mass on smooth incline: $M = 10\\text{ g}$, inclined at $\\theta = 30^\\circ$.\n"
+        "   - Suspended mass connected by light string: $m$.\n\n"
+        "2. **Force Balance Along Incline**:\n"
+        "   The component of gravity pulling mass $M$ down the smooth incline is:\n"
+        "   $$F_{\\parallel} = Mg \\sin 30^\\circ = (10\\text{ g}) \\cdot g \\cdot 0.5 = 5g$$\n"
+        "   In static equilibrium, string tension $T = F_{\\parallel} = 5g$.\n\n"
+        "3. **Suspended Mass Equilibrium**:\n"
+        "   $$T = mg \\implies mg = 5g \\implies m = 5\\text{ g}$$\n\n"
+        "4. **Conclusion**:\n"
+        "   The value of mass $m$ to keep it at rest is **$5\\text{ g}$**, verifying Option **(A)**."
+    ),
+
+    "PW_PHY_NLM_090": (
+        "**Concept**: Laws of Motion $\\rightarrow$ Tension in Connected Mass System on Incline\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **System Definition**:\n"
+        "   - Block 1 (mass $M$) rests on a frictionless horizontal surface.\n"
+        "   - Block 2 (mass $M$) slides down a frictionless incline of angle $\\theta$.\n"
+        "   - Connected by a light string over an ideal pulley.\n\n"
+        "2. **Equations of Motion**:\n"
+        "   Let $a$ be the acceleration of the coupled system:\n"
+        "   - For horizontal block:\n"
+        "     $$T = M a \\quad \\text{--- (Equation 1)}$$\n"
+        "   - For block on incline:\n"
+        "     $$M g \\sin\\theta - T = M a \\quad \\text{--- (Equation 2)}$$\n\n"
+        "3. **Calculation of Tension**:\n"
+        "   Adding Equations (1) and (2):\n"
+        "   $$M g \\sin\\theta = 2 M a \\implies a = \\frac{g \\sin\\theta}{2}$$\n"
+        "   Substituting into Equation (1):\n"
+        "   $$T = M a = \\frac{1}{2} M g \\sin\\theta$$\n\n"
+        "4. **Conclusion**:\n"
+        "   The tension in the string is **$\\frac{1}{2} Mg \\sin \\theta$**, confirming Option **(C)**."
     )
 }
 
 OPTION_OVERRIDES = {
+    "PW_PHY_NLM_061": [
+        r"Mg",
+        r"\left(\frac{L - x}{L}\right)Mg",
+        r"\left(\frac{L}{L - x}\right)Mg",
+        r"\frac{x}{L}Mg"
+    ],
+    "PW_PHY_NLM_062": [
+        r"mg",
+        r"m(g - a)",
+        r"m\left(1 - \frac{a}{g}\right)",
+        r"m(g + a)"
+    ],
+    "PW_PHY_NLM_064": [
+        "Normal from wall parallel to rod",
+        "Downward gravity, normal from wall, normal from floor only",
+        "Normal perpendicular to wall, normal perpendicular to floor, gravity at center of mass, and friction along floor towards wall",
+        "None of these"
+    ],
+    "PW_PHY_NLM_066": [
+        r"\mu m_1 g",
+        r"\mu (m_1 + m_2)g",
+        r"\mu m_1 g\left(\frac{m_1}{m_2} + 1\right)",
+        r"\text{Zero}"
+    ],
+    "PW_PHY_NLM_067": [
+        r"\frac{m_2 g}{m_1 + m_2}",
+        r"\frac{m_1 g}{m_1 + m_2}",
+        r"\frac{4m_2 g - m_1 g}{m_1 + m_2}",
+        r"\frac{m_2 g}{m_1 + 4m_2}"
+    ],
+    "PW_PHY_NLM_068": [
+        r"The magnitude of acceleration of the system is 2\text{ m/s}^2 and there is no slipping between block A and block B.",
+        r"The magnitude of friction force between block A and block B is 42\text{ N}.",
+        r"Acceleration of block C is 1\text{ m/s}^2 downwards.",
+        r"Tension in the string connecting block B and block D is 10\text{ N}."
+    ],
+    "PW_PHY_NLM_073": [
+        r"g, \; \frac{g}{3}",
+        r"g, \; g",
+        r"\frac{g}{3}, \; \frac{g}{3}",
+        r"\frac{g}{3}, \; g"
+    ],
+    "PW_PHY_NLM_074": [
+        r"\frac{(m_2 - \mu_k m_1)g}{m_1 + m_2}",
+        r"\frac{m_1 m_2(1 + \mu_k)g}{m_1 + m_2}",
+        r"\frac{m_1 m_2(1 - \mu_k)g}{m_1 + m_2}",
+        r"\frac{(m_2 + \mu_k m_1)g}{m_1 + m_2}"
+    ],
+    "PW_PHY_NLM_077": [
+        r"2.6 Mg",
+        r"Mg",
+        r"4 Mg",
+        r"3.4 Mg"
+    ],
+    "PW_PHY_NLM_078": [
+        r"\frac{mg}{2}",
+        r"mg",
+        r"\frac{3mg}{2}",
+        r"2mg"
+    ],
+    "PW_PHY_NLM_083": [
+        r"23.3\text{ kg}",
+        r"43.3\text{ kg}",
+        r"10.3\text{ kg}",
+        r"18.3\text{ kg}"
+    ],
+    "PW_PHY_NLM_085": [
+        r"18\text{ N}",
+        r"28\text{ N}",
+        r"38\text{ N}",
+        r"48\text{ N}"
+    ],
+    "PW_PHY_NLM_086": [
+        r"\frac{10}{3}\text{ rad/s}",
+        r"\frac{10}{\sqrt{3}}\text{ rad/s}",
+        r"5\text{ rad/s}",
+        r"\text{None of these}"
+    ],
+    "PW_PHY_NLM_087": [
+        r"10\sqrt{2}\text{ kg}",
+        r"2\sqrt{10}\text{ kg}",
+        r"10\text{ kg}",
+        r"20\text{ kg}"
+    ],
+    "PW_PHY_NLM_088": [
+        r"2500\text{ N}",
+        r"3000\text{ N}",
+        r"3500\text{ N}",
+        r"4000\text{ N}"
+    ],
+    "PW_PHY_NLM_089": [
+        r"5\text{ g}",
+        r"10\sqrt{3}\text{ g}",
+        r"0.10\text{ g}",
+        r"\sqrt{3}\text{ g}"
+    ],
+    "PW_PHY_NLM_090": [
+        r"\frac{2}{3} Mg \sin \theta",
+        r"\frac{3}{2} Mg \sin \theta",
+        r"\frac{1}{2} Mg \sin \theta",
+        r"2 Mg \sin \theta"
+    ],
     "PW_PHY_NLM_017": [
         "Acceleration of block A is related to block B by constraint equation",
         "Tension in string connecting block B is half the tension supporting block A",
@@ -5007,6 +5664,10 @@ def parse_pw_physics_question(raw_q, idx):
             "A particle located at $x = 0$ at time $t = 0$, starts moving along the positive $x$-direction with a velocity $V$ "
             "that varies as $V \\propto \\sqrt{x}$. The displacement of the particle varies with time as:"
         )
+    # Strip trailing option artifacts embedded during scraping
+    raw_text = re.sub(r'Type\s*:\s*(?:Single|Multiple)\s*Choice\s*Question', '', raw_text, flags=re.IGNORECASE)
+    raw_text = re.sub(r'\s+1\s+.*Marked this option.*$', '', raw_text, flags=re.DOTALL)
+    raw_text = re.sub(r'\s+1\s+[\d\.]+% Marked this option.*$', '', raw_text, flags=re.DOTALL)
     cleaned_text = clean_latex(raw_text)
     
     raw_topic = raw_q.get('topic')
@@ -5068,6 +5729,8 @@ def parse_pw_physics_question(raw_q, idx):
             
     if pw_id == 'PW_PHY_NLM_017':
         correct_idx = 3
+    elif pw_id == 'PW_PHY_NLM_068':
+        correct_idx = 0
     correct_key = keys[correct_idx]
     correct_text = std_options[correct_idx]["text"] if std_options else ""
     

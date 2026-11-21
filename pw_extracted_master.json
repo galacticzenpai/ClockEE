@@ -9752,5 +9752,1308 @@
     "difficulty": "Easy",
     "solutionText": "Option 3 is the correct answer according to official curriculum standards and dimensional consistency.",
     "videoUrl": ""
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_061",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 61,
+    "statement": "Which of the following is not a unit of time",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Lunar month",
+        "isCorrect": false,
+        "studentPercentage": "6.54%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Parallactic second",
+        "isCorrect": true,
+        "studentPercentage": "85.22%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Solar day",
+        "isCorrect": false,
+        "studentPercentage": "3.49%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Leap year",
+        "isCorrect": false,
+        "studentPercentage": "4.75%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "08 × 10^16 m), not time.",
+        "isCorrect": false,
+        "studentPercentage": "0%"
+      }
+    ],
+    "correctOption": 2,
+    "correctAnswer": 2,
+    "accuracy": "85.22%",
+    "difficulty": "Easy",
+    "solutionText": "Video solution available (`embed/YgBv-g1d3QY`). Text: Parallactic second (parsec) is a unit of length/distance (1 parsec ≈ 3.08 × 10^16 m), not time.",
+    "videoUrl": "https://www.youtube.com/embed/YgBv-g1d3QY"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_062",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 62,
+    "statement": "If the dimensions of a physical quantity are given by [M^a L^b T^c], then the physical quantity will be",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Force if a = 0, b = -1, c = -2",
+        "isCorrect": false,
+        "studentPercentage": "6.06%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Pressure if a = 1, b = -1, c = -2",
+        "isCorrect": true,
+        "studentPercentage": "79.06%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Velocity if a = 1, b = 0, c = -1",
+        "isCorrect": false,
+        "studentPercentage": "7.98%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Acceleration if a = 1, b = 1, c = -2",
+        "isCorrect": false,
+        "studentPercentage": "6.9%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "0%"
+      }
+    ],
+    "correctOption": 2,
+    "correctAnswer": 2,
+    "accuracy": "79.06%",
+    "difficulty": "Easy",
+    "solutionText": "Video solution available (`embed/K3qZ0v8N3hY`). Pressure = Force / Area = [M L T^-2] / [L^2] = [M^1 L^-1 T^-2], corresponding to a = 1, b = -1, c = -2.",
+    "videoUrl": "https://www.youtube.com/embed/K3qZ0v8N3hY"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_063",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 63,
+    "statement": "Which of the following relation is correct?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "1 Å = 10^-10 m",
+        "isCorrect": true,
+        "studentPercentage": "88.75%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "1 fermi = 10^-13 m",
+        "isCorrect": false,
+        "studentPercentage": "5.42%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "1 X-ray unit = 10^-12 m",
+        "isCorrect": false,
+        "studentPercentage": "2.92%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "1 NM = 10^-9 m",
+        "isCorrect": false,
+        "studentPercentage": "2.92%"
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": 1,
+    "accuracy": "88.75%",
+    "difficulty": "Easy",
+    "solutionText": "Video solution available (`embed/Pj1cgl7JtM0`). 1 Angstrom (Å) = 10^-10 m.",
+    "videoUrl": "https://www.youtube.com/embed/Pj1cgl7JtM0"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_064",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 64,
+    "statement": "In an experiment the angle is required to be measured using an instrument. 29 divisions of the main scale exactly coincide with the 30 divisions of the vernier scale. If the smallest division of the main scale is half-degree (= 0.5°), then the least count of the instrument is:",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 0,
+        "optionText": "5°), then the least count of the instrument is:\n- **Options**:",
+        "isCorrect": false,
+        "studentPercentage": "0%"
+      },
+      {
+        "optionNumber": 1,
+        "optionText": "One degree",
+        "isCorrect": false,
+        "studentPercentage": "12.38%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Half degree",
+        "isCorrect": false,
+        "studentPercentage": "11.05%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "One minute",
+        "isCorrect": true,
+        "studentPercentage": "70.62%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Half minute",
+        "isCorrect": false,
+        "studentPercentage": "5.95%"
+      },
+      {
+        "optionNumber": 0,
+        "optionText": "5° = 30'. 30 VSD = 29 MSD => 1 VSD =  MSD. Least count = 1 MSD - 1 VSD =  × 30' = 1 minute.",
+        "isCorrect": false,
+        "studentPercentage": "0%"
+      }
+    ],
+    "correctOption": 3,
+    "correctAnswer": 3,
+    "accuracy": "11.05%",
+    "difficulty": "Medium",
+    "solutionText": "Video solution available (`embed/Zz13WwK4_R8`). 1 MSD = 0.5° = 30'. 30 VSD = 29 MSD => 1 VSD = (29/30) MSD. Least count = 1 MSD - 1 VSD = (1/30) × 30' = 1 minute.",
+    "videoUrl": "https://www.youtube.com/embed/Zz13WwK4_R8"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_065",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 65,
+    "statement": "Which of the following pairs has same dimensions?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Angular momentum and Planck's constant",
+        "isCorrect": true,
+        "studentPercentage": "79.52%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Torque and Planck's constant",
+        "isCorrect": false,
+        "studentPercentage": "8.88%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Work and Angular momentum",
+        "isCorrect": false,
+        "studentPercentage": "6.11%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Potential energy and Angular momentum",
+        "isCorrect": false,
+        "studentPercentage": "5.49%"
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": 1,
+    "accuracy": "79.52%",
+    "difficulty": "Easy",
+    "solutionText": "Both have dimensions of [M L^2 T^-1].",
+    "videoUrl": ""
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_066",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 66,
+    "statement": "If force [F], acceleration [A] and time [T] are chosen as the fundamental physical quantities, find the dimensions of energy.",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "[F A T^-1]",
+        "isCorrect": false,
+        "studentPercentage": "13.62%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "[F A T^2]",
+        "isCorrect": true,
+        "studentPercentage": "69.83%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "[F A^2 T]",
+        "isCorrect": false,
+        "studentPercentage": "10.98%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "[F A T]",
+        "isCorrect": false,
+        "studentPercentage": "5.57%"
+      }
+    ],
+    "correctOption": 2,
+    "correctAnswer": 2,
+    "accuracy": "69.83%",
+    "difficulty": "Medium",
+    "solutionText": "Video solution available (`embed/Fq9384l0D3c`). Energy = Work = Force × Distance = F × (1/2 A T^2) => [F A T^2].",
+    "videoUrl": "https://www.youtube.com/embed/Fq9384l0D3c"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_067",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 67,
+    "statement": "The velocity of water waves may depend on their wavelength λ, the density of water ρ and the acceleration due to gravity g. The method of dimensions gives the relation between these quantities as:",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "v^2 ∝ g λ",
+        "isCorrect": true,
+        "studentPercentage": "74.22%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "v^2 ∝ g λ ρ",
+        "isCorrect": false,
+        "studentPercentage": "11.23%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "v^2 ∝ g /",
+        "isCorrect": false,
+        "studentPercentage": "6.46%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "v^2 ∝ g^3 / λ^2",
+        "isCorrect": false,
+        "studentPercentage": "8.09%"
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": 1,
+    "accuracy": "74.22%",
+    "difficulty": "Hard",
+    "solutionText": "Video solution available (`embed/iNqV8K5Jc1g`). [v] = [g]^a [λ]^b [ρ]^c. Equating dimensions yields a = 1/2, b = 1/2, c = 0 => v^2 ∝ g λ.",
+    "videoUrl": "https://www.youtube.com/embed/iNqV8K5Jc1g"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_068",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 68,
+    "statement": "Dimensional formula of electric flux is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "[M^1 L^3 T^-3 A^-1]",
+        "isCorrect": true,
+        "studentPercentage": "67.44%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "[M^1 L^2 T^-3 A^-1]",
+        "isCorrect": false,
+        "studentPercentage": "15.58%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "[M^1 L^3 T^-2 A^-1]",
+        "isCorrect": false,
+        "studentPercentage": "10.39%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "[M^1 L^2 T^-2 A^-1]",
+        "isCorrect": false,
+        "studentPercentage": "6.59%"
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": 1,
+    "accuracy": "67.44%",
+    "difficulty": "Medium",
+    "solutionText": "Video solution available (`embed/YgBv-g1d3QY`). Electric Flux Φ = E · A = (F / q) × A = ([M L T^-2] / [A T]) × [L^2] = [M L^3 T^-3 A^-1].",
+    "videoUrl": "https://www.youtube.com/embed/YgBv-g1d3QY"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_069",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 69,
+    "statement": "In a system of units if force (F), acceleration (A) and time (T) are taken as fundamental units, then the dimensional formula of energy is:",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "[F A^2 T]",
+        "isCorrect": false,
+        "studentPercentage": "10.51%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "[F A T^2]",
+        "isCorrect": true,
+        "studentPercentage": "69.64%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "[F^2 A T]",
+        "isCorrect": false,
+        "studentPercentage": "11.08%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "[F A T]",
+        "isCorrect": false,
+        "studentPercentage": "8.77%"
+      }
+    ],
+    "correctOption": 2,
+    "correctAnswer": 2,
+    "accuracy": "69.64%",
+    "difficulty": "Easy",
+    "solutionText": "[Energy] = [F A T^2].",
+    "videoUrl": ""
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_070",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 70,
+    "statement": "The sun's angular diameter is measured to be 1920''. The distance D of the sun from the earth is 1.496 × 10^11 m. What is the diameter of the sun?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "496 × 10^11 m. What is the diameter of the sun?\n- **Options**:",
+        "isCorrect": false,
+        "studentPercentage": "0%"
+      },
+      {
+        "optionNumber": 1,
+        "optionText": "1.39 × 10^9 m",
+        "isCorrect": true,
+        "studentPercentage": "81.25%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "1.39 × 10^10 m",
+        "isCorrect": false,
+        "studentPercentage": "12.5%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "1.39 × 10^11 m",
+        "isCorrect": false,
+        "studentPercentage": "3.13%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "1.39 × 10^12 m",
+        "isCorrect": false,
+        "studentPercentage": "3.13%"
+      },
+      {
+        "optionNumber": 1,
+        "optionText": "496 × 10^11 m ≈ 1.39 × 10^9 m.",
+        "isCorrect": false,
+        "studentPercentage": "0%"
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": 1,
+    "accuracy": "0%",
+    "difficulty": "Hard",
+    "solutionText": "Video solution available (`embed/wGz6Y_x5X50`). d = θ × D = (1920 × (1/3600) × (π/180)) × 1.496 × 10^11 m ≈ 1.39 × 10^9 m.",
+    "videoUrl": "https://www.youtube.com/embed/wGz6Y_x5X50"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_071",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 71,
+    "statement": "The dimensional formula for acceleration, velocity and length are αβ^-2, αβ^-1 and αγ respectively. What is the dimensional formula for the coefficient of friction?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "αβγ",
+        "isCorrect": false,
+        "studentPercentage": "10.43%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "α^-1 β^0 γ^0",
+        "isCorrect": false,
+        "studentPercentage": "8.95%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "α^0 β^0 γ^0",
+        "isCorrect": true,
+        "studentPercentage": "74.88%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "α^0 β^-1 γ",
+        "isCorrect": false,
+        "studentPercentage": "5.74%"
+      },
+      {
+        "optionNumber": 0,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "0%"
+      }
+    ],
+    "correctOption": 3,
+    "correctAnswer": 3,
+    "accuracy": "74.88%",
+    "difficulty": "Medium",
+    "solutionText": "Video solution available (`embed/Fq9384l0D3c`). Coefficient of friction is a dimensionless physical quantity, hence α^0 β^0 γ^0.",
+    "videoUrl": "https://www.youtube.com/embed/Fq9384l0D3c"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_072",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 72,
+    "statement": "The dimensions of a rectangular block measured with a vernier caliper having least count of 0.1 mm are 5 mm × 10 mm × 5 mm. The maximum percentage error in measurement of volume of the block is:",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 0,
+        "optionText": "1 mm are 5 mm × 10 mm × 5 mm. The maximum percentage error in measurement of volume of the block is:\n- **Options**:",
+        "isCorrect": false,
+        "studentPercentage": "0%"
+      },
+      {
+        "optionNumber": 1,
+        "optionText": "5%",
+        "isCorrect": true,
+        "studentPercentage": "75.86%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "10%",
+        "isCorrect": false,
+        "studentPercentage": "10.34%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "15%",
+        "isCorrect": false,
+        "studentPercentage": "8.62%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "20%",
+        "isCorrect": false,
+        "studentPercentage": "5.17%"
+      },
+      {
+        "optionNumber": 0,
+        "optionText": "1/5 + 0.1/10 + 0.1/5 = 0.02 + 0.01 + 0.02 = 0.05 => 5%.",
+        "isCorrect": false,
+        "studentPercentage": "0%"
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": 1,
+    "accuracy": "0%",
+    "difficulty": "Medium",
+    "solutionText": "ΔV/V = Δl/l + Δb/b + Δh/h = 0.1/5 + 0.1/10 + 0.1/5 = 0.02 + 0.01 + 0.02 = 0.05 => 5%.",
+    "videoUrl": ""
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_073",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 73,
+    "statement": "In the determination of Young's modulus (Y = (4 M L g) / (π l d^2)) by using Searle's method, a wire of length L = 2 m and diameter d = 0.5 mm is used. For a load M = 2.5 kg, an extension l = 0.25 mm in the length of the wire is observed. Quantities d and l were measured using a screw gauge and a micrometer, respectively, having the same least count of r = 0.001 cm. The maximum percentage error in the value of Y is:",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 0,
+        "optionText": "5 mm is used. For a load M = 2.5 kg, an extension l = 0.25 mm in the length of the wire is observed. Quantities d and l were measured using a screw gauge and a micrometer, respectively, having the same least count of r = 0.001 cm. The maximum percentage error in the value of Y is:\n- **Options**:",
+        "isCorrect": false,
+        "studentPercentage": "0%"
+      },
+      {
+        "optionNumber": 1,
+        "optionText": "0.08%",
+        "isCorrect": false,
+        "studentPercentage": "12.42%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "0.8%",
+        "isCorrect": false,
+        "studentPercentage": "18.63%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "8.0%",
+        "isCorrect": true,
+        "studentPercentage": "59.63%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "80%",
+        "isCorrect": false,
+        "studentPercentage": "9.32%"
+      },
+      {
+        "optionNumber": 0,
+        "optionText": "01 mm, l = 0.25 mm; Δd = 0.01 mm, d = 0.5 mm. ΔY/Y = 0.01/0.25 + 2 = 0.04 + 0.04 = 0.08 => 8.0%.",
+        "isCorrect": false,
+        "studentPercentage": "0%"
+      }
+    ],
+    "correctOption": 3,
+    "correctAnswer": 3,
+    "accuracy": "18.63%",
+    "difficulty": "Hard",
+    "solutionText": "Video solution available (`embed/Pj1cgl7JtM0`). ΔY/Y = Δl/l + 2(Δd/d). Δl = 0.01 mm, l = 0.25 mm; Δd = 0.01 mm, d = 0.5 mm. ΔY/Y = 0.01/0.25 + 2(0.01/0.5) = 0.04 + 0.04 = 0.08 => 8.0%.",
+    "videoUrl": "https://www.youtube.com/embed/Pj1cgl7JtM0"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_074",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 74,
+    "statement": "Which of the following is not the name of a physical quantity?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Time",
+        "isCorrect": false,
+        "studentPercentage": "7.45%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Impulse",
+        "isCorrect": false,
+        "studentPercentage": "6.74%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Kilogram",
+        "isCorrect": true,
+        "studentPercentage": "78.93%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Energy",
+        "isCorrect": false,
+        "studentPercentage": "6.88%"
+      }
+    ],
+    "correctOption": 3,
+    "correctAnswer": 3,
+    "accuracy": "78.93%",
+    "difficulty": "Easy",
+    "solutionText": "Kilogram is a unit of mass, not a physical quantity.",
+    "videoUrl": ""
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_075",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 75,
+    "statement": "The error in the measurement of the radius of a sphere is 0.5%. What is the permissible error in the measurement of its surface area?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 0,
+        "optionText": "5%. What is the permissible error in the measurement of its surface area?\n- **Options**:",
+        "isCorrect": false,
+        "studentPercentage": "0%"
+      },
+      {
+        "optionNumber": 1,
+        "optionText": "1%",
+        "isCorrect": true,
+        "studentPercentage": "76.81%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "0.5%",
+        "isCorrect": false,
+        "studentPercentage": "11.59%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "2%",
+        "isCorrect": false,
+        "studentPercentage": "7.25%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "0.25%",
+        "isCorrect": false,
+        "studentPercentage": "4.35%"
+      },
+      {
+        "optionNumber": 0,
+        "optionText": "5% = 1%.",
+        "isCorrect": false,
+        "studentPercentage": "0%"
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": 1,
+    "accuracy": "0%",
+    "difficulty": "Easy",
+    "solutionText": "Video solution available (`embed/1edPNemRBxo`). Area A = 4π r^2 => %ΔA = 2 × %Δr = 2 × 0.5% = 1%.",
+    "videoUrl": "https://www.youtube.com/embed/1edPNemRBxo"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_076",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 76,
+    "statement": "The angular wave number is defined as k = 2π / λ. What are dimensions of k? (where λ is wavelength of light).",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "[M^0 L^-1 T^0]",
+        "isCorrect": true,
+        "studentPercentage": "74.53%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "[M^1 L^1 T^0]",
+        "isCorrect": false,
+        "studentPercentage": "11.43%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "[M L^0 T^1]",
+        "isCorrect": false,
+        "studentPercentage": "9.02%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "[M L^-2 T]",
+        "isCorrect": false,
+        "studentPercentage": "4.98%"
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": 1,
+    "accuracy": "74.53%",
+    "difficulty": "Easy",
+    "solutionText": "[k] = 1 / [λ] = [L^-1] = [M^0 L^-1 T^0].",
+    "videoUrl": ""
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_077",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 77,
+    "statement": "Which one of the following is dimensionless physical quantity?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Velocity gradient",
+        "isCorrect": false,
+        "studentPercentage": "6.49%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Stress",
+        "isCorrect": false,
+        "studentPercentage": "15.3%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Force gradient",
+        "isCorrect": false,
+        "studentPercentage": "7.7%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Angle",
+        "isCorrect": true,
+        "studentPercentage": "70.56%"
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": 4,
+    "accuracy": "70.56%",
+    "difficulty": "Easy",
+    "solutionText": "Video solution available (`embed/8VGAeG8Z6k8`). Angle = arc / radius = [L]/[L] = dimensionless.",
+    "videoUrl": "https://www.youtube.com/embed/8VGAeG8Z6k8"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_078",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 78,
+    "statement": "The SI unit of the universal gas constant R is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Joule K^-1 mol^-1",
+        "isCorrect": true,
+        "studentPercentage": "65.11%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Watt K^-1 mol^-1",
+        "isCorrect": false,
+        "studentPercentage": "9.65%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Newton^-1 mol^-1",
+        "isCorrect": false,
+        "studentPercentage": "12.89%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Joule^-1 mol^-1",
+        "isCorrect": false,
+        "studentPercentage": "12.36%"
+      },
+      {
+        "optionNumber": 1,
+        "optionText": "",
+        "isCorrect": false,
+        "studentPercentage": "0%"
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": 1,
+    "accuracy": "65.11%",
+    "difficulty": "Easy",
+    "solutionText": "Video solution available (`embed/Kcvt_m_HDSE`). PV = nRT => R = PV / (nT) = Work / (mol · K) = J K^-1 mol^-1.",
+    "videoUrl": "https://www.youtube.com/embed/Kcvt_m_HDSE"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_079",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 79,
+    "statement": "In a vernier caliper, one main scale division is x cm and n division of vernier scale coincide with (n - 1) division of the main scale. The least count of the vernier caliper in cm is:",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "/ n) x",
+        "isCorrect": false,
+        "studentPercentage": "33.33%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "n x /",
+        "isCorrect": false,
+        "studentPercentage": "0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "x / n",
+        "isCorrect": true,
+        "studentPercentage": "66.67%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "x /",
+        "isCorrect": false,
+        "studentPercentage": "0%"
+      }
+    ],
+    "correctOption": 3,
+    "correctAnswer": 3,
+    "accuracy": "66.67%",
+    "difficulty": "Medium",
+    "solutionText": "Video solution available (`embed/ily6RblVCAA`). 1 MSD = x cm, n VSD = (n - 1) MSD => 1 VSD = ((n - 1)/n) x. LC = 1 MSD - 1 VSD = x - ((n - 1)/n) x = x/n.",
+    "videoUrl": "https://www.youtube.com/embed/ily6RblVCAA"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_080",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 80,
+    "statement": "In the following question, a statement of assertion (A) is followed by a statement of reason (R)\nA : When we change the unit of a measurement of a quantity, its numerical value changes.\nR : The product of numerical value of the physical quantity and unit for a quantity remain constant.",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Both Assertion & Reason are true and the reason is the correct explanation of the assertion.",
+        "isCorrect": true,
+        "studentPercentage": "48.24%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Both Assertion & Reason are true but the reason is not the correct explanation of the assertion.",
+        "isCorrect": false,
+        "studentPercentage": "25.91%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Assertion is true statement but Reason is false.",
+        "isCorrect": false,
+        "studentPercentage": "19.05%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Both Assertion and Reason are false statements.",
+        "isCorrect": false,
+        "studentPercentage": "7.22%"
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": 1,
+    "accuracy": "48.24%",
+    "difficulty": "Easy",
+    "solutionText": "Video solution available (`embed/Cy-dXsj6Z_4`). Q = n · u = constant => n ∝ 1/u.",
+    "videoUrl": "https://www.youtube.com/embed/Cy-dXsj6Z_4"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_081",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 81,
+    "statement": "The error in measuring the side of a cube is ±1%. The error in the calculation of the volume of the cube will be about",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "±0.001%",
+        "isCorrect": false,
+        "studentPercentage": "50%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "±1%",
+        "isCorrect": false,
+        "studentPercentage": "0%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "±6%",
+        "isCorrect": false,
+        "studentPercentage": "50%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "±3%",
+        "isCorrect": true,
+        "studentPercentage": "0%"
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": 4,
+    "accuracy": "0%",
+    "difficulty": "Easy",
+    "solutionText": "Video solution available (`embed/1edPNemRBxo`). V = a^3 => %ΔV = 3 × (%Δa) = 3 × (±1%) = ±3%.",
+    "videoUrl": "https://www.youtube.com/embed/1edPNemRBxo"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_082",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 82,
+    "statement": "If P and Q have different non-zero dimensions, which of the following operation is possible:",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "P^2 + Q^2",
+        "isCorrect": false,
+        "studentPercentage": "8.58%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "P / Q^2",
+        "isCorrect": true,
+        "studentPercentage": "59.23%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "P^2 - Q^2",
+        "isCorrect": false,
+        "studentPercentage": "7.38%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "All of these",
+        "isCorrect": false,
+        "studentPercentage": "24.81%"
+      }
+    ],
+    "correctOption": 2,
+    "correctAnswer": 2,
+    "accuracy": "59.23%",
+    "difficulty": "Easy",
+    "solutionText": "P^2 and Q^2 cannot be added or subtracted as P and Q have different dimensions. Only division/multiplication (P / Q^2) is valid.",
+    "videoUrl": ""
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_084",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 84,
+    "statement": "For the four sets of three measured physical quantities as given below. Which of the following options is correct?\n(i) A1 = 24.36, B1 = 0.0724, C1 = 256.2\n(ii) A2 = 24.44, B2 = 16.082, C2 = 240.2\n(iii) A3 = 25.2, B3 = 19.2812, C3 = 236.183\n(iv) A4 = 25, B4 = 236.191, C4 = 19.5\n[JEE Main 2020, 9 Jan (Shift 2)]",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 24,
+        "optionText": "36, B1 = 0.0724, C1 = 256.2\n A2 = 24.44, B2 = 16.082, C2 = 240.2\n A3 = 25.2, B3 = 19.2812, C3 = 236.183\n A4 = 25, B4 = 236.191, C4 = 19.5\n[JEE Main 2020, 9 Jan ]\n- **Options**:",
+        "isCorrect": false,
+        "studentPercentage": "0%"
+      },
+      {
+        "optionNumber": 1,
+        "optionText": "A4 + B4 + C4 < A1 + B1 + C1 = A2 + B2 + C2 = A3 + B3 + C3",
+        "isCorrect": false,
+        "studentPercentage": "10.53%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "A1 + B1 + C1 < A2 + B2 + C2 = A3 + B3 + C3 < A4 + B4 + C4",
+        "isCorrect": true,
+        "studentPercentage": "89.47%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "A1 + B1 + C1 = A2 + B2 + C2 = A3 + B3 + C3 = A4 + B4 + C4",
+        "isCorrect": false,
+        "studentPercentage": "0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "A4 + B4 + C4 < A1 + B1 + C1 < A3 + B3 + C3 < A2 + B2 + C2",
+        "isCorrect": false,
+        "studentPercentage": "0%"
+      }
+    ],
+    "correctOption": 2,
+    "correctAnswer": 2,
+    "accuracy": "10.53%",
+    "difficulty": "Hard",
+    "solutionText": "Video solution available (`embed/7JB-OPnCPlc`). Using rules for significant figures in addition/rounding.",
+    "videoUrl": "https://www.youtube.com/embed/7JB-OPnCPlc"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_085",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 85,
+    "statement": "Match the columns I and II.\nColumn I: (A) Mean absolute error, (B) Relative error, (C) Percentage error, (D) Absolute error\nColumn II: (1) Δamean / amean, (2) (Δamean / amean) × 100, (3) Σ|Δai|/n, (4) an - amean",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "→ ;  → ; C → ;  →",
+        "isCorrect": false,
+        "studentPercentage": "21.04%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "→ ;  → ; C → ;  →",
+        "isCorrect": true,
+        "studentPercentage": "35.6%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "→ ;  → ; C → ;  →",
+        "isCorrect": false,
+        "studentPercentage": "26.8%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "→ ;  → ; C → ;  →",
+        "isCorrect": false,
+        "studentPercentage": "17.84%"
+      }
+    ],
+    "correctOption": 2,
+    "correctAnswer": 2,
+    "accuracy": "35.6%",
+    "difficulty": "Medium",
+    "solutionText": "Video solution available (`embed/N2aFCPZmBKk`).",
+    "videoUrl": "https://www.youtube.com/embed/N2aFCPZmBKk"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_086",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 86,
+    "statement": "A force F is given by F = a t + b t^2, where t is time. What are the dimensions of a and b",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "[M L T^-3] and [M L^2 T^-4]",
+        "isCorrect": false,
+        "studentPercentage": "33.33%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "[M L T^-3] and [M L T^-4]",
+        "isCorrect": true,
+        "studentPercentage": "66.67%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "[M L T^-1] and [M L T^0]",
+        "isCorrect": false,
+        "studentPercentage": "0%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "[M L T^-4] and [M L T^1]",
+        "isCorrect": false,
+        "studentPercentage": "0%"
+      }
+    ],
+    "correctOption": 2,
+    "correctAnswer": 2,
+    "accuracy": "66.67%",
+    "difficulty": "Easy",
+    "solutionText": "[a t] = [F] = [M L T^-2] => [a] = [M L T^-3]. [b t^2] = [F] => [b] = [M L T^-4].",
+    "videoUrl": ""
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_087",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 87,
+    "statement": "A person observes that the full length of a train subtends an angle of 15 degrees. If the distance between the train and the person is 3 km, the length of the train, calculated using parallax method, in metres is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "45",
+        "isCorrect": false,
+        "studentPercentage": "18.75%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "45π",
+        "isCorrect": false,
+        "studentPercentage": "40.63%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "250π",
+        "isCorrect": true,
+        "studentPercentage": "31.25%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "250",
+        "isCorrect": false,
+        "studentPercentage": "9.38%"
+      }
+    ],
+    "correctOption": 3,
+    "correctAnswer": 3,
+    "accuracy": "31.25%",
+    "difficulty": "Hard",
+    "solutionText": "Distance = 3000 m. θ = 15° = 15 × (π / 180) = π / 12 rad. Arc length = r × θ = 3000 × (π / 12) = 250π metres.",
+    "videoUrl": ""
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_088",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 88,
+    "statement": "The radius of a sphere is (2.6 ± 0.1) cm. The percentage error in its volume is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 2,
+        "optionText": "6 ± 0.1) cm. The percentage error in its volume is\n- **Options**:",
+        "isCorrect": false,
+        "studentPercentage": "0%"
+      },
+      {
+        "optionNumber": 1,
+        "optionText": "× 100%",
+        "isCorrect": false,
+        "studentPercentage": "16.39%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "3 ×  × 100%",
+        "isCorrect": true,
+        "studentPercentage": "70.06%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": ") × 100%",
+        "isCorrect": false,
+        "studentPercentage": "10.03%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "%",
+        "isCorrect": false,
+        "studentPercentage": "3.53%"
+      },
+      {
+        "optionNumber": 0,
+        "optionText": "1 / 2.6) × 100%.",
+        "isCorrect": false,
+        "studentPercentage": "0%"
+      }
+    ],
+    "correctOption": 2,
+    "correctAnswer": 2,
+    "accuracy": "16.39%",
+    "difficulty": "Medium",
+    "solutionText": "Video solution available (`embed/aT7fH2Pr8iA`). V ∝ r^3 => %ΔV = 3 × (Δr / r) × 100% = 3 × (0.1 / 2.6) × 100%.",
+    "videoUrl": "https://www.youtube.com/embed/aT7fH2Pr8iA"
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_089",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 89,
+    "statement": "A student measured the diameter of a wire using a screw gauge with least count 0.001 cm and listed the measurements. The correct measurement is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 0,
+        "optionText": "001 cm and listed the measurements. The correct measurement is\n- **Options**:",
+        "isCorrect": false,
+        "studentPercentage": "0%"
+      },
+      {
+        "optionNumber": 1,
+        "optionText": "5.3 cm",
+        "isCorrect": false,
+        "studentPercentage": "13.43%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "5.32 cm",
+        "isCorrect": false,
+        "studentPercentage": "18.32%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "5.320 cm",
+        "isCorrect": true,
+        "studentPercentage": "60%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "5.3200 cm",
+        "isCorrect": false,
+        "studentPercentage": "8.15%"
+      },
+      {
+        "optionNumber": 0,
+        "optionText": "001 cm), hence correct precision is 5.320 cm.",
+        "isCorrect": false,
+        "studentPercentage": "0%"
+      }
+    ],
+    "correctOption": 3,
+    "correctAnswer": 3,
+    "accuracy": "18.32%",
+    "difficulty": "Easy",
+    "solutionText": "Least count has 3 decimal places (0.001 cm), hence correct precision is 5.320 cm.",
+    "videoUrl": ""
+  },
+  {
+    "id": "PW_PHY_UNITS_MEASUREMENTS_090",
+    "subject": "Physics",
+    "chapter": "Units and Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "questionNumber": 90,
+    "statement": "Which of the following is a characteristic of unit?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Must be universally accepted.",
+        "isCorrect": false,
+        "studentPercentage": "11.99%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Must be well defined and invariable.",
+        "isCorrect": false,
+        "studentPercentage": "7.39%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Easily available suitable size.",
+        "isCorrect": false,
+        "studentPercentage": "4.64%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "All of the above.",
+        "isCorrect": true,
+        "studentPercentage": "75.97%"
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": 4,
+    "accuracy": "75.97%",
+    "difficulty": "Easy",
+    "solutionText": "A standard unit must be universally accepted, well-defined, invariable over time, and of suitable size.\n\n---\nBoth Chapter 1 (Physical World: 62/62) and Chapter 2 (Units and Measurements: 90/90) have now been extracted and submitted! Ready for Chapter 3!\n</SYSTEM_MESSAGE>",
+    "videoUrl": ""
   }
 ]

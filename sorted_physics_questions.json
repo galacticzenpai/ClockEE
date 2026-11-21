@@ -112171,5 +112171,1252 @@
     "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
     "page": 1,
     "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2872",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_061",
+    "number": 2872,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 85.22,
+    "text": "Which of the following is not a unit of time",
+    "options": [
+      {
+        "id": "A",
+        "text": "Lunar month"
+      },
+      {
+        "id": "B",
+        "text": "Parallactic second"
+      },
+      {
+        "id": "C",
+        "text": "Solar day"
+      },
+      {
+        "id": "D",
+        "text": "Leap year"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Units of Time vs Units of Distance\n\n**Correct Answer**: **Option (B)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Analysis of Time Units**:\n   - **Lunar month**: Time taken by the Moon to complete one orbit around Earth (approx. $27.3$ or $29.5$ days) $\\rightarrow$ Unit of time.\n   - **Solar day**: Time taken by Earth to complete one rotation on its axis relative to the Sun ($24\\text{ hours} = 86400\\text{ s}$) $\\rightarrow$ Unit of time.\n   - **Leap year**: A calendar year containing 366 days ($3.16 \\times 10^7\\text{ s}$) $\\rightarrow$ Unit of time.\n2. **Analysis of Parallactic Second (Parsec)**:\n   A parsec (parallactic second) is the astronomical distance at which an astronomical unit ($1\\text{ AU}$) subtends an angle of one arcsecond ($1''$):\n   $$1\\text{ parsec} = \\frac{1\\text{ AU}}{1''\\text{ in radians}} = \\frac{1.496 \\times 10^{11}\\text{ m}}{\\frac{\\pi}{180 \\times 3600}} \\approx 3.08 \\times 10^{16}\\text{ m} \\approx 3.26\\text{ light years}$$\n   Thus, parsec is a practical unit of astronomical **length/distance**, not time.\n3. **Conclusion**: Parallactic second is not a unit of time, verifying Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#61",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2873",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_062",
+    "number": 2873,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 79.06,
+    "text": "If the dimensions of a physical quantity are given by [M^a L^b T^c], then the physical quantity will be",
+    "options": [
+      {
+        "id": "A",
+        "text": "Force if a = 0, b = -1, c = -2"
+      },
+      {
+        "id": "B",
+        "text": "Pressure if a = 1, b = -1, c = -2"
+      },
+      {
+        "id": "C",
+        "text": "Velocity if a = 1, b = 0, c = -1"
+      },
+      {
+        "id": "D",
+        "text": "Acceleration if a = 1, b = 1, c = -2"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Dimensional Analysis of Physical Quantities\n\n**Correct Answer**: **Option (B)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Given General Form**: $[M^a L^b T^c]$.\n2. **Evaluating Options**:\n   - **Force**: $[F] = [M^1 L^1 T^{-2}] \\implies a=1, b=1, c=-2$.\n   - **Pressure**: $P = \\frac{F}{A} \\implies [P] = \\frac{[M L T^{-2}]}{[L^2]} = [M^1 L^{-1} T^{-2}] \\implies a=1, b=-1, c=-2$.\n   - **Velocity**: $[v] = [M^0 L^1 T^{-1}] \\implies a=0, b=1, c=-1$.\n   - **Acceleration**: $[a] = [M^0 L^1 T^{-2}] \\implies a=0, b=1, c=-2$.\n3. **Matching**: Option (B) states 'Pressure if $a = 1, b = -1, c = -2$', which strictly matches the derived dimensions.\n4. **Conclusion**: Option **(B)** is verified.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#62",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2874",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_063",
+    "number": 2874,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 88.75,
+    "text": "Which of the following relation is correct?",
+    "options": [
+      {
+        "id": "A",
+        "text": "1 \\text{\\AA} = 10^-10 m"
+      },
+      {
+        "id": "B",
+        "text": "1 fermi = 10^-13 m"
+      },
+      {
+        "id": "C",
+        "text": "1 X-ray unit = 10^-12 m"
+      },
+      {
+        "id": "D",
+        "text": "1 NM = 10^-9 m"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Practical Units of Length\n\n**Correct Answer**: **Option (A)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Standard Length Conversion Values**:\n   - $1\\text{ Ångström (\\AA)} = 10^{-10}\\text{ m}$ (Correct).\n   - $1\\text{ fermi (fm)} = 10^{-15}\\text{ m}$ (Option B incorrectly states $10^{-13}\\text{ m}$).\n   - $1\\text{ X-ray unit (xu)} \\approx 10^{-13}\\text{ m}$ (Option C incorrectly states $10^{-12}\\text{ m}$).\n   - $1\\text{ nanometre (nm)} = 10^{-9}\\text{ m}$ (often written with standard lowercase 'nm').\n2. **Conclusion**: The only fundamentally correct relation is $1\\text{ \\AA} = 10^{-10}\\text{ m}$, verifying Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#63",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2875",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_064",
+    "number": 2875,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 11.05,
+    "text": "In an experiment the angle is required to be measured using an instrument. 29 divisions of the main scale exactly coincide with the 30 divisions of the vernier scale. If the smallest division of the main scale is half-degree (= 0.5^\\circ), then the least count of the instrument is:",
+    "options": [
+      {
+        "id": "A",
+        "text": "One degree"
+      },
+      {
+        "id": "B",
+        "text": "Half degree"
+      },
+      {
+        "id": "C",
+        "text": "One minute"
+      },
+      {
+        "id": "D",
+        "text": "Half minute"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Vernier Scale Angular Least Count\n\n**Correct Answer**: **Option (C)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Main Scale Division ($1\\text{ MSD}$)**:\n   $$1\\text{ MSD} = 0.5^\\circ = \\left(0.5 \\times 60\\right)' = 30'\\text{ (arcminutes)}$$\n2. **Vernier Coincidence Relation**:\n   $$30\\text{ VSD} = 29\\text{ MSD} \\implies 1\\text{ VSD} = \\frac{29}{30}\\text{ MSD}$$\n3. **Least Count (LC) Formula**:\n   $$\\text{LC} = 1\\text{ MSD} - 1\\text{ VSD} = \\left(1 - \\frac{29}{30}\\right)\\text{ MSD} = \\frac{1}{30}\\text{ MSD}$$\n4. **Substitution**:\n   $$\\text{LC} = \\frac{1}{30} \\times 30' = 1' = 1\\text{ minute}$$\n5. **Conclusion**: The least count of the instrument is **One minute**, verifying Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#64",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2876",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_065",
+    "number": 2876,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 79.52,
+    "text": "Which of the following pairs has same dimensions?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Angular momentum and Planck's constant"
+      },
+      {
+        "id": "B",
+        "text": "Torque and Planck's constant"
+      },
+      {
+        "id": "C",
+        "text": "Work and Angular momentum"
+      },
+      {
+        "id": "D",
+        "text": "Potential energy and Angular momentum"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Dimensional Equivalence of Physical Quantities\n\n**Correct Answer**: **Option (A)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Dimensions of Angular Momentum ($L$)**:\n   $$L = r \\times p = r \\times (mv) \\implies [L] = [L][M][L T^{-1}] = [M L^2 T^{-1}]$$\n2. **Dimensions of Planck's Constant ($h$)**:\n   From $E = h\\nu$:\n   $$[h] = \\frac{[E]}{[\\nu]} = \\frac{[M L^2 T^{-2}]}{[T^{-1}]} = [M L^2 T^{-1}]$$\n3. **Comparison with Other Pairs**:\n   - Torque: $[\\tau] = [M L^2 T^{-2}]$ (differs from $h$).\n   - Work & Potential Energy: $[W] = [U] = [M L^2 T^{-2}]$ (differ from $L$).\n4. **Conclusion**: Angular momentum and Planck's constant share identical dimensions $[M L^2 T^{-1}]$, verifying Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#65",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2877",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_066",
+    "number": 2877,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 69.83,
+    "text": "If force [F], acceleration [A] and time [T] are chosen as the fundamental physical quantities, find the dimensions of energy.",
+    "options": [
+      {
+        "id": "A",
+        "text": "[F A T^-1]"
+      },
+      {
+        "id": "B",
+        "text": "[F A T^2]"
+      },
+      {
+        "id": "C",
+        "text": "[F A^2 T]"
+      },
+      {
+        "id": "D",
+        "text": "[F A T]"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Dimensional Representation in Alternate Base Systems\n\n**Correct Answer**: **Option (B)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Fundamental Dimensions Selected**: $[F]$, $[A]$, $[T]$.\n2. **Kinematic & Dynamic Relations**:\n   $$\\text{Energy } E = \\text{Work} = \\text{Force} \\times \\text{Displacement}$$\n   From kinematic relations under acceleration $A$ over time $T$:\n   $$[\\text{Displacement}] = [A][T^2]$$\n3. **Dimensional Synthesis**:\n   $$[E] = [F] \\cdot [A T^2] = [F A T^2]$$\n4. **Verification via SI Exponents**:\n   $$[F A T^2] = [M L T^{-2}][L T^{-2}][T^2] = [M L^2 T^{-2}] = [E]$$\n5. **Conclusion**: Dimensions of energy are $[F A T^2]$, verifying Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#66",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2878",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_067",
+    "number": 2878,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "difficulty": "Hard",
+    "idealTimeSec": 135,
+    "accuracyPct": 74.22,
+    "text": "The velocity of water waves may depend on their wavelength \\lambda, the density of water \\rho and the acceleration due to gravity g. The method of dimensions gives the relation between these quantities as:",
+    "options": [
+      {
+        "id": "A",
+        "text": "v^2 \\propto g \\lambda"
+      },
+      {
+        "id": "B",
+        "text": "v^2 \\propto g \\lambda \\rho"
+      },
+      {
+        "id": "C",
+        "text": "v^2 \\propto g /"
+      },
+      {
+        "id": "D",
+        "text": "v^2 \\propto g^3 / \\lambda^2"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Dimensional Analysis of Wave Speed\n\n**Correct Answer**: **Option (A)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Governing Dependency**: Let $v = k \\cdot g^a \\lambda^b \\rho^c$.\n2. **Dimensional Quantities**:\n   $$[v] = [L T^{-1}], \\quad [g] = [L T^{-2}], \\quad [\\lambda] = [L], \\quad [\\rho] = [M L^{-3}]$$\n3. **Dimensional Equation**:\n   $$[M^0 L^1 T^{-1}] = [M L^{-3}]^c [L T^{-2}]^a [L]^b = M^c L^{-3c + a + b} T^{-2a}$$\n4. **Equating Exponents**:\n   - Mass ($M$): $c = 0$ (speed of gravity waves is independent of water density $\\rho$).\n   - Time ($T$): $-2a = -1 \\implies a = 1/2$.\n   - Length ($L$): $-3(0) + 1/2 + b = 1 \\implies b = 1/2$.\n5. **Functional Relation**:\n   $$v \\propto g^{1/2} \\lambda^{1/2} \\implies v^2 \\propto g \\lambda$$\n6. **Conclusion**: Option **(A)** is verified.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#67",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2879",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_068",
+    "number": 2879,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 67.44,
+    "text": "Dimensional formula of electric flux is",
+    "options": [
+      {
+        "id": "A",
+        "text": "[M^1 L^3 T^-3 A^-1]"
+      },
+      {
+        "id": "B",
+        "text": "[M^1 L^2 T^-3 A^-1]"
+      },
+      {
+        "id": "C",
+        "text": "[M^1 L^3 T^-2 A^-1]"
+      },
+      {
+        "id": "D",
+        "text": "[M^1 L^2 T^-2 A^-1]"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Dimensional Formula of Electric Flux\n\n**Correct Answer**: **Option (A)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Definition of Electric Flux**:\n   $$\\Phi_E = \\mathbf{E} \\cdot \\mathbf{A} = \\frac{F}{q} \\cdot A$$\n2. **Dimensional Analysis of Components**:\n   - Force: $[F] = [M L T^{-2}]$\n   - Charge: $[q] = [I T] = [A T]$\n   - Electric Field: $[E] = \\frac{[M L T^{-2}]}{[A T]} = [M L T^{-3} A^{-1}]$\n   - Area: $[A] = [L^2]$\n3. **Combining for Flux**:\n   $$[\\Phi_E] = [M L T^{-3} A^{-1}] \\times [L^2] = [M^1 L^3 T^{-3} A^{-1}]$$\n4. **Conclusion**: Option **(A)** is verified.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#68",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2880",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_069",
+    "number": 2880,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 69.64,
+    "text": "In a system of units if force (F), acceleration (A) and time (T) are taken as fundamental units, then the dimensional formula of energy is:",
+    "options": [
+      {
+        "id": "A",
+        "text": "[F A^2 T]"
+      },
+      {
+        "id": "B",
+        "text": "[F A T^2]"
+      },
+      {
+        "id": "C",
+        "text": "[F^2 A T]"
+      },
+      {
+        "id": "D",
+        "text": "[F A T]"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Alternate Fundamental Quantities $\\{F, A, T\\}$\n\n**Correct Answer**: **Option (B)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Dimensional Equation**: Let $[E] = [F]^x [A]^y [T]^z$.\n2. **Base Units Substitution**:\n   $$[M L^2 T^{-2}] = [M L T^{-2}]^x [L T^{-2}]^y [T]^z = M^x L^{x+y} T^{-2x - 2y + z}$$\n3. **Equating Powers**:\n   - For $M$: $x = 1$\n   - For $L$: $x + y = 2 \\implies 1 + y = 2 \\implies y = 1$\n   - For $T$: $-2x - 2y + z = -2 \\implies -2(1) - 2(1) + z = -2 \\implies z = 2$\n4. **Result**: $[E] = [F A T^2]$.\n5. **Conclusion**: Option **(B)** is verified.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#69",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2881",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_070",
+    "number": 2881,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "difficulty": "Hard",
+    "idealTimeSec": 135,
+    "accuracyPct": 0.0,
+    "text": "The sun's angular diameter is measured to be 1920''. The distance D of the sun from the earth is 1.496 \\times 10^11 m. What is the diameter of the sun?",
+    "options": [
+      {
+        "id": "A",
+        "text": "1.39 \\times 10^9 m"
+      },
+      {
+        "id": "B",
+        "text": "1.39 \\times 10^10 m"
+      },
+      {
+        "id": "C",
+        "text": "1.39 \\times 10^11 m"
+      },
+      {
+        "id": "D",
+        "text": "1.39 \\times 10^12 m"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Astronomical Distance & Diameter by Parallax\n\n**Correct Answer**: **Option (A)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Angular Diameter Conversion to Radians**:\n   $$\\theta = 1920'' = 1920 \\times \\left(\\frac{1}{3600}\\right)^\\circ \\times \\left(\\frac{\\pi}{180}\\text{ rad}\\right) = \\frac{1920 \\times 3.14159}{648000} \\approx 9.3084 \\times 10^{-3}\\text{ rad}$$\n2. **Linear Diameter Formula**:\n   $$d = \\theta \\times D$$\n3. **Numerical Evaluation**:\n   $$d = \\left(9.3084 \\times 10^{-3}\\text{ rad}\\right) \\times \\left(1.496 \\times 10^{11}\\text{ m}\\right) \\approx 1.3925 \\times 10^9\\text{ m} = 1.39 \\times 10^9\\text{ m}$$\n4. **Conclusion**: Diameter of the Sun is $1.39 \\times 10^9\\text{ m}$, verifying Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#70",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2882",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_071",
+    "number": 2882,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 74.88,
+    "text": "The dimensional formula for acceleration, velocity and length are \\alphaβ^-2, \\alphaβ^-1 and \\alphaγ respectively. What is the dimensional formula for the coefficient of friction?",
+    "options": [
+      {
+        "id": "A",
+        "text": "\\alphaβγ"
+      },
+      {
+        "id": "B",
+        "text": "\\alpha^-1 β^0 γ^0"
+      },
+      {
+        "id": "C",
+        "text": "\\alpha^0 β^0 γ^0"
+      },
+      {
+        "id": "D",
+        "text": "\\alpha^0 β^-1 γ"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Dimensions of Friction Coefficient\n\n**Correct Answer**: **Option (C)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Nature of Coefficient of Friction**:\n   Coefficient of friction is the dimensionless ratio of frictional force to normal reaction force:\n   $$\\mu = \\frac{f}{N} = \\frac{[M L T^{-2}]}{[M L T^{-2}]} = [M^0 L^0 T^0]$$\n2. **Arbitrary Dimensional Base**:\n   Since $\\mu$ is purely dimensionless, regardless of whatever base quantities $\\alpha, \\beta, \\gamma$ are defined, its exponent for all base quantities must be identically zero:\n   $$[\\mu] = \\alpha^0 \\beta^0 \\gamma^0$$\n3. **Conclusion**: Option **(C)** is verified.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#71",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2883",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_072",
+    "number": 2883,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 0.0,
+    "text": "The dimensions of a rectangular block measured with a vernier caliper having least count of 0.1 mm are 5 mm \\times 10 mm \\times 5 mm. The maximum percentage error in measurement of volume of the block is:",
+    "options": [
+      {
+        "id": "A",
+        "text": "5%"
+      },
+      {
+        "id": "B",
+        "text": "10%"
+      },
+      {
+        "id": "C",
+        "text": "15%"
+      },
+      {
+        "id": "D",
+        "text": "20%"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Maximum Percentage Error Propagation in Volume\n\n**Correct Answer**: **Option (A)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Given Dimensions of Rectangular Block**:\n   $$l = 5\\text{ mm}, \\quad b = 10\\text{ mm}, \\quad h = 5\\text{ mm}$$\n2. **Least Count (Absolute Uncertainty)**:\n   $$\\Delta l = \\Delta b = \\Delta h = 0.1\\text{ mm}$$\n3. **Fractional Error in Volume $V = l \\cdot b \\cdot h$**:\n   $$\\frac{\\Delta V}{V} = \\frac{\\Delta l}{l} + \\frac{\\Delta b}{b} + \\frac{\\Delta h}{h}$$\n4. **Calculation**:\n   $$\\frac{\\Delta V}{V} = \\frac{0.1}{5} + \\frac{0.1}{10} + \\frac{0.1}{5} = 0.02 + 0.01 + 0.02 = 0.05$$\n   $$\\%\\Delta V = 0.05 \\times 100\\% = 5\\%$$\n5. **Conclusion**: The maximum percentage error is **5%**, verifying Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#72",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2884",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_073",
+    "number": 2884,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "difficulty": "Hard",
+    "idealTimeSec": 135,
+    "accuracyPct": 18.63,
+    "text": "In the determination of Young's modulus (Y = (4 M L g) / (\\pi l d^2)) by using Searle's method, a wire of length L = 2 m and diameter d = 0.5 mm is used. For a load M = 2.5 kg, an extension l = 0.25 mm in the length of the wire is observed. Quantities d and l were measured using a screw gauge and a micrometer, respectively, having the same least count of r = 0.001 cm. The maximum percentage error in the value of Y is:",
+    "options": [
+      {
+        "id": "A",
+        "text": "0.08%"
+      },
+      {
+        "id": "B",
+        "text": "0.8%"
+      },
+      {
+        "id": "C",
+        "text": "8.0%"
+      },
+      {
+        "id": "D",
+        "text": "80%"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Young's Modulus Experimental Error (Searle's Method)\n\n**Correct Answer**: **Option (C)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Governing Searle's Equation**: $Y = \\frac{4 M L g}{\\pi l d^2}$.\n2. **Error Propagation Relation**:\n   $$\\frac{\\Delta Y}{Y} = \\frac{\\Delta l}{l} + 2\\frac{\\Delta d}{d}$$\n3. **Given Parameters and Least Counts**:\n   - Extension $l = 0.25\\text{ mm}$, Least Count $\\Delta l = 0.001\\text{ cm} = 0.01\\text{ mm}$.\n   - Diameter $d = 0.5\\text{ mm}$, Least Count $\\Delta d = 0.001\\text{ cm} = 0.01\\text{ mm}$.\n4. **Evaluating Error Contributions**:\n   $$\\frac{\\Delta l}{l} = \\frac{0.01}{0.25} = 0.04 = 4\\%$$\n   $$2\\frac{\\Delta d}{d} = 2 \\times \\frac{0.01}{0.5} = 2 \\times 0.02 = 0.04 = 4\\%$$\n5. **Total Percentage Error**:\n   $$\\%\\Delta Y = 4\\% + 4\\% = 8.0\\%$$\n6. **Conclusion**: Maximum percentage error in Young's modulus is **8.0%**, verifying Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#73",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2885",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_074",
+    "number": 2885,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 78.93,
+    "text": "Which of the following is not the name of a physical quantity?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Time"
+      },
+      {
+        "id": "B",
+        "text": "Impulse"
+      },
+      {
+        "id": "C",
+        "text": "Kilogram"
+      },
+      {
+        "id": "D",
+        "text": "Energy"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Distinction between Physical Quantities and Units\n\n**Correct Answer**: **Option (C)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Definitions**:\n   - A **physical quantity** is a characteristic or property of an object or system that can be measured with an instrument (e.g. Mass, Time, Impulse, Energy).\n   - A **unit** is a definite magnitude of a physical quantity adopted by convention or law as a standard of measurement.\n2. **Analysis of Choices**:\n   - Time, Impulse, and Energy are all names of physical quantities.\n   - **Kilogram** is the SI base **unit** of the physical quantity Mass.\n3. **Conclusion**: Kilogram is a unit, not a physical quantity, verifying Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#74",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2886",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_075",
+    "number": 2886,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 0.0,
+    "text": "The error in the measurement of the radius of a sphere is 0.5%. What is the permissible error in the measurement of its surface area?",
+    "options": [
+      {
+        "id": "A",
+        "text": "1%"
+      },
+      {
+        "id": "B",
+        "text": "0.5%"
+      },
+      {
+        "id": "C",
+        "text": "2%"
+      },
+      {
+        "id": "D",
+        "text": "0.25%"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Error Propagation in Sphere Surface Area\n\n**Correct Answer**: **Option (A)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Surface Area Formula**: $A = 4\\pi r^2$.\n2. **Logarithmic Differentiation for Error Propagation**:\n   $$\\frac{\\Delta A}{A} = 2\\frac{\\Delta r}{r}$$\n3. **Percentage Error Calculation**:\n   $$\\%\\Delta A = 2 \\times (\\%\\Delta r) = 2 \\times 0.5\\% = 1.0\\% = 1\\%$$\n4. **Conclusion**: The permissible error in surface area is **1%**, verifying Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#75",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2887",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_076",
+    "number": 2887,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 74.53,
+    "text": "The angular wave number is defined as k = 2\\pi / \\lambda. What are dimensions of k? (where \\lambda is wavelength of light).",
+    "options": [
+      {
+        "id": "A",
+        "text": "[M^0 L^-1 T^0]"
+      },
+      {
+        "id": "B",
+        "text": "[M^1 L^1 T^0]"
+      },
+      {
+        "id": "C",
+        "text": "[M L^0 T^1]"
+      },
+      {
+        "id": "D",
+        "text": "[M L^-2 T]"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Dimensional Formula of Wave Number\n\n**Correct Answer**: **Option (A)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Definition of Angular Wave Number**:\n   $$k = \\frac{2\\pi}{\\lambda}$$\n2. **Dimensional Analysis**:\n   - The factor $2\\pi$ is a dimensionless numerical constant: $[2\\pi] = [M^0 L^0 T^0]$.\n   - Wavelength $\\lambda$ has dimensions of length: $[\\lambda] = [L]$.\n3. **Resulting Dimensions**:\n   $$[k] = \\frac{1}{[\\lambda]} = [L^{-1}] = [M^0 L^{-1} T^0]$$\n4. **Conclusion**: Option **(A)** is verified.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#76",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2888",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_077",
+    "number": 2888,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 70.56,
+    "text": "Which one of the following is dimensionless physical quantity?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Velocity gradient"
+      },
+      {
+        "id": "B",
+        "text": "Stress"
+      },
+      {
+        "id": "C",
+        "text": "Force gradient"
+      },
+      {
+        "id": "D",
+        "text": "Angle"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Dimensionless Physical Quantities\n\n**Correct Answer**: **Option (D)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Dimensional Formulae of Given Quantities**:\n   - **Velocity gradient**: $\\frac{dv}{dx} \\implies \\frac{[L T^{-1}]}{[L]} = [T^{-1}]$\n   - **Stress**: $\\frac{F}{A} \\implies \\frac{[M L T^{-2}]}{[L^2]} = [M L^{-1} T^{-2}]$\n   - **Force gradient**: $\\frac{dF}{dx} \\implies \\frac{[M L T^{-2}]}{[L]} = [M T^{-2}]$\n   - **Angle**: $\\theta = \\frac{\\text{arc length}}{\\text{radius}} \\implies \\frac{[L]}{[L]} = [M^0 L^0 T^0]$\n2. **Conclusion**: Plane angle is a dimensionless physical quantity, verifying Option **(D)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#77",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2889",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_078",
+    "number": 2889,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 65.11,
+    "text": "The SI unit of the universal gas constant R is",
+    "options": [
+      {
+        "id": "A",
+        "text": "Joule K^-1 mol^-1"
+      },
+      {
+        "id": "B",
+        "text": "Watt K^-1 mol^-1"
+      },
+      {
+        "id": "C",
+        "text": "Newton^-1 mol^-1"
+      },
+      {
+        "id": "D",
+        "text": "Joule^-1 mol^-1"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ SI Unit of Universal Gas Constant\n\n**Correct Answer**: **Option (A)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Ideal Gas State Equation**: $P V = n R T$.\n2. **Solving for Gas Constant $R$**:\n   $$R = \\frac{P V}{n T}$$\n3. **Unit Analysis**:\n   - Pressure $\\times$ Volume ($PV$) has SI units of Work / Energy: $\\text{Joule (J)}$.\n   - Amount of substance $n$: $\\text{mole (mol)}$.\n   - Absolute Temperature $T$: $\\text{Kelvin (K)}$.\n4. **Derived SI Unit**:\n   $$\\text{SI Unit of } R = \\frac{\\text{J}}{\\text{mol} \\cdot \\text{K}} = \\text{Joule}\\cdot\\text{K}^{-1}\\cdot\\text{mol}^{-1}$$\n5. **Conclusion**: Option **(A)** is verified.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#78",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2890",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_079",
+    "number": 2890,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 66.67,
+    "text": "In a vernier caliper, one main scale division is x cm and n division of vernier scale coincide with (n - 1) division of the main scale. The least count of the vernier caliper in cm is:",
+    "options": [
+      {
+        "id": "A",
+        "text": "\\left(\\frac{n-1}{n}\\right)x"
+      },
+      {
+        "id": "B",
+        "text": "\\left(\\frac{n}{n-1}\\right)x"
+      },
+      {
+        "id": "C",
+        "text": "\\frac{x}{n}"
+      },
+      {
+        "id": "D",
+        "text": "\\frac{x}{n-1}"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ General Least Count of Vernier Calipers\n\n**Correct Answer**: **Option (C)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Given Main Scale Division**: $1\\text{ MSD} = x\\text{ cm}$.\n2. **Given Scale Alignment**:\n   $$n\\text{ VSD} = (n - 1)\\text{ MSD} \\implies 1\\text{ VSD} = \\left(\\frac{n - 1}{n}\\right)\\text{ MSD} = \\left(\\frac{n - 1}{n}\\right) x\\text{ cm}$$\n3. **Least Count Formula**:\n   $$\\text{LC} = 1\\text{ MSD} - 1\\text{ VSD} = x - \\left(\\frac{n - 1}{n}\\right) x = x \\left(1 - \\frac{n - 1}{n}\\right) = \\frac{x}{n}\\text{ cm}$$\n4. **Conclusion**: Least count is $\\frac{x}{n}\\text{ cm}$, verifying Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#79",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2891",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_080",
+    "number": 2891,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 48.24,
+    "text": "In the following question, a statement of assertion (A) is followed by a statement of reason (R) A : When we change the unit of a measurement of a quantity, its numerical value changes. R : The product of numerical value of the physical quantity and unit for a quantity remain constant.",
+    "options": [
+      {
+        "id": "A",
+        "text": "Both Assertion & Reason are true and the reason is the correct explanation of the assertion."
+      },
+      {
+        "id": "B",
+        "text": "Both Assertion & Reason are true but the reason is not the correct explanation of the assertion."
+      },
+      {
+        "id": "C",
+        "text": "Assertion is true statement but Reason is false."
+      },
+      {
+        "id": "D",
+        "text": "Both Assertion and Reason are false statements."
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Invariance of Physical Magnitudes ($Q = n \\cdot u$)\n\n**Correct Answer**: **Option (A)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Fundamental Principle of Measurement**:\n   The absolute magnitude of any physical quantity $Q$ is independent of the choice of unit system:\n   $$Q = n \\cdot u = \\text{constant} \\implies n_1 u_1 = n_2 u_2$$\n   where $n$ is the numerical value and $u$ is the unit size.\n2. **Evaluation of Assertion (A)**:\n   When the unit $u$ is changed, the numerical value $n$ must change inversely so that their product remains constant ($n \\propto 1/u$). Assertion is **True**.\n3. **Evaluation of Reason (R)**:\n   The product of the numerical value and the unit remains constant ($Q = n u = \\text{constant}$). Reason is **True**.\n4. **Explanation**: Reason directly provides the mathematical justification for Assertion.\n5. **Conclusion**: Both Assertion and Reason are true and Reason is the correct explanation, verifying Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#80",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2892",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_081",
+    "number": 2892,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 0.0,
+    "text": "The error in measuring the side of a cube is ±1%. The error in the calculation of the volume of the cube will be about",
+    "options": [
+      {
+        "id": "A",
+        "text": "±0.001%"
+      },
+      {
+        "id": "B",
+        "text": "±1%"
+      },
+      {
+        "id": "C",
+        "text": "±6%"
+      },
+      {
+        "id": "D",
+        "text": "±3%"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Error Propagation in Cube Volume\n\n**Correct Answer**: **Option (D)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Volume of a Cube**: $V = a^3$, where $a$ is the length of each edge.\n2. **Fractional Error Formula**:\n   $$\\frac{\\Delta V}{V} = 3 \\frac{\\Delta a}{a}$$\n3. **Percentage Error Calculation**:\n   $$\\%\\Delta V = 3 \\times (\\%\\Delta a) = 3 \\times (\\pm 1\\%) = \\pm 3\\%$$\n4. **Conclusion**: Percentage error in volume is **±3%**, verifying Option **(D)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#81",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2893",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_082",
+    "number": 2893,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 59.23,
+    "text": "If P and Q have different non-zero dimensions, which of the following operation is possible:",
+    "options": [
+      {
+        "id": "A",
+        "text": "P^2 + Q^2"
+      },
+      {
+        "id": "B",
+        "text": "P / Q^2"
+      },
+      {
+        "id": "C",
+        "text": "P^2 - Q^2"
+      },
+      {
+        "id": "D",
+        "text": "All of these"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Principle of Dimensional Homogeneity\n\n**Correct Answer**: **Option (B)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Rules of Dimensional Operations**:\n   - **Addition / Subtraction**: Two physical quantities can be added or subtracted if and only if they possess identical dimensions ($[P] = [Q]$).\n   - **Multiplication / Division**: Quantities with different dimensions can always be multiplied or divided to yield new derived quantities.\n2. **Evaluation of Options**:\n   - $P^2 + Q^2$ and $P^2 - Q^2$: Impossible and physically meaningless because $[P^2] = [P]^2 \\ne [Q]^2 = [Q^2]$.\n   - $P / Q^2$: A valid mathematical and physical operation producing a well-defined derived quantity with dimensions $[P][Q]^{-2}$.\n3. **Conclusion**: Only $P / Q^2$ is permissible, verifying Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#82",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2894",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_084",
+    "number": 2894,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "difficulty": "Hard",
+    "idealTimeSec": 135,
+    "accuracyPct": 10.53,
+    "text": "For the four sets of three measured physical quantities as given below. Which of the following options is correct? (i) A1 = 24.36, B1 = 0.0724, C1 = 256.2 (ii) A2 = 24.44, B2 = 16.082, C2 = 240.2 (iii) A3 = 25.2, B3 = 19.2812, C3 = 236.183 (iv) A4 = 25, B4 = 236.191, C4 = 19.5 [JEE Main 2020, 9 Jan (Shift 2)]",
+    "options": [
+      {
+        "id": "A",
+        "text": "A4 + B4 + C4 < A1 + B1 + C1 = A2 + B2 + C2 = A3 + B3 + C3"
+      },
+      {
+        "id": "B",
+        "text": "A1 + B1 + C1 < A2 + B2 + C2 = A3 + B3 + C3 < A4 + B4 + C4"
+      },
+      {
+        "id": "C",
+        "text": "A1 + B1 + C1 = A2 + B2 + C2 = A3 + B3 + C3 = A4 + B4 + C4"
+      },
+      {
+        "id": "D",
+        "text": "A4 + B4 + C4 < A1 + B1 + C1 < A3 + B3 + C3 < A2 + B2 + C2"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Significant Figures in Addition (JEE Main 2020)\n\n**Correct Answer**: **Option (B)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Addition Rule for Significant Figures**:\n   In addition, the final result must retain no more decimal places than the measured quantity with the least number of decimal places.\n2. **Evaluating the Four Sets**:\n   - **Set 1**: $A_1 = 24.36$ (2 dec), $B_1 = 0.0724$ (4 dec), $C_1 = 256.2$ (1 dec).\n     $$S_1 = 24.36 + 0.0724 + 256.2 = 280.6324 \\rightarrow 280.6\\text{ (rounded to 1 decimal place)}$$\n   - **Set 2**: $A_2 = 24.44$ (2 dec), $B_2 = 16.082$ (3 dec), $C_2 = 240.2$ (1 dec).\n     $$S_2 = 24.44 + 16.082 + 240.2 = 280.722 \\rightarrow 280.7\\text{ (rounded to 1 decimal place)}$$\n   - **Set 3**: $A_3 = 25.2$ (1 dec), $B_3 = 19.2812$ (4 dec), $C_3 = 236.183$ (3 dec).\n     $$S_3 = 25.2 + 19.2812 + 236.183 = 280.6642 \\rightarrow 280.7\\text{ (rounded to 1 decimal place)}$$\n   - **Set 4**: $A_4 = 25$ (0 dec), $B_4 = 236.191$ (3 dec), $C_4 = 19.5$ (1 dec).\n     $$S_4 = 25 + 236.191 + 19.5 = 280.691 \\rightarrow 281\\text{ (rounded to 0 decimal places / nearest integer)}$$\n3. **Ranking the Results**:\n   $$S_1 (280.6) < S_2 (280.7) = S_3 (280.7) < S_4 (281)$$\n   $$A_1 + B_1 + C_1 < A_2 + B_2 + C_2 = A_3 + B_3 + C_3 < A_4 + B_4 + C_4$$\n4. **Conclusion**: Verified Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#84",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2895",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_085",
+    "number": 2895,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 35.6,
+    "text": "Match the columns I and II. Column I: (A) Mean absolute error, (B) Relative error, (C) Percentage error, (D) Absolute error Column II: (1) Δamean / amean, (2) (Δamean / amean) \\times 100, (3) Σ|Δai|/n, (4) an - amean",
+    "options": [
+      {
+        "id": "A",
+        "text": "\\text{A}\\to 1, \\text{B}\\to 2, \\text{C}\\to 3, \\text{D}\\to 4"
+      },
+      {
+        "id": "B",
+        "text": "\\text{A}\\to 3, \\text{B}\\to 1, \\text{C}\\to 2, \\text{D}\\to 4"
+      },
+      {
+        "id": "C",
+        "text": "\\text{A}\\to 4, \\text{B}\\to 3, \\text{C}\\to 2, \\text{D}\\to 1"
+      },
+      {
+        "id": "D",
+        "text": "\\text{A}\\to 2, \\text{B}\\to 4, \\text{C}\\to 1, \\text{D}\\to 3"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Mathematical Definitions of Errors\n\n**Correct Answer**: **Option (B)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Column Matching Definitions**:\n   - **(A) Mean absolute error**: The arithmetic mean of the magnitudes of absolute errors in all measurements:\n     $$\\Delta a_{\\text{mean}} = \\frac{\\sum_{i=1}^n |\\Delta a_i|}{n} \\implies \\text{(3)}$$\n   - **(B) Relative error**: The ratio of the mean absolute error to the mean value of the quantity:\n     $$\\text{Relative error} = \\frac{\\Delta a_{\\text{mean}}}{a_{\\text{mean}}} \\implies \\text{(1)}$$\n   - **(C) Percentage error**: The relative error expressed in percent:\n     $$\\text{Percentage error} = \\left(\\frac{\\Delta a_{\\text{mean}}}{a_{\\text{mean}}}\\right) \\times 100\\% \\implies \\text{(2)}$$\n   - **(D) Absolute error**: The difference between the individual measurement and the true/mean value:\n     $$\\Delta a_n = a_n - a_{\\text{mean}} \\implies \\text{(4)}$$\n2. **Correct Mapping**: $\\text{A}\\to 3, \\text{B}\\to 1, \\text{C}\\to 2, \\text{D}\\to 4$.\n3. **Conclusion**: Option **(B)** is verified.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#85",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2896",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_086",
+    "number": 2896,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 66.67,
+    "text": "A force F is given by F = a t + b t^2, where t is time. What are the dimensions of a and b",
+    "options": [
+      {
+        "id": "A",
+        "text": "[M L T^-3] and [M L^2 T^-4]"
+      },
+      {
+        "id": "B",
+        "text": "[M L T^-3] and [M L T^-4]"
+      },
+      {
+        "id": "C",
+        "text": "[M L T^-1] and [M L T^0]"
+      },
+      {
+        "id": "D",
+        "text": "[M L T^-4] and [M L T^1]"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Dimensional Analysis in Time-Dependent Force\n\n**Correct Answer**: **Option (B)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Given Polynomial**: $F = a t + b t^2$.\n2. **Homogeneity Principle**:\n   Each term in the sum must have the dimensions of Force $[F] = [M L T^{-2}]$:\n   $$[a t] = [F] \\implies [a][T] = [M L T^{-2}] \\implies [a] = [M L T^{-3}]$$\n   $$[b t^2] = [F] \\implies [b][T^2] = [M L T^{-2}] \\implies [b] = [M L T^{-4}]$$\n3. **Conclusion**: $[a] = [M L T^{-3}]$ and $[b] = [M L T^{-4}]$, verifying Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#86",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2897",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_087",
+    "number": 2897,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "difficulty": "Hard",
+    "idealTimeSec": 135,
+    "accuracyPct": 31.25,
+    "text": "A person observes that the full length of a train subtends an angle of 15 degrees. If the distance between the train and the person is 3 km, the length of the train, calculated using parallax method, in metres is",
+    "options": [
+      {
+        "id": "A",
+        "text": "45"
+      },
+      {
+        "id": "B",
+        "text": "45\\pi"
+      },
+      {
+        "id": "C",
+        "text": "250\\pi"
+      },
+      {
+        "id": "D",
+        "text": "250"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Distance and Length via Parallax Method\n\n**Correct Answer**: **Option (C)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Conversion of Angle to Radians**:\n   $$\\theta = 15^\\circ = 15 \\times \\left(\\frac{\\pi}{180}\\right) = \\frac{\\pi}{12}\\text{ rad}$$\n2. **Given Distance**:\n   $$r = 3\\text{ km} = 3000\\text{ m}$$\n3. **Calculating Arc Length (Length of Train)**:\n   $$l = r \\cdot \\theta = 3000 \\times \\frac{\\pi}{12} = 250\\pi\\text{ metres}$$\n4. **Conclusion**: Length of the train is **250π metres**, verifying Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#87",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2898",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_088",
+    "number": 2898,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 16.39,
+    "text": "The radius of a sphere is (2.6 ± 0.1) cm. The percentage error in its volume is",
+    "options": [
+      {
+        "id": "A",
+        "text": "\\left(\\frac{0.1}{2.6}\\right) \\times 100\\%"
+      },
+      {
+        "id": "B",
+        "text": "3 \\times \\left(\\frac{0.1}{2.6}\\right) \\times 100\\%"
+      },
+      {
+        "id": "C",
+        "text": "\\left(\\frac{0.1}{3 \\times 2.6}\\right) \\times 100\\%"
+      },
+      {
+        "id": "D",
+        "text": "\\left(\\frac{2.6}{0.1}\\right) \\times 100\\%"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Fractional and Percentage Error in Sphere Volume\n\n**Correct Answer**: **Option (B)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Given Measurement**: Radius $r = (2.6 \\pm 0.1)\\text{ cm} \\implies r = 2.6\\text{ cm}, \\Delta r = 0.1\\text{ cm}$.\n2. **Volume Formula of a Sphere**: $V = \\frac{4}{3}\\pi r^3$.\n3. **Fractional Error in Volume**:\n   $$\\frac{\\Delta V}{V} = 3 \\frac{\\Delta r}{r}$$\n4. **Percentage Error Formulation**:\n   $$\\%\\Delta V = 3 \\times \\left(\\frac{\\Delta r}{r}\\right) \\times 100\\% = 3 \\times \\left(\\frac{0.1}{2.6}\\right) \\times 100\\%$$\n5. **Conclusion**: Verified Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#88",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2899",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_089",
+    "number": 2899,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 18.32,
+    "text": "A student measured the diameter of a wire using a screw gauge with least count 0.001 cm and listed the measurements. The correct measurement is",
+    "options": [
+      {
+        "id": "A",
+        "text": "5.3 cm"
+      },
+      {
+        "id": "B",
+        "text": "5.32 cm"
+      },
+      {
+        "id": "C",
+        "text": "5.320 cm"
+      },
+      {
+        "id": "D",
+        "text": "5.3200 cm"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Significant Figures and Precision of Screw Gauge\n\n**Correct Answer**: **Option (C)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Instrument Least Count (LC)**:\n   $$\\text{LC} = 0.001\\text{ cm}$$\n   The least count has three decimal places in centimetre units.\n2. **Precision Principle**:\n   Any scientific measurement taken with an instrument must be reported up to the exact decimal resolution of its least count. Neither fewer decimal places (insufficient precision) nor more decimal places (unjustified precision) are physically permissible.\n3. **Evaluation of Options**:\n   - $5.3\\text{ cm}$: 1 decimal place (incorrect precision)\n   - $5.32\\text{ cm}$: 2 decimal places (incorrect precision)\n   - $5.320\\text{ cm}$: Exactly 3 decimal places (correctly matches LC $0.001\\text{ cm}$)\n   - $5.3200\\text{ cm}$: 4 decimal places (exceeds instrument resolution)\n4. **Conclusion**: The correct measurement is **5.320 cm**, verifying Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#89",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_units_measurements_2900",
+    "originalId": "PW_PHY_UNITS_MEASUREMENTS_090",
+    "number": 2900,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Units & Measurements",
+    "topic": "Units and Dimensions / Errors & Measurement",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 75.97,
+    "text": "Which of the following is a characteristic of unit?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Must be universally accepted."
+      },
+      {
+        "id": "B",
+        "text": "Must be well defined and invariable."
+      },
+      {
+        "id": "C",
+        "text": "Easily available suitable size."
+      },
+      {
+        "id": "D",
+        "text": "All of the above."
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Units & Measurements $\\rightarrow$ Essential Criteria for a Standard Unit\n\n**Correct Answer**: **Option (D)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Standard Unit Requirements**:\n   For a standard unit of measurement to be accepted internationally in science:\n   - **Universal acceptance**: It must be universally recognized and accepted without ambiguity across all nations.\n   - **Invariability & Definition**: It must be precisely and unambiguously defined, and invariable with changes in time, location, temperature, pressure, or physical conditions.\n   - **Availability & Reproducibility**: It should be of convenient, suitable size and easily reproducible in standard metrology laboratories.\n2. **Conclusion**: All listed characteristics are essential requirements, verifying Option **(D)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch 4), Q#90",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
   }
 ]

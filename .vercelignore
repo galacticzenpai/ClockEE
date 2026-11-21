@@ -13,6 +13,8 @@ mesh_registry.json
 dossiers/
 antigravity_manager.html
 styles/antigravity_manager.css
+dist_cockpit/
+scripts/build_dist_cockpit.py
 scripts/generate_manager_state.py
 scripts/serve_antigravity_cockpit.py
 scripts/test_antigravity_manager.js

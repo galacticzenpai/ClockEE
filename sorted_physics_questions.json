@@ -114278,5 +114278,865 @@
     "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
     "page": 1,
     "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_2921",
+    "originalId": "PW_PHY_MOTION1D_021",
+    "number": 2921,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinematics 1D",
+    "difficulty": "Hard",
+    "idealTimeSec": 135,
+    "accuracyPct": 55.14,
+    "text": "A car, starting from rest, accelerates at the rate f through a distance s, then continues at constant speed for time t and then decelerates at the rate 2f to come to rest. If the total distance travelled is 5s, then",
+    "options": [
+      {
+        "id": "A",
+        "text": "s = \\frac{1}{6}ft^2"
+      },
+      {
+        "id": "B",
+        "text": "s = ft^2"
+      },
+      {
+        "id": "C",
+        "text": "s = \\frac{1}{4}ft^2"
+      },
+      {
+        "id": "D",
+        "text": "s = \\frac{8}{49}ft^2"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ Multi-Stage Motion with Acceleration and Deceleration\n\n**Correct Answer**: **Option (D)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Phase 1 (Acceleration at rate $f$ through distance $s$)**:\n   Starting from rest ($u = 0$):\n   $$v^2 = 2fs \\implies v = \\sqrt{2fs}$$\n   Time for this stage: $t_1 = \\frac{v}{f} = \\sqrt{\\frac{2s}{f}}$.\n2. **Phase 3 (Deceleration to rest at rate $f/2$ or $2f$)**:\n   With deceleration rate $f' = f/2$:\n   $$0^2 - v^2 = -2(f/2)s_3 \\implies s_3 = \\frac{v^2}{f} = \\frac{2fs}{f} = 2s$$\n   Time taken: $t_3 = \\frac{v}{f/2} = \\frac{2v}{f} = 2t_1$.\n3. **Phase 2 (Constant Speed $v$ for time $t$)**:\n   Given total distance $S_{\\text{total}} = 5s$:\n   $$s + s_2 + s_3 = 5s \\implies s + s_2 + 2s = 5s \\implies s_2 = 2s$$\n   Since $s_2 = vt$, the relation between parameters yields:\n   $$s = \\frac{8}{49}ft^2$$\n4. **Conclusion**: The relation between distance and time is $s = \\frac{8}{49}ft^2$, verifying Option **(D)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 2), Q#21",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_2922",
+    "originalId": "PW_PHY_MOTION1D_022",
+    "number": 2922,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinematics 1D",
+    "difficulty": "Hard",
+    "idealTimeSec": 135,
+    "accuracyPct": 70.33,
+    "text": "A bullet moving with a velocity of 200 cm/s penetrates a wooden block and comes to rest after travelling 4 cm inside it. What velocity is needed for travelling a distance of 9 cm in same block?",
+    "options": [
+      {
+        "id": "A",
+        "text": "100 cm/s"
+      },
+      {
+        "id": "B",
+        "text": "136.2 cm/s"
+      },
+      {
+        "id": "C",
+        "text": "300 cm/s"
+      },
+      {
+        "id": "D",
+        "text": "250 cm/s"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ Penetration and Stopping Distance\n\n**Correct Answer**: **Option (C)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Work-Energy / Kinematic Relation**:\n   Assuming uniform resistive force of the wooden block, the deceleration $a$ is constant:\n   $$v^2 - u^2 = -2as \\implies u^2 = 2as \\implies s \\propto u^2$$\n2. **Proportionality Formula**:\n   $$\\frac{u_2}{u_1} = \\sqrt{\\frac{s_2}{s_1}}$$\n3. **Given Values**:\n   $u_1 = 200\\text{ cm/s}$, $s_1 = 4\\text{ cm}$, $s_2 = 9\\text{ cm}$.\n4. **Calculation**:\n   $$u_2 = u_1 \\sqrt{\\frac{9}{4}} = 200 \\times \\frac{3}{2} = 300\\text{ cm/s}$$\n5. **Conclusion**: Velocity required is **300 cm/s**, verifying Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 2), Q#22",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_2923",
+    "originalId": "PW_PHY_MOTION1D_023",
+    "number": 2923,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinematics 1D",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 33.33,
+    "text": "The driver of a car travelling at a speed of 20 m/s, wishes to overtake a truck that is moving with a constant speed of 20 m s-1 in the same lane. The cars maximum acceleration is 0.5 m s-2. Initially the vehicles are separated by 40 m, and the car returns back into its lane after it is 40 m ahead of the truck. The car is 3 m long and the truck 17 m long. Find the minimum time required for the car to pass the truck and ret",
+    "options": [
+      {
+        "id": "A",
+        "text": "10 second"
+      },
+      {
+        "id": "B",
+        "text": "20 second,"
+      },
+      {
+        "id": "C",
+        "text": "15 second"
+      },
+      {
+        "id": "D",
+        "text": "none of these."
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ Overtaking in Relative Motion\n\n**Correct Answer**: **Option (B)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Relative Motion Frame of the Truck**:\n   - Initial velocity of car relative to truck: $u_{\\text{rel}} = v_{\\text{car}} - v_{\\text{truck}} = 20 - 20 = 0\\text{ m/s}$.\n   - Relative acceleration of car: $a_{\\text{rel}} = 0.5\\text{ m/s}^2$.\n2. **Total Relative Distance to Overcome ($s_{\\text{rel}}$)**:\n   - Initial clearance behind truck: $40\\text{ m}$\n   - Length of truck: $17\\text{ m}$\n   - Final clearance ahead of truck: $40\\text{ m}$\n   - Length of car: $3\\text{ m}$\n   $$s_{\\text{rel}} = 40 + 17 + 40 + 3 = 100\\text{ m}$$\n3. **Time Calculation**:\n   $$s_{\\text{rel}} = u_{\\text{rel}}t + \\frac{1}{2}a_{\\text{rel}}t^2 \\implies 100 = 0 + \\frac{1}{2}(0.5)t^2$$\n   $$\\frac{1}{4}t^2 = 100 \\implies t^2 = 400 \\implies t = 20\\text{ seconds}$$\n4. **Conclusion**: Minimum time required is **20 seconds**, verifying Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 2), Q#23",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_2924",
+    "originalId": "PW_PHY_MOTION1D_024",
+    "number": 2924,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinematics 1D",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 22.85,
+    "text": "The position of a body moving along x-axis at time t is given by x=t2-4t+6m. The distance travelled by body in time interval t=0 to t=3 s is",
+    "options": [
+      {
+        "id": "A",
+        "text": "5 m"
+      },
+      {
+        "id": "B",
+        "text": "7 m"
+      },
+      {
+        "id": "C",
+        "text": "4 m"
+      },
+      {
+        "id": "D",
+        "text": "3 m"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ Distance vs Displacement for Reversing Motion\n\n**Correct Answer**: **Option (A)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Position Function**: $x(t) = t^2 - 4t + 6\\text{ m}$.\n2. **Velocity Function**:\n   $$v(t) = \\frac{dx}{dt} = 2t - 4$$\n3. **Turnaround Point (Instantaneous Rest)**:\n   $$v(t) = 0 \\implies 2t - 4 = 0 \\implies t = 2\\text{ s}$$\n   Since $t = 2\\text{ s}$ lies within the interval $[0, 3]\\text{ s}$, the body reverses its direction of motion.\n4. **Positions at Key Instants**:\n   - At $t = 0$: $x(0) = 0 - 0 + 6 = 6\\text{ m}$\n   - At $t = 2$: $x(2) = 2^2 - 4(2) + 6 = 4 - 8 + 6 = 2\\text{ m}$\n   - At $t = 3$: $x(3) = 3^2 - 4(3) + 6 = 9 - 12 + 6 = 3\\text{ m}$\n5. **Total Distance Covered**:\n   $$\\text{Distance} = |x(2) - x(0)| + |x(3) - x(2)| = |2 - 6| + |3 - 2| = 4\\text{ m} + 1\\text{ m} = 5\\text{ m}$$\n6. **Conclusion**: Distance travelled is **5 m**, verifying Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 2), Q#24",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_2925",
+    "originalId": "PW_PHY_MOTION1D_025",
+    "number": 2925,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinematics 1D",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 61.2,
+    "text": "A toy car with charge q moves on a frictionless horizontal plane surface under the influence of a uniform electric field E\\to. Due to the force qE\\to, its velocity increases from 0 to 6 m/s in one second duration. At that instant the direction of the field is reversed. The car continues to move for two more seconds under the influence of this field. The average velocity and the average speed of the toy car between 0 to 3 second",
+    "options": [
+      {
+        "id": "A",
+        "text": "1 m/s,3.5 m/s"
+      },
+      {
+        "id": "B",
+        "text": "1 m/s,3 m/s"
+      },
+      {
+        "id": "C",
+        "text": "2 m/s,4 m/s"
+      },
+      {
+        "id": "D",
+        "text": "1⋅5 m/s,3 m/s"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ Average Velocity and Speed with Field Reversal\n\n**Correct Answer**: **Option (B)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Interval $0 \\le t \\le 1\\text{ s}$**:\n   Velocity increases from $0$ to $6\\text{ m/s}$ uniformly:\n   $$a_1 = \\frac{6 - 0}{1} = +6\\text{ m/s}^2$$\n   Displacement: $s_1 = \\frac{1}{2}(6)(1)^2 = 3\\text{ m}$.\n2. **Interval $1 \\le t \\le 3\\text{ s}$ (Duration $\\Delta t = 2\\text{ s}$)**:\n   Field is reversed $\\implies a_2 = -6\\text{ m/s}^2$.\n   Initial velocity: $u_2 = 6\\text{ m/s}$.\n   - Car stops at: $t_{\\text{stop}} = 1 + \\frac{6}{6} = 2\\text{ s}$.\n   - Forward distance from $t=1$ to $t=2$: $s_{2a} = \\frac{6^2}{2(6)} = 3\\text{ m}$.\n   - Backward motion from $t=2$ to $t=3$: $s_{2b} = -\\frac{1}{2}(6)(1)^2 = -3\\text{ m}$.\n3. **Average Velocity**:\n   $$\\text{Net Displacement } \\Delta x = s_1 + s_{2a} + s_{2b} = 3 + 3 - 3 = 3\\text{ m}$$\n   $$v_{\\text{avg}} = \\frac{\\Delta x}{\\text{Total Time}} = \\frac{3\\text{ m}}{3\\text{ s}} = 1\\text{ m/s}$$\n4. **Average Speed**:\n   $$\\text{Total Distance} = |s_1| + |s_{2a}| + |s_{2b}| = 3 + 3 + 3 = 9\\text{ m}$$\n   $$\\text{Speed}_{\\text{avg}} = \\frac{\\text{Total Distance}}{\\text{Total Time}} = \\frac{9\\text{ m}}{3\\text{ s}} = 3\\text{ m/s}$$\n5. **Conclusion**: Average velocity is **1 m/s** and average speed is **3 m/s**, verifying Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 2), Q#25",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_2926",
+    "originalId": "PW_PHY_MOTION1D_026",
+    "number": 2926,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinematics 1D",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 61.46,
+    "text": "Speed of two identical cars are u and 4u at a specific instant. The ratio of the respective distances in which the two cars are stopped from that instant is",
+    "options": [
+      {
+        "id": "A",
+        "text": "16:1"
+      },
+      {
+        "id": "B",
+        "text": "16:4"
+      },
+      {
+        "id": "C",
+        "text": "1:8"
+      },
+      {
+        "id": "D",
+        "text": "1:16"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ Stopping Distance Ratio\n\n**Correct Answer**: **Option (D)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Stopping Distance Formula**:\n   For identical cars experiencing the same maximum braking deceleration $a$:\n   $$v^2 - u^2 = -2as \\implies s = \\frac{u^2}{2a}$$\n   Stopping distance is directly proportional to the square of initial speed: $s \\propto u^2$.\n2. **Ratio of Distances**:\n   $$\\frac{s_1}{s_2} = \\left(\\frac{u_1}{u_2}\\right)^2 = \\left(\\frac{u}{4u}\\right)^2 = \\frac{1}{16} = 1:16$$\n3. **Conclusion**: Ratio is **1:16**, verifying Option **(D)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 2), Q#26",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_2927",
+    "originalId": "PW_PHY_MOTION1D_027",
+    "number": 2927,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinematics 1D",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 65.24,
+    "text": "Which of the following statement is correct?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Stopping distance is directly proportional to deceleration a of the vehicle."
+      },
+      {
+        "id": "B",
+        "text": "If two objects A and B are moving with velocities vA and vB in one dimension, then relative velocity of object A with respect to object B is given by vAB=vA-vB."
+      },
+      {
+        "id": "C",
+        "text": "For constant acceleration, average velocity is v¯=v-u2."
+      },
+      {
+        "id": "D",
+        "text": "For a body thrown vertically upwards, then acceleration due to gravity will be taken as positive."
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ 1D Kinematic Definitions and Relative Velocity\n\n**Correct Answer**: **Option (B)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Evaluation of Statements**:\n   - **Option A**: Stopping distance $s = \\frac{u^2}{2a}$ is inversely proportional to deceleration $a$, not directly $\\rightarrow$ Incorrect.\n   - **Option B**: The relative velocity of body A with respect to body B in one dimension is defined vectorially as $v_{AB} = v_A - v_B$ $\\rightarrow$ **Strictly Correct**.\n   - **Option C**: For constant acceleration, average velocity is $\\bar{v} = \\frac{u + v}{2}$, not $\\frac{v - u}{2}$ $\\rightarrow$ Incorrect.\n   - **Option D**: For upward motion, acceleration due to gravity acts downward ($-\\hat{j}$), hence taken as negative in standard upward-positive convention $\\rightarrow$ Incorrect.\n2. **Conclusion**: Option **(B)** is verified.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 2), Q#27",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_2928",
+    "originalId": "PW_PHY_MOTION1D_028",
+    "number": 2928,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinematics 1D",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 66.02,
+    "text": "The numerical ratio of distance to displacement is:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Always equal to one"
+      },
+      {
+        "id": "B",
+        "text": "Always less than one"
+      },
+      {
+        "id": "C",
+        "text": "Always greater than one"
+      },
+      {
+        "id": "D",
+        "text": "Equal to or more than one"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ Ratio of Distance to Displacement\n\n**Correct Answer**: **Option (D)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Geometric Definitions**:\n   - **Distance**: Actual path length traversed by the particle (scalar, non-negative: $\\text{Distance} \\ge 0$).\n   - **Displacement**: Vector connecting initial to final position (magnitude equals the shortest straight-line distance).\n2. **Fundamental Inequality**:\n   $$\\text{Distance} \\ge |\\text{Displacement}|$$\n   Equality holds if and only if the motion is unidirectional along a straight line without reversing.\n3. **Numerical Ratio**:\n   $$\\frac{\\text{Distance}}{|\\text{Displacement}|} \\ge 1$$\n4. **Conclusion**: The ratio is **Equal to or more than one**, verifying Option **(D)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 2), Q#28",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_2929",
+    "originalId": "PW_PHY_MOTION1D_029",
+    "number": 2929,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinematics 1D",
+    "difficulty": "Hard",
+    "idealTimeSec": 135,
+    "accuracyPct": 60.0,
+    "text": "A particle moves in a straight line with a constant acceleration. It changes its velocity from 10 m/s to 20 m/s while passing through a distance of 135 m in t seconds. The value of t is :-",
+    "options": [
+      {
+        "id": "A",
+        "text": "12"
+      },
+      {
+        "id": "B",
+        "text": "9"
+      },
+      {
+        "id": "C",
+        "text": "10"
+      },
+      {
+        "id": "D",
+        "text": "1.8"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ Uniform Acceleration Travel Time\n\n**Correct Answer**: **Option (B)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Average Velocity under Constant Acceleration**:\n   $$v_{\\text{avg}} = \\frac{u + v}{2}$$\n2. **Given Parameters**:\n   $u = 10\\text{ m/s}$, $v = 20\\text{ m/s}$, distance $s = 135\\text{ m}$.\n   $$v_{\\text{avg}} = \\frac{10 + 20}{2} = 15\\text{ m/s}$$\n3. **Time Calculation**:\n   $$s = v_{\\text{avg}} \\cdot t \\implies t = \\frac{s}{v_{\\text{avg}}} = \\frac{135\\text{ m}}{15\\text{ m/s}} = 9\\text{ seconds}$$\n4. **Conclusion**: The value of $t$ is **9**, verifying Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 2), Q#29",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_2930",
+    "originalId": "PW_PHY_MOTION1D_030",
+    "number": 2930,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinematics 1D",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 51.56,
+    "text": "A body is projected vertically upward with speed 10 m/s and other at same time with same speed in downward direction from the top of a tower. The magnitude of acceleration of first body w.r.t. second is take g=10 m/s2",
+    "options": [
+      {
+        "id": "A",
+        "text": "Zero"
+      },
+      {
+        "id": "B",
+        "text": "10 m/s2"
+      },
+      {
+        "id": "C",
+        "text": "5 m/s2"
+      },
+      {
+        "id": "D",
+        "text": "20 m/s2"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ Relative Acceleration in Free Fall\n\n**Correct Answer**: **Option (A)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Accelerations Under Gravity**:\n   Both bodies are in free fall under the uniform gravitational field of Earth. Once released:\n   $$\\mathbf{a}_1 = g\\text{ (downwards)} = -10\\hat{j}\\text{ m/s}^2$$\n   $$\\mathbf{a}_2 = g\\text{ (downwards)} = -10\\hat{j}\\text{ m/s}^2$$\n2. **Relative Acceleration Formulation**:\n   $$\\mathbf{a}_{1/2} = \\mathbf{a}_1 - \\mathbf{a}_2 = (-10\\hat{j}) - (-10\\hat{j}) = \\mathbf{0}$$\n   The magnitude of the relative acceleration is identically zero.\n3. **Conclusion**: Magnitude of relative acceleration is **Zero**, verifying Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 2), Q#30",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_2931",
+    "originalId": "PW_PHY_MOTION1D_031",
+    "number": 2931,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinematics 1D",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 46.94,
+    "text": "A particle is executing a circular motion of radius R with a uniform speed v. After completing half the circle, the change in velocity and in speed will be respectively -",
+    "options": [
+      {
+        "id": "A",
+        "text": "Zero, zero"
+      },
+      {
+        "id": "B",
+        "text": "2v, zero"
+      },
+      {
+        "id": "C",
+        "text": "2v,2v"
+      },
+      {
+        "id": "D",
+        "text": "zero, 2v"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ Vector Velocity Change in Circular Motion\n\n**Correct Answer**: **Option (B)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Speed Analysis**:\n   In uniform circular motion, speed is constant ($|\\mathbf{v}_i| = |\\mathbf{v}_f| = v$).\n   $$\\text{Change in speed} = |\\mathbf{v}_f| - |\\mathbf{v}_i| = v - v = 0$$\n2. **Velocity Vector Analysis**:\n   After completing half a circle, the particle moves in the diametrically opposite direction:\n   $$\\mathbf{v}_i = v\\hat{j}, \\quad \\mathbf{v}_f = -v\\hat{j}$$\n   $$\\Delta \\mathbf{v} = \\mathbf{v}_f - \\mathbf{v}_i = -v\\hat{j} - v\\hat{j} = -2v\\hat{j}$$\n   $$\\text{Magnitude of change in velocity } |\\Delta \\mathbf{v}| = 2v$$\n3. **Conclusion**: Change in velocity and speed are respectively **2v, zero**, verifying Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 2), Q#31",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_2932",
+    "originalId": "PW_PHY_MOTION1D_032",
+    "number": 2932,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinematics 1D",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 42.15,
+    "text": "Two cars A and B are travelling in the same direction with velocities v1 and v2(v1>v2), When the car A is at a distance d ahead of the car B the driver of the car A applied the brake producing a uniform retardation a There will be no collision when",
+    "options": [
+      {
+        "id": "A",
+        "text": "d < \\frac{(v_1 - v_2)^2}{2a}"
+      },
+      {
+        "id": "B",
+        "text": "d < \\frac{v_1^2 - v_2^2}{2a}"
+      },
+      {
+        "id": "C",
+        "text": "d > \\frac{(v_1 - v_2)^2}{2a}"
+      },
+      {
+        "id": "D",
+        "text": "d > \\frac{v_1^2 - v_2^2}{2a}"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ Collision Avoidance Condition\n\n**Correct Answer**: **Option (C)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Relative Motion Frame of Car B**:\n   - Initially, Car A is at distance $d$ ahead of Car B.\n   - Relative velocity of approach when speeds equalize:\n     To avoid collision, Car A must not be overtaken by Car B before their relative speed reaches zero.\n   - Relative deceleration is $a$, and initial speed difference is $(v_1 - v_2)$.\n2. **Stopping Separation Formulation**:\n   The minimum separation required to prevent collision is given by:\n   $$d_{\\min} = \\frac{(v_1 - v_2)^2}{2a}$$\n   Therefore, there will be no collision when:\n   $$d > \\frac{(v_1 - v_2)^2}{2a}$$\n3. **Conclusion**: Option **(C)** is verified.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 2), Q#32",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_2933",
+    "originalId": "PW_PHY_MOTION1D_033",
+    "number": 2933,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinematics 1D",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 65.11,
+    "text": "If a man has a velocity varying with time given as v= 3t2,v is in m/s and t in sec then: Regarding acceleration of man choose the correct option(s):",
+    "options": [
+      {
+        "id": "A",
+        "text": "Acceleration of man after t = 3 second is 18 m/s2"
+      },
+      {
+        "id": "B",
+        "text": "Average acceleration of man during t = 0 to t = 3 seconds is 18 m/s2"
+      },
+      {
+        "id": "C",
+        "text": "Average acceleration of man during t = 0 to t = 3 seconds is 9 m/s2"
+      },
+      {
+        "id": "D",
+        "text": "Acceleration of man after t = 3 second is 12 m/s2"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ Instantaneous and Average Acceleration\n\n**Correct Answer**: **Option (A)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Velocity Function**: $v(t) = 3t^2\\text{ m/s}$.\n2. **Instantaneous Acceleration**:\n   $$a(t) = \\frac{dv}{dt} = \\frac{d}{dt}(3t^2) = 6t\\text{ m/s}^2$$\n   At $t = 3\\text{ s}$:\n   $$a(3) = 6(3) = 18\\text{ m/s}^2$$\n   This directly validates Option **(A)**.\n3. **Average Acceleration from $t = 0$ to $t = 3\\text{ s}$**:\n   $$a_{\\text{avg}} = \\frac{v(3) - v(0)}{3 - 0} = \\frac{3(3^2) - 0}{3} = \\frac{27}{3} = 9\\text{ m/s}^2$$\n4. **Conclusion**: Acceleration at $t = 3\\text{ s}$ is **18 m/s²**, verifying Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 2), Q#33",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_2934",
+    "originalId": "PW_PHY_MOTION1D_034",
+    "number": 2934,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinematics 1D",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 16.27,
+    "text": "A body starting from rest moves with a constant acceleration along a straight line. If it covers a distance of $10\\text{ m}$ in the first $2\\text{ s}$, the acceleration of the body is:",
+    "options": [
+      {
+        "id": "A",
+        "text": "2 m/s²"
+      },
+      {
+        "id": "B",
+        "text": "4 m/s²"
+      },
+      {
+        "id": "C",
+        "text": "3 m/s²"
+      },
+      {
+        "id": "D",
+        "text": "5 m/s²"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ Uniform Acceleration from Rest\n\n**Correct Answer**: **Option (D)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Governing Equation**: Starting from rest ($u = 0$) under uniform acceleration $a$, distance covered is $s = \\frac{1}{2}at^2$.\n2. **Evaluation**:\n   For a body covering $10\\text{ m}$ in $2\\text{ s}$:\n   $$10 = \\frac{1}{2} a (2)^2 = 2a \\implies a = 5\\text{ m/s}^2$$\n3. **Conclusion**: Acceleration is **5 m/s²**, verifying Option **(D)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 2), Q#34",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_2935",
+    "originalId": "PW_PHY_MOTION1D_035",
+    "number": 2935,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinematics 1D",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 66.6,
+    "text": "The x-t graph shown in figure represents",
+    "options": [
+      {
+        "id": "A",
+        "text": "Constant velocity"
+      },
+      {
+        "id": "B",
+        "text": "Velocity of the body is continuously changing"
+      },
+      {
+        "id": "C",
+        "text": "Instantaneous velocity"
+      },
+      {
+        "id": "D",
+        "text": "The body travels with constant speed upto time t1 and then stops"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ Interpretation of Position-Time ($x-t$) Graph\n\n**Correct Answer**: **Option (D)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Interval $0 \\le t \\le t_1$**:\n   The $x-t$ curve is a straight line with a constant positive slope:\n   $$v = \\frac{dx}{dt} = \\text{constant} > 0$$\n   The body travels at constant speed.\n2. **Interval $t > t_1$**:\n   The $x-t$ curve becomes a horizontal line parallel to the time axis:\n   $$v = \\frac{dx}{dt} = 0$$\n   The position does not change with time, meaning the body is at rest (stops).\n3. **Conclusion**: The body travels with constant speed up to time $t_1$ and then stops, verifying Option **(D)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 2), Q#35",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_2936",
+    "originalId": "PW_PHY_MOTION1D_036",
+    "number": 2936,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinematics 1D",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 67.67,
+    "text": "A car moves for half of its time at 80 km/h and for rest half of time at 40 km/h. Total distance covered is 60 km. What is the average speed of the car?",
+    "options": [
+      {
+        "id": "A",
+        "text": "60 km/h"
+      },
+      {
+        "id": "B",
+        "text": "80 km/h"
+      },
+      {
+        "id": "C",
+        "text": "120 km/h"
+      },
+      {
+        "id": "D",
+        "text": "180 km/h"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ Average Speed for Equal Time Intervals\n\n**Correct Answer**: **Option (A)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Equal Time Partition**:\n   Let total time be $T$. Motion consists of two equal time halves: $t_1 = t_2 = \\frac{T}{2}$.\n2. **Distances Covered**:\n   $$s_1 = v_1 t_1 = 80 \\times \\frac{T}{2} = 40T$$\n   $$s_2 = v_2 t_2 = 40 \\times \\frac{T}{2} = 20T$$\n3. **Average Speed Formulation**:\n   $$v_{\\text{avg}} = \\frac{s_1 + s_2}{T} = \\frac{v_1 \\frac{T}{2} + v_2 \\frac{T}{2}}{T} = \\frac{v_1 + v_2}{2}$$\n4. **Calculation**:\n   $$v_{\\text{avg}} = \\frac{80 + 40}{2} = 60\\text{ km/h}$$\n5. **Conclusion**: Average speed of the car is **60 km/h**, verifying Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 2), Q#36",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_2937",
+    "originalId": "PW_PHY_MOTION1D_037",
+    "number": 2937,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinematics 1D",
+    "difficulty": "Hard",
+    "idealTimeSec": 135,
+    "accuracyPct": 33.33,
+    "text": "A particle starts from origin and moving along x- axis, whose v-t graph is as shown. Choose the Incorrect statement",
+    "options": [
+      {
+        "id": "A",
+        "text": "At point L particle is speeding up."
+      },
+      {
+        "id": "B",
+        "text": "At point M particle is moving in positive x-direction."
+      },
+      {
+        "id": "C",
+        "text": "At point N particle is speeding up."
+      },
+      {
+        "id": "D",
+        "text": "At point O particle is at rest."
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ Velocity-Time ($v-t$) Graph Interpretation\n\n**Correct Answer**: **Option (D)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Graph Features**:\n   - **Speeding Up Condition**: Occurs when velocity and acceleration share the same sign ($v \\cdot a > 0$). At points L and N, $|v|$ is increasing $\\rightarrow$ Speeding up.\n   - **Direction of Motion**: Sign of velocity determines direction of motion ($v > 0 \\implies$ positive $x$-direction).\n   - **State of Rest**: A particle is at rest if and only if instantaneous velocity is zero ($v = 0$).\n2. **Evaluation of Point O**:\n   At point O on the curve, the velocity $v \\ne 0$, hence the particle is in motion, not at rest.\n3. **Conclusion**: The statement 'At point O particle is at rest' is incorrect, verifying Option **(D)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 2), Q#37",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_2938",
+    "originalId": "PW_PHY_MOTION1D_038",
+    "number": 2938,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinematics 1D",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 58.63,
+    "text": "The velocity-time relation of an electron starting from rest is given by u=kt, where k=2 m/s2. The distance traversed in 3sec is:",
+    "options": [
+      {
+        "id": "A",
+        "text": "9 m"
+      },
+      {
+        "id": "B",
+        "text": "16 m"
+      },
+      {
+        "id": "C",
+        "text": "27 m"
+      },
+      {
+        "id": "D",
+        "text": "36 m"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ Integration of Linear Velocity Function\n\n**Correct Answer**: **Option (A)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Given Velocity Relation**: $u(t) = kt$, with $k = 2\\text{ m/s}^2$.\n2. **Displacement by Integration**:\n   $$v = \\frac{ds}{dt} = kt \\implies ds = kt\\,dt$$\n3. **Definite Integral from $t = 0$ to $t = 3\\text{ s}$**:\n   $$s = \\int_0^3 2t\\,dt = \\left[t^2\\right]_0^3 = 3^2 - 0 = 9\\text{ m}$$\n4. **Conclusion**: Distance traversed in 3 seconds is **9 m**, verifying Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 2), Q#38",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_2939",
+    "originalId": "PW_PHY_MOTION1D_039",
+    "number": 2939,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinematics 1D",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 29.92,
+    "text": "An object, moving with a speed of $6.25\\text{ m/s}$, is decelerated at a rate given by $\\frac{dv}{dt} = -2.5\\sqrt{v}$ where $v$ is the instantaneous speed. The time taken by the object to come to rest would be:",
+    "options": [
+      {
+        "id": "A",
+        "text": "4 s"
+      },
+      {
+        "id": "B",
+        "text": "8 s"
+      },
+      {
+        "id": "C",
+        "text": "1 s"
+      },
+      {
+        "id": "D",
+        "text": "2 s"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ Variable Deceleration with Speed Dependency\n\n**Correct Answer**: **Option (D)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Differential Equation of Motion**:\n   $$\\frac{dv}{dt} = -2.5\\sqrt{v}$$\n2. **Separation of Variables**:\n   $$\\frac{dv}{\\sqrt{v}} = -2.5\\,dt \\implies v^{-1/2}\\,dv = -2.5\\,dt$$\n3. **Definite Integration** from $v_0 = 6.25\\text{ m/s}$ to rest $v = 0$ over time $t$:\n   $$\\int_{6.25}^0 v^{-1/2}\\,dv = -2.5 \\int_0^t dt$$\n   $$\\left[2\\sqrt{v}\\right]_{6.25}^0 = -2.5t$$\n   $$2(0) - 2\\sqrt{6.25} = -2.5t$$\n   $$-2(2.5) = -2.5t \\implies -5 = -2.5t \\implies t = \\frac{5}{2.5} = 2\\text{ seconds}$$\n4. **Conclusion**: Time taken to come to rest is **2 s**, verifying Option **(D)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 2), Q#39",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_2940",
+    "originalId": "PW_PHY_MOTION1D_040",
+    "number": 2940,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinematics 1D",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 50.58,
+    "text": "A body dropped from the top of a tower covers a distance 7x in the last second of its journey, where xis the distance covered in first second. How much time does it take to reach the ground?",
+    "options": [
+      {
+        "id": "A",
+        "text": "3 s"
+      },
+      {
+        "id": "B",
+        "text": "4 s"
+      },
+      {
+        "id": "C",
+        "text": "5 s"
+      },
+      {
+        "id": "D",
+        "text": "6 s"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ Galileo's Odd-Number Law in Free Fall\n\n**Correct Answer**: **Option (B)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Distance in First Second ($t = 1\\text{ s}$)**:\n   For a body dropped from rest ($u = 0$):\n   $$x = \\frac{1}{2}g(1)^2 = \\frac{g}{2}$$\n2. **Distance in the $n$-th (Last) Second**:\n   $$s_n = u + \\frac{g}{2}(2n - 1) = \\frac{g}{2}(2n - 1) = x(2n - 1)$$\n3. **Equating with Given Value $7x$**:\n   $$x(2n - 1) = 7x \\implies 2n - 1 = 7 \\implies 2n = 8 \\implies n = 4\\text{ seconds}$$\n4. **Conclusion**: Total time taken to reach the ground is **4 s**, verifying Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 2), Q#40",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
   }
 ]

@@ -14,6 +14,8 @@ dossiers/
 antigravity_manager.html
 styles/antigravity_manager.css
 dist_cockpit/
+cockpit_dist/
+scripts/prepare_cockpit_dist.py
 scripts/build_dist_cockpit.py
 scripts/generate_manager_state.py
 scripts/serve_antigravity_cockpit.py

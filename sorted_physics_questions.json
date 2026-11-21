@@ -119868,5 +119868,1295 @@
     "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
     "page": 1,
     "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_3051",
+    "originalId": "PW_PHY_PLANE_061",
+    "number": 3051,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Velocity Perpendicular to Initial Velocity",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 68.4,
+    "text": "A projectile is thrown with a velocity of 20 m/s at an angle of $60^\\circ$ with the horizontal. The time after which its velocity vector is perpendicular to initial velocity is ($g = 10\\text{ m/s}^2$)",
+    "options": [
+      {
+        "id": "A",
+        "text": "2 s"
+      },
+      {
+        "id": "B",
+        "text": "$\\frac{4}{\\sqrt{3}}\\text{ s}$"
+      },
+      {
+        "id": "C",
+        "text": "4 s"
+      },
+      {
+        "id": "D",
+        "text": "$\\frac{2}{\\sqrt{3}}\\text{ s}$"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics in 2D $\\rightarrow$ Velocity Vector Perpendicular to Initial Velocity\n\n**Step-by-Step Mathematical Derivation**:\n1. **Velocity Vectors in Vector Form**:\n   - Initial velocity vector: $\\vec{u} = (u\\cos\\theta)\\hat{i} + (u\\sin\\theta)\\hat{j}$\n   - Velocity vector at time $t$: $\\vec{v}(t) = (u\\cos\\theta)\\hat{i} + (u\\sin\\theta - gt)\\hat{j}$\n2. **Condition for Perpendicularity ($\\vec{u} \\cdot \\vec{v} = 0$)**:\n   $$\\vec{u} \\cdot \\vec{v} = (u\\cos\\theta)(u\\cos\\theta) + (u\\sin\\theta)(u\\sin\\theta - gt) = 0$$\n   $$u^2\\cos^2\\theta + u^2\\sin^2\\theta - ugt\\sin\\theta = 0$$\n   $$u^2(\\cos^2\\theta + \\sin^2\\theta) = ugt\\sin\\theta$$\n   $$u^2 = ugt\\sin\\theta \\implies t = \\frac{u}{g\\sin\\theta}$$\n3. **Numerical Substitution**:\n   Given $u = 20\\text{ m/s}, \\theta = 60^\\circ, g = 10\\text{ m/s}^2$:\n   $$t = \\frac{20}{10\\sin(60^\\circ)} = \\frac{2}{\\frac{\\sqrt{3}}{2}} = \\frac{4}{\\sqrt{3}}\\text{ s}$$\n4. **Conclusion**:\n   The time after which velocity is perpendicular to initial velocity is **$\\frac{4}{\\sqrt{3}}\\text{ s}$**, confirming Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 4: Motion in a Plane (Batch 4), Q#61",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_3052",
+    "originalId": "PW_PHY_PLANE_062",
+    "number": 3052,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Range on Inclined Plane",
+    "difficulty": "Hard",
+    "idealTimeSec": 135,
+    "accuracyPct": 64.5,
+    "text": "A particle is projected with velocity 20 m/s at an angle $30^\\circ$ with an inclined plane of inclination $30^\\circ$ to the horizontal. Range on the inclined plane is [Take $g = 10\\text{ m/s}^2$]",
+    "options": [
+      {
+        "id": "A",
+        "text": "$\\frac{40}{3}\\text{ m}$"
+      },
+      {
+        "id": "B",
+        "text": "$\\frac{80}{3}\\text{ m}$"
+      },
+      {
+        "id": "C",
+        "text": "40 m"
+      },
+      {
+        "id": "D",
+        "text": "80 m"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics in 2D $\\rightarrow$ Projectile Range on an Inclined Plane\n\n**Step-by-Step Mathematical Derivation**:\n1. **Governing Formula for Range on Inclined Plane**:\n   $$R = \\frac{2u^2\\sin\\alpha\\cos(\\alpha + \\beta)}{g\\cos^2\\beta}$$\n   where $\\alpha = 30^\\circ$ is the angle of projection with the plane, and $\\beta = 30^\\circ$ is the plane's inclination.\n2. **Numerical Substitution**:\n   - $u = 20\\text{ m/s}$\n   - $\\alpha = 30^\\circ, \\beta = 30^\\circ \\implies \\alpha + \\beta = 60^\\circ$\n   - $g = 10\\text{ m/s}^2$\n   $$R = \\frac{2(20)^2 \\sin(30^\\circ) \\cos(60^\\circ)}{10 \\cos^2(30^\\circ)} = \\frac{2(400) (1/2) (1/2)}{10 (3/4)}$$\n   $$R = \\frac{200}{\\frac{30}{4}} = \\frac{200 \\times 4}{30} = \\frac{800}{30} = \\frac{80}{3}\\text{ m}$$\n3. **Conclusion**:\n   The range on the inclined plane is **$\\frac{80}{3}\\text{ m}$**, confirming Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 4: Motion in a Plane (Batch 4), Q#62",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_3053",
+    "originalId": "PW_PHY_PLANE_063",
+    "number": 3053,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Ratio of Maximum Height to Horizontal Range",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 68.9,
+    "text": "For an object thrown at an angle of $45^\\circ$ with the horizontal, the ratio of maximum height to horizontal range is",
+    "options": [
+      {
+        "id": "A",
+        "text": "1:2"
+      },
+      {
+        "id": "B",
+        "text": "1:4"
+      },
+      {
+        "id": "C",
+        "text": "1:1"
+      },
+      {
+        "id": "D",
+        "text": "4:1"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics in 2D $\\rightarrow$ Ratio of Maximum Height to Horizontal Range\n\n**Step-by-Step Mathematical Derivation**:\n1. **Fundamental Expressions for $H$ and $R$**:\n   $$H = \\frac{u^2\\sin^2\\theta}{2g}, \\quad R = \\frac{u^2\\sin(2\\theta)}{g} = \\frac{2u^2\\sin\\theta\\cos\\theta}{g}$$\n2. **Ratio of $H$ to $R$**:\n   $$\\frac{H}{R} = \\frac{\\frac{u^2\\sin^2\\theta}{2g}}{\\frac{2u^2\\sin\\theta\\cos\\theta}{g}} = \\frac{\\sin\\theta}{4\\cos\\theta} = \\frac{\\tan\\theta}{4}$$\n3. **Evaluation at $\\theta = 45^\\circ$**:\n   Since $\\tan(45^\\circ) = 1$:\n   $$\\frac{H}{R} = \\frac{1}{4} \\implies H : R = 1 : 4$$\n4. **Conclusion**:\n   The ratio of maximum height to horizontal range is **$1:4$**, confirming Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 4: Motion in a Plane (Batch 4), Q#63",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_3054",
+    "originalId": "PW_PHY_PLANE_064",
+    "number": 3054,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinetic Energy at Maximum Range Apex",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 74.3,
+    "text": "A body is projected with kinetic energy E such that its range is maximum. Its kinetic energy at the highest point is",
+    "options": [
+      {
+        "id": "A",
+        "text": "E"
+      },
+      {
+        "id": "B",
+        "text": "E/2"
+      },
+      {
+        "id": "C",
+        "text": "E/4"
+      },
+      {
+        "id": "D",
+        "text": "Zero"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics in 2D $\\rightarrow$ Kinetic Energy at Apex for Maximum Range Projection\n\n**Step-by-Step Mathematical Derivation**:\n1. **Maximum Range Launch Angle**:\n   Horizontal range is maximum when launched at $\\theta = 45^\\circ$.\n   Initial kinetic energy is $E = \\frac{1}{2}mu^2$.\n2. **Velocity at the Apex**:\n   At the highest point, vertical velocity is zero ($v_y = 0$).\n   Horizontal velocity remains constant:\n   $$v = v_x = u\\cos(45^\\circ) = \\frac{u}{\\sqrt{2}}$$\n3. **Kinetic Energy at Apex**:\n   $$E' = \\frac{1}{2}mv^2 = \\frac{1}{2}m\\left(\\frac{u}{\\sqrt{2}}\\right)^2 = \\frac{1}{2}\\left(\\frac{1}{2}mu^2\\right) = \\frac{E}{2}$$\n4. **Conclusion**:\n   The kinetic energy at the highest point is **$\\frac{E}{2}$**, confirming Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 4: Motion in a Plane (Batch 4), Q#64",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_3055",
+    "originalId": "PW_PHY_PLANE_065",
+    "number": 3055,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Acceleration in Uniform Circular Motion",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 78.9,
+    "text": "In uniform circular motion, the acceleration vector:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Points towards the center"
+      },
+      {
+        "id": "B",
+        "text": "Points along the tangent"
+      },
+      {
+        "id": "C",
+        "text": "Points away from center"
+      },
+      {
+        "id": "D",
+        "text": "Is zero"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics in 2D $\\rightarrow$ Direction of Acceleration in Uniform Circular Motion\n\n**Step-by-Step Mathematical Derivation**:\n1. **Analysis of Uniform Circular Motion**:\n   In uniform circular motion, the speed $v = |\\vec{v}|$ is constant, so tangential acceleration is zero:\n   $$a_t = \\frac{dv}{dt} = 0$$\n2. **Centripetal Acceleration**:\n   The rate of change of the direction of the velocity vector generates a centripetal (radial) acceleration:\n   $$\\vec{a}_c = -\\frac{v^2}{r}\\hat{r}$$\n   This acceleration vector is strictly directed radially inward along the radius towards the center of the circular trajectory.\n3. **Conclusion**:\n   The acceleration vector **points towards the center**, confirming Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 4: Motion in a Plane (Batch 4), Q#65",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_3056",
+    "originalId": "PW_PHY_PLANE_066",
+    "number": 3056,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Velocity Change in Half Circular Revolution",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 72.6,
+    "text": "A body moves along a circular path of radius r with constant speed v. The magnitude of change in velocity after completing half a revolution is:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Zero"
+      },
+      {
+        "id": "B",
+        "text": "2v"
+      },
+      {
+        "id": "C",
+        "text": "v"
+      },
+      {
+        "id": "D",
+        "text": "$\\sqrt{2} v$"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics in 2D $\\rightarrow$ Change in Velocity Vector Across Semicircular Turn\n\n**Step-by-Step Mathematical Derivation**:\n1. **Velocity Vectors at Diametrically Opposite Points**:\n   - Initial velocity vector: $\\vec{v}_1 = v\\hat{j}$\n   - After half a revolution ($180^\\circ$ rotation), direction is reversed:\n     $$\\vec{v}_2 = -v\\hat{j}$$\n2. **Change in Velocity Vector $\\Delta\\vec{v}$**:\n   $$\\Delta\\vec{v} = \\vec{v}_2 - \\vec{v}_1 = -v\\hat{j} - v\\hat{j} = -2v\\hat{j}$$\n3. **Magnitude of Change in Velocity**:\n   $$|\\Delta\\vec{v}| = |-2v\\hat{j}| = 2v$$\n4. **Conclusion**:\n   The magnitude of change in velocity is **$2v$**, confirming Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 4: Motion in a Plane (Batch 4), Q#66",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_3057",
+    "originalId": "PW_PHY_PLANE_067",
+    "number": 3057,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Range Scaling when Launch Angle is Doubled",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 38.4,
+    "text": "A projectile has a time of flight T and range R. If the angle of projection is doubled, keeping initial velocity same, the new range will be:",
+    "options": [
+      {
+        "id": "A",
+        "text": "$R \\sin 2\\theta$"
+      },
+      {
+        "id": "B",
+        "text": "R"
+      },
+      {
+        "id": "C",
+        "text": "$\\frac{R \\sin 4\\theta}{\\sin 2\\theta}$"
+      },
+      {
+        "id": "D",
+        "text": "2R"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics in 2D $\\rightarrow$ Range Scaling with Doubled Projection Angle\n\n**Step-by-Step Mathematical Derivation**:\n1. **Initial Range Formula**:\n   $$R = \\frac{u^2\\sin(2\\theta)}{g} \\implies \\frac{u^2}{g} = \\frac{R}{\\sin(2\\theta)}$$\n2. **New Range when Launch Angle is Doubled ($2\\theta$)**:\n   $$R' = \\frac{u^2\\sin(2(2\\theta))}{g} = \\frac{u^2\\sin(4\\theta)}{g}$$\n3. **Expressing $R'$ in Terms of $R$**:\n   $$R' = \\left(\\frac{u^2}{g}\\right)\\sin(4\\theta) = \\left(\\frac{R}{\\sin(2\\theta)}\\right)\\sin(4\\theta) = \\frac{R\\sin(4\\theta)}{\\sin(2\\theta)}$$\n4. **Conclusion**:\n   The new range is **$\\frac{R \\sin 4\\theta}{\\sin 2\\theta}$**, confirming Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 4: Motion in a Plane (Batch 4), Q#67",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_3058",
+    "originalId": "PW_PHY_PLANE_068",
+    "number": 3058,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Parametric Harmonic Trajectory",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 71.8,
+    "text": "A particle moves in a plane according to $x = a\\cos\\omega t$, $y = b\\sin\\omega t$. The trajectory of the particle is:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Circle"
+      },
+      {
+        "id": "B",
+        "text": "Ellipse"
+      },
+      {
+        "id": "C",
+        "text": "Parabola"
+      },
+      {
+        "id": "D",
+        "text": "Straight line"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics in 2D $\\rightarrow$ Trajectory Equation from Parametric Harmonic Coordinates\n\n**Step-by-Step Mathematical Derivation**:\n1. **Given Parametric Equations**:\n   $$x = a\\cos(\\omega t) \\implies \\cos(\\omega t) = \\frac{x}{a}$$\n   $$y = b\\sin(\\omega t) \\implies \\sin(\\omega t) = \\frac{y}{b}$$\n2. **Eliminating Time Parameter $t$**:\n   Using the fundamental trigonometric identity $\\cos^2(\\omega t) + \\sin^2(\\omega t) = 1$:\n   $$\\left(\\frac{x}{a}\\right)^2 + \\left(\\frac{y}{b}\\right)^2 = 1 \\implies \\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1$$\n3. **Geometric Identification**:\n   For $a \\neq b$, this is the canonical Cartesian equation of an **ellipse** centered at the origin.\n4. **Conclusion**:\n   The trajectory of the particle is an **Ellipse**, confirming Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 4: Motion in a Plane (Batch 4), Q#68",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_3059",
+    "originalId": "PW_PHY_PLANE_069",
+    "number": 3059,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Maximum Safe Speed on Flat Curved Road",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 69.4,
+    "text": "A car turns a corner on a flat road of radius 50 m. If the coefficient of static friction between tires and road is 0.5, the maximum safe speed is ($g = 9.8\\text{ m/s}^2$):",
+    "options": [
+      {
+        "id": "A",
+        "text": "15.65 m/s"
+      },
+      {
+        "id": "B",
+        "text": "20 m/s"
+      },
+      {
+        "id": "C",
+        "text": "10 m/s"
+      },
+      {
+        "id": "D",
+        "text": "25 m/s"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics in 2D $\\rightarrow$ Maximum Safe Speed on Flat Curved Road\n\n**Step-by-Step Mathematical Derivation**:\n1. **Governing Balance of Centripetal Force and Static Friction**:\n   On an unbanked flat road of radius $r$, the maximum centripetal force is supplied by maximum static friction:\n   $$\\frac{mv_{\\max}^2}{r} = f_{s,\\max} = \\mu_s mg$$\n2. **Maximum Speed Formula**:\n   $$v_{\\max} = \\sqrt{\\mu_s g r}$$\n3. **Numerical Substitution**:\n   Given $\\mu_s = 0.5, r = 50\\text{ m}, g = 9.8\\text{ m/s}^2$:\n   $$v_{\\max} = \\sqrt{0.5 \\times 9.8 \\times 50} = \\sqrt{245} \\approx 15.65\\text{ m/s}$$\n4. **Conclusion**:\n   The maximum safe speed is **$15.65\\text{ m/s}$**, confirming Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 4: Motion in a Plane (Batch 4), Q#69",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_3060",
+    "originalId": "PW_PHY_PLANE_070",
+    "number": 3060,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Height where Speed is Halved",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 64.2,
+    "text": "A projectile is launched from ground level with speed u at angle $\\theta$. At what height above ground is its speed half of its initial speed?",
+    "options": [
+      {
+        "id": "A",
+        "text": "$\\frac{3u^2}{8g}$"
+      },
+      {
+        "id": "B",
+        "text": "$\\frac{u^2}{4g}$"
+      },
+      {
+        "id": "C",
+        "text": "$\\frac{u^2}{2g}$"
+      },
+      {
+        "id": "D",
+        "text": "$\\frac{3u^2}{4g}$"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics in 2D $\\rightarrow$ Conservation of Mechanical Energy in Projectile Flight\n\n**Step-by-Step Mathematical Derivation**:\n1. **Conservation of Mechanical Energy**:\n   In the absence of air resistance, the total mechanical energy is conserved throughout flight:\n   $$E_{\\text{initial}} = E_{\\text{at height } h}$$\n   $$\\frac{1}{2}mu^2 = \\frac{1}{2}mv^2 + mgh$$\n2. **Condition for Halved Speed ($v = u/2$)**:\n   $$\\frac{1}{2}mu^2 = \\frac{1}{2}m\\left(\\frac{u}{2}\\right)^2 + mgh$$\n   $$\\frac{1}{2}mu^2 = \\frac{1}{8}mu^2 + mgh$$\n   $$mgh = \\frac{1}{2}mu^2 - \\frac{1}{8}mu^2 = \\frac{3}{8}mu^2$$\n3. **Solving for Height $h$**:\n   $$h = \\frac{3u^2}{8g}$$\n4. **Conclusion**:\n   The height above the ground is **$\\frac{3u^2}{8g}$**, confirming Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 4: Motion in a Plane (Batch 4), Q#70",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_3061",
+    "originalId": "PW_PHY_PLANE_071",
+    "number": 3061,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Maximum Heights Ratio for Equal Ranges",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 68.5,
+    "text": "Two particles A and B are projected simultaneously from the same point in directions making angles $30^\\circ$ and $60^\\circ$ with the horizontal respectively. If their ranges are equal, the ratio of their maximum heights $H_A / H_B$ is:",
+    "options": [
+      {
+        "id": "A",
+        "text": "1:3"
+      },
+      {
+        "id": "B",
+        "text": "3:1"
+      },
+      {
+        "id": "C",
+        "text": "$1:\\sqrt{3}$"
+      },
+      {
+        "id": "D",
+        "text": "1:1"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics in 2D $\\rightarrow$ Maximum Heights Ratio for Complementary Angles with Equal Range\n\n**Step-by-Step Mathematical Derivation**:\n1. **Given Data**:\n   - Launch angles: $\\theta_A = 30^\\circ$ and $\\theta_B = 60^\\circ$\n   - Equal horizontal ranges ($R_A = R_B$) implies equal initial speed $u$.\n2. **Maximum Height Formulas**:\n   $$H_A = \\frac{u^2\\sin^2(30^\\circ)}{2g}, \\quad H_B = \\frac{u^2\\sin^2(60^\\circ)}{2g}$$\n3. **Ratio Evaluation**:\n   $$\\frac{H_A}{H_B} = \\frac{\\sin^2(30^\\circ)}{\\sin^2(60^\\circ)} = \\frac{(1/2)^2}{(\\sqrt{3}/2)^2} = \\frac{1/4}{3/4} = \\frac{1}{3} = 1:3$$\n4. **Conclusion**:\n   The ratio of their maximum heights is **$1:3$**, confirming Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 4: Motion in a Plane (Batch 4), Q#71",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_3062",
+    "originalId": "PW_PHY_PLANE_072",
+    "number": 3062,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Matching Formulae of Projectile Motion",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 82.4,
+    "text": "Match List I with List II for a projectile launched with speed u at angle $\\theta$: List I: (A) Maximum height, (B) Time of flight, (C) Horizontal range, (D) Equation of path List II: (P) $\\frac{2u\\sin\\theta}{g}$, (Q) $\\frac{u^2\\sin 2\\theta}{g}$, (R) $\\frac{u^2\\sin^2\\theta}{2g}$, (S) $y = x\\tan\\theta - \\frac{gx^2}{2u^2\\cos^2\\theta}$",
+    "options": [
+      {
+        "id": "A",
+        "text": "A-R, B-P, C-Q, D-S"
+      },
+      {
+        "id": "B",
+        "text": "A-P, B-R, C-Q, D-S"
+      },
+      {
+        "id": "C",
+        "text": "A-R, B-Q, C-P, D-S"
+      },
+      {
+        "id": "D",
+        "text": "A-Q, B-P, C-R, D-S"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics in 2D $\\rightarrow$ Fundamental Formulae of Projectile Motion\n\n**Step-by-Step Mathematical Derivation**:\n1. **Matching Each Physical Quantity**:\n   - **(A) Maximum height**: $H = \\frac{u^2\\sin^2\\theta}{2g} \\implies$ **(R)**\n   - **(B) Time of flight**: $T = \\frac{2u\\sin\\theta}{g} \\implies$ **(P)**\n   - **(C) Horizontal range**: $R = \\frac{u^2\\sin(2\\theta)}{g} \\implies$ **(Q)**\n   - **(D) Equation of trajectory**: $y = x\\tan\\theta - \\frac{gx^2}{2u^2\\cos^2\\theta} \\implies$ **(S)**\n2. **Correct Matching Code**:\n   $$A\\to R, \\; B\\to P, \\; C\\to Q, \\; D\\to S$$\n3. **Conclusion**:\n   The matching code is **A-R, B-P, C-Q, D-S**, confirming Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 4: Motion in a Plane (Batch 4), Q#72",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_3063",
+    "originalId": "PW_PHY_PLANE_073",
+    "number": 3063,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Centripetal Acceleration in Revolutions",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 71.3,
+    "text": "A stone tied to the end of a string of length 1 m is whirled in a horizontal circle with a constant speed. If the stone makes 22 revolutions in 44 seconds, what is the magnitude of acceleration of the stone?",
+    "options": [
+      {
+        "id": "A",
+        "text": "$\\pi^2\\text{ m/s}^2$"
+      },
+      {
+        "id": "B",
+        "text": "$2\\pi^2\\text{ m/s}^2$"
+      },
+      {
+        "id": "C",
+        "text": "$\\frac{\\pi^2}{2}\\text{ m/s}^2$"
+      },
+      {
+        "id": "D",
+        "text": "$4\\pi^2\\text{ m/s}^2$"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics in 2D $\\rightarrow$ Centripetal Acceleration from Rotational Frequency\n\n**Step-by-Step Mathematical Derivation**:\n1. **Frequency and Angular Velocity**:\n   - Number of revolutions: $N = 22$\n   - Time taken: $t = 44\\text{ s}$\n   - Frequency: $\\nu = \\frac{N}{t} = \\frac{22}{44} = 0.5\\text{ rev/s}$\n   - Angular velocity: $\\omega = 2\\pi\\nu = 2\\pi(0.5) = \\pi\\text{ rad/s}$\n2. **Centripetal Acceleration Calculation**:\n   Given radius of circular path $r = 1\\text{ m}$:\n   $$a_c = \\omega^2 r = (\\pi)^2 \\times 1 = \\pi^2\\text{ m/s}^2$$\n3. **Conclusion**:\n   The magnitude of acceleration is **$\\pi^2\\text{ m/s}^2$**, confirming Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 4: Motion in a Plane (Batch 4), Q#73",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_3064",
+    "originalId": "PW_PHY_PLANE_074",
+    "number": 3064,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Radius of Curvature at Trajectory Apex",
+    "difficulty": "Hard",
+    "idealTimeSec": 135,
+    "accuracyPct": 67.8,
+    "text": "A projectile is thrown with velocity u at angle $\\theta$. What is the radius of curvature of the trajectory at the highest point?",
+    "options": [
+      {
+        "id": "A",
+        "text": "$\\frac{u^2\\cos^2\\theta}{g}$"
+      },
+      {
+        "id": "B",
+        "text": "$\\frac{u^2}{g}$"
+      },
+      {
+        "id": "C",
+        "text": "$\\frac{u^2\\sin^2\\theta}{g}$"
+      },
+      {
+        "id": "D",
+        "text": "$\\frac{u^2}{g\\cos\\theta}$"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics in 2D $\\rightarrow$ Radius of Curvature at Trajectory Apex\n\n**Step-by-Step Mathematical Derivation**:\n1. **General Radius of Curvature Formula**:\n   $$\\rho = \\frac{v^2}{a_\\perp}$$\n2. **Parameters at the Highest Point**:\n   - Vertical velocity component is zero ($v_y = 0$).\n   - Instantaneous velocity is purely horizontal: $v = u\\cos\\theta$.\n   - Gravitational acceleration $g$ is purely vertical, acting completely normal to the velocity vector: $a_\\perp = g$.\n3. **Calculating Radius of Curvature**:\n   $$\\rho = \\frac{(u\\cos\\theta)^2}{g} = \\frac{u^2\\cos^2\\theta}{g}$$\n4. **Conclusion**:\n   The radius of curvature at the highest point is **$\\frac{u^2\\cos^2\\theta}{g}$**, confirming Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 4: Motion in a Plane (Batch 4), Q#74",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_3065",
+    "originalId": "PW_PHY_PLANE_075",
+    "number": 3065,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Centripetal Acceleration from Angular Velocity",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 73.4,
+    "text": "A particle moves along a circular path of radius 5 m with a uniform angular velocity of 2 rad/s. The magnitude of its centripetal acceleration is:",
+    "options": [
+      {
+        "id": "A",
+        "text": "10 m/s$^2$"
+      },
+      {
+        "id": "B",
+        "text": "20 m/s$^2$"
+      },
+      {
+        "id": "C",
+        "text": "40 m/s$^2$"
+      },
+      {
+        "id": "D",
+        "text": "5 m/s$^2$"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics in 2D $\\rightarrow$ Centripetal Acceleration from Angular Velocity\n\n**Step-by-Step Mathematical Derivation**:\n1. **Centripetal Acceleration Formula**:\n   $$a_c = \\omega^2 r$$\n2. **Given Parameter Values**:\n   - Angular velocity: $\\omega = 2\\text{ rad/s}$\n   - Radius of circular path: $r = 5\\text{ m}$\n3. **Numerical Evaluation**:\n   $$a_c = (2)^2 \\times 5 = 4 \\times 5 = 20\\text{ m/s}^2$$\n4. **Conclusion**:\n   The magnitude of centripetal acceleration is **$20\\text{ m/s}^2$**, confirming Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 4: Motion in a Plane (Batch 4), Q#75",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_3066",
+    "originalId": "PW_PHY_PLANE_076",
+    "number": 3066,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Range to Height Ratio and Projection Angle",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 65.8,
+    "text": "The horizontal range of a projectile is $4\\sqrt{3}$ times its maximum height. The angle of projection is:",
+    "options": [
+      {
+        "id": "A",
+        "text": "$30^\\circ$"
+      },
+      {
+        "id": "B",
+        "text": "$45^\\circ$"
+      },
+      {
+        "id": "C",
+        "text": "$60^\\circ$"
+      },
+      {
+        "id": "D",
+        "text": "$90^\\circ$"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics in 2D $\\rightarrow$ Projection Angle from Range-to-Height Ratio\n\n**Step-by-Step Mathematical Derivation**:\n1. **General Range-to-Height Relation**:\n   $$R = 4H\\cot\\theta$$\n2. **Using the Given Condition ($R = 4\\sqrt{3}H$)**:\n   $$4\\sqrt{3}H = 4H\\cot\\theta$$\n   $$\\cot\\theta = \\sqrt{3} \\implies \\tan\\theta = \\frac{1}{\\sqrt{3}}$$\n3. **Evaluating Launch Angle $\\theta$**:\n   $$\\theta = \\arctan\\left(\\frac{1}{\\sqrt{3}}\\right) = 30^\\circ$$\n4. **Conclusion**:\n   The angle of projection is **$30^\\circ$**, confirming Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 4: Motion in a Plane (Batch 4), Q#76",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_3067",
+    "originalId": "PW_PHY_PLANE_077",
+    "number": 3067,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Momentum at Trajectory Apex",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 60.0,
+    "text": "A body is projected at an angle of $30^\\circ$ with the horizontal with momentum p. At its highest point, the momentum is:",
+    "options": [
+      {
+        "id": "A",
+        "text": "p"
+      },
+      {
+        "id": "B",
+        "text": "p/2"
+      },
+      {
+        "id": "C",
+        "text": "$\\frac{\\sqrt{3}}{2} p$"
+      },
+      {
+        "id": "D",
+        "text": "2/3 p"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics in 2D $\\rightarrow$ Momentum at Trajectory Apex\n\n**Step-by-Step Mathematical Derivation**:\n1. **Initial Momentum at Projection**:\n   $$p = mu$$\n2. **Velocity at the Highest Point**:\n   At the peak of projectile flight, vertical velocity is zero ($v_y = 0$).\n   The velocity is purely horizontal:\n   $$v = u\\cos(30^\\circ) = \\frac{\\sqrt{3}}{2}u$$\n3. **Momentum at Highest Point**:\n   $$p' = mv = m\\left(\\frac{\\sqrt{3}}{2}u\\right) = \\frac{\\sqrt{3}}{2}(mu) = \\frac{\\sqrt{3}}{2}p$$\n4. **Conclusion**:\n   The momentum at its highest point is **$\\frac{\\sqrt{3}}{2} p$**, confirming Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 4: Motion in a Plane (Batch 4), Q#77",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_3068",
+    "originalId": "PW_PHY_PLANE_078",
+    "number": 3068,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Heading for Shortest Crossing Time",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 64.0,
+    "text": "A man can row a boat with speed v in still water. He is crossing a river of width d, where the speed of water flow is u. What direction should he head the boat to cross the river in shortest time?",
+    "options": [
+      {
+        "id": "A",
+        "text": "$30^\\circ$ with the current"
+      },
+      {
+        "id": "B",
+        "text": "$60^\\circ$ with the current"
+      },
+      {
+        "id": "C",
+        "text": "$90^\\circ$ with the current"
+      },
+      {
+        "id": "D",
+        "text": "$120^\\circ$ with the current"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics in 2D $\\rightarrow$ Direction for Shortest River Crossing Time\n\n**Step-by-Step Mathematical Derivation**:\n1. **Crossing Time Formulation**:\n   If the boat heads at an angle $\\theta$ with the downstream river current, the component of velocity perpendicular to the river banks is:\n   $$v_\\perp = v\\sin\\theta$$\n   The time to cross the river width $d$ is:\n   $$t = \\frac{d}{v\\sin\\theta}$$\n2. **Minimizing Time of Crossing**:\n   To minimize $t$, the denominator $v\\sin\\theta$ must be maximized:\n   $$\\sin\\theta = 1 \\implies \\theta = 90^\\circ$$\n   Thus, the boat must be steered strictly perpendicular ($90^\\circ$) to the current.\n3. **Conclusion**:\n   He should head the boat at **$90^\\circ$ with the current**, confirming Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 4: Motion in a Plane (Batch 4), Q#78",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_3069",
+    "originalId": "PW_PHY_PLANE_079",
+    "number": 3069,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Rain-Cyclist Relative Speed",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 59.34,
+    "text": "Raindrops are falling vertically with a velocity of 10 m/s. To a cyclist moving on a straight road the raindrops appear to be coming with a velocity of 20 m/s. The velocity of cyclist is:",
+    "options": [
+      {
+        "id": "A",
+        "text": "10 m/s"
+      },
+      {
+        "id": "B",
+        "text": "$10\\sqrt{3}\\text{ m/s}$"
+      },
+      {
+        "id": "C",
+        "text": "20 m/s"
+      },
+      {
+        "id": "D",
+        "text": "$20\\sqrt{3}\\text{ m/s}$"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics in 2D $\\rightarrow$ Rain-Cyclist Relative Velocity Problem\n\n**Step-by-Step Mathematical Derivation**:\n1. **Vector Definitions**:\n   - Velocity of falling raindrops: $\\vec{v}_r = -10\\hat{j}\\text{ m/s}$\n   - Velocity of moving cyclist: $\\vec{v}_c = v\\hat{i}\\text{ m/s}$\n   - Relative velocity of rain with respect to cyclist:\n     $$\\vec{v}_{rc} = \\vec{v}_r - \\vec{v}_c = -v\\hat{i} - 10\\hat{j}\\text{ m/s}$$\n2. **Magnitude Condition**:\n   Given apparent speed $|\\vec{v}_{rc}| = 20\\text{ m/s}$:\n   $$|\\vec{v}_{rc}| = \\sqrt{v^2 + 10^2} = 20$$\n   Squaring both sides:\n   $$v^2 + 100 = 400 \\implies v^2 = 300$$\n   $$v = \\sqrt{300} = 10\\sqrt{3}\\text{ m/s}$$\n3. **Conclusion**:\n   The velocity of the cyclist is **$10\\sqrt{3}\\text{ m/s}$**, confirming Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 4: Motion in a Plane (Batch 4), Q#79",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_3070",
+    "originalId": "PW_PHY_PLANE_080",
+    "number": 3070,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Round Trip Upstream Downstream Time",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 51.2,
+    "text": "A river water flows at the rate of 2 km/h. A boatman who can row a boat at a speed of 4 km/h in still water, goes a distance of 2 km upstream and then comes back. The time taken by him to complete his journey is:",
+    "options": [
+      {
+        "id": "A",
+        "text": "60 min"
+      },
+      {
+        "id": "B",
+        "text": "70 min"
+      },
+      {
+        "id": "C",
+        "text": "80 min"
+      },
+      {
+        "id": "D",
+        "text": "90 min"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics in 2D $\\rightarrow$ Round Trip Upstream and Downstream Motion\n\n**Step-by-Step Mathematical Derivation**:\n1. **Upstream Leg**:\n   - Distance: $d = 2\\text{ km}$\n   - Upstream speed: $v_{\\text{up}} = v_{\\text{still}} - v_{\\text{river}} = 4 - 2 = 2\\text{ km/h}$\n   - Time taken upstream: $t_1 = \\frac{2\\text{ km}}{2\\text{ km/h}} = 1\\text{ h} = 60\\text{ min}$\n2. **Downstream Leg**:\n   - Distance: $d = 2\\text{ km}$\n   - Downstream speed: $v_{\\text{down}} = v_{\\text{still}} + v_{\\text{river}} = 4 + 2 = 6\\text{ km/h}$\n   - Time taken downstream: $t_2 = \\frac{2\\text{ km}}{6\\text{ km/h}} = \\frac{1}{3}\\text{ h} = 20\\text{ min}$\n3. **Total Round-Trip Journey Time**:\n   $$t_{\\text{total}} = t_1 + t_2 = 60\\text{ min} + 20\\text{ min} = 80\\text{ min}$$\n4. **Conclusion**:\n   The total time taken is **$80\\text{ min}$**, confirming Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 4: Motion in a Plane (Batch 4), Q#80",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_3071",
+    "originalId": "PW_PHY_PLANE_081",
+    "number": 3071,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Circular Path Distance Ratio",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 97.3,
+    "text": "Three particles P, Q and R are situated at point A on the circular path of radius 10 m. All three particles move along different paths and reach point B as shown in figure. Then the ratio of distance traversed by particles P and Q is :",
+    "options": [
+      {
+        "id": "A",
+        "text": "3/4"
+      },
+      {
+        "id": "B",
+        "text": "1/3"
+      },
+      {
+        "id": "C",
+        "text": "$3\\pi/4$"
+      },
+      {
+        "id": "D",
+        "text": "$\\pi/3$"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics in 2D $\\rightarrow$ Circular Path Distance vs Chord Trajectory\n\n**Step-by-Step Mathematical Derivation**:\n1. **Distance Traversed by Particle P**:\n   Particle P moves along a circular arc of radius $r = 10\\text{ m}$ covering $270^\\circ$ ($3\\pi/2$ radians):\n   $$s_P = r \\times \\frac{3\\pi}{2} = \\frac{3\\pi r}{2}$$\n2. **Distance Traversed by Particle Q**:\n   Particle Q moves along the straight line chord/diameter connecting opposite points of length $2r$:\n   $$s_Q = 2r$$\n3. **Ratio of Distances**:\n   $$\\frac{s_P}{s_Q} = \\frac{\\frac{3\\pi r}{2}}{2r} = \\frac{3\\pi}{4}$$\n4. **Conclusion**:\n   The ratio of distance traversed is **$\\frac{3\\pi}{4}$**, confirming Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 4: Motion in a Plane (Batch 4), Q#81",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_3072",
+    "originalId": "PW_PHY_PLANE_082",
+    "number": 3072,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Trajectory Equation from Launch Parameters",
+    "difficulty": "Hard",
+    "idealTimeSec": 135,
+    "accuracyPct": 57.11,
+    "text": "A projectile is thrown with a velocity of 50 ms$^{-1}$ at an angle of 53^\\circ with the horizontal. The equation of the trajectory is given by: [Take $g = 10\\text{ ms}^{-2}$, $\\sin 53^\\circ = 4/5$, $\\cos 53^\\circ = 3/5$]",
+    "options": [
+      {
+        "id": "A",
+        "text": "$180y = 240x - x^2$"
+      },
+      {
+        "id": "B",
+        "text": "$180y = x^2 - 240x$"
+      },
+      {
+        "id": "C",
+        "text": "$180y = 135x - x^2$"
+      },
+      {
+        "id": "D",
+        "text": "$180y = x^2 - 135x$"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics in 2D $\\rightarrow$ Trajectory Equation from Numerical Launch Parameters\n\n**Step-by-Step Mathematical Derivation**:\n1. **General Trajectory Equation**:\n   $$y = x\\tan\\theta - \\frac{gx^2}{2u^2\\cos^2\\theta}$$\n2. **Substituting Launch Values**:\n   - Speed: $u = 50\\text{ ms}^{-1}$\n   - Angle: $\\theta = 53^\\circ \\implies \\tan(53^\\circ) = \\frac{4}{3}, \\; \\cos(53^\\circ) = \\frac{3}{5}$\n   - $g = 10\\text{ ms}^{-2}$\n   Evaluating the quadratic denominator:\n   $$2u^2\\cos^2\\theta = 2(50)^2\\left(\\frac{3}{5}\\right)^2 = 2(2500)\\left(\\frac{9}{25}\\right) = 5000 \\times \\frac{9}{25} = 1800$$\n   $$y = \\frac{4}{3}x - \\frac{10x^2}{1800} = \\frac{4}{3}x - \\frac{x^2}{180}$$\n3. **Clearing Fraction (Multiplying by 180)**:\n   $$180y = 180\\left(\\frac{4}{3}x\\right) - x^2 = 240x - x^2$$\n4. **Conclusion**:\n   The equation of the trajectory is **$180y = 240x - x^2$**, confirming Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 4: Motion in a Plane (Batch 4), Q#82",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_3073",
+    "originalId": "PW_PHY_PLANE_083",
+    "number": 3073,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Horizontal Range from Apex Speed",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 60.6,
+    "text": "The speed of a projectile at its maximum height is $\\frac{\\sqrt{3}}{2}$ times of its initial speed 'u' of projection. Its range on the horizontal plane is :",
+    "options": [
+      {
+        "id": "A",
+        "text": "$\\frac{\\sqrt{3} u^2}{2g}$"
+      },
+      {
+        "id": "B",
+        "text": "$\\frac{u^2}{2g}$"
+      },
+      {
+        "id": "C",
+        "text": "$\\frac{3u^2}{2g}$"
+      },
+      {
+        "id": "D",
+        "text": "$\\frac{3u^2}{g}$"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics in 2D $\\rightarrow$ Horizontal Range from Apex Speed\n\n**Step-by-Step Mathematical Derivation**:\n1. **Speed at Maximum Height**:\n   At the apex, vertical velocity is zero ($v_y = 0$).\n   The speed is purely horizontal: $v = u\\cos\\theta$.\n   Given $v = \\frac{\\sqrt{3}}{2}u$:\n   $$u\\cos\\theta = \\frac{\\sqrt{3}}{2}u \\implies \\cos\\theta = \\frac{\\sqrt{3}}{2} \\implies \\theta = 30^\\circ$$\n2. **Calculating Horizontal Range $R$**:\n   $$R = \\frac{u^2\\sin(2\\theta)}{g} = \\frac{u^2\\sin(2 \\times 30^\\circ)}{g} = \\frac{u^2\\sin(60^\\circ)}{g} = \\frac{\\sqrt{3}u^2}{2g}$$\n3. **Conclusion**:\n   Its range on the horizontal plane is **$\\frac{\\sqrt{3} u^2}{2g}$**, confirming Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 4: Motion in a Plane (Batch 4), Q#83",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_3074",
+    "originalId": "PW_PHY_PLANE_084",
+    "number": 3074,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Horizontal Throw from Tower Landing Distance",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 56.97,
+    "text": "A ball is thrown horizontally from the top of a tower of height 8 m. It touches the ground at a distance of 90 m from the foot of the tower. The initial velocity of the body is: [Take $g = 9.8\\text{ ms}^{-2}$]",
+    "options": [
+      {
+        "id": "A",
+        "text": "60 m/s"
+      },
+      {
+        "id": "B",
+        "text": "75 m/s"
+      },
+      {
+        "id": "C",
+        "text": "69.75 m/s"
+      },
+      {
+        "id": "D",
+        "text": "None"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics in 2D $\\rightarrow$ Initial Velocity from Horizontal Fall Range\n\n**Step-by-Step Mathematical Derivation**:\n1. **Time of Flight**:\n   From height $h = 8\\text{ m}$ under gravity $g = 9.8\\text{ ms}^{-2}$ with $u_y = 0$:\n   $$h = \\frac{1}{2}gt^2 \\implies t = \\sqrt{\\frac{2h}{g}} = \\sqrt{\\frac{2 \\times 8}{9.8}} = \\sqrt{\\frac{16}{9.8}} \\approx 1.27775\\text{ s}$$\n2. **Horizontal Velocity $u$**:\n   Given horizontal distance $x = 90\\text{ m}$:\n   $$u = \\frac{x}{t} = \\frac{90\\text{ m}}{1.27775\\text{ s}} \\approx 69.75\\text{ m/s}$$\n3. **Conclusion**:\n   The initial velocity of the body is **$69.75\\text{ m/s}$**, confirming Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 4: Motion in a Plane (Batch 4), Q#84",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_3075",
+    "originalId": "PW_PHY_PLANE_085",
+    "number": 3075,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Simultaneous Dropped and Fired Bullets",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 55.41,
+    "text": "A bullet is dropped from the same height when another bullet is fired horizontally. They will hit the ground:",
+    "options": [
+      {
+        "id": "A",
+        "text": "One after the other"
+      },
+      {
+        "id": "B",
+        "text": "Simultaneously"
+      },
+      {
+        "id": "C",
+        "text": "Depends on the observer"
+      },
+      {
+        "id": "D",
+        "text": "None of the above"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics in 2D $\\rightarrow$ Independence of Vertical and Horizontal Motions\n\n**Step-by-Step Mathematical Derivation**:\n1. **Principle of Independence of Orthogonal Motions**:\n   Motion in the horizontal direction has zero effect on the acceleration and displacement in the vertical direction.\n2. **Comparison of Fall Times**:\n   - The dropped bullet has initial vertical velocity $u_y = 0$ and falls from height $h$ under downward gravity $g$:\n     $$t_1 = \\sqrt{\\frac{2h}{g}}$$\n   - The horizontally fired bullet has horizontal velocity $u_x$, but its initial vertical velocity is also identically zero ($u_y = 0$). It falls through the exact same height $h$ under downward gravity $g$:\n     $$t_2 = \\sqrt{\\frac{2h}{g}}$$\n3. **Conclusion**:\n   Since $t_1 = t_2$, both bullets will hit the ground **Simultaneously**, confirming Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 4: Motion in a Plane (Batch 4), Q#85",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_3076",
+    "originalId": "PW_PHY_PLANE_086",
+    "number": 3076,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Change in Velocity at Highest Point",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 53.39,
+    "text": "A particle is fired with velocity u making $\\theta$ angle with the horizontal. What is the magnitude of change in velocity when it is at the highest point?",
+    "options": [
+      {
+        "id": "A",
+        "text": "$u\\cos\\theta$"
+      },
+      {
+        "id": "B",
+        "text": "u"
+      },
+      {
+        "id": "C",
+        "text": "$u\\sin\\theta$"
+      },
+      {
+        "id": "D",
+        "text": "$u\\cos\\theta - u$"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics in 2D $\\rightarrow$ Change in Velocity Vector at Highest Point\n\n**Step-by-Step Mathematical Derivation**:\n1. **Velocity Vectors**:\n   - Initial velocity vector at launch: $\\vec{u} = (u\\cos\\theta)\\hat{i} + (u\\sin\\theta)\\hat{j}$\n   - Velocity vector at highest point: $\\vec{v} = (u\\cos\\theta)\\hat{i} + 0\\hat{j}$\n2. **Change in Velocity Vector $\\Delta\\vec{v}$**:\n   $$\\Delta\\vec{v} = \\vec{v} - \\vec{u} = [(u\\cos\\theta)\\hat{i}] - [(u\\cos\\theta)\\hat{i} + (u\\sin\\theta)\\hat{j}] = -(u\\sin\\theta)\\hat{j}$$\n3. **Magnitude of Velocity Change**:\n   $$|\\Delta\\vec{v}| = u\\sin\\theta$$\n4. **Conclusion**:\n   The magnitude of change in velocity is **$u\\sin\\theta$**, confirming Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 4: Motion in a Plane (Batch 4), Q#86",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_3077",
+    "originalId": "PW_PHY_PLANE_087",
+    "number": 3077,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Maximum Height Scaling with Initial Velocity",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 61.19,
+    "text": "If the initial velocity of a projectile be doubled, keeping the angle of projection same, the maximum height reached by it will:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Remain the same"
+      },
+      {
+        "id": "B",
+        "text": "Be doubled"
+      },
+      {
+        "id": "C",
+        "text": "Be quadrupled"
+      },
+      {
+        "id": "D",
+        "text": "Be halved"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics in 2D $\\rightarrow$ Scaling of Maximum Height with Initial Velocity\n\n**Step-by-Step Mathematical Derivation**:\n1. **Maximum Height Formulation**:\n   $$H = \\frac{u^2\\sin^2\\theta}{2g}$$\n2. **Proportionality Analysis**:\n   For a fixed launch angle $\\theta$ and gravitational acceleration $g$:\n   $$H \\propto u^2$$\n3. **Effect of Doubling Initial Velocity ($u' = 2u$)**:\n   $$H' = \\frac{(2u)^2\\sin^2\\theta}{2g} = \\frac{4u^2\\sin^2\\theta}{2g} = 4H$$\n   The maximum height reached will be quadrupled.\n4. **Conclusion**:\n   The maximum height will **Be quadrupled**, confirming Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 4: Motion in a Plane (Batch 4), Q#87",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_3078",
+    "originalId": "PW_PHY_PLANE_088",
+    "number": 3078,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Velocity Component Ratio when Range is Double Height",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 48.48,
+    "text": "A projectile is thrown with an initial velocity of $\\vec{v} = a\\hat{i} + b\\hat{j}$. If range of the projectile is double the maximum height attained by it then :",
+    "options": [
+      {
+        "id": "A",
+        "text": "a = 2b"
+      },
+      {
+        "id": "B",
+        "text": "b = a"
+      },
+      {
+        "id": "C",
+        "text": "b = 2a"
+      },
+      {
+        "id": "D",
+        "text": "b = 4a"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics in 2D $\\rightarrow$ Velocity Components Relation when Range is Double Height\n\n**Step-by-Step Mathematical Derivation**:\n1. **Expressions in Component Form**:\n   Given initial velocity $\\vec{v} = a\\hat{i} + b\\hat{j}$ ($u_x = a, u_y = b$):\n   - Range: $R = \\frac{2u_x u_y}{g} = \\frac{2ab}{g}$\n   - Maximum height: $H = \\frac{u_y^2}{2g} = \\frac{b^2}{2g}$\n2. **Applying the Condition $R = 2H$**:\n   $$\\frac{2ab}{g} = 2\\left(\\frac{b^2}{2g}\\right) = \\frac{b^2}{g}$$\n3. **Simplifying**:\n   $$2ab = b^2$$\n   Since $b \\neq 0$ (for vertical ascent):\n   $$b = 2a$$\n4. **Conclusion**:\n   The relation between the components is **$b = 2a$**, confirming Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 4: Motion in a Plane (Batch 4), Q#88",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_3079",
+    "originalId": "PW_PHY_PLANE_089",
+    "number": 3079,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Phase Trajectory Velocity-Position Relation",
+    "difficulty": "Hard",
+    "idealTimeSec": 135,
+    "accuracyPct": 58.8,
+    "text": "A particle is in motion on the x-axis. The variation of its velocity with position is as shown. The graph is circle and its equation is $x^2 + v^2 = 1$, where x is in m and v in m/s. The CORRECT statement(s) is/are",
+    "options": [
+      {
+        "id": "A",
+        "text": "When x is positive, acceleration is negative."
+      },
+      {
+        "id": "B",
+        "text": "When x is negative, acceleration is positive."
+      },
+      {
+        "id": "C",
+        "text": "At Q, acceleration has magnitude $1/\\sqrt{2}\\text{ m/s}^2$"
+      },
+      {
+        "id": "D",
+        "text": "At S, acceleration is infinite."
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ Acceleration from Phase-Space Velocity-Position Graph\n\n**Step-by-Step Mathematical Derivation**:\n1. **Given Circular Velocity-Position Equation**:\n   $$x^2 + v^2 = 1$$\n2. **Differentiating with Respect to Position $x$**:\n   $$\\frac{d}{dx}(x^2 + v^2) = \\frac{d}{dx}(1)$$\n   $$2x + 2v\\frac{dv}{dx} = 0 \\implies v\\frac{dv}{dx} = -x$$\n3. **Acceleration Evaluation**:\n   By definition, 1D acceleration is $a = v\\frac{dv}{dx}$.\n   $$a = -x$$\n   - When $x > 0$, $a < 0$ (negative acceleration). Statement A is correct.\n   - When $x < 0$, $a > 0$ (positive acceleration). Statement B is correct.\n   - At point Q on circle where $x = \\frac{1}{\\sqrt{2}}$, magnitude of acceleration is $|a| = \\frac{1}{\\sqrt{2}}\\text{ m/s}^2$. Statement C is correct.\n4. **Conclusion**:\n   Option **(C)** is verified.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 4: Motion in a Plane (Batch 4), Q#89",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_3080",
+    "originalId": "PW_PHY_PLANE_090",
+    "number": 3080,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Horizontal Bomb Release from Aircraft",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 75.0,
+    "text": "An aeroplane flying horizontally with a speed of 360 km/h releases a bomb at a height of 490 m from the ground. When will the bomb strike the ground ? [Take $g = 9.8\\text{ ms}^{-2}$]",
+    "options": [
+      {
+        "id": "A",
+        "text": "8 s"
+      },
+      {
+        "id": "B",
+        "text": "6 s"
+      },
+      {
+        "id": "C",
+        "text": "7 s"
+      },
+      {
+        "id": "D",
+        "text": "10 s"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics in 2D $\\rightarrow$ Horizontal Bomb Release from Aircraft\n\n**Step-by-Step Mathematical Derivation**:\n1. **Initial Velocity Components of the Released Bomb**:\n   Due to inertia of motion, the released bomb inherits the velocity of the aircraft:\n   - Horizontal velocity: $u_x = 360\\text{ km/h} = 360 \\times \\frac{5}{18} = 100\\text{ m/s}$\n   - Initial vertical velocity: $u_y = 0$\n2. **Vertical Motion Analysis**:\n   The time required for the bomb to strike the ground is dictated exclusively by vertical free fall from height $h = 490\\text{ m}$ under gravity $g = 9.8\\text{ ms}^{-2}$:\n   $$h = \\frac{1}{2}gt^2$$\n   $$490 = \\frac{1}{2}(9.8)t^2 = 4.9t^2$$\n   $$t^2 = \\frac{490}{4.9} = 100 \\implies t = 10\\text{ s}$$\n3. **Conclusion**:\n   The bomb will strike the ground after **$10\\text{ s}$**, confirming Option **(D)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 4: Motion in a Plane (Batch 4), Q#90",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
   }
 ]

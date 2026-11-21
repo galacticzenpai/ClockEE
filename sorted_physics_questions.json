@@ -115998,5 +115998,1295 @@
     "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
     "page": 1,
     "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_2961",
+    "originalId": "PW_PHY_MOTION1D_061",
+    "number": 2961,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinematics 1D",
+    "difficulty": "Hard",
+    "idealTimeSec": 135,
+    "accuracyPct": 20.69,
+    "text": "Two paper screens A and B are separated by distance 100 m. A bullet penetrates A and B, at points P and Q respectively, where Q is 10 cm below P. If bullet is travelling horizontally at the time of hitting A, the velocity of bullet at A is nearly",
+    "options": [
+      {
+        "id": "A",
+        "text": "100 m/s"
+      },
+      {
+        "id": "B",
+        "text": "200 m/s"
+      },
+      {
+        "id": "C",
+        "text": "600 m/s"
+      },
+      {
+        "id": "D",
+        "text": "700 m/s"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ Horizontal Projectile Motion\n\n**Step-by-Step Mathematical Derivation**:\n1. **Vertical Motion Analysis**:\n   The bullet enters horizontally at screen A (point P) with initial vertical velocity $u_y = 0$.\n   At screen B (point Q), it has dropped vertically by a distance:\n   $$y = 10\\text{ cm} = 0.1\\text{ m}$$\n   Using the second equation of motion for vertical free fall under gravity ($g = 9.8\\text{ m/s}^2$):\n   $$y = u_y t + \\frac{1}{2}gt^2 \\implies 0.1 = 0 + \\frac{1}{2}(9.8)t^2$$\n   $$t^2 = \\frac{0.2}{9.8} = \\frac{2}{98} = \\frac{1}{49} \\implies t = \\frac{1}{7}\\text{ s}$$\n2. **Horizontal Motion Analysis**:\n   The horizontal distance between the screens is $x = 100\\text{ m}$.\n   Since no horizontal force acts on the bullet, horizontal velocity $v_x$ remains constant:\n   $$v_x = \\frac{x}{t} = \\frac{100\\text{ m}}{1/7\\text{ s}} = 700\\text{ m/s}$$\n3. **Conclusion**:\n   The horizontal velocity of the bullet at screen A is nearly **$700\\text{ m/s}$**, confirming Option **(D)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 4), Q#61",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_2962",
+    "originalId": "PW_PHY_MOTION1D_062",
+    "number": 2962,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinematics 1D",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 54.28,
+    "text": "The position-time ($x-t$) graph shows the position of two cars, A and B, as a function of time. The cars move along the $x$-axis on parallel but separate tracks, so that they can pass each other's position without colliding. Car A is initially behind Car B ($x_A < x_B$), and at instant $t_1$, the trajectory of Car A crosses above Car B ($x_A(t_1) = x_B(t_1)$ and $v_A(t_1) > v_B(t_1)$). At which instant in time is car-A overtaking car-B?",
+    "options": [
+      {
+        "id": "A",
+        "text": "t1"
+      },
+      {
+        "id": "B",
+        "text": "t2"
+      },
+      {
+        "id": "C",
+        "text": "t3"
+      },
+      {
+        "id": "D",
+        "text": "t4"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ Graphical Analysis of Motion ($x-t$ Graph)\n\n**Step-by-Step Mathematical Derivation**:\n1. **Understanding Overtaking in Position-Time Coordinates**:\n   On an $x-t$ (position-time) plot, when two objects are at the exact same location, their curves intersect ($x_A = x_B$).\n2. **Condition for Overtaking**:\n   For Car A to overtake Car B at a specific time $t^*$:\n   - Just prior to $t^*$ ($t < t^*$), Car A must be behind Car B: $x_A(t) < x_B(t)$.\n   - At instant $t^*$, both cars occupy the same position: $x_A(t^*) = x_B(t^*)$.\n   - Just after $t^*$ ($t > t^*$), Car A must be ahead of Car B: $x_A(t) > x_B(t)$, which requires the slope of Car A's curve (its velocity $v_A = \\frac{dx_A}{dt}$) to be greater than that of Car B ($v_A > v_B$) at the intersection point.\n3. **Graph Evaluation**:\n   At instant $t_1$, the position curve of Car A intersects and crosses above that of Car B from below. Therefore, Car A overtakes Car B at time **$t_1$**, confirming Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 4), Q#62",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_2963",
+    "originalId": "PW_PHY_MOTION1D_063",
+    "number": 2963,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinematics 1D",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 55.34,
+    "text": "If the velocity of a particle is given by $v = \\sqrt{180 - 16x} ext{ m/s}$, then its acceleration will be:",
+    "options": [
+      {
+        "id": "A",
+        "text": "0"
+      },
+      {
+        "id": "B",
+        "text": "8 ext{ m/s}^2"
+      },
+      {
+        "id": "C",
+        "text": "-8 ext{ m/s}^2"
+      },
+      {
+        "id": "D",
+        "text": "4 ext{ m/s}^2"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ Acceleration from Velocity-Displacement Relation\n\n**Step-by-Step Mathematical Derivation**:\n1. **Given Velocity-Position Function**:\n   $$v = (180 - 16x)^{1/2}\\text{ m/s}$$\n   Squaring both sides:\n   $$v^2 = 180 - 16x$$\n2. **Differentiation with Respect to Position ($x$)**:\n   Differentiating both sides with respect to $x$ using the chain rule:\n   $$\\frac{d}{dx}(v^2) = \\frac{d}{dx}(180 - 16x)$$\n   $$2v\\frac{dv}{dx} = -16 \\implies v\\frac{dv}{dx} = -8\\text{ m/s}^2$$\n3. **Acceleration Evaluation**:\n   By the differential definition of 1D acceleration:\n   $$a = v\\frac{dv}{dx} = -8\\text{ m/s}^2$$\n   (Alternatively, comparing $v^2 = 180 - 16x$ with the third equation of uniform acceleration $v^2 = u^2 + 2ax$, we find $2a = -16 \\implies a = -8\\text{ m/s}^2$).\n4. **Conclusion**:\n   The acceleration of the particle is **$-8\\text{ m/s}^2$**, confirming Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 4), Q#63",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_2964",
+    "originalId": "PW_PHY_MOTION1D_064",
+    "number": 2964,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinematics 1D",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 60.68,
+    "text": "A $210 ext{ m}$ long train is moving due North at a speed of $25 ext{ m/s}$. A small bird is flying due South a little above the train with a speed of $5 ext{ m/s}$. The time taken by the bird to completely cross the train is:",
+    "options": [
+      {
+        "id": "A",
+        "text": "6 ext{ s}"
+      },
+      {
+        "id": "B",
+        "text": "7 ext{ s}"
+      },
+      {
+        "id": "C",
+        "text": "9 ext{ s}"
+      },
+      {
+        "id": "D",
+        "text": "10 ext{ s}"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ Relative Velocity in 1D\n\n**Step-by-Step Mathematical Derivation**:\n1. **Coordinate Setup & Given Parameters**:\n   Let North be the $+y$ direction and South be the $-y$ direction.\n   - Velocity of the train: $\\vec{v}_T = +25\\hat{j}\\text{ m/s}$\n   - Velocity of the bird: $\\vec{v}_B = -5\\hat{j}\\text{ m/s}$\n   - Length of the train: $L = 210\\text{ m}$\n2. **Relative Velocity Formulation**:\n   The velocity of the bird relative to the train is:\n   $$\\vec{v}_{BT} = \\vec{v}_B - \\vec{v}_T = (-5\\hat{j}) - (+25\\hat{j}) = -30\\hat{j}\\text{ m/s}$$\n   The magnitude of the relative speed is $v_{\\text{rel}} = 30\\text{ m/s}$.\n3. **Time to Cross the Train**:\n   To completely cross the train from front to back (or back to front), the relative distance to be traversed is the length of the train:\n   $$t = \\frac{L}{v_{\\text{rel}}} = \\frac{210\\text{ m}}{30\\text{ m/s}} = 7\\text{ s}$$\n4. **Conclusion**:\n   The time taken by the bird to cross the train is **$7\\text{ s}$**, confirming Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 4), Q#64",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_2965",
+    "originalId": "PW_PHY_MOTION1D_065",
+    "number": 2965,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinematics 1D",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 59.72,
+    "text": "In a one-dimensional motion, position $x$ and time $t$ are related as $t = \\sqrt{x} + 3$, where $x$ is in metres and $t$ is in seconds. The speed of the particle after $6 ext{ seconds}$ is:",
+    "options": [
+      {
+        "id": "A",
+        "text": "4 ext{ m/s}"
+      },
+      {
+        "id": "B",
+        "text": "2 ext{ m/s}"
+      },
+      {
+        "id": "C",
+        "text": "6 ext{ m/s}"
+      },
+      {
+        "id": "D",
+        "text": "8 ext{ m/s}"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ Velocity from Parametric Time-Position Relation\n\n**Step-by-Step Mathematical Derivation**:\n1. **Given Relation**:\n   $$t = \\sqrt{x} + 3$$\n   Expressing position $x$ as an explicit function of time $t$:\n   $$\\sqrt{x} = t - 3 \\implies x = (t - 3)^2 = t^2 - 6t + 9$$\n2. **Finding Velocity via Differentiation**:\n   Differentiating position with respect to time:\n   $$v(t) = \\frac{dx}{dt} = \\frac{d}{dt}(t^2 - 6t + 9) = 2t - 6$$\n3. **Evaluation at $t = 6\\text{ s}$**:\n   $$v(6) = 2(6) - 6 = 12 - 6 = 6\\text{ m/s}$$\n4. **Conclusion**:\n   The speed of the particle after $6\\text{ seconds}$ is **$6\\text{ m/s}$**, confirming Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 4), Q#65",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_2966",
+    "originalId": "PW_PHY_MOTION1D_066",
+    "number": 2966,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinematics 1D",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 100.0,
+    "text": "Study the following velocity-time ($v-t$) graphs in Column I carefully and match appropriately with the physical statements given in Column II (assume motion takes place from time $t = 0$ to $T$): **Column I**: (A) $v-t$ curve in first quadrant with negative slope ($v > 0, a < 0$) (B) $v-t$ curve in first quadrant with positive slope ($v > 0, a > 0$) (C) $v-t$ curve in fourth quadrant with negative slope ($v < 0, a < 0$) (D) $v-t$ curve in fourth quadrant with positive slope ($v < 0, a > 0$) **Column II**: (P) Acceleration $a > 0$ (Q) Acceleration $a < 0$ (R) Deceleration in negative direction (S) Velocity $v > 0$ (T) Velocity $v < 0$",
+    "options": [
+      {
+        "id": "A",
+        "text": "(A)-Q,S; (B)-P,S; (C)-R,T; (D)-P,T"
+      },
+      {
+        "id": "B",
+        "text": "(A)-P,S; (B)-R,T; (C)-P,T; (D)-Q,S"
+      },
+      {
+        "id": "C",
+        "text": "(A)-R,T; (B)-P,T; (C)-Q,S; (D)-P,S"
+      },
+      {
+        "id": "D",
+        "text": "(A)-P,T; (B)-Q,S; (C)-P,S; (D)-R,T"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ Velocity-Time ($v-t$) Graphs and Kinematic Signs\n\n**Step-by-Step Mathematical Derivation**:\n1. **Fundamental Graphical Principles**:\n   - The sign of velocity $v$ corresponds to whether the curve lies above the time axis ($v > 0$) or below the time axis ($v < 0$).\n   - The acceleration $a$ is the slope of the velocity-time graph: $a = \\frac{dv}{dt}$. A positive slope means $a > 0$, while a negative slope means $a < 0$.\n2. **Evaluation of Each Curve in Column I**:\n   - **Curve (A)**: Lies entirely in the upper half ($v > 0$, statement S) with a downward/negative slope ($a = \\frac{dv}{dt} < 0$, statement Q). Hence, **(A) $\\to$ Q, S**.\n   - **Curve (B)**: Lies in the upper half ($v > 0$, statement S) with an upward/positive slope ($a = \\frac{dv}{dt} > 0$, statement P). Hence, **(B) $\\to$ P, S**.\n   - **Curve (C)**: Lies in the lower half ($v < 0$, statement T) with speed decreasing towards zero or negative slope (retardation, statement R). Hence, **(C) $\\to$ R, T**.\n   - **Curve (D)**: Lies in the lower half ($v < 0$, statement T) with an upward/positive slope ($a = \\frac{dv}{dt} > 0$, statement P). Hence, **(D) $\\to$ P, T**.\n3. **Conclusion**:\n   The matching code is **(A)-Q,S; (B)-P,S; (C)-R,T; (D)-P,T**, confirming Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 4), Q#66",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_2967",
+    "originalId": "PW_PHY_MOTION1D_067",
+    "number": 2967,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinematics 1D",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 67.35,
+    "text": "The magnitude of average velocity is equal to the average speed when a particle moves:",
+    "options": [
+      {
+        "id": "A",
+        "text": "On a curved path"
+      },
+      {
+        "id": "B",
+        "text": "In the same direction"
+      },
+      {
+        "id": "C",
+        "text": "With constant acceleration"
+      },
+      {
+        "id": "D",
+        "text": "With constant retardation"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ Average Velocity vs Average Speed\n\n**Step-by-Step Mathematical Derivation**:\n1. **Definitions of Average Velocity and Average Speed**:\n   - Average velocity magnitude: $|\\vec{v}_{\\text{avg}}| = \\frac{|\\Delta \\vec{r}|}{\\Delta t}$, where $|\\Delta \\vec{r}|$ is the magnitude of net displacement.\n   - Average speed: $\\text{speed}_{\\text{avg}} = \\frac{s}{\\Delta t}$, where $s$ is the total path length (distance covered).\n2. **Relationship Between Distance and Displacement**:\n   In general, for any arbitrary motion:\n   $$s \\ge |\\Delta \\vec{r}| \\implies \\text{speed}_{\\text{avg}} \\ge |\\vec{v}_{\\text{avg}}|$$\n3. **Condition for Strict Equality**:\n   The distance equals the magnitude of displacement ($s = |\\Delta \\vec{r}|$) if and only if the particle moves in a straight line along the same direction without reversing:\n   $$|\\vec{v}_{\\text{avg}}| = \\text{speed}_{\\text{avg}} \\iff \\text{motion along a straight line in the same direction}$$\n4. **Conclusion**:\n   The magnitude of average velocity is equal to average speed when moving **in the same direction**, confirming Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 4), Q#67",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_2968",
+    "originalId": "PW_PHY_MOTION1D_068",
+    "number": 2968,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinematics 1D",
+    "difficulty": "Hard",
+    "idealTimeSec": 135,
+    "accuracyPct": 20.29,
+    "text": "A car starts from rest with constant acceleration $a = 2 ext{ m/s}^2$ at $t = 0$. Two coins are released from the car at $t = 3 ext{ s}$ and $t = 4 ext{ s}$. Each coin takes $1 ext{ s}$ to fall to the ground. The distance between the two coins on the ground is: (Assume each coin sticks to the ground upon landing)",
+    "options": [
+      {
+        "id": "A",
+        "text": "6 ext{ m}"
+      },
+      {
+        "id": "B",
+        "text": "7 ext{ m}"
+      },
+      {
+        "id": "C",
+        "text": "8 ext{ m}"
+      },
+      {
+        "id": "D",
+        "text": "9 ext{ m}"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ Relative Motion and Free Fall from an Accelerating Car\n\n**Step-by-Step Mathematical Derivation**:\n1. **Motion of the Car**:\n   The car starts from rest ($u = 0$) with uniform acceleration $a = 2\\text{ m/s}^2$ along the horizontal $x$-axis.\n   At any time $t$, the position and horizontal velocity of the car are:\n   $$x(t) = \\frac{1}{2}at^2 = \\frac{1}{2}(2)t^2 = t^2$$\n   $$v(t) = at = 2t$$\n2. **Release and Landing of Coin 1 ($t = 3\\text{ s}$)**:\n   - Car position at release: $x_1(3) = 3^2 = 9\\text{ m}$\n   - Horizontal velocity imparted to Coin 1: $v_{x1} = 2(3) = 6\\text{ m/s}$\n   - In horizontal direction, no force acts during the free fall time $t_{\\text{fall}} = 1\\text{ s}$:\n   $$\\Delta x_1 = v_{x1} \\times t_{\\text{fall}} = 6\\text{ m/s} \\times 1\\text{ s} = 6\\text{ m}$$\n   - Total position where Coin 1 lands and sticks: $X_1 = x_1(3) + \\Delta x_1 = 9 + 6 = 15\\text{ m}$\n3. **Release and Landing of Coin 2 ($t = 4\\text{ s}$)**:\n   - Car position at release: $x_2(4) = 4^2 = 16\\text{ m}$\n   - Horizontal velocity imparted to Coin 2: $v_{x2} = 2(4) = 8\\text{ m/s}$\n   - Horizontal distance traveled during fall $t_{\\text{fall}} = 1\\text{ s}$:\n   $$\\Delta x_2 = v_{x2} \\times t_{\\text{fall}} = 8\\text{ m/s} \\times 1\\text{ s} = 8\\text{ m}$$\n   - Total position where Coin 2 lands and sticks: $X_2 = x_2(4) + \\Delta x_2 = 16 + 8 = 24\\text{ m}$\n4. **Distance Between the Two Coins on the Ground**:\n   $$D = X_2 - X_1 = 24\\text{ m} - 15\\text{ m} = 9\\text{ m}$$\n5. **Conclusion**:\n   The distance between the two coins on the ground is **$9\\text{ m}$**, confirming Option **(D)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 4), Q#68",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_2969",
+    "originalId": "PW_PHY_MOTION1D_069",
+    "number": 2969,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinematics 1D",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 33.33,
+    "text": "Statement-I : A particle moves in a straight line with constant acceleration. The average velocity of this particle cannot be zero in any time interval. Statement-II : For a particle moving in straight line with constant acceleration, the average velocity in a time interval is $\\frac{u+v}{2}$, where $u$ and $v$ are initial and final velocity of the particle.",
+    "options": [
+      {
+        "id": "A",
+        "text": "Statement-1 is true, Statement-2 is true ; Statement-2 is correct explanation"
+      },
+      {
+        "id": "B",
+        "text": "Statement-1 is true, Statement-2 is true ; Statement-2 is NOT a correct explanation"
+      },
+      {
+        "id": "C",
+        "text": "Statement-1 is true, Statement-2 is false"
+      },
+      {
+        "id": "D",
+        "text": "Statement-1 is false, Statement-2 is true"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ Average Velocity in Uniformly Accelerated Motion\n\n**Step-by-Step Mathematical Derivation**:\n1. **Analysis of Statement-I**:\n   - Statement-I claims: *'A particle moves in a straight line with constant acceleration. The average velocity of this particle cannot be zero in any time interval.'*\n   - Consider a particle projected vertically upwards with initial velocity $u$ under constant acceleration due to gravity $a = -g$.\n   - After a time interval $T = \\frac{2u}{g}$, the particle returns to its starting point, so net displacement $\\Delta x = 0$.\n   - The average velocity is $v_{\\text{avg}} = \\frac{\\Delta x}{T} = \\frac{0}{T} = 0$.\n   - Therefore, the average velocity CAN indeed be zero in a finite time interval. Thus, **Statement-I is FALSE**.\n2. **Analysis of Statement-II**:\n   - Statement-II claims: *'For a particle moving in a straight line with constant acceleration, the average velocity in a time interval is $\\frac{u+v}{2}$, where $u$ and $v$ are initial and final velocities.'*\n   - In uniformly accelerated rectilinear motion, displacement is given by:\n   $$s = ut + \\frac{1}{2}at^2$$\n   - Using $at = v - u$, we substitute:\n   $$s = ut + \\frac{1}{2}(v - u)t = \\left(u + \\frac{v-u}{2}\\right)t = \\left(\\frac{u+v}{2}\\right)t$$\n   - Thus, average velocity is:\n   $$v_{\\text{avg}} = \\frac{s}{t} = \\frac{u+v}{2}$$\n   - Therefore, **Statement-II is TRUE**.\n3. **Conclusion**:\n   Statement-1 is false, Statement-2 is true, confirming Option **(D)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 4), Q#69",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_2970",
+    "originalId": "PW_PHY_MOTION1D_070",
+    "number": 2970,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinematics 1D",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 47.54,
+    "text": "Object is moving with constant speed then velocity of object",
+    "options": [
+      {
+        "id": "A",
+        "text": "may be variable"
+      },
+      {
+        "id": "B",
+        "text": "must be constant"
+      },
+      {
+        "id": "C",
+        "text": "must be variable"
+      },
+      {
+        "id": "D",
+        "text": "may be zero"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ Speed vs Velocity Vectors\n\n**Step-by-Step Mathematical Derivation**:\n1. **Definitions of Scalar Speed and Vector Velocity**:\n   - Speed $v = |\\vec{v}|$ is a scalar quantity representing the magnitude of the velocity vector.\n   - Velocity $\\vec{v} = v\\,\\hat{u}$ is a vector possessing both magnitude and direction.\n2. **Implications of Constant Speed**:\n   - If speed $v$ is constant, the magnitude $|\\vec{v}|$ remains invariant.\n   - However, the direction of motion $\\hat{u}$ may change continuously with time (such as in uniform circular motion or motion along any curved trajectory).\n   - Whenever the direction changes, $\\frac{d\\vec{v}}{dt} \\neq 0$, meaning the velocity varies even though speed is constant.\n   - If the motion happens to be along a straight line in an unchanging direction, velocity is constant.\n3. **Conclusion**:\n   When an object moves with constant speed, its velocity **may be variable** (if direction changes), confirming Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 4), Q#70",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_2971",
+    "originalId": "PW_PHY_MOTION1D_071",
+    "number": 2971,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinematics 1D",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 25.29,
+    "text": "Consider the following statements regarding rectilinear motion and select the incorrect statement(s): I. The magnitude of instantaneous velocity is always equal to instantaneous speed. II. The magnitude of average velocity over any time interval is always equal to average speed. III. It is possible to have a situation where the speed of a particle is never zero, but the average speed in an interval is zero. IV. A particle may have instantaneous speed equal to zero while its average speed over a time interval is non-zero.",
+    "options": [
+      {
+        "id": "A",
+        "text": "II, III and IV"
+      },
+      {
+        "id": "B",
+        "text": "I and II"
+      },
+      {
+        "id": "C",
+        "text": "II and III"
+      },
+      {
+        "id": "D",
+        "text": "IV only"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ Relationships Between Speed and Velocity Measures\n\n**Step-by-Step Mathematical Derivation**:\n1. **Evaluation of Statement I**:\n   *Instantaneous velocity magnitude = instantaneous speed.* \n   By calculus definition, instantaneous velocity is $\\vec{v} = \\lim_{\\Delta t \\to 0} \\frac{\\Delta \\vec{r}}{\\Delta t} = \\frac{d\\vec{r}}{dt}$. Its magnitude is $|\\vec{v}| = \\left|\\frac{d\\vec{r}}{dt}\\right| = \\frac{ds}{dt} = v_{\\text{inst}}$. Hence, Statement I is **CORRECT**.\n2. **Evaluation of Statement II**:\n   *Average velocity magnitude = average speed.* \n   Average velocity magnitude is $|\\vec{v}_{\\text{avg}}| = \\frac{|\\Delta \\vec{r}|}{\\Delta t}$, while average speed is $\\frac{\\text{total distance}}{\\Delta t}$. Since total distance $\\ge |\\Delta \\vec{r}|$, in any motion with change of direction $|\\vec{v}_{\\text{avg}}| < \\text{speed}_{\\text{avg}}$. Hence, asserting they are always equal is **INCORRECT**.\n3. **Evaluation of Statement III**:\n   *Speed never zero but average speed zero.* \n   If the instantaneous speed $v(t) > 0$ for all instants during a time interval, the total distance traversed is strictly positive ($s = \\int v(t)\\,dt > 0$). Therefore, the average speed $s/\\Delta t > 0$ and can never be zero. Hence, Statement III is **INCORRECT**.\n4. **Evaluation of Statement IV**:\n   *Speed zero but average speed not zero.* \n   A particle can come to rest momentarily at an instant (e.g. at the apex of vertical projectile flight where $v = 0$), while over the complete round-trip interval the total distance is positive, so average speed is non-zero. Hence, Statement IV is a physically valid/correct statement.\n5. **Conclusion**:\n   The incorrect statements are **II and III**, confirming Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 4), Q#71",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_2972",
+    "originalId": "PW_PHY_MOTION1D_072",
+    "number": 2972,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinematics 1D",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 53.23,
+    "text": "Speed of two identical cars are u and 4u at a specific instant. The ratio of the respective distances in which the two cars are stopped from that instant is:",
+    "options": [
+      {
+        "id": "A",
+        "text": "1 : 1"
+      },
+      {
+        "id": "B",
+        "text": "1 : 4"
+      },
+      {
+        "id": "C",
+        "text": "1 : 8"
+      },
+      {
+        "id": "D",
+        "text": "1 : 16"
+      }
+    ],
+    "correct": 3,
+    "correctAnswer": "D",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ Stopping Distance Under Uniform Retardation\n\n**Step-by-Step Mathematical Derivation**:\n1. **Governing Equation for Stopping Distance**:\n   From the third equation of motion:\n   $$v^2 = u^2 - 2as$$\n   When a vehicle comes to a complete halt, its final velocity is $v = 0$:\n   $$0 = u^2 - 2as \\implies s = \\frac{u^2}{2a}$$\n2. **Proportionality Analysis**:\n   Since both cars are identical and subjected to the same braking retardation $a$:\n   $$s \\propto u^2$$\n3. **Ratio Calculation**:\n   Given initial speeds $u_1 = u$ and $u_2 = 4u$:\n   $$\\frac{s_1}{s_2} = \\left(\\frac{u_1}{u_2}\\right)^2 = \\left(\\frac{u}{4u}\\right)^2 = \\left(\\frac{1}{4}\\right)^2 = \\frac{1}{16}$$\n4. **Conclusion**:\n   The ratio of their stopping distances is **$1 : 16$**, confirming Option **(D)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 4), Q#72",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_2973",
+    "originalId": "PW_PHY_MOTION1D_073",
+    "number": 2973,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinematics 1D",
+    "difficulty": "Hard",
+    "idealTimeSec": 135,
+    "accuracyPct": 27.71,
+    "text": "A man standing on the edge of the terrace of a high-rise building throws a stone vertically up with a speed of $20 ext{ m/s}$. Two seconds later, an identical stone is thrown vertically downwards with the same speed of $20 ext{ m/s}$. Which of the following statements is incorrect? (Take $g = 10 ext{ m/s}^2$)",
+    "options": [
+      {
+        "id": "A",
+        "text": "relative velocity between the two stones remain constant"
+      },
+      {
+        "id": "B",
+        "text": "both will have the same kinetic energy when they hit ground"
+      },
+      {
+        "id": "C",
+        "text": "the time interval between their hitting the ground is 4 seconds"
+      },
+      {
+        "id": "D",
+        "text": "if collisions perfectly elastic both will rise to same height"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ Vertical Motion Under Gravity from a Elevated Platform\n\n**Step-by-Step Mathematical Derivation**:\n1. **Motion of Stone 1 (Thrown Upward at $t = 0$)**:\n   - Initial velocity: $u_1 = +20\\text{ m/s}$ (upward).\n   - Time to reach highest point: $t_{\\text{top}} = \\frac{u_1}{g} = \\frac{20}{10} = 2\\text{ s}$.\n   - Time to return to terrace level: $t_{\\text{return}} = 2 \\times t_{\\text{top}} = 4\\text{ s}$.\n   - At $t = 4\\text{ s}$, Stone 1 passes the terrace level moving downwards with velocity $v = -20\\text{ m/s}$.\n2. **Motion of Stone 2 (Thrown Downward at $t = 2\\text{ s}$)**:\n   - Released from the terrace at $t = 2\\text{ s}$ with downward velocity $v = -20\\text{ m/s}$.\n3. **Comparison of Flight Paths Below Terrace Level**:\n   - Stone 2 starts its downward journey from the terrace with speed $20\\text{ m/s}$ at $t = 2\\text{ s}$.\n   - Stone 1 reaches the exact same position (terrace) with the exact same downward speed ($20\\text{ m/s}$) at $t = 4\\text{ s}$.\n   - From the terrace down to the ground, both stones undergo identical trajectories under gravity.\n   - Therefore, Stone 1 hits the ground exactly $4\\text{ s} - 2\\text{ s} = 2\\text{ seconds}$ after Stone 2.\n4. **Evaluation of Options**:\n   - Statement A is correct: $a_{\\text{rel}} = g - g = 0$, so relative velocity remains constant.\n   - Statement B is correct: By energy conservation, both hit the ground with speed $v = \\sqrt{u^2 + 2gH}$, so kinetic energies are identical.\n   - Statement C states the time interval is 4 seconds, which is **FALSE** (the correct interval is 2 seconds).\n   - Statement D is correct: Elastic collision preserves speed upon rebound, rising to same height.\n5. **Conclusion**:\n   The incorrect statement is Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 4), Q#73",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_2974",
+    "originalId": "PW_PHY_MOTION1D_074",
+    "number": 2974,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinematics 1D",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 67.39,
+    "text": "The $v-t$ plot of a moving object is shown in the figure (velocity starts at $+10 ext{ m/s}$ at $t = 0$, decreases linearly to $0$ at $t = 5 ext{ s}$, and continues decreasing linearly to $-10 ext{ m/s}$ at $t = 10 ext{ s}$). The average velocity of the object during the first $10 ext{ seconds}$ is:",
+    "options": [
+      {
+        "id": "A",
+        "text": "0"
+      },
+      {
+        "id": "B",
+        "text": "2.5 ext{ ms}^{-1}"
+      },
+      {
+        "id": "C",
+        "text": "5 ext{ ms}^{-1}"
+      },
+      {
+        "id": "D",
+        "text": "2 ext{ ms}^{-1}"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ Average Velocity from Velocity-Time ($v-t$) Graph\n\n**Step-by-Step Mathematical Derivation**:\n1. **Displacement as Area Under $v-t$ Graph**:\n   Net displacement $\\Delta x$ during a time interval $[0, T]$ is the algebraic sum of areas between the $v-t$ curve and the time axis:\n   $$\\Delta x = \\int_0^T v(t)\\,dt = \\text{Area}_{(+)} - \\text{Area}_{(-)}$$\n2. **Evaluation of Areas from $t = 0$ to $t = 10\\text{ s}$**:\n   - For the interval $t \\in [0, 5\\text{ s}]$, velocity is positive, forming a triangle above the axis:\n     $$\\text{Area}_{(+)} = \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2} \\times 5 \\times (+10) = +25\\text{ m}$$\n   - For the interval $t \\in [5, 10\\text{ s}]$, velocity is negative, forming a symmetric triangle below the axis:\n     $$\\text{Area}_{(-)} = \\frac{1}{2} \\times \\text{base} \\times |\\text{height}| = \\frac{1}{2} \\times 5 \\times 10 = 25\\text{ m}$$\n3. **Net Displacement & Average Velocity**:\n   $$\\Delta x = +25\\text{ m} - 25\\text{ m} = 0\\text{ m}$$\n   $$v_{\\text{avg}} = \\frac{\\Delta x}{\\Delta t} = \\frac{0\\text{ m}}{10\\text{ s}} = 0\\text{ m/s}$$\n4. **Conclusion**:\n   The average velocity during the first $10\\text{ seconds}$ is **$0\\text{ m/s}$**, confirming Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 4), Q#74",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_2975",
+    "originalId": "PW_PHY_MOTION1D_075",
+    "number": 2975,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinematics 1D",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 71.9,
+    "text": "The position of a particle moving on a straight line path is given by : x = 12 + 18t + 9t^2 metre, Its acceleration at t = 5 s is:",
+    "options": [
+      {
+        "id": "A",
+        "text": "9 ext{ ms}^{-2}"
+      },
+      {
+        "id": "B",
+        "text": "12 ext{ ms}^{-2}"
+      },
+      {
+        "id": "C",
+        "text": "18 ext{ ms}^{-2}"
+      },
+      {
+        "id": "D",
+        "text": "45 ext{ ms}^{-2}"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ Acceleration from Position Function\n\n**Step-by-Step Mathematical Derivation**:\n1. **Given Position Function**:\n   $$x(t) = 12 + 18t + 9t^2\\text{ metres}$$\n2. **First Derivative (Velocity)**:\n   $$v(t) = \\frac{dx}{dt} = \\frac{d}{dt}(12 + 18t + 9t^2) = 18 + 18t\\text{ m/s}$$\n3. **Second Derivative (Acceleration)**:\n   $$a(t) = \\frac{dv}{dt} = \\frac{d}{dt}(18 + 18t) = 18\\text{ m/s}^2$$\n4. **Evaluation at $t = 5\\text{ s}$**:\n   Since the acceleration is time-independent (constant uniform acceleration):\n   $$a(5) = 18\\text{ m/s}^2$$\n5. **Conclusion**:\n   The acceleration at $t = 5\\text{ s}$ is **$18\\text{ ms}^{-2}$**, confirming Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 4), Q#75",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_2976",
+    "originalId": "PW_PHY_MOTION1D_076",
+    "number": 2976,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinematics 1D",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 66.67,
+    "text": "Even when we are sleeping, air moves into and out of our lungs and blood flows in arteries and veins. With reference to the concept of motion, consider the following statements: I. Motion is absolute and independent of the observer or frame of reference. II. Motion is defined as a change in the position of an object with time. III. Motion is relative and depends upon the chosen frame of reference. Which of the above statement(s) is/are correct?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Only I"
+      },
+      {
+        "id": "B",
+        "text": "Only II"
+      },
+      {
+        "id": "C",
+        "text": "Both II and III"
+      },
+      {
+        "id": "D",
+        "text": "Both I and II"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ Concept of Motion and Frame of Reference (NCERT)\n\n**Step-by-Step Mathematical Derivation**:\n1. **Physical Understanding of Motion**:\n   - Motion is defined as the change in position of an object over time with respect to a chosen frame of reference.\n   - In the biological example (lungs breathing, blood circulating during sleep), internal parts of our body undergo continuous displacement with respect to the body frame.\n2. **Evaluation of the Statements**:\n   - **Statement I**: *'Motion is absolute and independent of the observer.'* \n     According to classical mechanics and Einstein's relativity, there is no absolute rest or absolute motion in the universe. Motion is inherently relative to the observer's frame of reference. Hence, Statement I is FALSE.\n   - **Statement II**: *'Motion is change in position of an object with time.'* \n     This is the precise, formal scientific definition of motion. Hence, Statement II is TRUE.\n   - **Statement III**: *'Motion is relative and depends upon the chosen frame of reference.'* \n     An object at rest in one frame (e.g. a sleeping person in a room) is in motion with respect to another frame (e.g. the Sun or a moving satellite). Hence, Statement III is TRUE.\n3. **Conclusion**:\n   Both statements II and III are physically correct, confirming Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 4), Q#76",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_2977",
+    "originalId": "PW_PHY_MOTION1D_077",
+    "number": 2977,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinematics 1D",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 37.37,
+    "text": "For the one-dimensional motion, described by x = t - sin(t) :",
+    "options": [
+      {
+        "id": "A",
+        "text": "x(t) > 0 for all t > 0"
+      },
+      {
+        "id": "B",
+        "text": "v(t) > 0 for all t > 0"
+      },
+      {
+        "id": "C",
+        "text": "a(t) > 0 for all t > 0"
+      },
+      {
+        "id": "D",
+        "text": "v(t) lies between 0 and 3"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ Analysis of Non-linear Trajectory $x(t) = t - \\sin(t)$\n\n**Step-by-Step Mathematical Derivation**:\n1. **Position Analysis ($x(t)$)**:\n   $$x(t) = t - \\sin t$$\n   For any $t > 0$, by the standard trigonometric inequality, $\\sin t < t$ for all real $t > 0$.\n   Therefore:\n   $$x(t) = t - \\sin t > 0 \\quad \\forall \\; t > 0$$\n   Thus, statement A is strictly TRUE.\n2. **Velocity Analysis ($v(t)$)**:\n   $$v(t) = \\frac{dx}{dt} = 1 - \\cos t$$\n   Since $\\cos t \\in [-1, 1]$, $v(t) \\in [0, 2]$.\n   At $t = 2n\\pi$ ($n = 1, 2, \\dots$), $\\cos(2n\\pi) = 1 \\implies v = 0$.\n   Since velocity touches zero at periodic points, $v(t) > 0$ is not strictly true for all $t > 0$. Thus, statement B is false.\n3. **Acceleration Analysis ($a(t)$)**:\n   $$a(t) = \\frac{dv}{dt} = \\sin t$$\n   $\\sin t$ takes negative values in intervals $( (2n-1)\\pi, 2n\\pi )$, so $a(t)$ is not always positive. Thus, statement C is false.\n4. **Conclusion**:\n   Only **$x(t) > 0$ for all $t > 0$** is correct, confirming Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 4), Q#77",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_2978",
+    "originalId": "PW_PHY_MOTION1D_078",
+    "number": 2978,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinematics 1D",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 58.42,
+    "text": "A body is thrown vertically upward with a velocity of $10 ext{ m/s}$. The maximum height reached by the body is: (Take $g = 10 ext{ m/s}^2$)",
+    "options": [
+      {
+        "id": "A",
+        "text": "5 ext{ m}"
+      },
+      {
+        "id": "B",
+        "text": "10 ext{ m}"
+      },
+      {
+        "id": "C",
+        "text": "15 ext{ m}"
+      },
+      {
+        "id": "D",
+        "text": "20 ext{ m}"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ Maximum Height in Vertical Motion Under Gravity\n\n**Step-by-Step Mathematical Derivation**:\n1. **Given Parameters**:\n   - Initial velocity: $u = 10\\text{ m/s}$ (upward)\n   - Acceleration due to gravity: $g = 10\\text{ m/s}^2$ (downward, $a = -g$)\n   - Velocity at the highest point: $v = 0$\n2. **Governing Equation**:\n   Using the third kinematic formula:\n   $$v^2 = u^2 - 2gH_{\\text{max}}$$\n   $$0 = (10)^2 - 2(10)H_{\\text{max}} \\implies 20 H_{\\text{max}} = 100$$\n   $$H_{\\text{max}} = \\frac{100}{20} = 5\\text{ m}$$\n3. **Conclusion**:\n   The height travelled by the body is **$5\\text{ m}$**, confirming Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 4), Q#78",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_2979",
+    "originalId": "PW_PHY_MOTION1D_079",
+    "number": 2979,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinematics 1D",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 46.71,
+    "text": "A stone thrown vertically upward with a speed $u$ from the top of a tower reaches the ground with a velocity $4u$. The height of the tower is:",
+    "options": [
+      {
+        "id": "A",
+        "text": "rac{15u^2}{2g}"
+      },
+      {
+        "id": "B",
+        "text": "rac{7u^2}{2g}"
+      },
+      {
+        "id": "C",
+        "text": "rac{16u^2}{g}"
+      },
+      {
+        "id": "D",
+        "text": "ext{Zero}"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ Motion Under Gravity from a Height\n\n**Step-by-Step Mathematical Derivation**:\n1. **Coordinate Setup & Kinematic Values**:\n   Let the downward direction be taken as positive.\n   - Initial velocity at the top of the tower: $u_0 = -u$ (projected upward)\n   - Final velocity upon striking the ground: $v = +4u$ (downward)\n   - Acceleration: $a = +g$ (downward)\n   - Net downward displacement: $s = +H$ (height of the tower)\n2. **Applying the Third Equation of Motion**:\n   $$v^2 = u_0^2 + 2as$$\n   $$(4u)^2 = (-u)^2 + 2gH$$\n   $$16u^2 = u^2 + 2gH$$\n3. **Solving for Height $H$**:\n   $$2gH = 16u^2 - u^2 = 15u^2$$\n   $$H = \\frac{15u^2}{2g}$$\n4. **Conclusion**:\n   The height of the tower is **$\\frac{15u^2}{2g}$**, confirming Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 4), Q#79",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_2980",
+    "originalId": "PW_PHY_MOTION1D_080",
+    "number": 2980,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinematics 1D",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 50.12,
+    "text": "The acceleration $a$ (in $ ext{m/s}^2$) of a particle is given by $a = 3t^2 + 2t + 2$, where $t$ is the time in seconds. If the particle starts with a velocity $u = 2 ext{ m/s}$ at $t = 0$, the velocity at the end of $2 ext{ s}$ is:",
+    "options": [
+      {
+        "id": "A",
+        "text": "16 ext{ m/s}"
+      },
+      {
+        "id": "B",
+        "text": "18 ext{ m/s}"
+      },
+      {
+        "id": "C",
+        "text": "36 ext{ m/s}"
+      },
+      {
+        "id": "D",
+        "text": "9 ext{ m/s}"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ Velocity by Integration of Time-Dependent Acceleration\n\n**Step-by-Step Mathematical Derivation**:\n1. **Differential Relation**:\n   $$a(t) = \\frac{dv}{dt} = 3t^2 + 2t + 2$$\n   $$dv = (3t^2 + 2t + 2)\\,dt$$\n2. **Integration with Boundary Conditions**:\n   At $t = 0$, $v = u = 2\\text{ m/s}$. We seek $v$ at $t = 2\\text{ s}$:\n   $$\\int_2^v dv = \\int_0^2 (3t^2 + 2t + 2)\\,dt$$\n   $$v - 2 = \\left[ \\frac{3t^3}{3} + \\frac{2t^2}{2} + 2t \\right]_0^2 = \\left[ t^3 + t^2 + 2t \\right]_0^2$$\n3. **Evaluating the Definite Integral**:\n   $$v - 2 = (2^3 + 2^2 + 2(2)) - 0 = (8 + 4 + 4) = 16$$\n   $$v = 16 + 2 = 18\\text{ m/s}$$\n4. **Conclusion**:\n   The velocity of the particle at the end of $2\\text{ s}$ is **$18\\text{ m/s}$**, confirming Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 4), Q#80",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_2981",
+    "originalId": "PW_PHY_MOTION1D_081",
+    "number": 2981,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinematics 1D",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 62.9,
+    "text": "A passenger train of length $60 ext{ m}$ travels at a speed of $80 ext{ km/h}$. Another freight train of length $120 ext{ m}$ travels at a speed of $30 ext{ km/h}$. The ratio of times taken by the passenger train to completely cross the freight train when (i) moving in the same direction and (ii) moving in opposite directions is:",
+    "options": [
+      {
+        "id": "A",
+        "text": "rac{3}{2}"
+      },
+      {
+        "id": "B",
+        "text": "rac{25}{11}"
+      },
+      {
+        "id": "C",
+        "text": "rac{11}{5}"
+      },
+      {
+        "id": "D",
+        "text": "rac{5}{2}"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ Relative Motion of Two Moving Trains\n\n**Step-by-Step Mathematical Derivation**:\n1. **Given Data**:\n   - Passenger train: length $L_1 = 60\\text{ m}$, speed $v_1 = 80\\text{ km/h}$\n   - Freight train: length $L_2 = 120\\text{ m}$, speed $v_2 = 30\\text{ km/h}$\n   - Total distance required for complete crossing in either case:\n     $$d = L_1 + L_2 = 60\\text{ m} + 120\\text{ m} = 180\\text{ m}$$\n2. **Case (i): Moving in the Same Direction**:\n   Relative speed of the passenger train with respect to the freight train:\n   $$v_{\\text{rel, same}} = v_1 - v_2 = 80 - 30 = 50\\text{ km/h}$$\n   Time taken to cross: $t_1 = \\frac{d}{v_{\\text{rel, same}}} = \\frac{180}{50}$\n3. **Case (ii): Moving in Opposite Directions**:\n   Relative speed of approach:\n   $$v_{\\text{rel, opp}} = v_1 + v_2 = 80 + 30 = 110\\text{ km/h}$$\n   Time taken to cross: $t_2 = \\frac{d}{v_{\\text{rel, opp}}} = \\frac{180}{110}$\n4. **Ratio of Crossing Times**:\n   $$\\frac{t_1}{t_2} = \\frac{d / v_{\\text{rel, same}}}{d / v_{\\text{rel, opp}}} = \\frac{v_{\\text{rel, opp}}}{v_{\\text{rel, same}}} = \\frac{110\\text{ km/h}}{50\\text{ km/h}} = \\frac{11}{5}$$\n5. **Conclusion**:\n   The ratio of times taken is **$\\frac{11}{5}$**, confirming Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 4), Q#81",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_2982",
+    "originalId": "PW_PHY_MOTION1D_082",
+    "number": 2982,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinematics 1D",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 40.0,
+    "text": "A bus starts from rest moving with an acceleration of $2 ext{ m/s}^2$. A cyclist, $96 ext{ m}$ behind the bus, starts simultaneously towards the bus at a constant speed of $20 ext{ m/s}$. After what time will the cyclist be able to overtake the bus?",
+    "options": [
+      {
+        "id": "A",
+        "text": "8 ext{ s}"
+      },
+      {
+        "id": "B",
+        "text": "10 ext{ s}"
+      },
+      {
+        "id": "C",
+        "text": "12 ext{ s}"
+      },
+      {
+        "id": "D",
+        "text": "1 ext{ s}"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ Chasing and Overtaking with Accelerated Motion\n\n**Step-by-Step Mathematical Derivation**:\n1. **Coordinate Formulation**:\n   Let the starting position of the cyclist be $x = 0$ at $t = 0$.\n   - The cyclist moves with constant speed $v_c = 20\\text{ m/s}$:\n     $$x_c(t) = 20t$$\n   - The bus starts from rest ($u_b = 0$) at $x = 96\\text{ m}$ with acceleration $a_b = 2\\text{ m/s}^2$:\n     $$x_b(t) = 96 + \\frac{1}{2}a_b t^2 = 96 + \\frac{1}{2}(2)t^2 = 96 + t^2$$\n2. **Overtaking Condition**:\n   For the cyclist to overtake the bus, their positions must coincide:\n   $$x_c(t) = x_b(t) \\implies 20t = 96 + t^2$$\n   $$t^2 - 20t + 96 = 0$$\n3. **Solving the Quadratic Equation**:\n   $$(t - 8)(t - 12) = 0$$\n   The roots are $t = 8\\text{ s}$ and $t = 12\\text{ s}$.\n   The cyclist first catches up with and overtakes the bus at the earlier time $t = 8\\text{ s}$ (at $t = 12\\text{ s}$, the accelerating bus catches up with the cyclist again).\n4. **Conclusion**:\n   The cyclist overtakes the bus after **$8\\text{ s}$**, confirming Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 4), Q#82",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_2983",
+    "originalId": "PW_PHY_MOTION1D_083",
+    "number": 2983,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinematics 1D",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 48.33,
+    "text": "Two trains A and B, of lengths $100 ext{ m}$ and $60 ext{ m}$ respectively, are moving in opposite directions on parallel tracks. The velocity of the shorter train (B) is 3 times that of the longer one (A). If the trains take $4 ext{ s}$ to completely cross each other, the velocities of the trains are:",
+    "options": [
+      {
+        "id": "A",
+        "text": "v_A = 10 ext{ ms}^{-1}, v_B = 30 ext{ ms}^{-1}"
+      },
+      {
+        "id": "B",
+        "text": "v_A = 2.5 ext{ ms}^{-1}, v_B = 7.5 ext{ ms}^{-1}"
+      },
+      {
+        "id": "C",
+        "text": "v_A = 20 ext{ ms}^{-1}, v_B = 60 ext{ ms}^{-1}"
+      },
+      {
+        "id": "D",
+        "text": "v_A = 5 ext{ ms}^{-1}, v_B = 15 ext{ ms}^{-1}"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ Crossing of Trains Moving in Opposite Directions\n\n**Step-by-Step Mathematical Derivation**:\n1. **Given Data**:\n   - Length of train A (longer train): $L_A = 100\\text{ m}$\n   - Length of train B (shorter train): $L_B = 60\\text{ m}$\n   - Speed relation: $v_B = 3 v_A$\n   - Time to cross each other: $t = 4\\text{ s}$\n2. **Relative Motion Formulation**:\n   Moving in opposite directions on parallel tracks, their relative speed of crossing is:\n   $$v_{\\text{rel}} = v_A + v_B = v_A + 3v_A = 4v_A$$\n3. **Total Relative Distance**:\n   $$L = L_A + L_B = 100\\text{ m} + 60\\text{ m} = 160\\text{ m}$$\n4. **Solving for Velocities**:\n   $$t = \\frac{L}{v_{\\text{rel}}} \\implies 4 = \\frac{160}{4v_A}$$\n   $$16 v_A = 160 \\implies v_A = 10\\text{ m/s}$$\n   $$v_B = 3 v_A = 3 \\times 10 = 30\\text{ m/s}$$\n5. **Conclusion**:\n   The velocities of the trains are **$v_A = 10\\text{ ms}^{-1}, v_B = 30\\text{ ms}^{-1}$**, confirming Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 4), Q#83",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_2984",
+    "originalId": "PW_PHY_MOTION1D_084",
+    "number": 2984,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinematics 1D",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 50.0,
+    "text": "A car travels the first half of a distance between two places at a speed of 30 km/hr and the second half of the distance at 50 km/hr. The average speed of the car for the whole journey is",
+    "options": [
+      {
+        "id": "A",
+        "text": "42.5 km/hr"
+      },
+      {
+        "id": "B",
+        "text": "40.0 km/hr"
+      },
+      {
+        "id": "C",
+        "text": "37.5 km/hr"
+      },
+      {
+        "id": "D",
+        "text": "35.0 km/hr"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ Average Speed for Equal Distance Segments\n\n**Step-by-Step Mathematical Derivation**:\n1. **Defining Path Halves**:\n   Let total distance between the two places be $2d$.\n   - First half distance $d$ is covered at speed $v_1 = 30\\text{ km/h}$.\n     Time taken: $t_1 = \\frac{d}{v_1} = \\frac{d}{30}$\n   - Second half distance $d$ is covered at speed $v_2 = 50\\text{ km/h}$.\n     Time taken: $t_2 = \\frac{d}{v_2} = \\frac{d}{50}$\n2. **Total Time & Average Speed**:\n   $$t_{\\text{total}} = t_1 + t_2 = d\\left(\\frac{1}{30} + \\frac{1}{50}\\right) = d\\left(\\frac{50 + 30}{1500}\\right) = \\frac{80d}{1500} = \\frac{8d}{150}$$\n   $$v_{\\text{avg}} = \\frac{\\text{Total Distance}}{\\text{Total Time}} = \\frac{2d}{\\frac{8d}{150}} = \\frac{2 \\times 150}{8} = \\frac{300}{8} = 37.5\\text{ km/h}$$\n   (Alternatively, using the standard harmonic mean formula: $v_{\\text{avg}} = \\frac{2v_1 v_2}{v_1 + v_2} = \\frac{2(30)(50)}{30 + 50} = \\frac{3000}{80} = 37.5\\text{ km/h}$).\n3. **Conclusion**:\n   The average speed of the car for the whole journey is **$37.5\\text{ km/hr}$**, confirming Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 4), Q#84",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_2985",
+    "originalId": "PW_PHY_MOTION1D_085",
+    "number": 2985,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinematics 1D",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 45.06,
+    "text": "Two trains are each 50 m long moving parallel towards each other at speeds 10 m/s and 15 m/s respectively, at what time will they pass each other?",
+    "options": [
+      {
+        "id": "A",
+        "text": "8 ext{ s}"
+      },
+      {
+        "id": "B",
+        "text": "4 ext{ s}"
+      },
+      {
+        "id": "C",
+        "text": "2 ext{ s}"
+      },
+      {
+        "id": "D",
+        "text": "6 ext{ s}"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ Relative Motion of Opposite Moving Trains\n\n**Step-by-Step Mathematical Derivation**:\n1. **Given Parameters**:\n   - Length of each train: $L_1 = 50\\text{ m}$, $L_2 = 50\\text{ m}$\n   - Speeds: $v_1 = 10\\text{ m/s}$, $v_2 = 15\\text{ m/s}$\n2. **Relative Speed**:\n   Because they move parallel towards each other (opposite directions):\n   $$v_{\\text{rel}} = v_1 + v_2 = 10 + 15 = 25\\text{ m/s}$$\n3. **Total Relative Distance**:\n   To completely pass each other, the relative displacement required is the sum of their lengths:\n   $$L = L_1 + L_2 = 50 + 50 = 100\\text{ m}$$\n4. **Time of Crossing**:\n   $$t = \\frac{L}{v_{\\text{rel}}} = \\frac{100\\text{ m}}{25\\text{ m/s}} = 4\\text{ s}$$\n5. **Conclusion**:\n   The time they will take to pass each other is **$4\\text{ s}$**, confirming Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 4), Q#85",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_2986",
+    "originalId": "PW_PHY_MOTION1D_086",
+    "number": 2986,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinematics 1D",
+    "difficulty": "Medium",
+    "idealTimeSec": 100,
+    "accuracyPct": 45.22,
+    "text": "The graph between displacement $x$ and time $t$ for a particle moving in a straight line consists of four successive intervals: OA (concave downward curve), AB (straight line with constant positive slope), BC (concave upward curve), and CD (horizontal straight line). During the intervals OA, AB, BC, CD, the acceleration of the particle is respectively:",
+    "options": [
+      {
+        "id": "A",
+        "text": "+ \\; 0 \\; + \\; +"
+      },
+      {
+        "id": "B",
+        "text": "- \\; 0 \\; + \\; 0"
+      },
+      {
+        "id": "C",
+        "text": "+ \\; 0 \\; - \\; +"
+      },
+      {
+        "id": "D",
+        "text": "- \\; 0 \\; - \\; +"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ Curvature and Acceleration in Displacement-Time ($x-t$) Graphs\n\n**Step-by-Step Mathematical Derivation**:\n1. **Differential Formulation of Acceleration from $x-t$ Graph**:\n   - Velocity is the first derivative: $v = \\frac{dx}{dt}$ (slope of tangent).\n   - Acceleration is the second derivative: $a = \\frac{d^2x}{dt^2}$ (concavity/curvature).\n   - Concave downward ($\\cap$): $\\frac{d^2x}{dt^2} < 0 \\implies a < 0$ (negative, $-$).\n   - Straight line: $\\frac{dx}{dt} = \\text{constant} \\implies \\frac{d^2x}{dt^2} = 0 \\implies a = 0$.\n   - Concave upward ($\\cup$): $\\frac{d^2x}{dt^2} > 0 \\implies a > 0$ (positive, $+$).\n2. **Interval-by-Interval Analysis**:\n   - **Interval OA**: Curve is concave downward, slope decreases with time $\\implies a < 0$ ($-$).\n   - **Interval AB**: Curve is an inclined straight line, constant velocity $\\implies a = 0$.\n   - **Interval BC**: Curve is concave upward, slope increases with time $\\implies a > 0$ ($+$).\n   - **Interval CD**: Straight line parallel to time axis (object at rest) $\\implies a = 0$.\n3. **Conclusion**:\n   The acceleration sequence during intervals OA, AB, BC, CD is **$- \\; 0 \\; + \\; 0$**, confirming Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 4), Q#86",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_2987",
+    "originalId": "PW_PHY_MOTION1D_087",
+    "number": 2987,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinematics 1D",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 66.81,
+    "text": "A ball is thrown vertically upwards with a velocity of $40 ext{ m/s}$ from the top of a multi-storey building of height $25 ext{ m}$. How high above the top of the building will the ball rise? (Take $g = 10 ext{ m/s}^2$)",
+    "options": [
+      {
+        "id": "A",
+        "text": "20 ext{ m}"
+      },
+      {
+        "id": "B",
+        "text": "80 ext{ m}"
+      },
+      {
+        "id": "C",
+        "text": "40 ext{ m}"
+      },
+      {
+        "id": "D",
+        "text": "10 ext{ m}"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ Vertical Motion Under Gravity from a Multi-Storey Building\n\n**Step-by-Step Mathematical Derivation**:\n1. **Given Data**:\n   - Height of building: $h = 25\\text{ m}$\n   - Initial velocity of the ball: $u = 40\\text{ m/s}$ (vertically upwards)\n   - Acceleration due to gravity: $g = 10\\text{ m/s}^2$ (downwards)\n2. **Calculating Rise Above the Point of Projection**:\n   At the apex of its upward flight, vertical velocity becomes zero ($v = 0$):\n   $$v^2 = u^2 - 2gH$$\n   $$0 = (40)^2 - 2(10)H \\implies 20H = 1600$$\n   $$H = \\frac{1600}{20} = 80\\text{ m}$$\n3. **Physical Interpretation**:\n   The ball rises $80\\text{ m}$ above the top of the building (reaching an overall height of $80 + 25 = 105\\text{ m}$ above the ground).\n4. **Conclusion**:\n   The height the ball will rise above the roof is **$80\\text{ m}$**, confirming Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 4), Q#87",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_2988",
+    "originalId": "PW_PHY_MOTION1D_088",
+    "number": 2988,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinematics 1D",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 44.03,
+    "text": "The slope of the velocity-position ($v-x$) graph of a particle moving along a straight line is $15 ext{ s}^{-1}$ at a point where the velocity is $15 ext{ m/s}$. The acceleration of the particle at that position is:",
+    "options": [
+      {
+        "id": "A",
+        "text": "1 ext{ unit}"
+      },
+      {
+        "id": "B",
+        "text": "75 ext{ units}"
+      },
+      {
+        "id": "C",
+        "text": "225 ext{ units}"
+      },
+      {
+        "id": "D",
+        "text": "30 ext{ units}"
+      }
+    ],
+    "correct": 2,
+    "correctAnswer": "C",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ Acceleration from Velocity-Position ($v-x$) Graph\n\n**Step-by-Step Mathematical Derivation**:\n1. **Differential Relation**:\n   Acceleration in one dimension is defined by:\n   $$a = \\frac{dv}{dt} = \\frac{dv}{dx} \\frac{dx}{dt} = v \\frac{dv}{dx}$$\n2. **Given Values**:\n   - Velocity of the particle: $v = 15\\text{ units}$\n   - Slope of the $v-x$ graph: $\\frac{dv}{dx} = 15\\text{ units}$\n3. **Computation of Acceleration**:\n   $$a = v \\left(\\frac{dv}{dx}\\right) = 15 \\times 15 = 225\\text{ units}$$\n4. **Conclusion**:\n   The acceleration of the particle at that position is **$225\\text{ units}$**, confirming Option **(C)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 4), Q#88",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_2989",
+    "originalId": "PW_PHY_MOTION1D_089",
+    "number": 2989,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinematics 1D",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 50.22,
+    "text": "Two trains each 50 m long, are travelling in opposite directions with respective velocities 10 m/s and 15 m/s. The time of crossing is",
+    "options": [
+      {
+        "id": "A",
+        "text": "2 ext{ s}"
+      },
+      {
+        "id": "B",
+        "text": "4 ext{ s}"
+      },
+      {
+        "id": "C",
+        "text": "rac{2}{3} ext{ s}"
+      },
+      {
+        "id": "D",
+        "text": "rac{4}{3} ext{ s}"
+      }
+    ],
+    "correct": 1,
+    "correctAnswer": "B",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ Relative Motion of Crossing Trains\n\n**Step-by-Step Mathematical Derivation**:\n1. **Given Data**:\n   - Length of Train 1: $L_1 = 50\\text{ m}$\n   - Length of Train 2: $L_2 = 50\\text{ m}$\n   - Velocities: $v_1 = 10\\text{ m/s}$, $v_2 = 15\\text{ m/s}$ (in opposite directions)\n2. **Relative Velocity of Crossing**:\n   $$v_{\\text{rel}} = v_1 + v_2 = 10 + 15 = 25\\text{ m/s}$$\n3. **Total Relative Distance**:\n   $$L = L_1 + L_2 = 50 + 50 = 100\\text{ m}$$\n4. **Time of Crossing**:\n   $$t = \\frac{L}{v_{\\text{rel}}} = \\frac{100\\text{ m}}{25\\text{ m/s}} = 4\\text{ s}$$\n5. **Conclusion**:\n   The time of crossing is **$4\\text{ s}$**, confirming Option **(B)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 4), Q#89",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
+  },
+  {
+    "id": "jee_phy_kinematics_2990",
+    "originalId": "PW_PHY_MOTION1D_090",
+    "number": 2990,
+    "subject": "Physics",
+    "section": "A",
+    "type": "MCQ",
+    "chapter": "Kinematics",
+    "topic": "Kinematics 1D",
+    "difficulty": "Easy",
+    "idealTimeSec": 75,
+    "accuracyPct": 68.54,
+    "text": "A stone falls freely from rest under gravity. It covers distances $h_1$, $h_2$, and $h_3$ in the first $5 ext{ seconds}$, the next $5 ext{ seconds}$, and the next $5 ext{ seconds}$ respectively. The relation between $h_1$, $h_2$, and $h_3$ is:",
+    "options": [
+      {
+        "id": "A",
+        "text": "h_1 = rac{h_2}{3} = rac{h_3}{5}"
+      },
+      {
+        "id": "B",
+        "text": "h_2 = 3h_1 ext{ and } h_3 = 3h_2"
+      },
+      {
+        "id": "C",
+        "text": "h_1 = h_2 = h_3"
+      },
+      {
+        "id": "D",
+        "text": "h_1 = 2h_2 = 3h_3"
+      }
+    ],
+    "correct": 0,
+    "correctAnswer": "A",
+    "marking": {
+      "correct": 4,
+      "wrong": -1
+    },
+    "solution": "**Concept**: Kinematics $\\rightarrow$ Galileo's Law of Odd Numbers for Free Fall\n\n**Step-by-Step Mathematical Derivation**:\n1. **Galileo's Law of Odd Numbers**:\n   For a body falling freely from rest under uniform gravity ($u = 0, a = g$):\n   The distances covered in equal successive intervals of time ($T$) stand to one another in the ratio of odd integers:\n   $$h_1 : h_2 : h_3 : \\dots = 1 : 3 : 5 : \\dots$$\n2. **Explicit Verification for $T = 5\\text{ s}$**:\n   - Distance fallen in the first $5\\text{ s}$:\n     $$h_1 = \\frac{1}{2}g(5)^2 = \\frac{25}{2}g$$\n   - Total distance fallen in the first $10\\text{ s}$:\n     $$H_{10} = \\frac{1}{2}g(10)^2 = \\frac{100}{2}g$$\n     $$h_2 = H_{10} - h_1 = \\frac{100}{2}g - \\frac{25}{2}g = \\frac{75}{2}g = 3\\left(\\frac{25}{2}g\\right) = 3h_1$$\n   - Total distance fallen in the first $15\\text{ s}$:\n     $$H_{15} = \\frac{1}{2}g(15)^2 = \\frac{225}{2}g$$\n     $$h_3 = H_{15} - H_{10} = \\frac{225}{2}g - \\frac{100}{2}g = \\frac{125}{2}g = 5\\left(\\frac{25}{2}g\\right) = 5h_1$$\n3. **Relation Between $h_1, h_2, h_3$**:\n   $$h_1 = \\frac{h_2}{3} = \\frac{h_3}{5}$$\n4. **Conclusion**:\n   The relation between the distances is **$h_1 = \\frac{h_2}{3} = \\frac{h_3}{5}$**, confirming Option **(A)**.",
+    "referenceBook": "Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch 4), Q#90",
+    "bookName": "Physics Wallah Infinite Practice - Class 11 Physics",
+    "page": 1,
+    "examTag": "PW Infinite Practice"
   }
 ]

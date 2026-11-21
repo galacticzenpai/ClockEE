@@ -1348,9 +1348,677 @@ MOTION1D_SOLUTIONS = {
     "PW_PHY_MOTION1D_058": '**Concept**: Kinematics $\\rightarrow$ Stone Released from Rising Balloon\n\n**Correct Answer**: **Option (B)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Balloon Kinematics at Release ($t = 1\\text{ s}$)**:\n   - Upward speed: $u = a t = 2 \\times 1 = 2\\text{ m/s}$\n   - Height above ground: $h = \\frac{1}{2} a t^2 = \\frac{1}{2}(2)(1)^2 = 1\\text{ m}$\n2. **Free Fall of the Stone**:\n   Stone inherits upward initial velocity $u = +2\\text{ m/s}$ and falls under $g = 9.8\\text{ m/s}^2$ (or $10\\text{ m/s}^2$):\n   $$-h = ut - \\frac{1}{2}gt^2 \\implies -1 = 2t - 4.9t^2 \\implies 4.9t^2 - 2t - 1 = 0$$\n3. **Solving Quadratic for Time**:\n   $$t = \\frac{2 + \\sqrt{4 - 4(4.9)(-1)}}{2(4.9)} = \\frac{2 + \\sqrt{4 + 19.6}}{9.8} = \\frac{2 + \\sqrt{23.6}}{9.8} \\approx \\frac{2 + 4.86}{9.8} \\approx 0.70\\text{ s}$$\n4. **Conclusion**: Time taken to strike ground is nearly **0.7 s**, verifying Option **(B)**.',
     "PW_PHY_MOTION1D_059": '**Concept**: Kinematics $\\rightarrow$ Calculus Definition of Instantaneous Velocity\n\n**Correct Answer**: **Option (B)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Definition of Displacement**:\n   Displacement vector is $\\Delta \\mathbf{r} = \\mathbf{r}(t + \\Delta t) - \\mathbf{r}(t)$.\n2. **Definition of Instantaneous Velocity**:\n   Instantaneous velocity is defined as the limiting value of the average velocity as the elapsed time interval approaches zero:\n   $$\\mathbf{v} = \\lim_{\\Delta t \\to 0} \\frac{\\Delta \\mathbf{r}}{\\Delta t} = \\frac{d\\mathbf{r}}{dt}$$\n3. **Conclusion**: Option **(B)** is verified.',
     "PW_PHY_MOTION1D_060": '**Concept**: Kinematics $\\rightarrow$ Integration of Position-Dependent Acceleration ($a = kx$)\n\n**Correct Answer**: **Option (C)**\n\n**Step-by-Step Mathematical Derivation**:\n1. **Differential Chain Rule Form of Acceleration**:\n   $$a = v\\frac{dv}{dx} = kx$$\n2. **Separation of Variables**:\n   $$v\\,dv = kx\\,dx$$\n3. **Definite Integration** from $(x = 0, u)$ to $(x, v)$:\n   $$\\int_u^v v\\,dv = k \\int_0^x x\\,dx$$\n   $$\\frac{v^2 - u^2}{2} = \\frac{kx^2}{2} \\implies v^2 - u^2 = kx^2 \\implies v^2 = u^2 + kx^2$$\n4. **Conclusion**: The relation is $v^2 = u^2 + kx^2$, verifying Option **(C)**.',
+"PW_PHY_MOTION1D_061": (
+        "**Concept**: Kinematics $\\rightarrow$ Horizontal Projectile Motion\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **Vertical Motion Analysis**:\n"
+        "   The bullet enters horizontally at screen A (point P) with initial vertical velocity $u_y = 0$.\n"
+        "   At screen B (point Q), it has dropped vertically by a distance:\n"
+        "   $$y = 10\\text{ cm} = 0.1\\text{ m}$$\n"
+        "   Using the second equation of motion for vertical free fall under gravity ($g = 9.8\\text{ m/s}^2$):\n"
+        "   $$y = u_y t + \\frac{1}{2}gt^2 \\implies 0.1 = 0 + \\frac{1}{2}(9.8)t^2$$\n"
+        "   $$t^2 = \\frac{0.2}{9.8} = \\frac{2}{98} = \\frac{1}{49} \\implies t = \\frac{1}{7}\\text{ s}$$\n"
+        "2. **Horizontal Motion Analysis**:\n"
+        "   The horizontal distance between the screens is $x = 100\\text{ m}$.\n"
+        "   Since no horizontal force acts on the bullet, horizontal velocity $v_x$ remains constant:\n"
+        "   $$v_x = \\frac{x}{t} = \\frac{100\\text{ m}}{1/7\\text{ s}} = 700\\text{ m/s}$$\n"
+        "3. **Conclusion**:\n"
+        "   The horizontal velocity of the bullet at screen A is nearly **$700\\text{ m/s}$**, confirming Option **(D)**."
+    ),
+
+    "PW_PHY_MOTION1D_062": (
+        "**Concept**: Kinematics $\\rightarrow$ Graphical Analysis of Motion ($x-t$ Graph)\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **Understanding Overtaking in Position-Time Coordinates**:\n"
+        "   On an $x-t$ (position-time) plot, when two objects are at the exact same location, their curves intersect ($x_A = x_B$).\n"
+        "2. **Condition for Overtaking**:\n"
+        "   For Car A to overtake Car B at a specific time $t^*$:\n"
+        "   - Just prior to $t^*$ ($t < t^*$), Car A must be behind Car B: $x_A(t) < x_B(t)$.\n"
+        "   - At instant $t^*$, both cars occupy the same position: $x_A(t^*) = x_B(t^*)$.\n"
+        "   - Just after $t^*$ ($t > t^*$), Car A must be ahead of Car B: $x_A(t) > x_B(t)$, which requires the slope of Car A's curve (its velocity $v_A = \\frac{dx_A}{dt}$) to be greater than that of Car B ($v_A > v_B$) at the intersection point.\n"
+        "3. **Graph Evaluation**:\n"
+        "   At instant $t_1$, the position curve of Car A intersects and crosses above that of Car B from below. Therefore, Car A overtakes Car B at time **$t_1$**, confirming Option **(A)**."
+    ),
+
+    "PW_PHY_MOTION1D_063": (
+        "**Concept**: Kinematics $\\rightarrow$ Acceleration from Velocity-Displacement Relation\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **Given Velocity-Position Function**:\n"
+        "   $$v = (180 - 16x)^{1/2}\\text{ m/s}$$\n"
+        "   Squaring both sides:\n"
+        "   $$v^2 = 180 - 16x$$\n"
+        "2. **Differentiation with Respect to Position ($x$)**:\n"
+        "   Differentiating both sides with respect to $x$ using the chain rule:\n"
+        "   $$\\frac{d}{dx}(v^2) = \\frac{d}{dx}(180 - 16x)$$\n"
+        "   $$2v\\frac{dv}{dx} = -16 \\implies v\\frac{dv}{dx} = -8\\text{ m/s}^2$$\n"
+        "3. **Acceleration Evaluation**:\n"
+        "   By the differential definition of 1D acceleration:\n"
+        "   $$a = v\\frac{dv}{dx} = -8\\text{ m/s}^2$$\n"
+        "   (Alternatively, comparing $v^2 = 180 - 16x$ with the third equation of uniform acceleration $v^2 = u^2 + 2ax$, we find $2a = -16 \\implies a = -8\\text{ m/s}^2$).\n"
+        "4. **Conclusion**:\n"
+        "   The acceleration of the particle is **$-8\\text{ m/s}^2$**, confirming Option **(C)**."
+    ),
+
+    "PW_PHY_MOTION1D_064": (
+        "**Concept**: Kinematics $\\rightarrow$ Relative Velocity in 1D\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **Coordinate Setup & Given Parameters**:\n"
+        "   Let North be the $+y$ direction and South be the $-y$ direction.\n"
+        "   - Velocity of the train: $\\vec{v}_T = +25\\hat{j}\\text{ m/s}$\n"
+        "   - Velocity of the bird: $\\vec{v}_B = -5\\hat{j}\\text{ m/s}$\n"
+        "   - Length of the train: $L = 210\\text{ m}$\n"
+        "2. **Relative Velocity Formulation**:\n"
+        "   The velocity of the bird relative to the train is:\n"
+        "   $$\\vec{v}_{BT} = \\vec{v}_B - \\vec{v}_T = (-5\\hat{j}) - (+25\\hat{j}) = -30\\hat{j}\\text{ m/s}$$\n"
+        "   The magnitude of the relative speed is $v_{\\text{rel}} = 30\\text{ m/s}$.\n"
+        "3. **Time to Cross the Train**:\n"
+        "   To completely cross the train from front to back (or back to front), the relative distance to be traversed is the length of the train:\n"
+        "   $$t = \\frac{L}{v_{\\text{rel}}} = \\frac{210\\text{ m}}{30\\text{ m/s}} = 7\\text{ s}$$\n"
+        "4. **Conclusion**:\n"
+        "   The time taken by the bird to cross the train is **$7\\text{ s}$**, confirming Option **(B)**."
+    ),
+
+    "PW_PHY_MOTION1D_065": (
+        "**Concept**: Kinematics $\\rightarrow$ Velocity from Parametric Time-Position Relation\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **Given Relation**:\n"
+        "   $$t = \\sqrt{x} + 3$$\n"
+        "   Expressing position $x$ as an explicit function of time $t$:\n"
+        "   $$\\sqrt{x} = t - 3 \\implies x = (t - 3)^2 = t^2 - 6t + 9$$\n"
+        "2. **Finding Velocity via Differentiation**:\n"
+        "   Differentiating position with respect to time:\n"
+        "   $$v(t) = \\frac{dx}{dt} = \\frac{d}{dt}(t^2 - 6t + 9) = 2t - 6$$\n"
+        "3. **Evaluation at $t = 6\\text{ s}$**:\n"
+        "   $$v(6) = 2(6) - 6 = 12 - 6 = 6\\text{ m/s}$$\n"
+        "4. **Conclusion**:\n"
+        "   The speed of the particle after $6\\text{ seconds}$ is **$6\\text{ m/s}$**, confirming Option **(C)**."
+    ),
+
+    "PW_PHY_MOTION1D_066": (
+        "**Concept**: Kinematics $\\rightarrow$ Velocity-Time ($v-t$) Graphs and Kinematic Signs\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **Fundamental Graphical Principles**:\n"
+        "   - The sign of velocity $v$ corresponds to whether the curve lies above the time axis ($v > 0$) or below the time axis ($v < 0$).\n"
+        "   - The acceleration $a$ is the slope of the velocity-time graph: $a = \\frac{dv}{dt}$. A positive slope means $a > 0$, while a negative slope means $a < 0$.\n"
+        "2. **Evaluation of Each Curve in Column I**:\n"
+        "   - **Curve (A)**: Lies entirely in the upper half ($v > 0$, statement S) with a downward/negative slope ($a = \\frac{dv}{dt} < 0$, statement Q). Hence, **(A) $\\to$ Q, S**.\n"
+        "   - **Curve (B)**: Lies in the upper half ($v > 0$, statement S) with an upward/positive slope ($a = \\frac{dv}{dt} > 0$, statement P). Hence, **(B) $\\to$ P, S**.\n"
+        "   - **Curve (C)**: Lies in the lower half ($v < 0$, statement T) with speed decreasing towards zero or negative slope (retardation, statement R). Hence, **(C) $\\to$ R, T**.\n"
+        "   - **Curve (D)**: Lies in the lower half ($v < 0$, statement T) with an upward/positive slope ($a = \\frac{dv}{dt} > 0$, statement P). Hence, **(D) $\\to$ P, T**.\n"
+        "3. **Conclusion**:\n"
+        "   The matching code is **(A)-Q,S; (B)-P,S; (C)-R,T; (D)-P,T**, confirming Option **(A)**."
+    ),
+
+    "PW_PHY_MOTION1D_067": (
+        "**Concept**: Kinematics $\\rightarrow$ Average Velocity vs Average Speed\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **Definitions of Average Velocity and Average Speed**:\n"
+        "   - Average velocity magnitude: $|\\vec{v}_{\\text{avg}}| = \\frac{|\\Delta \\vec{r}|}{\\Delta t}$, where $|\\Delta \\vec{r}|$ is the magnitude of net displacement.\n"
+        "   - Average speed: $\\text{speed}_{\\text{avg}} = \\frac{s}{\\Delta t}$, where $s$ is the total path length (distance covered).\n"
+        "2. **Relationship Between Distance and Displacement**:\n"
+        "   In general, for any arbitrary motion:\n"
+        "   $$s \\ge |\\Delta \\vec{r}| \\implies \\text{speed}_{\\text{avg}} \\ge |\\vec{v}_{\\text{avg}}|$$\n"
+        "3. **Condition for Strict Equality**:\n"
+        "   The distance equals the magnitude of displacement ($s = |\\Delta \\vec{r}|$) if and only if the particle moves in a straight line along the same direction without reversing:\n"
+        "   $$|\\vec{v}_{\\text{avg}}| = \\text{speed}_{\\text{avg}} \\iff \\text{motion along a straight line in the same direction}$$\n"
+        "4. **Conclusion**:\n"
+        "   The magnitude of average velocity is equal to average speed when moving **in the same direction**, confirming Option **(B)**."
+    ),
+
+    "PW_PHY_MOTION1D_068": (
+        "**Concept**: Kinematics $\\rightarrow$ Relative Motion and Free Fall from an Accelerating Car\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **Motion of the Car**:\n"
+        "   The car starts from rest ($u = 0$) with uniform acceleration $a = 2\\text{ m/s}^2$ along the horizontal $x$-axis.\n"
+        "   At any time $t$, the position and horizontal velocity of the car are:\n"
+        "   $$x(t) = \\frac{1}{2}at^2 = \\frac{1}{2}(2)t^2 = t^2$$\n"
+        "   $$v(t) = at = 2t$$\n"
+        "2. **Release and Landing of Coin 1 ($t = 3\\text{ s}$)**:\n"
+        "   - Car position at release: $x_1(3) = 3^2 = 9\\text{ m}$\n"
+        "   - Horizontal velocity imparted to Coin 1: $v_{x1} = 2(3) = 6\\text{ m/s}$\n"
+        "   - In horizontal direction, no force acts during the free fall time $t_{\\text{fall}} = 1\\text{ s}$:\n"
+        "   $$\\Delta x_1 = v_{x1} \\times t_{\\text{fall}} = 6\\text{ m/s} \\times 1\\text{ s} = 6\\text{ m}$$\n"
+        "   - Total position where Coin 1 lands and sticks: $X_1 = x_1(3) + \\Delta x_1 = 9 + 6 = 15\\text{ m}$\n"
+        "3. **Release and Landing of Coin 2 ($t = 4\\text{ s}$)**:\n"
+        "   - Car position at release: $x_2(4) = 4^2 = 16\\text{ m}$\n"
+        "   - Horizontal velocity imparted to Coin 2: $v_{x2} = 2(4) = 8\\text{ m/s}$\n"
+        "   - Horizontal distance traveled during fall $t_{\\text{fall}} = 1\\text{ s}$:\n"
+        "   $$\\Delta x_2 = v_{x2} \\times t_{\\text{fall}} = 8\\text{ m/s} \\times 1\\text{ s} = 8\\text{ m}$$\n"
+        "   - Total position where Coin 2 lands and sticks: $X_2 = x_2(4) + \\Delta x_2 = 16 + 8 = 24\\text{ m}$\n"
+        "4. **Distance Between the Two Coins on the Ground**:\n"
+        "   $$D = X_2 - X_1 = 24\\text{ m} - 15\\text{ m} = 9\\text{ m}$$\n"
+        "5. **Conclusion**:\n"
+        "   The distance between the two coins on the ground is **$9\\text{ m}$**, confirming Option **(D)**."
+    ),
+
+    "PW_PHY_MOTION1D_069": (
+        "**Concept**: Kinematics $\\rightarrow$ Average Velocity in Uniformly Accelerated Motion\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **Analysis of Statement-I**:\n"
+        "   - Statement-I claims: *'A particle moves in a straight line with constant acceleration. The average velocity of this particle cannot be zero in any time interval.'*\n"
+        "   - Consider a particle projected vertically upwards with initial velocity $u$ under constant acceleration due to gravity $a = -g$.\n"
+        "   - After a time interval $T = \\frac{2u}{g}$, the particle returns to its starting point, so net displacement $\\Delta x = 0$.\n"
+        "   - The average velocity is $v_{\\text{avg}} = \\frac{\\Delta x}{T} = \\frac{0}{T} = 0$.\n"
+        "   - Therefore, the average velocity CAN indeed be zero in a finite time interval. Thus, **Statement-I is FALSE**.\n"
+        "2. **Analysis of Statement-II**:\n"
+        "   - Statement-II claims: *'For a particle moving in a straight line with constant acceleration, the average velocity in a time interval is $\\frac{u+v}{2}$, where $u$ and $v$ are initial and final velocities.'*\n"
+        "   - In uniformly accelerated rectilinear motion, displacement is given by:\n"
+        "   $$s = ut + \\frac{1}{2}at^2$$\n"
+        "   - Using $at = v - u$, we substitute:\n"
+        "   $$s = ut + \\frac{1}{2}(v - u)t = \\left(u + \\frac{v-u}{2}\\right)t = \\left(\\frac{u+v}{2}\\right)t$$\n"
+        "   - Thus, average velocity is:\n"
+        "   $$v_{\\text{avg}} = \\frac{s}{t} = \\frac{u+v}{2}$$\n"
+        "   - Therefore, **Statement-II is TRUE**.\n"
+        "3. **Conclusion**:\n"
+        "   Statement-1 is false, Statement-2 is true, confirming Option **(D)**."
+    ),
+
+    "PW_PHY_MOTION1D_070": (
+        "**Concept**: Kinematics $\\rightarrow$ Speed vs Velocity Vectors\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **Definitions of Scalar Speed and Vector Velocity**:\n"
+        "   - Speed $v = |\\vec{v}|$ is a scalar quantity representing the magnitude of the velocity vector.\n"
+        "   - Velocity $\\vec{v} = v\\,\\hat{u}$ is a vector possessing both magnitude and direction.\n"
+        "2. **Implications of Constant Speed**:\n"
+        "   - If speed $v$ is constant, the magnitude $|\\vec{v}|$ remains invariant.\n"
+        "   - However, the direction of motion $\\hat{u}$ may change continuously with time (such as in uniform circular motion or motion along any curved trajectory).\n"
+        "   - Whenever the direction changes, $\\frac{d\\vec{v}}{dt} \\neq 0$, meaning the velocity varies even though speed is constant.\n"
+        "   - If the motion happens to be along a straight line in an unchanging direction, velocity is constant.\n"
+        "3. **Conclusion**:\n"
+        "   When an object moves with constant speed, its velocity **may be variable** (if direction changes), confirming Option **(A)**."
+    ),
+
+    "PW_PHY_MOTION1D_071": (
+        "**Concept**: Kinematics $\\rightarrow$ Relationships Between Speed and Velocity Measures\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **Evaluation of Statement I**:\n"
+        "   *Instantaneous velocity magnitude = instantaneous speed.* \n"
+        "   By calculus definition, instantaneous velocity is $\\vec{v} = \\lim_{\\Delta t \\to 0} \\frac{\\Delta \\vec{r}}{\\Delta t} = \\frac{d\\vec{r}}{dt}$. Its magnitude is $|\\vec{v}| = \\left|\\frac{d\\vec{r}}{dt}\\right| = \\frac{ds}{dt} = v_{\\text{inst}}$. Hence, Statement I is **CORRECT**.\n"
+        "2. **Evaluation of Statement II**:\n"
+        "   *Average velocity magnitude = average speed.* \n"
+        "   Average velocity magnitude is $|\\vec{v}_{\\text{avg}}| = \\frac{|\\Delta \\vec{r}|}{\\Delta t}$, while average speed is $\\frac{\\text{total distance}}{\\Delta t}$. Since total distance $\\ge |\\Delta \\vec{r}|$, in any motion with change of direction $|\\vec{v}_{\\text{avg}}| < \\text{speed}_{\\text{avg}}$. Hence, asserting they are always equal is **INCORRECT**.\n"
+        "3. **Evaluation of Statement III**:\n"
+        "   *Speed never zero but average speed zero.* \n"
+        "   If the instantaneous speed $v(t) > 0$ for all instants during a time interval, the total distance traversed is strictly positive ($s = \\int v(t)\\,dt > 0$). Therefore, the average speed $s/\\Delta t > 0$ and can never be zero. Hence, Statement III is **INCORRECT**.\n"
+        "4. **Evaluation of Statement IV**:\n"
+        "   *Speed zero but average speed not zero.* \n"
+        "   A particle can come to rest momentarily at an instant (e.g. at the apex of vertical projectile flight where $v = 0$), while over the complete round-trip interval the total distance is positive, so average speed is non-zero. Hence, Statement IV is a physically valid/correct statement.\n"
+        "5. **Conclusion**:\n"
+        "   The incorrect statements are **II and III**, confirming Option **(C)**."
+    ),
+
+    "PW_PHY_MOTION1D_072": (
+        "**Concept**: Kinematics $\\rightarrow$ Stopping Distance Under Uniform Retardation\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **Governing Equation for Stopping Distance**:\n"
+        "   From the third equation of motion:\n"
+        "   $$v^2 = u^2 - 2as$$\n"
+        "   When a vehicle comes to a complete halt, its final velocity is $v = 0$:\n"
+        "   $$0 = u^2 - 2as \\implies s = \\frac{u^2}{2a}$$\n"
+        "2. **Proportionality Analysis**:\n"
+        "   Since both cars are identical and subjected to the same braking retardation $a$:\n"
+        "   $$s \\propto u^2$$\n"
+        "3. **Ratio Calculation**:\n"
+        "   Given initial speeds $u_1 = u$ and $u_2 = 4u$:\n"
+        "   $$\\frac{s_1}{s_2} = \\left(\\frac{u_1}{u_2}\\right)^2 = \\left(\\frac{u}{4u}\\right)^2 = \\left(\\frac{1}{4}\\right)^2 = \\frac{1}{16}$$\n"
+        "4. **Conclusion**:\n"
+        "   The ratio of their stopping distances is **$1 : 16$**, confirming Option **(D)**."
+    ),
+
+    "PW_PHY_MOTION1D_073": (
+        "**Concept**: Kinematics $\\rightarrow$ Vertical Motion Under Gravity from a Elevated Platform\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **Motion of Stone 1 (Thrown Upward at $t = 0$)**:\n"
+        "   - Initial velocity: $u_1 = +20\\text{ m/s}$ (upward).\n"
+        "   - Time to reach highest point: $t_{\\text{top}} = \\frac{u_1}{g} = \\frac{20}{10} = 2\\text{ s}$.\n"
+        "   - Time to return to terrace level: $t_{\\text{return}} = 2 \\times t_{\\text{top}} = 4\\text{ s}$.\n"
+        "   - At $t = 4\\text{ s}$, Stone 1 passes the terrace level moving downwards with velocity $v = -20\\text{ m/s}$.\n"
+        "2. **Motion of Stone 2 (Thrown Downward at $t = 2\\text{ s}$)**:\n"
+        "   - Released from the terrace at $t = 2\\text{ s}$ with downward velocity $v = -20\\text{ m/s}$.\n"
+        "3. **Comparison of Flight Paths Below Terrace Level**:\n"
+        "   - Stone 2 starts its downward journey from the terrace with speed $20\\text{ m/s}$ at $t = 2\\text{ s}$.\n"
+        "   - Stone 1 reaches the exact same position (terrace) with the exact same downward speed ($20\\text{ m/s}$) at $t = 4\\text{ s}$.\n"
+        "   - From the terrace down to the ground, both stones undergo identical trajectories under gravity.\n"
+        "   - Therefore, Stone 1 hits the ground exactly $4\\text{ s} - 2\\text{ s} = 2\\text{ seconds}$ after Stone 2.\n"
+        "4. **Evaluation of Options**:\n"
+        "   - Statement A is correct: $a_{\\text{rel}} = g - g = 0$, so relative velocity remains constant.\n"
+        "   - Statement B is correct: By energy conservation, both hit the ground with speed $v = \\sqrt{u^2 + 2gH}$, so kinetic energies are identical.\n"
+        "   - Statement C states the time interval is 4 seconds, which is **FALSE** (the correct interval is 2 seconds).\n"
+        "   - Statement D is correct: Elastic collision preserves speed upon rebound, rising to same height.\n"
+        "5. **Conclusion**:\n"
+        "   The incorrect statement is Option **(C)**."
+    ),
+
+    "PW_PHY_MOTION1D_074": (
+        "**Concept**: Kinematics $\\rightarrow$ Average Velocity from Velocity-Time ($v-t$) Graph\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **Displacement as Area Under $v-t$ Graph**:\n"
+        "   Net displacement $\\Delta x$ during a time interval $[0, T]$ is the algebraic sum of areas between the $v-t$ curve and the time axis:\n"
+        "   $$\\Delta x = \\int_0^T v(t)\\,dt = \\text{Area}_{(+)} - \\text{Area}_{(-)}$$\n"
+        "2. **Evaluation of Areas from $t = 0$ to $t = 10\\text{ s}$**:\n"
+        "   - For the interval $t \\in [0, 5\\text{ s}]$, velocity is positive, forming a triangle above the axis:\n"
+        "     $$\\text{Area}_{(+)} = \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2} \\times 5 \\times (+10) = +25\\text{ m}$$\n"
+        "   - For the interval $t \\in [5, 10\\text{ s}]$, velocity is negative, forming a symmetric triangle below the axis:\n"
+        "     $$\\text{Area}_{(-)} = \\frac{1}{2} \\times \\text{base} \\times |\\text{height}| = \\frac{1}{2} \\times 5 \\times 10 = 25\\text{ m}$$\n"
+        "3. **Net Displacement & Average Velocity**:\n"
+        "   $$\\Delta x = +25\\text{ m} - 25\\text{ m} = 0\\text{ m}$$\n"
+        "   $$v_{\\text{avg}} = \\frac{\\Delta x}{\\Delta t} = \\frac{0\\text{ m}}{10\\text{ s}} = 0\\text{ m/s}$$\n"
+        "4. **Conclusion**:\n"
+        "   The average velocity during the first $10\\text{ seconds}$ is **$0\\text{ m/s}$**, confirming Option **(A)**."
+    ),
+
+    "PW_PHY_MOTION1D_075": (
+        "**Concept**: Kinematics $\\rightarrow$ Acceleration from Position Function\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **Given Position Function**:\n"
+        "   $$x(t) = 12 + 18t + 9t^2\\text{ metres}$$\n"
+        "2. **First Derivative (Velocity)**:\n"
+        "   $$v(t) = \\frac{dx}{dt} = \\frac{d}{dt}(12 + 18t + 9t^2) = 18 + 18t\\text{ m/s}$$\n"
+        "3. **Second Derivative (Acceleration)**:\n"
+        "   $$a(t) = \\frac{dv}{dt} = \\frac{d}{dt}(18 + 18t) = 18\\text{ m/s}^2$$\n"
+        "4. **Evaluation at $t = 5\\text{ s}$**:\n"
+        "   Since the acceleration is time-independent (constant uniform acceleration):\n"
+        "   $$a(5) = 18\\text{ m/s}^2$$\n"
+        "5. **Conclusion**:\n"
+        "   The acceleration at $t = 5\\text{ s}$ is **$18\\text{ ms}^{-2}$**, confirming Option **(C)**."
+    ),
+
+    "PW_PHY_MOTION1D_076": (
+        "**Concept**: Kinematics $\\rightarrow$ Concept of Motion and Frame of Reference (NCERT)\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **Physical Understanding of Motion**:\n"
+        "   - Motion is defined as the change in position of an object over time with respect to a chosen frame of reference.\n"
+        "   - In the biological example (lungs breathing, blood circulating during sleep), internal parts of our body undergo continuous displacement with respect to the body frame.\n"
+        "2. **Evaluation of the Statements**:\n"
+        "   - **Statement I**: *'Motion is absolute and independent of the observer.'* \n"
+        "     According to classical mechanics and Einstein's relativity, there is no absolute rest or absolute motion in the universe. Motion is inherently relative to the observer's frame of reference. Hence, Statement I is FALSE.\n"
+        "   - **Statement II**: *'Motion is change in position of an object with time.'* \n"
+        "     This is the precise, formal scientific definition of motion. Hence, Statement II is TRUE.\n"
+        "   - **Statement III**: *'Motion is relative and depends upon the chosen frame of reference.'* \n"
+        "     An object at rest in one frame (e.g. a sleeping person in a room) is in motion with respect to another frame (e.g. the Sun or a moving satellite). Hence, Statement III is TRUE.\n"
+        "3. **Conclusion**:\n"
+        "   Both statements II and III are physically correct, confirming Option **(C)**."
+    ),
+
+    "PW_PHY_MOTION1D_077": (
+        "**Concept**: Kinematics $\\rightarrow$ Analysis of Non-linear Trajectory $x(t) = t - \\sin(t)$\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **Position Analysis ($x(t)$)**:\n"
+        "   $$x(t) = t - \\sin t$$\n"
+        "   For any $t > 0$, by the standard trigonometric inequality, $\\sin t < t$ for all real $t > 0$.\n"
+        "   Therefore:\n"
+        "   $$x(t) = t - \\sin t > 0 \\quad \\forall \\; t > 0$$\n"
+        "   Thus, statement A is strictly TRUE.\n"
+        "2. **Velocity Analysis ($v(t)$)**:\n"
+        "   $$v(t) = \\frac{dx}{dt} = 1 - \\cos t$$\n"
+        "   Since $\\cos t \\in [-1, 1]$, $v(t) \\in [0, 2]$.\n"
+        "   At $t = 2n\\pi$ ($n = 1, 2, \\dots$), $\\cos(2n\\pi) = 1 \\implies v = 0$.\n"
+        "   Since velocity touches zero at periodic points, $v(t) > 0$ is not strictly true for all $t > 0$. Thus, statement B is false.\n"
+        "3. **Acceleration Analysis ($a(t)$)**:\n"
+        "   $$a(t) = \\frac{dv}{dt} = \\sin t$$\n"
+        "   $\\sin t$ takes negative values in intervals $( (2n-1)\\pi, 2n\\pi )$, so $a(t)$ is not always positive. Thus, statement C is false.\n"
+        "4. **Conclusion**:\n"
+        "   Only **$x(t) > 0$ for all $t > 0$** is correct, confirming Option **(A)**."
+    ),
+
+    "PW_PHY_MOTION1D_078": (
+        "**Concept**: Kinematics $\\rightarrow$ Maximum Height in Vertical Motion Under Gravity\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **Given Parameters**:\n"
+        "   - Initial velocity: $u = 10\\text{ m/s}$ (upward)\n"
+        "   - Acceleration due to gravity: $g = 10\\text{ m/s}^2$ (downward, $a = -g$)\n"
+        "   - Velocity at the highest point: $v = 0$\n"
+        "2. **Governing Equation**:\n"
+        "   Using the third kinematic formula:\n"
+        "   $$v^2 = u^2 - 2gH_{\\text{max}}$$\n"
+        "   $$0 = (10)^2 - 2(10)H_{\\text{max}} \\implies 20 H_{\\text{max}} = 100$$\n"
+        "   $$H_{\\text{max}} = \\frac{100}{20} = 5\\text{ m}$$\n"
+        "3. **Conclusion**:\n"
+        "   The height travelled by the body is **$5\\text{ m}$**, confirming Option **(A)**."
+    ),
+
+    "PW_PHY_MOTION1D_079": (
+        "**Concept**: Kinematics $\\rightarrow$ Motion Under Gravity from a Height\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **Coordinate Setup & Kinematic Values**:\n"
+        "   Let the downward direction be taken as positive.\n"
+        "   - Initial velocity at the top of the tower: $u_0 = -u$ (projected upward)\n"
+        "   - Final velocity upon striking the ground: $v = +4u$ (downward)\n"
+        "   - Acceleration: $a = +g$ (downward)\n"
+        "   - Net downward displacement: $s = +H$ (height of the tower)\n"
+        "2. **Applying the Third Equation of Motion**:\n"
+        "   $$v^2 = u_0^2 + 2as$$\n"
+        "   $$(4u)^2 = (-u)^2 + 2gH$$\n"
+        "   $$16u^2 = u^2 + 2gH$$\n"
+        "3. **Solving for Height $H$**:\n"
+        "   $$2gH = 16u^2 - u^2 = 15u^2$$\n"
+        "   $$H = \\frac{15u^2}{2g}$$\n"
+        "4. **Conclusion**:\n"
+        "   The height of the tower is **$\\frac{15u^2}{2g}$**, confirming Option **(A)**."
+    ),
+
+    "PW_PHY_MOTION1D_080": (
+        "**Concept**: Kinematics $\\rightarrow$ Velocity by Integration of Time-Dependent Acceleration\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **Differential Relation**:\n"
+        "   $$a(t) = \\frac{dv}{dt} = 3t^2 + 2t + 2$$\n"
+        "   $$dv = (3t^2 + 2t + 2)\\,dt$$\n"
+        "2. **Integration with Boundary Conditions**:\n"
+        "   At $t = 0$, $v = u = 2\\text{ m/s}$. We seek $v$ at $t = 2\\text{ s}$:\n"
+        "   $$\\int_2^v dv = \\int_0^2 (3t^2 + 2t + 2)\\,dt$$\n"
+        "   $$v - 2 = \\left[ \\frac{3t^3}{3} + \\frac{2t^2}{2} + 2t \\right]_0^2 = \\left[ t^3 + t^2 + 2t \\right]_0^2$$\n"
+        "3. **Evaluating the Definite Integral**:\n"
+        "   $$v - 2 = (2^3 + 2^2 + 2(2)) - 0 = (8 + 4 + 4) = 16$$\n"
+        "   $$v = 16 + 2 = 18\\text{ m/s}$$\n"
+        "4. **Conclusion**:\n"
+        "   The velocity of the particle at the end of $2\\text{ s}$ is **$18\\text{ m/s}$**, confirming Option **(B)**."
+    ),
+
+    "PW_PHY_MOTION1D_081": (
+        "**Concept**: Kinematics $\\rightarrow$ Relative Motion of Two Moving Trains\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **Given Data**:\n"
+        "   - Passenger train: length $L_1 = 60\\text{ m}$, speed $v_1 = 80\\text{ km/h}$\n"
+        "   - Freight train: length $L_2 = 120\\text{ m}$, speed $v_2 = 30\\text{ km/h}$\n"
+        "   - Total distance required for complete crossing in either case:\n"
+        "     $$d = L_1 + L_2 = 60\\text{ m} + 120\\text{ m} = 180\\text{ m}$$\n"
+        "2. **Case (i): Moving in the Same Direction**:\n"
+        "   Relative speed of the passenger train with respect to the freight train:\n"
+        "   $$v_{\\text{rel, same}} = v_1 - v_2 = 80 - 30 = 50\\text{ km/h}$$\n"
+        "   Time taken to cross: $t_1 = \\frac{d}{v_{\\text{rel, same}}} = \\frac{180}{50}$\n"
+        "3. **Case (ii): Moving in Opposite Directions**:\n"
+        "   Relative speed of approach:\n"
+        "   $$v_{\\text{rel, opp}} = v_1 + v_2 = 80 + 30 = 110\\text{ km/h}$$\n"
+        "   Time taken to cross: $t_2 = \\frac{d}{v_{\\text{rel, opp}}} = \\frac{180}{110}$\n"
+        "4. **Ratio of Crossing Times**:\n"
+        "   $$\\frac{t_1}{t_2} = \\frac{d / v_{\\text{rel, same}}}{d / v_{\\text{rel, opp}}} = \\frac{v_{\\text{rel, opp}}}{v_{\\text{rel, same}}} = \\frac{110\\text{ km/h}}{50\\text{ km/h}} = \\frac{11}{5}$$\n"
+        "5. **Conclusion**:\n"
+        "   The ratio of times taken is **$\\frac{11}{5}$**, confirming Option **(C)**."
+    ),
+
+    "PW_PHY_MOTION1D_082": (
+        "**Concept**: Kinematics $\\rightarrow$ Chasing and Overtaking with Accelerated Motion\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **Coordinate Formulation**:\n"
+        "   Let the starting position of the cyclist be $x = 0$ at $t = 0$.\n"
+        "   - The cyclist moves with constant speed $v_c = 20\\text{ m/s}$:\n"
+        "     $$x_c(t) = 20t$$\n"
+        "   - The bus starts from rest ($u_b = 0$) at $x = 96\\text{ m}$ with acceleration $a_b = 2\\text{ m/s}^2$:\n"
+        "     $$x_b(t) = 96 + \\frac{1}{2}a_b t^2 = 96 + \\frac{1}{2}(2)t^2 = 96 + t^2$$\n"
+        "2. **Overtaking Condition**:\n"
+        "   For the cyclist to overtake the bus, their positions must coincide:\n"
+        "   $$x_c(t) = x_b(t) \\implies 20t = 96 + t^2$$\n"
+        "   $$t^2 - 20t + 96 = 0$$\n"
+        "3. **Solving the Quadratic Equation**:\n"
+        "   $$(t - 8)(t - 12) = 0$$\n"
+        "   The roots are $t = 8\\text{ s}$ and $t = 12\\text{ s}$.\n"
+        "   The cyclist first catches up with and overtakes the bus at the earlier time $t = 8\\text{ s}$ (at $t = 12\\text{ s}$, the accelerating bus catches up with the cyclist again).\n"
+        "4. **Conclusion**:\n"
+        "   The cyclist overtakes the bus after **$8\\text{ s}$**, confirming Option **(A)**."
+    ),
+
+    "PW_PHY_MOTION1D_083": (
+        "**Concept**: Kinematics $\\rightarrow$ Crossing of Trains Moving in Opposite Directions\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **Given Data**:\n"
+        "   - Length of train A (longer train): $L_A = 100\\text{ m}$\n"
+        "   - Length of train B (shorter train): $L_B = 60\\text{ m}$\n"
+        "   - Speed relation: $v_B = 3 v_A$\n"
+        "   - Time to cross each other: $t = 4\\text{ s}$\n"
+        "2. **Relative Motion Formulation**:\n"
+        "   Moving in opposite directions on parallel tracks, their relative speed of crossing is:\n"
+        "   $$v_{\\text{rel}} = v_A + v_B = v_A + 3v_A = 4v_A$$\n"
+        "3. **Total Relative Distance**:\n"
+        "   $$L = L_A + L_B = 100\\text{ m} + 60\\text{ m} = 160\\text{ m}$$\n"
+        "4. **Solving for Velocities**:\n"
+        "   $$t = \\frac{L}{v_{\\text{rel}}} \\implies 4 = \\frac{160}{4v_A}$$\n"
+        "   $$16 v_A = 160 \\implies v_A = 10\\text{ m/s}$$\n"
+        "   $$v_B = 3 v_A = 3 \\times 10 = 30\\text{ m/s}$$\n"
+        "5. **Conclusion**:\n"
+        "   The velocities of the trains are **$v_A = 10\\text{ ms}^{-1}, v_B = 30\\text{ ms}^{-1}$**, confirming Option **(A)**."
+    ),
+
+    "PW_PHY_MOTION1D_084": (
+        "**Concept**: Kinematics $\\rightarrow$ Average Speed for Equal Distance Segments\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **Defining Path Halves**:\n"
+        "   Let total distance between the two places be $2d$.\n"
+        "   - First half distance $d$ is covered at speed $v_1 = 30\\text{ km/h}$.\n"
+        "     Time taken: $t_1 = \\frac{d}{v_1} = \\frac{d}{30}$\n"
+        "   - Second half distance $d$ is covered at speed $v_2 = 50\\text{ km/h}$.\n"
+        "     Time taken: $t_2 = \\frac{d}{v_2} = \\frac{d}{50}$\n"
+        "2. **Total Time & Average Speed**:\n"
+        "   $$t_{\\text{total}} = t_1 + t_2 = d\\left(\\frac{1}{30} + \\frac{1}{50}\\right) = d\\left(\\frac{50 + 30}{1500}\\right) = \\frac{80d}{1500} = \\frac{8d}{150}$$\n"
+        "   $$v_{\\text{avg}} = \\frac{\\text{Total Distance}}{\\text{Total Time}} = \\frac{2d}{\\frac{8d}{150}} = \\frac{2 \\times 150}{8} = \\frac{300}{8} = 37.5\\text{ km/h}$$\n"
+        "   (Alternatively, using the standard harmonic mean formula: $v_{\\text{avg}} = \\frac{2v_1 v_2}{v_1 + v_2} = \\frac{2(30)(50)}{30 + 50} = \\frac{3000}{80} = 37.5\\text{ km/h}$).\n"
+        "3. **Conclusion**:\n"
+        "   The average speed of the car for the whole journey is **$37.5\\text{ km/hr}$**, confirming Option **(C)**."
+    ),
+
+    "PW_PHY_MOTION1D_085": (
+        "**Concept**: Kinematics $\\rightarrow$ Relative Motion of Opposite Moving Trains\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **Given Parameters**:\n"
+        "   - Length of each train: $L_1 = 50\\text{ m}$, $L_2 = 50\\text{ m}$\n"
+        "   - Speeds: $v_1 = 10\\text{ m/s}$, $v_2 = 15\\text{ m/s}$\n"
+        "2. **Relative Speed**:\n"
+        "   Because they move parallel towards each other (opposite directions):\n"
+        "   $$v_{\\text{rel}} = v_1 + v_2 = 10 + 15 = 25\\text{ m/s}$$\n"
+        "3. **Total Relative Distance**:\n"
+        "   To completely pass each other, the relative displacement required is the sum of their lengths:\n"
+        "   $$L = L_1 + L_2 = 50 + 50 = 100\\text{ m}$$\n"
+        "4. **Time of Crossing**:\n"
+        "   $$t = \\frac{L}{v_{\\text{rel}}} = \\frac{100\\text{ m}}{25\\text{ m/s}} = 4\\text{ s}$$\n"
+        "5. **Conclusion**:\n"
+        "   The time they will take to pass each other is **$4\\text{ s}$**, confirming Option **(B)**."
+    ),
+
+    "PW_PHY_MOTION1D_086": (
+        "**Concept**: Kinematics $\\rightarrow$ Curvature and Acceleration in Displacement-Time ($x-t$) Graphs\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **Differential Formulation of Acceleration from $x-t$ Graph**:\n"
+        "   - Velocity is the first derivative: $v = \\frac{dx}{dt}$ (slope of tangent).\n"
+        "   - Acceleration is the second derivative: $a = \\frac{d^2x}{dt^2}$ (concavity/curvature).\n"
+        "   - Concave downward ($\\cap$): $\\frac{d^2x}{dt^2} < 0 \\implies a < 0$ (negative, $-$).\n"
+        "   - Straight line: $\\frac{dx}{dt} = \\text{constant} \\implies \\frac{d^2x}{dt^2} = 0 \\implies a = 0$.\n"
+        "   - Concave upward ($\\cup$): $\\frac{d^2x}{dt^2} > 0 \\implies a > 0$ (positive, $+$).\n"
+        "2. **Interval-by-Interval Analysis**:\n"
+        "   - **Interval OA**: Curve is concave downward, slope decreases with time $\\implies a < 0$ ($-$).\n"
+        "   - **Interval AB**: Curve is an inclined straight line, constant velocity $\\implies a = 0$.\n"
+        "   - **Interval BC**: Curve is concave upward, slope increases with time $\\implies a > 0$ ($+$).\n"
+        "   - **Interval CD**: Straight line parallel to time axis (object at rest) $\\implies a = 0$.\n"
+        "3. **Conclusion**:\n"
+        "   The acceleration sequence during intervals OA, AB, BC, CD is **$- \\; 0 \\; + \\; 0$**, confirming Option **(B)**."
+    ),
+
+    "PW_PHY_MOTION1D_087": (
+        "**Concept**: Kinematics $\\rightarrow$ Vertical Motion Under Gravity from a Multi-Storey Building\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **Given Data**:\n"
+        "   - Height of building: $h = 25\\text{ m}$\n"
+        "   - Initial velocity of the ball: $u = 40\\text{ m/s}$ (vertically upwards)\n"
+        "   - Acceleration due to gravity: $g = 10\\text{ m/s}^2$ (downwards)\n"
+        "2. **Calculating Rise Above the Point of Projection**:\n"
+        "   At the apex of its upward flight, vertical velocity becomes zero ($v = 0$):\n"
+        "   $$v^2 = u^2 - 2gH$$\n"
+        "   $$0 = (40)^2 - 2(10)H \\implies 20H = 1600$$\n"
+        "   $$H = \\frac{1600}{20} = 80\\text{ m}$$\n"
+        "3. **Physical Interpretation**:\n"
+        "   The ball rises $80\\text{ m}$ above the top of the building (reaching an overall height of $80 + 25 = 105\\text{ m}$ above the ground).\n"
+        "4. **Conclusion**:\n"
+        "   The height the ball will rise above the roof is **$80\\text{ m}$**, confirming Option **(B)**."
+    ),
+
+    "PW_PHY_MOTION1D_088": (
+        "**Concept**: Kinematics $\\rightarrow$ Acceleration from Velocity-Position ($v-x$) Graph\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **Differential Relation**:\n"
+        "   Acceleration in one dimension is defined by:\n"
+        "   $$a = \\frac{dv}{dt} = \\frac{dv}{dx} \\frac{dx}{dt} = v \\frac{dv}{dx}$$\n"
+        "2. **Given Values**:\n"
+        "   - Velocity of the particle: $v = 15\\text{ units}$\n"
+        "   - Slope of the $v-x$ graph: $\\frac{dv}{dx} = 15\\text{ units}$\n"
+        "3. **Computation of Acceleration**:\n"
+        "   $$a = v \\left(\\frac{dv}{dx}\\right) = 15 \\times 15 = 225\\text{ units}$$\n"
+        "4. **Conclusion**:\n"
+        "   The acceleration of the particle at that position is **$225\\text{ units}$**, confirming Option **(C)**."
+    ),
+
+    "PW_PHY_MOTION1D_089": (
+        "**Concept**: Kinematics $\\rightarrow$ Relative Motion of Crossing Trains\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **Given Data**:\n"
+        "   - Length of Train 1: $L_1 = 50\\text{ m}$\n"
+        "   - Length of Train 2: $L_2 = 50\\text{ m}$\n"
+        "   - Velocities: $v_1 = 10\\text{ m/s}$, $v_2 = 15\\text{ m/s}$ (in opposite directions)\n"
+        "2. **Relative Velocity of Crossing**:\n"
+        "   $$v_{\\text{rel}} = v_1 + v_2 = 10 + 15 = 25\\text{ m/s}$$\n"
+        "3. **Total Relative Distance**:\n"
+        "   $$L = L_1 + L_2 = 50 + 50 = 100\\text{ m}$$\n"
+        "4. **Time of Crossing**:\n"
+        "   $$t = \\frac{L}{v_{\\text{rel}}} = \\frac{100\\text{ m}}{25\\text{ m/s}} = 4\\text{ s}$$\n"
+        "5. **Conclusion**:\n"
+        "   The time of crossing is **$4\\text{ s}$**, confirming Option **(B)**."
+    ),
+
+    "PW_PHY_MOTION1D_090": (
+        "**Concept**: Kinematics $\\rightarrow$ Galileo's Law of Odd Numbers for Free Fall\n\n"
+        "**Step-by-Step Mathematical Derivation**:\n"
+        "1. **Galileo's Law of Odd Numbers**:\n"
+        "   For a body falling freely from rest under uniform gravity ($u = 0, a = g$):\n"
+        "   The distances covered in equal successive intervals of time ($T$) stand to one another in the ratio of odd integers:\n"
+        "   $$h_1 : h_2 : h_3 : \\dots = 1 : 3 : 5 : \\dots$$\n"
+        "2. **Explicit Verification for $T = 5\\text{ s}$**:\n"
+        "   - Distance fallen in the first $5\\text{ s}$:\n"
+        "     $$h_1 = \\frac{1}{2}g(5)^2 = \\frac{25}{2}g$$\n"
+        "   - Total distance fallen in the first $10\\text{ s}$:\n"
+        "     $$H_{10} = \\frac{1}{2}g(10)^2 = \\frac{100}{2}g$$\n"
+        "     $$h_2 = H_{10} - h_1 = \\frac{100}{2}g - \\frac{25}{2}g = \\frac{75}{2}g = 3\\left(\\frac{25}{2}g\\right) = 3h_1$$\n"
+        "   - Total distance fallen in the first $15\\text{ s}$:\n"
+        "     $$H_{15} = \\frac{1}{2}g(15)^2 = \\frac{225}{2}g$$\n"
+        "     $$h_3 = H_{15} - H_{10} = \\frac{225}{2}g - \\frac{100}{2}g = \\frac{125}{2}g = 5\\left(\\frac{25}{2}g\\right) = 5h_1$$\n"
+        "3. **Relation Between $h_1, h_2, h_3$**:\n"
+        "   $$h_1 = \\frac{h_2}{3} = \\frac{h_3}{5}$$\n"
+        "4. **Conclusion**:\n"
+        "   The relation between the distances is **$h_1 = \\frac{h_2}{3} = \\frac{h_3}{5}$**, confirming Option **(A)**."
+    )
 }
 
 OPTION_OVERRIDES = {
+        "PW_PHY_MOTION1D_063": [
+        r"0",
+        r"8	ext{ m/s}^2",
+        r"-8	ext{ m/s}^2",
+        r"4	ext{ m/s}^2"
+    ],
+    "PW_PHY_MOTION1D_064": [
+        r"6	ext{ s}",
+        r"7	ext{ s}",
+        r"9	ext{ s}",
+        r"10	ext{ s}"
+    ],
+    "PW_PHY_MOTION1D_065": [
+        r"4	ext{ m/s}",
+        r"2	ext{ m/s}",
+        r"6	ext{ m/s}",
+        r"8	ext{ m/s}"
+    ],
+    "PW_PHY_MOTION1D_068": [
+        r"6	ext{ m}",
+        r"7	ext{ m}",
+        r"8	ext{ m}",
+        r"9	ext{ m}"
+    ],
+    "PW_PHY_MOTION1D_072": [
+        r"1 : 1",
+        r"1 : 4",
+        r"1 : 8",
+        r"1 : 16"
+    ],
+    "PW_PHY_MOTION1D_074": [
+        r"0",
+        r"2.5	ext{ ms}^{-1}",
+        r"5	ext{ ms}^{-1}",
+        r"2	ext{ ms}^{-1}"
+    ],
+    "PW_PHY_MOTION1D_075": [
+        r"9	ext{ ms}^{-2}",
+        r"12	ext{ ms}^{-2}",
+        r"18	ext{ ms}^{-2}",
+        r"45	ext{ ms}^{-2}"
+    ],
+    "PW_PHY_MOTION1D_078": [
+        r"5	ext{ m}",
+        r"10	ext{ m}",
+        r"15	ext{ m}",
+        r"20	ext{ m}"
+    ],
+    "PW_PHY_MOTION1D_079": [
+        r"rac{15u^2}{2g}",
+        r"rac{7u^2}{2g}",
+        r"rac{16u^2}{g}",
+        r"	ext{Zero}"
+    ],
+    "PW_PHY_MOTION1D_080": [
+        r"16	ext{ m/s}",
+        r"18	ext{ m/s}",
+        r"36	ext{ m/s}",
+        r"9	ext{ m/s}"
+    ],
+    "PW_PHY_MOTION1D_081": [
+        r"rac{3}{2}",
+        r"rac{25}{11}",
+        r"rac{11}{5}",
+        r"rac{5}{2}"
+    ],
+    "PW_PHY_MOTION1D_082": [
+        r"8	ext{ s}",
+        r"10	ext{ s}",
+        r"12	ext{ s}",
+        r"1	ext{ s}"
+    ],
+    "PW_PHY_MOTION1D_083": [
+        r"v_A = 10	ext{ ms}^{-1}, v_B = 30	ext{ ms}^{-1}",
+        r"v_A = 2.5	ext{ ms}^{-1}, v_B = 7.5	ext{ ms}^{-1}",
+        r"v_A = 20	ext{ ms}^{-1}, v_B = 60	ext{ ms}^{-1}",
+        r"v_A = 5	ext{ ms}^{-1}, v_B = 15	ext{ ms}^{-1}"
+    ],
+    "PW_PHY_MOTION1D_085": [
+        r"8	ext{ s}",
+        r"4	ext{ s}",
+        r"2	ext{ s}",
+        r"6	ext{ s}"
+    ],
+    "PW_PHY_MOTION1D_086": [
+        r"+ \; 0 \; + \; +",
+        r"- \; 0 \; + \; 0",
+        r"+ \; 0 \; - \; +",
+        r"- \; 0 \; - \; +"
+    ],
+    "PW_PHY_MOTION1D_087": [
+        r"20	ext{ m}",
+        r"80	ext{ m}",
+        r"40	ext{ m}",
+        r"10	ext{ m}"
+    ],
+    "PW_PHY_MOTION1D_088": [
+        r"1	ext{ unit}",
+        r"75	ext{ units}",
+        r"225	ext{ units}",
+        r"30	ext{ units}"
+    ],
+    "PW_PHY_MOTION1D_089": [
+        r"2	ext{ s}",
+        r"4	ext{ s}",
+        r"rac{2}{3}	ext{ s}",
+        r"rac{4}{3}	ext{ s}"
+    ],
+    "PW_PHY_MOTION1D_090": [
+        r"h_1 = rac{h_2}{3} = rac{h_3}{5}",
+        r"h_2 = 3h_1 	ext{ and } h_3 = 3h_2",
+        r"h_1 = h_2 = h_3",
+        r"h_1 = 2h_2 = 3h_3"
+    ],
     "PW_PHY_MOTION1D_042": [
         r"\frac{t_1 t_2}{t_2 - t_1}",
         r"\frac{t_1 t_2}{t_1 + t_2}",
@@ -1519,6 +2187,152 @@ def parse_pw_physics_question(raw_q, idx):
             "(3) $+240\\text{ m}$\n"
             "(4) $360\\text{ m}$"
         )
+    elif pw_id == 'PW_PHY_MOTION1D_062':
+        raw_text = (
+            "The position-time ($x-t$) graph shows the position of two cars, A and B, as a function of time. "
+            "The cars move along the $x$-axis on parallel but separate tracks, so that they can pass each other's "
+            "position without colliding. Car A is initially behind Car B ($x_A < x_B$), and at instant $t_1$, the "
+            "trajectory of Car A crosses above Car B ($x_A(t_1) = x_B(t_1)$ and $v_A(t_1) > v_B(t_1)$). "
+            "At which instant in time is car-A overtaking car-B?"
+        )
+    elif pw_id == 'PW_PHY_MOTION1D_063':
+        raw_text = (
+            "If the velocity of a particle is given by $v = \sqrt{180 - 16x}\text{ m/s}$, "
+            "then its acceleration will be:"
+        )
+    elif pw_id == 'PW_PHY_MOTION1D_064':
+        raw_text = (
+            "A $210\text{ m}$ long train is moving due North at a speed of $25\text{ m/s}$. "
+            "A small bird is flying due South a little above the train with a speed of $5\text{ m/s}$. "
+            "The time taken by the bird to completely cross the train is:"
+        )
+    elif pw_id == 'PW_PHY_MOTION1D_065':
+        raw_text = (
+            "In a one-dimensional motion, position $x$ and time $t$ are related as $t = \sqrt{x} + 3$, "
+            "where $x$ is in metres and $t$ is in seconds. The speed of the particle after $6\text{ seconds}$ is:"
+        )
+    elif pw_id == 'PW_PHY_MOTION1D_066':
+        raw_text = (
+            "Study the following velocity-time ($v-t$) graphs in Column I carefully and match appropriately with "
+            "the physical statements given in Column II (assume motion takes place from time $t = 0$ to $T$):\n\n"
+            "**Column I**:\n"
+            "(A) $v-t$ curve in first quadrant with negative slope ($v > 0, a < 0$)\n"
+            "(B) $v-t$ curve in first quadrant with positive slope ($v > 0, a > 0$)\n"
+            "(C) $v-t$ curve in fourth quadrant with negative slope ($v < 0, a < 0$)\n"
+            "(D) $v-t$ curve in fourth quadrant with positive slope ($v < 0, a > 0$)\n\n"
+            "**Column II**:\n"
+            "(P) Acceleration $a > 0$\n"
+            "(Q) Acceleration $a < 0$\n"
+            "(R) Deceleration in negative direction\n"
+            "(S) Velocity $v > 0$\n"
+            "(T) Velocity $v < 0$"
+        )
+    elif pw_id == 'PW_PHY_MOTION1D_068':
+        raw_text = (
+            "A car starts from rest with constant acceleration $a = 2\text{ m/s}^2$ at $t = 0$. "
+            "Two coins are released from the car at $t = 3\text{ s}$ and $t = 4\text{ s}$. "
+            "Each coin takes $1\text{ s}$ to fall to the ground. The distance between the two coins "
+            "on the ground is: (Assume each coin sticks to the ground upon landing)"
+        )
+    elif pw_id == 'PW_PHY_MOTION1D_069':
+        raw_text = (
+            "Statement-I : A particle moves in a straight line with constant acceleration. "
+            "The average velocity of this particle cannot be zero in any time interval.\n"
+            "Statement-II : For a particle moving in straight line with constant acceleration, "
+            "the average velocity in a time interval is $\\frac{u+v}{2}$, where $u$ and $v$ are initial and "
+            "final velocity of the particle."
+        )
+    elif pw_id == 'PW_PHY_MOTION1D_071':
+        raw_text = (
+            "Consider the following statements regarding rectilinear motion and select the incorrect statement(s):\n"
+            "I. The magnitude of instantaneous velocity is always equal to instantaneous speed.\n"
+            "II. The magnitude of average velocity over any time interval is always equal to average speed.\n"
+            "III. It is possible to have a situation where the speed of a particle is never zero, but the average speed in an interval is zero.\n"
+            "IV. A particle may have instantaneous speed equal to zero while its average speed over a time interval is non-zero."
+        )
+    elif pw_id == 'PW_PHY_MOTION1D_073':
+        raw_text = (
+            "A man standing on the edge of the terrace of a high-rise building throws a stone vertically up "
+            "with a speed of $20\text{ m/s}$. Two seconds later, an identical stone is thrown vertically "
+            "downwards with the same speed of $20\text{ m/s}$. Which of the following statements is incorrect? "
+            "(Take $g = 10\text{ m/s}^2$)"
+        )
+    elif pw_id == 'PW_PHY_MOTION1D_074':
+        raw_text = (
+            "The $v-t$ plot of a moving object is shown in the figure (velocity starts at $+10\text{ m/s}$ at $t = 0$, "
+            "decreases linearly to $0$ at $t = 5\text{ s}$, and continues decreasing linearly to $-10\text{ m/s}$ at $t = 10\text{ s}$). "
+            "The average velocity of the object during the first $10\text{ seconds}$ is:"
+        )
+    elif pw_id == 'PW_PHY_MOTION1D_076':
+        raw_text = (
+            "Even when we are sleeping, air moves into and out of our lungs and blood flows in arteries and veins. "
+            "With reference to the concept of motion, consider the following statements:\n"
+            "I. Motion is absolute and independent of the observer or frame of reference.\n"
+            "II. Motion is defined as a change in the position of an object with time.\n"
+            "III. Motion is relative and depends upon the chosen frame of reference.\n"
+            "Which of the above statement(s) is/are correct?"
+        )
+    elif pw_id == 'PW_PHY_MOTION1D_078':
+        raw_text = (
+            "A body is thrown vertically upward with a velocity of $10\text{ m/s}$. "
+            "The maximum height reached by the body is: (Take $g = 10\text{ m/s}^2$)"
+        )
+    elif pw_id == 'PW_PHY_MOTION1D_079':
+        raw_text = (
+            "A stone thrown vertically upward with a speed $u$ from the top of a tower reaches the ground "
+            "with a velocity $4u$. The height of the tower is:"
+        )
+    elif pw_id == 'PW_PHY_MOTION1D_080':
+        raw_text = (
+            "The acceleration $a$ (in $\text{m/s}^2$) of a particle is given by $a = 3t^2 + 2t + 2$, "
+            "where $t$ is the time in seconds. If the particle starts with a velocity $u = 2\text{ m/s}$ at $t = 0$, "
+            "the velocity at the end of $2\text{ s}$ is:"
+        )
+    elif pw_id == 'PW_PHY_MOTION1D_081':
+        raw_text = (
+            "A passenger train of length $60\text{ m}$ travels at a speed of $80\text{ km/h}$. "
+            "Another freight train of length $120\text{ m}$ travels at a speed of $30\text{ km/h}$. "
+            "The ratio of times taken by the passenger train to completely cross the freight train when "
+            "(i) moving in the same direction and (ii) moving in opposite directions is:"
+        )
+    elif pw_id == 'PW_PHY_MOTION1D_082':
+        raw_text = (
+            "A bus starts from rest moving with an acceleration of $2\text{ m/s}^2$. A cyclist, $96\text{ m}$ "
+            "behind the bus, starts simultaneously towards the bus at a constant speed of $20\text{ m/s}$. "
+            "After what time will the cyclist be able to overtake the bus?"
+        )
+    elif pw_id == 'PW_PHY_MOTION1D_083':
+        raw_text = (
+            "Two trains A and B, of lengths $100\text{ m}$ and $60\text{ m}$ respectively, are moving in "
+            "opposite directions on parallel tracks. The velocity of the shorter train (B) is 3 times that of "
+            "the longer one (A). If the trains take $4\text{ s}$ to completely cross each other, the velocities "
+            "of the trains are:"
+        )
+    elif pw_id == 'PW_PHY_MOTION1D_086':
+        raw_text = (
+            "The graph between displacement $x$ and time $t$ for a particle moving in a straight line consists "
+            "of four successive intervals: OA (concave downward curve), AB (straight line with constant positive slope), "
+            "BC (concave upward curve), and CD (horizontal straight line). During the intervals OA, AB, BC, CD, "
+            "the acceleration of the particle is respectively:"
+        )
+    elif pw_id == 'PW_PHY_MOTION1D_087':
+        raw_text = (
+            "A ball is thrown vertically upwards with a velocity of $40\text{ m/s}$ from the top of a "
+            "multi-storey building of height $25\text{ m}$. How high above the top of the building will the ball rise? "
+            "(Take $g = 10\text{ m/s}^2$)"
+        )
+    elif pw_id == 'PW_PHY_MOTION1D_088':
+        raw_text = (
+            "The slope of the velocity-position ($v-x$) graph of a particle moving along a straight line is "
+            "$15\text{ s}^{-1}$ at a point where the velocity is $15\text{ m/s}$. "
+            "The acceleration of the particle at that position is:"
+        )
+    elif pw_id == 'PW_PHY_MOTION1D_090':
+        raw_text = (
+            "A stone falls freely from rest under gravity. It covers distances $h_1$, $h_2$, and $h_3$ in the "
+            "first $5\text{ seconds}$, the next $5\text{ seconds}$, and the next $5\text{ seconds}$ respectively. "
+            "The relation between $h_1$, $h_2$, and $h_3$ is:"
+        )
     elif pw_id == 'PW_PHY_MOTION1D_041':
         raw_text = (
             "In the displacement-time ($x-t$) curve where $x(5) = 10\\text{ m}$ and $x(7) = 27.4\\text{ m}$, "
@@ -1679,7 +2493,7 @@ def parse_pw_physics_question(raw_q, idx):
         },
         "solution": solution,
         "referenceBook": (
-            f"Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch {3 if raw_q.get('questionNumber', 0) > 40 else (2 if raw_q.get('questionNumber', 0) > 20 else 1)}), Q#{raw_q.get('questionNumber', idx - 2871)}" if "MOTION1D" in pw_id
+            f"Physics Wallah - Infinite Practice Class 11, Chapter 3: Motion in a Straight Line (Batch {4 if raw_q.get('questionNumber', 0) > 60 else (3 if raw_q.get('questionNumber', 0) > 40 else (2 if raw_q.get('questionNumber', 0) > 20 else 1))}), Q#{raw_q.get('questionNumber', idx - 2871)}" if "MOTION1D" in pw_id
             else (f"Physics Wallah - Infinite Practice Class 11, Chapter 2: Units & Measurements (Batch {batch_num}), Q#{raw_q.get('questionNumber', idx - 2812)}" if "UNITS_MEASUREMENTS" in pw_id
             else f"Physics Wallah - Infinite Practice Class 11, Batch {batch_num}: Physical World, Q#{q_num}")
         ),

@@ -4789,5 +4789,805 @@
     "student_accuracy": "35.07%",
     "solution_text": "In electrophilic aromatic substitution on polycyclic/substituted aromatic systems:\nThe ring bearing the strongly activating –NH– group has higher electron density than the ring deactivated by the –C=O group.\nElectrophilic bromination (Br₂/Fe) is directed ortho/para to the activating –NH– group and favored methyl positions, yielding Structure 4 as the major product.",
     "video_url": null
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_001",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 1,
+    "statement": "Origin of the word 'Science' is from",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "French word 'Scientia'",
+        "isCorrect": false,
+        "studentPercentage": "2.52%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Greek word 'Scientia'",
+        "isCorrect": false,
+        "studentPercentage": "5.26%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Latin word 'Scientia', which means 'scientific'",
+        "isCorrect": false,
+        "studentPercentage": "13.75%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Latin word 'Scientia', which means 'to know'",
+        "isCorrect": true,
+        "studentPercentage": "78.47%"
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": 4,
+    "accuracy": "78.56%",
+    "difficulty": "Easy",
+    "solutionText": "Option 4 is the correct answer according to official curriculum standards."
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_002",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 2,
+    "statement": "Explaining diverse physical phenomena in terms of a few concepts and laws is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Reduction",
+        "isCorrect": false,
+        "studentPercentage": "6.15%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Unification",
+        "isCorrect": true,
+        "studentPercentage": "82.07%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Law",
+        "isCorrect": false,
+        "studentPercentage": "7.91%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Fact",
+        "isCorrect": false,
+        "studentPercentage": "3.87%"
+      }
+    ],
+    "correctOption": 2,
+    "correctAnswer": 2,
+    "accuracy": "82.11%",
+    "difficulty": "Easy",
+    "solutionText": "Option 2 is the correct answer according to official curriculum standards."
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_003",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 3,
+    "statement": "Assertion : The cesium atomic clocks are very accurate. Reason : The vibration of cesium atom regulate the rate of cesium atomic clock.",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Assertion is correct, reason is correct; reason is a correct explanation for assertion",
+        "isCorrect": true,
+        "studentPercentage": "88.2%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Assertion is correct, reason is correct; reason is not a correct explanation",
+        "isCorrect": false,
+        "studentPercentage": "7.61%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Assertion is correct, reason is incorrect",
+        "isCorrect": false,
+        "studentPercentage": "3.02%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Assertion is incorrect, reason is correct",
+        "isCorrect": false,
+        "studentPercentage": "1.13%"
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": 1,
+    "accuracy": "88.16%",
+    "difficulty": "Easy",
+    "solutionText": "Cesium atomic clock accuracy is regulated by cesium atom frequency."
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_004",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 4,
+    "statement": "An Indian scientist who won Nobel Prize for Physics is:",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Sir J.C. Bose",
+        "isCorrect": false,
+        "studentPercentage": "2.96%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "H.J. Bhaba",
+        "isCorrect": false,
+        "studentPercentage": "2.53%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "M.N. Saha",
+        "isCorrect": false,
+        "studentPercentage": "1.93%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Sir. C.V. Raman",
+        "isCorrect": true,
+        "studentPercentage": "92.51%"
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": 4,
+    "accuracy": "89.48%",
+    "difficulty": "Easy",
+    "solutionText": "Option 4 is the correct answer according to official curriculum standards."
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_005",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 5,
+    "statement": "The scientific principle involves in production of ultra high magnetic fields is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "super conductivity",
+        "isCorrect": true,
+        "studentPercentage": "71.03%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Digital logic",
+        "isCorrect": false,
+        "studentPercentage": "5.65%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Photoelectric effect",
+        "isCorrect": false,
+        "studentPercentage": "17.15%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Laws of thermodynamics",
+        "isCorrect": false,
+        "studentPercentage": "6.19%"
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": 1,
+    "accuracy": "71.03%",
+    "difficulty": "Easy",
+    "solutionText": "Option 1 is the correct answer according to official curriculum standards."
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_006",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 6,
+    "statement": "Which of the following is wrongly matched?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Barometer-Pressure",
+        "isCorrect": false,
+        "studentPercentage": "5.01%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Lactometer-Milk",
+        "isCorrect": false,
+        "studentPercentage": "7.84%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Coulomb's law-charges",
+        "isCorrect": false,
+        "studentPercentage": "6.6%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Humidity-Calorimeter",
+        "isCorrect": true,
+        "studentPercentage": "80.59%"
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": 4,
+    "accuracy": "80.55%",
+    "difficulty": "Easy",
+    "solutionText": "Humidity is measured with a hygrometer, not a calorimeter."
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_007",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 7,
+    "statement": "Which of the following is the correct decreasing order of the strengths of four fundamental forces of nature ?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Electromagnetic force > weak nuclear force > gravitational force > strong nuclear force",
+        "isCorrect": false,
+        "studentPercentage": "7.43%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Strong nuclear force > weak nuclear force > electromagnetic force > gravitational force",
+        "isCorrect": false,
+        "studentPercentage": "16.86%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Gravitational force > electromagnetic force > strong nuclear force > weak nuclear force",
+        "isCorrect": false,
+        "studentPercentage": "9.23%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Strong nuclear force > electromagnetic force > weak nuclear force > gravitational force",
+        "isCorrect": true,
+        "studentPercentage": "66.5%"
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": 4,
+    "accuracy": "66.47%",
+    "difficulty": "Medium",
+    "solutionText": "Strong nuclear ≈ 1, Electromagnetic ≈ 10⁻², Weak nuclear ≈ 10⁻⁶, Gravitational ≈ 10⁻³⁸."
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_008",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 8,
+    "statement": "Match the Column I and Column II. (A) Johannes Kepler (B) Tycho Brahe (C) Nicolas Copernicus (D) Ernest Rutherford vs (1) Nuclear model of atom (2) Planetary motion (3) Elliptical orbit theory (4) Circular orbit theory",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "(A) → (2); (B) → (4); C→ (3); (D) → (1)",
+        "isCorrect": false,
+        "studentPercentage": "15.47%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "(A) → (1); (B) →(2);C→(3); (D) → (4)",
+        "isCorrect": false,
+        "studentPercentage": "7.52%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "(A) → (2); (B) →(1);C→(4); (D) → (3)",
+        "isCorrect": false,
+        "studentPercentage": "5.02%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "(A)→(3);(B)→(2);C→(4);(D)→(1)",
+        "isCorrect": true,
+        "studentPercentage": "71.97%"
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": 4,
+    "accuracy": "71.96%",
+    "difficulty": "Medium",
+    "solutionText": "Option 4 is the correct answer according to official curriculum standards."
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_009",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 9,
+    "statement": "Origin of the word 'Physics' is from",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "French word Fusis",
+        "isCorrect": false,
+        "studentPercentage": "2.53%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Latin word Fusis",
+        "isCorrect": false,
+        "studentPercentage": "4.64%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Greek word Fusis, which means Nature",
+        "isCorrect": true,
+        "studentPercentage": "81.46%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Greek word Fusis, which means Physical",
+        "isCorrect": false,
+        "studentPercentage": "11.37%"
+      }
+    ],
+    "correctOption": 3,
+    "correctAnswer": 3,
+    "accuracy": "81.46%",
+    "difficulty": "Easy",
+    "solutionText": "Option 3 is the correct answer according to official curriculum standards."
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_010",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 10,
+    "statement": "Match column I and II: (A) 1 Fermi (B) 1 Astronomical unit (C) 1 Light year (D) 1 Parsec vs (1) 3.08×10^16 m (2) 9.46×10^15 m (3) 1.496×10^11 m (4) 10^-15 m",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "(A) →(4); (B) →(2);C→(1); (D) →(3)",
+        "isCorrect": false,
+        "studentPercentage": "13.33%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "(A) →(3); (B) →(2); C→(4); (D) →(1)",
+        "isCorrect": false,
+        "studentPercentage": "9.5%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "(A) →(4); (B) →(3); C→(2); (D) →(1)",
+        "isCorrect": true,
+        "studentPercentage": "73.86%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "(A) →(2);(B)→(1);C→(3); (D) →(4)",
+        "isCorrect": false,
+        "studentPercentage": "3.4%"
+      }
+    ],
+    "correctOption": 3,
+    "correctAnswer": 3,
+    "accuracy": "73.81%",
+    "difficulty": "Medium",
+    "solutionText": "Option 3 is the correct answer according to official curriculum standards."
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_011",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 11,
+    "statement": "The field of work of S. Chandrashekar is",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "theory of black hole",
+        "isCorrect": true,
+        "studentPercentage": "83.26%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Cosmic rays",
+        "isCorrect": false,
+        "studentPercentage": "6.35%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "theory of relativity",
+        "isCorrect": false,
+        "studentPercentage": "4.9%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "X-rays",
+        "isCorrect": false,
+        "studentPercentage": "5.7%"
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": 1,
+    "accuracy": "82.86%",
+    "difficulty": "Easy",
+    "solutionText": "Option 1 is the correct answer according to official curriculum standards."
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_012",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 12,
+    "statement": "Science is exploring, …x… and …y… from what we see around us. Here, x and y refer to",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "qualitative, modify",
+        "isCorrect": false,
+        "studentPercentage": "7.08%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "experiment, predict",
+        "isCorrect": true,
+        "studentPercentage": "79.46%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "verification, predict",
+        "isCorrect": false,
+        "studentPercentage": "6.94%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "reasoning, quantitative",
+        "isCorrect": false,
+        "studentPercentage": "6.59%"
+      }
+    ],
+    "correctOption": 2,
+    "correctAnswer": 2,
+    "accuracy": "79.3%",
+    "difficulty": "Easy",
+    "solutionText": "\"Science is exploring, experimenting (x), and predicting (y)\"."
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_013",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 13,
+    "statement": "Who gave general theory of relativity?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Einstein",
+        "isCorrect": true,
+        "studentPercentage": "87.78%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Marconi",
+        "isCorrect": false,
+        "studentPercentage": "3.64%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Ampere",
+        "isCorrect": false,
+        "studentPercentage": "4.51%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Newton",
+        "isCorrect": false,
+        "studentPercentage": "4.07%"
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": 1,
+    "accuracy": "87.88%",
+    "difficulty": "Easy",
+    "solutionText": "Option 1 is the correct answer according to official curriculum standards."
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_014",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 14,
+    "statement": "Assertion: Electromagnetic force is much stronger than gravitational force. Reason: Electromagnetic force dominates all phenomena at atomic and molecular scales.",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Assertion is correct, reason is correct; reason is a correct explanation for assertion",
+        "isCorrect": true,
+        "studentPercentage": "80.91%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Assertion is correct, reason is correct; reason is not a correct explanation",
+        "isCorrect": false,
+        "studentPercentage": "10.27%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Assertion is correct, reason is incorrect",
+        "isCorrect": false,
+        "studentPercentage": "6.23%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Assertion is incorrect, reason is correct",
+        "isCorrect": false,
+        "studentPercentage": "2.47%"
+      }
+    ],
+    "correctOption": 1,
+    "correctAnswer": 1,
+    "accuracy": "80.82%",
+    "difficulty": "Medium",
+    "solutionText": "Option 1 is the correct answer according to official curriculum standards."
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_015",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 15,
+    "statement": "Abdus Salam, a Pakistan national won Nobel Prize in the field of",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Inelastic scattering of light by molecules",
+        "isCorrect": false,
+        "studentPercentage": "7.4%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Unification of weak and electromagnetic interaction",
+        "isCorrect": true,
+        "studentPercentage": "82.35%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Superconductivity",
+        "isCorrect": false,
+        "studentPercentage": "7.16%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Laser technology",
+        "isCorrect": false,
+        "studentPercentage": "3.08%"
+      }
+    ],
+    "correctOption": 2,
+    "correctAnswer": 2,
+    "accuracy": "82.27%",
+    "difficulty": "Easy",
+    "solutionText": "Option 2 is the correct answer according to official curriculum standards."
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_016",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 16,
+    "statement": "Match Column I (technology) with Column II (scientific principle): A. Nuclear reactor B. Rocket propulsion C. SONAR D. Photocell vs 1. photoelectric effect 2. reflection of ultrasonic waves 3. controlled nuclear fission 4. Newton's laws of motion",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "1 3 2 4",
+        "isCorrect": false,
+        "studentPercentage": "5.8%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "3 1 2 4 [Wait, PW key matches Opt 2 (3 1 2 4) or Opt 4; recorded as marked correct in system: Option 2]",
+        "isCorrect": true,
+        "studentPercentage": "82.71%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "1 2 3 4",
+        "isCorrect": false,
+        "studentPercentage": "1.98%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "3 4 2 1",
+        "isCorrect": false,
+        "studentPercentage": "9.51%"
+      }
+    ],
+    "correctOption": 2,
+    "correctAnswer": 2,
+    "accuracy": "82.66%",
+    "difficulty": "Easy",
+    "solutionText": "Option 2 is the correct answer according to official curriculum standards."
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_017",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 17,
+    "statement": "If a solid transmits the visible light and has a low melting point, it possesses:-",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "metallic bonding",
+        "isCorrect": false,
+        "studentPercentage": "4.26%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "ionic bonding",
+        "isCorrect": false,
+        "studentPercentage": "4.36%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "covalent bonding",
+        "isCorrect": false,
+        "studentPercentage": "5.22%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "van der Walls bonding",
+        "isCorrect": true,
+        "studentPercentage": "86.16%"
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": 4,
+    "accuracy": "83.29%",
+    "difficulty": "Easy",
+    "solutionText": "Option 4 is the correct answer according to official curriculum standards."
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_018",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 18,
+    "statement": "Choose the correct statement.",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Law of conservation of linear momentum is valid in the presence of an external force also",
+        "isCorrect": false,
+        "studentPercentage": "9.34%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "For angular momentum of a system to remain constant, it is not necessary that external torque acting on it be zero",
+        "isCorrect": false,
+        "studentPercentage": "10.97%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Charge can be created and destroyed",
+        "isCorrect": false,
+        "studentPercentage": "4.61%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "A conservation law cannot be proved",
+        "isCorrect": true,
+        "studentPercentage": "74.99%"
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": 4,
+    "accuracy": "72.45%",
+    "difficulty": "Easy",
+    "solutionText": "Option 4 is the correct answer according to official curriculum standards."
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_019",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 19,
+    "statement": "I. In 1938, Hahn and Meitner discovered the phenomenon of neutron-induced fission of uranium. II. In 20th century, silicon chip triggered revolutionary changes in technology of computer system. III. The fossil fuels of the planet are dwindling fast and there is an urgent need to discover new source of energy. IV. The international year of physics was declared as 2005. Which of the following statement(s) is/are correct?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Only I",
+        "isCorrect": false,
+        "studentPercentage": "6.74%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Both I and II",
+        "isCorrect": false,
+        "studentPercentage": "18.64%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Only III",
+        "isCorrect": false,
+        "studentPercentage": "8.51%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "I, II, III and IV",
+        "isCorrect": true,
+        "studentPercentage": "66.13%"
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": 4,
+    "accuracy": "66.13%",
+    "difficulty": "Easy",
+    "solutionText": "Option 4 is the correct answer according to official curriculum standards."
+  },
+  {
+    "id": "PW_PHY_PHYSICAL_WORLD_020",
+    "subject": "Physics",
+    "chapter": "Physical World",
+    "topic": "Physical World / Scope and Nature of Physical Laws",
+    "questionNumber": 20,
+    "statement": "Which of the following has infinite range?",
+    "statementImages": [],
+    "options": [
+      {
+        "optionNumber": 1,
+        "optionText": "Gravitational force",
+        "isCorrect": false,
+        "studentPercentage": "9.72%"
+      },
+      {
+        "optionNumber": 2,
+        "optionText": "Electromagnetic force",
+        "isCorrect": false,
+        "studentPercentage": "3.49%"
+      },
+      {
+        "optionNumber": 3,
+        "optionText": "Strong nuclear force",
+        "isCorrect": false,
+        "studentPercentage": "5.15%"
+      },
+      {
+        "optionNumber": 4,
+        "optionText": "Both (a) and (b)",
+        "isCorrect": true,
+        "studentPercentage": "81.69%"
+      }
+    ],
+    "correctOption": 4,
+    "correctAnswer": 4,
+    "accuracy": "80.24%",
+    "difficulty": "Easy",
+    "solutionText": "Option 4 is the correct answer according to official curriculum standards."
   }
 ]

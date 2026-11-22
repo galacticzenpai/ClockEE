@@ -1,0 +1,89 @@
+{
+  "version": 2,
+  "skills": {
+    "banner-design": {
+      "source": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "commit": "6ec2bb58334ca3014573c4cbd4834ee3a40afd9d",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/banner-design/SKILL.md",
+      "computedHash": "4b22f6f48afc6fcd72e6f3ae106a4dca11b33b88221efded1f5c62d8f9afb50d"
+    },
+    "brand": {
+      "source": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "commit": "6ec2bb58334ca3014573c4cbd4834ee3a40afd9d",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/brand/SKILL.md",
+      "computedHash": "d5619310b76bd204efd2f8b3832f72b5a2899712be0ab94d1b4b671271419c54"
+    },
+    "design": {
+      "source": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "commit": "6ec2bb58334ca3014573c4cbd4834ee3a40afd9d",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/design/SKILL.md",
+      "computedHash": "b0500382bb6aa23e200d20f4aa7e8ffc4bc0831b56615e174ab0a54b3f3d3e46"
+    },
+    "design-system": {
+      "source": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "commit": "6ec2bb58334ca3014573c4cbd4834ee3a40afd9d",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/design-system/SKILL.md",
+      "computedHash": "9efdc106c73d8d298b5a90d55c56995840a37f754fb9d498d14e6562bdaadc23"
+    },
+    "rea-analysis-optimization": {
+      "source": "morluto/rea",
+      "commit": "b96e2e10e751f1026a6a828503b3709e6795897f",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/rea-analysis-optimization/SKILL.md",
+      "computedHash": "004e2b58886fa3dab0bd63ee68abed95f3f91f79fcf04322ff7f17960b05c061"
+    },
+    "rea-changelog-update": {
+      "source": "morluto/rea",
+      "commit": "b96e2e10e751f1026a6a828503b3709e6795897f",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/rea-changelog-update/SKILL.md",
+      "computedHash": "8344df64c88dd94b1d94a64b3ec96dde9b0efc936784c4872204c975a478b764"
+    },
+    "rea-ci-tests-audit": {
+      "source": "morluto/rea",
+      "commit": "b96e2e10e751f1026a6a828503b3709e6795897f",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/rea-ci-tests-audit/SKILL.md",
+      "computedHash": "031cc6b15b1344a2c038ea801274ffd79498c05c3394aab70eb4da3326e61858"
+    },
+    "rea-tool-design": {
+      "source": "morluto/rea",
+      "commit": "b96e2e10e751f1026a6a828503b3709e6795897f",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/rea-tool-design/SKILL.md",
+      "computedHash": "b255e74628f72427a86cbe1789fae701151bd79fb3470cd9846fb985cb98a8e3"
+    },
+    "reverse-engineer-anything": {
+      "source": "morluto/rea",
+      "commit": "b96e2e10e751f1026a6a828503b3709e6795897f",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/reverse-engineer-anything/SKILL.md",
+      "computedHash": "baaa2dd7e9cfbcb55b4c221873b17458f9f8d75cb6d08c2a0d0ecc04277cfb25"
+    },
+    "slides": {
+      "source": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "commit": "6ec2bb58334ca3014573c4cbd4834ee3a40afd9d",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/slides/SKILL.md",
+      "computedHash": "059825b15a508a5f1533ab646f968ffcbcdbb8eadd76c2d122151bfbcf19d287"
+    },
+    "ui-styling": {
+      "source": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "commit": "6ec2bb58334ca3014573c4cbd4834ee3a40afd9d",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/ui-styling/SKILL.md",
+      "computedHash": "a598d8ad69832a394d4040e4c94e4b9c7b8daf2b1fdca050929058f7b70bc816"
+    },
+    "ui-ux-pro-max": {
+      "source": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "commit": "6ec2bb58334ca3014573c4cbd4834ee3a40afd9d",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/ui-ux-pro-max/SKILL.md",
+      "computedHash": "ecbf45740eab6a35db93506396f68969ad80e2615f24e3c767a4decc9430751c"
+    }
+  }
+}

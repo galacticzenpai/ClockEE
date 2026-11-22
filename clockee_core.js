@@ -916,14 +916,14 @@ window.renderClockEESidebar = function() {
         <span class="text-xs font-black uppercase tracking-wider text-white">Monthly Heatmap</span>
       </div>
       <div class="flex items-center gap-1 bg-black/40 border border-white/10 rounded-lg p-0.5">
-        <button onclick="changeMonthlyHeatmap(-1)" class="w-5 h-5 flex items-center justify-center rounded text-gray-400 hover:text-white hover:bg-white/10 transition text-[11px]" title="Previous Month">◀</button>
-        <span id="sidebar-month-title" class="text-[10px] font-mono font-bold text-indigo-300 px-1 cursor-pointer" onclick="resetMonthlyHeatmap()" title="Reset to current month">Oct 2026</span>
-        <button onclick="changeMonthlyHeatmap(1)" class="w-5 h-5 flex items-center justify-center rounded text-gray-400 hover:text-white hover:bg-white/10 transition text-[11px]" title="Next Month">▶</button>
+        <button onclick="changeMonthlyHeatmap(-1)" class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded text-gray-400 hover:text-white hover:bg-white/10 transition text-sm cursor-pointer" title="Previous Month" aria-label="Previous Month">◀</button>
+        <span id="sidebar-month-title" class="text-xs font-mono font-bold text-indigo-300 px-2 cursor-pointer flex items-center justify-center" onclick="resetMonthlyHeatmap()" title="Reset to current month">Oct 2026</span>
+        <button onclick="changeMonthlyHeatmap(1)" class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded text-gray-400 hover:text-white hover:bg-white/10 transition text-sm cursor-pointer" title="Next Month" aria-label="Next Month">▶</button>
       </div>
     </div>
 
     <!-- Weekday Headers -->
-    <div class="grid grid-cols-7 gap-1 text-center text-[9px] text-gray-500 font-mono uppercase pb-0.5 font-bold">
+    <div class="grid grid-cols-7 gap-1 text-center text-[9px] text-slate-400 font-mono uppercase pb-0.5 font-bold">
       <div>S</div><div>M</div><div>T</div><div>W</div><div>T</div><div>F</div><div>S</div>
     </div>
 

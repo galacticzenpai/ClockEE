@@ -332,10 +332,10 @@
             </div>
 
             <!-- Quick Theme Switcher Pill -->
-            <div class="nav-dropdown hidden lg:inline-block">
-              <button class="px-2.5 py-1 rounded-full bg-white/5 border border-white/10 hover:border-white/25 text-[11px] font-mono text-slate-300 flex items-center gap-1.5 transition cursor-pointer" title="Quick Theme Switcher">
+            <div class="nav-dropdown hidden xl:inline-block">
+              <button class="px-2.5 py-1 rounded-full bg-white/5 border border-white/10 hover:border-white/25 text-[11px] font-mono text-slate-300 flex items-center gap-1.5 transition cursor-pointer min-h-[34px]" title="Quick Theme Switcher">
                 <span class="palette-swatch bg-[#0a84ff]"></span>
-                <span class="hidden xl:inline">Palette</span>
+                <span>Palette</span>
                 <span class="nav-caret">▼</span>
               </button>
               <div class="nav-dropdown-menu" style="min-width: 175px;">

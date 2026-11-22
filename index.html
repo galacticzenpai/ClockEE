@@ -263,7 +263,7 @@
   <div id="clockee-nav"></div>
 
   <!-- Main Cockpit Workspace (Smashed v1 + v2 Design Palette) -->
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 py-6 pb-24 grid grid-cols-1 lg:grid-cols-12 gap-6 relative w-full flex-1">
+  <main id="clockee-main-content" class="max-w-7xl mx-auto px-4 sm:px-6 py-6 pb-28 md:pb-32 grid grid-cols-1 lg:grid-cols-12 gap-6 relative w-full flex-1">
     
     <!-- Left Column: Aspirant Profile, XP Status, Monthly Heatmap & Dual Graphs (lg:col-span-4) -->
     <aside class="lg:col-span-4 flex flex-col gap-6" id="clockee-sidebar-root">
@@ -274,7 +274,7 @@
     <div class="lg:col-span-8 flex flex-col gap-6 min-w-0">
       
       <!-- 1. JEE Target Countdown Card: Months, Total Weeks, Days -->
-      <div class="neo-card glass-card p-5 space-y-3.5 shadow-xl border border-white/10 bg-[#0d1122]/75">
+      <div class="neo-card glass-card p-5 space-y-3.5 shadow-xl border border-white/[0.08] bg-[#0b0f19]/90 backdrop-blur-md">
         <div class="flex items-center justify-between flex-wrap gap-2">
           <div class="flex items-center gap-2.5">
             <div class="w-7 h-7 rounded-lg bg-cyan-950/60 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
@@ -284,31 +284,31 @@
               <h2 id="jee-countdown-title" class="text-base sm:text-lg font-black text-white tracking-tight tabular-nums mono">Target: JEE 2026</h2>
             </div>
           </div>
-          <span class="text-xs font-mono font-bold px-3 py-1 rounded-full bg-[#0a84ff]/15 text-[#0a84ff] border border-white/10" id="jee-target-date-label">May 17, 2026</span>
+          <span class="text-xs font-mono font-bold px-3 py-1 rounded-full bg-[#0a84ff]/15 text-[#0a84ff] border border-white/[0.08]" id="jee-target-date-label">May 17, 2026</span>
         </div>
         
         <!-- Individual Countdown Boxes Grid (Months, Total Weeks, Days) -->
         <div class="grid grid-cols-3 gap-3 sm:gap-4 text-center">
-          <div class="bg-black/40 rounded-2xl p-3.5 sm:p-4 border border-cyan-500/25 shadow-inner hover:border-cyan-400/40 transition">
-            <div class="text-3xl sm:text-4xl font-black font-mono text-cyan-400 tracking-tight" id="cd-months">--</div>
+          <div class="bg-[#030712]/80 rounded-2xl p-3.5 sm:p-4 border border-cyan-500/25 shadow-inner hover:border-cyan-400/40 transition">
+            <div class="text-3xl sm:text-4xl font-black font-mono text-cyan-400 tracking-tight" id="cd-months" class="tabular-nums">--</div>
             <div class="text-[10px] sm:text-xs text-cyan-200/80 uppercase tracking-widest mt-1.5 font-extrabold">Months</div>
           </div>
-          <div class="bg-black/40 rounded-2xl p-3.5 sm:p-4 border border-[#0a84ff]/25 shadow-inner hover:border-white/10 transition">
-            <div class="text-3xl sm:text-4xl font-black font-mono text-[#0a84ff] tracking-tight" id="cd-weeks">--</div>
+          <div class="bg-[#030712]/80 rounded-2xl p-3.5 sm:p-4 border border-[#0a84ff]/25 shadow-inner hover:border-white/[0.08] transition">
+            <div class="text-3xl sm:text-4xl font-black font-mono text-[#0a84ff] tracking-tight" id="cd-weeks" class="tabular-nums">--</div>
             <div class="text-[10px] sm:text-xs text-blue-200/80 uppercase tracking-widest mt-1.5 font-extrabold">Total Weeks</div>
           </div>
-          <div class="bg-black/40 rounded-2xl p-3.5 sm:p-4 border border-white/10 shadow-inner hover:border-white/10 transition">
-            <div class="text-3xl sm:text-4xl font-black font-mono text-[#0a84ff] tracking-tight" id="cd-days">--</div>
+          <div class="bg-[#030712]/80 rounded-2xl p-3.5 sm:p-4 border border-white/[0.08] shadow-inner hover:border-white/[0.08] transition">
+            <div class="text-3xl sm:text-4xl font-black font-mono text-[#0a84ff] tracking-tight" id="cd-days" class="tabular-nums">--</div>
             <div class="text-[10px] sm:text-xs text-[#0a84ff] uppercase tracking-widest mt-1.5 font-extrabold">Days</div>
           </div>
         </div>
       </div>
 
       <!-- 2. Aspirant Daily Target & Readiness HUD -->
-      <div class="neo-card glass-card p-5 border border-white/10 bg-[#0d1122]/75 shadow-xl space-y-3">
-        <div class="flex items-center justify-between pb-2.5 border-b border-white/10 flex-wrap gap-2">
+      <div class="neo-card glass-card p-5 border border-white/[0.08] bg-[#0b0f19]/90 backdrop-blur-md shadow-xl space-y-3">
+        <div class="flex items-center justify-between pb-2.5 border-b border-white/[0.08] flex-wrap gap-2">
           <div class="flex items-center gap-2.5">
-            <div class="w-7 h-7 rounded-lg bg-[#161b24] border border-white/10 flex items-center justify-center text-[#0a84ff]">
+            <div class="w-7 h-7 rounded-lg bg-[#161b24] border border-white/[0.08] flex items-center justify-center text-[#0a84ff]">
               <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
             </div>
             <div>
@@ -317,23 +317,23 @@
             </div>
           </div>
           <div class="flex items-center gap-2">
-            <span class="text-[10px] font-mono px-3 py-1 rounded-full bg-gradient-to-r from-amber-500/20 via-orange-500/25 to-red-500/20 text-orange-300 border border-orange-500/40 font-black flex items-center gap-1.5 shadow-sm"><span class="text-xs">🔥</span> <span id="home-mission-streak-text">0-Day Streak</span></span>
+            <span class="text-[10px] font-mono px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/30 font-bold flex items-center gap-1.5 shadow-sm"><span class="text-xs">🔥</span> <span id="home-mission-streak-text">0-Day Streak</span></span>
           </div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5">
           <!-- Focus Chapter Card -->
-          <div class="p-3.5 rounded-xl bg-black/35 border border-white/5 space-y-1 shadow-inner">
+          <div class="p-3.5 rounded-xl bg-[#030712]/70 border border-white/5 space-y-1 shadow-inner">
             <div class="text-[10px] text-slate-400 uppercase font-bold tracking-wider">Active High-Yield Chapter</div>
             <div class="text-xs font-black text-white flex items-center gap-2">
-              <span class="w-2.5 h-2.5 rounded-full bg-blue-400 inline-block shadow-[0_0_8px_rgba(96,165,250,0.7)]"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-blue-400 inline-block "></span>
               <span id="active-chapter-name">Kinematics &amp; Vectors</span>
             </div>
             <div class="text-[10px] text-cyan-300 font-mono font-medium" id="active-chapter-topic">1D/2D Motion &amp; Mechanics Foundation</div>
           </div>
 
           <!-- Target Metric / Accuracy Card -->
-          <div class="p-3.5 rounded-xl bg-black/35 border border-white/5 space-y-1 shadow-inner">
+          <div class="p-3.5 rounded-xl bg-[#030712]/70 border border-white/5 space-y-1 shadow-inner">
             <div class="text-[10px] text-slate-400 uppercase font-bold tracking-wider">Today's Focus Target</div>
             <div class="text-xs font-black text-emerald-300 flex items-center gap-1.5 font-mono">
               <svg class="w-3.5 h-3.5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
@@ -343,7 +343,7 @@
           </div>
 
           <!-- Quick Action Launch -->
-          <div class="p-3.5 rounded-xl bg-black/35 border border-white/5 flex flex-col justify-between shadow-inner">
+          <div class="p-3.5 rounded-xl bg-[#030712]/70 border border-white/5 flex flex-col justify-between shadow-inner">
             <div class="text-[10px] text-[#0a84ff] uppercase font-bold tracking-wider">Adaptive Practice</div>
             <div class="flex items-center gap-2 pt-1">
               <a href="timer.html?mode=drill" class="btn-tactile flex-1 py-1.5 px-2 bg-[#0a84ff] hover:bg-[#0a84ff] text-white rounded-lg text-xs font-bold text-center transition shadow">Start Drill</a>
@@ -354,8 +354,8 @@
       </div>
 
       <!-- 3. Quick Log Solved Questions (+1, +5, -1 with top counter) -->
-      <div class="neo-card glass-card p-5 border border-white/10 bg-[#0d1122]/75 shadow-xl relative overflow-hidden space-y-3.5">
-        <div class="flex items-center justify-between pb-2.5 border-b border-white/10 flex-wrap gap-2">
+      <div class="neo-card glass-card p-5 border border-white/[0.08] bg-[#0b0f19]/90 backdrop-blur-md shadow-xl relative overflow-hidden space-y-3.5">
+        <div class="flex items-center justify-between pb-2.5 border-b border-white/[0.08] flex-wrap gap-2">
           <div class="flex items-center gap-2.5">
             <div class="w-7 h-7 rounded-lg bg-cyan-950/60 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
               <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
@@ -369,65 +369,65 @@
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
           <!-- Physics Logger Card -->
-          <div class="bg-black/35 border border-white/10 hover:border-blue-500/40 rounded-2xl p-4 text-center space-y-3 transition shadow-inner">
+          <div class="bg-[#030712]/70 border border-white/[0.08] hover:border-blue-500/40 rounded-2xl p-4 text-center space-y-3 transition shadow-inner">
             <div>
               <div id="quick-phy-today" class="text-3xl font-extrabold font-mono text-blue-400">0</div>
               <div class="text-[10px] uppercase tracking-wider text-gray-400 font-bold mt-0.5">Questions Today</div>
             </div>
             <div class="text-xs font-bold text-white flex items-center justify-center gap-2 py-1 border-y border-white/5">
-              <span class="w-2.5 h-2.5 rounded-full bg-blue-400 inline-block shadow-[0_0_8px_rgba(96,165,250,0.7)]"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-blue-400 inline-block "></span>
               <span class="font-extrabold text-slate-100">Physics Practice</span>
             </div>
             <div class="grid grid-cols-3 gap-2">
-              <button onclick="logQuickQuestions('Physics', 1)" class="btn-tactile py-2 rounded-xl bg-blue-500/15 hover:bg-blue-600 text-blue-300 hover:text-white border border-blue-500/30 text-xs font-black transition shadow-sm">+1</button>
-              <button onclick="logQuickQuestions('Physics', 5)" class="btn-tactile py-2 rounded-xl bg-blue-500/25 hover:bg-blue-600 text-blue-200 hover:text-white border border-blue-500/40 text-xs font-black transition shadow-sm">+5</button>
-              <button onclick="logQuickQuestions('Physics', -1)" class="btn-tactile py-2 rounded-xl bg-red-500/15 hover:bg-red-600 text-red-300 hover:text-white border border-red-500/30 text-xs font-black transition shadow-sm" title="Deduct 1 question">-1</button>
+              <button onclick="logQuickQuestions('Physics', 1)" class="btn-tactile min-h-[44px] py-2 rounded-lg bg-blue-500/10 hover:bg-blue-500/25 text-blue-400 border border-blue-500/20 text-xs font-semibold transition active:scale-95 flex items-center justify-center">+1</button>
+              <button onclick="logQuickQuestions('Physics', 5)" class="btn-tactile min-h-[44px] py-2 rounded-lg bg-blue-500/20 hover:bg-blue-500/35 text-blue-300 border border-blue-500/30 text-xs font-semibold transition active:scale-95 flex items-center justify-center">+5</button>
+              <button onclick="logQuickQuestions('Physics', -1)" class="btn-tactile min-h-[44px] py-2 rounded-lg bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/20 text-xs font-semibold transition active:scale-95 flex items-center justify-center" title="Deduct 1 question">-1</button>
             </div>
             <div class="flex gap-1.5 pt-0.5">
-              <input type="number" id="custom-phy-input" placeholder="Custom" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-2 py-1 text-xs text-white text-center outline-none focus:border-blue-400 font-mono font-bold">
-              <button onclick="logCustomQuestions('Physics')" class="btn-tactile px-3 py-1 bg-blue-600 hover:bg-blue-500 text-white rounded-lg text-xs font-black transition">Log</button>
+              <input type="number" id="custom-phy-input" placeholder="Custom" class="w-full min-h-[44px] bg-gray-900 border border-gray-700 rounded-lg px-2 py-1 text-xs text-white text-center outline-none focus:border-blue-400 font-mono font-bold">
+              <button onclick="logCustomQuestions('Physics')" class="btn-tactile min-h-[44px] px-3 py-1 bg-blue-600 hover:bg-blue-500 text-white rounded-lg text-xs font-black transition flex items-center justify-center">Log</button>
             </div>
           </div>
 
           <!-- Chemistry Logger Card -->
-          <div class="bg-black/35 border border-white/10 hover:border-emerald-500/40 rounded-2xl p-4 text-center space-y-3 transition shadow-inner">
+          <div class="quick-log-card bg-[#030712]/70 border border-white/[0.08] hover:border-emerald-500/40 rounded-2xl p-4 text-center space-y-3 transition shadow-inner">
             <div>
               <div id="quick-chem-today" class="text-3xl font-black font-mono text-emerald-400 tracking-tight">0</div>
               <div class="text-[10px] uppercase tracking-widest text-slate-400 font-bold mt-0.5">Questions Today</div>
             </div>
             <div class="text-xs font-bold text-white flex items-center justify-center gap-2 py-1 border-y border-white/5">
-              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block shadow-[0_0_8px_rgba(52,211,153,0.7)]"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block "></span>
               <span class="font-extrabold text-slate-100">Chemistry Practice</span>
             </div>
             <div class="grid grid-cols-3 gap-2">
-              <button onclick="logQuickQuestions('Chemistry', 1)" class="btn-tactile py-2 rounded-xl bg-emerald-500/15 hover:bg-emerald-600 text-emerald-300 hover:text-white border border-emerald-500/30 text-xs font-black transition shadow-sm">+1</button>
-              <button onclick="logQuickQuestions('Chemistry', 5)" class="btn-tactile py-2 rounded-xl bg-emerald-500/25 hover:bg-emerald-600 text-emerald-200 hover:text-white border border-emerald-500/40 text-xs font-black transition shadow-sm">+5</button>
-              <button onclick="logQuickQuestions('Chemistry', -1)" class="btn-tactile py-2 rounded-xl bg-red-500/15 hover:bg-red-600 text-red-300 hover:text-white border border-red-500/30 text-xs font-black transition shadow-sm" title="Deduct 1 question">-1</button>
+              <button onclick="logQuickQuestions('Chemistry', 1)" class="btn-tactile min-h-[44px] py-2 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/25 text-emerald-400 border border-emerald-500/20 text-xs font-semibold transition active:scale-95 flex items-center justify-center">+1</button>
+              <button onclick="logQuickQuestions('Chemistry', 5)" class="btn-tactile min-h-[44px] py-2 rounded-lg bg-emerald-500/20 hover:bg-emerald-500/35 text-emerald-300 border border-emerald-500/30 text-xs font-semibold transition active:scale-95 flex items-center justify-center">+5</button>
+              <button onclick="logQuickQuestions('Chemistry', -1)" class="btn-tactile min-h-[44px] py-2 rounded-lg bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/20 text-xs font-semibold transition active:scale-95 flex items-center justify-center" title="Deduct 1 question">-1</button>
             </div>
             <div class="flex gap-1.5 pt-0.5">
-              <input type="number" id="custom-chem-input" placeholder="Custom" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-2 py-1 text-xs text-white text-center outline-none focus:border-emerald-400 font-mono font-bold">
-              <button onclick="logCustomQuestions('Chemistry')" class="btn-tactile px-3 py-1 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-xs font-black transition">Log</button>
+              <input type="number" id="custom-chem-input" placeholder="Custom" class="w-full min-h-[44px] bg-gray-900 border border-gray-700 rounded-lg px-2 py-1 text-xs text-white text-center outline-none focus:border-emerald-400 font-mono font-bold">
+              <button onclick="logCustomQuestions('Chemistry')" class="btn-tactile min-h-[44px] px-3 py-1 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-xs font-black transition flex items-center justify-center">Log</button>
             </div>
           </div>
 
           <!-- Maths Logger Card -->
-          <div class="bg-black/35 border border-white/10 hover:border-amber-500/40 rounded-2xl p-4 text-center space-y-3 transition shadow-inner">
+          <div class="quick-log-card bg-[#030712]/70 border border-white/[0.08] hover:border-amber-500/40 rounded-2xl p-4 text-center space-y-3 transition shadow-inner">
             <div>
               <div id="quick-math-today" class="text-3xl font-black font-mono text-amber-400 tracking-tight">0</div>
               <div class="text-[10px] uppercase tracking-widest text-slate-400 font-bold mt-0.5">Questions Today</div>
             </div>
             <div class="text-xs font-bold text-white flex items-center justify-center gap-2 py-1 border-y border-white/5">
-              <span class="w-2.5 h-2.5 rounded-full bg-amber-400 inline-block shadow-[0_0_8px_rgba(251,191,36,0.7)]"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-amber-400 inline-block "></span>
               <span class="font-extrabold text-slate-100">Maths Practice</span>
             </div>
             <div class="grid grid-cols-3 gap-2">
-              <button onclick="logQuickQuestions('Maths', 1)" class="btn-tactile py-2 rounded-xl bg-amber-500/15 hover:bg-amber-600 text-amber-300 hover:text-white border border-amber-500/30 text-xs font-black transition shadow-sm">+1</button>
-              <button onclick="logQuickQuestions('Maths', 5)" class="btn-tactile py-2 rounded-xl bg-amber-500/25 hover:bg-amber-600 text-amber-200 hover:text-white border border-amber-500/40 text-xs font-black transition shadow-sm">+5</button>
-              <button onclick="logQuickQuestions('Maths', -1)" class="btn-tactile py-2 rounded-xl bg-red-500/15 hover:bg-red-600 text-red-300 hover:text-white border border-red-500/30 text-xs font-black transition shadow-sm" title="Deduct 1 question">-1</button>
+              <button onclick="logQuickQuestions('Maths', 1)" class="btn-tactile min-h-[44px] py-2 rounded-lg bg-amber-500/10 hover:bg-amber-500/25 text-amber-400 border border-amber-500/20 text-xs font-semibold transition active:scale-95 flex items-center justify-center">+1</button>
+              <button onclick="logQuickQuestions('Maths', 5)" class="btn-tactile min-h-[44px] py-2 rounded-lg bg-amber-500/20 hover:bg-amber-500/35 text-amber-300 border border-amber-500/30 text-xs font-semibold transition active:scale-95 flex items-center justify-center">+5</button>
+              <button onclick="logQuickQuestions('Maths', -1)" class="btn-tactile min-h-[44px] py-2 rounded-lg bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/20 text-xs font-semibold transition active:scale-95 flex items-center justify-center" title="Deduct 1 question">-1</button>
             </div>
             <div class="flex gap-1.5 pt-0.5">
-              <input type="number" id="custom-math-input" placeholder="Custom" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-2 py-1 text-xs text-white text-center outline-none focus:border-amber-400 font-mono font-bold">
-              <button onclick="logCustomQuestions('Maths')" class="btn-tactile px-3 py-1 bg-amber-600 hover:bg-amber-500 text-white rounded-lg text-xs font-black transition">Log</button>
+              <input type="number" id="custom-math-input" placeholder="Custom" class="w-full min-h-[44px] bg-gray-900 border border-gray-700 rounded-lg px-2 py-1 text-xs text-white text-center outline-none focus:border-amber-400 font-mono font-bold">
+              <button onclick="logCustomQuestions('Maths')" class="btn-tactile min-h-[44px] px-3 py-1 bg-amber-600 hover:bg-amber-500 text-white rounded-lg text-xs font-black transition flex items-center justify-center">Log</button>
             </div>
           </div>
         </div>
@@ -438,9 +438,9 @@
       <!-- 5. Today's Queue (Foldable TickTick section) & Upcoming Milestones -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 flex-1 items-stretch">
         <!-- Today's Queue with Foldable TickTick Tasks -->
-        <div class="neo-card glass-card p-5 space-y-3.5 flex flex-col justify-between h-full bg-[#0d1122]/75 border border-white/10 shadow-xl">
+        <div class="neo-card glass-card p-5 space-y-3.5 flex flex-col justify-between h-full bg-[#0b0f19]/90 backdrop-blur-md border border-white/[0.08] shadow-xl">
           <div class="flex-1 flex flex-col">
-            <div class="flex items-center justify-between border-b border-white/10 pb-2.5 mb-2.5">
+            <div class="flex items-center justify-between border-b border-white/[0.08] pb-2.5 mb-2.5">
               <div class="flex items-center gap-2">
                 <svg class="w-4 h-4 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M9 12h6"/><path d="M9 16h6"/></svg>
                 <h3 class="text-xs font-black text-slate-200 uppercase tracking-widest">Today's Queue</h3>
@@ -449,7 +449,7 @@
                 <button onclick="toggleTickTickFold()" id="btn-toggle-tt-fold" class="text-[10px] bg-white/5 hover:bg-white/10 text-cyan-300 border border-cyan-500/30 px-2 py-0.5 rounded-lg transition font-mono font-bold">
                   ▾ TickTick Fold
                 </button>
-                <button onclick="syncTickTickTasks()" class="text-xs bg-[#0a84ff]/20 hover:bg-[#0a84ff]/40 text-[#0a84ff] border border-white/10 px-2.5 py-1 rounded-lg transition flex items-center gap-1.5 font-bold">
+                <button onclick="syncTickTickTasks()" class="text-xs bg-[#0a84ff]/20 hover:bg-[#0a84ff]/40 text-[#0a84ff] border border-white/[0.08] px-2.5 py-1 rounded-lg transition flex items-center gap-1.5 font-bold">
                   <svg class="w-3.5 h-3.5 text-[#0a84ff]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/></svg>
                   <span>Sync</span>
                 </button>
@@ -461,9 +461,9 @@
         </div>
 
         <!-- Upcoming Milestones & Deadlines -->
-        <div class="neo-card glass-card p-5 space-y-3.5 flex flex-col justify-between h-full bg-[#0d1122]/75 border border-white/10 shadow-xl">
+        <div class="neo-card glass-card p-5 space-y-3.5 flex flex-col justify-between h-full bg-[#0b0f19]/90 backdrop-blur-md border border-white/[0.08] shadow-xl">
           <div class="flex-1 flex flex-col">
-            <div class="flex items-center justify-between border-b border-white/10 pb-3 mb-3">
+            <div class="flex items-center justify-between border-b border-white/[0.08] pb-3 mb-3">
               <div class="flex items-center gap-2">
                 <svg class="w-4 h-4 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg>
                 <h3 class="text-xs font-black text-white uppercase tracking-widest">Upcoming Tests &amp; Milestones</h3>
@@ -477,17 +477,13 @@
       </div>
 
     </div>
-  </div>
-</main>
-
-    </div>
   </main>
 
   <!-- Split Screen Focus Drawer -->
-  <div id="split-drawer" class="fixed top-0 right-0 h-full w-full max-w-full sm:w-[420px] bg-[#0c0e17]/98 border-l border-white/10 z-[200] transform translate-x-full transition-transform duration-300 flex flex-col shadow-[-4px_0_12px_rgba(0,0,0,0.7)] backdrop-blur-2xl">
-  <div class="flex items-center justify-between p-4 border-b border-white/10">
+  <div id="split-drawer" class="fixed top-0 right-0 h-full w-full max-w-full sm:w-[420px] bg-[#0c0e17]/98 border-l border-white/[0.08] z-[200] transform translate-x-full transition-transform duration-300 flex flex-col shadow-[-4px_0_12px_rgba(0,0,0,0.7)] backdrop-blur-2xl">
+  <div class="flex items-center justify-between p-4 border-b border-white/[0.08]">
     <div class="flex items-center gap-2">
-      <div class="w-6 h-6 rounded-lg bg-[#161b24] border border-white/10 flex items-center justify-center text-[#0a84ff]">
+      <div class="w-6 h-6 rounded-lg bg-[#161b24] border border-white/[0.08] flex items-center justify-center text-[#0a84ff]">
         <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
       </div>
       <span class="text-white font-black uppercase tracking-wider text-sm">Focus Drawer</span>
@@ -495,7 +491,7 @@
     <button onclick="toggleSplitScreen()" class="text-gray-400 hover:text-white p-1 rounded-lg hover:bg-white/5 transition">✕</button>
   </div>
 
-  <div class="flex border-b border-white/10 bg-black/40 text-[11px] overflow-x-auto">
+  <div class="flex border-b border-white/[0.08] bg-[#030712]/80 text-[11px] overflow-x-auto">
     <button class="drawer-tab flex-1 py-3 px-2 font-bold text-center text-[#0a84ff] hover:text-white transition whitespace-nowrap flex items-center justify-center gap-1.5" onclick="switchDrawerTab('lectures')">
       <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
       <span>Lectures</span>
@@ -530,7 +526,7 @@
 
   <!-- Pane: AI Doubt Tutor (Gemini API Connected) -->
   <div id="drawer-pane-ai" class="drawer-pane hidden flex-1 flex-col overflow-hidden p-4">
-    <div class="flex items-center justify-between pb-2 mb-2 border-b border-white/10">
+    <div class="flex items-center justify-between pb-2 mb-2 border-b border-white/[0.08]">
       <div class="flex items-center gap-1.5">
         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
         <span class="text-xs font-black uppercase tracking-wider text-white">Gemini 2.0 JEE Tutor</span>
@@ -538,7 +534,7 @@
       <a href="settings.html" class="text-[10px] text-[#0a84ff] hover:underline font-bold">API Key in Settings →</a>
     </div>
     <div id="ai-chat-messages" class="flex-1 overflow-y-auto space-y-2.5 pr-1 text-xs">
-      <div class="bg-[#161b24] border border-white/10 rounded-xl p-3 text-blue-200 font-medium">
+      <div class="bg-[#161b24] border border-white/[0.08] rounded-xl p-3 text-blue-200 font-medium">
         Welcome! I am your JEE tutor. Ask me any conceptual question or doubt from Physics, Chemistry, or Maths.
       </div>
     </div>
@@ -574,7 +570,7 @@
     </div>
 
     <!-- Active Embedded Player -->
-    <div class="rounded-xl overflow-hidden border border-white/10 bg-black aspect-video relative shadow-lg">
+    <div class="rounded-xl overflow-hidden border border-white/[0.08] bg-black aspect-video relative shadow-lg">
       <iframe id="yt-player-iframe" class="w-full h-full"
         src="https://www.youtube-nocookie.com/embed/jfKfPfyJRdk?enablejsapi=1"
         title="Focus Music Player" frameborder="0"
@@ -583,14 +579,14 @@
     </div>
 
     <!-- Active Track Display (Clean, No Likes/Dislikes) -->
-    <div class="flex items-center justify-between bg-gray-900/90 border border-white/10 rounded-xl p-3">
+    <div class="flex items-center justify-between bg-gray-900/90 border border-white/[0.08] rounded-xl p-3">
       <div class="truncate flex-1 mr-2">
         <div class="text-white text-xs font-bold truncate flex items-center gap-1.5" id="yt-active-title">
           <span>🎶</span> Lofi Girl - Relax &amp; Study Beats
         </div>
         <div class="text-[10px] text-gray-400 mt-0.5">Focus Radio &bull; Continuous Playback</div>
       </div>
-      <span class="px-2 py-1 rounded bg-[#161b24] text-[#0a84ff] text-[10px] font-mono border border-white/10">HQ Audio</span>
+      <span class="px-2 py-1 rounded bg-[#161b24] text-[#0a84ff] text-[10px] font-mono border border-white/[0.08]">HQ Audio</span>
     </div>
 
     <!-- Stations List -->
@@ -600,13 +596,13 @@
 
   <!-- Floating Controls Semantic Dock (Structure 3.1) -->
   <aside id="clockee-floating-dock" class="clockee-dock fixed bottom-4 right-4 z-40 flex items-center gap-2" data-dock="bottom-right" aria-label="System Quick Controls">
-    <a href="design_palette.html" id="dock-btn-palette" class="dock-btn-palette btn-tactile px-3 py-2 rounded-full bg-[var(--surface-2,#12151c)]/90 border border-white/10 hover:border-purple-400/50 text-purple-300 hover:text-white text-xs font-bold shadow-sm backdrop-blur-xl flex items-center gap-1.5 transition cursor-pointer" title="Open Living Design Palette Showcase (Ctrl+K)">
+    <a href="design_palette.html" id="dock-btn-palette" class="dock-btn-palette btn-tactile px-3 py-2 rounded-full bg-[var(--surface-2,#12151c)]/90 border border-white/[0.08] hover:border-purple-400/50 text-purple-300 hover:text-white text-xs font-bold shadow-sm backdrop-blur-xl flex items-center gap-1.5 transition cursor-pointer" title="Open Living Design Palette Showcase (Ctrl+K)">
       <svg class="w-3.5 h-3.5 text-purple-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
       <span class="hidden sm:inline">Palette</span>
-      <kbd class="hidden md:inline-block px-1.5 py-0.5 text-[9px] font-mono bg-black/40 border border-white/10 rounded text-slate-400">Ctrl+K</kbd>
+      <kbd class="hidden md:inline-block px-1.5 py-0.5 text-[9px] font-mono bg-[#030712]/80 border border-white/[0.08] rounded text-slate-400">Ctrl+K</kbd>
     </a>
 
-    <button onclick="window.toggleSplitScreen ? window.toggleSplitScreen() : (function(){ var d = document.getElementById('split-drawer'); if (d) d.classList.toggle('translate-x-full'); })()" id="dock-btn-aitutor" class="dock-btn-aitutor btn-tactile px-3.5 py-2 rounded-full bg-[var(--surface-1,#0a0c10)]/90 border border-white/10 hover:border-blue-400/50 text-slate-300 hover:text-white text-xs font-bold shadow-sm backdrop-blur-xl flex items-center gap-2 transition cursor-pointer" title="Toggle AI Study Companion">
+    <button onclick="window.toggleSplitScreen ? window.toggleSplitScreen() : (function(){ var d = document.getElementById('split-drawer'); if (d) d.classList.toggle('translate-x-full'); })()" id="dock-btn-aitutor" class="dock-btn-aitutor btn-tactile px-3.5 py-2 rounded-full bg-[var(--surface-1,#0a0c10)]/90 border border-white/[0.08] hover:border-blue-400/50 text-slate-300 hover:text-white text-xs font-bold shadow-sm backdrop-blur-xl flex items-center gap-2 transition cursor-pointer" title="Toggle AI Study Companion">
       <span class="w-2 h-2 rounded-full bg-[var(--accent-primary,#0a84ff)] animate-pulse"></span>
       <span>AI Tutor</span>
     </button>
@@ -706,7 +702,7 @@
       const allTodayTasks = (s.tasks || []).filter(t => (t.dueDate || '').slice(0, 10) === today || t.status === 'in_progress');
 
       if (allTodayTasks.length === 0) {
-        container.innerHTML = '<p class="text-xs text-slate-500 font-medium italic py-4 text-center">No tasks scheduled for today — all caught up.</p>';
+        container.innerHTML = '<p class="text-xs text-slate-400 font-medium italic py-4 text-center">No tasks scheduled for today — all caught up.</p>';
         return;
       }
 
@@ -730,11 +726,11 @@
         const subBadgeText = isTickTick ? 'From TickTick' : (t.subject || 'General');
 
         return `
-          <div class="p-2.5 rounded-xl bg-gray-900/80 border border-white/5 space-y-1.5 hover:border-white/10 transition">
+          <div class="p-2.5 rounded-xl bg-gray-900/80 border border-white/5 space-y-1.5 hover:border-white/[0.08] transition">
             <div class="flex items-center justify-between gap-2">
               <div class="flex items-center gap-2 truncate">
-                <input type="checkbox" ${t.completed ? 'checked' : ''} onchange="toggleTaskDone('${t.id}')" class="rounded text-[#0a84ff] focus:ring-0 cursor-pointer">
-                <span class="text-xs ${t.completed ? 'line-through text-slate-500' : 'text-slate-100 font-bold'} truncate">${t.title}</span>
+                <input type="checkbox" ${t.completed ? 'checked' : ''} onchange="toggleTaskDone('${t.id}')" class="rounded text-[#0a84ff] focus:ring-0 cursor-pointer w-4 h-4">
+                <span class="text-xs ${t.completed ? 'line-through text-slate-400' : 'text-slate-100 font-bold'} truncate">${t.title}</span>
               </div>
               <span class="text-[9px] px-2 py-0.5 rounded-full border ${subCol} font-mono shrink-0 font-bold">${subBadgeText}</span>
             </div>
@@ -799,17 +795,17 @@
       }
 
       if (items.length === 0) {
-        container.innerHTML = '<p class="text-xs text-slate-500 font-medium italic py-4 text-center">No upcoming test deadlines. Set target in Settings.</p>';
+        container.innerHTML = '<p class="text-xs text-slate-400 font-medium italic py-4 text-center">No upcoming test deadlines. Set target in Settings.</p>';
         return;
       }
       container.innerHTML = items.map(m => `
-        <div class="flex items-center justify-between p-2.5 rounded-xl bg-gray-900/80 border border-white/5 hover:border-white/10 transition">
+        <div class="flex items-center justify-between p-2.5 rounded-xl bg-gray-900/80 border border-white/5 hover:border-white/[0.08] transition">
           <div class="flex items-center gap-2 truncate">
             <svg class="w-3.5 h-3.5 text-amber-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
             <span class="text-xs font-bold text-white truncate">${m.title}</span>
           </div>
           <div class="flex items-center gap-2 shrink-0">
-            <span class="text-[10px] px-2 py-0.5 rounded-full bg-[#161b24] text-[#0a84ff] border border-white/10 font-mono font-bold">${m.dueDate}</span>
+            <span class="text-[10px] px-2 py-0.5 rounded-full bg-[#161b24] text-[#0a84ff] border border-white/[0.08] font-mono font-bold">${m.dueDate}</span>
             <a href="cbt_home.html" class="btn-tactile text-[10px] bg-[#0a84ff] hover:bg-[#0a84ff] text-white font-extrabold px-2.5 py-1 rounded-lg transition">CBT</a>
           </div>
         </div>

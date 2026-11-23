@@ -71,7 +71,7 @@ const CBT_DEFAULT_TESTS = [
         topic: "Projectile Motion",
         difficulty: "Moderate",
         idealTimeSec: 90,
-        text: "A projectile is thrown with an initial speed $u$ at an angle $\\theta = 45^\\circ$ with the horizontal. The radius of curvature of its trajectory at the highest point is:",
+        text: "A projectile is thrown with an initial speed $u$ at an angle $\\theta = 45^{\\circ}$ with the horizontal. The radius of curvature of its trajectory at the highest point is:",
         options: [
           "$\\dfrac{u^2}{2g}$",
           "$\\dfrac{u^2}{g}$",
@@ -80,7 +80,7 @@ const CBT_DEFAULT_TESTS = [
         ],
         correct: 0,
         marking: { correct: 4, wrong: -1 },
-        solution: "At the highest point, speed $v = u \\cos 45^\\circ = \\dfrac{u}{\\sqrt{2}}$. Centripetal acceleration is $a_n = g$. Thus $R = \\dfrac{v^2}{g} = \\dfrac{(u/\\sqrt{2})^2}{g} = \\dfrac{u^2}{2g}$.",
+        solution: "At the highest point, speed $v = u \\cos 45^{\\circ} = \\dfrac{u}{\\sqrt{2}}$. Centripetal acceleration is $a_n = g$. Thus $R = \\dfrac{v^2}{g} = \\dfrac{(u/\\sqrt{2})^2}{g} = \\dfrac{u^2}{2g}$.",
         referenceBook: "Cengage Physics Mechanics I, Page 112, Q#14"
       },
       {

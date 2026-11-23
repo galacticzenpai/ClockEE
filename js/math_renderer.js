@@ -8,21 +8,38 @@
   function sanitizeMath(text) {
     if (!text || typeof text !== 'string') return '';
 
-    let processed = text;
+    // Split text into tokens: math blocks ($$...$$, $...$, \(...\), \[...\]) and non-math segments.
+    // We only sanitize/wrap naked LaTeX commands that exist outside existing math delimiters!
+    const mathPattern = /(\$\$[\s\S]*?\$\$|\$[^\$]+?\$|\\\[[\s\S]*?\\\]|\\\([\s\S]*?\\\))/g;
+    const parts = text.split(mathPattern);
 
-    // Detect naked LaTeX blocks lacking delimiters (e.g. \begin{matrix} ... \end{matrix})
-    processed = processed.replace(/\\begin\{([a-zA-Z]+)\}([\s\S]*?)\\end\{\1\}/g, function(match) {
-      return `$$${match}$$`;
-    });
+    return parts.map(part => {
+      if (!part) return '';
+      // If this part is already a delimited math block, preserve it intact without touching inner commands
+      if (
+        (part.startsWith('$$') && part.endsWith('$$')) ||
+        (part.startsWith('$') && part.endsWith('$')) ||
+        (part.startsWith('\\[') && part.endsWith('\\]')) ||
+        (part.startsWith('\\(') && part.endsWith('\\)'))
+      ) {
+        return part;
+      }
 
-    // Detect Greek symbols & mathematical operators lacking $ delimiters
-    // e.g., \rho, \int, \frac, \sqrt, \alpha, \theta, \circ
-    processed = processed.replace(/(?<!\$)\\(rho|int|frac|sqrt|sum|prod|times|pm|le|ge|neq|alpha|beta|gamma|theta|mu|pi|lambda|sigma|omega|Delta|Omega|circ|oint)(?:\b|\{)([\s\S]*?)(?!\$)/g, function(match) {
-      if (match.startsWith('$')) return match;
-      return `$${match}$`;
-    });
+      let processed = part;
 
-    return processed;
+      // Detect naked LaTeX environments lacking delimiters (e.g. \begin{matrix} ... \end{matrix})
+      processed = processed.replace(/\\begin\{([a-zA-Z]+)\}([\s\S]*?)\\end\{\1\}/g, function(match) {
+        return `$$${match}$$`;
+      });
+
+      // Detect naked Greek symbols & mathematical operators lacking $ delimiters in plain text
+      // e.g., \rho, \int, \frac{a}{b}, \sqrt{x}, \alpha, \theta, \circ
+      processed = processed.replace(/\\(rho|int|frac|sqrt|sum|prod|times|pm|le|ge|neq|alpha|beta|gamma|theta|mu|pi|lambda|sigma|omega|Delta|Omega|circ|oint)(?:\b|\{)([\s\S]*?)(?=[,\s\.\?!]|$)/g, function(match) {
+        return `$${match}$`;
+      });
+
+      return processed;
+    }).join('');
   }
 
   function renderMathSafely(element, options) {

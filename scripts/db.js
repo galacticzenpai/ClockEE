@@ -404,6 +404,55 @@
     },
 
     /**
+     * Specialized 75-Chapter Syllabus Matrix Helpers
+     */
+    async getSyllabusChapter(chapterId) {
+      return this.get('syllabus', Number(chapterId));
+    },
+
+    async getAllSyllabus() {
+      return this.getAll('syllabus');
+    },
+
+    async saveSyllabusChapter(chapterRecord) {
+      const record = {
+        ...chapterRecord,
+        chapterId: Number(chapterRecord.chapterId || chapterRecord.id),
+        updatedAt: Date.now()
+      };
+      await this.put('syllabus', record);
+      return record;
+    },
+
+    async updateSyllabusChapter(chapterId, patch) {
+      const existing = (await this.getSyllabusChapter(chapterId)) || {
+        chapterId: Number(chapterId),
+        theoryStatus: 0,
+        exercisesStatus: 0,
+        pyqStatus: 0,
+        revisionCount: 0
+      };
+      const updated = {
+        ...existing,
+        ...patch,
+        chapterId: Number(chapterId),
+        updatedAt: Date.now()
+      };
+      await this.put('syllabus', updated);
+      return updated;
+    },
+
+    async bulkSaveSyllabus(chapters) {
+      const records = chapters.map(ch => ({
+        ...ch,
+        chapterId: Number(ch.chapterId || ch.id),
+        updatedAt: Date.now()
+      }));
+      await this.bulkPut('syllabus', records);
+      return records;
+    },
+
+    /**
      * Subscribe to changes on a specific store
      */
     subscribe(storeName, callback) {

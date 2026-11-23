@@ -276,8 +276,9 @@
     let userProgress = {};
     let activeSubject = 'all';
     let highWeightageOnly = false;
+    let selectedChapterId = 1;
 
-    function init() {
+    async function init() {
       const targetYear = (window.CLOCKEE_TARGET_YEAR || (function() {
         try {
           const s = JSON.parse(localStorage.getItem('clockee_v5_master_state') || '{}');
@@ -288,42 +289,144 @@
       const cohortTag = document.getElementById('tracker-cohort-tag');
       if (cohortTag) cohortTag.innerText = `JEE ${targetYear} // FLIGHT COCKPIT`;
 
+      // Dual-tier hydration: LocalStorage (instant cache) + IndexedDB v2 (durable store)
       const stored = localStorage.getItem('jee_matrix_progress');
       if (stored) {
         try { userProgress = JSON.parse(stored); } catch(e) { userProgress = {}; }
       }
+
+      // Sync from IndexedDB v2 if available
+      try {
+        if (window.db && typeof window.db.getAllSyllabus === 'function') {
+          const idbRows = await window.db.getAllSyllabus();
+          if (Array.isArray(idbRows) && idbRows.length > 0) {
+            idbRows.forEach(row => {
+              const chId = row.chapterId || row.id;
+              if (chId) {
+                userProgress[chId] = {
+                  theory: Boolean(row.theoryStatus),
+                  practice: Boolean(row.exercisesStatus),
+                  pyq: Boolean(row.pyqStatus),
+                  revisions: Number(row.revisionCount || 0)
+                };
+              }
+            });
+            localStorage.setItem('jee_matrix_progress', JSON.stringify(userProgress));
+          }
+        }
+      } catch (err) {
+        console.warn('[Vault/DB] IndexedDB initial hydration fallback to local cache:', err);
+      }
+
       renderChapters();
       updateMetrics();
 
-      // Keyboard shortcut for search
+      // Keyboard shortcuts: '/' for search, 't' for theory, 'p'/'m' for module/practice, 'q' for PYQ, 'r' for revision+
       window.addEventListener('keydown', (e) => {
-        if (e.key === '/' && document.activeElement.tagName !== 'INPUT') {
+        if (document.activeElement && (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA')) {
+          if (e.key === 'Escape') document.activeElement.blur();
+          return;
+        }
+
+        if (e.key === '/') {
           e.preventDefault();
-          document.getElementById('searchInput').focus();
+          const s = document.getElementById('searchInput');
+          if (s) s.focus();
+        } else if (e.key === 't' || e.key === 'T') {
+          if (selectedChapterId) toggleCheck(selectedChapterId, 'theory');
+        } else if (e.key === 'm' || e.key === 'M' || e.key === 'p' || e.key === 'P') {
+          if (selectedChapterId) toggleCheck(selectedChapterId, 'practice');
+        } else if (e.key === 'q' || e.key === 'Q') {
+          if (selectedChapterId) toggleCheck(selectedChapterId, 'pyq');
+        } else if (e.key === 'r' || e.key === 'R') {
+          if (selectedChapterId) adjustRevisions(selectedChapterId, 1);
+        } else if (e.key === 'ArrowDown' || e.key === 'j') {
+          e.preventDefault();
+          selectNextChapter(1);
+        } else if (e.key === 'ArrowUp' || e.key === 'k') {
+          e.preventDefault();
+          selectNextChapter(-1);
         }
       });
     }
 
-    function save() {
+    function selectChapter(id) {
+      selectedChapterId = Number(id);
+      renderChapters();
+    }
+
+    function selectNextChapter(delta) {
+      const filtered = getFilteredChapters();
+      if (!filtered.length) return;
+      const curIdx = filtered.findIndex(c => c.id === selectedChapterId);
+      let nextIdx = curIdx + delta;
+      if (nextIdx < 0) nextIdx = 0;
+      if (nextIdx >= filtered.length) nextIdx = filtered.length - 1;
+      selectedChapterId = filtered[nextIdx].id;
+      renderChapters();
+      
+      const el = document.getElementById(`chapter-row-${selectedChapterId}`);
+      if (el) el.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    }
+
+    function save(chapterId) {
+      // Optimistic synchronous write
       localStorage.setItem('jee_matrix_progress', JSON.stringify(userProgress));
       updateMetrics();
+
+      // Sub-16ms asynchronous atomic IndexedDB v2 sync
+      if (window.db && typeof window.db.updateSyllabusChapter === 'function') {
+        if (chapterId) {
+          const prog = userProgress[chapterId] || {};
+          const meta = CHAPTER_DATA.find(c => c.id === Number(chapterId)) || {};
+          window.db.updateSyllabusChapter(chapterId, {
+            subject: meta.subject || '',
+            title: meta.title || '',
+            weightage: meta.weightage || 'Medium',
+            classGrade: meta.class || 11,
+            theoryStatus: prog.theory ? 1 : 0,
+            exercisesStatus: prog.practice ? 1 : 0,
+            pyqStatus: prog.pyq ? 1 : 0,
+            revisionCount: Number(prog.revisions || 0)
+          }).catch(err => console.warn('[Vault/DB] IndexedDB single chapter sync error:', err));
+        } else {
+          // Bulk sync (e.g. after reset or import)
+          const records = CHAPTER_DATA.map(ch => {
+            const p = userProgress[ch.id] || {};
+            return {
+              chapterId: ch.id,
+              subject: ch.subject,
+              title: ch.title,
+              weightage: ch.weightage,
+              classGrade: ch.class,
+              theoryStatus: p.theory ? 1 : 0,
+              exercisesStatus: p.practice ? 1 : 0,
+              pyqStatus: p.pyq ? 1 : 0,
+              revisionCount: Number(p.revisions || 0)
+            };
+          });
+          window.db.bulkSaveSyllabus(records).catch(err => console.warn('[Vault/DB] IndexedDB bulk sync error:', err));
+        }
+      }
     }
 
     function toggleCheck(chapterId, key) {
+      selectedChapterId = Number(chapterId);
       if (!userProgress[chapterId]) {
         userProgress[chapterId] = { theory: false, practice: false, pyq: false, revisions: 0 };
       }
       userProgress[chapterId][key] = !userProgress[chapterId][key];
-      save();
+      save(chapterId);
       renderChapters();
     }
 
     function adjustRevisions(chapterId, delta) {
+      selectedChapterId = Number(chapterId);
       if (!userProgress[chapterId]) {
         userProgress[chapterId] = { theory: false, practice: false, pyq: false, revisions: 0 };
       }
       userProgress[chapterId].revisions = Math.max(0, (userProgress[chapterId].revisions || 0) + delta);
-      save();
+      save(chapterId);
       renderChapters();
     }
 
@@ -510,6 +613,7 @@
     init();
   </script>
   </div>
+  <script src="scripts/db.js"></script>
   <script src="env.js"></script>
   <script src="js/clockee_runtime.js"></script>
   <script src="components/navbar.js"></script>

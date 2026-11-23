@@ -192,6 +192,21 @@
       "instructions": "Planner: Evaluate 4 feature blueprints cataloged in DOSSIER-INNOVATION-20261122_000500.md (ChemPulse SRS, PercentileRadar, StreakForge, Topper Taxonomy). Prioritize implementation into Cycle 5 Sprint Backlog.",
       "created_at": "2026-11-22 00:09:41",
       "updated_at": "2026-11-22 00:09:41"
+    },
+    {
+      "id": "TASK-013",
+      "title": "SIM-DOSSIER: Resolution of 2 defects (DOSSIER-SIM-20261122_182028)",
+      "from_node": "simulation",
+      "target_node": "bug_fix",
+      "target_convo_id": "e5ca28e1-5055-4b76-89a8-d37b0b5930e8",
+      "priority_rank": 4,
+      "status": "QUEUED",
+      "context_files": [
+        "dossiers\\DOSSIER-SIM-20261122_182028.md"
+      ],
+      "instructions": "Bug Fix Specialist: Address 2 defects cataloged in DOSSIER-SIM-20261122_182028.md. Verify surgical fixes and report back to Backbone.",
+      "created_at": "2026-11-22 18:20:28",
+      "updated_at": "2026-11-22 18:20:28"
     }
   ],
   "activity_log": [
@@ -479,6 +494,16 @@
       "timestamp": "2026-11-22 00:14:37",
       "node": "qa_engine",
       "message": "\ud83d\udcca Q/A Ingestion Engine dispatched DOSSIER-QA-20261122_001437 (790 Qs) to Backbone."
+    },
+    {
+      "timestamp": "2026-11-22 18:20:28",
+      "node": "simulation",
+      "message": "\ud83d\udee1\ufe0f Simulation & Auditor generated DOSSIER-SIM-20261122_182028 (2 issues). Routed through Backbone for Bug Fix."
+    },
+    {
+      "timestamp": "2026-11-22 18:53:16",
+      "node": "qa_engine",
+      "message": "\ud83d\udcca Q/A Ingestion Engine dispatched DOSSIER-QA-20261122_185315 (790 Qs) to Backbone."
     }
   ]
 }

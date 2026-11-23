@@ -72,11 +72,12 @@
     .mono { font-family: 'JetBrains Mono', monospace; }
 
     .glass-card {
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      background: rgba(16, 18, 27, 0.7);
-      border: 1px solid var(--border-subtle);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: rgba(13, 17, 26, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 16px;
+      box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.5);
     }
 
     [data-theme="retro_terminal"] .glass-card,
@@ -196,10 +197,11 @@
     }
   </style>
   <!-- Master Apple HIG & Apple Intelligence Design System -->
+  <link rel="stylesheet" href="styles/tokens.css" />
   <link rel="stylesheet" href="styles/clockee_motion.css" />
   <link rel="stylesheet" href="css/apple_design_system.css" />
 </head>
-<body class="relative bg-[#07080e] text-[#f8fafc]" data-page="timer">
+<body class="relative bg-[#07090e] text-[#f8fafc]" data-page="timer">
 
 <div id="clockee-nav"></div>
 <script src="components/navbar.js"></script>
@@ -215,11 +217,11 @@
       <p class="text-xs text-slate-400 font-medium">Target JEE Advanced Latency &bull; Split-screen Lecture Block with 2nd Screen Popout</p>
     </div>
     <div class="flex gap-2 p-1 rounded-2xl bg-black/40 border border-white/10">
-      <button id="tab-btn-drill" onclick="switchTimerMode('drill')" class="px-4 py-2 rounded-xl text-xs font-black uppercase tracking-wider bg-indigo-600 text-white shadow-lg transition flex items-center gap-1.5">
+      <button id="tab-btn-drill" onclick="switchTimerMode('drill')" class="px-5 py-2.5 min-h-[44px] rounded-xl text-xs font-bold uppercase tracking-wider bg-indigo-600 active:scale-95 transition text-white shadow-lg transition flex items-center gap-1.5">
         <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
         <span>Manual Question Drill</span>
       </button>
-      <button id="tab-btn-lecture" onclick="switchTimerMode('lecture')" class="px-4 py-2 rounded-xl text-xs font-black uppercase tracking-wider text-slate-400 hover:text-white transition flex items-center gap-1.5">
+      <button id="tab-btn-lecture" onclick="switchTimerMode('lecture')" class="px-5 py-2.5 min-h-[44px] rounded-xl text-xs font-bold uppercase tracking-wider text-slate-400 active:scale-95 transition hover:text-white transition flex items-center gap-1.5">
         <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         <span>Lecture Focus Block</span>
       </button>
@@ -231,7 +233,7 @@
   <!-- ═══════════════════════════════════════════════════════ -->
   <div id="section-drill" class="space-y-6">
     <!-- Commander Focus Recommendation Banner -->
-    <div class="glass-card p-4 border border-cyan-500/30 bg-gradient-to-r from-cyan-950/40 via-indigo-950/30 to-[#0e1222] shadow-xl flex items-center justify-between flex-wrap gap-3">
+    <div class="glass-card p-4 border border-cyan-500/30 bg-[#0d111a] border border-cyan-500/25 shadow-xl flex items-center justify-between flex-wrap gap-3">
       <div class="flex items-center gap-3">
         <div class="w-10 h-10 rounded-xl bg-cyan-500/20 border border-cyan-500/40 flex items-center justify-center text-cyan-400 shadow-sm">
           <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7z"/></svg>
@@ -242,7 +244,7 @@
           <p class="text-[11px] text-slate-400 font-medium">High-yield JEE Advanced chapter with lowest practice latency this week.</p>
         </div>
       </div>
-      <button onclick="applyRecommendedDrill('Physics', 'Rotational Dynamics')" class="px-4 py-2 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-black text-xs shadow-lg transition flex items-center gap-1.5 uppercase tracking-wider">
+      <button onclick="applyRecommendedDrill('Physics', 'Rotational Dynamics')" class="px-5 py-2.5 min-h-[44px] rounded-xl bg-cyan-600 hover:bg-cyan-500 active:scale-95 transition text-white font-black text-xs shadow-lg transition flex items-center gap-1.5 uppercase tracking-wider">
         <span>Launch Recommended Drill</span>
       </button>
     </div>
@@ -362,10 +364,10 @@
         <!-- Card 1: TOTAL ELAPSED -->
         <div class="glass-card p-4 border border-white/10 bg-[#090b14]/90 rounded-2xl shadow-xl space-y-1">
           <div class="text-[10px] font-black uppercase tracking-wider text-slate-400">TOTAL ELAPSED</div>
-          <div class="text-2xl sm:text-3xl font-black font-mono text-white tracking-tight" id="active-total-elapsed">00:00.0</div>
+          <div class="text-2xl sm:text-3xl font-black font-mono text-white tracking-tight" id="active-total-elapsed" class="tabular-nums">00:00.0</div>
           <div class="text-[11px] font-mono text-slate-400 flex items-center justify-between pt-0.5">
             <span id="active-target-duration-display">Target: 05:00</span>
-            <span class="text-cyan-400 font-bold" id="active-rem-time-display">05:00 rem</span>
+            <span class="text-cyan-400 font-bold" id="active-rem-time-display" class="tabular-nums">05:00 rem</span>
           </div>
         </div>
 
@@ -375,7 +377,7 @@
             <div class="text-[10px] font-black uppercase tracking-wider text-cyan-300">ACTIVE QUESTION</div>
             <span class="px-2 py-0.5 rounded-md bg-cyan-950 border border-cyan-500/40 text-cyan-300 font-mono text-[10px] font-black" id="active-q-badge">Q #1</span>
           </div>
-          <div class="text-2xl sm:text-3xl font-black font-mono text-cyan-300 tracking-tight" id="active-q-lap-time">00:00.0</div>
+          <div class="text-2xl sm:text-3xl font-black font-mono text-cyan-300 tracking-tight" id="active-q-lap-time" class="tabular-nums">00:00.0</div>
           <div class="text-[11px] font-mono text-slate-400 flex items-center justify-between pt-0.5">
             <span id="active-q-counter-display">Question 1 / 15</span>
             <span class="font-bold text-emerald-400" id="active-q-delta-pace">-0.0s (Faster)</span>

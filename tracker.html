@@ -465,16 +465,19 @@
       return `<span class="text-[10px] font-bold text-purple-400 uppercase tracking-wider mono">MATH</span>`;
     }
 
-    function renderChapters() {
-      const tbody = document.getElementById('chapterTableBody');
-      const query = (document.getElementById('searchInput').value || '').toLowerCase().trim();
-
-      const filtered = CHAPTER_DATA.filter(ch => {
+    function getFilteredChapters() {
+      const query = (document.getElementById('searchInput') ? document.getElementById('searchInput').value : '').toLowerCase().trim();
+      return CHAPTER_DATA.filter(ch => {
         if (activeSubject !== 'all' && ch.subject !== activeSubject) return false;
         if (highWeightageOnly && ch.weightage !== 'High') return false;
         if (query && !ch.title.toLowerCase().includes(query) && !ch.subject.toLowerCase().includes(query)) return false;
         return true;
       });
+    }
+
+    function renderChapters() {
+      const tbody = document.getElementById('chapterTableBody');
+      const filtered = getFilteredChapters();
 
       if (!filtered.length) {
         tbody.innerHTML = `<tr><td colspan="8" class="text-center py-10 text-slate-500 text-xs">No chapters match your query.</td></tr>`;
@@ -484,6 +487,7 @@
       tbody.innerHTML = filtered.map(ch => {
         const prog = userProgress[ch.id] || { theory: false, practice: false, pyq: false, revisions: 0 };
         const score = (prog.theory ? 1 : 0) + (prog.practice ? 1 : 0) + (prog.pyq ? 1 : 0);
+        const isSelected = (ch.id === selectedChapterId);
         
         let statusBadge = `<span class="text-[10px] font-semibold text-slate-500">Unstarted</span>`;
         if (score === 3) {
@@ -493,7 +497,7 @@
         }
 
         return `
-          <tr class="hover:bg-slate-900/50 transition border-b border-slate-800/40">
+          <tr id="chapter-row-${ch.id}" onclick="selectChapter(${ch.id})" class="cursor-pointer transition border-b border-slate-800/40 ${isSelected ? 'bg-sky-500/10 border-l-2 border-l-sky-400' : 'hover:bg-slate-900/50'}">
             <td class="py-3 px-4 text-center font-bold text-slate-500 text-xs tabular">${ch.id}</td>
             <td class="py-3 px-4">
               <div class="flex items-center gap-2">
@@ -504,33 +508,33 @@
             </td>
             <td class="py-3 px-3 text-center">${getWeightageBadge(ch.weightage)}</td>
             
-            <!-- Theory Toggle -->
+            <!-- Theory Toggle (Key: T) -->
             <td class="py-3 px-3 text-center">
-              <button onclick="toggleCheck(${ch.id}, 'theory')" class="w-7 h-7 rounded border transition inline-flex items-center justify-center ${prog.theory ? 'bg-sky-500/20 border-sky-400 text-sky-400' : 'border-slate-700 bg-slate-900 text-transparent hover:border-slate-500'}">
+              <button onclick="event.stopPropagation(); toggleCheck(${ch.id}, 'theory')" title="Toggle Theory (Key: T)" class="w-7 h-7 rounded border transition inline-flex items-center justify-center ${prog.theory ? 'bg-sky-500/20 border-sky-400 text-sky-400' : 'border-slate-700 bg-slate-900 text-transparent hover:border-slate-500'}">
                 <span class="text-xs font-black">✓</span>
               </button>
             </td>
 
-            <!-- Practice Toggle -->
+            <!-- Practice Toggle (Key: M or P) -->
             <td class="py-3 px-3 text-center">
-              <button onclick="toggleCheck(${ch.id}, 'practice')" class="w-7 h-7 rounded border transition inline-flex items-center justify-center ${prog.practice ? 'bg-indigo-500/20 border-indigo-400 text-indigo-400' : 'border-slate-700 bg-slate-900 text-transparent hover:border-slate-500'}">
+              <button onclick="event.stopPropagation(); toggleCheck(${ch.id}, 'practice')" title="Toggle Practice/Module (Key: M)" class="w-7 h-7 rounded border transition inline-flex items-center justify-center ${prog.practice ? 'bg-indigo-500/20 border-indigo-400 text-indigo-400' : 'border-slate-700 bg-slate-900 text-transparent hover:border-slate-500'}">
                 <span class="text-xs font-black">✓</span>
               </button>
             </td>
 
-            <!-- PYQ Toggle -->
+            <!-- PYQ Toggle (Key: Q) -->
             <td class="py-3 px-3 text-center">
-              <button onclick="toggleCheck(${ch.id}, 'pyq')" class="w-7 h-7 rounded border transition inline-flex items-center justify-center ${prog.pyq ? 'bg-emerald-500/20 border-emerald-400 text-emerald-400' : 'border-slate-700 bg-slate-900 text-transparent hover:border-slate-500'}">
+              <button onclick="event.stopPropagation(); toggleCheck(${ch.id}, 'pyq')" title="Toggle PYQ (Key: Q)" class="w-7 h-7 rounded border transition inline-flex items-center justify-center ${prog.pyq ? 'bg-emerald-500/20 border-emerald-400 text-emerald-400' : 'border-slate-700 bg-slate-900 text-transparent hover:border-slate-500'}">
                 <span class="text-xs font-black">✓</span>
               </button>
             </td>
 
-            <!-- Revision Counter -->
+            <!-- Revision Counter (Key: R) -->
             <td class="py-3 px-3 text-center">
-              <div class="inline-flex items-center gap-1.5 bg-slate-950/70 border border-slate-800 rounded px-1.5 py-0.5">
+              <div class="inline-flex items-center gap-1.5 bg-slate-950/70 border border-slate-800 rounded px-1.5 py-0.5" onclick="event.stopPropagation()">
                 <button onclick="adjustRevisions(${ch.id}, -1)" class="w-5 h-5 rounded hover:bg-slate-800 text-slate-400 text-xs font-bold transition flex items-center justify-center">-</button>
                 <span class="text-xs font-bold text-purple-300 w-4 text-center tabular">${prog.revisions || 0}</span>
-                <button onclick="adjustRevisions(${ch.id}, 1)" class="w-5 h-5 rounded hover:bg-slate-800 text-slate-400 text-xs font-bold transition flex items-center justify-center">+</button>
+                <button onclick="adjustRevisions(${ch.id}, 1)" title="Add revision (Key: R)" class="w-5 h-5 rounded hover:bg-slate-800 text-slate-400 text-xs font-bold transition flex items-center justify-center">+</button>
               </div>
             </td>
 
